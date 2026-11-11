@@ -1,0 +1,3508 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-connect\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, python-brace-format
+msgid "omega-connect — machine {machine}"
+msgstr "omega-connect — マシン {machine}"
+
+#, python-brace-format
+msgid "== Mise à jour de {tool} vers {version} ({root})"
+msgstr "== {tool} を {version} に更新中（{root}）"
+
+#, python-brace-format
+msgid "✗ {tool} : {error}"
+msgstr "✗ {tool}：{error}"
+
+#, python-brace-format
+msgid "✓ {tool} {version} installé."
+msgstr "✓ {tool} {version} をインストールしました。"
+
+#, python-brace-format
+msgid "· déjà réglé : {command}"
+msgstr "· 設定済み：{command}"
+
+#, python-brace-format
+msgid "archive refusée : chemin inattendu {name}"
+msgstr "アーカイブを拒否：予期しないパス {name}"
+
+#, python-brace-format
+msgid "archive refusée : {name} n'est ni un fichier ni un dossier"
+msgstr "アーカイブを拒否：{name} はファイルでもフォルダーでもありません"
+
+msgid "archive refusée : trop volumineuse une fois extraite"
+msgstr "アーカイブを拒否：展開後のサイズが大きすぎます"
+
+#, python-brace-format
+msgid "archive refusée : pas de dossier {tool}/"
+msgstr "アーカイブを拒否：{tool}/ フォルダーがありません"
+
+#, python-brace-format
+msgid "{path} est un lien : rien n'est copié dedans"
+msgstr "{path} はリンクです：その中には何もコピーしません"
+
+#, python-brace-format
+msgid "{root} n'est pas un dossier d'installation"
+msgstr "{root} はインストールフォルダーではありません"
+
+#, python-brace-format
+msgid "{root} n'appartient pas à ce compte : mise à jour faite à la main"
+msgstr "{root} はこのアカウントの所有ではありません：手動で更新してください"
+
+msgid "empreinte de l'archive différente de sha.txt : rien n'est installé"
+msgstr "アーカイブのハッシュが sha.txt と一致しません：何もインストールしていません"
+
+#, python-brace-format
+msgid "Mise de côté de l'ancienne installation : {old} → {new}"
+msgstr "旧インストールを退避：{old} → {new}"
+
+msgid "impossible de mettre l'ancienne installation de côté (sudo mv)"
+msgstr "旧インストールを退避できません（sudo mv）"
+
+#, python-brace-format
+msgid "{count} fichiers installés dans {root}."
+msgstr "{count} 件のファイルを {root} にインストールしました。"
+
+#, python-brace-format
+msgid "install.sh introuvable dans {root}"
+msgstr "{root} に install.sh が見つかりません"
+
+#, python-brace-format
+msgid ""
+"Environnement Python (.venv) incomplet mis de côté : {path} — install.sh en "
+"recrée un."
+msgstr "不完全な Python 環境（.venv）を退避しました：{path} — install.sh が作り直します。"
+
+#, python-brace-format
+msgid "Lancement de {path} :"
+msgstr "{path} を実行中："
+
+#, python-brace-format
+msgid "install.sh a échoué (code {code})"
+msgstr "install.sh が失敗しました（コード {code}）"
+
+#, python-brace-format
+msgid "{script} introuvable : réglages et données restés dans {old}"
+msgstr "{script} が見つかりません：設定とデータは {old} に残っています"
+
+#, python-brace-format
+msgid ""
+"Reprise des réglages et données de {old} (autres anciennes installations "
+"ignorées : {others})"
+msgstr "{old} から設定とデータを引き継ぎ中（他の旧インストールは無視：{others}）"
+
+#, python-brace-format
+msgid "reprise de {old} échouée ({script})"
+msgstr "{old} からの引き継ぎに失敗しました（{script}）"
+
+msgid "contient l'installation d'omega-connect"
+msgstr "omega-connect のインストールを含みます"
+
+msgid "registre omega-serv"
+msgstr "omega-serv レジストリ"
+
+msgid "systemd"
+msgstr "systemd"
+
+msgid "OpenRC"
+msgstr "OpenRC"
+
+msgid "runit"
+msgstr "runit"
+
+msgid "dossier personnel"
+msgstr "ホームフォルダー"
+
+msgid "/srv"
+msgstr "/srv"
+
+msgid "chemin saisi"
+msgstr "入力されたパス"
+
+msgid "absent"
+msgstr "なし"
+
+msgid "illisible (droits)"
+msgstr "読み取り不可（権限）"
+
+msgid "abîmé"
+msgstr "破損"
+
+msgid "d'une version plus récente qu'omega-connect"
+msgstr "omega-connect より新しいバージョンのもの"
+
+msgid "non fournie (version de l'outil trop ancienne ?)"
+msgstr "提供されていません（ツールのバージョンが古すぎる？）"
+
+msgid "non obtenue"
+msgstr "取得できませんでした"
+
+msgid "illisible"
+msgstr "読み取り不可"
+
+msgid "active"
+msgstr "有効"
+
+msgid "désactivée"
+msgstr "無効化"
+
+msgid "absente"
+msgstr "なし"
+
+msgid "inconnue"
+msgstr "不明"
+
+#, python-brace-format
+msgid "registre des instances omega-serv illisible : {detail}"
+msgstr "omega-serv インスタンスのレジストリを読み取れません：{detail}"
+
+#, python-brace-format
+msgid "instance omega-serv enregistrée mais dossier disparu : {detail}"
+msgstr "omega-serv インスタンスは登録されていますがフォルダーが消えています：{detail}"
+
+#, python-brace-format
+msgid "fichier de service illisible : {detail}"
+msgstr "サービスファイルを読み取れません：{detail}"
+
+#, python-brace-format
+msgid "service {detail} : dossier d'installation introuvable"
+msgstr "サービス {detail}：インストールフォルダーが見つかりません"
+
+#, python-brace-format
+msgid "recherche arrêtée (trop de dossiers) dans {detail}"
+msgstr "検索を中止しました（フォルダーが多すぎます）：{detail}"
+
+#, python-brace-format
+msgid "montage réseau non parcouru : {detail}"
+msgstr "ネットワークマウントは走査していません：{detail}"
+
+#, python-brace-format
+msgid "dossier introuvable : {detail}"
+msgstr "フォルダーが見つかりません：{detail}"
+
+#, python-brace-format
+msgid "aucun outil omega dans : {detail}"
+msgstr "omega ツールがありません：{detail}"
+
+#, python-brace-format
+msgid "créez-le sous le compte {owner} : {command}"
+msgstr "{owner} アカウントで作成してください：{command}"
+
+msgid "outil inconnu"
+msgstr "不明なツール"
+
+#, python-brace-format
+msgid "trouvé par : {sources}"
+msgstr "検出元：{sources}"
+
+#, python-brace-format
+msgid "propriétaire : {owner}"
+msgstr "所有者：{owner}"
+
+#, python-brace-format
+msgid "service : {names}"
+msgstr "サービス：{names}"
+
+#, python-brace-format
+msgid "jeton : présent (identifiant {identifier}, version {version})"
+msgstr "トークン：あり（識別子 {identifier}、バージョン {version}）"
+
+#, python-brace-format
+msgid "jeton : {state}"
+msgstr "トークン：{state}"
+
+#, python-brace-format
+msgid "fiche : {state}"
+msgstr "情報シート：{state}"
+
+#, python-brace-format
+msgid "détail technique : {detail}"
+msgstr "技術的な詳細：{detail}"
+
+#, python-brace-format
+msgid "fiche : instance {instance}"
+msgstr "情報シート：インスタンス {instance}"
+
+#, python-brace-format
+msgid "service {manager} ({state})"
+msgstr "サービス {manager}（{state}）"
+
+msgid "partielle (sans root)"
+msgstr "部分的（root なし）"
+
+#, python-brace-format
+msgid "fonctions : {states}"
+msgstr "機能：{states}"
+
+#, python-brace-format
+msgid "Détection des outils omega (HOME examiné : {home})"
+msgstr "omega ツールを検出中（調べた HOME：{home}）"
+
+msgid "Aucun outil omega trouvé. Indiquez un dossier avec --chemin."
+msgstr "omega ツールが見つかりません。--chemin でフォルダーを指定してください。"
+
+#, python-brace-format
+msgid ""
+"Identifiant en double {identifier} : {roots} (dossier copié à la main ?). "
+"Ces installations ne sont pas fusionnées ; ouvrez la copie une fois pour lui"
+" donner un nouvel identifiant."
+msgstr ""
+"識別子 {identifier} "
+"が重複しています：{roots}（フォルダーを手動でコピーしましたか？）。これらのインストールは統合されません。コピーを一度開いて新しい識別子を付けてください。"
+
+msgid "Remarques sur la recherche :"
+msgstr "検索に関する注記："
+
+#, python-brace-format
+msgid "{count} installation(s) trouvée(s)."
+msgstr "{count} 件のインストールが見つかりました。"
+
+msgid "Détectée"
+msgstr "検出済み"
+
+msgid "Inscrite"
+msgstr "登録済み"
+
+msgid "Reliée"
+msgstr "連携済み"
+
+msgid "À réparer"
+msgstr "要修復"
+
+msgid "Ancienne version"
+msgstr "旧バージョン"
+
+msgid "Installation inachevée"
+msgstr "インストール未完了"
+
+msgid "Injoignable"
+msgstr "接続不可"
+
+msgid "trouvée, sans carte d'identité : la Synchronisation la lui crée"
+msgstr "見つかりましたが ID カードがありません：同期で作成されます"
+
+msgid ""
+"a sa carte d'identité, pas encore dans l'espace partagé : la Synchronisation"
+" l'y ajoute"
+msgstr "ID カードはありますが、まだ共有スペースにありません：同期で追加されます"
+
+msgid "dans l'espace partagé, à jour"
+msgstr "共有スペースにあり、最新です"
+
+msgid "un écart : Réparer le corrige"
+msgstr "不整合があります：修復で直ります"
+
+msgid "trop ancienne pour avoir une carte d'identité : mettez-la à jour"
+msgstr "古すぎて ID カードがありません：更新してください"
+
+msgid ""
+"installée, mais son install.sh ne s'est pas terminé (environnement Python ou"
+" carte d'identité manquants) : « Réinstaller l'application » (Registre)"
+msgstr ""
+"インストール済みですが、install.sh が完了していません（Python 環境または ID "
+"カードがありません）：「アプリケーションを再インストール」（レジストリ）"
+
+msgid "machine qui ne répond pas"
+msgstr "応答しないマシン"
+
+#, python-brace-format
+msgid ""
+"trop ancienne pour avoir une carte d'identité : {tool} {version} ou plus "
+"récent requis (machine distante : Synchronisation la met à jour depuis "
+"GitHub)"
+msgstr ""
+"古すぎて ID カードがありません：{tool} {version} 以降が必要です（リモートマシン：同期が GitHub から更新します）"
+
+msgid "pas encore préparé — la Synchronisation le prépare"
+msgstr "まだ準備されていません — 同期で準備されます"
+
+msgid "prêt"
+msgstr "準備完了"
+
+msgid "à corriger — la Synchronisation le remet en état"
+msgstr "要修正 — 同期で元の状態に戻されます"
+
+msgid "prêt (lu avec votre autorisation)"
+msgstr "準備完了（許可を得て読み取り）"
+
+msgid ""
+"état inconnu depuis cette session — la Synchronisation le lira avec votre "
+"autorisation"
+msgstr "このセッションでは状態不明 — 同期の際に許可を得て読み取ります"
+
+#, python-brace-format
+msgid "Registre — machine {machine}"
+msgstr "レジストリ — マシン {machine}"
+
+msgid "Aucune application omega trouvée sur cette machine."
+msgstr "このマシンに omega アプリケーションは見つかりませんでした。"
+
+#, python-brace-format
+msgid "Espace partagé : {status}"
+msgstr "共有スペース：{status}"
+
+msgid "Synchroniser : un seul plan, un seul mot de passe administrateur"
+msgstr "同期：計画はひとつ、管理者パスワードは 1 回だけ"
+
+msgid "Rien à faire : tout est déjà synchronisé."
+msgstr "何もする必要はありません：すべて同期済みです。"
+
+msgid ""
+"1. Cartes d'identité à créer (par chaque outil, sous son compte, sans mot de"
+" passe) :"
+msgstr "1. 作成する ID カード（各ツールが自分のアカウントで作成、パスワード不要）："
+
+msgid "aucune : chaque application choisie a déjà la sienne."
+msgstr "なし：選んだアプリケーションはすべて ID カードを持っています。"
+
+msgid "2. Espace partagé (en administrateur, une commande après l'autre) :"
+msgstr "2. 共有スペース（管理者として、コマンドを 1 つずつ）："
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root} (créée à l'étape 1)"
+msgstr "{root} の ID カードをコピー（手順 1 で作成）"
+
+msgid "rien : l'espace partagé est déjà à jour."
+msgstr "なし：共有スペースはすでに最新です。"
+
+msgid "Une commande qui n'est pas annoncée ici n'est jamais lancée."
+msgstr "ここに表示されていないコマンドが実行されることはありません。"
+
+#, python-brace-format
+msgid ""
+"Arrêt : la carte d'identité de {root} n'a pas pu être créée ({error}). Rien "
+"d'autre n'a été lancé."
+msgstr "中止：{root} の ID カードを作成できませんでした（{error}）。他には何も実行していません。"
+
+msgid "échec"
+msgstr "失敗"
+
+#, python-brace-format
+msgid ""
+"Arrêt avant l'espace partagé : le plan a changé ({step}). Rien de plus n'a "
+"été lancé ; relancez la synchronisation pour voir le nouveau plan."
+msgstr ""
+"共有スペースの手前で中止：計画が変わりました（{step}）。これ以上は何も実行していません。新しい計画を見るには同期をやり直してください。"
+
+#, python-brace-format
+msgid ""
+"Arrêt à l'étape « {step} » : {error}. Ce qui a été créé est noté ; relancez "
+"la synchronisation après avoir corrigé la cause."
+msgstr "手順「{step}」で中止：{error}。作成したものは記録されています。原因を直してから同期をやり直してください。"
+
+msgid "Synchronisation terminée : les applications choisies sont reliées."
+msgstr "同期完了：選んだアプリケーションは連携されました。"
+
+msgid "DÉMARRAGE RAPIDE"
+msgstr "クイックスタート"
+
+msgid "RACCOURCIS"
+msgstr "ショートカット"
+
+msgid "Aide d’omega-connect"
+msgstr "omega-connect のヘルプ"
+
+msgid "Aide complète : chaque menu, sa fonction et le détail."
+msgstr "完全なヘルプ：各メニュー、その機能と詳細。"
+
+msgid "Démarrage rapide"
+msgstr "クイックスタート"
+
+msgid "Raccourcis"
+msgstr "ショートカット"
+
+msgid "Touche"
+msgstr "キー"
+
+msgid "Action"
+msgstr "操作"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — aide."
+msgstr "OMEGA-CONNECT {version} — ヘルプ。"
+
+msgid "Aide - Omega-Connect"
+msgstr "ヘルプ - Omega-Connect"
+
+msgid ""
+"Interconnecteur de la suite omega : détecte les outils installés, vérifie et"
+" attribue les droits entre eux."
+msgstr "omega スイートの連携ツール：インストール済みのツールを検出し、ツール間の権限を確認・付与します。"
+
+msgid "commandes"
+msgstr "コマンド"
+
+msgid "COMMANDE"
+msgstr "コマンド"
+
+msgid "Cherche les outils omega installés (lecture seule, sans root)."
+msgstr "インストール済みの omega ツールを探します（読み取り専用、root 不要）。"
+
+msgid ""
+"Cherche les outils omega installés : registre d'omega-serv, services systemd"
+" / OpenRC / runit, HOME (3 niveaux), /srv (2 niveaux) et chemins saisis. Ne "
+"suit jamais un lien symbolique ni un montage réseau. Lit le jeton de chaque "
+"installation et demande sa fiche à l'outil, sous le compte propriétaire du "
+"dossier."
+msgstr ""
+"インストール済みの omega ツールを探します：omega-serv のレジストリ、systemd / OpenRC / runit "
+"のサービス、HOME（3 階層）、/srv（2 "
+"階層）、入力されたパス。シンボリックリンクやネットワークマウントはたどりません。各インストールのトークンを読み、フォルダー所有者のアカウントでツールに情報シートを要求します。"
+
+msgid "DOSSIER"
+msgstr "フォルダー"
+
+msgid "Dossier d'installation à examiner en plus (option répétable)."
+msgstr "追加で調べるインストールフォルダー（繰り返し指定可）。"
+
+msgid ""
+"Ne demande pas la fiche aux outils (plus rapide, aucune commande lancée)."
+msgstr "ツールに情報シートを要求しません（高速、コマンドは実行しません）。"
+
+msgid "texte (défaut, traduit) ou json (pour les scripts, jamais traduit)."
+msgstr "texte（既定、翻訳あり）または json（スクリプト用、翻訳なし）。"
+
+msgid "Vérifie les liens existants entre outils (lecture seule, sans root)."
+msgstr "ツール間の既存の連携を確認します（読み取り専用、root 不要）。"
+
+msgid ""
+"Détecte les outils (avec leur fiche), puis contrôle chaque lien : journaux "
+"d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers"
+" la liste noire, liste protégée, droits de la liste noire, fichiers d'omega-"
+"jail dans fail2ban, jetons. Chaque écart affiche la commande qui le "
+"corrigerait, sans jamais la lancer. Code de sortie : 0 sans écart, 1 si un "
+"lien est cassé ou dégradé."
+msgstr ""
+"ツールを（情報シート付きで）検出し、各連携をチェックします：omega-jail の jail が読む omega-serv と magnet "
+"のログ、ブラックリストへの fail2ban ブリッジ、保護リスト、ブラックリストの権限、fail2ban 内の omega-jail "
+"のファイル、トークン。不整合ごとに修正コマンドを表示しますが、実行はしません。終了コード：不整合なしで 0、連携が壊れているか劣化していれば 1。"
+
+msgid "Affiche aussi les contrôles conformes."
+msgstr "正常なチェックも表示します。"
+
+msgid ""
+"Ouvre le tableau de bord (défaut sans commande) : outils, liens et leur "
+"état, en lecture seule."
+msgstr "ダッシュボードを開きます（コマンドなしの場合の既定）：ツール、連携とその状態、読み取り専用。"
+
+msgid ""
+"Tableau de bord en lecture seule : outils et instances, état de chaque lien,"
+" contrôles et commandes de correction (jamais lancées). Nouvelle "
+"vérification à intervalle régulier tant que l'écran est ouvert."
+msgstr ""
+"読み取り専用のダッシュボード：ツールとインスタンス、各連携の状態、チェックと修正コマンド（実行はしません）。画面を開いている間、一定間隔で再確認します。"
+
+msgid ""
+"Crée la zone neutre et y recopie jetons et fiches (root, après accord)."
+msgstr "中立ゾーンを作成し、トークンと情報シートをコピーします（root、同意の後）。"
+
+msgid ""
+"Crée le groupe omega-synchro et la zone neutre (/var/lib/omega-synchro, "
+"2750), vous ajoute au groupe, recopie le jeton et la fiche de chaque outil "
+"détecté, et inscrit tout au registre. Relancée, elle actualise les copies. "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"omega-synchro グループと中立ゾーン（/var/lib/omega-"
+"synchro、2750）を作成し、あなたをグループに追加し、検出した各ツールのトークンと情報シートをコピーして、すべてをレジストリに登録します。再実行するとコピーを更新します。各コマンドは"
+" sudo で実行する前に表示されます。"
+
+msgid ""
+"Défait ce qu'omega-connect a créé : un outil désinstallé, ou toute la zone "
+"(root, après accord)."
+msgstr "omega-connect が作成したものを元に戻します：アンインストールされたツール、またはゾーン全体（root、同意の後）。"
+
+msgid ""
+"« retirer CIBLE » enlève de la zone un outil désinstallé (nom, dossier ou 8 "
+"premiers caractères de l'identifiant). « retirer --tout » défait exactement "
+"ce que le registre liste, ou garde la zone telle quelle (liens figés). "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"「retirer 対象」はアンインストールされたツールをゾーンから除きます（名前、フォルダー、または識別子の先頭 8 文字）。「retirer "
+"--tout」はレジストリに記載されたものを正確に元に戻すか、ゾーンをそのまま保持します（連携は固定）。各コマンドは sudo "
+"で実行する前に表示されます。"
+
+msgid "CIBLE"
+msgstr "対象"
+
+msgid "Outil à retirer de la zone."
+msgstr "ゾーンから除くツール。"
+
+msgid "Toute la zone (question : garder ou tout retirer)."
+msgstr "ゾーン全体（確認あり：保持するか、すべて削除するか）。"
+
+msgid "Avec --tout : garder la zone, liens figés (rien n'est supprimé)."
+msgstr "--tout と併用：ゾーンを保持し、連携を固定します（何も削除しません）。"
+
+msgid "Avec --tout : tout retirer, sans question."
+msgstr "--tout と併用：確認なしですべて削除します。"
+
+msgid ""
+"Recherche les applications omega de cette machine et met à jour le registre "
+"(lecture seule)."
+msgstr "このマシンの omega アプリケーションを探し、レジストリを更新します（読み取り専用）。"
+
+msgid ""
+"Lecture seule, sans mot de passe : chaque application trouvée, son service "
+"et son état (Détectée, Inscrite, Reliée, À réparer, Ancienne version, "
+"Installation inachevée). Le résultat est enregistré dans le registre du parc"
+" (var/parc.json)."
+msgstr ""
+"読み取り専用、パスワード不要：見つかった各アプリケーション、そのサービスと状態（検出済み、登録済み、連携済み、要修復、旧バージョン、インストール未完了）。結果はマシンのレジストリ（var/parc.json）に保存されます。"
+
+msgid "UTILISATEUR@MACHINE"
+msgstr "ユーザー@マシン"
+
+msgid ""
+"Machine distante à scanner par SSH avec vos clés (rien n'y est installé) ; "
+"sans cible : cette machine."
+msgstr "SSH であなたの鍵を使ってスキャンするリモートマシン（何もインストールしません）。対象なし：このマシン。"
+
+msgid "MACHINE"
+msgstr "MACHINE"
+
+msgid ""
+"Retire une machine distante du registre (nom, adresse ou "
+"utilisateur@adresse) ; rien n'est modifié sur elle."
+msgstr "リモートマシンをレジストリから削除します（名前、アドレス、または ユーザー@アドレス）。そのマシン上では何も変更しません。"
+
+msgid ""
+"Liste les machines que cet ordinateur sait déjà joindre (profils Unison, "
+"~/.ssh/config, known_hosts)."
+msgstr ""
+"このコンピューターがすでに接続できるマシンを一覧表示します（Unison プロファイル、~/.ssh/config、known_hosts）。"
+
+msgid ""
+"Remet en place les liens de ce qui est installé : cartes d'identité, espace "
+"partagé, accès des services — un seul plan."
+msgstr "インストール済みのものの連携を元に戻します：ID カード、共有スペース、サービスのアクセス — 計画はひとつ。"
+
+msgid ""
+"Une seule action (décision de l'auteur) : recrée les cartes d'identité qui "
+"manquent (commande de chaque outil, sous son compte), prépare l'espace "
+"partagé, y recopie les cartes et donne l'accès aux services. Tout est "
+"affiché avant d'agir ; un seul mot de passe administrateur. Sans CIBLE : "
+"toutes les applications de la machine."
+msgstr ""
+"操作はひとつだけ（作者の方針）：不足している ID "
+"カードを作り直し（各ツールのコマンドで、そのアカウントで）、共有スペースを準備し、そこにカードをコピーして、サービスにアクセス権を与えます。実行前にすべて表示され、管理者パスワードは"
+" 1 回だけです。対象を指定しない場合：このマシンのすべてのアプリケーション。"
+
+msgid ""
+"Application à synchroniser : nom (omega-fire) ou dossier ; plusieurs "
+"possibles."
+msgstr "同期するアプリケーション：名前（omega-fire）またはフォルダー。複数指定可。"
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; option "
+"répétable) : réparer puis synchroniser, sans rien taper là-bas (une "
+"application trop ancienne : mettre-a-jour d'abord)."
+msgstr ""
+"スキャン済みのリモートマシン（名前、アドレス、または "
+"ユーザー@マシン。繰り返し指定可）：修復してから同期します。向こうで何も入力する必要はありません（古すぎるアプリケーションは先に mettre-a-"
+"jour）。"
+
+msgid ""
+"Toutes les machines distantes du registre, une à une (un mot de passe par "
+"machine)."
+msgstr "レジストリのすべてのリモートマシンを 1 台ずつ（マシンごとにパスワード 1 回）。"
+
+msgid ""
+"Met à jour les applications trop anciennes d'une machine distante, depuis "
+"leur Release GitHub (rien d'autre)."
+msgstr "リモートマシンの古すぎるアプリケーションを GitHub の Release から更新します（それ以外は何もしません）。"
+
+msgid ""
+"Archive prise sur GitHub, empreinte vérifiée avec sha.txt, puis installée "
+"sur la machine (comme la section « Mise à jour » du README de l'outil). Ne "
+"répare ni ne synchronise : voir synchroniser."
+msgstr ""
+"GitHub からアーカイブを取得し、sha.txt でハッシュを確認してから、マシンにインストールします（ツールの README "
+"の「更新」セクションと同じ）。修復や同期はしません：synchroniser を参照してください。"
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; "
+"répétable)."
+msgstr "スキャン済みのリモートマシン（名前、アドレス、または ユーザー@マシン。繰り返し指定可）。"
+
+msgid "Toutes les machines distantes du registre, une à une."
+msgstr "レジストリのすべてのリモートマシンを 1 台ずつ。"
+
+msgid ""
+"Corrige les écarts trouvés par verifier avec la commande de l'outil qui les "
+"possède (root, après accord)."
+msgstr "verifier で見つかった不整合を、それを所有するツールのコマンドで修正します（root、同意の後）。"
+
+msgid ""
+"Ne corrige que ce qu'un outil sait corriger lui-même (omega-jail --apply "
+"--update, omega-serv service permissions, synchro jeton de chaque outil) et "
+"ce que le registre de la zone dit qu'omega-connect a créé (plan d'etablir, "
+"affiché à son tour). omega-connect ne réécrit jamais le fichier d'un autre "
+"outil : le reste est affiché, à faire à la main. Chaque commande est "
+"affichée avant d'être lancée."
+msgstr ""
+"ツール自身が修正できるもの（omega-jail --apply --update、omega-serv service "
+"permissions、各ツールの synchro jeton）と、omega-connect "
+"が作成したとゾーンのレジストリに記載されたもの（etablir の計画、続けて表示）だけを修正します。omega-connect "
+"が他のツールのファイルを書き換えることはありません：残りは表示され、手動で行います。各コマンドは実行前に表示されます。"
+
+msgid ""
+"Machine distante déjà scannée : réparée depuis ici, rien à taper là-bas "
+"(répétable)."
+msgstr "スキャン済みのリモートマシン：ここから修復し、向こうで入力する必要はありません（繰り返し指定可）。"
+
+msgid ""
+"Rapport complet : outils, jetons, fiches, liens et tous leurs contrôles, "
+"zone et registre (lecture seule)."
+msgstr "完全なレポート：ツール、トークン、情報シート、連携とそのすべてのチェック、ゾーンとレジストリ（読み取り専用）。"
+
+msgid ""
+"Tout ce qu'omega-connect sait à cet instant, en lecture seule et sans root :"
+" outils et instances, jetons, fiches, chaque lien avec tous ses contrôles et"
+" les commandes de correction, remarques de la recherche, zone neutre et son "
+"registre. Affiché, ou enregistré dans var/exports/ avec --enregistrer."
+msgstr ""
+"omega-connect が現時点で把握しているすべてを、読み取り専用・root "
+"不要で：ツールとインスタンス、トークン、情報シート、各連携とそのすべてのチェックおよび修正コマンド、検索に関する注記、中立ゾーンとそのレジストリ。表示するか、--enregistrer"
+" で var/exports/ に保存します。"
+
+msgid ""
+"texte (défaut, traduit), json (jamais traduit) ou html (page autonome)."
+msgstr "texte（既定、翻訳あり）、json（翻訳なし）、または html（単体のページ）。"
+
+msgid "Thème de la page HTML."
+msgstr "HTML ページのテーマ。"
+
+msgid "Enregistre dans var/exports/ au lieu d'afficher, et donne le chemin."
+msgstr "表示せずに var/exports/ に保存し、そのパスを示します。"
+
+msgid "Affiche seulement les commandes, sans rien lancer."
+msgstr "コマンドを表示するだけで、何も実行しません。"
+
+msgid "Lance sans demander l'accord (les commandes restent affichées)."
+msgstr "同意を求めずに実行します（コマンドは表示されます）。"
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro (il ne compte qu'après "
+"une reconnexion) : lecture de la zone avec sudo (find, stat, cat)."
+msgstr ""
+"あなたのセッションにはまだ omega-synchro グループがありません（再ログイン後に有効になります）：sudo "
+"でゾーンを読み取ります（find、stat、cat）。"
+
+msgid "Authentification sudo refusée ou annulée : rien n'est fait."
+msgstr "sudo 認証が拒否またはキャンセルされました：何もしていません。"
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) en root ? [o/N] "
+msgstr "これら {count} 件のコマンドを root で実行しますか？ [o/N] "
+
+msgid "Authentification sudo refusée ou annulée : rien n'a été lancé."
+msgstr "sudo 認証が拒否またはキャンセルされました：何も実行していません。"
+
+msgid ""
+"Pas de terminal pour poser la question : relancez avec --garder-zone ou "
+"--effacer."
+msgstr "確認するための端末がありません：--garder-zone または --effacer を付けて再実行してください。"
+
+msgid "Garder la zone (liens figés) [g], tout retirer [t], ou annuler [a] ? "
+msgstr "ゾーンを保持（連携は固定）[g]、すべて削除 [t]、キャンセル [a]？ "
+
+msgid ""
+"Pas de terminal pour demander l'accord : relancez avec --oui, ou "
+"--simulation."
+msgstr "同意を求めるための端末がありません：--oui または --simulation を付けて再実行してください。"
+
+msgid "Abandon : rien n'a été lancé."
+msgstr "中止：何も実行していません。"
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) ? [o/N] "
+msgstr "これら {count} 件のコマンドを実行しますか？ [o/N] "
+
+msgid ""
+"Zone neutre : plan d'« etablir » (seulement ce que le registre dit avoir "
+"créé)."
+msgstr "中立ゾーン：「etablir」の計画（作成済みとレジストリに記載されたものだけ）。"
+
+#, python-brace-format
+msgid "Registre du parc non enregistré : {error}"
+msgstr "マシン群のレジストリを保存できませんでした：{error}"
+
+msgid "Saisissez utilisateur@machine (nom ou adresse), sans espace ni option."
+msgstr "ユーザー@マシン（名前またはアドレス）を、空白やオプションなしで入力してください。"
+
+msgid "Pas de terminal pour demander la confiance : rien n'a été fait."
+msgstr "信頼を確認するための端末がありません：何もしていません。"
+
+msgid "Faire confiance à cette machine ? [o/N] "
+msgstr "このマシンを信頼しますか？ [o/N] "
+
+msgid "Rien n'a été fait."
+msgstr "何もしていません。"
+
+msgid "Impossible d'ajouter la clé à ~/.ssh/known_hosts."
+msgstr "~/.ssh/known_hosts に鍵を追加できません。"
+
+#, python-brace-format
+msgid "Aucune application ne correspond à : {targets}"
+msgstr "該当するアプリケーションがありません：{targets}"
+
+msgid "Lancer ce plan ? [o/N] "
+msgstr "この計画を実行しますか？ [o/N] "
+
+msgid "Authentification refusée ou annulée : rien n'a été lancé."
+msgstr "認証が拒否またはキャンセルされました：何も実行していません。"
+
+#, python-brace-format
+msgid "Machine inconnue ou mal écrite : {target}"
+msgstr "不明なマシン、または表記の誤り：{target}"
+
+msgid ""
+"Aucune machine distante dans le registre : scannez-en une d'abord (scanner "
+"utilisateur@machine)."
+msgstr "レジストリにリモートマシンがありません：まず 1 台スキャンしてください（scanner ユーザー@マシン）。"
+
+#, python-brace-format
+msgid ""
+"{target} : clé de la machine pas encore acceptée, ou machine injoignable — "
+"scannez-la d'abord (scanner {target})."
+msgstr ""
+"{target}：マシンの鍵がまだ承認されていないか、マシンに接続できません — まずスキャンしてください（scanner {target}）。"
+
+#, python-brace-format
+msgid "Lancer sur {name} ? [o/N] "
+msgstr "{name} で実行しますか？ [o/N] "
+
+#, python-brace-format
+msgid "Rien n'a été lancé sur {name}."
+msgstr "{name} では何も実行していません。"
+
+msgid "Indiquez soit un outil à retirer, soit --tout."
+msgstr "削除するツールか --tout のどちらかを指定してください。"
+
+msgid "--garder-zone et --effacer vont avec --tout."
+msgstr "--garder-zone と --effacer は --tout と一緒に使います。"
+
+msgid "Machines distantes indisponibles ici."
+msgstr "ここではリモートマシンを利用できません。"
+
+msgid "Indiquez --machine MACHINE ou --toutes-machines."
+msgstr "--machine MACHINE または --toutes-machines を指定してください。"
+
+#, python-brace-format
+msgid "Aucune machine distante du registre ne correspond à : {target}"
+msgstr "レジストリのリモートマシンで該当するものがありません：{target}"
+
+#, python-brace-format
+msgid "{machine} retirée du registre (rien n'a été modifié sur elle)."
+msgstr "{machine} をレジストリから削除しました（そのマシン上では何も変更していません）。"
+
+#, python-brace-format
+msgid "Rapport enregistré : {path}"
+msgstr "レポートを保存しました：{path}"
+
+#, python-brace-format
+msgid "aucune version publiée sur GitHub ({url})"
+msgstr "GitHub に公開されたバージョンがありません（{url}）"
+
+msgid "GitHub ne répond pas depuis cet ordinateur (réseau)"
+msgstr "このコンピューターから GitHub に接続できません（ネットワーク）"
+
+msgid "l'archive n'est pas citée dans sha.txt de la Release : refusée"
+msgstr "アーカイブが Release の sha.txt に記載されていません：拒否しました"
+
+msgid "empreinte différente de sha.txt : archive refusée, rien n'est envoyé"
+msgstr "ハッシュが sha.txt と一致しません：アーカイブを拒否し、何も送信していません"
+
+msgid "fichier trop volumineux pour une archive d'outil : refusé"
+msgstr "ツールのアーカイブとしては大きすぎるファイルです：拒否しました"
+
+#, python-brace-format
+msgid ""
+"la dernière version publiée sur GitHub ({latest}) est encore trop ancienne"
+msgstr "GitHub で公開されている最新バージョン（{latest}）でもまだ古すぎます"
+
+msgid "extraction par-dessus, puis son install.sh"
+msgstr "上書きで展開し、その install.sh を実行"
+
+msgid ""
+"ancienne installation mise de côté (sudo mv), nouvelle à sa place, puis son "
+"install.sh qui reprend réglages et données"
+msgstr "旧インストールを退避（sudo mv）して新しいものを配置し、設定とデータを引き継ぐ install.sh を実行"
+
+msgid "Commande"
+msgstr "コマンド"
+
+msgid "Mise à jour"
+msgstr "更新"
+
+msgid "Réparer"
+msgstr "修復"
+
+msgid "Synchroniser"
+msgstr "同期"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} ({root}) : réinstallation (installation inachevée) — {how}"
+msgstr "{tool} {version}（{root}）：再インストール（インストール未完了） — {how}"
+
+msgid "(installation inachevée)"
+msgstr "（インストール未完了）"
+
+#, python-brace-format
+msgid "{head} → {latest} ({root}) : {how}"
+msgstr "{head} → {latest}（{root}）：{how}"
+
+#, python-brace-format
+msgid "{head} ({root}) : pas de mise à jour possible — {reason}"
+msgstr "{head}（{root}）：更新できません — {reason}"
+
+#, python-brace-format
+msgid ""
+"Tout se passe dans ce terminal : le mot de passe sudo de {name} est demandé "
+"par la machine elle-même, une fois ; omega-connect ne le voit jamais."
+msgstr ""
+"すべてこの端末で行われます：{name} の sudo パスワードはマシン自身が 1 回だけ尋ねます。omega-connect "
+"がそれを見ることはありません。"
+
+#, python-brace-format
+msgid "Réinstaller l'application — machine {name} ({target})"
+msgstr "アプリケーションを再インストール — マシン {name}（{target}）"
+
+#, python-brace-format
+msgid "Mettre à jour l'application — machine {name} ({target})"
+msgstr "アプリケーションを更新 — マシン {name}（{target}）"
+
+msgid ""
+"Aucune application trop ancienne sur cette machine : rien à mettre à jour."
+msgstr "このマシンに古すぎるアプリケーションはありません：更新するものはありません。"
+
+msgid ""
+"Archives prises sur la Release GitHub de chaque application (empreinte "
+"vérifiée avec sha.txt avant tout envoi) :"
+msgstr "各アプリケーションの GitHub Release から取得したアーカイブ（送信前に sha.txt でハッシュを確認）："
+
+msgid ""
+"Rien d'autre n'est fait. Ensuite, pour remettre les liens en place : "
+"Synchronisation."
+msgstr "それ以外は何もしません。その後、連携を元に戻すには：同期。"
+
+#, python-brace-format
+msgid "Synchroniser — machine {name} ({target})"
+msgstr "同期 — マシン {name}（{target}）"
+
+msgid ""
+"Laissées de côté, trop anciennes (Registre → « Mettre à jour l'application »"
+" d'abord) :"
+msgstr "古すぎるため除外（先にレジストリ →「アプリケーションを更新」）："
+
+msgid ""
+"Rien à synchroniser : tout ce qui peut l'être est relié sur cette machine."
+msgstr "同期するものはありません：このマシンで連携できるものはすべて連携済みです。"
+
+msgid "Réparer puis synchroniser, sur la machine. Plan :"
+msgstr "マシン上で修復してから同期します。計画："
+
+msgid ""
+"L'espace partagé de cette machine n'est lisible qu'avec sudo : il sera relu "
+"au lancement."
+msgstr "このマシンの共有スペースは sudo でしか読めません：実行時に読み直します。"
+
+#, python-brace-format
+msgid "Réparer — machine {name} ({target})"
+msgstr "修復 — マシン {name}（{target}）"
+
+#, python-brace-format
+msgid "« Réparer {name} » lance ces commandes SUR la machine, depuis ici."
+msgstr "「{name} を修復」は、ここからこれらのコマンドをそのマシン上で実行します。"
+
+#, python-brace-format
+msgid ""
+"Commandes qu'aucun outil ne sait lancer — lancées AUSSI sur {name} par « "
+"Réparer {name} », une à une, après les corrections des outils (celles déjà "
+"réglées entre-temps sont sautées) :"
+msgstr ""
+"どのツールも実行できないコマンド — 「{name} を修復」により {name} 上でも、ツールによる修正の後に 1 "
+"つずつ実行されます（その間にすでに解決したものはスキップされます）："
+
+#, python-brace-format
+msgid "Rien n'a été envoyé à {target} :"
+msgstr "{target} には何も送信していません："
+
+#, python-brace-format
+msgid "Envoi impossible vers {target}."
+msgstr "{target} に送信できません。"
+
+#, python-brace-format
+msgid "Résultat pour {target} :"
+msgstr "{target} の結果："
+
+#, python-brace-format
+msgid ""
+"  ✗ aucun résultat rendu par la machine (connexion coupée, ou lancement "
+"interrompu ; code {code})."
+msgstr "  ✗ マシンから結果が返されませんでした（接続が切れたか、実行が中断されました。コード {code}）。"
+
+#, python-brace-format
+msgid "ancienne installation gardée dans {path}"
+msgstr "旧インストールは {path} に保管"
+
+#, python-brace-format
+msgid "(code {code})"
+msgstr "（コード {code}）"
+
+#, python-brace-format
+msgid "code {code}"
+msgstr "コード {code}"
+
+msgid "Unison"
+msgstr "Unison"
+
+msgid "~/.ssh/config"
+msgstr "~/.ssh/config"
+
+msgid "connue de SSH"
+msgstr "SSH で既知"
+
+msgid "jamais scannée"
+msgstr "未スキャン"
+
+msgid "injoignable"
+msgstr "接続不可"
+
+msgid "répond"
+msgstr "応答あり"
+
+#, python-brace-format
+msgid "{machine} — {count} application(s), {state}"
+msgstr "{machine} — アプリケーション {count} 件、{state}"
+
+msgid ""
+"Aucune machine trouvée dans vos profils Unison, ~/.ssh/config ou "
+"known_hosts."
+msgstr "Unison プロファイル、~/.ssh/config、known_hosts にマシンが見つかりません。"
+
+#, python-brace-format
+msgid "{target} ne répond pas (machine éteinte, ou réseau coupé) : {detail}"
+msgstr "{target} が応答しません（マシンの電源が切れているか、ネットワークが切断されています）：{detail}"
+
+#, python-brace-format
+msgid ""
+"Le nom « {host} » est inconnu sur ce réseau. Utilisez l'adresse de la "
+"machine (par exemple utilisateur@192.168.1.109), ou déclarez ce nom dans "
+"/etc/hosts ou dans ~/.ssh/config (Host {host} / HostName <adresse>)."
+msgstr ""
+"名前「{host}」はこのネットワークでは不明です。マシンのアドレスを使うか（例：ユーザー@192.168.1.109）、この名前を "
+"/etc/hosts または ~/.ssh/config に登録してください（Host {host} / HostName <アドレス>）。"
+
+#, python-brace-format
+msgid ""
+"{host} répond, mais aucun serveur SSH n'y écoute (port 22). Sur cette "
+"machine : installez et démarrez openssh (sudo systemctl enable --now sshd) ;"
+" ou, s'il écoute sur un autre port, indiquez-le dans ~/.ssh/config (Host "
+"{host} / Port …)."
+msgstr ""
+"{host} は応答していますが、SSH サーバーが待ち受けていません（ポート 22）。そのマシンで openssh "
+"をインストールして起動するか（sudo systemctl enable --now sshd）、別のポートで待ち受けている場合は "
+"~/.ssh/config に指定してください（Host {host} / Port …）。"
+
+#, python-brace-format
+msgid ""
+"{target} refuse vos clés SSH. Ajoutez votre clé publique sur cette machine "
+"(ssh-copy-id {target}), ou chargez-la dans l'agent SSH si elle est protégée "
+"par une phrase secrète (ssh-add). omega-connect ne demande jamais de mot de "
+"passe."
+msgstr ""
+"{target} があなたの SSH 鍵を拒否しています。このマシンに公開鍵を追加するか（ssh-copy-id "
+"{target}）、パスフレーズで保護されている場合は SSH エージェントに読み込んでください（ssh-add）。omega-connect "
+"がパスワードを尋ねることはありません。"
+
+#, python-brace-format
+msgid "{target} n'est pas encore connue : sa clé doit d'abord être acceptée."
+msgstr "{target} はまだ既知ではありません：先にその鍵を承認する必要があります。"
+
+#, python-brace-format
+msgid ""
+"La clé de {target} a CHANGÉ depuis la dernière connexion : scan refusé. Si "
+"la machine a été réinstallée, retirez l'ancienne clé (ssh-keygen -R {host}) "
+"puis recommencez ; sinon, quelqu'un se fait peut-être passer pour elle."
+msgstr ""
+"{target} の鍵が前回の接続から【変更】されています：スキャンを拒否しました。マシンを再インストールした場合は、古い鍵を削除して（ssh-"
+"keygen -R {host}）やり直してください。そうでなければ、誰かがそのマシンになりすましている可能性があります。"
+
+#, python-brace-format
+msgid ""
+"{target} n'a pas Python 3 (3.10 ou plus récent) : le scanner ne peut pas y "
+"tourner. Rien n'a été installé."
+msgstr "{target} に Python 3（3.10 以降）がありません：スキャナーを実行できません。何もインストールしていません。"
+
+#, python-brace-format
+msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-bas."
+msgstr "{target} のスキャンに失敗しました（{detail}）。向こうでは何も変更していません。"
+
+#, python-brace-format
+msgid ""
+"Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
+msgstr "このマシンに SSH クライアントがありません（コマンド {detail}）：openssh をインストールしてください。"
+
+#, python-brace-format
+msgid ""
+"{target} n'a jamais été jointe depuis ce compte. Vérifiez que l'empreinte de"
+" sa clé est bien la sienne (sur la machine : ssh-keygen -lf "
+"/etc/ssh/ssh_host_ed25519_key.pub) :"
+msgstr ""
+"{target} にはこのアカウントから一度も接続したことがありません。鍵のフィンガープリントが本物か確認してください（そのマシンで：ssh-"
+"keygen -lf /etc/ssh/ssh_host_ed25519_key.pub）："
+
+msgid "En lui faisant confiance, elle est ajoutée à votre ~/.ssh/known_hosts."
+msgstr "信頼すると、あなたの ~/.ssh/known_hosts に追加されます。"
+
+msgid "Ses applications restent dans le registre, marquées « Injoignable »."
+msgstr "そのアプリケーションはレジストリに残り、「接続不可」と表示されます。"
+
+#, python-brace-format
+msgid "{machine} : {count} application(s) omega trouvée(s)."
+msgstr "{machine}：omega アプリケーションが {count} 件見つかりました。"
+
+msgid "Aucune machine distante pour l'instant."
+msgstr "今のところリモートマシンはありません。"
+
+#, python-brace-format
+msgid "  · {machine} — {count} application(s), dernier scan {date} ({state})"
+msgstr "  · {machine} — アプリケーション {count} 件、最終スキャン {date}（{state}）"
+
+#, python-brace-format
+msgid "{tool} crée ou met à jour son jeton d'installation ({root})"
+msgstr "{tool} がインストールトークンを作成または更新（{root}）"
+
+#, python-brace-format
+msgid ""
+"omega-serv répare les droits partagés avec le service {service} ({root})"
+msgstr "omega-serv がサービス {service} と共有する権限を修復（{root}）"
+
+msgid ""
+"omega-jail remet à jour ce qu'il a posé dans fail2ban (contenu et droits)"
+msgstr "omega-jail が fail2ban に配置したもの（内容と権限）を更新"
+
+#, python-brace-format
+msgid ""
+"{root} appartient au compte {account} : à lancer sous ce compte, ou avec "
+"omega-connect en root."
+msgstr ""
+"{root} は {account} アカウントの所有です：そのアカウントで実行するか、omega-connect を root で実行してください。"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} dans {root} : environnement Python ou carte d'identité "
+"manquants"
+msgstr "{root} の {tool} {version}：Python 環境または ID カードがありません"
+
+#, python-brace-format
+msgid "{tool} {version} dans {root} : {minimum} ou plus récent requis"
+msgstr "{root} の {tool} {version}：{minimum} 以降が必要です"
+
+msgid "Réparer : corrections faites par les outils eux-mêmes"
+msgstr "修復：ツール自身による修正"
+
+msgid "Rien à réparer : « verifier » ne signale aucun écart corrigeable."
+msgstr "修復するものはありません：「verifier」は修正可能な不整合を報告していません。"
+
+msgid ""
+"Trop ancien pour être réparé (ses commandes n'existent pas encore dans cette"
+" version) ; à mettre à jour d'abord (Registre → « Mettre à jour "
+"l'application ») :"
+msgstr ""
+"古すぎて修復できません（このバージョンにはまだそのコマンドがありません）。先に更新してください（レジストリ →「アプリケーションを更新」）："
+
+msgid ""
+"Installation inachevée (son install.sh ne s'est pas terminé) : à réinstaller"
+" d'abord (Registre → « Réinstaller l'application ») :"
+msgstr ""
+"インストール未完了（install.sh が完了していません）。先に再インストールしてください（レジストリ →「アプリケーションを再インストール」）："
+
+msgid "Commandes qui seront lancées, une à une (arrêt au premier échec) :"
+msgstr "1 つずつ実行されるコマンド（最初の失敗で停止）："
+
+msgid "en root"
+msgstr "root で"
+
+#, python-brace-format
+msgid "sous le compte {account}"
+msgstr "{account} アカウントで"
+
+msgid ""
+"Zone neutre : « etablir » corrige ce que le registre dit avoir créé ; son "
+"plan sera affiché ensuite, avant tout lancement :"
+msgstr "中立ゾーン：「etablir」はレジストリに作成済みと記載されたものを修正します。その計画は、実行前に続けて表示されます："
+
+msgid ""
+"Ensuite : « etablir » reliera à la zone les outils dont le jeton vient "
+"d'être créé ; son plan sera affiché avant tout lancement."
+msgstr "続いて：「etablir」が、トークンを作成したばかりのツールをゾーンに連携します。その計画は実行前に表示されます。"
+
+msgid ""
+"Zone neutre : illisible sans sudo avant votre reconnexion, son état n'est "
+"pas connu. « etablir » va la lire avec sudo et ne fera que ce qui manque "
+"(outils pas encore reliés, copies, groupe du service) ; son plan sera "
+"affiché avant tout lancement."
+msgstr ""
+"中立ゾーン：再ログインまでは sudo なしで読めないため、状態は不明です。「etablir」は sudo "
+"で読み取り、不足しているもの（未連携のツール、コピー、サービスのグループ）だけを行います。その計画は実行前に表示されます。"
+
+msgid "Non lancé depuis cette session :"
+msgstr "このセッションからは未実行："
+
+msgid ""
+"À faire à la main (aucun outil ne sait le corriger lui-même ; omega-connect "
+"ne réécrit jamais le fichier d'un autre outil) :"
+msgstr "手動で行うこと（どのツールも自分では修正できません。omega-connect が他のツールのファイルを書き換えることはありません）："
+
+msgid "À décider (jamais lancé par « reparer ») :"
+msgstr "要判断（「reparer」で実行されることはありません）："
+
+msgid "code"
+msgstr "コード"
+
+#, python-brace-format
+msgid ""
+"Terminé : {count} commande(s) lancée(s), toutes réussies. Relancez « "
+"verifier » pour constater."
+msgstr "完了：{count} 件のコマンドを実行し、すべて成功しました。確認するには「verifier」を再実行してください。"
+
+#, python-brace-format
+msgid "Arrêt à l'étape « {step} » : {error}"
+msgstr "手順「{step}」で中止：{error}"
+
+msgid ""
+"Rien d'autre n'a été lancé. Relancez « reparer » après avoir corrigé la "
+"cause."
+msgstr "他には何も実行していません。原因を直してから「reparer」を再実行してください。"
+
+msgid "dossier"
+msgstr "フォルダー"
+
+msgid "groupe"
+msgstr "グループ"
+
+msgid "membre du groupe"
+msgstr "グループのメンバー"
+
+msgid "groupe donné au service (par omega-serv)"
+msgstr "サービスに付与されたグループ（omega-serv による）"
+
+msgid "active (synchronisée)"
+msgstr "有効（同期中）"
+
+msgid "figée (plus synchronisée)"
+msgstr "固定（同期停止）"
+
+#, python-brace-format
+msgid ""
+"Pas encore d'espace partagé sur cette machine ({zone}) : la Synchronisation "
+"le prépare."
+msgstr "このマシンにはまだ共有スペースがありません（{zone}）：同期で準備されます。"
+
+#, python-brace-format
+msgid ""
+"Espace partagé {zone} présent, lisible par root et le groupe omega-synchro "
+"seulement (rapport fait sans sudo ; le groupe compte après une reconnexion)."
+msgstr ""
+"共有スペース {zone} はあります。root と omega-synchro グループだけが読めます（レポートは sudo "
+"なしで作成。グループは再ログイン後に有効になります）。"
+
+#, python-brace-format
+msgid "Espace partagé {zone} : registre {status} ({detail})."
+msgstr "共有スペース {zone}：レジストリ {status}（{detail}）。"
+
+#, python-brace-format
+msgid "Espace partagé {zone} — {state} — mis à jour le {date}."
+msgstr "共有スペース {zone} — {state} — {date} に更新。"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : installation inachevée → « Réinstaller l'application »"
+msgstr "{tool} {version}：インストール未完了 →「アプリケーションを再インストール」"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} → {minimum} ou plus récent : « Mettre à jour l'application "
+"»"
+msgstr "{tool} {version} → {minimum} 以降：「アプリケーションを更新」"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : à mettre à jour sur ce poste, section « Mise à jour » du "
+"README de l'outil"
+msgstr "{tool} {version}：このマシンで更新してください（ツールの README の「更新」セクション）"
+
+msgid "corrigé par l'outil lui-même (menu Réparer)"
+msgstr "ツール自身が修正（修復メニュー）"
+
+#, python-brace-format
+msgid "commande à lancer sur ce poste : {command}"
+msgstr "このマシンで実行するコマンド：{command}"
+
+#, python-brace-format
+msgid "commande lancée sur la machine par le menu Réparer : {command}"
+msgstr "修復メニューがマシン上で実行するコマンド：{command}"
+
+msgid "aucune correction connue"
+msgstr "既知の修正なし"
+
+msgid ""
+"Machines qui ne répondent plus — Scanner → « Rescanner les machines connues "
+"»"
+msgstr "応答しなくなったマシン — スキャン →「既知のマシンを再スキャン」"
+
+msgid "À réinstaller ou à mettre à jour — Registre, bouton sous la ligne"
+msgstr "再インストールまたは更新が必要 — レジストリ、行の下のボタン"
+
+msgid "À réparer — menu Réparer"
+msgstr "要修復 — 修復メニュー"
+
+msgid "À synchroniser — menu Synchronisation"
+msgstr "要同期 — 同期メニュー"
+
+#, python-brace-format
+msgid "{machine} — {tool} : {state}"
+msgstr "{machine} — {tool}：{state}"
+
+msgid "application inconnue"
+msgstr "不明なアプリケーション"
+
+#, python-brace-format
+msgid "propriétaire : {owner} ; trouvée par : {sources}"
+msgstr "所有者：{owner}、検出元：{sources}"
+
+#, python-brace-format
+msgid "carte d'identité : {card}"
+msgstr "ID カード：{card}"
+
+#, python-brace-format
+msgid "instance {instance}"
+msgstr "インスタンス {instance}"
+
+#, python-brace-format
+msgid "description : {what}"
+msgstr "説明：{what}"
+
+msgid "Remarques :"
+msgstr "注記："
+
+msgid "Aucune application omega trouvée."
+msgstr "omega アプリケーションは見つかりませんでした。"
+
+#, python-brace-format
+msgid ""
+"{machine} — {target} — {state} — dernier scan {date} — {apps} "
+"application(s), {links} liaison(s)"
+msgstr ""
+"{machine} — {target} — {state} — 最終スキャン {date} — アプリケーション {apps} 件、連携 "
+"{links} 件"
+
+#, python-brace-format
+msgid "dernière erreur : {error}"
+msgstr "最後のエラー：{error}"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — RAPPORT COMPLET"
+msgstr "OMEGA-CONNECT {version} — 完全なレポート"
+
+#, python-brace-format
+msgid ""
+"Établi le {date} depuis {machine}, machines du réseau rescannées (lecture "
+"seule, sans root)."
+msgstr "{date} に {machine} から作成。ネットワーク上のマシンを再スキャン済み（読み取り専用、root 不要）。"
+
+msgid "BILAN"
+msgstr "概要"
+
+#, python-brace-format
+msgid "{machines} machine(s) : {machine} et {remote} du réseau."
+msgstr "マシン {machines} 台：{machine} とネットワーク上の {remote} 台。"
+
+#, python-brace-format
+msgid "{count} application(s) : {summary}."
+msgstr "アプリケーション {count} 件：{summary}。"
+
+#, python-brace-format
+msgid "{count} liaison(s) : {summary}."
+msgstr "連携 {count} 件：{summary}。"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : {state}."
+msgstr "{machine} の共有スペース：{state}。"
+
+msgid "À FAIRE"
+msgstr "やること"
+
+msgid "Rien à faire : toutes les applications sont à jour et reliées."
+msgstr "何もする必要はありません：すべてのアプリケーションが最新で、連携済みです。"
+
+msgid "REGISTRE — APPLICATIONS PAR MACHINE"
+msgstr "レジストリ — マシンごとのアプリケーション"
+
+msgid "MACHINES DU RÉSEAU"
+msgstr "ネットワーク上のマシン"
+
+msgid "Aucune (Scanner → machine distante, pour en ajouter)."
+msgstr "なし（追加するには スキャン → リモートマシン）。"
+
+#, python-brace-format
+msgid "APPLICATIONS DE {machine} EN DÉTAIL"
+msgstr "{machine} のアプリケーションの詳細"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (tous les contrôles)"
+msgstr "{machine} の連携（すべてのチェック）"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (réseau, scan du {date})"
+msgstr "{machine} の連携（ネットワーク、{date} のスキャン）"
+
+msgid "Aucune liaison relevée."
+msgstr "連携は見つかりませんでした。"
+
+#, python-brace-format
+msgid "ESPACE PARTAGÉ (omega-synchro) DE {machine} ET SON REGISTRE"
+msgstr "{machine} の共有スペース（omega-synchro）とそのレジストリ"
+
+msgid "Créé par omega-connect :"
+msgstr "omega-connect が作成したもの："
+
+msgid "rien"
+msgstr "なし"
+
+msgid "Applications reliées :"
+msgstr "連携済みのアプリケーション："
+
+msgid "reliée le"
+msgstr "連携日"
+
+msgid "conforme"
+msgstr "正常"
+
+msgid "info"
+msgstr "情報"
+
+msgid "écart"
+msgstr "不整合"
+
+msgid "non vérifiable"
+msgstr "確認不可"
+
+msgid "partielle"
+msgstr "部分的"
+
+#, python-brace-format
+msgid "instance « {instance} » — {root}"
+msgstr "インスタンス「{instance}」 — {root}"
+
+msgid "machine"
+msgstr "マシン"
+
+msgid "Aucun contrôle."
+msgstr "チェックはありません。"
+
+msgid "Rapport complet"
+msgstr "完全なレポート"
+
+#, python-brace-format
+msgid "{count} liaison(s), dont {problems} à corriger."
+msgstr "連携 {count} 件、うち要修正 {problems} 件。"
+
+msgid "Applications"
+msgstr "アプリケーション"
+
+msgid "À faire"
+msgstr "やること"
+
+msgid "Registre — applications par machine"
+msgstr "レジストリ — マシンごとのアプリケーション"
+
+msgid "Application"
+msgstr "アプリケーション"
+
+msgid "Instance / service"
+msgstr "インスタンス / サービス"
+
+msgid "Machine"
+msgstr "マシン"
+
+msgid "Version"
+msgstr "バージョン"
+
+msgid "Dossier"
+msgstr "フォルダ"
+
+msgid "Machines du réseau"
+msgstr "ネットワーク上のマシン"
+
+msgid "Connexion"
+msgstr "接続"
+
+msgid "Dernier scan"
+msgstr "最終スキャン"
+
+msgid "Dernière erreur"
+msgstr "最後のエラー"
+
+msgid "Liaisons"
+msgstr "連携"
+
+#, python-brace-format
+msgid "Applications de {machine} en détail"
+msgstr "{machine} のアプリケーションの詳細"
+
+msgid "Propriétaire"
+msgstr "所有者"
+
+msgid "Trouvée par"
+msgstr "検出元"
+
+msgid "Carte d'identité"
+msgstr "ID カード"
+
+msgid "Aucun outil omega trouvé."
+msgstr "omega ツールは見つかりませんでした。"
+
+#, python-brace-format
+msgid "Identifiant en double {identifier} : {roots}"
+msgstr "識別子 {identifier} が重複しています：{roots}"
+
+msgid "Remarques sur la recherche"
+msgstr "検索に関する注記"
+
+#, python-brace-format
+msgid "Liaisons de {machine}"
+msgstr "{machine} の連携"
+
+#, python-brace-format
+msgid "Liaisons de {machine} (réseau, scan du {date})"
+msgstr "{machine} の連携（ネットワーク、{date} のスキャン）"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} et son registre"
+msgstr "{machine} の共有スペースとそのレジストリ"
+
+msgid "Créé le"
+msgstr "作成日時"
+
+msgid "Élément"
+msgstr "項目"
+
+msgid "Identifiant"
+msgstr "識別子"
+
+msgid "Instance"
+msgstr "インスタンス"
+
+msgid "Reliée le"
+msgstr "連携日"
+
+msgid "Aucune application reliée."
+msgstr "連携済みのアプリケーションはありません。"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — rapport du {date}, établi depuis {machine}."
+msgstr "OMEGA-CONNECT {version} — {date} のレポート、{machine} から作成。"
+
+msgid "Rapport complet - Omega-Connect"
+msgstr "完全なレポート - Omega-Connect"
+
+msgid "Journaux d'omega-serv → jails fail2ban"
+msgstr "omega-serv のログ → fail2ban の jail"
+
+msgid "Journaux magnet (omega-waf) → jails fail2ban"
+msgstr "magnet のログ（omega-waf）→ fail2ban の jail"
+
+msgid "Pont fail2ban → liste noire d'omega-serv"
+msgstr "fail2ban ブリッジ → omega-serv のブラックリスト"
+
+msgid "Liste protégée → jails et pont"
+msgstr "保護リスト → jail とブリッジ"
+
+msgid "Liste noire d'omega-serv (droits)"
+msgstr "omega-serv のブラックリスト（権限）"
+
+msgid "Fichiers d'omega-jail dans fail2ban"
+msgstr "fail2ban 内の omega-jail のファイル"
+
+msgid "Cartes d'identité"
+msgstr "ID カード"
+
+msgid "Espace partagé (omega-synchro)"
+msgstr "共有スペース（omega-synchro）"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "à réparer"
+msgstr "要修復"
+
+msgid "à réparer (bloquant)"
+msgstr "要修復（重大）"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — le dossier qui le contient n'est "
+"lisible que par root ({detail})."
+msgstr "{subject}：root なしでは確認できません — それを含むフォルダーは root しか読めません（{detail}）。"
+
+msgid "fail2ban n'est pas installé : aucun jail ne protège cette instance."
+msgstr "fail2ban がインストールされていません：このインスタンスを保護する jail はありません。"
+
+#, python-brace-format
+msgid "dossiers de fail2ban illisibles ({detail}) : non vérifiable sans root."
+msgstr "fail2ban のフォルダーを読み取れません（{detail}）：root なしでは確認できません。"
+
+msgid ""
+"omega-jail n'est pas installé : aucun jail fail2ban ne lit les journaux "
+"d'omega-serv."
+msgstr "omega-jail がインストールされていません：omega-serv のログを読む fail2ban の jail はありません。"
+
+msgid "aucun jail d'omega-jail pour cette instance."
+msgstr "このインスタンス用の omega-jail の jail がありません。"
+
+msgid "omega-jail n'a encore posé aucun fichier dans fail2ban."
+msgstr "omega-jail はまだ fail2ban にファイルを配置していません。"
+
+#, python-brace-format
+msgid "fonction {subject} désactivée : rien à relier."
+msgstr "機能 {subject} は無効です：連携するものはありません。"
+
+msgid ""
+"non vérifiable : l'outil n'a pas fourni sa description (version trop "
+"ancienne, ou refusée) — voir le Registre."
+msgstr "確認不可：ツールが説明を提供していません（バージョンが古すぎるか、拒否されました） — レジストリを参照してください。"
+
+#, python-brace-format
+msgid "jail {subject} désactivé (enabled = false)."
+msgstr "jail {subject} は無効です（enabled = false）。"
+
+#, python-brace-format
+msgid ""
+"jail {subject} : filtre {detail} introuvable dans filter.d — fail2ban refuse"
+" de démarrer."
+msgstr ""
+"jail {subject}：フィルター {detail} が filter.d に見つかりません — fail2ban は起動を拒否します。"
+
+#, python-brace-format
+msgid "journal {subject} présent ({detail})."
+msgstr "ログ {subject} あり（{detail}）。"
+
+#, python-brace-format
+msgid ""
+"journal {subject} absent (jail {detail}) : fail2ban refuse de démarrer tant "
+"qu'il manque."
+msgstr "ログ {subject} がありません（jail {detail}）：これがない限り fail2ban は起動を拒否します。"
+
+#, python-brace-format
+msgid ""
+"journal {subject} appartient à root ({detail}) : le service omega-serv ne "
+"peut plus y écrire."
+msgstr "ログ {subject} は root の所有です（{detail}）：omega-serv サービスはもう書き込めません。"
+
+#, python-brace-format
+msgid ""
+"journal {subject} : droits {detail} ; le service omega-serv risque de ne pas"
+" pouvoir y écrire."
+msgstr "ログ {subject}：権限 {detail}。omega-serv サービスが書き込めない恐れがあります。"
+
+#, python-brace-format
+msgid ""
+"jail {subject} ne lit pas le fichier qu'écrit l'instance ({detail}) : il ne "
+"bannira jamais."
+msgstr "jail {subject} はインスタンスが書き込むファイルを読んでいません（{detail}）：BAN することはありません。"
+
+#, python-brace-format
+msgid ""
+"jail {subject} : la fonction qui écrit son journal ({detail}) est "
+"désactivée, le jail reste sans effet."
+msgstr "jail {subject}：そのログを書き込む機能（{detail}）が無効のため、jail は効果がありません。"
+
+#, python-brace-format
+msgid ""
+"jail {subject} lit {detail} : aucune instance omega-serv détectée à cet "
+"endroit."
+msgstr "jail {subject} は {detail} を読んでいます：その場所に omega-serv インスタンスは検出されていません。"
+
+#, python-brace-format
+msgid ""
+"journal {subject} ({detail}) : fonction active mais aucun jail ne le lit."
+msgstr "ログ {subject}（{detail}）：機能は有効ですが、どの jail も読んでいません。"
+
+#, python-brace-format
+msgid ""
+"omega-waf est en mode log-only (il note les attaques sans bannir), mais le "
+"jail {subject} posé par omega-jail dans fail2ban bannit, lui, au niveau "
+"réseau. omega-connect indique l'état et relie les outils ; il ne se "
+"substitue pas à fail2ban."
+msgstr ""
+"omega-waf は log-only モードです（攻撃を記録するだけで BAN しません）が、omega-jail が fail2ban に配置した"
+" jail {subject} はネットワークレベルで BAN します。omega-connect "
+"は状態を示してツールを連携するだけで、fail2ban の代わりにはなりません。"
+
+#, python-brace-format
+msgid "pont {subject} vers la liste noire de cette instance ({detail})."
+msgstr "このインスタンスのブラックリストへのブリッジ {subject}（{detail}）。"
+
+msgid ""
+"aucun pont vers la liste noire de cette instance : un ban derrière Tailscale"
+" reste sans effet."
+msgstr "このインスタンスのブラックリストへのブリッジがありません：Tailscale の背後での BAN は効果がありません。"
+
+#, python-brace-format
+msgid ""
+"pont {subject} sans omega-serv (installé quand omega-serv était introuvable)"
+" : aucun ban relayé."
+msgstr ""
+"omega-serv のないブリッジ {subject}（omega-serv が見つからなかったときにインストール）：BAN は中継されません。"
+
+#, python-brace-format
+msgid ""
+"jail {subject} utilise l'action {detail}, absente d'action.d : fail2ban "
+"refuse de démarrer."
+msgstr ""
+"jail {subject} はアクション {detail} を使っていますが、action.d にありません：fail2ban は起動を拒否します。"
+
+#, python-brace-format
+msgid "jail {subject} relaie ses bans vers une autre instance ({detail})."
+msgstr "jail {subject} は BAN を別のインスタンスに中継しています（{detail}）。"
+
+#, python-brace-format
+msgid "pont {subject} : l'instance visée a disparu ({detail})."
+msgstr "ブリッジ {subject}：対象のインスタンスが消えています（{detail}）。"
+
+#, python-brace-format
+msgid ""
+"pont {subject} : l'instance visée ({detail}) n'a pas été détectée (autre "
+"compte ?)."
+msgstr "ブリッジ {subject}：対象のインスタンス（{detail}）が検出されていません（別のアカウント？）。"
+
+#, python-brace-format
+msgid "jail {subject} sans pont vers la liste noire."
+msgstr "jail {subject} にブラックリストへのブリッジがありません。"
+
+#, python-brace-format
+msgid "script du pont {subject} conforme ({detail})."
+msgstr "ブリッジ {subject} のスクリプトは正常です（{detail}）。"
+
+#, python-brace-format
+msgid "script du pont {subject} absent : aucun ban n'est relayé."
+msgstr "ブリッジ {subject} のスクリプトがありません：BAN は中継されません。"
+
+#, python-brace-format
+msgid ""
+"script du pont {subject} modifiable par un autre compte que root ({detail}),"
+" alors que fail2ban le lance en root."
+msgstr ""
+"ブリッジ {subject} のスクリプトが root 以外のアカウントから変更可能です（{detail}）。fail2ban はこれを root "
+"で実行します。"
+
+#, python-brace-format
+msgid "script du pont {subject} : droits {detail} au lieu de root:root 0755."
+msgstr "ブリッジ {subject} のスクリプト：権限が root:root 0755 ではなく {detail} です。"
+
+#, python-brace-format
+msgid ""
+"non vérifiable : la description d'omega-serv ne donne pas sa liste protégée "
+"({detail} ; version antérieure à 2.6.1 ?), comparaison impossible."
+msgstr "確認不可：omega-serv の説明に保護リストがありません（{detail}。2.6.1 より前のバージョン？）。比較できません。"
+
+#, python-brace-format
+msgid "jail {subject} : ignoreip identique à la liste protégée d'omega-serv."
+msgstr "jail {subject}：ignoreip は omega-serv の保護リストと同じです。"
+
+#, python-brace-format
+msgid ""
+"jail {subject} : ignoreip différent de la liste protégée d'omega-serv (en "
+"plus « + », en moins « - » : {detail})."
+msgstr ""
+"jail {subject}：ignoreip が omega-serv の保護リストと異なります（余分「+」、不足「-」：{detail}）。"
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés identiques à la liste protégée d'omega-"
+"serv."
+msgstr "ブリッジ {subject}：除外ネットワークは omega-serv の保護リストと同じです。"
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés différents de la liste protégée d'omega-"
+"serv (en plus « + », en moins « - » : {detail})."
+msgstr ""
+"ブリッジ {subject}：除外ネットワークが omega-serv の保護リストと異なります（余分「+」、不足「-」：{detail}）。"
+
+msgid "liste noire désactivée : rien à relier."
+msgstr "ブラックリストは無効です：連携するものはありません。"
+
+#, python-brace-format
+msgid "liste noire {subject} pas encore créée (aucun ban jusqu'ici)."
+msgstr "ブラックリスト {subject} はまだ作成されていません（これまで BAN なし）。"
+
+#, python-brace-format
+msgid "liste noire {subject} conforme ({detail})."
+msgstr "ブラックリスト {subject} は正常です（{detail}）。"
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} appartient à root ({detail}) : le service ne peut plus"
+" la lire et le site répond en erreur."
+msgstr "ブラックリスト {subject} は root の所有です（{detail}）：サービスがもう読めず、サイトがエラーを返します。"
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : mauvais groupe ({detail}) ; le service ne peut pas "
+"la lire."
+msgstr "ブラックリスト {subject}：グループが違います（{detail}）。サービスが読めません。"
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : droits {detail}, il faut au moins 0660 (lecture et "
+"écriture pour le groupe du service)."
+msgstr "ブラックリスト {subject}：権限 {detail}。少なくとも 0660（サービスのグループに読み書き）が必要です。"
+
+#, python-brace-format
+msgid "liste noire {subject} : propriétaire inattendu ({detail})."
+msgstr "ブラックリスト {subject}：予期しない所有者です（{detail}）。"
+
+#, python-brace-format
+msgid "{subject} fichier(s) d'omega-jail conforme(s)."
+msgstr "omega-jail のファイル {subject} 件は正常です。"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — fichier illisible pour votre compte."
+msgstr "{subject}：root なしでは確認できません — あなたのアカウントではファイルを読めません。"
+
+#, python-brace-format
+msgid ""
+"{subject} modifiable par un autre compte que root ({detail}), alors que "
+"fail2ban le lit en root."
+msgstr ""
+"{subject} は root 以外のアカウントから変更可能です（{detail}）。fail2ban はこれを root で読み込みます。"
+
+#, python-brace-format
+msgid "{subject} : droits {detail} au lieu de root:root 0644."
+msgstr "{subject}：権限が root:root 0644 ではなく {detail} です。"
+
+#, python-brace-format
+msgid "{subject} abîmé ({detail}) : fail2ban risque de refuser de démarrer."
+msgstr "{subject} が破損しています（{detail}）：fail2ban が起動を拒否する恐れがあります。"
+
+#, python-brace-format
+msgid ""
+"{subject} : action du pont abîmée ou modifiée à la main (ligne actionban "
+"introuvable)."
+msgstr "{subject}：ブリッジのアクションが破損しているか手動で変更されています（actionban 行が見つかりません）。"
+
+#, python-brace-format
+msgid "{subject} : carte d'identité présente (identifiant {detail}…)."
+msgstr "{subject}：ID カードあり（識別子 {detail}…）。"
+
+#, python-brace-format
+msgid "{subject} ({detail}) : pas encore de carte d'identité."
+msgstr "{subject}（{detail}）：まだ ID カードがありません。"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : version trop ancienne : ni carte d'identité ni "
+"description."
+msgstr "{subject}（{detail}）：バージョンが古すぎます：ID カードも説明もありません。"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : installation inachevée (environnement Python ou carte"
+" d'identité manquants) : à réinstaller."
+msgstr ""
+"{subject}（{detail}）：インストール未完了（Python 環境または ID カードがありません）：再インストールが必要です。"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, carte d'identité illisible pour votre compte "
+"(droits du fichier ou du dossier : {detail})."
+msgstr "{subject}：確認不可。あなたのアカウントでは ID カードを読めません（ファイルまたはフォルダーの権限：{detail}）。"
+
+#, python-brace-format
+msgid "{subject} : carte d'identité abîmée ({detail})."
+msgstr "{subject}：ID カードが破損しています（{detail}）。"
+
+#, python-brace-format
+msgid ""
+"{subject} : carte d'identité d'une version plus récente qu'omega-connect "
+"({detail})."
+msgstr "{subject}：omega-connect より新しいバージョンの ID カードです（{detail}）。"
+
+#, python-brace-format
+msgid ""
+"{subject} : droits {detail} au lieu de 0644 (ou 0664), au nom du "
+"propriétaire du dossier."
+msgstr "{subject}：権限が {detail} です。0644（または 0664）で、フォルダー所有者の名義である必要があります。"
+
+#, python-brace-format
+msgid ""
+"identifiant {subject} en double : {detail} (dossier copié à la main ?)."
+msgstr "識別子 {subject} が重複しています：{detail}（フォルダーを手動でコピーしましたか？）。"
+
+#, python-brace-format
+msgid ""
+"espace partagé {subject} pas encore préparé : la Synchronisation le prépare."
+msgstr "共有スペース {subject} はまだ準備されていません：同期で準備されます。"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien n'y "
+"est lu."
+msgstr "{subject} は実際のフォルダーではありません（シンボリックリンクまたはファイル）：何も読み取りません。"
+
+#, python-brace-format
+msgid ""
+"{subject} existe sans registre : créé à la main ou par autre chose qu'omega-"
+"connect (rien n'y sera fait)."
+msgstr "{subject} はレジストリなしで存在します：手動、または omega-connect 以外で作成されたものです（何もしません）。"
+
+#, python-brace-format
+msgid "{subject} : non vérifiable, illisible pour votre compte ({detail})."
+msgstr "{subject}：確認不可。あなたのアカウントでは読めません（{detail}）。"
+
+#, python-brace-format
+msgid ""
+"en attente de reconnexion : {subject} est déjà membre du groupe omega-"
+"synchro, mais la session ouverte ne le sait pas encore. {detail} sera "
+"vérifié après la prochaine connexion (ou Registre → « Lire avec sudo »)."
+msgstr ""
+"再ログイン待ち：{subject} はすでに omega-synchro "
+"グループのメンバーですが、開いているセッションはまだそれを認識していません。{detail} は次回のログイン後に確認されます（またはレジストリ "
+"→「sudo で読む」）。"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, lisible par root et le groupe omega-synchro "
+"seulement, et {detail} n'en est pas membre."
+msgstr ""
+"{subject}：確認不可。root と omega-synchro グループだけが読め、{detail} はそのメンバーではありません。"
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est retiré tant qu'il n'est pas"
+" réparé."
+msgstr "レジストリ {subject} が破損しています（{detail}）：修復されるまで何も削除しません。"
+
+msgid "espace partagé figé : gardé tel quel, plus synchronisé."
+msgstr "共有スペースは固定：そのまま保持され、同期は停止しています。"
+
+#, python-brace-format
+msgid ""
+"{detail} dossier(s) de l'espace partagé conformes (root:omega-synchro 2750)."
+msgstr "共有スペースのフォルダー {detail} 件は正常です（root:omega-synchro 2750）。"
+
+#, python-brace-format
+msgid "dossier {subject} manquant."
+msgstr "フォルダー {subject} がありません。"
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 2750."
+msgstr "{subject}：root:omega-synchro 2750 ではなく {detail} です。"
+
+#, python-brace-format
+msgid "groupe {subject} absent alors que l'espace partagé existe."
+msgstr "共有スペースがあるのに、グループ {subject} がありません。"
+
+#, python-brace-format
+msgid "{subject} est membre du groupe omega-synchro."
+msgstr "{subject} は omega-synchro グループのメンバーです。"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas membre du groupe omega-synchro : l'espace partagé lui "
+"est illisible."
+msgstr "{subject} は omega-synchro グループのメンバーではありません：共有スペースを読めません。"
+
+#, python-brace-format
+msgid ""
+"{subject} est membre du groupe omega-synchro ; cela comptera à la prochaine "
+"connexion."
+msgstr "{subject} は omega-synchro グループのメンバーです。次回のログインから有効になります。"
+
+#, python-brace-format
+msgid "carte d'identité de {subject} à jour dans l'espace partagé ({detail})."
+msgstr "共有スペース内の {subject} の ID カードは最新です（{detail}）。"
+
+#, python-brace-format
+msgid "carte d'identité {subject} absente de l'espace partagé."
+msgstr "ID カード {subject} が共有スペースにありません。"
+
+#, python-brace-format
+msgid ""
+"carte d'identité de {subject} périmée dans l'espace partagé ({detail}) : "
+"version, racine ou contrats changés."
+msgstr ""
+"共有スペース内の {subject} の ID カードが古くなっています（{detail}）：バージョン、ルート、またはコントラクトが変わりました。"
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 0640."
+msgstr "{subject}：root:omega-synchro 0640 ではなく {detail} です。"
+
+#, python-brace-format
+msgid "{subject} ({detail}) installé mais pas encore dans l'espace partagé."
+msgstr "{subject}（{detail}）はインストール済みですが、まだ共有スペースにありません。"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) relié à l'espace partagé mais introuvable : "
+"désinstallé, ou carte d'identité recréée."
+msgstr ""
+"{subject}（{detail}）は共有スペースに連携されていますが見つかりません：アンインストールされたか、ID カードが作り直されました。"
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) a le groupe omega-synchro (complément "
+"systemd posé par omega-serv)."
+msgstr ""
+"サービス {subject}（{detail}）は omega-synchro グループを持っています（omega-serv が配置した systemd"
+" の追加設定）。"
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) tourne sous un compte dédié sans le groupe "
+"omega-synchro : il ne pourra pas lire l'espace partagé. La Synchronisation "
+"demande à omega-serv de le lui donner."
+msgstr ""
+"サービス {subject}（{detail}）は omega-synchro "
+"グループのない専用アカウントで動作しています：共有スペースを読めません。同期で omega-serv にグループの付与を依頼します。"
+
+msgid "correction : Synchronisation (omega-connect synchroniser)"
+msgstr "修正：同期（omega-connect synchroniser）"
+
+#, python-brace-format
+msgid "correction (compte {account}) : {command}"
+msgstr "修正（{account} アカウント）：{command}"
+
+#, python-brace-format
+msgid "correction : {command}"
+msgstr "修正：{command}"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) (--detail pour les voir)"
+msgstr "正常なチェック {count} 件（表示するには --detail）"
+
+msgid ""
+"Vérification des liens entre outils omega (lecture seule, rien n'est "
+"modifié)"
+msgstr "omega ツール間の連携を確認（読み取り専用、何も変更しません）"
+
+#, python-brace-format
+msgid "omega-serv « {instance} » — {root}"
+msgstr "omega-serv「{instance}」 — {root}"
+
+msgid "Hors des instances détectées"
+msgstr "検出されたインスタンス以外"
+
+#, python-brace-format
+msgid "Bilan : {summary}."
+msgstr "概要：{summary}。"
+
+msgid ""
+"Les corrections ne sont jamais lancées par « verifier » : relisez-les avant "
+"de les exécuter."
+msgstr "修正が「verifier」で実行されることはありません：実行する前によく確認してください。"
+
+#, python-brace-format
+msgid ""
+"{count} écart(s) corrigeable(s) par « reparer » (commandes des outils, "
+"affichées avant tout lancement)."
+msgstr "「reparer」で修正可能な不整合 {count} 件（ツールのコマンド、実行前に表示）。"
+
+#, python-brace-format
+msgid "Établir la zone neutre {zone}"
+msgstr "中立ゾーン {zone} を確立"
+
+#, python-brace-format
+msgid "Tout retirer : défaire ce que le registre de {zone} liste"
+msgstr "すべて削除：{zone} のレジストリに記載されたものを元に戻す"
+
+#, python-brace-format
+msgid "Garder la zone {zone} (liens figés)"
+msgstr "ゾーン {zone} を保持（連携は固定）"
+
+#, python-brace-format
+msgid "Retirer un outil désinstallé de la zone {zone}"
+msgstr "アンインストールされたツールをゾーン {zone} から除く"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien "
+"n'est fait."
+msgstr "{subject} は実際のフォルダーではありません（シンボリックリンクまたはファイル）：何もしません。"
+
+#, python-brace-format
+msgid ""
+"{subject} existe déjà sans registre d'omega-connect : rien n'est fait. "
+"Vérifiez ce dossier, puis supprimez-le vous-même s'il est inutile."
+msgstr ""
+"{subject} は omega-connect "
+"のレジストリなしですでに存在します：何もしません。このフォルダーを確認し、不要であればご自身で削除してください。"
+
+#, python-brace-format
+msgid "{subject} n'a pas pu être lu, même avec sudo : rien n'est fait."
+msgstr "{subject} は sudo でも読み取れませんでした：何もしません。"
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est fait tant qu'il n'est pas "
+"réparé."
+msgstr "レジストリ {subject} が破損しています（{detail}）：修復されるまで何もしません。"
+
+#, python-brace-format
+msgid "aucune zone en {subject} : rien à retirer."
+msgstr "{subject} にゾーンはありません：削除するものはありません。"
+
+#, python-brace-format
+msgid ""
+"« {subject} » ne désigne aucun outil du registre (nom, dossier ou 8 premiers"
+" caractères de l'identifiant)."
+msgstr "「{subject}」はレジストリのどのツールにも該当しません（名前、フォルダー、または識別子の先頭 8 文字）。"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est toujours installé : il serait relié de nouveau à la"
+" prochaine actualisation. Désinstallez-le d'abord."
+msgstr ""
+"{subject}（{detail}）はまだインストールされています：次回の更新で再び連携されてしまいます。先にアンインストールしてください。"
+
+#, python-brace-format
+msgid "{subject} ({detail}) est toujours installé : laissé dans la zone."
+msgstr "{subject}（{detail}）はまだインストールされています：ゾーンに残しました。"
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : jeton {detail} (voir « verifier »)."
+msgstr "{subject} は連携されていません：トークン {detail}（「verifier」を参照）。"
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : identifiant {detail} en double."
+msgstr "{subject} は連携されていません：識別子 {detail} が重複しています。"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est au registre mais introuvable : « retirer {detail} »"
+" l'enlèvera."
+msgstr "{subject}（{detail}）はレジストリにありますが見つかりません：「retirer {detail}」で除けます。"
+
+#, python-brace-format
+msgid ""
+"{subject} devra se reconnecter pour que le groupe omega-synchro compte "
+"(lecture de la zone)."
+msgstr "omega-synchro グループを有効にするには {subject} の再ログインが必要です（ゾーンの読み取り）。"
+
+#, python-brace-format
+msgid "la zone {subject} est à jour : rien à faire."
+msgstr "ゾーン {subject} は最新です：何もする必要はありません。"
+
+#, python-brace-format
+msgid ""
+"{subject} n'a pas été créé par omega-connect : gardé, ainsi que son dossier."
+msgstr "{subject} は omega-connect が作成したものではありません：そのフォルダーとともに保持します。"
+
+#, python-brace-format
+msgid ""
+"le groupe {subject} est gardé (pas créé par omega-connect, ou zone pas "
+"vide)."
+msgstr "グループ {subject} は保持します（omega-connect が作成したものではないか、ゾーンが空ではありません）。"
+
+#, python-brace-format
+msgid ""
+"le service {subject} a toujours le groupe omega-synchro, mais omega-serv est"
+" introuvable pour le lui retirer : le groupe et la zone sont gardés (sans "
+"lui, le service ne démarrerait plus). Lancez « omega-serv synchro groupe-"
+"service retirer --service-name {subject} » depuis son dossier, puis "
+"relancez."
+msgstr ""
+"サービス {subject} はまだ omega-synchro グループを持っていますが、それを外すための omega-serv "
+"が見つかりません：グループとゾーンは保持します（グループがないとサービスが起動しなくなります）。omega-serv のフォルダーから「omega-"
+"serv synchro groupe-service retirer --service-name "
+"{subject}」を実行してから、やり直してください。"
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) prendra en compte le groupe omega-synchro à "
+"son prochain redémarrage : omega-connect ne le redémarre pas."
+msgstr ""
+"サービス {subject}（{detail}）は次回の再起動で omega-synchro グループを反映します：omega-connect "
+"は再起動しません。"
+
+#, python-brace-format
+msgid "{subject} figure au registre mais hors de la zone : ignoré."
+msgstr "{subject} はレジストリにありますがゾーンの外です：無視します。"
+
+msgid "la zone est déjà figée : rien à faire."
+msgstr "ゾーンはすでに固定されています：何もする必要はありません。"
+
+#, python-brace-format
+msgid "Créer le groupe {group}"
+msgstr "グループ {group} を作成"
+
+#, python-brace-format
+msgid "Créer le dossier {path}"
+msgstr "フォルダー {path} を作成"
+
+#, python-brace-format
+msgid "Remettre les droits du dossier {path}"
+msgstr "フォルダー {path} の権限を元に戻す"
+
+#, python-brace-format
+msgid "Ajouter {user} au groupe {group}"
+msgstr "{user} をグループ {group} に追加"
+
+#, python-brace-format
+msgid "Retirer {user} du groupe {group}"
+msgstr "{user} をグループ {group} から外す"
+
+#, python-brace-format
+msgid "Supprimer le groupe {group}"
+msgstr "グループ {group} を削除"
+
+#, python-brace-format
+msgid "Retirer le dossier {path}"
+msgstr "フォルダー {path} を削除"
+
+#, python-brace-format
+msgid ""
+"omega-serv donne le groupe {group} à son service {service} (complément "
+"systemd)"
+msgstr "omega-serv がサービス {service} にグループ {group} を付与（systemd の追加設定）"
+
+#, python-brace-format
+msgid "omega-serv retire le groupe {group} de son service {service}"
+msgstr "omega-serv がサービス {service} からグループ {group} を外す"
+
+msgid "Retirer le registre de l'espace partagé"
+msgstr "共有スペースのレジストリを削除"
+
+msgid "Écrire le registre de l'espace partagé"
+msgstr "共有スペースのレジストリを書き込む"
+
+#, python-brace-format
+msgid "Recopier la description de {root} (ce qu'il sait faire)"
+msgstr "{root} の説明（できること）をコピー"
+
+#, python-brace-format
+msgid "Retirer la description de {root}"
+msgstr "{root} の説明を削除"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root}"
+msgstr "{root} の ID カードをコピー"
+
+#, python-brace-format
+msgid "Retirer la carte d'identité de {root}"
+msgstr "{root} の ID カードを削除"
+
+msgid "Commandes qui seront lancées, une à une, en root :"
+msgstr "root で 1 つずつ実行されるコマンド："
+
+#, python-brace-format
+msgid "Terminé : {count} commande(s) lancée(s), toutes réussies."
+msgstr "完了：{count} 件のコマンドを実行し、すべて成功しました。"
+
+#, python-brace-format
+msgid "{done} commande(s) sur {total} avaient réussi."
+msgstr "{total} 件中 {done} 件のコマンドが成功していました。"
+
+msgid "Registre réécrit pour garder la trace de ce qui a été créé."
+msgstr "作成したものを記録するためにレジストリを書き直しました。"
+
+msgid ""
+"Le registre n'a pas pu être réécrit : notez ce qui a été créé ci-dessus."
+msgstr "レジストリを書き直せませんでした：上で作成されたものを控えておいてください。"
+
+msgid ""
+"Relancez la même commande après avoir corrigé la cause : rien n'est fait "
+"deux fois."
+msgstr "原因を直してから同じコマンドを再実行してください：同じことが二度行われることはありません。"
+
+msgid "Dossier des captures non configuré."
+msgstr "スクリーンショットフォルダーが設定されていません。"
+
+msgid "Passer d'un élément à l'autre (lignes d'un tableau, boutons)"
+msgstr "要素間を移動（表の行、ボタン）"
+
+msgid "Passer d'une zone de l'écran à l'autre"
+msgstr "画面の領域間を移動"
+
+msgid ""
+"Activer le bouton choisi ; dans une liste à cocher, cocher ou décocher la "
+"ligne"
+msgstr "選択中のボタンを実行。チェックリストでは行のチェックを切り替え"
+
+msgid "Entrée / Clic"
+msgstr "Enter / クリック"
+
+msgid "Cocher ou décocher la ligne choisie (Synchronisation)"
+msgstr "選択中の行のチェックを切り替え（同期）"
+
+msgid "Espace"
+msgstr "Space"
+
+msgid "Revenir à l'écran précédent"
+msgstr "前の画面に戻る"
+
+msgid "Cette aide, depuis n'importe quel écran"
+msgstr "このヘルプ（どの画面からでも）"
+
+msgid "Réglages, depuis n'importe quel écran"
+msgstr "設定（どの画面からでも）"
+
+msgid "Thème suivant (enregistré)"
+msgstr "次のテーマ（保存されます）"
+
+msgid "Redessiner l'écran et afficher la taille du terminal"
+msgstr "画面を再描画し、端末のサイズを表示"
+
+msgid ""
+"Commandes : thème, capture d'écran (SVG, dans le dossier des captures), "
+"quitter"
+msgstr "コマンド：テーマ、スクリーンショット（SVG、スクリーンショットフォルダーへ）、終了"
+
+msgid "Ctrl+P"
+msgstr "Ctrl+P"
+
+msgid ""
+"omega-connect relie entre elles les applications omega (omega-serv, omega-fire, omega-jail…) installées sur cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce qui manque, toujours après vous avoir montré ce qu'il va faire.\n"
+"\n"
+"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
+"2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
+"3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son plan avant d'agir et demande son mot de passe une seule fois.\n"
+"4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue d'ensemble, en cadres.\n"
+"5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
+"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre."
+msgstr ""
+"omega-connect は、このマシンとネットワーク上のマシンにインストールされた omega アプリケーション（omega-serv、omega-fire、omega-jail…）を互いに連携します。連携されているもの・いないものを表示し、足りないものを元に戻します。必ず、何をするかを先に見せてから行います。\n"
+"\n"
+"1. [b]スキャン[/b]：このマシンのアプリケーションを探します。ほかのマシンを追加します（Unison プロファイル、~/.ssh/config、known_hosts から候補を表示、または手入力）：あなたの鍵で SSH 接続し、そこには何もインストールしません。\n"
+"2. [b]レジストリ[/b]：すべてのマシンのすべてのアプリケーションとその状態の一覧。古すぎる、または正しくインストールされていないアプリケーションは、この画面から更新または再インストールできます。\n"
+"3. [b]同期[/b]：連携するものにチェックを入れ、「同期」を押します。各マシンは実行前に計画を表示し、パスワードは一度だけ尋ねます。\n"
+"4. [b]連携[/b]：すべてのマシンで、連携されているもの・いないものを確認します。[b]ダッシュボード[/b]：全体像を枠で表示します。\n"
+"5. [b]修復[/b]：問題のあるものすべての一覧。行を選ぶか、「すべて修復」を押します。\n"
+"6. [b]レポート[/b]：保存や共有のための完全な文書（テキスト、JSON、HTML ページ）。"
+
+msgid "Registre — toutes les applications et leur état"
+msgstr "レジストリ — すべてのアプリケーションとその状態"
+
+msgid ""
+"Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
+"\n"
+"- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
+"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
+"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
+msgstr ""
+"各マシン（このマシンとネットワーク上のマシン）について、見つかった omega アプリケーションごとに、インスタンスまたはサービス、バージョン、状態、フォルダーを表示します。上部の概要は状態ごとの数を示します。\n"
+"\n"
+"- [b]レジストリを更新[/b]：その場でスキャンをやり直します（このマシン、続いて既知のネットワーク上のマシン）。画面は変わりません。\n"
+"- [b]アプリケーションを更新[/b]：ネットワーク上のマシンの「旧バージョン」の行で、公開されている最新バージョンをインストールします（アプリケーションの GitHub Release、送信前に sha.txt でハッシュを確認）。先に計画が表示され、それ以外は何もしません。\n"
+"- [b]アプリケーションを再インストール[/b]：「インストール未完了」の行（install.sh が完了していない）にある同じボタン。同じバージョンを再インストールします。\n"
+"- このマシン自体では、アプリケーションの README の「更新」セクションに従って更新します。\n"
+"- 行をハイライトすると、その状態の説明と不整合が下に表示されます。"
+
+msgid "Scanner — trouver les applications, ajouter des machines"
+msgstr "スキャン — アプリケーションを探し、マシンを追加"
+
+msgid ""
+"- [b]Cette machine[/b] : cherche les applications omega (dossier personnel, services systemd, OpenRC ou runit, /srv, registre des instances d'omega-serv). Jamais de lien symbolique suivi, jamais de montage réseau parcouru.\n"
+"- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
+"- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
+"- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
+"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
+msgstr ""
+"- [b]このマシン[/b]：omega アプリケーションを探します（ホームフォルダー、systemd・OpenRC・runit のサービス、/srv、omega-serv のインスタンスのレジストリ）。シンボリックリンクはたどらず、ネットワークマウントも走査しません。\n"
+"- [b]候補のマシン[/b]：このコンピューターがすでに接続できるマシン（Unison プロファイル、~/.ssh/config、known_hosts）。行を選んで「選んだマシンをスキャン」。\n"
+"- [b]手動入力[/b]：ユーザー@マシン（名前またはアドレス）を入力して「このマシンをスキャン」。\n"
+"- [b]初回接続[/b]：マシンの鍵のフィンガープリントが表示されます。確認してから承認してください。【変更】された鍵は拒否されます（マシンの再インストール、またはなりすまし）。\n"
+"- [b]既知のマシン[/b]：「既知のマシンを再スキャン」、または「このマシンを削除」（レジストリから外れます。そのマシン上では何も変更しません）。\n"
+"- ネットワーク上のマシンのスキャンは SSH 経由でメモリ上に送られ、読み取り専用です：何もインストール・書き込みせず、パスワードも尋ねません（向こうに Python 3.10 以降が必要）。"
+
+msgid "Liaisons — ce qui est relié ou pas"
+msgstr "連携 — 連携されているもの・いないもの"
+
+msgid ""
+"Montre chaque lien entre applications, sur toutes les machines, avec son état et sa provenance (Local, ou Réseau — nom de la machine) : journaux d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers la liste noire d'omega-serv, liste protégée, liste noire partagée, fichiers d'omega-jail dans fail2ban, cartes d'identité, espace partagé.\n"
+"\n"
+"- Surlignez une ligne : ses contrôles s'affichent en dessous ; « Détail du lien » les montre tous, avec la commande de chaque correction (« Copier les commandes »).\n"
+"- Cet écran montre seulement : ce qui est « à réparer » se corrige dans le menu Réparer."
+msgstr ""
+"すべてのマシンについて、アプリケーション間の各連携を、その状態と出所（ローカル、またはネットワーク — マシン名）とともに表示します：omega-jail の jail が読む omega-serv と magnet のログ、omega-serv のブラックリストへの fail2ban ブリッジ、保護リスト、共有ブラックリスト、fail2ban 内の omega-jail のファイル、ID カード、共有スペース。\n"
+"\n"
+"- 行をハイライトすると、そのチェックが下に表示されます。「連携の詳細」ではすべてのチェックを、各修正のコマンドとともに表示します（「コマンドをコピー」）。\n"
+"- この画面は表示するだけです：「要修復」のものは修復メニューで直します。"
+
+msgid "Synchronisation — relier les applications"
+msgstr "同期 — アプリケーションを連携"
+
+msgid ""
+"Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+"- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
+"- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
+"- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
+"- Les machines passent une à une : cette machine d'abord, puis le réseau.\n"
+"- Une application trop ancienne, inachevée ou injoignable ne se coche pas : la ligne dit où aller.\n"
+"- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
+"- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
+msgstr ""
+"ひとつの一覧：すべてのマシンとそのアプリケーション（ネットワーク上のマシンは画面を開いたときに再スキャンされます）。行にチェックを入れて（Enter または Space）から：\n"
+"- [b]選択項目を同期[/b]、または [b]すべて同期[/b]。\n"
+"- [b]このマシン[/b]：計画はひとつで、実行前に表示されます — 不足している ID カード（各アプリケーションが自分のアカウントで作成）、続いて共有スペース（omega-synchro グループ、フォルダー、カードのコピー、サービスのアクセス）。管理者パスワードは 1 回だけ。\n"
+"- [b]ネットワーク上のマシン[/b]：計画はそのマシン上で計算されて表示されます。「<マシン> を同期」でここから実行します：インターフェースが端末に切り替わり、マシン自身がパスワードを 1 回だけ尋ねます。Enter でインターフェースに戻り、結果が表示されます。\n"
+"- マシンは 1 台ずつ処理されます：まずこのマシン、次にネットワーク。\n"
+"- 古すぎる、未完了、または接続不可のアプリケーションにはチェックを入れられません：行先は行に示されます。\n"
+"- [b]sudo で読む[/b]：セッションがまだ共有スペースを読めない場合（omega-synchro グループは再ログイン後に有効）、sudo を使って読み取り専用で読みます。\n"
+"- [b]詳細[/b]：omega-connect が作成したもの（共有スペースのレジストリ）と、可能な削除。"
+
+msgid "Dashboard — vue d'ensemble"
+msgstr "ダッシュボード — 全体像"
+
+msgid ""
+"Une vue d'ensemble en cadres, comme un tableau de bord web. Rien n'est modifié depuis cet écran.\n"
+"\n"
+"- [b]Machines[/b], [b]Applications[/b], [b]Liaisons[/b], [b]Espace partagé[/b] : les compteurs, avec les mêmes états que le Registre et les Liaisons.\n"
+"- [b]Liaisons par type[/b] : pour chaque type de liaison, combien sont OK sur combien.\n"
+"- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
+"- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
+"\n"
+"Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; « Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner pour les relire). Pour corriger : menu Réparer."
+msgstr ""
+"Web ダッシュボードのように、枠で表示する全体像です。この画面からは何も変更されません。\n"
+"\n"
+"- [b]マシン[/b]、[b]アプリケーション[/b]、[b]連携[/b]、[b]共有スペース[/b]：カウンター。状態はレジストリや連携と同じです。\n"
+"- [b]種類別の連携[/b]：連携の種類ごとに、OK の数と全体の数。\n"
+"- [b]このマシン / ネットワーク[/b]：同じ数字を並べて表示。\n"
+"- [b]Top 5[/b]（小さい画面では Top 3）：要修復のマシン、要修復の連携、遅れているバージョン、スキャンが最も古いもの（ネットワーク上のマシン）。\n"
+"\n"
+"このマシンは画面を開いたときに確認し、開いている間は定期的に確認します。「更新」で再確認します。ネットワーク上のマシンは最終スキャンの結果を表示します（読み直すにはスキャンメニュー）。修正するには：修復メニュー。"
+
+msgid "Réparer — tout ce qui ne va pas"
+msgstr "修復 — 問題のあるものすべて"
+
+msgid ""
+"La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
+"\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
+"- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
+"- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
+msgstr ""
+"すべてのマシンで問題のあるものすべての一覧（ネットワーク上のマシンは画面を開いたときに再スキャンされます）：マシン、問題、状態、修正元。\n"
+"\n"
+"- [b]選んだ行を修復[/b]：マシンの計画を開きます。このマシン：アプリケーション自身のコマンド（fail2ban に配置したものは omega-jail、その var/ の権限は omega-serv、ID カードは各アプリケーション）、続いて共有スペース。ネットワーク上のマシン：同じ修正に加えて、どのアプリケーションも実行できないコマンドを、ここからそのマシン上で実行します（計画に示されたものだけ）。\n"
+"- [b]すべて修復[/b]：マシンを 1 台ずつ（先に更新、次に修復）。\n"
+"- [b]詳細[/b]：選んだ行のすべてのチェック。\n"
+"- [b]コマンドをコピー[/b]（このマシンの計画）：システムのクリップボード（xclip、xsel、wl-copy）へ。使えない場合はコマンドが端末にそのまま表示されるので、マウスで選択してください。\n"
+"- omega-connect が他のアプリケーションのファイルを書き換えることはありません：そのアプリケーションのコマンドを実行します。"
+
+msgid "Rapport — un document complet"
+msgstr "レポート — 完全な文書"
+
+msgid ""
+"Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"\n"
+"- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
+"- En ligne de commande : omega-connect rapport --format html --enregistrer."
+msgstr ""
+"その場で作成（ネットワーク上のマシンは先に再スキャン）：概要、残りのやることの正確な一覧（マシン、内容、どのメニュー）、すべてのアプリケーションのレジストリ、ネットワーク上のマシン、このマシンのアプリケーションの詳細、各マシンの連携、共有スペースとそのレジストリ。\n"
+"\n"
+"- テキスト、JSON、HTML ページでエクスポートし（テーマは選択可、既定は設定のテーマ）、エクスポートフォルダーに保存します。\n"
+"- コマンドラインでは：omega-connect rapport --format html --enregistrer。"
+
+msgid ""
+"- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
+"- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
+"- Tout est enregistré dans var/settings.json."
+msgstr ""
+"- [b]インターフェースのテーマ[/b]（t キーでも可）と [b]エクスポートのテーマ[/b]：保存されます。\n"
+"- [b]エクスポートフォルダー[/b] と [b]スクリーンショットフォルダー[/b]：既定は omega-connect のフォルダー内の var/exports/ と var/screenshots/。フルパスを指定するか、空にすると既定に戻ります。\n"
+"- [b]エクスポートフォルダー / スクリーンショットフォルダーを空にする[/b]：確認の後、設定されたフォルダーの中身を削除します（フォルダーは残ります）。システムフォルダー、ホームフォルダー、omega-connect 自体のフォルダーは拒否されます。パスワードを尋ねることはありません。\n"
+"- すべて var/settings.json に保存されます。"
+
+msgid "Machines du réseau, mises à jour et sécurité"
+msgstr "ネットワーク上のマシン、更新、セキュリティ"
+
+msgid ""
+"- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
+"- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
+"- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
+msgstr ""
+"- [b]接続[/b]：あなたの鍵だけを使った SSH。omega-connect が SSH のパスワードを尋ねることはありません。パスフレーズで保護された鍵は SSH エージェントに読み込んでおく必要があります（ssh-add）。\n"
+"- [b]管理者パスワード[/b]：操作が必要とするときだけ（同期、修復、更新）、マシンごとに 1 回、あなたが端末で入力します。omega-connect がそれを見ることはありません。\n"
+"- [b]ネットワーク上のマシンに送られるもの[/b]：スキャンでは何も送りません（プログラムはメモリ上）。操作では一時的な非公開フォルダー（プログラムとアーカイブ）を送り、最後に削除します。\n"
+"- [b]更新[/b]：各アプリケーションの GitHub Release から（kraynux/<アプリケーション>、タグ v<バージョン>）。ハッシュは送信前に sha.txt で確認し、マシン上でもう一度確認します。omega-fire：旧インストールを退避し（その var/ は root の所有）、続いて install.sh が設定とデータを引き継ぎます。その他：上書きで展開し（稼働中の状態はアーカイブに含まれません）、続いて install.sh を実行します。\n"
+"- [b]端末なしでパスワードを求める可能性のあるアプリケーションは決して起動しません[/b]：sudo が黙って失敗すると 1 回の試行として数えられ、アカウントが数分間ロックされることがあります。"
+
+msgid "États — ce que veut dire chaque mot"
+msgstr "状態 — 各用語の意味"
+
+msgid ""
+"[b]Applications[/b] :\n"
+"- ● Reliée : dans l'espace partagé, à jour.\n"
+"- ◐ Inscrite : a sa carte d'identité, pas encore dans l'espace partagé (Synchronisation).\n"
+"- ○ Détectée : trouvée, sans carte d'identité (Synchronisation la lui crée).\n"
+"- ▲ À réparer : un écart (Réparer).\n"
+"- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
+"- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller l'application).\n"
+"- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n"
+"\n"
+"[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session)."
+msgstr ""
+"[b]アプリケーション[/b]：\n"
+"- ● 連携済み：共有スペースにあり、最新。\n"
+"- ◐ 登録済み：ID カードはあるが、まだ共有スペースにない（同期）。\n"
+"- ○ 検出済み：見つかったが ID カードがない（同期で作成）。\n"
+"- ▲ 要修復：不整合がある（修復）。\n"
+"- ◌ 旧バージョン：omega-connect には古すぎる（レジストリ → アプリケーションを更新）。\n"
+"- ◇ インストール未完了：install.sh が完了していない（レジストリ → アプリケーションを再インストール）。\n"
+"- ✕ 接続不可：マシンが応答しない（スキャン → 再スキャン）。\n"
+"\n"
+"[b]連携[/b]：OK、要修復、要修復（重大）、なし（連携するものがない。例：omega-jail が未インストール）、確認不可（あなたのセッションから読めない）。"
+
+msgid "Carte d'identité et espace partagé"
+msgstr "ID カードと共有スペース"
+
+msgid ""
+"- [b]Carte d'identité[/b] : un petit fichier (var/omega-jeton.json) que chaque application écrit à son installation : quelle application, quelle version, quel identifiant, sur quelle machine. Lisible par tous, jamais modifiable par les autres comptes.\n"
+"- [b]Espace partagé[/b] : /var/lib/omega-synchro, groupe omega-synchro, où seul root écrit ; omega-connect y recopie les cartes d'identité et la description de chaque application, pour qu'elles se trouvent entre elles, même quand omega-connect n'est pas lancé.\n"
+"- Tout ce qu'omega-connect crée est inscrit au registre de l'espace partagé : un retrait ne défait que ce qui y est inscrit."
+msgstr ""
+"- [b]ID カード[/b]：各アプリケーションがインストール時に書き込む小さなファイル（var/omega-jeton.json）：どのアプリケーションか、どのバージョンか、どの識別子か、どのマシンか。誰でも読めますが、他のアカウントからは変更できません。\n"
+"- [b]共有スペース[/b]：/var/lib/omega-synchro、omega-synchro グループ、書き込めるのは root だけ。omega-connect は各アプリケーションの ID カードと説明をここにコピーし、omega-connect が起動していないときでもアプリケーション同士が互いを見つけられるようにします。\n"
+"- omega-connect が作成するものはすべて共有スペースのレジストリに記録されます：削除で元に戻すのは、そこに記録されたものだけです。"
+
+msgid "Ligne de commande"
+msgstr "コマンドライン"
+
+msgid ""
+"omega-connect.sh <commande> (sans commande : l'interface).\n"
+"- scanner [utilisateur@machine] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout : l'espace partagé, plan affiché avant tout lancement.\n"
+"--simulation montre le plan sans rien lancer ; --oui lance sans poser la question."
+msgstr ""
+"omega-connect.sh <コマンド>（コマンドなし：インターフェース）。\n"
+"- scanner [ユーザー@マシン] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout：共有スペース。実行前に計画を表示。\n"
+"--simulation は何も実行せずに計画を表示し、--oui は確認なしで実行します。"
+
+msgid "Fichiers d'omega-connect"
+msgstr "omega-connect のファイル"
+
+msgid ""
+"Tout vit dans le dossier d'omega-connect, sous var/ :\n"
+"- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+"- settings.json : réglages.\n"
+"- exports/ et screenshots/ : par défaut (voir Réglages).\n"
+"- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite)."
+msgstr ""
+"すべて omega-connect のフォルダー内の var/ にあります：\n"
+"- parc.json：ネットワーク上のマシンのレジストリ（最終スキャン、アドレス、フィンガープリント）。\n"
+"- settings.json：設定。\n"
+"- exports/ と screenshots/：既定の場所（設定を参照）。\n"
+"- declaration.json：匿名ユーザー登録（行った場合）。"
+
+msgid "Aide, export et contact"
+msgstr "ヘルプ、エクスポート、お問い合わせ"
+
+msgid ""
+"- [b]Exporter l'aide en HTML[/b] : toute cette aide, dans une page, thème au choix, dans le dossier des exports.\n"
+"- [b]Contact et support[/b] : payer un café (PayPal), se déclarer utilisateur anonyme (une seule fois), contacter le support (mail et formulaire du site), vérifier les mises à jour."
+msgstr ""
+"- [b]ヘルプを HTML でエクスポート[/b]：このヘルプ全体を 1 ページにまとめ、テーマを選んで、エクスポートフォルダーに保存します。\n"
+"- [b]お問い合わせとサポート[/b]：コーヒーをおごる（PayPal）、匿名ユーザーとして登録（1 回のみ）、サポートに連絡（メールとサイトのフォーム）、更新を確認。"
+
+msgid "Redémarrer"
+msgstr "再起動"
+
+msgid "Registre"
+msgstr "レジストリ"
+
+msgid "Synchronisation"
+msgstr "同期"
+
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+msgid "Rapport"
+msgstr "レポート"
+
+msgid "GESTION"
+msgstr "管理"
+
+msgid "MAINTENANCE"
+msgstr "メンテナンス"
+
+msgid "MACHINES"
+msgstr "マシン"
+
+msgid "APPLICATIONS"
+msgstr "アプリケーション"
+
+msgid "LIAISONS"
+msgstr "連携"
+
+msgid "ESPACE PARTAGÉ"
+msgstr "共有スペース"
+
+msgid "LIAISONS PAR TYPE"
+msgstr "種類別の連携"
+
+msgid "CETTE MACHINE / RÉSEAU"
+msgstr "このマシン / ネットワーク"
+
+#, python-brace-format
+msgid "TOP {count} · MACHINES À RÉPARER"
+msgstr "TOP {count} · 要修復のマシン"
+
+#, python-brace-format
+msgid "TOP {count} · LIAISONS À RÉPARER"
+msgstr "TOP {count} · 要修復の連携"
+
+#, python-brace-format
+msgid "TOP {count} · VERSIONS EN RETARD"
+msgstr "TOP {count} · 遅れているバージョン"
+
+#, python-brace-format
+msgid "TOP {count} · SCANS LES PLUS ANCIENS"
+msgstr "TOP {count} · スキャンが古い順"
+
+msgid "jamais vue"
+msgstr "未スキャン"
+
+msgid "à l'instant"
+msgstr "たった今"
+
+#, python-brace-format
+msgid "il y a {count} min"
+msgstr "{count} 分前"
+
+#, python-brace-format
+msgid "il y a {count} h"
+msgstr "{count} 時間前"
+
+#, python-brace-format
+msgid "il y a {count} j"
+msgstr "{count} 日前"
+
+#, python-brace-format
+msgid "{count} au total"
+msgstr "合計 {count} 台"
+
+#, python-brace-format
+msgid "cette machine : {name}"
+msgstr "このマシン：{name}"
+
+#, python-brace-format
+msgid "{count} sur le réseau"
+msgstr "ネットワーク上 {count} 台"
+
+#, python-brace-format
+msgid "{count} injoignable(s)"
+msgstr "接続不可 {count} 台"
+
+#, python-brace-format
+msgid "{count} application(s) reliée(s)"
+msgstr "連携済み {count} 件"
+
+#, python-brace-format
+msgid "{count} à relier (Synchronisation)"
+msgstr "未連携 {count} 件（同期）"
+
+msgid "Aucune liaison connue."
+msgstr "既知の連携はありません。"
+
+msgid "Machines"
+msgstr "マシン"
+
+msgid "Cette machine"
+msgstr "このマシン"
+
+msgid "Réseau"
+msgstr "ネットワーク"
+
+msgid "Rien à réparer."
+msgstr "修復するものはありません。"
+
+#, python-brace-format
+msgid "{count} liaison(s)"
+msgstr "連携 {count} 件"
+
+#, python-brace-format
+msgid "{count} application(s)"
+msgstr "アプリケーション {count} 件"
+
+msgid "Aucune liaison à réparer."
+msgstr "要修復の連携はありません。"
+
+msgid "Aucune application en retard."
+msgstr "遅れているアプリケーションはありません。"
+
+msgid "Aucune machine du réseau (menu Scanner)."
+msgstr "ネットワーク上のマシンはありません（スキャンメニュー）。"
+
+#, python-brace-format
+msgid "vue {when}"
+msgstr "最終スキャン {when}"
+
+msgid "non fournie (ancienne version)"
+msgstr "提供されていません（旧バージョン）"
+
+#, python-brace-format
+msgid "déclarée à {time}"
+msgstr "{time} に作成"
+
+msgid "(partielle)"
+msgstr "（部分的）"
+
+msgid "Local"
+msgstr "ローカル"
+
+#, python-brace-format
+msgid "Réseau — {where}"
+msgstr "ネットワーク — {where}"
+
+#, python-brace-format
+msgid "{count} écart(s)"
+msgstr "不整合 {count} 件"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) : « Détail du lien » pour les voir."
+msgstr "正常なチェック {count} 件：表示するには「連携の詳細」。"
+
+msgid "Aucun contrôle pour ce lien."
+msgstr "この連携にチェックはありません。"
+
+msgid "Liens : "
+msgstr "連携： "
+
+msgid ""
+"omega-connect — authentification sudo pour les commandes affichées (le mot "
+"de passe ne s'affiche pas pendant la saisie). L'interface revient ensuite."
+msgstr ""
+"omega-connect — 表示されたコマンドのための sudo 認証（入力中はパスワードが表示されません）。その後インターフェースに戻ります。"
+
+msgid "Aucune commande à copier."
+msgstr "コピーするコマンドはありません。"
+
+#, python-brace-format
+msgid ""
+"{count} commande(s) copiée(s) dans le presse-papiers ({tool}) : collez-les "
+"dans un terminal (Ctrl+Maj+V)."
+msgstr "{count} 件のコマンドをクリップボードにコピーしました（{tool}）：端末に貼り付けてください（Ctrl+Shift+V）。"
+
+msgid ""
+"omega-connect — commandes à copier. Sélectionnez-les à la souris puis copiez"
+" avec le raccourci de votre terminal (souvent Ctrl+Maj+C) :"
+msgstr ""
+"omega-connect — コピーするコマンド。マウスで選択し、端末のショートカットでコピーしてください（多くは Ctrl+Shift+C）："
+
+msgid "Entrée pour revenir à omega-connect… "
+msgstr "Enter で omega-connect に戻ります… "
+
+msgid ""
+"Vous êtes membre du groupe omega-synchro, mais cet omega-connect a été lancé"
+" sans lui. Quittez (q) et relancez ./omega-connect.sh : il le prendra tout "
+"seul, sans mot de passe. Pour cette fois, lecture avec sudo (mot de passe "
+"dans le terminal)."
+msgstr ""
+"あなたは omega-synchro グループのメンバーですが、この omega-connect "
+"はそのグループなしで起動されました。終了して（q）./omega-connect.sh "
+"を再実行してください：パスワードなしで自動的にグループが反映されます。今回は sudo で読み取ります（パスワードは端末で入力）。"
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro : la zone est lue avec "
+"sudo, mot de passe demandé dans le terminal."
+msgstr "あなたのセッションにはまだ omega-synchro グループがありません：ゾーンは sudo で読み取り、パスワードは端末で尋ねます。"
+
+msgid "Lecture de la zone avec sudo…"
+msgstr "sudo でゾーンを読み取り中…"
+
+msgid "Préparation des commandes (détection des outils, lecture de la zone)…"
+msgstr "コマンドを準備中（ツールの検出、ゾーンの読み取り）…"
+
+msgid "Vérifier maintenant"
+msgstr "今すぐ確認"
+
+msgid "LIENS"
+msgstr "連携"
+
+msgid "Détail du lien"
+msgstr "連携の詳細"
+
+msgid "Constat"
+msgstr "所見"
+
+msgid "Lien"
+msgstr "連携"
+
+msgid "Provenance"
+msgstr "出所"
+
+msgid "Vérification en cours…"
+msgstr "確認中…"
+
+#, python-brace-format
+msgid "Erreur : {message}"
+msgstr "エラー：{message}"
+
+#, python-brace-format
+msgid "Vérifié à {time}."
+msgstr "{time} に確認しました。"
+
+#, python-brace-format
+msgid ""
+"Nouvelle vérification toutes les {minutes} min tant que cet écran est "
+"ouvert."
+msgstr "この画面を開いている間、{minutes} 分ごとに再確認します。"
+
+msgid "Lancer (mot de passe administrateur)"
+msgstr "起動（管理者パスワード）"
+
+msgid "SYNCHRONISER"
+msgstr "同期"
+
+msgid ""
+"Tout ce qui sera fait, dans l'ordre. Rien n'est lancé avant « Lancer » ; au "
+"premier échec, tout s'arrête et ce qui a été créé reste noté."
+msgstr "実行される内容をすべて順番に示します。「起動」を押すまで何も実行されません。最初の失敗ですべて停止し、作成したものは記録されます。"
+
+msgid "AVANCEMENT"
+msgstr "進行状況"
+
+msgid "Fermer"
+msgstr "閉じる"
+
+msgid ""
+"Chaque menu, sa fonction et le détail. Cliquez sur un titre pour l'ouvrir."
+msgstr "各メニュー、その機能と詳細。タイトルをクリックすると開きます。"
+
+msgid "Exporter l'aide en HTML"
+msgstr "ヘルプを HTML でエクスポート"
+
+#, python-brace-format
+msgid "Aide exportée : {path}"
+msgstr "ヘルプをエクスポートしました：{path}"
+
+#, python-brace-format
+msgid "Écran prévu au lot {lot} de l'étape 3."
+msgstr "ステップ 3 のロット {lot} で予定されている画面です。"
+
+msgid "RETIRER LA ZONE NEUTRE ?"
+msgstr "中立ゾーンを削除しますか？"
+
+msgid ""
+"Garder : rien n'est supprimé, les outils lisent toujours les copies "
+"actuelles (liens figés). Tout retirer : défait exactement ce que le registre"
+" liste."
+msgstr "保持：何も削除せず、ツールは現在のコピーを読み続けます（連携は固定）。すべて削除：レジストリに記載されたものを正確に元に戻します。"
+
+msgid "Garder la zone"
+msgstr "ゾーンを保持"
+
+msgid "Tout retirer"
+msgstr "すべて削除"
+
+msgid "CONTRÔLES"
+msgstr "チェック"
+
+msgid ""
+"Cet écran montre. Pour corriger : menu Réparer (toutes les machines, machine"
+" du réseau comprise) ; les commandes se copient avec « Copier les commandes "
+"»."
+msgstr ""
+"この画面は表示のみです。修正するには：修復メニュー（すべてのマシン、ネットワーク上のマシンも含む）。コマンドは「コマンドをコピー」でコピーできます。"
+
+msgid "Copier les commandes"
+msgstr "コマンドをコピー"
+
+#, python-brace-format
+msgid "vérifié à {time}"
+msgstr "{time} に確認"
+
+msgid "État : "
+msgstr "状態： "
+
+msgid "RÉPARER CETTE MACHINE"
+msgstr "このマシンを修復"
+
+msgid ""
+"Chaque écart est corrigé par l'outil qui possède le fichier (omega-jail, "
+"omega-serv, jeton de chaque outil), ou par « Établir » pour ce que le "
+"registre de la zone dit qu'omega-connect a créé. omega-connect ne réécrit "
+"jamais le fichier d'un autre outil. Rien n'est lancé avant « Lancer »."
+msgstr ""
+"各不整合は、ファイルを所有するツール（omega-jail、omega-serv、各ツールのトークン）によって、または omega-connect "
+"が作成したとゾーンのレジストリに記載されたものについては「確立」によって修正されます。omega-connect "
+"が他のツールのファイルを書き換えることはありません。「起動」を押すまで何も実行されません。"
+
+msgid "MACHINES DISTANTES"
+msgstr "リモートマシン"
+
+msgid ""
+"Une machine du registre se répare depuis ici : les commandes des outils sont"
+" lancées SUR elle, son mot de passe sudo est demandé une fois, dans ce "
+"terminal."
+msgstr ""
+"レジストリのマシンはここから修復できます：ツールのコマンドはそのマシン上で実行され、sudo パスワードはこの端末で 1 回だけ尋ねられます。"
+
+msgid "Réparer la machine choisie"
+msgstr "選んだマシンを修復"
+
+msgid "Zone : établir…"
+msgstr "ゾーン：確立…"
+
+msgid "Analyser de nouveau"
+msgstr "再分析"
+
+msgid "Liaisons à corriger"
+msgstr "修正が必要な連携"
+
+msgid "aucune machine distante : scannez-en une (Scanner)"
+msgstr "リモートマシンがありません：1 台スキャンしてください（スキャン）"
+
+msgid "Préparation des réparations : vérification des liens en cours…"
+msgstr "修復の準備中：連携を確認しています…"
+
+msgid "Lancer avec sudo"
+msgstr "sudo で起動"
+
+msgid ""
+"Vue d'ensemble de vos machines et de vos applications. Rien n'est modifié "
+"depuis cet écran. Pour corriger : menu Réparer."
+msgstr "マシンとアプリケーションの全体像です。この画面からは何も変更されません。修正するには：修復メニュー。"
+
+msgid "Actualiser"
+msgstr "更新"
+
+msgid "cette machine"
+msgstr "このマシン"
+
+msgid "DASHBOARD"
+msgstr "ダッシュボード"
+
+#, python-brace-format
+msgid ""
+"Cette machine vérifiée à {time} ; machines du réseau : leur dernier scan."
+msgstr "このマシンは {time} に確認済み。ネットワーク上のマシン：最終スキャンの結果。"
+
+msgid "QUITTER OMEGA-CONNECT ?"
+msgstr "OMEGA-CONNECT を終了しますか？"
+
+msgid "REGISTRE"
+msgstr "レジストリ"
+
+msgid ""
+"Ce que le scanner a trouvé : chaque application omega, son service, sa "
+"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
+" à jour l'application » installe la dernière version d'une application trop "
+"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
+"corriger un écart : Réparer."
+msgstr ""
+"スキャナーが見つけたもの：各 omega "
+"アプリケーション、そのサービス、バージョン、状態。「レジストリを更新」でスキャンをやり直し、「アプリケーションを更新」で古すぎるアプリケーション（選んだ行）の最新バージョンをインストールします。連携を元に戻すには：同期。不整合を直すには：修復。"
+
+msgid "Mettre à jour le registre"
+msgstr "レジストリを更新"
+
+msgid "Mettre à jour l'application"
+msgstr "アプリケーションを更新"
+
+msgid "Lecture du registre…"
+msgstr "レジストリを読み込み中…"
+
+msgid "Premier scan : recherche des applications omega…"
+msgstr "初回スキャン：omega アプリケーションを検索中…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s)"
+msgstr "アプリケーション {count} 件（マシン {machines} 台）"
+
+#, python-brace-format
+msgid "dernier scan à {time}"
+msgstr "最終スキャン {time}"
+
+msgid "Espace partagé : "
+msgstr "共有スペース： "
+
+msgid "Réinstaller l'application"
+msgstr "アプリケーションを再インストール"
+
+#, python-brace-format
+msgid "→ « {action} » installe la dernière version depuis GitHub."
+msgstr "→「{action}」で GitHub から最新バージョンをインストールします。"
+
+msgid ""
+"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
+"possible : suivez la section « Mise à jour » du README de l'outil."
+msgstr "→ このマシンでは、omega-connect からの更新はまだできません：ツールの README の「更新」セクションに従ってください。"
+
+#, python-brace-format
+msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
+msgstr "レジストリを更新中：リモートマシン {count} 台をスキャン中…"
+
+#, python-brace-format
+msgid ""
+"omega-connect — synchronisation de {machine}. La machine demande elle-même "
+"son mot de passe sudo (il ne s'affiche pas pendant la saisie) ; omega-"
+"connect ne le voit jamais."
+msgstr ""
+"omega-connect — {machine} の同期。マシン自身が sudo パスワードを尋ねます（入力中は表示されません）。omega-"
+"connect がそれを見ることはありません。"
+
+msgid "Terminé. Appuyez sur Entrée pour revenir à omega-connect… "
+msgstr "完了。Enter を押すと omega-connect に戻ります… "
+
+#, python-brace-format
+msgid "METTRE À JOUR L'APPLICATION — {machine}"
+msgstr "アプリケーションを更新 — {machine}"
+
+msgid ""
+"Seulement les applications trop anciennes de cette machine : dernière "
+"version prise sur leur Release GitHub (empreinte vérifiée), installée comme "
+"le dit leur README. Rien d'autre ; rien n'est fait avant « Lancer »."
+msgstr ""
+"このマシンの古すぎるアプリケーションだけ：GitHub Release から最新バージョンを取得し（ハッシュを確認）、README "
+"の手順どおりにインストールします。それ以外は何もしません。「起動」を押すまで何も行われません。"
+
+#, python-brace-format
+msgid "RÉPARER — {machine}"
+msgstr "修復 — {machine}"
+
+msgid ""
+"Corrections faites par les outils eux-mêmes, lancées SUR la machine depuis "
+"ici : rien à y taper. Ce qu'aucun outil ne sait faire se copie (« Copier les"
+" commandes »). Rien n'est fait avant « Lancer »."
+msgstr ""
+"ツール自身による修正を、ここからそのマシン上で実行します：向こうで入力する必要はありません。どのツールもできないことはコピーできます（「コマンドをコピー」）。「起動」を押すまで何も行われません。"
+
+#, python-brace-format
+msgid "SYNCHRONISER — {machine}"
+msgstr "同期 — {machine}"
+
+msgid ""
+"Plan calculé sur la machine elle-même, sans sudo : réparer puis "
+"synchroniser. Aucune mise à jour ici (Registre → « Mettre à jour "
+"l'application ») ; rien n'est fait avant « Lancer »."
+msgstr ""
+"計画はマシン自身の上で、sudo なしで計算されます：修復してから同期。ここでは更新しません（レジストリ "
+"→「アプリケーションを更新」）。「起動」を押すまで何も行われません。"
+
+#, python-brace-format
+msgid "Calcul du plan sur {machine}…"
+msgstr "{machine} で計画を計算中…"
+
+#, python-brace-format
+msgid "Réinstaller sur {machine}"
+msgstr "{machine} に再インストール"
+
+#, python-brace-format
+msgid "Mettre à jour sur {machine}"
+msgstr "{machine} で更新"
+
+#, python-brace-format
+msgid "Réparer {machine}"
+msgstr "{machine} を修復"
+
+#, python-brace-format
+msgid "Synchroniser {machine}"
+msgstr "{machine} を同期"
+
+#, python-brace-format
+msgid "Téléchargement et vérification des archives, envoi vers {machine}…"
+msgstr "アーカイブをダウンロード・確認し、{machine} に送信中…"
+
+#, python-brace-format
+msgid "Lecture du résultat et nouveau scan de {machine}…"
+msgstr "結果を読み取り、{machine} を再スキャン中…"
+
+#, python-brace-format
+msgid "{machine} : synchronisation terminée."
+msgstr "{machine}：同期が完了しました。"
+
+#, python-brace-format
+msgid "{machine} : la synchronisation n'est pas allée au bout."
+msgstr "{machine}：同期は最後まで完了しませんでした。"
+
+msgid "l'outil, depuis ici"
+msgstr "ツール（ここから）"
+
+msgid "commande lancée sur la machine, depuis ici"
+msgstr "マシン上で実行するコマンド（ここから）"
+
+msgid "à la main (commande à copier)"
+msgstr "手動（コピーするコマンド）"
+
+msgid "Mettre à jour l'application, depuis ici"
+msgstr "アプリケーションを更新（ここから）"
+
+msgid "Réinstaller l'application, depuis ici"
+msgstr "アプリケーションを再インストール（ここから）"
+
+msgid "à la main (README de l'outil)"
+msgstr "手動（ツールの README）"
+
+msgid "Scanner : rescanner la machine"
+msgstr "スキャン：マシンを再スキャン"
+
+msgid "aucune correction connue (voir le détail)"
+msgstr "既知の修正なし（詳細を参照）"
+
+msgid "RÉPARER"
+msgstr "修復"
+
+msgid ""
+"Tout ce qui ne va pas, sur toutes les machines. Choisissez une ligne puis « "
+"Réparer la ligne choisie », ou « Tout réparer » : le plan de la machine "
+"s'affiche, rien n'est lancé avant. Machine du réseau : réparée depuis ici, "
+"son mot de passe sudo demandé une fois."
+msgstr ""
+"すべてのマシンで問題のあるものすべて。行を選んで「選んだ行を修復」、または「すべて修復」：マシンの計画が表示され、それまでは何も実行されません。ネットワーク上のマシン：ここから修復し、sudo"
+" パスワードは 1 回だけ尋ねられます。"
+
+msgid "Réparer la ligne choisie"
+msgstr "選んだ行を修復"
+
+msgid "Détail"
+msgstr "詳細"
+
+msgid "Tout réparer"
+msgstr "すべて修復"
+
+msgid "Problème"
+msgstr "問題"
+
+msgid "Qui corrige"
+msgstr "修正元"
+
+msgid "Recherche de tout ce qui ne va pas : vérification de cette machine…"
+msgstr "問題のあるものを検索中：このマシンを確認しています…"
+
+#, python-brace-format
+msgid "Rescan des machines du réseau ({index}/{count}) : {machine}…"
+msgstr "ネットワーク上のマシンを再スキャン中（{index}/{count}）：{machine}…"
+
+#, python-brace-format
+msgid "{count} problème(s) sur {machines} machine(s)."
+msgstr "問題 {count} 件（マシン {machines} 台）。"
+
+msgid "Rien à réparer : tout est OK sur toutes les machines."
+msgstr "修復するものはありません：すべてのマシンで問題ありません。"
+
+msgid "la machine ne répond plus"
+msgstr "マシンが応答しません"
+
+#, python-brace-format
+msgid "{machine} : rescannez-la d'abord (Scanner)."
+msgstr "{machine}：先に再スキャンしてください（スキャン）。"
+
+msgid "RAPPORT"
+msgstr "レポート"
+
+msgid ""
+"Un document complet, établi à l'instant (les machines du réseau sont "
+"rescannées avant) : bilan, ce qu'il reste à faire, registre, machines du "
+"réseau, liaisons de chaque machine, espace partagé. Enregistré dans le "
+"dossier des exports."
+msgstr ""
+"今この時点で作成する完全なドキュメント（先にネットワーク上のマシンを再スキャン）：概要、残っている作業、レジストリ、ネットワーク上のマシン、各マシンの連携、共有スペース。エクスポートフォルダーに保存されます。"
+
+msgid "THÈME DE LA PAGE HTML"
+msgstr "HTML ページのテーマ"
+
+msgid "APERÇU"
+msgstr "プレビュー"
+
+msgid "Exporter JSON"
+msgstr "JSON をエクスポート"
+
+msgid "Exporter TXT"
+msgstr "TXT をエクスポート"
+
+msgid "Exporter HTML"
+msgstr "HTML をエクスポート"
+
+msgid "Génération du rapport en cours (détection, vérification, zone)…"
+msgstr "レポートを生成中（検出、確認、ゾーン）…"
+
+msgid "Rapport prêt."
+msgstr "レポートの準備ができました。"
+
+#, python-brace-format
+msgid "Export impossible : {error}"
+msgstr "エクスポートできません：{error}"
+
+#, python-brace-format
+msgid "{count} application(s) omega trouvée(s) sur cette machine."
+msgstr "このマシンで omega アプリケーションが {count} 件見つかりました。"
+
+#, python-brace-format
+msgid "Trouvées via : {sources}."
+msgstr "検出元：{sources}。"
+
+#, python-brace-format
+msgid ""
+"{count} remarque(s) sur la recherche (montages réseau ignorés, etc.) : voir "
+"le Rapport."
+msgstr "検索に関する注記 {count} 件（ネットワークマウントの除外など）：レポートを参照してください。"
+
+msgid "SCANNER"
+msgstr "スキャン"
+
+msgid ""
+"Recherche des applications omega, en lecture seule : rien n'est modifié, "
+"aucun mot de passe. Le résultat met à jour le registre."
+msgstr "omega アプリケーションを読み取り専用で検索します：何も変更せず、パスワードも不要です。結果はレジストリに反映されます。"
+
+#, python-brace-format
+msgid "MACHINE LOCALE — {machine}"
+msgstr "ローカルマシン — {machine}"
+
+msgid "MACHINES QUE CET ORDINATEUR SAIT DÉJÀ JOINDRE"
+msgstr "このコンピューターがすでに接続できるマシン"
+
+msgid ""
+"Trouvées dans vos profils Unison, votre ~/.ssh/config et les machines déjà "
+"connues de SSH. Choisissez-en une (Entrée ou clic) : omega-connect s'y "
+"connecte avec vos clés et y lance le même scanner, en mémoire — rien n'y est"
+" installé, aucun mot de passe."
+msgstr ""
+"Unison プロファイル、~/.ssh/config、SSH で既知のマシンから見つかりました。1 台を選ぶと（Enter "
+"またはクリック）、omega-connect があなたの鍵で接続し、同じスキャナーをメモリ上で実行します — "
+"何もインストールせず、パスワードも不要です。"
+
+msgid "Scanner la machine choisie"
+msgstr "選んだマシンをスキャン"
+
+msgid "AUTRE MACHINE (SAISIE MANUELLE)"
+msgstr "その他のマシン（手動入力）"
+
+msgid ""
+"utilisateur@machine (nom ou adresse), ou un nom de votre ~/.ssh/config."
+msgstr "ユーザー@マシン（名前またはアドレス）、または ~/.ssh/config の名前。"
+
+msgid "utilisateur@machine"
+msgstr "ユーザー@マシン"
+
+msgid "Scanner cette machine"
+msgstr "このマシンをスキャン"
+
+msgid "MACHINES DISTANTES CONNUES"
+msgstr "既知のリモートマシン"
+
+msgid ""
+"Celles du registre. Sur un grand parc, retirez celles qui ne vous concernent"
+" plus : elles ne sont plus rescannées (rien n'est modifié sur elles)."
+msgstr ""
+"レジストリにあるマシン。台数が多い場合は、不要になったマシンを削除してください：再スキャンされなくなります（そのマシン上では何も変更しません）。"
+
+msgid "Retirer cette machine"
+msgstr "このマシンを削除"
+
+msgid "Scanner de nouveau"
+msgstr "再スキャン"
+
+msgid "Rescanner les machines connues"
+msgstr "既知のマシンを再スキャン"
+
+msgid "Voir le registre"
+msgstr "レジストリを表示"
+
+msgid "Trouvée dans"
+msgstr "検出元"
+
+msgid "Analyse de la machine locale : recherche des applications omega…"
+msgstr "ローカルマシンを分析中：omega アプリケーションを検索しています…"
+
+#, python-brace-format
+msgid "Analysée à {time}."
+msgstr "{time} に分析しました。"
+
+msgid "aucune machine distante pour l'instant"
+msgstr "今のところリモートマシンはありません"
+
+msgid "aucune machine trouvée"
+msgstr "マシンが見つかりません"
+
+#, python-brace-format
+msgid "{machine} retirée du registre."
+msgstr "{machine} をレジストリから削除しました。"
+
+msgid "RETIRER CETTE MACHINE ?"
+msgstr "このマシンを削除しますか？"
+
+#, python-brace-format
+msgid ""
+"{machine} et ses {count} application(s) sortent du registre : elles ne "
+"seront plus rescannées. Rien n'est modifié sur la machine ; vous pourrez la "
+"scanner de nouveau à tout moment."
+msgstr ""
+"{machine} とそのアプリケーション {count} "
+"件がレジストリから外れ、今後は再スキャンされません。そのマシン上では何も変更しません。いつでも再びスキャンできます。"
+
+msgid "Retirer"
+msgstr "外す"
+
+#, python-brace-format
+msgid "Connexion à {target}…"
+msgstr "{target} に接続中…"
+
+#, python-brace-format
+msgid "{target} : rien n'a été fait (machine non acceptée)."
+msgstr "{target}：何もしていません（マシンが承認されていません）。"
+
+#, python-brace-format
+msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
+msgstr "{target} をスキャン中：スキャナーが向こうで読み取り専用で動作しています…"
+
+msgid "Aucune machine distante connue pour l'instant."
+msgstr "既知のリモートマシンは今のところありません。"
+
+#, python-brace-format
+msgid "Scan des {count} machine(s) connue(s)…"
+msgstr "既知のマシン {count} 台をスキャン中…"
+
+#, python-brace-format
+msgid "{good} machine(s) scannée(s) sur {total}."
+msgstr "{total} 台中 {good} 台のマシンをスキャンしました。"
+
+msgid "Enregistrés dans var/settings.json, appliqués tout de suite."
+msgstr "var/settings.json に保存され、すぐに適用されます。"
+
+msgid "Thème de l'interface"
+msgstr "インターフェースのテーマ"
+
+msgid "Thème des exports (rapport HTML, aide exportée)"
+msgstr "エクスポートのテーマ（HTML レポート、エクスポートしたヘルプ）"
+
+msgid "Dossier des exports"
+msgstr "エクスポートフォルダー"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Laissez vide pour revenir au dossier par défaut."
+msgstr "既定：{path}。空にすると既定のフォルダーに戻ります。"
+
+msgid "Dossier des captures d'écran"
+msgstr "スクリーンショットフォルダー"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Capture : Ctrl+P → « Capture d'écran »."
+msgstr "既定：{path}。スクリーンショット：Ctrl+P →「スクリーンショット」。"
+
+msgid "Enregistrer les dossiers"
+msgstr "フォルダーを保存"
+
+msgid "Maintenance des dossiers"
+msgstr "フォルダーの保守"
+
+msgid ""
+"Supprime définitivement le contenu du dossier configuré ; le dossier reste."
+msgstr "設定されたフォルダーの中身を完全に削除します。フォルダーは残ります。"
+
+msgid "Vider le dossier des exports"
+msgstr "エクスポートフォルダーを空にする"
+
+msgid "Vider le dossier des captures"
+msgstr "スクリーンショットフォルダーを空にする"
+
+msgid "des exports"
+msgstr "エクスポート"
+
+msgid "des captures"
+msgstr "スクリーンショット"
+
+#, python-brace-format
+msgid "Chemin à donner en entier (commençant par / ou ~) : {path}"
+msgstr "フルパスで指定してください（/ または ~ で始まる）：{path}"
+
+#, python-brace-format
+msgid "Dossiers enregistrés : {paths}"
+msgstr "保存したフォルダー：{paths}"
+
+#, python-brace-format
+msgid "VIDER LE DOSSIER {label} ?"
+msgstr "{label}フォルダーを空にしますか？"
+
+#, python-brace-format
+msgid ""
+"Supprime définitivement tout le contenu de {directory}. Le dossier reste."
+msgstr "{directory} の中身をすべて完全に削除します。フォルダーは残ります。"
+
+msgid "Vider"
+msgstr "空にする"
+
+#, python-brace-format
+msgid "Refusé — {path} : {reason}"
+msgstr "拒否 — {path}：{reason}"
+
+#, python-brace-format
+msgid "{count} élément(s) supprimé(s) dans {path}."
+msgstr "{path} 内の {count} 件を削除しました。"
+
+#, python-brace-format
+msgid "Non supprimés : {items}"
+msgstr "削除されなかったもの：{items}"
+
+msgid "Choisir"
+msgstr "選択"
+
+msgid "SYNCHRONISATION"
+msgstr "同期"
+
+msgid ""
+"Toutes vos machines et leurs applications. Cochez des lignes (Entrée ou "
+"Espace) puis « Synchroniser la sélection », ou « Synchroniser tout ». Chaque"
+" machine a son plan, affiché avant d'agir, et un seul mot de passe ; les "
+"machines du réseau sont synchronisées depuis ici."
+msgstr ""
+"すべてのマシンとそのアプリケーション。行にチェックを入れて（Enter または "
+"Space）「選択項目を同期」、または「すべて同期」。各マシンには実行前に表示される計画があり、パスワードは 1 "
+"回だけです。ネットワーク上のマシンはここから同期されます。"
+
+msgid "Synchroniser tout"
+msgstr "すべて同期"
+
+msgid "Synchroniser la sélection"
+msgstr "選択項目を同期"
+
+msgid "Lire avec sudo"
+msgstr "sudo で読む"
+
+msgid "Vérification de cette machine et de son espace partagé…"
+msgstr "このマシンとその共有スペースを確認中…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s) — vérifié à {time}."
+msgstr "アプリケーション {count} 件（マシン {machines} 台） — {time} に確認。"
+
+msgid "Espace partagé lu avec sudo (lecture seule)."
+msgstr "共有スペースを sudo で読み取りました（読み取り専用）。"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : "
+msgstr "{machine} の共有スペース： "
+
+#, python-brace-format
+msgid "{tool} : {hint}"
+msgstr "{tool}：{hint}"
+
+msgid "Lecture de l'espace partagé…"
+msgstr "共有スペースを読み取り中…"
+
+#, python-brace-format
+msgid "Préparation du plan de synchronisation de {machine}…"
+msgstr "{machine} の同期計画を準備中…"
+
+msgid "FAIRE CONFIANCE À CETTE MACHINE ?"
+msgstr "このマシンを信頼しますか？"
+
+msgid "Faire confiance"
+msgstr "信頼する"
+
+msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
+msgstr "共有スペースの詳細"
+
+#, python-brace-format
+msgid ""
+"Ce qu'omega-connect a créé sur cette machine, et quand (registre de l'espace"
+" partagé {zone}). « Tout retirer » défait exactement cette liste ; un "
+"fichier qu'elle ne connaît pas n'est jamais supprimé."
+msgstr ""
+"omega-connect がこのマシンに作成したものとその日時（共有スペース {zone} "
+"のレジストリ）。「すべて削除」はこの一覧を正確に元に戻します。一覧にないファイルが削除されることはありません。"
+
+msgid "CRÉATIONS"
+msgstr "作成したもの"
+
+msgid "OUTILS RELIÉS"
+msgstr "連携済みのツール"
+
+msgid "Retirer cet outil"
+msgstr "このツールを外す"
+
+msgid "Tout retirer…"
+msgstr "すべて削除…"
+
+msgid "Outil"
+msgstr "ツール"
+
+msgid "Relié le"
+msgstr "連携日"
+
+msgid "Initialisation du registre : lecture de la zone en cours…"
+msgstr "レジストリを初期化中：ゾーンを読み取っています…"
+
+#, python-brace-format
+msgid ""
+"Aucune zone en {zone} : rien n'a été créé (menu Synchronisation pour "
+"l'établir)."
+msgstr "{zone} にゾーンはありません：何も作成されていません（確立するには同期メニュー）。"
+
+msgid ""
+"Registre lisible par root et le groupe omega-synchro seulement : "
+"reconnectez-vous si vous venez d'y être ajouté, ou « Lire avec sudo »."
+msgstr ""
+"レジストリは root と omega-synchro グループだけが読めます：追加されたばかりなら再ログインするか、「sudo "
+"で読む」を使ってください。"
+
+#, python-brace-format
+msgid ""
+"Registre {status} ({detail}) : rien ne sera retiré tant qu'il n'est pas "
+"réparé."
+msgstr "レジストリ {status}（{detail}）：修復されるまで何も削除しません。"
+
+#, python-brace-format
+msgid "Zone {zone} — {state} — mise à jour le {date}."
+msgstr "ゾーン {zone} — {state} — {date} に更新。"
+
+msgid "aucune application reliée pour l'instant"
+msgstr "今のところ連携済みのアプリケーションはありません"
+
+msgid "Aucune commande."
+msgstr "コマンドはありません。"
+
+msgid ""
+"Commandes lancées une à une en root avec sudo, dans cet ordre. Rien n'est "
+"lancé avant « Lancer ». Au premier échec tout s'arrête, et le registre garde"
+" la trace de ce qui a été créé."
+msgstr ""
+"コマンドは sudo を使って root で、この順番に 1 "
+"つずつ実行されます。「起動」を押すまで何も実行されません。最初の失敗ですべて停止し、作成したものはレジストリに記録されます。"
+
+msgid "COMMANDES"
+msgstr "コマンド"
+
+msgid "REMARQUES"
+msgstr "注記"
+
+msgid ""
+"Ce qui est relié ou pas, sur toutes vos machines, avec son état (OK, à "
+"réparer, absent…). Cet écran montre : ce qui est « à réparer » se corrige "
+"dans le menu Réparer. Surlignez une ligne pour le détail."
+msgstr ""
+"すべてのマシンで、連携されているもの・いないものを状態（OK、要修復、なし…）とともに表示します。この画面は表示するだけです：「要修復」のものは修復メニューで直します。行をハイライトすると詳細が表示されます。"

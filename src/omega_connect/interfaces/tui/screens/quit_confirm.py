@@ -1,0 +1,24 @@
+# Copyright (c) 2026 kraynux - kraynux@proton.me - Licence MIT (voir fichier LICENSE)
+"""Confirmation avant fermeture, reprise telle quelle d'omega-log (seul le nom du logiciel change)."""
+from __future__ import annotations
+
+from textual.app import ComposeResult
+from textual.containers import Center, Container, Horizontal, Middle, Vertical
+from textual.screen import Screen
+from textual.widgets import Button, Static
+
+from omega_connect.shared.i18n import _
+
+
+class QuitConfirmScreen(Screen[bool]):
+    def compose(self) -> ComposeResult:
+        with Middle(), Center(), Vertical(classes="omega-confirm-box"):
+            yield Static(_("QUITTER OMEGA-CONNECT ?"), classes="omega-confirm-title")
+            with Horizontal(classes="omega-confirm-buttons"):
+                with Container(classes="omega-btn-frame"):
+                    yield Button(_("Oui, quitter"), id="confirm", variant="error")
+                with Container(classes="omega-btn-frame"):
+                    yield Button(_("Non, continuer"), id="cancel", variant="primary")
+
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+        self.dismiss(event.button.id == "confirm")

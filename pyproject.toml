@@ -1,0 +1,115 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "omega-connect"
+version = "0.1.0"
+description = "Interconnecteur de la suite omega : detecte les outils installes, verifie et attribue les droits entre eux"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "kraynux", email = "kraynux@proton.me" }]
+requires-python = ">=3.10"
+dependencies = [
+    "omega-lib>=0.2.0",
+    "textual>=0.60",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "import-linter>=2.0",
+]
+
+[project.scripts]
+omega-connect = "omega_connect.app.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/omega_connect"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+mypy_path = "src"
+disallow_untyped_defs = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+no_implicit_optional = true
+
+# Dependency Rule (meme patron qu'omega-stress / omega-serv, D-000 / D-007).
+[tool.importlinter]
+root_package = "omega_connect"
+include_external_packages = true
+exclude_type_checking_imports = true
+
+[[tool.importlinter.contracts]]
+name = "Dependency Rule : les couches externes dependent des internes, jamais l'inverse"
+type = "layers"
+layers = [
+    "omega_connect.app",
+    "omega_connect.infrastructure | omega_connect.interfaces | omega_connect.plugins",
+    "omega_connect.application",
+    "omega_connect.ports",
+    "omega_connect.domain",
+    "omega_connect.core",
+]
+
+[[tool.importlinter.contracts]]
+name = "interfaces ne dependent jamais directement de infrastructure"
+type = "independence"
+modules = [
+    "omega_connect.interfaces",
+    "omega_connect.infrastructure",
+]
+
+[[tool.importlinter.contracts]]
+# Toute commande lancee sur la machine (fiche d'un outil, plus tard sudo) passe par un seul module.
+name = "subprocess seulement dans infrastructure.detection.sheet_fetcher"
+type = "forbidden"
+source_modules = [
+    "omega_connect.core",
+    "omega_connect.domain",
+    "omega_connect.application",
+    "omega_connect.ports",
+    "omega_connect.interfaces",
+    "omega_connect.plugins",
+    "omega_connect.shared",
+    "omega_connect.infrastructure.detection.filesystem_scan",
+    "omega_connect.infrastructure.detection.service_units",
+    "omega_connect.infrastructure.detection.serv_registry",
+    "omega_connect.infrastructure.verification",
+]
+forbidden_modules = ["subprocess"]
+
+[[tool.importlinter.contracts]]
+# Meme regle que le reste de la suite : Textual reste dans l'interface (la ligne de commande ne le charge pas).
+name = "textual seulement dans interfaces.tui"
+type = "forbidden"
+source_modules = [
+    "omega_connect.core",
+    "omega_connect.domain",
+    "omega_connect.application",
+    "omega_connect.ports",
+    "omega_connect.infrastructure",
+    "omega_connect.interfaces.cli",
+    "omega_connect.shared",
+]
+forbidden_modules = ["textual"]

@@ -1,0 +1,3831 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-connect\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, python-brace-format
+msgid "omega-connect — machine {machine}"
+msgstr "omega-connect — macchina {machine}"
+
+#, python-brace-format
+msgid "== Mise à jour de {tool} vers {version} ({root})"
+msgstr "== Aggiornamento di {tool} alla versione {version} ({root})"
+
+#, python-brace-format
+msgid "✗ {tool} : {error}"
+msgstr "✗ {tool}: {error}"
+
+#, python-brace-format
+msgid "✓ {tool} {version} installé."
+msgstr "✓ {tool} {version} installato."
+
+#, python-brace-format
+msgid "· déjà réglé : {command}"
+msgstr "· già sistemato: {command}"
+
+#, python-brace-format
+msgid "archive refusée : chemin inattendu {name}"
+msgstr "archivio rifiutato: percorso inatteso {name}"
+
+#, python-brace-format
+msgid "archive refusée : {name} n'est ni un fichier ni un dossier"
+msgstr "archivio rifiutato: {name} non è né un file né una cartella"
+
+msgid "archive refusée : trop volumineuse une fois extraite"
+msgstr "archivio rifiutato: troppo voluminoso una volta estratto"
+
+#, python-brace-format
+msgid "archive refusée : pas de dossier {tool}/"
+msgstr "archivio rifiutato: nessuna cartella {tool}/"
+
+#, python-brace-format
+msgid "{path} est un lien : rien n'est copié dedans"
+msgstr "{path} è un link: non vi viene copiato nulla"
+
+#, python-brace-format
+msgid "{root} n'est pas un dossier d'installation"
+msgstr "{root} non è una cartella di installazione"
+
+#, python-brace-format
+msgid "{root} n'appartient pas à ce compte : mise à jour faite à la main"
+msgstr "{root} non appartiene a questo account: aggiornamento da fare a mano"
+
+msgid "empreinte de l'archive différente de sha.txt : rien n'est installé"
+msgstr "impronta dell'archivio diversa da sha.txt: non viene installato nulla"
+
+#, python-brace-format
+msgid "Mise de côté de l'ancienne installation : {old} → {new}"
+msgstr "Messa da parte della vecchia installazione: {old} → {new}"
+
+msgid "impossible de mettre l'ancienne installation de côté (sudo mv)"
+msgstr "impossibile mettere da parte la vecchia installazione (sudo mv)"
+
+#, python-brace-format
+msgid "{count} fichiers installés dans {root}."
+msgstr "{count} file installati in {root}."
+
+#, python-brace-format
+msgid "install.sh introuvable dans {root}"
+msgstr "install.sh non trovato in {root}"
+
+#, python-brace-format
+msgid ""
+"Environnement Python (.venv) incomplet mis de côté : {path} — install.sh en "
+"recrée un."
+msgstr ""
+"Ambiente Python (.venv) incompleto messo da parte: {path} — install.sh ne "
+"ricrea uno."
+
+#, python-brace-format
+msgid "Lancement de {path} :"
+msgstr "Avvio di {path}:"
+
+#, python-brace-format
+msgid "install.sh a échoué (code {code})"
+msgstr "install.sh non riuscito (codice {code})"
+
+#, python-brace-format
+msgid "{script} introuvable : réglages et données restés dans {old}"
+msgstr "{script} non trovato: impostazioni e dati rimasti in {old}"
+
+#, python-brace-format
+msgid ""
+"Reprise des réglages et données de {old} (autres anciennes installations "
+"ignorées : {others})"
+msgstr ""
+"Recupero delle impostazioni e dei dati da {old} (altre vecchie installazioni"
+" ignorate: {others})"
+
+#, python-brace-format
+msgid "reprise de {old} échouée ({script})"
+msgstr "recupero da {old} non riuscito ({script})"
+
+msgid "contient l'installation d'omega-connect"
+msgstr "contiene l'installazione di omega-connect"
+
+msgid "registre omega-serv"
+msgstr "registro omega-serv"
+
+msgid "systemd"
+msgstr "systemd"
+
+msgid "OpenRC"
+msgstr "OpenRC"
+
+msgid "runit"
+msgstr "runit"
+
+msgid "dossier personnel"
+msgstr "cartella personale"
+
+msgid "/srv"
+msgstr "/srv"
+
+msgid "chemin saisi"
+msgstr "percorso inserito"
+
+msgid "absent"
+msgstr "assente"
+
+msgid "illisible (droits)"
+msgstr "illeggibile (permessi)"
+
+msgid "abîmé"
+msgstr "danneggiato"
+
+msgid "d'une version plus récente qu'omega-connect"
+msgstr "di una versione più recente di omega-connect"
+
+msgid "non fournie (version de l'outil trop ancienne ?)"
+msgstr "non fornita (versione dello strumento troppo vecchia?)"
+
+msgid "non obtenue"
+msgstr "non ottenuta"
+
+msgid "illisible"
+msgstr "illeggibile"
+
+msgid "active"
+msgstr "attiva"
+
+msgid "désactivée"
+msgstr "disattivata"
+
+msgid "absente"
+msgstr "assente"
+
+msgid "inconnue"
+msgstr "sconosciuta"
+
+#, python-brace-format
+msgid "registre des instances omega-serv illisible : {detail}"
+msgstr "registro delle istanze omega-serv illeggibile: {detail}"
+
+#, python-brace-format
+msgid "instance omega-serv enregistrée mais dossier disparu : {detail}"
+msgstr "istanza omega-serv registrata ma cartella scomparsa: {detail}"
+
+#, python-brace-format
+msgid "fichier de service illisible : {detail}"
+msgstr "file di servizio illeggibile: {detail}"
+
+#, python-brace-format
+msgid "service {detail} : dossier d'installation introuvable"
+msgstr "servizio {detail}: cartella di installazione non trovata"
+
+#, python-brace-format
+msgid "recherche arrêtée (trop de dossiers) dans {detail}"
+msgstr "ricerca interrotta (troppe cartelle) in {detail}"
+
+#, python-brace-format
+msgid "montage réseau non parcouru : {detail}"
+msgstr "mount di rete non esplorato: {detail}"
+
+#, python-brace-format
+msgid "dossier introuvable : {detail}"
+msgstr "cartella non trovata: {detail}"
+
+#, python-brace-format
+msgid "aucun outil omega dans : {detail}"
+msgstr "nessuno strumento omega in: {detail}"
+
+#, python-brace-format
+msgid "créez-le sous le compte {owner} : {command}"
+msgstr "lo crei con l'account {owner}: {command}"
+
+msgid "outil inconnu"
+msgstr "strumento sconosciuto"
+
+#, python-brace-format
+msgid "trouvé par : {sources}"
+msgstr "trovato tramite: {sources}"
+
+#, python-brace-format
+msgid "propriétaire : {owner}"
+msgstr "proprietario: {owner}"
+
+#, python-brace-format
+msgid "service : {names}"
+msgstr "servizio: {names}"
+
+#, python-brace-format
+msgid "jeton : présent (identifiant {identifier}, version {version})"
+msgstr "token: presente (identificativo {identifier}, versione {version})"
+
+#, python-brace-format
+msgid "jeton : {state}"
+msgstr "token: {state}"
+
+#, python-brace-format
+msgid "fiche : {state}"
+msgstr "scheda: {state}"
+
+#, python-brace-format
+msgid "détail technique : {detail}"
+msgstr "dettaglio tecnico: {detail}"
+
+#, python-brace-format
+msgid "fiche : instance {instance}"
+msgstr "scheda: istanza {instance}"
+
+#, python-brace-format
+msgid "service {manager} ({state})"
+msgstr "servizio {manager} ({state})"
+
+msgid "partielle (sans root)"
+msgstr "parziale (senza root)"
+
+#, python-brace-format
+msgid "fonctions : {states}"
+msgstr "funzioni: {states}"
+
+#, python-brace-format
+msgid "Détection des outils omega (HOME examiné : {home})"
+msgstr "Rilevamento degli strumenti omega (HOME esaminata: {home})"
+
+msgid "Aucun outil omega trouvé. Indiquez un dossier avec --chemin."
+msgstr "Nessuno strumento omega trovato. Indichi una cartella con --chemin."
+
+#, python-brace-format
+msgid ""
+"Identifiant en double {identifier} : {roots} (dossier copié à la main ?). "
+"Ces installations ne sont pas fusionnées ; ouvrez la copie une fois pour lui"
+" donner un nouvel identifiant."
+msgstr ""
+"Identificativo duplicato {identifier}: {roots} (cartella copiata a mano?). "
+"Queste installazioni non vengono unite; apra la copia una volta per "
+"assegnarle un nuovo identificativo."
+
+msgid "Remarques sur la recherche :"
+msgstr "Note sulla ricerca:"
+
+#, python-brace-format
+msgid "{count} installation(s) trouvée(s)."
+msgstr "{count} installazione/i trovata/e."
+
+msgid "Détectée"
+msgstr "Rilevata"
+
+msgid "Inscrite"
+msgstr "Registrata"
+
+msgid "Reliée"
+msgstr "Collegata"
+
+msgid "À réparer"
+msgstr "Da riparare"
+
+msgid "Ancienne version"
+msgstr "Versione obsoleta"
+
+msgid "Installation inachevée"
+msgstr "Installazione incompleta"
+
+msgid "Injoignable"
+msgstr "Irraggiungibile"
+
+msgid "trouvée, sans carte d'identité : la Synchronisation la lui crée"
+msgstr "trovata, senza carta d'identità: la Sincronizzazione gliela crea"
+
+msgid ""
+"a sa carte d'identité, pas encore dans l'espace partagé : la Synchronisation"
+" l'y ajoute"
+msgstr ""
+"ha la sua carta d'identità, non ancora nello spazio condiviso: la "
+"Sincronizzazione ve la aggiunge"
+
+msgid "dans l'espace partagé, à jour"
+msgstr "nello spazio condiviso, aggiornata"
+
+msgid "un écart : Réparer le corrige"
+msgstr "un'anomalia: Ripara la corregge"
+
+msgid "trop ancienne pour avoir une carte d'identité : mettez-la à jour"
+msgstr "troppo vecchia per avere una carta d'identità: la aggiorni"
+
+msgid ""
+"installée, mais son install.sh ne s'est pas terminé (environnement Python ou"
+" carte d'identité manquants) : « Réinstaller l'application » (Registre)"
+msgstr ""
+"installata, ma il suo install.sh non è terminato (ambiente Python o carta "
+"d'identità mancanti): «Reinstalla l'applicazione» (Registro)"
+
+msgid "machine qui ne répond pas"
+msgstr "macchina che non risponde"
+
+#, python-brace-format
+msgid ""
+"trop ancienne pour avoir une carte d'identité : {tool} {version} ou plus "
+"récent requis (machine distante : Synchronisation la met à jour depuis "
+"GitHub)"
+msgstr ""
+"troppo vecchia per avere una carta d'identità: richiesto {tool} {version} o "
+"più recente (macchina remota: la Sincronizzazione la aggiorna da GitHub)"
+
+msgid "pas encore préparé — la Synchronisation le prépare"
+msgstr "non ancora preparato — la Sincronizzazione lo prepara"
+
+msgid "prêt"
+msgstr "pronto"
+
+msgid "à corriger — la Synchronisation le remet en état"
+msgstr "da correggere — la Sincronizzazione lo rimette in ordine"
+
+msgid "prêt (lu avec votre autorisation)"
+msgstr "pronto (letto con la sua autorizzazione)"
+
+msgid ""
+"état inconnu depuis cette session — la Synchronisation le lira avec votre "
+"autorisation"
+msgstr ""
+"stato sconosciuto in questa sessione — la Sincronizzazione lo leggerà con la"
+" sua autorizzazione"
+
+#, python-brace-format
+msgid "Registre — machine {machine}"
+msgstr "Registro — macchina {machine}"
+
+msgid "Aucune application omega trouvée sur cette machine."
+msgstr "Nessuna applicazione omega trovata su questa macchina."
+
+#, python-brace-format
+msgid "Espace partagé : {status}"
+msgstr "Spazio condiviso: {status}"
+
+msgid "Synchroniser : un seul plan, un seul mot de passe administrateur"
+msgstr "Sincronizza: un solo piano, una sola password di amministratore"
+
+msgid "Rien à faire : tout est déjà synchronisé."
+msgstr "Niente da fare: tutto è già sincronizzato."
+
+msgid ""
+"1. Cartes d'identité à créer (par chaque outil, sous son compte, sans mot de"
+" passe) :"
+msgstr ""
+"1. Carte d'identità da creare (da ciascuno strumento, con il proprio "
+"account, senza password):"
+
+msgid "aucune : chaque application choisie a déjà la sienne."
+msgstr "nessuna: ogni applicazione scelta ha già la sua."
+
+msgid "2. Espace partagé (en administrateur, une commande après l'autre) :"
+msgstr "2. Spazio condiviso (come amministratore, un comando dopo l'altro):"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root} (créée à l'étape 1)"
+msgstr "Copiare la carta d'identità di {root} (creata al passo 1)"
+
+msgid "rien : l'espace partagé est déjà à jour."
+msgstr "niente: lo spazio condiviso è già aggiornato."
+
+msgid "Une commande qui n'est pas annoncée ici n'est jamais lancée."
+msgstr "Un comando non annunciato qui non viene mai eseguito."
+
+#, python-brace-format
+msgid ""
+"Arrêt : la carte d'identité de {root} n'a pas pu être créée ({error}). Rien "
+"d'autre n'a été lancé."
+msgstr ""
+"Interruzione: la carta d'identità di {root} non è stata creata ({error}). "
+"Nient'altro è stato eseguito."
+
+msgid "échec"
+msgstr "non riuscita"
+
+#, python-brace-format
+msgid ""
+"Arrêt avant l'espace partagé : le plan a changé ({step}). Rien de plus n'a "
+"été lancé ; relancez la synchronisation pour voir le nouveau plan."
+msgstr ""
+"Interruzione prima dello spazio condiviso: il piano è cambiato ({step}). "
+"Nient'altro è stato eseguito; rilanci la sincronizzazione per vedere il "
+"nuovo piano."
+
+#, python-brace-format
+msgid ""
+"Arrêt à l'étape « {step} » : {error}. Ce qui a été créé est noté ; relancez "
+"la synchronisation après avoir corrigé la cause."
+msgstr ""
+"Interruzione al passo «{step}»: {error}. Ciò che è stato creato è annotato; "
+"rilanci la sincronizzazione dopo aver corretto la causa."
+
+msgid "Synchronisation terminée : les applications choisies sont reliées."
+msgstr "Sincronizzazione terminata: le applicazioni scelte sono collegate."
+
+msgid "DÉMARRAGE RAPIDE"
+msgstr "AVVIO RAPIDO"
+
+msgid "RACCOURCIS"
+msgstr "SCORCIATOIE"
+
+msgid "Aide d’omega-connect"
+msgstr "Aiuto di omega-connect"
+
+msgid "Aide complète : chaque menu, sa fonction et le détail."
+msgstr "Aiuto completo: ogni menu, la sua funzione e il dettaglio."
+
+msgid "Démarrage rapide"
+msgstr "Avvio rapido"
+
+msgid "Raccourcis"
+msgstr "Scorciatoie"
+
+msgid "Touche"
+msgstr "Tasto"
+
+msgid "Action"
+msgstr "Azione"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — aide."
+msgstr "OMEGA-CONNECT {version} — aiuto."
+
+msgid "Aide - Omega-Connect"
+msgstr "Aiuto - Omega-Connect"
+
+msgid ""
+"Interconnecteur de la suite omega : détecte les outils installés, vérifie et"
+" attribue les droits entre eux."
+msgstr ""
+"Interconnettore della suite omega: rileva gli strumenti installati, verifica"
+" e assegna i permessi tra di essi."
+
+msgid "commandes"
+msgstr "comandi"
+
+msgid "COMMANDE"
+msgstr "COMANDO"
+
+msgid "Cherche les outils omega installés (lecture seule, sans root)."
+msgstr "Cerca gli strumenti omega installati (sola lettura, senza root)."
+
+msgid ""
+"Cherche les outils omega installés : registre d'omega-serv, services systemd"
+" / OpenRC / runit, HOME (3 niveaux), /srv (2 niveaux) et chemins saisis. Ne "
+"suit jamais un lien symbolique ni un montage réseau. Lit le jeton de chaque "
+"installation et demande sa fiche à l'outil, sous le compte propriétaire du "
+"dossier."
+msgstr ""
+"Cerca gli strumenti omega installati: registro di omega-serv, servizi "
+"systemd / OpenRC / runit, HOME (3 livelli), /srv (2 livelli) e percorsi "
+"inseriti. Non segue mai un link simbolico né un mount di rete. Legge il "
+"token di ogni installazione e chiede la sua scheda allo strumento, con "
+"l'account proprietario della cartella."
+
+msgid "DOSSIER"
+msgstr "CARTELLA"
+
+msgid "Dossier d'installation à examiner en plus (option répétable)."
+msgstr ""
+"Cartella di installazione aggiuntiva da esaminare (opzione ripetibile)."
+
+msgid ""
+"Ne demande pas la fiche aux outils (plus rapide, aucune commande lancée)."
+msgstr ""
+"Non chiede la scheda agli strumenti (più veloce, nessun comando eseguito)."
+
+msgid "texte (défaut, traduit) ou json (pour les scripts, jamais traduit)."
+msgstr "testo (predefinito, tradotto) o json (per gli script, mai tradotto)."
+
+msgid "Vérifie les liens existants entre outils (lecture seule, sans root)."
+msgstr ""
+"Verifica i collegamenti esistenti tra gli strumenti (sola lettura, senza "
+"root)."
+
+msgid ""
+"Détecte les outils (avec leur fiche), puis contrôle chaque lien : journaux "
+"d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers"
+" la liste noire, liste protégée, droits de la liste noire, fichiers d'omega-"
+"jail dans fail2ban, jetons. Chaque écart affiche la commande qui le "
+"corrigerait, sans jamais la lancer. Code de sortie : 0 sans écart, 1 si un "
+"lien est cassé ou dégradé."
+msgstr ""
+"Rileva gli strumenti (con la loro scheda), poi controlla ogni collegamento: "
+"log di omega-serv e di magnet letti dalle jail di omega-jail, ponte fail2ban"
+" verso la lista nera, lista protetta, permessi della lista nera, file di "
+"omega-jail in fail2ban, token. Ogni anomalia mostra il comando che la "
+"correggerebbe, senza mai eseguirlo. Codice di uscita: 0 senza anomalie, 1 se"
+" un collegamento è interrotto o degradato."
+
+msgid "Affiche aussi les contrôles conformes."
+msgstr "Mostra anche i controlli conformi."
+
+msgid ""
+"Ouvre le tableau de bord (défaut sans commande) : outils, liens et leur "
+"état, en lecture seule."
+msgstr ""
+"Apre la dashboard (predefinito senza comando): strumenti, collegamenti e il "
+"loro stato, in sola lettura."
+
+msgid ""
+"Tableau de bord en lecture seule : outils et instances, état de chaque lien,"
+" contrôles et commandes de correction (jamais lancées). Nouvelle "
+"vérification à intervalle régulier tant que l'écran est ouvert."
+msgstr ""
+"Dashboard in sola lettura: strumenti e istanze, stato di ogni collegamento, "
+"controlli e comandi di correzione (mai eseguiti). Nuova verifica a "
+"intervalli regolari finché la schermata è aperta."
+
+msgid ""
+"Crée la zone neutre et y recopie jetons et fiches (root, après accord)."
+msgstr ""
+"Crea la zona neutra e vi copia token e schede (root, previo consenso)."
+
+msgid ""
+"Crée le groupe omega-synchro et la zone neutre (/var/lib/omega-synchro, "
+"2750), vous ajoute au groupe, recopie le jeton et la fiche de chaque outil "
+"détecté, et inscrit tout au registre. Relancée, elle actualise les copies. "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"Crea il gruppo omega-synchro e la zona neutra (/var/lib/omega-synchro, "
+"2750), la aggiunge al gruppo, copia il token e la scheda di ogni strumento "
+"rilevato e registra tutto nel registro. Rilanciata, aggiorna le copie. Ogni "
+"comando viene mostrato prima di essere eseguito con sudo."
+
+msgid ""
+"Défait ce qu'omega-connect a créé : un outil désinstallé, ou toute la zone "
+"(root, après accord)."
+msgstr ""
+"Annulla ciò che omega-connect ha creato: uno strumento disinstallato, o "
+"tutta la zona (root, previo consenso)."
+
+msgid ""
+"« retirer CIBLE » enlève de la zone un outil désinstallé (nom, dossier ou 8 "
+"premiers caractères de l'identifiant). « retirer --tout » défait exactement "
+"ce que le registre liste, ou garde la zone telle quelle (liens figés). "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"«retirer CIBLE» toglie dalla zona uno strumento disinstallato (nome, "
+"cartella o primi 8 caratteri dell'identificativo). «retirer --tout» annulla "
+"esattamente ciò che il registro elenca, oppure mantiene la zona così com'è "
+"(collegamenti congelati). Ogni comando viene mostrato prima di essere "
+"eseguito con sudo."
+
+msgid "CIBLE"
+msgstr "CIBLE"
+
+msgid "Outil à retirer de la zone."
+msgstr "Strumento da rimuovere dalla zona."
+
+msgid "Toute la zone (question : garder ou tout retirer)."
+msgstr "Tutta la zona (domanda: mantenere o rimuovere tutto)."
+
+msgid "Avec --tout : garder la zone, liens figés (rien n'est supprimé)."
+msgstr ""
+"Con --tout: mantiene la zona, collegamenti congelati (non viene eliminato "
+"nulla)."
+
+msgid "Avec --tout : tout retirer, sans question."
+msgstr "Con --tout: rimuove tutto, senza domande."
+
+msgid ""
+"Recherche les applications omega de cette machine et met à jour le registre "
+"(lecture seule)."
+msgstr ""
+"Cerca le applicazioni omega di questa macchina e aggiorna il registro (sola "
+"lettura)."
+
+msgid ""
+"Lecture seule, sans mot de passe : chaque application trouvée, son service "
+"et son état (Détectée, Inscrite, Reliée, À réparer, Ancienne version, "
+"Installation inachevée). Le résultat est enregistré dans le registre du parc"
+" (var/parc.json)."
+msgstr ""
+"Sola lettura, senza password: ogni applicazione trovata, il suo servizio e "
+"il suo stato (Rilevata, Registrata, Collegata, Da riparare, Versione "
+"obsoleta, Installazione incompleta). Il risultato è salvato nel registro "
+"delle macchine (var/parc.json)."
+
+msgid "UTILISATEUR@MACHINE"
+msgstr "UTENTE@MACCHINA"
+
+msgid ""
+"Machine distante à scanner par SSH avec vos clés (rien n'y est installé) ; "
+"sans cible : cette machine."
+msgstr ""
+"Macchina remota da scansionare via SSH con le sue chiavi (non vi viene "
+"installato nulla); senza destinazione: questa macchina."
+
+msgid "MACHINE"
+msgstr "MACHINE"
+
+msgid ""
+"Retire une machine distante du registre (nom, adresse ou "
+"utilisateur@adresse) ; rien n'est modifié sur elle."
+msgstr ""
+"Rimuove una macchina remota dal registro (nome, indirizzo o "
+"utente@indirizzo); su di essa non viene modificato nulla."
+
+msgid ""
+"Liste les machines que cet ordinateur sait déjà joindre (profils Unison, "
+"~/.ssh/config, known_hosts)."
+msgstr ""
+"Elenca le macchine che questo computer sa già raggiungere (profili Unison, "
+"~/.ssh/config, known_hosts)."
+
+msgid ""
+"Remet en place les liens de ce qui est installé : cartes d'identité, espace "
+"partagé, accès des services — un seul plan."
+msgstr ""
+"Ripristina i collegamenti di ciò che è installato: carte d'identità, spazio "
+"condiviso, accesso dei servizi — un solo piano."
+
+msgid ""
+"Une seule action (décision de l'auteur) : recrée les cartes d'identité qui "
+"manquent (commande de chaque outil, sous son compte), prépare l'espace "
+"partagé, y recopie les cartes et donne l'accès aux services. Tout est "
+"affiché avant d'agir ; un seul mot de passe administrateur. Sans CIBLE : "
+"toutes les applications de la machine."
+msgstr ""
+"Un'unica azione (decisione dell'autore): ricrea le carte d'identità mancanti"
+" (comando di ogni strumento, con il proprio account), prepara lo spazio "
+"condiviso, vi copia le carte e dà l'accesso ai servizi. Tutto viene mostrato"
+" prima di agire; una sola password di amministratore. Senza CIBLE: tutte le "
+"applicazioni della macchina."
+
+msgid ""
+"Application à synchroniser : nom (omega-fire) ou dossier ; plusieurs "
+"possibles."
+msgstr ""
+"Applicazione da sincronizzare: nome (omega-fire) o cartella; possibili più "
+"valori."
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; option "
+"répétable) : réparer puis synchroniser, sans rien taper là-bas (une "
+"application trop ancienne : mettre-a-jour d'abord)."
+msgstr ""
+"Macchina remota già scansionata (nome, indirizzo o utente@macchina; opzione "
+"ripetibile): riparare e poi sincronizzare, senza digitare nulla laggiù "
+"(un'applicazione troppo vecchia: prima mettre-a-jour)."
+
+msgid ""
+"Toutes les machines distantes du registre, une à une (un mot de passe par "
+"machine)."
+msgstr ""
+"Tutte le macchine remote del registro, una alla volta (una password per "
+"macchina)."
+
+msgid ""
+"Met à jour les applications trop anciennes d'une machine distante, depuis "
+"leur Release GitHub (rien d'autre)."
+msgstr ""
+"Aggiorna le applicazioni troppo vecchie di una macchina remota, dalla loro "
+"Release GitHub (nient'altro)."
+
+msgid ""
+"Archive prise sur GitHub, empreinte vérifiée avec sha.txt, puis installée "
+"sur la machine (comme la section « Mise à jour » du README de l'outil). Ne "
+"répare ni ne synchronise : voir synchroniser."
+msgstr ""
+"Archivio preso da GitHub, impronta verificata con sha.txt, poi installato "
+"sulla macchina (come la sezione «Aggiornamento» del README dello strumento)."
+" Non ripara né sincronizza: vedere synchroniser."
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; "
+"répétable)."
+msgstr ""
+"Macchina remota già scansionata (nome, indirizzo o utente@macchina; "
+"ripetibile)."
+
+msgid "Toutes les machines distantes du registre, une à une."
+msgstr "Tutte le macchine remote del registro, una alla volta."
+
+msgid ""
+"Corrige les écarts trouvés par verifier avec la commande de l'outil qui les "
+"possède (root, après accord)."
+msgstr ""
+"Corregge le anomalie trovate da verifier con il comando dello strumento a "
+"cui appartengono (root, previo consenso)."
+
+msgid ""
+"Ne corrige que ce qu'un outil sait corriger lui-même (omega-jail --apply "
+"--update, omega-serv service permissions, synchro jeton de chaque outil) et "
+"ce que le registre de la zone dit qu'omega-connect a créé (plan d'etablir, "
+"affiché à son tour). omega-connect ne réécrit jamais le fichier d'un autre "
+"outil : le reste est affiché, à faire à la main. Chaque commande est "
+"affichée avant d'être lancée."
+msgstr ""
+"Corregge solo ciò che uno strumento sa correggere da sé (omega-jail --apply "
+"--update, omega-serv service permissions, synchro token di ogni strumento) e"
+" ciò che il registro della zona dice essere stato creato da omega-connect "
+"(piano di etablir, mostrato a sua volta). omega-connect non riscrive mai il "
+"file di un altro strumento: il resto viene mostrato, da fare a mano. Ogni "
+"comando viene mostrato prima di essere eseguito."
+
+msgid ""
+"Machine distante déjà scannée : réparée depuis ici, rien à taper là-bas "
+"(répétable)."
+msgstr ""
+"Macchina remota già scansionata: riparata da qui, niente da digitare laggiù "
+"(ripetibile)."
+
+msgid ""
+"Rapport complet : outils, jetons, fiches, liens et tous leurs contrôles, "
+"zone et registre (lecture seule)."
+msgstr ""
+"Rapporto completo: strumenti, token, schede, collegamenti e tutti i loro "
+"controlli, zona e registro (sola lettura)."
+
+msgid ""
+"Tout ce qu'omega-connect sait à cet instant, en lecture seule et sans root :"
+" outils et instances, jetons, fiches, chaque lien avec tous ses contrôles et"
+" les commandes de correction, remarques de la recherche, zone neutre et son "
+"registre. Affiché, ou enregistré dans var/exports/ avec --enregistrer."
+msgstr ""
+"Tutto ciò che omega-connect sa in questo momento, in sola lettura e senza "
+"root: strumenti e istanze, token, schede, ogni collegamento con tutti i suoi"
+" controlli e i comandi di correzione, note sulla ricerca, zona neutra e il "
+"suo registro. Mostrato, o salvato in var/exports/ con --enregistrer."
+
+msgid ""
+"texte (défaut, traduit), json (jamais traduit) ou html (page autonome)."
+msgstr ""
+"testo (predefinito, tradotto), json (mai tradotto) o html (pagina autonoma)."
+
+msgid "Thème de la page HTML."
+msgstr "Tema della pagina HTML."
+
+msgid "Enregistre dans var/exports/ au lieu d'afficher, et donne le chemin."
+msgstr "Salva in var/exports/ invece di mostrare, e indica il percorso."
+
+msgid "Affiche seulement les commandes, sans rien lancer."
+msgstr "Mostra solo i comandi, senza eseguire nulla."
+
+msgid "Lance sans demander l'accord (les commandes restent affichées)."
+msgstr "Esegue senza chiedere il consenso (i comandi restano visualizzati)."
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro (il ne compte qu'après "
+"une reconnexion) : lecture de la zone avec sudo (find, stat, cat)."
+msgstr ""
+"La sua sessione non ha ancora il gruppo omega-synchro (vale solo dopo un "
+"nuovo accesso): lettura della zona con sudo (find, stat, cat)."
+
+msgid "Authentification sudo refusée ou annulée : rien n'est fait."
+msgstr "Autenticazione sudo rifiutata o annullata: non viene fatto nulla."
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) en root ? [o/N] "
+msgstr "Eseguire questi {count} comandi come root? [y/N] "
+
+msgid "Authentification sudo refusée ou annulée : rien n'a été lancé."
+msgstr ""
+"Autenticazione sudo rifiutata o annullata: non è stato eseguito nulla."
+
+msgid ""
+"Pas de terminal pour poser la question : relancez avec --garder-zone ou "
+"--effacer."
+msgstr ""
+"Nessun terminale per porre la domanda: rilanci con --garder-zone o "
+"--effacer."
+
+msgid "Garder la zone (liens figés) [g], tout retirer [t], ou annuler [a] ? "
+msgstr ""
+"Mantenere la zona (collegamenti congelati) [g], rimuovere tutto [t], o "
+"annullare [a]? "
+
+msgid ""
+"Pas de terminal pour demander l'accord : relancez avec --oui, ou "
+"--simulation."
+msgstr ""
+"Nessun terminale per chiedere il consenso: rilanci con --oui, o "
+"--simulation."
+
+msgid "Abandon : rien n'a été lancé."
+msgstr "Annullato: non è stato eseguito nulla."
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) ? [o/N] "
+msgstr "Eseguire questi {count} comandi? [y/N] "
+
+msgid ""
+"Zone neutre : plan d'« etablir » (seulement ce que le registre dit avoir "
+"créé)."
+msgstr ""
+"Zona neutra: piano di «etablir» (solo ciò che il registro dice di aver "
+"creato)."
+
+#, python-brace-format
+msgid "Registre du parc non enregistré : {error}"
+msgstr "Registro del parco non salvato: {error}"
+
+msgid "Saisissez utilisateur@machine (nom ou adresse), sans espace ni option."
+msgstr "Inserisca utente@macchina (nome o indirizzo), senza spazi né opzioni."
+
+msgid "Pas de terminal pour demander la confiance : rien n'a été fait."
+msgstr "Nessun terminale per chiedere la fiducia: non è stato fatto nulla."
+
+msgid "Faire confiance à cette machine ? [o/N] "
+msgstr "Fidarsi di questa macchina? [y/N] "
+
+msgid "Rien n'a été fait."
+msgstr "Non è stato fatto nulla."
+
+msgid "Impossible d'ajouter la clé à ~/.ssh/known_hosts."
+msgstr "Impossibile aggiungere la chiave a ~/.ssh/known_hosts."
+
+#, python-brace-format
+msgid "Aucune application ne correspond à : {targets}"
+msgstr "Nessuna applicazione corrisponde a: {targets}"
+
+msgid "Lancer ce plan ? [o/N] "
+msgstr "Eseguire questo piano? [y/N] "
+
+msgid "Authentification refusée ou annulée : rien n'a été lancé."
+msgstr "Autenticazione rifiutata o annullata: non è stato eseguito nulla."
+
+#, python-brace-format
+msgid "Machine inconnue ou mal écrite : {target}"
+msgstr "Macchina sconosciuta o scritta male: {target}"
+
+msgid ""
+"Aucune machine distante dans le registre : scannez-en une d'abord (scanner "
+"utilisateur@machine)."
+msgstr ""
+"Nessuna macchina remota nel registro: prima ne scansioni una (scanner "
+"utente@macchina)."
+
+#, python-brace-format
+msgid ""
+"{target} : clé de la machine pas encore acceptée, ou machine injoignable — "
+"scannez-la d'abord (scanner {target})."
+msgstr ""
+"{target}: chiave della macchina non ancora accettata, o macchina "
+"irraggiungibile — prima la scansioni (scanner {target})."
+
+#, python-brace-format
+msgid "Lancer sur {name} ? [o/N] "
+msgstr "Eseguire su {name}? [y/N] "
+
+#, python-brace-format
+msgid "Rien n'a été lancé sur {name}."
+msgstr "Non è stato eseguito nulla su {name}."
+
+msgid "Indiquez soit un outil à retirer, soit --tout."
+msgstr "Indichi uno strumento da rimuovere, oppure --tout."
+
+msgid "--garder-zone et --effacer vont avec --tout."
+msgstr "--garder-zone e --effacer vanno usati con --tout."
+
+msgid "Machines distantes indisponibles ici."
+msgstr "Macchine remote non disponibili qui."
+
+msgid "Indiquez --machine MACHINE ou --toutes-machines."
+msgstr "Indichi --machine MACHINE o --toutes-machines."
+
+#, python-brace-format
+msgid "Aucune machine distante du registre ne correspond à : {target}"
+msgstr "Nessuna macchina remota del registro corrisponde a: {target}"
+
+#, python-brace-format
+msgid "{machine} retirée du registre (rien n'a été modifié sur elle)."
+msgstr ""
+"{machine} rimossa dal registro (su di essa non è stato modificato nulla)."
+
+#, python-brace-format
+msgid "Rapport enregistré : {path}"
+msgstr "Rapporto salvato: {path}"
+
+#, python-brace-format
+msgid "aucune version publiée sur GitHub ({url})"
+msgstr "nessuna versione pubblicata su GitHub ({url})"
+
+msgid "GitHub ne répond pas depuis cet ordinateur (réseau)"
+msgstr "GitHub non risponde da questo computer (rete)"
+
+msgid "l'archive n'est pas citée dans sha.txt de la Release : refusée"
+msgstr "l'archivio non è citato nel sha.txt della Release: rifiutato"
+
+msgid "empreinte différente de sha.txt : archive refusée, rien n'est envoyé"
+msgstr ""
+"impronta diversa da sha.txt: archivio rifiutato, non viene inviato nulla"
+
+msgid "fichier trop volumineux pour une archive d'outil : refusé"
+msgstr "file troppo voluminoso per un archivio di strumento: rifiutato"
+
+#, python-brace-format
+msgid ""
+"la dernière version publiée sur GitHub ({latest}) est encore trop ancienne"
+msgstr ""
+"l'ultima versione pubblicata su GitHub ({latest}) è ancora troppo vecchia"
+
+msgid "extraction par-dessus, puis son install.sh"
+msgstr "estrazione sopra l'esistente, poi il suo install.sh"
+
+msgid ""
+"ancienne installation mise de côté (sudo mv), nouvelle à sa place, puis son "
+"install.sh qui reprend réglages et données"
+msgstr ""
+"vecchia installazione messa da parte (sudo mv), nuova al suo posto, poi il "
+"suo install.sh che recupera impostazioni e dati"
+
+msgid "Commande"
+msgstr "Comando"
+
+msgid "Mise à jour"
+msgstr "Aggiornamento"
+
+msgid "Réparer"
+msgstr "Ripara"
+
+msgid "Synchroniser"
+msgstr "Sincronizza"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} ({root}) : réinstallation (installation inachevée) — {how}"
+msgstr ""
+"{tool} {version} ({root}): reinstallazione (installazione incompleta) — "
+"{how}"
+
+msgid "(installation inachevée)"
+msgstr "(installazione incompleta)"
+
+#, python-brace-format
+msgid "{head} → {latest} ({root}) : {how}"
+msgstr "{head} → {latest} ({root}): {how}"
+
+#, python-brace-format
+msgid "{head} ({root}) : pas de mise à jour possible — {reason}"
+msgstr "{head} ({root}): aggiornamento non possibile — {reason}"
+
+#, python-brace-format
+msgid ""
+"Tout se passe dans ce terminal : le mot de passe sudo de {name} est demandé "
+"par la machine elle-même, une fois ; omega-connect ne le voit jamais."
+msgstr ""
+"Tutto avviene in questo terminale: la password sudo di {name} viene chiesta "
+"dalla macchina stessa, una volta; omega-connect non la vede mai."
+
+#, python-brace-format
+msgid "Réinstaller l'application — machine {name} ({target})"
+msgstr "Reinstalla l'applicazione — macchina {name} ({target})"
+
+#, python-brace-format
+msgid "Mettre à jour l'application — machine {name} ({target})"
+msgstr "Aggiorna l'applicazione — macchina {name} ({target})"
+
+msgid ""
+"Aucune application trop ancienne sur cette machine : rien à mettre à jour."
+msgstr ""
+"Nessuna applicazione troppo vecchia su questa macchina: niente da "
+"aggiornare."
+
+msgid ""
+"Archives prises sur la Release GitHub de chaque application (empreinte "
+"vérifiée avec sha.txt avant tout envoi) :"
+msgstr ""
+"Archivi presi dalla Release GitHub di ciascuna applicazione (impronta "
+"verificata con sha.txt prima di qualsiasi invio):"
+
+msgid ""
+"Rien d'autre n'est fait. Ensuite, pour remettre les liens en place : "
+"Synchronisation."
+msgstr ""
+"Non viene fatto nient'altro. Poi, per ripristinare i collegamenti: "
+"Sincronizzazione."
+
+#, python-brace-format
+msgid "Synchroniser — machine {name} ({target})"
+msgstr "Sincronizza — macchina {name} ({target})"
+
+msgid ""
+"Laissées de côté, trop anciennes (Registre → « Mettre à jour l'application »"
+" d'abord) :"
+msgstr "Escluse, troppo vecchie (prima Registro → «Aggiorna l'applicazione»):"
+
+msgid ""
+"Rien à synchroniser : tout ce qui peut l'être est relié sur cette machine."
+msgstr ""
+"Niente da sincronizzare: tutto ciò che può esserlo è collegato su questa "
+"macchina."
+
+msgid "Réparer puis synchroniser, sur la machine. Plan :"
+msgstr "Riparare e poi sincronizzare, sulla macchina. Piano:"
+
+msgid ""
+"L'espace partagé de cette machine n'est lisible qu'avec sudo : il sera relu "
+"au lancement."
+msgstr ""
+"Lo spazio condiviso di questa macchina è leggibile solo con sudo: verrà "
+"riletto all'avvio."
+
+#, python-brace-format
+msgid "Réparer — machine {name} ({target})"
+msgstr "Ripara — macchina {name} ({target})"
+
+#, python-brace-format
+msgid "« Réparer {name} » lance ces commandes SUR la machine, depuis ici."
+msgstr "«Ripara {name}» esegue questi comandi SULLA macchina, da qui."
+
+#, python-brace-format
+msgid ""
+"Commandes qu'aucun outil ne sait lancer — lancées AUSSI sur {name} par « "
+"Réparer {name} », une à une, après les corrections des outils (celles déjà "
+"réglées entre-temps sont sautées) :"
+msgstr ""
+"Comandi che nessuno strumento sa eseguire — eseguiti ANCHE su {name} da "
+"«Ripara {name}», uno alla volta, dopo le correzioni degli strumenti (quelli "
+"già sistemati nel frattempo vengono saltati):"
+
+#, python-brace-format
+msgid "Rien n'a été envoyé à {target} :"
+msgstr "Non è stato inviato nulla a {target}:"
+
+#, python-brace-format
+msgid "Envoi impossible vers {target}."
+msgstr "Invio impossibile verso {target}."
+
+#, python-brace-format
+msgid "Résultat pour {target} :"
+msgstr "Risultato per {target}:"
+
+#, python-brace-format
+msgid ""
+"  ✗ aucun résultat rendu par la machine (connexion coupée, ou lancement "
+"interrompu ; code {code})."
+msgstr ""
+"  ✗ nessun risultato restituito dalla macchina (connessione interrotta, o "
+"esecuzione interrotta; codice {code})."
+
+#, python-brace-format
+msgid "ancienne installation gardée dans {path}"
+msgstr "vecchia installazione conservata in {path}"
+
+#, python-brace-format
+msgid "(code {code})"
+msgstr "(codice {code})"
+
+#, python-brace-format
+msgid "code {code}"
+msgstr "codice {code}"
+
+msgid "Unison"
+msgstr "Unison"
+
+msgid "~/.ssh/config"
+msgstr "~/.ssh/config"
+
+msgid "connue de SSH"
+msgstr "nota a SSH"
+
+msgid "jamais scannée"
+msgstr "mai scansionata"
+
+msgid "injoignable"
+msgstr "irraggiungibile"
+
+msgid "répond"
+msgstr "risponde"
+
+#, python-brace-format
+msgid "{machine} — {count} application(s), {state}"
+msgstr "{machine} — {count} applicazione/i, {state}"
+
+msgid ""
+"Aucune machine trouvée dans vos profils Unison, ~/.ssh/config ou "
+"known_hosts."
+msgstr ""
+"Nessuna macchina trovata nei suoi profili Unison, ~/.ssh/config o "
+"known_hosts."
+
+#, python-brace-format
+msgid "{target} ne répond pas (machine éteinte, ou réseau coupé) : {detail}"
+msgstr "{target} non risponde (macchina spenta, o rete interrotta): {detail}"
+
+#, python-brace-format
+msgid ""
+"Le nom « {host} » est inconnu sur ce réseau. Utilisez l'adresse de la "
+"machine (par exemple utilisateur@192.168.1.109), ou déclarez ce nom dans "
+"/etc/hosts ou dans ~/.ssh/config (Host {host} / HostName <adresse>)."
+msgstr ""
+"Il nome «{host}» è sconosciuto su questa rete. Usi l'indirizzo della "
+"macchina (per esempio utente@192.168.1.109), oppure dichiari questo nome in "
+"/etc/hosts o in ~/.ssh/config (Host {host} / HostName <indirizzo>)."
+
+#, python-brace-format
+msgid ""
+"{host} répond, mais aucun serveur SSH n'y écoute (port 22). Sur cette "
+"machine : installez et démarrez openssh (sudo systemctl enable --now sshd) ;"
+" ou, s'il écoute sur un autre port, indiquez-le dans ~/.ssh/config (Host "
+"{host} / Port …)."
+msgstr ""
+"{host} risponde, ma nessun server SSH è in ascolto (porta 22). Su quella "
+"macchina: installi e avvii openssh (sudo systemctl enable --now sshd); "
+"oppure, se è in ascolto su un'altra porta, la indichi in ~/.ssh/config (Host"
+" {host} / Port …)."
+
+#, python-brace-format
+msgid ""
+"{target} refuse vos clés SSH. Ajoutez votre clé publique sur cette machine "
+"(ssh-copy-id {target}), ou chargez-la dans l'agent SSH si elle est protégée "
+"par une phrase secrète (ssh-add). omega-connect ne demande jamais de mot de "
+"passe."
+msgstr ""
+"{target} rifiuta le sue chiavi SSH. Aggiunga la sua chiave pubblica su "
+"quella macchina (ssh-copy-id {target}), oppure la carichi nell'agente SSH se"
+" è protetta da una passphrase (ssh-add). omega-connect non chiede mai una "
+"password."
+
+#, python-brace-format
+msgid "{target} n'est pas encore connue : sa clé doit d'abord être acceptée."
+msgstr ""
+"{target} non è ancora nota: la sua chiave deve prima essere accettata."
+
+#, python-brace-format
+msgid ""
+"La clé de {target} a CHANGÉ depuis la dernière connexion : scan refusé. Si "
+"la machine a été réinstallée, retirez l'ancienne clé (ssh-keygen -R {host}) "
+"puis recommencez ; sinon, quelqu'un se fait peut-être passer pour elle."
+msgstr ""
+"La chiave di {target} è CAMBIATA dall'ultima connessione: scansione "
+"rifiutata. Se la macchina è stata reinstallata, rimuova la vecchia chiave "
+"(ssh-keygen -R {host}) e riprovi; altrimenti, qualcuno potrebbe spacciarsi "
+"per essa."
+
+#, python-brace-format
+msgid ""
+"{target} n'a pas Python 3 (3.10 ou plus récent) : le scanner ne peut pas y "
+"tourner. Rien n'a été installé."
+msgstr ""
+"{target} non ha Python 3 (3.10 o più recente): lo scanner non può essere "
+"eseguito lì. Non è stato installato nulla."
+
+#, python-brace-format
+msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-bas."
+msgstr ""
+"La scansione di {target} non è riuscita ({detail}). Laggiù non è stato "
+"modificato nulla."
+
+#, python-brace-format
+msgid ""
+"Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
+msgstr ""
+"Nessun client SSH su questa macchina (comando {detail}): installi openssh."
+
+#, python-brace-format
+msgid ""
+"{target} n'a jamais été jointe depuis ce compte. Vérifiez que l'empreinte de"
+" sa clé est bien la sienne (sur la machine : ssh-keygen -lf "
+"/etc/ssh/ssh_host_ed25519_key.pub) :"
+msgstr ""
+"{target} non è mai stata raggiunta da questo account. Verifichi che "
+"l'impronta della chiave sia davvero la sua (sulla macchina: ssh-keygen -lf "
+"/etc/ssh/ssh_host_ed25519_key.pub):"
+
+msgid "En lui faisant confiance, elle est ajoutée à votre ~/.ssh/known_hosts."
+msgstr "Concedendole la fiducia, viene aggiunta al suo ~/.ssh/known_hosts."
+
+msgid "Ses applications restent dans le registre, marquées « Injoignable »."
+msgstr ""
+"Le sue applicazioni restano nel registro, contrassegnate «Irraggiungibile»."
+
+#, python-brace-format
+msgid "{machine} : {count} application(s) omega trouvée(s)."
+msgstr "{machine}: {count} applicazione/i omega trovata/e."
+
+msgid "Aucune machine distante pour l'instant."
+msgstr "Nessuna macchina remota per ora."
+
+#, python-brace-format
+msgid "  · {machine} — {count} application(s), dernier scan {date} ({state})"
+msgstr ""
+"  · {machine} — {count} applicazione/i, ultima scansione {date} ({state})"
+
+#, python-brace-format
+msgid "{tool} crée ou met à jour son jeton d'installation ({root})"
+msgstr "{tool} crea o aggiorna il suo token di installazione ({root})"
+
+#, python-brace-format
+msgid ""
+"omega-serv répare les droits partagés avec le service {service} ({root})"
+msgstr ""
+"omega-serv ripara i permessi condivisi con il servizio {service} ({root})"
+
+msgid ""
+"omega-jail remet à jour ce qu'il a posé dans fail2ban (contenu et droits)"
+msgstr ""
+"omega-jail aggiorna ciò che ha installato in fail2ban (contenuto e permessi)"
+
+#, python-brace-format
+msgid ""
+"{root} appartient au compte {account} : à lancer sous ce compte, ou avec "
+"omega-connect en root."
+msgstr ""
+"{root} appartiene all'account {account}: da eseguire con quell'account, o "
+"con omega-connect come root."
+
+#, python-brace-format
+msgid ""
+"{tool} {version} dans {root} : environnement Python ou carte d'identité "
+"manquants"
+msgstr ""
+"{tool} {version} in {root}: ambiente Python o carta d'identità mancanti"
+
+#, python-brace-format
+msgid "{tool} {version} dans {root} : {minimum} ou plus récent requis"
+msgstr "{tool} {version} in {root}: richiesto {minimum} o più recente"
+
+msgid "Réparer : corrections faites par les outils eux-mêmes"
+msgstr "Ripara: correzioni eseguite dagli strumenti stessi"
+
+msgid "Rien à réparer : « verifier » ne signale aucun écart corrigeable."
+msgstr ""
+"Niente da riparare: «verifier» non segnala alcuna anomalia correggibile."
+
+msgid ""
+"Trop ancien pour être réparé (ses commandes n'existent pas encore dans cette"
+" version) ; à mettre à jour d'abord (Registre → « Mettre à jour "
+"l'application ») :"
+msgstr ""
+"Troppo vecchio per essere riparato (i suoi comandi non esistono ancora in "
+"questa versione); da aggiornare prima (Registro → «Aggiorna "
+"l'applicazione»):"
+
+msgid ""
+"Installation inachevée (son install.sh ne s'est pas terminé) : à réinstaller"
+" d'abord (Registre → « Réinstaller l'application ») :"
+msgstr ""
+"Installazione incompleta (il suo install.sh non è terminato): da "
+"reinstallare prima (Registro → «Reinstalla l'applicazione»):"
+
+msgid "Commandes qui seront lancées, une à une (arrêt au premier échec) :"
+msgstr ""
+"Comandi che verranno eseguiti, uno alla volta (interruzione al primo "
+"errore):"
+
+msgid "en root"
+msgstr "come root"
+
+#, python-brace-format
+msgid "sous le compte {account}"
+msgstr "con l'account {account}"
+
+msgid ""
+"Zone neutre : « etablir » corrige ce que le registre dit avoir créé ; son "
+"plan sera affiché ensuite, avant tout lancement :"
+msgstr ""
+"Zona neutra: «etablir» corregge ciò che il registro dice di aver creato; il "
+"suo piano verrà mostrato dopo, prima di qualsiasi esecuzione:"
+
+msgid ""
+"Ensuite : « etablir » reliera à la zone les outils dont le jeton vient "
+"d'être créé ; son plan sera affiché avant tout lancement."
+msgstr ""
+"Poi: «etablir» collegherà alla zona gli strumenti il cui token è appena "
+"stato creato; il suo piano verrà mostrato prima di qualsiasi esecuzione."
+
+msgid ""
+"Zone neutre : illisible sans sudo avant votre reconnexion, son état n'est "
+"pas connu. « etablir » va la lire avec sudo et ne fera que ce qui manque "
+"(outils pas encore reliés, copies, groupe du service) ; son plan sera "
+"affiché avant tout lancement."
+msgstr ""
+"Zona neutra: illeggibile senza sudo prima del suo nuovo accesso, il suo "
+"stato non è noto. «etablir» la leggerà con sudo e farà solo ciò che manca "
+"(strumenti non ancora collegati, copie, gruppo del servizio); il suo piano "
+"verrà mostrato prima di qualsiasi esecuzione."
+
+msgid "Non lancé depuis cette session :"
+msgstr "Non eseguito da questa sessione:"
+
+msgid ""
+"À faire à la main (aucun outil ne sait le corriger lui-même ; omega-connect "
+"ne réécrit jamais le fichier d'un autre outil) :"
+msgstr ""
+"Da fare a mano (nessuno strumento sa correggerlo da sé; omega-connect non "
+"riscrive mai il file di un altro strumento):"
+
+msgid "À décider (jamais lancé par « reparer ») :"
+msgstr "Da decidere (mai eseguito da «reparer»):"
+
+msgid "code"
+msgstr "codice"
+
+#, python-brace-format
+msgid ""
+"Terminé : {count} commande(s) lancée(s), toutes réussies. Relancez « "
+"verifier » pour constater."
+msgstr ""
+"Terminato: {count} comando/i eseguito/i, tutti riusciti. Rilanci «verifier» "
+"per constatarlo."
+
+#, python-brace-format
+msgid "Arrêt à l'étape « {step} » : {error}"
+msgstr "Interruzione al passo «{step}»: {error}"
+
+msgid ""
+"Rien d'autre n'a été lancé. Relancez « reparer » après avoir corrigé la "
+"cause."
+msgstr ""
+"Nient'altro è stato eseguito. Rilanci «reparer» dopo aver corretto la causa."
+
+msgid "dossier"
+msgstr "cartella"
+
+msgid "groupe"
+msgstr "gruppo"
+
+msgid "membre du groupe"
+msgstr "membro del gruppo"
+
+msgid "groupe donné au service (par omega-serv)"
+msgstr "gruppo assegnato al servizio (da omega-serv)"
+
+msgid "active (synchronisée)"
+msgstr "attiva (sincronizzata)"
+
+msgid "figée (plus synchronisée)"
+msgstr "congelata (non più sincronizzata)"
+
+#, python-brace-format
+msgid ""
+"Pas encore d'espace partagé sur cette machine ({zone}) : la Synchronisation "
+"le prépare."
+msgstr ""
+"Nessuno spazio condiviso ancora su questa macchina ({zone}): la "
+"Sincronizzazione lo prepara."
+
+#, python-brace-format
+msgid ""
+"Espace partagé {zone} présent, lisible par root et le groupe omega-synchro "
+"seulement (rapport fait sans sudo ; le groupe compte après une reconnexion)."
+msgstr ""
+"Spazio condiviso {zone} presente, leggibile solo da root e dal gruppo omega-"
+"synchro (rapporto fatto senza sudo; il gruppo vale dopo un nuovo accesso)."
+
+#, python-brace-format
+msgid "Espace partagé {zone} : registre {status} ({detail})."
+msgstr "Spazio condiviso {zone}: registro {status} ({detail})."
+
+#, python-brace-format
+msgid "Espace partagé {zone} — {state} — mis à jour le {date}."
+msgstr "Spazio condiviso {zone} — {state} — aggiornato il {date}."
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : installation inachevée → « Réinstaller l'application »"
+msgstr ""
+"{tool} {version}: installazione incompleta → «Reinstalla l'applicazione»"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} → {minimum} ou plus récent : « Mettre à jour l'application "
+"»"
+msgstr "{tool} {version} → {minimum} o più recente: «Aggiorna l'applicazione»"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : à mettre à jour sur ce poste, section « Mise à jour » du "
+"README de l'outil"
+msgstr ""
+"{tool} {version}: da aggiornare su questo computer, sezione «Aggiornamento» "
+"del README dello strumento"
+
+msgid "corrigé par l'outil lui-même (menu Réparer)"
+msgstr "corretto dallo strumento stesso (menu Ripara)"
+
+#, python-brace-format
+msgid "commande à lancer sur ce poste : {command}"
+msgstr "comando da eseguire su questo computer: {command}"
+
+#, python-brace-format
+msgid "commande lancée sur la machine par le menu Réparer : {command}"
+msgstr "comando eseguito sulla macchina dal menu Ripara: {command}"
+
+msgid "aucune correction connue"
+msgstr "nessuna correzione nota"
+
+msgid ""
+"Machines qui ne répondent plus — Scanner → « Rescanner les machines connues "
+"»"
+msgstr ""
+"Macchine che non rispondono più — Scanner → «Riscansiona le macchine note»"
+
+msgid "À réinstaller ou à mettre à jour — Registre, bouton sous la ligne"
+msgstr "Da reinstallare o da aggiornare — Registro, pulsante sotto la riga"
+
+msgid "À réparer — menu Réparer"
+msgstr "Da riparare — menu Ripara"
+
+msgid "À synchroniser — menu Synchronisation"
+msgstr "Da sincronizzare — menu Sincronizzazione"
+
+#, python-brace-format
+msgid "{machine} — {tool} : {state}"
+msgstr "{machine} — {tool}: {state}"
+
+msgid "application inconnue"
+msgstr "applicazione sconosciuta"
+
+#, python-brace-format
+msgid "propriétaire : {owner} ; trouvée par : {sources}"
+msgstr "proprietario: {owner}; trovata tramite: {sources}"
+
+#, python-brace-format
+msgid "carte d'identité : {card}"
+msgstr "carta d'identità: {card}"
+
+#, python-brace-format
+msgid "instance {instance}"
+msgstr "istanza {instance}"
+
+#, python-brace-format
+msgid "description : {what}"
+msgstr "descrizione: {what}"
+
+msgid "Remarques :"
+msgstr "Note:"
+
+msgid "Aucune application omega trouvée."
+msgstr "Nessuna applicazione omega trovata."
+
+#, python-brace-format
+msgid ""
+"{machine} — {target} — {state} — dernier scan {date} — {apps} "
+"application(s), {links} liaison(s)"
+msgstr ""
+"{machine} — {target} — {state} — ultima scansione {date} — {apps} "
+"applicazione/i, {links} collegamento/i"
+
+#, python-brace-format
+msgid "dernière erreur : {error}"
+msgstr "ultimo errore: {error}"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — RAPPORT COMPLET"
+msgstr "OMEGA-CONNECT {version} — RAPPORTO COMPLETO"
+
+#, python-brace-format
+msgid ""
+"Établi le {date} depuis {machine}, machines du réseau rescannées (lecture "
+"seule, sans root)."
+msgstr ""
+"Redatto il {date} da {machine}, macchine di rete riscansionate (sola "
+"lettura, senza root)."
+
+msgid "BILAN"
+msgstr "RIEPILOGO"
+
+#, python-brace-format
+msgid "{machines} machine(s) : {machine} et {remote} du réseau."
+msgstr "{machines} macchina/e: {machine} e {remote} di rete."
+
+#, python-brace-format
+msgid "{count} application(s) : {summary}."
+msgstr "{count} applicazione/i: {summary}."
+
+#, python-brace-format
+msgid "{count} liaison(s) : {summary}."
+msgstr "{count} collegamento/i: {summary}."
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : {state}."
+msgstr "Spazio condiviso di {machine}: {state}."
+
+msgid "À FAIRE"
+msgstr "DA FARE"
+
+msgid "Rien à faire : toutes les applications sont à jour et reliées."
+msgstr "Niente da fare: tutte le applicazioni sono aggiornate e collegate."
+
+msgid "REGISTRE — APPLICATIONS PAR MACHINE"
+msgstr "REGISTRO — APPLICAZIONI PER MACCHINA"
+
+msgid "MACHINES DU RÉSEAU"
+msgstr "MACCHINE DI RETE"
+
+msgid "Aucune (Scanner → machine distante, pour en ajouter)."
+msgstr "Nessuna (Scanner → macchina remota, per aggiungerne)."
+
+#, python-brace-format
+msgid "APPLICATIONS DE {machine} EN DÉTAIL"
+msgstr "APPLICAZIONI DI {machine} IN DETTAGLIO"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (tous les contrôles)"
+msgstr "COLLEGAMENTI DI {machine} (tutti i controlli)"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (réseau, scan du {date})"
+msgstr "COLLEGAMENTI DI {machine} (rete, scansione del {date})"
+
+msgid "Aucune liaison relevée."
+msgstr "Nessun collegamento rilevato."
+
+#, python-brace-format
+msgid "ESPACE PARTAGÉ (omega-synchro) DE {machine} ET SON REGISTRE"
+msgstr "SPAZIO CONDIVISO (omega-synchro) DI {machine} E IL SUO REGISTRO"
+
+msgid "Créé par omega-connect :"
+msgstr "Creato da omega-connect:"
+
+msgid "rien"
+msgstr "niente"
+
+msgid "Applications reliées :"
+msgstr "Applicazioni collegate:"
+
+msgid "reliée le"
+msgstr "collegata il"
+
+msgid "conforme"
+msgstr "conforme"
+
+msgid "info"
+msgstr "info"
+
+msgid "écart"
+msgstr "anomalia"
+
+msgid "non vérifiable"
+msgstr "non verificabile"
+
+msgid "partielle"
+msgstr "parziale"
+
+#, python-brace-format
+msgid "instance « {instance} » — {root}"
+msgstr "istanza «{instance}» — {root}"
+
+msgid "machine"
+msgstr "macchina"
+
+msgid "Aucun contrôle."
+msgstr "Nessun controllo."
+
+msgid "Rapport complet"
+msgstr "Rapporto completo"
+
+#, python-brace-format
+msgid "{count} liaison(s), dont {problems} à corriger."
+msgstr "{count} collegamento/i, di cui {problems} da correggere."
+
+msgid "Applications"
+msgstr "Applicazioni"
+
+msgid "À faire"
+msgstr "Da fare"
+
+msgid "Registre — applications par machine"
+msgstr "Registro — applicazioni per macchina"
+
+msgid "Application"
+msgstr "Applicazione"
+
+msgid "Instance / service"
+msgstr "Istanza / servizio"
+
+msgid "Machine"
+msgstr "Macchina"
+
+msgid "Version"
+msgstr "Versione"
+
+msgid "Dossier"
+msgstr "Cartella"
+
+msgid "Machines du réseau"
+msgstr "Macchine di rete"
+
+msgid "Connexion"
+msgstr "Connessione"
+
+msgid "Dernier scan"
+msgstr "Ultima scansione"
+
+msgid "Dernière erreur"
+msgstr "Ultimo errore"
+
+msgid "Liaisons"
+msgstr "Collegamenti"
+
+#, python-brace-format
+msgid "Applications de {machine} en détail"
+msgstr "Applicazioni di {machine} in dettaglio"
+
+msgid "Propriétaire"
+msgstr "Proprietario"
+
+msgid "Trouvée par"
+msgstr "Trovata tramite"
+
+msgid "Carte d'identité"
+msgstr "Carta d'identità"
+
+msgid "Aucun outil omega trouvé."
+msgstr "Nessuno strumento omega trovato."
+
+#, python-brace-format
+msgid "Identifiant en double {identifier} : {roots}"
+msgstr "Identificativo duplicato {identifier}: {roots}"
+
+msgid "Remarques sur la recherche"
+msgstr "Note sulla ricerca"
+
+#, python-brace-format
+msgid "Liaisons de {machine}"
+msgstr "Collegamenti di {machine}"
+
+#, python-brace-format
+msgid "Liaisons de {machine} (réseau, scan du {date})"
+msgstr "Collegamenti di {machine} (rete, scansione del {date})"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} et son registre"
+msgstr "Spazio condiviso di {machine} e il suo registro"
+
+msgid "Créé le"
+msgstr "Creato il"
+
+msgid "Élément"
+msgstr "Elemento"
+
+msgid "Identifiant"
+msgstr "Identificativo"
+
+msgid "Instance"
+msgstr "Istanza"
+
+msgid "Reliée le"
+msgstr "Collegata il"
+
+msgid "Aucune application reliée."
+msgstr "Nessuna applicazione collegata."
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — rapport du {date}, établi depuis {machine}."
+msgstr "OMEGA-CONNECT {version} — rapporto del {date}, redatto da {machine}."
+
+msgid "Rapport complet - Omega-Connect"
+msgstr "Rapporto completo - Omega-Connect"
+
+msgid "Journaux d'omega-serv → jails fail2ban"
+msgstr "Log di omega-serv → jail fail2ban"
+
+msgid "Journaux magnet (omega-waf) → jails fail2ban"
+msgstr "Log magnet (omega-waf) → jail fail2ban"
+
+msgid "Pont fail2ban → liste noire d'omega-serv"
+msgstr "Ponte fail2ban → lista nera di omega-serv"
+
+msgid "Liste protégée → jails et pont"
+msgstr "Lista protetta → jail e ponte"
+
+msgid "Liste noire d'omega-serv (droits)"
+msgstr "Lista nera di omega-serv (permessi)"
+
+msgid "Fichiers d'omega-jail dans fail2ban"
+msgstr "File di omega-jail in fail2ban"
+
+msgid "Cartes d'identité"
+msgstr "Carte d'identità"
+
+msgid "Espace partagé (omega-synchro)"
+msgstr "Spazio condiviso (omega-synchro)"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "à réparer"
+msgstr "da riparare"
+
+msgid "à réparer (bloquant)"
+msgstr "da riparare (bloccante)"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — le dossier qui le contient n'est "
+"lisible que par root ({detail})."
+msgstr ""
+"{subject}: non verificabile senza root — la cartella che lo contiene è "
+"leggibile solo da root ({detail})."
+
+msgid "fail2ban n'est pas installé : aucun jail ne protège cette instance."
+msgstr "fail2ban non è installato: nessuna jail protegge questa istanza."
+
+#, python-brace-format
+msgid "dossiers de fail2ban illisibles ({detail}) : non vérifiable sans root."
+msgstr ""
+"cartelle di fail2ban illeggibili ({detail}): non verificabile senza root."
+
+msgid ""
+"omega-jail n'est pas installé : aucun jail fail2ban ne lit les journaux "
+"d'omega-serv."
+msgstr ""
+"omega-jail non è installato: nessuna jail fail2ban legge i log di omega-"
+"serv."
+
+msgid "aucun jail d'omega-jail pour cette instance."
+msgstr "nessuna jail di omega-jail per questa istanza."
+
+msgid "omega-jail n'a encore posé aucun fichier dans fail2ban."
+msgstr "omega-jail non ha ancora installato alcun file in fail2ban."
+
+#, python-brace-format
+msgid "fonction {subject} désactivée : rien à relier."
+msgstr "funzione {subject} disattivata: niente da collegare."
+
+msgid ""
+"non vérifiable : l'outil n'a pas fourni sa description (version trop "
+"ancienne, ou refusée) — voir le Registre."
+msgstr ""
+"non verificabile: lo strumento non ha fornito la sua descrizione (versione "
+"troppo vecchia, o rifiutata) — vedere il Registro."
+
+#, python-brace-format
+msgid "jail {subject} désactivé (enabled = false)."
+msgstr "jail {subject} disattivata (enabled = false)."
+
+#, python-brace-format
+msgid ""
+"jail {subject} : filtre {detail} introuvable dans filter.d — fail2ban refuse"
+" de démarrer."
+msgstr ""
+"jail {subject}: filtro {detail} non trovato in filter.d — fail2ban si "
+"rifiuta di avviarsi."
+
+#, python-brace-format
+msgid "journal {subject} présent ({detail})."
+msgstr "log {subject} presente ({detail})."
+
+#, python-brace-format
+msgid ""
+"journal {subject} absent (jail {detail}) : fail2ban refuse de démarrer tant "
+"qu'il manque."
+msgstr ""
+"log {subject} assente (jail {detail}): fail2ban si rifiuta di avviarsi "
+"finché manca."
+
+#, python-brace-format
+msgid ""
+"journal {subject} appartient à root ({detail}) : le service omega-serv ne "
+"peut plus y écrire."
+msgstr ""
+"log {subject} appartiene a root ({detail}): il servizio omega-serv non può "
+"più scriverci."
+
+#, python-brace-format
+msgid ""
+"journal {subject} : droits {detail} ; le service omega-serv risque de ne pas"
+" pouvoir y écrire."
+msgstr ""
+"log {subject}: permessi {detail}; il servizio omega-serv rischia di non "
+"poterci scrivere."
+
+#, python-brace-format
+msgid ""
+"jail {subject} ne lit pas le fichier qu'écrit l'instance ({detail}) : il ne "
+"bannira jamais."
+msgstr ""
+"jail {subject} non legge il file scritto dall'istanza ({detail}): non "
+"bannerà mai."
+
+#, python-brace-format
+msgid ""
+"jail {subject} : la fonction qui écrit son journal ({detail}) est "
+"désactivée, le jail reste sans effet."
+msgstr ""
+"jail {subject}: la funzione che scrive il suo log ({detail}) è disattivata, "
+"la jail resta senza effetto."
+
+#, python-brace-format
+msgid ""
+"jail {subject} lit {detail} : aucune instance omega-serv détectée à cet "
+"endroit."
+msgstr ""
+"jail {subject} legge {detail}: nessuna istanza omega-serv rilevata in quel "
+"punto."
+
+#, python-brace-format
+msgid ""
+"journal {subject} ({detail}) : fonction active mais aucun jail ne le lit."
+msgstr "log {subject} ({detail}): funzione attiva ma nessuna jail lo legge."
+
+#, python-brace-format
+msgid ""
+"omega-waf est en mode log-only (il note les attaques sans bannir), mais le "
+"jail {subject} posé par omega-jail dans fail2ban bannit, lui, au niveau "
+"réseau. omega-connect indique l'état et relie les outils ; il ne se "
+"substitue pas à fail2ban."
+msgstr ""
+"omega-waf è in modalità log-only (registra gli attacchi senza bannare), ma "
+"la jail {subject} installata da omega-jail in fail2ban banna, essa sì, a "
+"livello di rete. omega-connect indica lo stato e collega gli strumenti; non "
+"si sostituisce a fail2ban."
+
+#, python-brace-format
+msgid "pont {subject} vers la liste noire de cette instance ({detail})."
+msgstr "ponte {subject} verso la lista nera di questa istanza ({detail})."
+
+msgid ""
+"aucun pont vers la liste noire de cette instance : un ban derrière Tailscale"
+" reste sans effet."
+msgstr ""
+"nessun ponte verso la lista nera di questa istanza: un ban dietro Tailscale "
+"resta senza effetto."
+
+#, python-brace-format
+msgid ""
+"pont {subject} sans omega-serv (installé quand omega-serv était introuvable)"
+" : aucun ban relayé."
+msgstr ""
+"ponte {subject} senza omega-serv (installato quando omega-serv non era "
+"reperibile): nessun ban inoltrato."
+
+#, python-brace-format
+msgid ""
+"jail {subject} utilise l'action {detail}, absente d'action.d : fail2ban "
+"refuse de démarrer."
+msgstr ""
+"jail {subject} usa l'azione {detail}, assente da action.d: fail2ban si "
+"rifiuta di avviarsi."
+
+#, python-brace-format
+msgid "jail {subject} relaie ses bans vers une autre instance ({detail})."
+msgstr "jail {subject} inoltra i suoi ban a un'altra istanza ({detail})."
+
+#, python-brace-format
+msgid "pont {subject} : l'instance visée a disparu ({detail})."
+msgstr "ponte {subject}: l'istanza di destinazione è scomparsa ({detail})."
+
+#, python-brace-format
+msgid ""
+"pont {subject} : l'instance visée ({detail}) n'a pas été détectée (autre "
+"compte ?)."
+msgstr ""
+"ponte {subject}: l'istanza di destinazione ({detail}) non è stata rilevata "
+"(altro account?)."
+
+#, python-brace-format
+msgid "jail {subject} sans pont vers la liste noire."
+msgstr "jail {subject} senza ponte verso la lista nera."
+
+#, python-brace-format
+msgid "script du pont {subject} conforme ({detail})."
+msgstr "script del ponte {subject} conforme ({detail})."
+
+#, python-brace-format
+msgid "script du pont {subject} absent : aucun ban n'est relayé."
+msgstr "script del ponte {subject} assente: nessun ban viene inoltrato."
+
+#, python-brace-format
+msgid ""
+"script du pont {subject} modifiable par un autre compte que root ({detail}),"
+" alors que fail2ban le lance en root."
+msgstr ""
+"script del ponte {subject} modificabile da un account diverso da root "
+"({detail}), mentre fail2ban lo esegue come root."
+
+#, python-brace-format
+msgid "script du pont {subject} : droits {detail} au lieu de root:root 0755."
+msgstr ""
+"script del ponte {subject}: permessi {detail} invece di root:root 0755."
+
+#, python-brace-format
+msgid ""
+"non vérifiable : la description d'omega-serv ne donne pas sa liste protégée "
+"({detail} ; version antérieure à 2.6.1 ?), comparaison impossible."
+msgstr ""
+"non verificabile: la descrizione di omega-serv non fornisce la sua lista "
+"protetta ({detail}; versione precedente alla 2.6.1?), confronto impossibile."
+
+#, python-brace-format
+msgid "jail {subject} : ignoreip identique à la liste protégée d'omega-serv."
+msgstr "jail {subject}: ignoreip identico alla lista protetta di omega-serv."
+
+#, python-brace-format
+msgid ""
+"jail {subject} : ignoreip différent de la liste protégée d'omega-serv (en "
+"plus « + », en moins « - » : {detail})."
+msgstr ""
+"jail {subject}: ignoreip diverso dalla lista protetta di omega-serv (in più "
+"«+», in meno «-»: {detail})."
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés identiques à la liste protégée d'omega-"
+"serv."
+msgstr ""
+"ponte {subject}: reti esentate identiche alla lista protetta di omega-serv."
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés différents de la liste protégée d'omega-"
+"serv (en plus « + », en moins « - » : {detail})."
+msgstr ""
+"ponte {subject}: reti esentate diverse dalla lista protetta di omega-serv "
+"(in più «+», in meno «-»: {detail})."
+
+msgid "liste noire désactivée : rien à relier."
+msgstr "lista nera disattivata: niente da collegare."
+
+#, python-brace-format
+msgid "liste noire {subject} pas encore créée (aucun ban jusqu'ici)."
+msgstr "lista nera {subject} non ancora creata (nessun ban finora)."
+
+#, python-brace-format
+msgid "liste noire {subject} conforme ({detail})."
+msgstr "lista nera {subject} conforme ({detail})."
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} appartient à root ({detail}) : le service ne peut plus"
+" la lire et le site répond en erreur."
+msgstr ""
+"lista nera {subject} appartiene a root ({detail}): il servizio non può più "
+"leggerla e il sito risponde con un errore."
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : mauvais groupe ({detail}) ; le service ne peut pas "
+"la lire."
+msgstr ""
+"lista nera {subject}: gruppo errato ({detail}); il servizio non può "
+"leggerla."
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : droits {detail}, il faut au moins 0660 (lecture et "
+"écriture pour le groupe du service)."
+msgstr ""
+"lista nera {subject}: permessi {detail}, serve almeno 0660 (lettura e "
+"scrittura per il gruppo del servizio)."
+
+#, python-brace-format
+msgid "liste noire {subject} : propriétaire inattendu ({detail})."
+msgstr "lista nera {subject}: proprietario inatteso ({detail})."
+
+#, python-brace-format
+msgid "{subject} fichier(s) d'omega-jail conforme(s)."
+msgstr "{subject} file di omega-jail conforme/i."
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — fichier illisible pour votre compte."
+msgstr ""
+"{subject}: non verificabile senza root — file illeggibile per il suo "
+"account."
+
+#, python-brace-format
+msgid ""
+"{subject} modifiable par un autre compte que root ({detail}), alors que "
+"fail2ban le lit en root."
+msgstr ""
+"{subject} modificabile da un account diverso da root ({detail}), mentre "
+"fail2ban lo legge come root."
+
+#, python-brace-format
+msgid "{subject} : droits {detail} au lieu de root:root 0644."
+msgstr "{subject}: permessi {detail} invece di root:root 0644."
+
+#, python-brace-format
+msgid "{subject} abîmé ({detail}) : fail2ban risque de refuser de démarrer."
+msgstr ""
+"{subject} danneggiato ({detail}): fail2ban rischia di rifiutarsi di "
+"avviarsi."
+
+#, python-brace-format
+msgid ""
+"{subject} : action du pont abîmée ou modifiée à la main (ligne actionban "
+"introuvable)."
+msgstr ""
+"{subject}: azione del ponte danneggiata o modificata a mano (riga actionban "
+"non trovata)."
+
+#, python-brace-format
+msgid "{subject} : carte d'identité présente (identifiant {detail}…)."
+msgstr "{subject}: carta d'identità presente (identificativo {detail}…)."
+
+#, python-brace-format
+msgid "{subject} ({detail}) : pas encore de carte d'identité."
+msgstr "{subject} ({detail}): non ha ancora una carta d'identità."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : version trop ancienne : ni carte d'identité ni "
+"description."
+msgstr ""
+"{subject} ({detail}): versione troppo vecchia: né carta d'identità né "
+"descrizione."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : installation inachevée (environnement Python ou carte"
+" d'identité manquants) : à réinstaller."
+msgstr ""
+"{subject} ({detail}): installazione incompleta (ambiente Python o carta "
+"d'identità mancanti): da reinstallare."
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, carte d'identité illisible pour votre compte "
+"(droits du fichier ou du dossier : {detail})."
+msgstr ""
+"{subject}: non verificabile, carta d'identità illeggibile per il suo account"
+" (permessi del file o della cartella: {detail})."
+
+#, python-brace-format
+msgid "{subject} : carte d'identité abîmée ({detail})."
+msgstr "{subject}: carta d'identità danneggiata ({detail})."
+
+#, python-brace-format
+msgid ""
+"{subject} : carte d'identité d'une version plus récente qu'omega-connect "
+"({detail})."
+msgstr ""
+"{subject}: carta d'identità di una versione più recente di omega-connect "
+"({detail})."
+
+#, python-brace-format
+msgid ""
+"{subject} : droits {detail} au lieu de 0644 (ou 0664), au nom du "
+"propriétaire du dossier."
+msgstr ""
+"{subject}: permessi {detail} invece di 0644 (o 0664), a nome del "
+"proprietario della cartella."
+
+#, python-brace-format
+msgid ""
+"identifiant {subject} en double : {detail} (dossier copié à la main ?)."
+msgstr ""
+"identificativo {subject} duplicato: {detail} (cartella copiata a mano?)."
+
+#, python-brace-format
+msgid ""
+"espace partagé {subject} pas encore préparé : la Synchronisation le prépare."
+msgstr ""
+"spazio condiviso {subject} non ancora preparato: la Sincronizzazione lo "
+"prepara."
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien n'y "
+"est lu."
+msgstr ""
+"{subject} non è una vera cartella (link simbolico o file): non vi viene "
+"letto nulla."
+
+#, python-brace-format
+msgid ""
+"{subject} existe sans registre : créé à la main ou par autre chose qu'omega-"
+"connect (rien n'y sera fait)."
+msgstr ""
+"{subject} esiste senza registro: creato a mano o da qualcosa di diverso da "
+"omega-connect (non vi verrà fatto nulla)."
+
+#, python-brace-format
+msgid "{subject} : non vérifiable, illisible pour votre compte ({detail})."
+msgstr ""
+"{subject}: non verificabile, illeggibile per il suo account ({detail})."
+
+#, python-brace-format
+msgid ""
+"en attente de reconnexion : {subject} est déjà membre du groupe omega-"
+"synchro, mais la session ouverte ne le sait pas encore. {detail} sera "
+"vérifié après la prochaine connexion (ou Registre → « Lire avec sudo »)."
+msgstr ""
+"in attesa di un nuovo accesso: {subject} è già membro del gruppo omega-"
+"synchro, ma la sessione aperta non lo sa ancora. {detail} verrà verificato "
+"dopo il prossimo accesso (o Registro → «Leggi con sudo»)."
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, lisible par root et le groupe omega-synchro "
+"seulement, et {detail} n'en est pas membre."
+msgstr ""
+"{subject}: non verificabile, leggibile solo da root e dal gruppo omega-"
+"synchro, e {detail} non ne è membro."
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est retiré tant qu'il n'est pas"
+" réparé."
+msgstr ""
+"registro {subject} danneggiato ({detail}): non viene rimosso nulla finché "
+"non è riparato."
+
+msgid "espace partagé figé : gardé tel quel, plus synchronisé."
+msgstr ""
+"spazio condiviso congelato: mantenuto così com'è, non più sincronizzato."
+
+#, python-brace-format
+msgid ""
+"{detail} dossier(s) de l'espace partagé conformes (root:omega-synchro 2750)."
+msgstr ""
+"{detail} cartella/e dello spazio condiviso conforme/i (root:omega-synchro "
+"2750)."
+
+#, python-brace-format
+msgid "dossier {subject} manquant."
+msgstr "cartella {subject} mancante."
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 2750."
+msgstr "{subject}: {detail} invece di root:omega-synchro 2750."
+
+#, python-brace-format
+msgid "groupe {subject} absent alors que l'espace partagé existe."
+msgstr "gruppo {subject} assente mentre lo spazio condiviso esiste."
+
+#, python-brace-format
+msgid "{subject} est membre du groupe omega-synchro."
+msgstr "{subject} è membro del gruppo omega-synchro."
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas membre du groupe omega-synchro : l'espace partagé lui "
+"est illisible."
+msgstr ""
+"{subject} non è membro del gruppo omega-synchro: lo spazio condiviso gli è "
+"illeggibile."
+
+#, python-brace-format
+msgid ""
+"{subject} est membre du groupe omega-synchro ; cela comptera à la prochaine "
+"connexion."
+msgstr ""
+"{subject} è membro del gruppo omega-synchro; varrà dal prossimo accesso."
+
+#, python-brace-format
+msgid "carte d'identité de {subject} à jour dans l'espace partagé ({detail})."
+msgstr ""
+"carta d'identità di {subject} aggiornata nello spazio condiviso ({detail})."
+
+#, python-brace-format
+msgid "carte d'identité {subject} absente de l'espace partagé."
+msgstr "carta d'identità {subject} assente dallo spazio condiviso."
+
+#, python-brace-format
+msgid ""
+"carte d'identité de {subject} périmée dans l'espace partagé ({detail}) : "
+"version, racine ou contrats changés."
+msgstr ""
+"carta d'identità di {subject} superata nello spazio condiviso ({detail}): "
+"versione, radice o contratti cambiati."
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 0640."
+msgstr "{subject}: {detail} invece di root:omega-synchro 0640."
+
+#, python-brace-format
+msgid "{subject} ({detail}) installé mais pas encore dans l'espace partagé."
+msgstr "{subject} ({detail}) installato ma non ancora nello spazio condiviso."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) relié à l'espace partagé mais introuvable : "
+"désinstallé, ou carte d'identité recréée."
+msgstr ""
+"{subject} ({detail}) collegato allo spazio condiviso ma non trovato: "
+"disinstallato, o carta d'identità ricreata."
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) a le groupe omega-synchro (complément "
+"systemd posé par omega-serv)."
+msgstr ""
+"il servizio {subject} ({detail}) ha il gruppo omega-synchro (integrazione "
+"systemd installata da omega-serv)."
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) tourne sous un compte dédié sans le groupe "
+"omega-synchro : il ne pourra pas lire l'espace partagé. La Synchronisation "
+"demande à omega-serv de le lui donner."
+msgstr ""
+"il servizio {subject} ({detail}) gira con un account dedicato senza il "
+"gruppo omega-synchro: non potrà leggere lo spazio condiviso. La "
+"Sincronizzazione chiede a omega-serv di assegnarglielo."
+
+msgid "correction : Synchronisation (omega-connect synchroniser)"
+msgstr "correzione: Sincronizzazione (omega-connect synchroniser)"
+
+#, python-brace-format
+msgid "correction (compte {account}) : {command}"
+msgstr "correzione (account {account}): {command}"
+
+#, python-brace-format
+msgid "correction : {command}"
+msgstr "correzione: {command}"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) (--detail pour les voir)"
+msgstr "{count} controllo/i conforme/i (--detail per vederli)"
+
+msgid ""
+"Vérification des liens entre outils omega (lecture seule, rien n'est "
+"modifié)"
+msgstr ""
+"Verifica dei collegamenti tra gli strumenti omega (sola lettura, non viene "
+"modificato nulla)"
+
+#, python-brace-format
+msgid "omega-serv « {instance} » — {root}"
+msgstr "omega-serv «{instance}» — {root}"
+
+msgid "Hors des instances détectées"
+msgstr "Fuori dalle istanze rilevate"
+
+#, python-brace-format
+msgid "Bilan : {summary}."
+msgstr "Riepilogo: {summary}."
+
+msgid ""
+"Les corrections ne sont jamais lancées par « verifier » : relisez-les avant "
+"de les exécuter."
+msgstr ""
+"Le correzioni non vengono mai eseguite da «verifier»: le rilegga prima di "
+"eseguirle."
+
+#, python-brace-format
+msgid ""
+"{count} écart(s) corrigeable(s) par « reparer » (commandes des outils, "
+"affichées avant tout lancement)."
+msgstr ""
+"{count} anomalia/e correggibile/i da «reparer» (comandi degli strumenti, "
+"mostrati prima di qualsiasi esecuzione)."
+
+#, python-brace-format
+msgid "Établir la zone neutre {zone}"
+msgstr "Stabilire la zona neutra {zone}"
+
+#, python-brace-format
+msgid "Tout retirer : défaire ce que le registre de {zone} liste"
+msgstr "Rimuovere tutto: annullare ciò che il registro di {zone} elenca"
+
+#, python-brace-format
+msgid "Garder la zone {zone} (liens figés)"
+msgstr "Mantenere la zona {zone} (collegamenti congelati)"
+
+#, python-brace-format
+msgid "Retirer un outil désinstallé de la zone {zone}"
+msgstr "Rimuovere uno strumento disinstallato dalla zona {zone}"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien "
+"n'est fait."
+msgstr ""
+"{subject} non è una vera cartella (link simbolico o file): non viene fatto "
+"nulla."
+
+#, python-brace-format
+msgid ""
+"{subject} existe déjà sans registre d'omega-connect : rien n'est fait. "
+"Vérifiez ce dossier, puis supprimez-le vous-même s'il est inutile."
+msgstr ""
+"{subject} esiste già senza registro di omega-connect: non viene fatto nulla."
+" Controlli questa cartella, poi la elimini lei stesso se è inutile."
+
+#, python-brace-format
+msgid "{subject} n'a pas pu être lu, même avec sudo : rien n'est fait."
+msgstr "{subject} non è stato letto, nemmeno con sudo: non viene fatto nulla."
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est fait tant qu'il n'est pas "
+"réparé."
+msgstr ""
+"registro {subject} danneggiato ({detail}): non viene fatto nulla finché non "
+"è riparato."
+
+#, python-brace-format
+msgid "aucune zone en {subject} : rien à retirer."
+msgstr "nessuna zona in {subject}: niente da rimuovere."
+
+#, python-brace-format
+msgid ""
+"« {subject} » ne désigne aucun outil du registre (nom, dossier ou 8 premiers"
+" caractères de l'identifiant)."
+msgstr ""
+"«{subject}» non indica alcuno strumento del registro (nome, cartella o primi"
+" 8 caratteri dell'identificativo)."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est toujours installé : il serait relié de nouveau à la"
+" prochaine actualisation. Désinstallez-le d'abord."
+msgstr ""
+"{subject} ({detail}) è ancora installato: verrebbe ricollegato al prossimo "
+"aggiornamento. Prima lo disinstalli."
+
+#, python-brace-format
+msgid "{subject} ({detail}) est toujours installé : laissé dans la zone."
+msgstr "{subject} ({detail}) è ancora installato: lasciato nella zona."
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : jeton {detail} (voir « verifier »)."
+msgstr "{subject} non è collegato: token {detail} (vedere «verifier»)."
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : identifiant {detail} en double."
+msgstr "{subject} non è collegato: identificativo {detail} duplicato."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est au registre mais introuvable : « retirer {detail} »"
+" l'enlèvera."
+msgstr ""
+"{subject} ({detail}) è nel registro ma non trovato: «retirer {detail}» lo "
+"toglierà."
+
+#, python-brace-format
+msgid ""
+"{subject} devra se reconnecter pour que le groupe omega-synchro compte "
+"(lecture de la zone)."
+msgstr ""
+"{subject} dovrà accedere di nuovo perché il gruppo omega-synchro valga "
+"(lettura della zona)."
+
+#, python-brace-format
+msgid "la zone {subject} est à jour : rien à faire."
+msgstr "la zona {subject} è aggiornata: niente da fare."
+
+#, python-brace-format
+msgid ""
+"{subject} n'a pas été créé par omega-connect : gardé, ainsi que son dossier."
+msgstr ""
+"{subject} non è stato creato da omega-connect: mantenuto, insieme alla sua "
+"cartella."
+
+#, python-brace-format
+msgid ""
+"le groupe {subject} est gardé (pas créé par omega-connect, ou zone pas "
+"vide)."
+msgstr ""
+"il gruppo {subject} viene mantenuto (non creato da omega-connect, o zona non"
+" vuota)."
+
+#, python-brace-format
+msgid ""
+"le service {subject} a toujours le groupe omega-synchro, mais omega-serv est"
+" introuvable pour le lui retirer : le groupe et la zone sont gardés (sans "
+"lui, le service ne démarrerait plus). Lancez « omega-serv synchro groupe-"
+"service retirer --service-name {subject} » depuis son dossier, puis "
+"relancez."
+msgstr ""
+"il servizio {subject} ha ancora il gruppo omega-synchro, ma omega-serv non è"
+" reperibile per toglierglielo: il gruppo e la zona vengono mantenuti (senza "
+"di esso, il servizio non si avvierebbe più). Esegua «omega-serv synchro "
+"groupe-service retirer --service-name {subject}» dalla sua cartella, poi "
+"rilanci."
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) prendra en compte le groupe omega-synchro à "
+"son prochain redémarrage : omega-connect ne le redémarre pas."
+msgstr ""
+"il servizio {subject} ({detail}) terrà conto del gruppo omega-synchro al suo"
+" prossimo riavvio: omega-connect non lo riavvia."
+
+#, python-brace-format
+msgid "{subject} figure au registre mais hors de la zone : ignoré."
+msgstr "{subject} figura nel registro ma fuori dalla zona: ignorato."
+
+msgid "la zone est déjà figée : rien à faire."
+msgstr "la zona è già congelata: niente da fare."
+
+#, python-brace-format
+msgid "Créer le groupe {group}"
+msgstr "Creare il gruppo {group}"
+
+#, python-brace-format
+msgid "Créer le dossier {path}"
+msgstr "Creare la cartella {path}"
+
+#, python-brace-format
+msgid "Remettre les droits du dossier {path}"
+msgstr "Ripristinare i permessi della cartella {path}"
+
+#, python-brace-format
+msgid "Ajouter {user} au groupe {group}"
+msgstr "Aggiungere {user} al gruppo {group}"
+
+#, python-brace-format
+msgid "Retirer {user} du groupe {group}"
+msgstr "Rimuovere {user} dal gruppo {group}"
+
+#, python-brace-format
+msgid "Supprimer le groupe {group}"
+msgstr "Eliminare il gruppo {group}"
+
+#, python-brace-format
+msgid "Retirer le dossier {path}"
+msgstr "Rimuovere la cartella {path}"
+
+#, python-brace-format
+msgid ""
+"omega-serv donne le groupe {group} à son service {service} (complément "
+"systemd)"
+msgstr ""
+"omega-serv assegna il gruppo {group} al suo servizio {service} (integrazione"
+" systemd)"
+
+#, python-brace-format
+msgid "omega-serv retire le groupe {group} de son service {service}"
+msgstr "omega-serv toglie il gruppo {group} dal suo servizio {service}"
+
+msgid "Retirer le registre de l'espace partagé"
+msgstr "Rimuovere il registro dello spazio condiviso"
+
+msgid "Écrire le registre de l'espace partagé"
+msgstr "Scrivere il registro dello spazio condiviso"
+
+#, python-brace-format
+msgid "Recopier la description de {root} (ce qu'il sait faire)"
+msgstr "Copiare la descrizione di {root} (ciò che sa fare)"
+
+#, python-brace-format
+msgid "Retirer la description de {root}"
+msgstr "Rimuovere la descrizione di {root}"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root}"
+msgstr "Copiare la carta d'identità di {root}"
+
+#, python-brace-format
+msgid "Retirer la carte d'identité de {root}"
+msgstr "Rimuovere la carta d'identità di {root}"
+
+msgid "Commandes qui seront lancées, une à une, en root :"
+msgstr "Comandi che verranno eseguiti, uno alla volta, come root:"
+
+#, python-brace-format
+msgid "Terminé : {count} commande(s) lancée(s), toutes réussies."
+msgstr "Terminato: {count} comando/i eseguito/i, tutti riusciti."
+
+#, python-brace-format
+msgid "{done} commande(s) sur {total} avaient réussi."
+msgstr "{done} comando/i su {total} erano riusciti."
+
+msgid "Registre réécrit pour garder la trace de ce qui a été créé."
+msgstr "Registro riscritto per tenere traccia di ciò che è stato creato."
+
+msgid ""
+"Le registre n'a pas pu être réécrit : notez ce qui a été créé ci-dessus."
+msgstr ""
+"Non è stato possibile riscrivere il registro: annoti ciò che è stato creato "
+"qui sopra."
+
+msgid ""
+"Relancez la même commande après avoir corrigé la cause : rien n'est fait "
+"deux fois."
+msgstr ""
+"Rilanci lo stesso comando dopo aver corretto la causa: nulla viene fatto due"
+" volte."
+
+msgid "Dossier des captures non configuré."
+msgstr "Cartella degli screenshot non configurata."
+
+msgid "Passer d'un élément à l'autre (lignes d'un tableau, boutons)"
+msgstr "Passare da un elemento all'altro (righe di una tabella, pulsanti)"
+
+msgid "Passer d'une zone de l'écran à l'autre"
+msgstr "Passare da una zona dello schermo all'altra"
+
+msgid ""
+"Activer le bouton choisi ; dans une liste à cocher, cocher ou décocher la "
+"ligne"
+msgstr ""
+"Attivare il pulsante scelto; in un elenco con caselle, spuntare o togliere "
+"la spunta alla riga"
+
+msgid "Entrée / Clic"
+msgstr "Invio / Clic"
+
+msgid "Cocher ou décocher la ligne choisie (Synchronisation)"
+msgstr "Spuntare o togliere la spunta alla riga scelta (Sincronizzazione)"
+
+msgid "Espace"
+msgstr "Spazio"
+
+msgid "Revenir à l'écran précédent"
+msgstr "Tornare alla schermata precedente"
+
+msgid "Cette aide, depuis n'importe quel écran"
+msgstr "Questo aiuto, da qualsiasi schermata"
+
+msgid "Réglages, depuis n'importe quel écran"
+msgstr "Impostazioni, da qualsiasi schermata"
+
+msgid "Thème suivant (enregistré)"
+msgstr "Tema successivo (salvato)"
+
+msgid "Redessiner l'écran et afficher la taille du terminal"
+msgstr "Ridisegnare lo schermo e mostrare la dimensione del terminale"
+
+msgid ""
+"Commandes : thème, capture d'écran (SVG, dans le dossier des captures), "
+"quitter"
+msgstr ""
+"Comandi: tema, screenshot (SVG, nella cartella degli screenshot), uscire"
+
+msgid "Ctrl+P"
+msgstr "Ctrl+P"
+
+msgid ""
+"omega-connect relie entre elles les applications omega (omega-serv, omega-fire, omega-jail…) installées sur cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce qui manque, toujours après vous avoir montré ce qu'il va faire.\n"
+"\n"
+"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
+"2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
+"3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son plan avant d'agir et demande son mot de passe une seule fois.\n"
+"4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue d'ensemble, en cadres.\n"
+"5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
+"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre."
+msgstr ""
+"omega-connect collega tra loro le applicazioni omega (omega-serv, omega-fire, omega-jail…) installate su questa macchina e sulle macchine della sua rete. Mostra ciò che è collegato o no, e ripristina ciò che manca, sempre dopo averle mostrato ciò che farà.\n"
+"\n"
+"1. [b]Scanner[/b]: cerca le applicazioni di questa macchina. Aggiunga le sue altre macchine (proposte in base ai suoi profili Unison, ~/.ssh/config e known_hosts, o inserite a mano): vengono raggiunte via SSH con le sue chiavi, non vi viene installato nulla.\n"
+"2. [b]Registro[/b]: l'elenco di tutte le applicazioni di tutte le macchine, con il loro stato. Un'applicazione troppo vecchia o installata male si aggiorna o si reinstalla da questa schermata.\n"
+"3. [b]Sincronizzazione[/b]: spunti ciò che deve essere collegato, poi «Sincronizza»; ogni macchina mostra il suo piano prima di agire e chiede la sua password una sola volta.\n"
+"4. [b]Collegamenti[/b]: vedere ciò che è collegato o no, su tutte le macchine. [b]Dashboard[/b]: la panoramica, a riquadri.\n"
+"5. [b]Ripara[/b]: l'elenco di tutto ciò che non va; scelga una riga, o «Ripara tutto».\n"
+"6. [b]Rapporto[/b]: un documento completo (testo, JSON o pagina HTML) da conservare o da trasmettere."
+
+msgid "Registre — toutes les applications et leur état"
+msgstr "Registro — tutte le applicazioni e il loro stato"
+
+msgid ""
+"Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
+"\n"
+"- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
+"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
+"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
+msgstr ""
+"Mostra, per ogni macchina (questa e quelle di rete), ogni applicazione omega trovata: la sua istanza o servizio, la sua versione, il suo stato e la sua cartella. Il riepilogo in alto conta gli stati.\n"
+"\n"
+"- [b]Aggiorna il registro[/b]: ripete la scansione sul posto (questa macchina, poi le macchine di rete già note), senza cambiare schermata.\n"
+"- [b]Aggiorna l'applicazione[/b]: su una riga «Versione obsoleta» di una macchina di rete, installa l'ultima versione pubblicata (Release GitHub dell'applicazione, impronta verificata con sha.txt prima di qualsiasi invio). Il piano viene mostrato prima; non viene fatto nient'altro.\n"
+"- [b]Reinstalla l'applicazione[/b]: stesso pulsante su una riga «Installazione incompleta» (il suo install.sh non è terminato); viene reinstallata la stessa versione.\n"
+"- Su questa macchina, un aggiornamento si fa come indicato nella sezione «Aggiornamento» del README dell'applicazione.\n"
+"- Evidenzi una riga: la spiegazione del suo stato e le sue anomalie compaiono sotto."
+
+msgid "Scanner — trouver les applications, ajouter des machines"
+msgstr "Scanner — trovare le applicazioni, aggiungere macchine"
+
+msgid ""
+"- [b]Cette machine[/b] : cherche les applications omega (dossier personnel, services systemd, OpenRC ou runit, /srv, registre des instances d'omega-serv). Jamais de lien symbolique suivi, jamais de montage réseau parcouru.\n"
+"- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
+"- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
+"- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
+"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
+msgstr ""
+"- [b]Questa macchina[/b]: cerca le applicazioni omega (cartella personale, servizi systemd, OpenRC o runit, /srv, registro delle istanze di omega-serv). Nessun link simbolico seguito, nessun mount di rete esplorato.\n"
+"- [b]Macchine proposte[/b]: quelle che questo computer sa già raggiungere (profili Unison, ~/.ssh/config, known_hosts). Scelga una riga poi «Scansiona la macchina scelta».\n"
+"- [b]Inserimento manuale[/b]: utente@macchina (nome o indirizzo), poi «Scansiona questa macchina».\n"
+"- [b]Prima connessione[/b]: viene mostrata l'impronta della chiave della macchina; la verifichi, poi accetti. Una chiave CAMBIATA viene rifiutata (macchina reinstallata, o usurpazione).\n"
+"- [b]Macchine note[/b]: «Riscansiona le macchine note», o «Rimuovi questa macchina» (esce dal registro; su di essa non viene modificato nulla).\n"
+"- La scansione di una macchina di rete viene inviata in memoria via SSH, in sola lettura: non vi viene installato né scritto nulla, non viene chiesta alcuna password (Python 3.10 o più recente richiesto laggiù)."
+
+msgid "Liaisons — ce qui est relié ou pas"
+msgstr "Collegamenti — ciò che è collegato o no"
+
+msgid ""
+"Montre chaque lien entre applications, sur toutes les machines, avec son état et sa provenance (Local, ou Réseau — nom de la machine) : journaux d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers la liste noire d'omega-serv, liste protégée, liste noire partagée, fichiers d'omega-jail dans fail2ban, cartes d'identité, espace partagé.\n"
+"\n"
+"- Surlignez une ligne : ses contrôles s'affichent en dessous ; « Détail du lien » les montre tous, avec la commande de chaque correction (« Copier les commandes »).\n"
+"- Cet écran montre seulement : ce qui est « à réparer » se corrige dans le menu Réparer."
+msgstr ""
+"Mostra ogni collegamento tra applicazioni, su tutte le macchine, con il suo stato e la sua provenienza (Locale, o Rete — nome della macchina): log di omega-serv e di magnet letti dalle jail di omega-jail, ponte fail2ban verso la lista nera di omega-serv, lista protetta, lista nera condivisa, file di omega-jail in fail2ban, carte d'identità, spazio condiviso.\n"
+"\n"
+"- Evidenzi una riga: i suoi controlli compaiono sotto; «Dettaglio del collegamento» li mostra tutti, con il comando di ogni correzione («Copia i comandi»).\n"
+"- Questa schermata si limita a mostrare: ciò che è «da riparare» si corregge nel menu Ripara."
+
+msgid "Synchronisation — relier les applications"
+msgstr "Sincronizzazione — collegare le applicazioni"
+
+msgid ""
+"Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+"- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
+"- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
+"- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
+"- Les machines passent une à une : cette machine d'abord, puis le réseau.\n"
+"- Une application trop ancienne, inachevée ou injoignable ne se coche pas : la ligne dit où aller.\n"
+"- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
+"- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
+msgstr ""
+"Un solo elenco: tutte le sue macchine e le loro applicazioni (le macchine di rete vengono riscansionate all'apertura). Spunti delle righe (Invio o Spazio), poi:\n"
+"- [b]Sincronizza la selezione[/b], o [b]Sincronizza tutto[/b].\n"
+"- [b]Questa macchina[/b]: un solo piano, mostrato prima di agire — carte d'identità mancanti (create da ciascuna applicazione, con il proprio account), poi spazio condiviso (gruppo omega-synchro, cartelle, copia delle carte, accesso dei servizi). Una sola password di amministratore.\n"
+"- [b]Macchina di rete[/b]: il suo piano viene calcolato su di essa e mostrato; «Sincronizza <macchina>» lo esegue da qui: l'interfaccia lascia il posto al terminale, la macchina chiede essa stessa la sua password, una volta; Invio riporta all'interfaccia, che mostra il risultato.\n"
+"- Le macchine vengono trattate una alla volta: prima questa macchina, poi la rete.\n"
+"- Un'applicazione troppo vecchia, incompleta o irraggiungibile non si può spuntare: la riga indica dove andare.\n"
+"- [b]Leggi con sudo[/b]: se la sua sessione non può ancora leggere lo spazio condiviso (il gruppo omega-synchro vale solo dopo un nuovo accesso), lettura in sola lettura con sudo.\n"
+"- [b]Dettaglio[/b]: ciò che omega-connect ha creato (registro dello spazio condiviso) e le rimozioni possibili."
+
+msgid "Dashboard — vue d'ensemble"
+msgstr "Dashboard — panoramica"
+
+msgid ""
+"Une vue d'ensemble en cadres, comme un tableau de bord web. Rien n'est modifié depuis cet écran.\n"
+"\n"
+"- [b]Machines[/b], [b]Applications[/b], [b]Liaisons[/b], [b]Espace partagé[/b] : les compteurs, avec les mêmes états que le Registre et les Liaisons.\n"
+"- [b]Liaisons par type[/b] : pour chaque type de liaison, combien sont OK sur combien.\n"
+"- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
+"- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
+"\n"
+"Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; « Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner pour les relire). Pour corriger : menu Réparer."
+msgstr ""
+"Una panoramica a riquadri, come una dashboard web. Da questa schermata non viene modificato nulla.\n"
+"\n"
+"- [b]Macchine[/b], [b]Applicazioni[/b], [b]Collegamenti[/b], [b]Spazio condiviso[/b]: i contatori, con gli stessi stati del Registro e dei Collegamenti.\n"
+"- [b]Collegamenti per tipo[/b]: per ogni tipo di collegamento, quanti sono OK su quanti.\n"
+"- [b]Questa macchina / Rete[/b]: le stesse cifre, affiancate.\n"
+"- [b]Top 5[/b] (top 3 su uno schermo piccolo): macchine da riparare, collegamenti da riparare, versioni obsolete, scansioni più vecchie (macchine di rete).\n"
+"\n"
+"Questa macchina viene verificata all'apertura, poi regolarmente finché la schermata resta aperta; «Aggiorna» rilancia la verifica. Le macchine di rete mostrano la loro ultima scansione (menu Scanner per riscansionarle). Per correggere: menu Ripara."
+
+msgid "Réparer — tout ce qui ne va pas"
+msgstr "Ripara — tutto ciò che non va"
+
+msgid ""
+"La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
+"\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
+"- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
+"- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
+msgstr ""
+"L'elenco di tutto ciò che non va, su tutte le macchine (le macchine di rete vengono riscansionate all'apertura): macchina, problema, stato, e chi lo corregge.\n"
+"\n"
+"- [b]Ripara la riga scelta[/b]: apre il piano della macchina. Questa macchina: i comandi delle applicazioni stesse (omega-jail per ciò che installa in fail2ban, omega-serv per i permessi del suo var/, ogni applicazione per la sua carta d'identità), poi lo spazio condiviso. Macchina di rete: le stesse correzioni, più i comandi che nessuna applicazione sa eseguire, eseguiti SULLA macchina da qui (solo quelli annunciati nel piano).\n"
+"- [b]Ripara tutto[/b]: le macchine una alla volta (prima aggiornare, poi riparare).\n"
+"- [b]Dettaglio[/b]: tutti i controlli della riga scelta.\n"
+"- [b]Copia i comandi[/b] (piano di questa macchina): appunti di sistema (xclip, xsel, wl-copy); altrimenti i comandi vengono mostrati in chiaro nel terminale, da selezionare con il mouse.\n"
+"- omega-connect non riscrive mai il file di un'altra applicazione: esegue il suo comando."
+
+msgid "Rapport — un document complet"
+msgstr "Rapporto — un documento completo"
+
+msgid ""
+"Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"\n"
+"- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
+"- En ligne de commande : omega-connect rapport --format html --enregistrer."
+msgstr ""
+"Redatto all'istante (le macchine di rete vengono riscansionate prima): riepilogo, elenco preciso di ciò che resta da fare (macchina, cosa, quale menu), registro di tutte le applicazioni, macchine di rete, applicazioni di questa macchina in dettaglio, collegamenti di ogni macchina, spazio condiviso e il suo registro.\n"
+"\n"
+"- Esportazione in testo, JSON o pagina HTML (tema a scelta, per impostazione predefinita quello delle Impostazioni), nella cartella delle esportazioni.\n"
+"- Da riga di comando: omega-connect rapport --format html --enregistrer."
+
+msgid ""
+"- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
+"- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
+"- Tout est enregistré dans var/settings.json."
+msgstr ""
+"- [b]Tema dell'interfaccia[/b] (anche tasto t) e [b]tema delle esportazioni[/b]: salvati.\n"
+"- [b]Cartella delle esportazioni[/b] e [b]cartella degli screenshot[/b]: per impostazione predefinita var/exports/ e var/screenshots/ della cartella di omega-connect; un percorso completo, o vuoto per tornare al predefinito.\n"
+"- [b]Svuota la cartella delle esportazioni / degli screenshot[/b]: dopo conferma, elimina il contenuto della cartella configurata (la cartella resta). Rifiutato per una cartella di sistema, personale, o quella di omega-connect stesso; nessuna password richiesta.\n"
+"- Tutto viene salvato in var/settings.json."
+
+msgid "Machines du réseau, mises à jour et sécurité"
+msgstr "Macchine di rete, aggiornamenti e sicurezza"
+
+msgid ""
+"- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
+"- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
+"- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
+msgstr ""
+"- [b]Connessione[/b]: SSH solo con le SUE chiavi; omega-connect non chiede mai la password SSH. Una chiave protetta da una passphrase deve essere caricata nell'agente SSH (ssh-add).\n"
+"- [b]Password di amministratore[/b]: solo quando un'azione la richiede (sincronizzare, riparare, aggiornare), una volta per macchina, digitata da lei nel terminale; omega-connect non la vede mai.\n"
+"- [b]Cosa va su una macchina di rete[/b]: per una scansione, niente (programma in memoria); per un'azione, una cartella privata temporanea (programma e archivi), cancellata alla fine.\n"
+"- [b]Aggiornamenti[/b]: dalla Release GitHub di ciascuna applicazione (kraynux/<applicazione>, etichetta v<version>); l'impronta viene verificata con sha.txt prima di qualsiasi invio, poi di nuovo sulla macchina. omega-fire: la vecchia installazione viene messa da parte (il suo var/ appartiene a root), poi il suo install.sh recupera impostazioni e dati. Le altre: estrazione sopra l'esistente (lo stato attivo non è nell'archivio), poi il loro install.sh.\n"
+"- [b]Mai un'applicazione eseguita che potrebbe chiedere una password senza terminale[/b]: un fallimento silenzioso di sudo conta come un tentativo e può bloccare l'account per qualche minuto."
+
+msgid "États — ce que veut dire chaque mot"
+msgstr "Stati — cosa significa ogni parola"
+
+msgid ""
+"[b]Applications[/b] :\n"
+"- ● Reliée : dans l'espace partagé, à jour.\n"
+"- ◐ Inscrite : a sa carte d'identité, pas encore dans l'espace partagé (Synchronisation).\n"
+"- ○ Détectée : trouvée, sans carte d'identité (Synchronisation la lui crée).\n"
+"- ▲ À réparer : un écart (Réparer).\n"
+"- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
+"- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller l'application).\n"
+"- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n"
+"\n"
+"[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session)."
+msgstr ""
+"[b]Applicazioni[/b]:\n"
+"- ● Collegata: nello spazio condiviso, aggiornata.\n"
+"- ◐ Registrata: ha la sua carta d'identità, non ancora nello spazio condiviso (Sincronizzazione).\n"
+"- ○ Rilevata: trovata, senza carta d'identità (la Sincronizzazione gliela crea).\n"
+"- ▲ Da riparare: un'anomalia (Ripara).\n"
+"- ◌ Versione obsoleta: troppo vecchia per omega-connect (Registro → Aggiorna l'applicazione).\n"
+"- ◇ Installazione incompleta: il suo install.sh non è terminato (Registro → Reinstalla l'applicazione).\n"
+"- ✕ Irraggiungibile: la macchina non risponde più (Scanner → Riscansiona).\n"
+"\n"
+"[b]Collegamenti[/b]: OK; da riparare; da riparare (bloccante); assente (niente da collegare, per esempio omega-jail non installato); non verificabile (lettura impossibile dalla sua sessione)."
+
+msgid "Carte d'identité et espace partagé"
+msgstr "Carta d'identità e spazio condiviso"
+
+msgid ""
+"- [b]Carte d'identité[/b] : un petit fichier (var/omega-jeton.json) que chaque application écrit à son installation : quelle application, quelle version, quel identifiant, sur quelle machine. Lisible par tous, jamais modifiable par les autres comptes.\n"
+"- [b]Espace partagé[/b] : /var/lib/omega-synchro, groupe omega-synchro, où seul root écrit ; omega-connect y recopie les cartes d'identité et la description de chaque application, pour qu'elles se trouvent entre elles, même quand omega-connect n'est pas lancé.\n"
+"- Tout ce qu'omega-connect crée est inscrit au registre de l'espace partagé : un retrait ne défait que ce qui y est inscrit."
+msgstr ""
+"- [b]Carta d'identità[/b]: un piccolo file (var/omega-jeton.json) che ogni applicazione scrive alla sua installazione: quale applicazione, quale versione, quale identificativo, su quale macchina. Leggibile da tutti, mai modificabile dagli altri account.\n"
+"- [b]Spazio condiviso[/b]: /var/lib/omega-synchro, gruppo omega-synchro, dove scrive solo root; omega-connect vi copia le carte d'identità e la descrizione di ogni applicazione, perché si trovino tra loro, anche quando omega-connect non è in esecuzione.\n"
+"- Tutto ciò che omega-connect crea viene registrato nel registro dello spazio condiviso: una rimozione annulla solo ciò che vi è registrato."
+
+msgid "Ligne de commande"
+msgstr "Riga di comando"
+
+msgid ""
+"omega-connect.sh <commande> (sans commande : l'interface).\n"
+"- scanner [utilisateur@machine] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout : l'espace partagé, plan affiché avant tout lancement.\n"
+"--simulation montre le plan sans rien lancer ; --oui lance sans poser la question."
+msgstr ""
+"omega-connect.sh <comando> (senza comando: l'interfaccia).\n"
+"- scanner [utente@macchina] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout: lo spazio condiviso, piano mostrato prima di qualsiasi esecuzione.\n"
+"--simulation mostra il piano senza eseguire nulla; --oui esegue senza porre la domanda."
+
+msgid "Fichiers d'omega-connect"
+msgstr "File di omega-connect"
+
+msgid ""
+"Tout vit dans le dossier d'omega-connect, sous var/ :\n"
+"- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+"- settings.json : réglages.\n"
+"- exports/ et screenshots/ : par défaut (voir Réglages).\n"
+"- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite)."
+msgstr ""
+"Tutto si trova nella cartella di omega-connect, sotto var/:\n"
+"- parc.json: registro delle macchine di rete (ultima scansione, indirizzi, impronta).\n"
+"- settings.json: impostazioni.\n"
+"- exports/ e screenshots/: predefiniti (vedere Impostazioni).\n"
+"- declaration.json: dichiarazione di utente anonimo (se l'ha fatta)."
+
+msgid "Aide, export et contact"
+msgstr "Guida, esportazione e contatti"
+
+msgid ""
+"- [b]Exporter l'aide en HTML[/b] : toute cette aide, dans une page, thème au choix, dans le dossier des exports.\n"
+"- [b]Contact et support[/b] : payer un café (PayPal), se déclarer utilisateur anonyme (une seule fois), contacter le support (mail et formulaire du site), vérifier les mises à jour."
+msgstr ""
+"- [b]Esporta la guida in HTML[/b]: tutto questo aiuto, in una pagina, tema a scelta, nella cartella delle esportazioni.\n"
+"- [b]Contatti e supporto[/b]: offrire un caffè (PayPal), dichiararsi utente anonimo (una sola volta), contattare il supporto (mail e modulo del sito), verificare gli aggiornamenti."
+
+msgid "Redémarrer"
+msgstr "Riavvia"
+
+msgid "Registre"
+msgstr "Registro"
+
+msgid "Synchronisation"
+msgstr "Sincronizzazione"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Rapport"
+msgstr "Rapporto"
+
+msgid "GESTION"
+msgstr "GESTIONE"
+
+msgid "MAINTENANCE"
+msgstr "MANUTENZIONE"
+
+msgid "MACHINES"
+msgstr "MACCHINE"
+
+msgid "APPLICATIONS"
+msgstr "APPLICAZIONI"
+
+msgid "LIAISONS"
+msgstr "COLLEGAMENTI"
+
+msgid "ESPACE PARTAGÉ"
+msgstr "SPAZIO CONDIVISO"
+
+msgid "LIAISONS PAR TYPE"
+msgstr "COLLEGAMENTI PER TIPO"
+
+msgid "CETTE MACHINE / RÉSEAU"
+msgstr "QUESTA MACCHINA / RETE"
+
+#, python-brace-format
+msgid "TOP {count} · MACHINES À RÉPARER"
+msgstr "TOP {count} · MACCHINE DA RIPARARE"
+
+#, python-brace-format
+msgid "TOP {count} · LIAISONS À RÉPARER"
+msgstr "TOP {count} · COLLEGAMENTI DA RIPARARE"
+
+#, python-brace-format
+msgid "TOP {count} · VERSIONS EN RETARD"
+msgstr "TOP {count} · VERSIONI OBSOLETE"
+
+#, python-brace-format
+msgid "TOP {count} · SCANS LES PLUS ANCIENS"
+msgstr "TOP {count} · SCANSIONI PIÙ VECCHIE"
+
+msgid "jamais vue"
+msgstr "mai vista"
+
+msgid "à l'instant"
+msgstr "proprio ora"
+
+#, python-brace-format
+msgid "il y a {count} min"
+msgstr "{count} min fa"
+
+#, python-brace-format
+msgid "il y a {count} h"
+msgstr "{count} h fa"
+
+#, python-brace-format
+msgid "il y a {count} j"
+msgstr "{count} g fa"
+
+#, python-brace-format
+msgid "{count} au total"
+msgstr "{count} in totale"
+
+#, python-brace-format
+msgid "cette machine : {name}"
+msgstr "questa macchina: {name}"
+
+#, python-brace-format
+msgid "{count} sur le réseau"
+msgstr "{count} in rete"
+
+#, python-brace-format
+msgid "{count} injoignable(s)"
+msgstr "{count} irraggiungibile/i"
+
+#, python-brace-format
+msgid "{count} application(s) reliée(s)"
+msgstr "{count} applicazione/i collegata/e"
+
+#, python-brace-format
+msgid "{count} à relier (Synchronisation)"
+msgstr "{count} da collegare (Sincronizzazione)"
+
+msgid "Aucune liaison connue."
+msgstr "Nessun collegamento noto."
+
+msgid "Machines"
+msgstr "Macchine"
+
+msgid "Cette machine"
+msgstr "Questa macchina"
+
+msgid "Réseau"
+msgstr "Rete"
+
+msgid "Rien à réparer."
+msgstr "Niente da riparare."
+
+#, python-brace-format
+msgid "{count} liaison(s)"
+msgstr "{count} collegamento/i"
+
+#, python-brace-format
+msgid "{count} application(s)"
+msgstr "{count} applicazione/i"
+
+msgid "Aucune liaison à réparer."
+msgstr "Nessun collegamento da riparare."
+
+msgid "Aucune application en retard."
+msgstr "Nessuna applicazione obsoleta."
+
+msgid "Aucune machine du réseau (menu Scanner)."
+msgstr "Nessuna macchina di rete (menu Scanner)."
+
+#, python-brace-format
+msgid "vue {when}"
+msgstr "vista {when}"
+
+msgid "non fournie (ancienne version)"
+msgstr "non fornita (vecchia versione)"
+
+#, python-brace-format
+msgid "déclarée à {time}"
+msgstr "dichiarata alle {time}"
+
+msgid "(partielle)"
+msgstr "(parziale)"
+
+msgid "Local"
+msgstr "Locale"
+
+#, python-brace-format
+msgid "Réseau — {where}"
+msgstr "Rete — {where}"
+
+#, python-brace-format
+msgid "{count} écart(s)"
+msgstr "{count} anomalia/e"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) : « Détail du lien » pour les voir."
+msgstr ""
+"{count} controllo/i conforme/i: «Dettaglio del collegamento» per vederli."
+
+msgid "Aucun contrôle pour ce lien."
+msgstr "Nessun controllo per questo collegamento."
+
+msgid "Liens : "
+msgstr "Collegamenti: "
+
+msgid ""
+"omega-connect — authentification sudo pour les commandes affichées (le mot "
+"de passe ne s'affiche pas pendant la saisie). L'interface revient ensuite."
+msgstr ""
+"omega-connect — autenticazione sudo per i comandi mostrati (la password non "
+"viene visualizzata durante la digitazione). Poi l'interfaccia ritorna."
+
+msgid "Aucune commande à copier."
+msgstr "Nessun comando da copiare."
+
+#, python-brace-format
+msgid ""
+"{count} commande(s) copiée(s) dans le presse-papiers ({tool}) : collez-les "
+"dans un terminal (Ctrl+Maj+V)."
+msgstr ""
+"{count} comando/i copiato/i negli appunti ({tool}): li incolli in un "
+"terminale (Ctrl+Maiusc+V)."
+
+msgid ""
+"omega-connect — commandes à copier. Sélectionnez-les à la souris puis copiez"
+" avec le raccourci de votre terminal (souvent Ctrl+Maj+C) :"
+msgstr ""
+"omega-connect — comandi da copiare. Li selezioni con il mouse e poi li copi "
+"con la scorciatoia del suo terminale (spesso Ctrl+Maiusc+C):"
+
+msgid "Entrée pour revenir à omega-connect… "
+msgstr "Invio per tornare a omega-connect… "
+
+msgid ""
+"Vous êtes membre du groupe omega-synchro, mais cet omega-connect a été lancé"
+" sans lui. Quittez (q) et relancez ./omega-connect.sh : il le prendra tout "
+"seul, sans mot de passe. Pour cette fois, lecture avec sudo (mot de passe "
+"dans le terminal)."
+msgstr ""
+"Lei è membro del gruppo omega-synchro, ma questo omega-connect è stato "
+"avviato senza di esso. Esca (q) e rilanci ./omega-connect.sh: lo prenderà da"
+" solo, senza password. Per questa volta, lettura con sudo (password nel "
+"terminale)."
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro : la zone est lue avec "
+"sudo, mot de passe demandé dans le terminal."
+msgstr ""
+"La sua sessione non ha ancora il gruppo omega-synchro: la zona viene letta "
+"con sudo, password richiesta nel terminale."
+
+msgid "Lecture de la zone avec sudo…"
+msgstr "Lettura della zona con sudo…"
+
+msgid "Préparation des commandes (détection des outils, lecture de la zone)…"
+msgstr ""
+"Preparazione dei comandi (rilevamento degli strumenti, lettura della zona)…"
+
+msgid "Vérifier maintenant"
+msgstr "Verifica ora"
+
+msgid "LIENS"
+msgstr "COLLEGAMENTI"
+
+msgid "Détail du lien"
+msgstr "Dettaglio del collegamento"
+
+msgid "Constat"
+msgstr "Rilievo"
+
+msgid "Lien"
+msgstr "Collegamento"
+
+msgid "Provenance"
+msgstr "Provenienza"
+
+msgid "Vérification en cours…"
+msgstr "Verifica in corso…"
+
+#, python-brace-format
+msgid "Erreur : {message}"
+msgstr "Errore: {message}"
+
+#, python-brace-format
+msgid "Vérifié à {time}."
+msgstr "Verificato alle {time}."
+
+#, python-brace-format
+msgid ""
+"Nouvelle vérification toutes les {minutes} min tant que cet écran est "
+"ouvert."
+msgstr "Nuova verifica ogni {minutes} min finché questa schermata è aperta."
+
+msgid "Lancer (mot de passe administrateur)"
+msgstr "Avvia (password di amministratore)"
+
+msgid "SYNCHRONISER"
+msgstr "SINCRONIZZA"
+
+msgid ""
+"Tout ce qui sera fait, dans l'ordre. Rien n'est lancé avant « Lancer » ; au "
+"premier échec, tout s'arrête et ce qui a été créé reste noté."
+msgstr ""
+"Tutto ciò che verrà fatto, in ordine. Non viene eseguito nulla prima di "
+"«Avvia»; al primo errore, tutto si ferma e ciò che è stato creato resta "
+"annotato."
+
+msgid "AVANCEMENT"
+msgstr "AVANZAMENTO"
+
+msgid "Fermer"
+msgstr "Chiudi"
+
+msgid ""
+"Chaque menu, sa fonction et le détail. Cliquez sur un titre pour l'ouvrir."
+msgstr ""
+"Ogni menu, la sua funzione e il dettaglio. Clicchi su un titolo per aprirlo."
+
+msgid "Exporter l'aide en HTML"
+msgstr "Esporta la guida in HTML"
+
+#, python-brace-format
+msgid "Aide exportée : {path}"
+msgstr "Aiuto esportato: {path}"
+
+#, python-brace-format
+msgid "Écran prévu au lot {lot} de l'étape 3."
+msgstr "Schermata prevista nel lotto {lot} della fase 3."
+
+msgid "RETIRER LA ZONE NEUTRE ?"
+msgstr "RIMUOVERE LA ZONA NEUTRA?"
+
+msgid ""
+"Garder : rien n'est supprimé, les outils lisent toujours les copies "
+"actuelles (liens figés). Tout retirer : défait exactement ce que le registre"
+" liste."
+msgstr ""
+"Mantieni: non viene eliminato nulla, gli strumenti leggono sempre le copie "
+"attuali (collegamenti congelati). Rimuovi tutto: annulla esattamente ciò che"
+" il registro elenca."
+
+msgid "Garder la zone"
+msgstr "Mantieni la zona"
+
+msgid "Tout retirer"
+msgstr "Rimuovi tutto"
+
+msgid "CONTRÔLES"
+msgstr "CONTROLLI"
+
+msgid ""
+"Cet écran montre. Pour corriger : menu Réparer (toutes les machines, machine"
+" du réseau comprise) ; les commandes se copient avec « Copier les commandes "
+"»."
+msgstr ""
+"Questa schermata si limita a mostrare. Per correggere: menu Ripara (tutte le"
+" macchine, comprese quelle di rete); i comandi si copiano con «Copia i "
+"comandi»."
+
+msgid "Copier les commandes"
+msgstr "Copia i comandi"
+
+#, python-brace-format
+msgid "vérifié à {time}"
+msgstr "verificato alle {time}"
+
+msgid "État : "
+msgstr "Stato: "
+
+msgid "RÉPARER CETTE MACHINE"
+msgstr "RIPARA QUESTA MACCHINA"
+
+msgid ""
+"Chaque écart est corrigé par l'outil qui possède le fichier (omega-jail, "
+"omega-serv, jeton de chaque outil), ou par « Établir » pour ce que le "
+"registre de la zone dit qu'omega-connect a créé. omega-connect ne réécrit "
+"jamais le fichier d'un autre outil. Rien n'est lancé avant « Lancer »."
+msgstr ""
+"Ogni anomalia viene corretta dallo strumento a cui appartiene il file "
+"(omega-jail, omega-serv, token di ogni strumento), o da «Stabilisci» per ciò"
+" che il registro della zona dice essere stato creato da omega-connect. "
+"omega-connect non riscrive mai il file di un altro strumento. Non viene "
+"eseguito nulla prima di «Avvia»."
+
+msgid "MACHINES DISTANTES"
+msgstr "MACCHINE REMOTE"
+
+msgid ""
+"Une machine du registre se répare depuis ici : les commandes des outils sont"
+" lancées SUR elle, son mot de passe sudo est demandé une fois, dans ce "
+"terminal."
+msgstr ""
+"Una macchina del registro si ripara da qui: i comandi degli strumenti "
+"vengono eseguiti SU di essa, la sua password sudo viene chiesta una volta, "
+"in questo terminale."
+
+msgid "Réparer la machine choisie"
+msgstr "Ripara la macchina scelta"
+
+msgid "Zone : établir…"
+msgstr "Zona: stabilisci…"
+
+msgid "Analyser de nouveau"
+msgstr "Analizza di nuovo"
+
+msgid "Liaisons à corriger"
+msgstr "Collegamenti da correggere"
+
+msgid "aucune machine distante : scannez-en une (Scanner)"
+msgstr "nessuna macchina remota: ne scansioni una (Scanner)"
+
+msgid "Préparation des réparations : vérification des liens en cours…"
+msgstr "Preparazione delle riparazioni: verifica dei collegamenti in corso…"
+
+msgid "Lancer avec sudo"
+msgstr "Avvia con sudo"
+
+msgid ""
+"Vue d'ensemble de vos machines et de vos applications. Rien n'est modifié "
+"depuis cet écran. Pour corriger : menu Réparer."
+msgstr ""
+"Panoramica delle sue macchine e applicazioni. Da questa schermata non viene "
+"modificato nulla. Per correggere: menu Ripara."
+
+msgid "Actualiser"
+msgstr "Aggiorna"
+
+msgid "cette machine"
+msgstr "questa macchina"
+
+msgid "DASHBOARD"
+msgstr "DASHBOARD"
+
+#, python-brace-format
+msgid ""
+"Cette machine vérifiée à {time} ; machines du réseau : leur dernier scan."
+msgstr ""
+"Questa macchina verificata alle {time}; macchine di rete: la loro ultima "
+"scansione."
+
+msgid "QUITTER OMEGA-CONNECT ?"
+msgstr "USCIRE DA OMEGA-CONNECT?"
+
+msgid "REGISTRE"
+msgstr "REGISTRO"
+
+msgid ""
+"Ce que le scanner a trouvé : chaque application omega, son service, sa "
+"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
+" à jour l'application » installe la dernière version d'une application trop "
+"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
+"corriger un écart : Réparer."
+msgstr ""
+"Ciò che lo scanner ha trovato: ogni applicazione omega, il suo servizio, la "
+"sua versione e il suo stato. «Aggiorna il registro» ripete la scansione; "
+"«Aggiorna l'applicazione» installa l'ultima versione di un'applicazione "
+"troppo vecchia (riga scelta). Ripristinare i collegamenti: Sincronizzazione;"
+" correggere un'anomalia: Ripara."
+
+msgid "Mettre à jour le registre"
+msgstr "Aggiorna il registro"
+
+msgid "Mettre à jour l'application"
+msgstr "Aggiorna l'applicazione"
+
+msgid "Lecture du registre…"
+msgstr "Lettura del registro…"
+
+msgid "Premier scan : recherche des applications omega…"
+msgstr "Prima scansione: ricerca delle applicazioni omega…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s)"
+msgstr "{count} applicazione/i su {machines} macchina/e"
+
+#, python-brace-format
+msgid "dernier scan à {time}"
+msgstr "ultima scansione alle {time}"
+
+msgid "Espace partagé : "
+msgstr "Spazio condiviso: "
+
+msgid "Réinstaller l'application"
+msgstr "Reinstalla l'applicazione"
+
+#, python-brace-format
+msgid "→ « {action} » installe la dernière version depuis GitHub."
+msgstr "→ «{action}» installa l'ultima versione da GitHub."
+
+msgid ""
+"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
+"possible : suivez la section « Mise à jour » du README de l'outil."
+msgstr ""
+"→ Su questo computer, l'aggiornamento da omega-connect non è ancora "
+"possibile: segua la sezione «Aggiornamento» del README dello strumento."
+
+#, python-brace-format
+msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
+msgstr "Aggiornamento del registro: scansione di {count} macchina/e remota/e…"
+
+#, python-brace-format
+msgid ""
+"omega-connect — synchronisation de {machine}. La machine demande elle-même "
+"son mot de passe sudo (il ne s'affiche pas pendant la saisie) ; omega-"
+"connect ne le voit jamais."
+msgstr ""
+"omega-connect — sincronizzazione di {machine}. La macchina chiede essa "
+"stessa la sua password sudo (non viene visualizzata durante la digitazione);"
+" omega-connect non la vede mai."
+
+msgid "Terminé. Appuyez sur Entrée pour revenir à omega-connect… "
+msgstr "Terminato. Prema Invio per tornare a omega-connect… "
+
+#, python-brace-format
+msgid "METTRE À JOUR L'APPLICATION — {machine}"
+msgstr "AGGIORNA L'APPLICAZIONE — {machine}"
+
+msgid ""
+"Seulement les applications trop anciennes de cette machine : dernière "
+"version prise sur leur Release GitHub (empreinte vérifiée), installée comme "
+"le dit leur README. Rien d'autre ; rien n'est fait avant « Lancer »."
+msgstr ""
+"Solo le applicazioni troppo vecchie di questa macchina: ultima versione "
+"presa dalla loro Release GitHub (impronta verificata), installata come "
+"indicato nel loro README. Nient'altro; non viene fatto nulla prima di "
+"«Avvia»."
+
+#, python-brace-format
+msgid "RÉPARER — {machine}"
+msgstr "RIPARA — {machine}"
+
+msgid ""
+"Corrections faites par les outils eux-mêmes, lancées SUR la machine depuis "
+"ici : rien à y taper. Ce qu'aucun outil ne sait faire se copie (« Copier les"
+" commandes »). Rien n'est fait avant « Lancer »."
+msgstr ""
+"Correzioni eseguite dagli strumenti stessi, lanciate SULLA macchina da qui: "
+"niente da digitare laggiù. Ciò che nessuno strumento sa fare si copia "
+"(«Copia i comandi»). Non viene fatto nulla prima di «Avvia»."
+
+#, python-brace-format
+msgid "SYNCHRONISER — {machine}"
+msgstr "SINCRONIZZA — {machine}"
+
+msgid ""
+"Plan calculé sur la machine elle-même, sans sudo : réparer puis "
+"synchroniser. Aucune mise à jour ici (Registre → « Mettre à jour "
+"l'application ») ; rien n'est fait avant « Lancer »."
+msgstr ""
+"Piano calcolato sulla macchina stessa, senza sudo: riparare e poi "
+"sincronizzare. Nessun aggiornamento qui (Registro → «Aggiorna "
+"l'applicazione»); non viene fatto nulla prima di «Avvia»."
+
+#, python-brace-format
+msgid "Calcul du plan sur {machine}…"
+msgstr "Calcolo del piano su {machine}…"
+
+#, python-brace-format
+msgid "Réinstaller sur {machine}"
+msgstr "Reinstalla su {machine}"
+
+#, python-brace-format
+msgid "Mettre à jour sur {machine}"
+msgstr "Aggiorna su {machine}"
+
+#, python-brace-format
+msgid "Réparer {machine}"
+msgstr "Ripara {machine}"
+
+#, python-brace-format
+msgid "Synchroniser {machine}"
+msgstr "Sincronizza {machine}"
+
+#, python-brace-format
+msgid "Téléchargement et vérification des archives, envoi vers {machine}…"
+msgstr "Download e verifica degli archivi, invio a {machine}…"
+
+#, python-brace-format
+msgid "Lecture du résultat et nouveau scan de {machine}…"
+msgstr "Lettura del risultato e nuova scansione di {machine}…"
+
+#, python-brace-format
+msgid "{machine} : synchronisation terminée."
+msgstr "{machine}: sincronizzazione terminata."
+
+#, python-brace-format
+msgid "{machine} : la synchronisation n'est pas allée au bout."
+msgstr "{machine}: la sincronizzazione non è stata completata."
+
+msgid "l'outil, depuis ici"
+msgstr "lo strumento, da qui"
+
+msgid "commande lancée sur la machine, depuis ici"
+msgstr "comando eseguito sulla macchina, da qui"
+
+msgid "à la main (commande à copier)"
+msgstr "a mano (comando da copiare)"
+
+msgid "Mettre à jour l'application, depuis ici"
+msgstr "Aggiorna l'applicazione, da qui"
+
+msgid "Réinstaller l'application, depuis ici"
+msgstr "Reinstalla l'applicazione, da qui"
+
+msgid "à la main (README de l'outil)"
+msgstr "a mano (README dello strumento)"
+
+msgid "Scanner : rescanner la machine"
+msgstr "Scanner: riscansiona la macchina"
+
+msgid "aucune correction connue (voir le détail)"
+msgstr "nessuna correzione nota (vedere il dettaglio)"
+
+msgid "RÉPARER"
+msgstr "RIPARA"
+
+msgid ""
+"Tout ce qui ne va pas, sur toutes les machines. Choisissez une ligne puis « "
+"Réparer la ligne choisie », ou « Tout réparer » : le plan de la machine "
+"s'affiche, rien n'est lancé avant. Machine du réseau : réparée depuis ici, "
+"son mot de passe sudo demandé une fois."
+msgstr ""
+"Tutto ciò che non va, su tutte le macchine. Scelga una riga poi «Ripara la "
+"riga scelta», o «Ripara tutto»: il piano della macchina viene mostrato, non "
+"viene eseguito nulla prima. Macchina di rete: riparata da qui, la sua "
+"password sudo viene chiesta una volta."
+
+msgid "Réparer la ligne choisie"
+msgstr "Ripara la riga scelta"
+
+msgid "Détail"
+msgstr "Dettaglio"
+
+msgid "Tout réparer"
+msgstr "Ripara tutto"
+
+msgid "Problème"
+msgstr "Problema"
+
+msgid "Qui corrige"
+msgstr "Chi corregge"
+
+msgid "Recherche de tout ce qui ne va pas : vérification de cette machine…"
+msgstr "Ricerca di tutto ciò che non va: verifica di questa macchina…"
+
+#, python-brace-format
+msgid "Rescan des machines du réseau ({index}/{count}) : {machine}…"
+msgstr "Nuova scansione delle macchine di rete ({index}/{count}): {machine}…"
+
+#, python-brace-format
+msgid "{count} problème(s) sur {machines} machine(s)."
+msgstr "{count} problema/i su {machines} macchina/e."
+
+msgid "Rien à réparer : tout est OK sur toutes les machines."
+msgstr "Niente da riparare: tutto è OK su tutte le macchine."
+
+msgid "la machine ne répond plus"
+msgstr "la macchina non risponde più"
+
+#, python-brace-format
+msgid "{machine} : rescannez-la d'abord (Scanner)."
+msgstr "{machine}: prima la riscansioni (Scanner)."
+
+msgid "RAPPORT"
+msgstr "RAPPORTO"
+
+msgid ""
+"Un document complet, établi à l'instant (les machines du réseau sont "
+"rescannées avant) : bilan, ce qu'il reste à faire, registre, machines du "
+"réseau, liaisons de chaque machine, espace partagé. Enregistré dans le "
+"dossier des exports."
+msgstr ""
+"Un documento completo, generato adesso (le macchine di rete vengono prima "
+"scansionate di nuovo): riepilogo, cosa resta da fare, registro, macchine di "
+"rete, collegamenti di ogni macchina, spazio condiviso. Salvato nella "
+"cartella delle esportazioni."
+
+msgid "THÈME DE LA PAGE HTML"
+msgstr "TEMA DELLA PAGINA HTML"
+
+msgid "APERÇU"
+msgstr "ANTEPRIMA"
+
+msgid "Exporter JSON"
+msgstr "Esporta JSON"
+
+msgid "Exporter TXT"
+msgstr "Esporta TXT"
+
+msgid "Exporter HTML"
+msgstr "Esporta HTML"
+
+msgid "Génération du rapport en cours (détection, vérification, zone)…"
+msgstr "Generazione del rapporto in corso (rilevamento, verifica, zona)…"
+
+msgid "Rapport prêt."
+msgstr "Rapporto pronto."
+
+#, python-brace-format
+msgid "Export impossible : {error}"
+msgstr "Esportazione impossibile: {error}"
+
+#, python-brace-format
+msgid "{count} application(s) omega trouvée(s) sur cette machine."
+msgstr "{count} applicazione/i omega trovata/e su questa macchina."
+
+#, python-brace-format
+msgid "Trouvées via : {sources}."
+msgstr "Trovate tramite: {sources}."
+
+#, python-brace-format
+msgid ""
+"{count} remarque(s) sur la recherche (montages réseau ignorés, etc.) : voir "
+"le Rapport."
+msgstr ""
+"{count} nota/e sulla ricerca (mount di rete ignorati, ecc.): vedere il "
+"Rapporto."
+
+msgid "SCANNER"
+msgstr "SCANNER"
+
+msgid ""
+"Recherche des applications omega, en lecture seule : rien n'est modifié, "
+"aucun mot de passe. Le résultat met à jour le registre."
+msgstr ""
+"Ricerca delle applicazioni omega, in sola lettura: non viene modificato "
+"nulla, nessuna password. Il risultato aggiorna il registro."
+
+#, python-brace-format
+msgid "MACHINE LOCALE — {machine}"
+msgstr "MACCHINA LOCALE — {machine}"
+
+msgid "MACHINES QUE CET ORDINATEUR SAIT DÉJÀ JOINDRE"
+msgstr "MACCHINE CHE QUESTO COMPUTER SA GIÀ RAGGIUNGERE"
+
+msgid ""
+"Trouvées dans vos profils Unison, votre ~/.ssh/config et les machines déjà "
+"connues de SSH. Choisissez-en une (Entrée ou clic) : omega-connect s'y "
+"connecte avec vos clés et y lance le même scanner, en mémoire — rien n'y est"
+" installé, aucun mot de passe."
+msgstr ""
+"Trovate nei suoi profili Unison, nel suo ~/.ssh/config e tra le macchine già"
+" note a SSH. Ne scelga una (Invio o clic): omega-connect vi si connette con "
+"le sue chiavi e vi esegue lo stesso scanner, in memoria — non vi viene "
+"installato nulla, nessuna password."
+
+msgid "Scanner la machine choisie"
+msgstr "Scansiona la macchina scelta"
+
+msgid "AUTRE MACHINE (SAISIE MANUELLE)"
+msgstr "ALTRA MACCHINA (INSERIMENTO MANUALE)"
+
+msgid ""
+"utilisateur@machine (nom ou adresse), ou un nom de votre ~/.ssh/config."
+msgstr "utente@macchina (nome o indirizzo), o un nome del suo ~/.ssh/config."
+
+msgid "utilisateur@machine"
+msgstr "utente@macchina"
+
+msgid "Scanner cette machine"
+msgstr "Scansiona questa macchina"
+
+msgid "MACHINES DISTANTES CONNUES"
+msgstr "MACCHINE REMOTE NOTE"
+
+msgid ""
+"Celles du registre. Sur un grand parc, retirez celles qui ne vous concernent"
+" plus : elles ne sont plus rescannées (rien n'est modifié sur elles)."
+msgstr ""
+"Quelle del registro. Su un grande parco, rimuova quelle che non la "
+"riguardano più: non vengono più riscansionate (su di esse non viene "
+"modificato nulla)."
+
+msgid "Retirer cette machine"
+msgstr "Rimuovi questa macchina"
+
+msgid "Scanner de nouveau"
+msgstr "Scansiona di nuovo"
+
+msgid "Rescanner les machines connues"
+msgstr "Riscansiona le macchine note"
+
+msgid "Voir le registre"
+msgstr "Vedi il registro"
+
+msgid "Trouvée dans"
+msgstr "Trovata in"
+
+msgid "Analyse de la machine locale : recherche des applications omega…"
+msgstr "Analisi della macchina locale: ricerca delle applicazioni omega…"
+
+#, python-brace-format
+msgid "Analysée à {time}."
+msgstr "Analizzata alle {time}."
+
+msgid "aucune machine distante pour l'instant"
+msgstr "nessuna macchina remota per ora"
+
+msgid "aucune machine trouvée"
+msgstr "nessuna macchina trovata"
+
+#, python-brace-format
+msgid "{machine} retirée du registre."
+msgstr "{machine} rimossa dal registro."
+
+msgid "RETIRER CETTE MACHINE ?"
+msgstr "RIMUOVERE QUESTA MACCHINA?"
+
+#, python-brace-format
+msgid ""
+"{machine} et ses {count} application(s) sortent du registre : elles ne "
+"seront plus rescannées. Rien n'est modifié sur la machine ; vous pourrez la "
+"scanner de nouveau à tout moment."
+msgstr ""
+"{machine} e le sue {count} applicazione/i escono dal registro: non verranno "
+"più riscansionate. Sulla macchina non viene modificato nulla; potrà "
+"scansionarla di nuovo in qualsiasi momento."
+
+msgid "Retirer"
+msgstr "Rimuovi"
+
+#, python-brace-format
+msgid "Connexion à {target}…"
+msgstr "Connessione a {target}…"
+
+#, python-brace-format
+msgid "{target} : rien n'a été fait (machine non acceptée)."
+msgstr "{target}: non è stato fatto nulla (macchina non accettata)."
+
+#, python-brace-format
+msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
+msgstr ""
+"Scansione di {target}: lo scanner è in esecuzione laggiù, in sola lettura…"
+
+msgid "Aucune machine distante connue pour l'instant."
+msgstr "Nessuna macchina remota nota per ora."
+
+#, python-brace-format
+msgid "Scan des {count} machine(s) connue(s)…"
+msgstr "Scansione delle {count} macchina/e nota/e…"
+
+#, python-brace-format
+msgid "{good} machine(s) scannée(s) sur {total}."
+msgstr "{good} macchina/e scansionata/e su {total}."
+
+msgid "Enregistrés dans var/settings.json, appliqués tout de suite."
+msgstr "Salvate in var/settings.json, applicate subito."
+
+msgid "Thème de l'interface"
+msgstr "Tema dell'interfaccia"
+
+msgid "Thème des exports (rapport HTML, aide exportée)"
+msgstr "Tema delle esportazioni (rapporto HTML, aiuto esportato)"
+
+msgid "Dossier des exports"
+msgstr "Cartella delle esportazioni"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Laissez vide pour revenir au dossier par défaut."
+msgstr ""
+"Predefinita: {path}. Lasci vuoto per tornare alla cartella predefinita."
+
+msgid "Dossier des captures d'écran"
+msgstr "Cartella degli screenshot"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Capture : Ctrl+P → « Capture d'écran »."
+msgstr "Predefinita: {path}. Screenshot: Ctrl+P → «Screenshot»."
+
+msgid "Enregistrer les dossiers"
+msgstr "Salva le cartelle"
+
+msgid "Maintenance des dossiers"
+msgstr "Manutenzione delle cartelle"
+
+msgid ""
+"Supprime définitivement le contenu du dossier configuré ; le dossier reste."
+msgstr ""
+"Elimina definitivamente il contenuto della cartella configurata; la cartella"
+" resta."
+
+msgid "Vider le dossier des exports"
+msgstr "Svuota la cartella delle esportazioni"
+
+msgid "Vider le dossier des captures"
+msgstr "Svuota la cartella degli screenshot"
+
+msgid "des exports"
+msgstr "delle esportazioni"
+
+msgid "des captures"
+msgstr "degli screenshot"
+
+#, python-brace-format
+msgid "Chemin à donner en entier (commençant par / ou ~) : {path}"
+msgstr "Percorso da indicare per intero (che inizia con / o ~): {path}"
+
+#, python-brace-format
+msgid "Dossiers enregistrés : {paths}"
+msgstr "Cartelle salvate: {paths}"
+
+#, python-brace-format
+msgid "VIDER LE DOSSIER {label} ?"
+msgstr "SVUOTARE LA CARTELLA {label}?"
+
+#, python-brace-format
+msgid ""
+"Supprime définitivement tout le contenu de {directory}. Le dossier reste."
+msgstr ""
+"Elimina definitivamente tutto il contenuto di {directory}. La cartella "
+"resta."
+
+msgid "Vider"
+msgstr "Svuota"
+
+#, python-brace-format
+msgid "Refusé — {path} : {reason}"
+msgstr "Rifiutato — {path}: {reason}"
+
+#, python-brace-format
+msgid "{count} élément(s) supprimé(s) dans {path}."
+msgstr "{count} elemento/i eliminato/i in {path}."
+
+#, python-brace-format
+msgid "Non supprimés : {items}"
+msgstr "Non eliminati: {items}"
+
+msgid "Choisir"
+msgstr "Scegli"
+
+msgid "SYNCHRONISATION"
+msgstr "SINCRONIZZAZIONE"
+
+msgid ""
+"Toutes vos machines et leurs applications. Cochez des lignes (Entrée ou "
+"Espace) puis « Synchroniser la sélection », ou « Synchroniser tout ». Chaque"
+" machine a son plan, affiché avant d'agir, et un seul mot de passe ; les "
+"machines du réseau sont synchronisées depuis ici."
+msgstr ""
+"Tutte le sue macchine e le loro applicazioni. Spunti delle righe (Invio o "
+"Spazio) poi «Sincronizza la selezione», o «Sincronizza tutto». Ogni macchina"
+" ha il suo piano, mostrato prima di agire, e una sola password; le macchine "
+"di rete vengono sincronizzate da qui."
+
+msgid "Synchroniser tout"
+msgstr "Sincronizza tutto"
+
+msgid "Synchroniser la sélection"
+msgstr "Sincronizza la selezione"
+
+msgid "Lire avec sudo"
+msgstr "Leggi con sudo"
+
+msgid "Vérification de cette machine et de son espace partagé…"
+msgstr "Verifica di questa macchina e del suo spazio condiviso…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s) — vérifié à {time}."
+msgstr ""
+"{count} applicazione/i su {machines} macchina/e — verificato alle {time}."
+
+msgid "Espace partagé lu avec sudo (lecture seule)."
+msgstr "Spazio condiviso letto con sudo (sola lettura)."
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : "
+msgstr "Spazio condiviso di {machine}: "
+
+#, python-brace-format
+msgid "{tool} : {hint}"
+msgstr "{tool}: {hint}"
+
+msgid "Lecture de l'espace partagé…"
+msgstr "Lettura dello spazio condiviso…"
+
+#, python-brace-format
+msgid "Préparation du plan de synchronisation de {machine}…"
+msgstr "Preparazione del piano di sincronizzazione di {machine}…"
+
+msgid "FAIRE CONFIANCE À CETTE MACHINE ?"
+msgstr "FIDARSI DI QUESTA MACCHINA?"
+
+msgid "Faire confiance"
+msgstr "Fidati"
+
+msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
+msgstr "DETTAGLIO DELLO SPAZIO CONDIVISO"
+
+#, python-brace-format
+msgid ""
+"Ce qu'omega-connect a créé sur cette machine, et quand (registre de l'espace"
+" partagé {zone}). « Tout retirer » défait exactement cette liste ; un "
+"fichier qu'elle ne connaît pas n'est jamais supprimé."
+msgstr ""
+"Ciò che omega-connect ha creato su questa macchina, e quando (registro dello"
+" spazio condiviso {zone}). «Rimuovi tutto» annulla esattamente questo "
+"elenco; un file che non vi compare non viene mai eliminato."
+
+msgid "CRÉATIONS"
+msgstr "CREAZIONI"
+
+msgid "OUTILS RELIÉS"
+msgstr "STRUMENTI COLLEGATI"
+
+msgid "Retirer cet outil"
+msgstr "Rimuovi questo strumento"
+
+msgid "Tout retirer…"
+msgstr "Rimuovi tutto…"
+
+msgid "Outil"
+msgstr "Strumento"
+
+msgid "Relié le"
+msgstr "Collegato il"
+
+msgid "Initialisation du registre : lecture de la zone en cours…"
+msgstr "Inizializzazione del registro: lettura della zona in corso…"
+
+#, python-brace-format
+msgid ""
+"Aucune zone en {zone} : rien n'a été créé (menu Synchronisation pour "
+"l'établir)."
+msgstr ""
+"Nessuna zona in {zone}: non è stato creato nulla (menu Sincronizzazione per "
+"stabilirla)."
+
+msgid ""
+"Registre lisible par root et le groupe omega-synchro seulement : "
+"reconnectez-vous si vous venez d'y être ajouté, ou « Lire avec sudo »."
+msgstr ""
+"Registro leggibile solo da root e dal gruppo omega-synchro: acceda di nuovo "
+"se vi è appena stato aggiunto, o «Leggi con sudo»."
+
+#, python-brace-format
+msgid ""
+"Registre {status} ({detail}) : rien ne sera retiré tant qu'il n'est pas "
+"réparé."
+msgstr ""
+"Registro {status} ({detail}): non verrà rimosso nulla finché non è riparato."
+
+#, python-brace-format
+msgid "Zone {zone} — {state} — mise à jour le {date}."
+msgstr "Zona {zone} — {state} — aggiornata il {date}."
+
+msgid "aucune application reliée pour l'instant"
+msgstr "nessuna applicazione collegata per ora"
+
+msgid "Aucune commande."
+msgstr "Nessun comando."
+
+msgid ""
+"Commandes lancées une à une en root avec sudo, dans cet ordre. Rien n'est "
+"lancé avant « Lancer ». Au premier échec tout s'arrête, et le registre garde"
+" la trace de ce qui a été créé."
+msgstr ""
+"Comandi eseguiti uno alla volta come root con sudo, in questo ordine. Non "
+"viene eseguito nulla prima di «Avvia». Al primo errore tutto si ferma, e il "
+"registro tiene traccia di ciò che è stato creato."
+
+msgid "COMMANDES"
+msgstr "COMANDI"
+
+msgid "REMARQUES"
+msgstr "NOTE"
+
+msgid ""
+"Ce qui est relié ou pas, sur toutes vos machines, avec son état (OK, à "
+"réparer, absent…). Cet écran montre : ce qui est « à réparer » se corrige "
+"dans le menu Réparer. Surlignez une ligne pour le détail."
+msgstr ""
+"Ciò che è collegato o no, su tutte le sue macchine, con il suo stato (OK, da"
+" riparare, assente…). Questa schermata si limita a mostrare: ciò che è «da "
+"riparare» si corregge nel menu Ripara. Evidenzi una riga per il dettaglio."

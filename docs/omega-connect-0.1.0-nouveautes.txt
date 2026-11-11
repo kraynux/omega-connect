@@ -1,0 +1,37 @@
+OMEGA-CONNECT 0.1.0 - Ce qui change pour vous
+=============================================
+
+Première version publiée d'omega-connect, l'interconnecteur de la suite omega : il trouve
+vos applications omega (omega-serv, omega-fire, omega-jail…) sur cette machine et sur les
+machines de votre réseau, montre ce qui est relié entre elles ou pas, et remet en place ce
+qui manque, toujours en montrant d'abord ce qu'il va faire. Le détail technique complet
+reste dans le CHANGELOG.
+
+
+TROUVER ET VOIR
+---------------
+- Scanner : les applications de cette machine, puis celles de vos autres machines,
+  proposées d'après vos profils Unison, ~/.ssh/config et known_hosts (ou saisies à la
+  main). SSH avec vos clés ; rien n'est installé là-bas pour un scan.
+- Registre : toutes les applications de toutes les machines, leur version et leur état.
+- Liaisons et Dashboard : ce qui est relié ou pas, sur toutes les machines.
+
+
+RELIER ET RÉPARER
+-----------------
+- Synchronisation : une seule liste de toutes les machines et de leurs applications ; on
+  coche, puis on synchronise (cartes d'identité, espace partagé).
+- Réparer : la liste de tout ce qui ne va pas ; chaque écart est corrigé par l'application
+  qui possède le fichier, jamais par omega-connect à sa place.
+- Mettre à jour ou réinstaller une application d'une machine du réseau, depuis sa Release
+  GitHub (empreinte vérifiée avec sha.txt).
+- Une machine du réseau se traite depuis votre poste : rien à taper là-bas, son mot de
+  passe demandé une fois, par elle-même.
+
+
+LE RESTE
+--------
+- Rapport complet (texte, JSON ou page HTML) ; aide exportable en HTML.
+- Réglages : langue, thèmes, dossiers des exports et des captures, purge.
+- Aide exhaustive, Contact et support.
+- Interface en 17 langues.

@@ -1,0 +1,3786 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-connect\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#, python-brace-format
+msgid "omega-connect — machine {machine}"
+msgstr "omega-connect — машина {machine}"
+
+#, python-brace-format
+msgid "== Mise à jour de {tool} vers {version} ({root})"
+msgstr "== Обновление {tool} до {version} ({root})"
+
+#, python-brace-format
+msgid "✗ {tool} : {error}"
+msgstr "✗ {tool}: {error}"
+
+#, python-brace-format
+msgid "✓ {tool} {version} installé."
+msgstr "✓ {tool} {version} установлен."
+
+#, python-brace-format
+msgid "· déjà réglé : {command}"
+msgstr "· уже настроено: {command}"
+
+#, python-brace-format
+msgid "archive refusée : chemin inattendu {name}"
+msgstr "архив отклонён: неожиданный путь {name}"
+
+#, python-brace-format
+msgid "archive refusée : {name} n'est ni un fichier ni un dossier"
+msgstr "архив отклонён: {name} не является ни файлом, ни папкой"
+
+msgid "archive refusée : trop volumineuse une fois extraite"
+msgstr "архив отклонён: слишком большой после распаковки"
+
+#, python-brace-format
+msgid "archive refusée : pas de dossier {tool}/"
+msgstr "архив отклонён: нет папки {tool}/"
+
+#, python-brace-format
+msgid "{path} est un lien : rien n'est copié dedans"
+msgstr "{path} — это ссылка: в неё ничего не копируется"
+
+#, python-brace-format
+msgid "{root} n'est pas un dossier d'installation"
+msgstr "{root} не является папкой установки"
+
+#, python-brace-format
+msgid "{root} n'appartient pas à ce compte : mise à jour faite à la main"
+msgstr "{root} не принадлежит этой учётной записи: обновите вручную"
+
+msgid "empreinte de l'archive différente de sha.txt : rien n'est installé"
+msgstr ""
+"контрольная сумма архива не совпадает с sha.txt: ничего не установлено"
+
+#, python-brace-format
+msgid "Mise de côté de l'ancienne installation : {old} → {new}"
+msgstr "Старая установка отложена: {old} → {new}"
+
+msgid "impossible de mettre l'ancienne installation de côté (sudo mv)"
+msgstr "не удалось отложить старую установку (sudo mv)"
+
+#, python-brace-format
+msgid "{count} fichiers installés dans {root}."
+msgstr "Установлено файлов в {root}: {count}."
+
+#, python-brace-format
+msgid "install.sh introuvable dans {root}"
+msgstr "install.sh не найден в {root}"
+
+#, python-brace-format
+msgid ""
+"Environnement Python (.venv) incomplet mis de côté : {path} — install.sh en "
+"recrée un."
+msgstr ""
+"Неполное окружение Python (.venv) отложено: {path} — install.sh создаст "
+"новое."
+
+#, python-brace-format
+msgid "Lancement de {path} :"
+msgstr "Запуск {path}:"
+
+#, python-brace-format
+msgid "install.sh a échoué (code {code})"
+msgstr "install.sh завершился с ошибкой (код {code})"
+
+#, python-brace-format
+msgid "{script} introuvable : réglages et données restés dans {old}"
+msgstr "{script} не найден: настройки и данные остались в {old}"
+
+#, python-brace-format
+msgid ""
+"Reprise des réglages et données de {old} (autres anciennes installations "
+"ignorées : {others})"
+msgstr ""
+"Перенос настроек и данных из {old} (другие старые установки пропущены: "
+"{others})"
+
+#, python-brace-format
+msgid "reprise de {old} échouée ({script})"
+msgstr "перенос из {old} не удался ({script})"
+
+msgid "contient l'installation d'omega-connect"
+msgstr "содержит установку omega-connect"
+
+msgid "registre omega-serv"
+msgstr "реестр omega-serv"
+
+msgid "systemd"
+msgstr "systemd"
+
+msgid "OpenRC"
+msgstr "OpenRC"
+
+msgid "runit"
+msgstr "runit"
+
+msgid "dossier personnel"
+msgstr "домашняя папка"
+
+msgid "/srv"
+msgstr "/srv"
+
+msgid "chemin saisi"
+msgstr "указанный путь"
+
+msgid "absent"
+msgstr "отсутствует"
+
+msgid "illisible (droits)"
+msgstr "нечитаемо (права)"
+
+msgid "abîmé"
+msgstr "повреждено"
+
+msgid "d'une version plus récente qu'omega-connect"
+msgstr "из более новой версии, чем omega-connect"
+
+msgid "non fournie (version de l'outil trop ancienne ?)"
+msgstr "не предоставлено (слишком старая версия инструмента?)"
+
+msgid "non obtenue"
+msgstr "не получено"
+
+msgid "illisible"
+msgstr "нечитаемо"
+
+msgid "active"
+msgstr "активно"
+
+msgid "désactivée"
+msgstr "отключён"
+
+msgid "absente"
+msgstr "отсутствует"
+
+msgid "inconnue"
+msgstr "неизвестно"
+
+#, python-brace-format
+msgid "registre des instances omega-serv illisible : {detail}"
+msgstr "реестр экземпляров omega-serv нечитаем: {detail}"
+
+#, python-brace-format
+msgid "instance omega-serv enregistrée mais dossier disparu : {detail}"
+msgstr "экземпляр omega-serv зарегистрирован, но папка исчезла: {detail}"
+
+#, python-brace-format
+msgid "fichier de service illisible : {detail}"
+msgstr "файл службы нечитаем: {detail}"
+
+#, python-brace-format
+msgid "service {detail} : dossier d'installation introuvable"
+msgstr "служба {detail}: папка установки не найдена"
+
+#, python-brace-format
+msgid "recherche arrêtée (trop de dossiers) dans {detail}"
+msgstr "поиск остановлен (слишком много папок) в {detail}"
+
+#, python-brace-format
+msgid "montage réseau non parcouru : {detail}"
+msgstr "сетевое подключение не просматривалось: {detail}"
+
+#, python-brace-format
+msgid "dossier introuvable : {detail}"
+msgstr "папка не найдена: {detail}"
+
+#, python-brace-format
+msgid "aucun outil omega dans : {detail}"
+msgstr "нет инструментов omega в: {detail}"
+
+#, python-brace-format
+msgid "créez-le sous le compte {owner} : {command}"
+msgstr "создайте его под учётной записью {owner}: {command}"
+
+msgid "outil inconnu"
+msgstr "неизвестный инструмент"
+
+#, python-brace-format
+msgid "trouvé par : {sources}"
+msgstr "найдено через: {sources}"
+
+#, python-brace-format
+msgid "propriétaire : {owner}"
+msgstr "владелец: {owner}"
+
+#, python-brace-format
+msgid "service : {names}"
+msgstr "служба: {names}"
+
+#, python-brace-format
+msgid "jeton : présent (identifiant {identifier}, version {version})"
+msgstr "токен: есть (идентификатор {identifier}, версия {version})"
+
+#, python-brace-format
+msgid "jeton : {state}"
+msgstr "токен: {state}"
+
+#, python-brace-format
+msgid "fiche : {state}"
+msgstr "описание: {state}"
+
+#, python-brace-format
+msgid "détail technique : {detail}"
+msgstr "технические подробности: {detail}"
+
+#, python-brace-format
+msgid "fiche : instance {instance}"
+msgstr "описание: экземпляр {instance}"
+
+#, python-brace-format
+msgid "service {manager} ({state})"
+msgstr "служба {manager} ({state})"
+
+msgid "partielle (sans root)"
+msgstr "частично (без root)"
+
+#, python-brace-format
+msgid "fonctions : {states}"
+msgstr "функции: {states}"
+
+#, python-brace-format
+msgid "Détection des outils omega (HOME examiné : {home})"
+msgstr "Обнаружение инструментов omega (проверенный HOME: {home})"
+
+msgid "Aucun outil omega trouvé. Indiquez un dossier avec --chemin."
+msgstr "Инструменты omega не найдены. Укажите папку с помощью --chemin."
+
+#, python-brace-format
+msgid ""
+"Identifiant en double {identifier} : {roots} (dossier copié à la main ?). "
+"Ces installations ne sont pas fusionnées ; ouvrez la copie une fois pour lui"
+" donner un nouvel identifiant."
+msgstr ""
+"Повторяющийся идентификатор {identifier}: {roots} (папка скопирована "
+"вручную?). Эти установки не объединяются; откройте копию один раз, чтобы она"
+" получила новый идентификатор."
+
+msgid "Remarques sur la recherche :"
+msgstr "Замечания о поиске:"
+
+#, python-brace-format
+msgid "{count} installation(s) trouvée(s)."
+msgstr "Найдено установок: {count}."
+
+msgid "Détectée"
+msgstr "Обнаружено"
+
+msgid "Inscrite"
+msgstr "Зарегистрировано"
+
+msgid "Reliée"
+msgstr "Связано"
+
+msgid "À réparer"
+msgstr "Требует исправления"
+
+msgid "Ancienne version"
+msgstr "Старая версия"
+
+msgid "Installation inachevée"
+msgstr "Незавершённая установка"
+
+msgid "Injoignable"
+msgstr "Недоступно"
+
+msgid "trouvée, sans carte d'identité : la Synchronisation la lui crée"
+msgstr "найдено, без паспорта: Синхронизация создаст его"
+
+msgid ""
+"a sa carte d'identité, pas encore dans l'espace partagé : la Synchronisation"
+" l'y ajoute"
+msgstr ""
+"есть паспорт, но ещё нет в общем пространстве: Синхронизация добавит его "
+"туда"
+
+msgid "dans l'espace partagé, à jour"
+msgstr "в общем пространстве, актуально"
+
+msgid "un écart : Réparer le corrige"
+msgstr "есть расхождение: Исправление его устранит"
+
+msgid "trop ancienne pour avoir une carte d'identité : mettez-la à jour"
+msgstr "слишком старое, чтобы иметь паспорт: обновите его"
+
+msgid ""
+"installée, mais son install.sh ne s'est pas terminé (environnement Python ou"
+" carte d'identité manquants) : « Réinstaller l'application » (Registre)"
+msgstr ""
+"установлено, но его install.sh не завершился (нет окружения Python или "
+"паспорта): «Переустановить приложение» (Реестр)"
+
+msgid "machine qui ne répond pas"
+msgstr "машина не отвечает"
+
+#, python-brace-format
+msgid ""
+"trop ancienne pour avoir une carte d'identité : {tool} {version} ou plus "
+"récent requis (machine distante : Synchronisation la met à jour depuis "
+"GitHub)"
+msgstr ""
+"слишком старое, чтобы иметь паспорт: требуется {tool} {version} или новее "
+"(удалённая машина: Синхронизация обновит его с GitHub)"
+
+msgid "pas encore préparé — la Synchronisation le prépare"
+msgstr "ещё не подготовлено — Синхронизация подготовит его"
+
+msgid "prêt"
+msgstr "готово"
+
+msgid "à corriger — la Synchronisation le remet en état"
+msgstr "требует исправления — Синхронизация приведёт его в порядок"
+
+msgid "prêt (lu avec votre autorisation)"
+msgstr "готово (прочитано с вашего разрешения)"
+
+msgid ""
+"état inconnu depuis cette session — la Synchronisation le lira avec votre "
+"autorisation"
+msgstr ""
+"состояние неизвестно в этом сеансе — Синхронизация прочитает его с вашего "
+"разрешения"
+
+#, python-brace-format
+msgid "Registre — machine {machine}"
+msgstr "Реестр — машина {machine}"
+
+msgid "Aucune application omega trouvée sur cette machine."
+msgstr "На этой машине не найдено приложений omega."
+
+#, python-brace-format
+msgid "Espace partagé : {status}"
+msgstr "Общее пространство: {status}"
+
+msgid "Synchroniser : un seul plan, un seul mot de passe administrateur"
+msgstr "Синхронизация: один план, один пароль администратора"
+
+msgid "Rien à faire : tout est déjà synchronisé."
+msgstr "Делать нечего: всё уже синхронизировано."
+
+msgid ""
+"1. Cartes d'identité à créer (par chaque outil, sous son compte, sans mot de"
+" passe) :"
+msgstr ""
+"1. Паспорта для создания (каждым инструментом, под его учётной записью, без "
+"пароля):"
+
+msgid "aucune : chaque application choisie a déjà la sienne."
+msgstr "нет: у каждого выбранного приложения уже есть свой."
+
+msgid "2. Espace partagé (en administrateur, une commande après l'autre) :"
+msgstr ""
+"2. Общее пространство (от имени администратора, команды одна за другой):"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root} (créée à l'étape 1)"
+msgstr "Скопировать паспорт {root} (созданный на шаге 1)"
+
+msgid "rien : l'espace partagé est déjà à jour."
+msgstr "ничего: общее пространство уже актуально."
+
+msgid "Une commande qui n'est pas annoncée ici n'est jamais lancée."
+msgstr "Команда, не объявленная здесь, никогда не запускается."
+
+#, python-brace-format
+msgid ""
+"Arrêt : la carte d'identité de {root} n'a pas pu être créée ({error}). Rien "
+"d'autre n'a été lancé."
+msgstr ""
+"Остановка: не удалось создать паспорт {root} ({error}). Больше ничего не "
+"запускалось."
+
+msgid "échec"
+msgstr "ошибка"
+
+#, python-brace-format
+msgid ""
+"Arrêt avant l'espace partagé : le plan a changé ({step}). Rien de plus n'a "
+"été lancé ; relancez la synchronisation pour voir le nouveau plan."
+msgstr ""
+"Остановка перед общим пространством: план изменился ({step}). Больше ничего "
+"не запускалось; запустите синхронизацию снова, чтобы увидеть новый план."
+
+#, python-brace-format
+msgid ""
+"Arrêt à l'étape « {step} » : {error}. Ce qui a été créé est noté ; relancez "
+"la synchronisation après avoir corrigé la cause."
+msgstr ""
+"Остановка на шаге «{step}»: {error}. Созданное записано; запустите "
+"синхронизацию снова после устранения причины."
+
+msgid "Synchronisation terminée : les applications choisies sont reliées."
+msgstr "Синхронизация завершена: выбранные приложения связаны."
+
+msgid "DÉMARRAGE RAPIDE"
+msgstr "БЫСТРЫЙ СТАРТ"
+
+msgid "RACCOURCIS"
+msgstr "СОЧЕТАНИЯ КЛАВИШ"
+
+msgid "Aide d’omega-connect"
+msgstr "Справка omega-connect"
+
+msgid "Aide complète : chaque menu, sa fonction et le détail."
+msgstr "Полная справка: каждое меню, его назначение и подробности."
+
+msgid "Démarrage rapide"
+msgstr "Быстрый старт"
+
+msgid "Raccourcis"
+msgstr "Сочетания клавиш"
+
+msgid "Touche"
+msgstr "Клавиша"
+
+msgid "Action"
+msgstr "Действие"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — aide."
+msgstr "OMEGA-CONNECT {version} — справка."
+
+msgid "Aide - Omega-Connect"
+msgstr "Справка - Omega-Connect"
+
+msgid ""
+"Interconnecteur de la suite omega : détecte les outils installés, vérifie et"
+" attribue les droits entre eux."
+msgstr ""
+"Связующее звено набора omega: обнаруживает установленные инструменты, "
+"проверяет и назначает права между ними."
+
+msgid "commandes"
+msgstr "команды"
+
+msgid "COMMANDE"
+msgstr "КОМАНДА"
+
+msgid "Cherche les outils omega installés (lecture seule, sans root)."
+msgstr "Ищет установленные инструменты omega (только чтение, без root)."
+
+msgid ""
+"Cherche les outils omega installés : registre d'omega-serv, services systemd"
+" / OpenRC / runit, HOME (3 niveaux), /srv (2 niveaux) et chemins saisis. Ne "
+"suit jamais un lien symbolique ni un montage réseau. Lit le jeton de chaque "
+"installation et demande sa fiche à l'outil, sous le compte propriétaire du "
+"dossier."
+msgstr ""
+"Ищет установленные инструменты omega: реестр omega-serv, службы systemd / "
+"OpenRC / runit, HOME (3 уровня), /srv (2 уровня) и указанные пути. Никогда "
+"не переходит по символическим ссылкам и в сетевые подключения. Читает токен "
+"каждой установки и запрашивает у инструмента его описание от имени учётной "
+"записи владельца папки."
+
+msgid "DOSSIER"
+msgstr "ПАПКА"
+
+msgid "Dossier d'installation à examiner en plus (option répétable)."
+msgstr ""
+"Дополнительная папка установки для проверки (параметр можно повторять)."
+
+msgid ""
+"Ne demande pas la fiche aux outils (plus rapide, aucune commande lancée)."
+msgstr ""
+"Не запрашивать описание у инструментов (быстрее, никакие команды не "
+"запускаются)."
+
+msgid "texte (défaut, traduit) ou json (pour les scripts, jamais traduit)."
+msgstr ""
+"текст (по умолчанию, переведён) или json (для скриптов, никогда не "
+"переводится)."
+
+msgid "Vérifie les liens existants entre outils (lecture seule, sans root)."
+msgstr ""
+"Проверяет существующие связи между инструментами (только чтение, без root)."
+
+msgid ""
+"Détecte les outils (avec leur fiche), puis contrôle chaque lien : journaux "
+"d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers"
+" la liste noire, liste protégée, droits de la liste noire, fichiers d'omega-"
+"jail dans fail2ban, jetons. Chaque écart affiche la commande qui le "
+"corrigerait, sans jamais la lancer. Code de sortie : 0 sans écart, 1 si un "
+"lien est cassé ou dégradé."
+msgstr ""
+"Обнаруживает инструменты (с их описанием), затем проверяет каждую связь: "
+"журналы omega-serv и magnet, читаемые jail'ами omega-jail, мост fail2ban к "
+"чёрному списку, защищённый список, права чёрного списка, файлы omega-jail в "
+"fail2ban, токены. Для каждого расхождения показывается команда, которая его "
+"исправит, но она никогда не запускается. Код выхода: 0 без расхождений, 1 "
+"если связь нарушена или ухудшена."
+
+msgid "Affiche aussi les contrôles conformes."
+msgstr "Показывать также проверки без замечаний."
+
+msgid ""
+"Ouvre le tableau de bord (défaut sans commande) : outils, liens et leur "
+"état, en lecture seule."
+msgstr ""
+"Открывает панель мониторинга (по умолчанию без команды): инструменты, связи "
+"и их состояние, только чтение."
+
+msgid ""
+"Tableau de bord en lecture seule : outils et instances, état de chaque lien,"
+" contrôles et commandes de correction (jamais lancées). Nouvelle "
+"vérification à intervalle régulier tant que l'écran est ouvert."
+msgstr ""
+"Панель мониторинга только для чтения: инструменты и экземпляры, состояние "
+"каждой связи, проверки и команды исправления (никогда не запускаются). "
+"Повторная проверка через равные промежутки времени, пока экран открыт."
+
+msgid ""
+"Crée la zone neutre et y recopie jetons et fiches (root, après accord)."
+msgstr ""
+"Создаёт нейтральную зону и копирует в неё токены и описания (root, после "
+"согласия)."
+
+msgid ""
+"Crée le groupe omega-synchro et la zone neutre (/var/lib/omega-synchro, "
+"2750), vous ajoute au groupe, recopie le jeton et la fiche de chaque outil "
+"détecté, et inscrit tout au registre. Relancée, elle actualise les copies. "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"Создаёт группу omega-synchro и нейтральную зону (/var/lib/omega-synchro, "
+"2750), добавляет вас в группу, копирует токен и описание каждого "
+"обнаруженного инструмента и записывает всё в реестр. При повторном запуске "
+"обновляет копии. Каждая команда показывается перед запуском через sudo."
+
+msgid ""
+"Défait ce qu'omega-connect a créé : un outil désinstallé, ou toute la zone "
+"(root, après accord)."
+msgstr ""
+"Отменяет то, что создал omega-connect: удалённый инструмент или всю зону "
+"(root, после согласия)."
+
+msgid ""
+"« retirer CIBLE » enlève de la zone un outil désinstallé (nom, dossier ou 8 "
+"premiers caractères de l'identifiant). « retirer --tout » défait exactement "
+"ce que le registre liste, ou garde la zone telle quelle (liens figés). "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"«retirer CIBLE» убирает из зоны удалённый инструмент (имя, папка или первые "
+"8 символов идентификатора). «retirer --tout» отменяет ровно то, что "
+"перечислено в реестре, или оставляет зону как есть (связи заморожены). "
+"Каждая команда показывается перед запуском через sudo."
+
+msgid "CIBLE"
+msgstr "CIBLE"
+
+msgid "Outil à retirer de la zone."
+msgstr "Инструмент, который нужно убрать из зоны."
+
+msgid "Toute la zone (question : garder ou tout retirer)."
+msgstr "Вся зона (вопрос: оставить или убрать всё)."
+
+msgid "Avec --tout : garder la zone, liens figés (rien n'est supprimé)."
+msgstr "С --tout: оставить зону, связи заморожены (ничего не удаляется)."
+
+msgid "Avec --tout : tout retirer, sans question."
+msgstr "С --tout: убрать всё, без вопроса."
+
+msgid ""
+"Recherche les applications omega de cette machine et met à jour le registre "
+"(lecture seule)."
+msgstr ""
+"Ищет приложения omega на этой машине и обновляет реестр (только чтение)."
+
+msgid ""
+"Lecture seule, sans mot de passe : chaque application trouvée, son service "
+"et son état (Détectée, Inscrite, Reliée, À réparer, Ancienne version, "
+"Installation inachevée). Le résultat est enregistré dans le registre du parc"
+" (var/parc.json)."
+msgstr ""
+"Только чтение, без пароля: каждое найденное приложение, его служба и "
+"состояние (Обнаружено, Зарегистрировано, Связано, Требует исправления, "
+"Старая версия, Незавершённая установка). Результат сохраняется в реестре "
+"машин (var/parc.json)."
+
+msgid "UTILISATEUR@MACHINE"
+msgstr "UTILISATEUR@MACHINE"
+
+msgid ""
+"Machine distante à scanner par SSH avec vos clés (rien n'y est installé) ; "
+"sans cible : cette machine."
+msgstr ""
+"Удалённая машина для сканирования по SSH с вашими ключами (на неё ничего не "
+"устанавливается); без цели: эта машина."
+
+msgid "MACHINE"
+msgstr "MACHINE"
+
+msgid ""
+"Retire une machine distante du registre (nom, adresse ou "
+"utilisateur@adresse) ; rien n'est modifié sur elle."
+msgstr ""
+"Убирает удалённую машину из реестра (имя, адрес или пользователь@адрес); на "
+"ней ничего не меняется."
+
+msgid ""
+"Liste les machines que cet ordinateur sait déjà joindre (profils Unison, "
+"~/.ssh/config, known_hosts)."
+msgstr ""
+"Показывает машины, к которым этот компьютер уже умеет подключаться (профили "
+"Unison, ~/.ssh/config, known_hosts)."
+
+msgid ""
+"Remet en place les liens de ce qui est installé : cartes d'identité, espace "
+"partagé, accès des services — un seul plan."
+msgstr ""
+"Восстанавливает связи установленных приложений: паспорта, общее "
+"пространство, доступ служб — единым планом."
+
+msgid ""
+"Une seule action (décision de l'auteur) : recrée les cartes d'identité qui "
+"manquent (commande de chaque outil, sous son compte), prépare l'espace "
+"partagé, y recopie les cartes et donne l'accès aux services. Tout est "
+"affiché avant d'agir ; un seul mot de passe administrateur. Sans CIBLE : "
+"toutes les applications de la machine."
+msgstr ""
+"Одно действие (решение автора): заново создаёт недостающие паспорта "
+"(командой каждого инструмента, под его учётной записью), подготавливает "
+"общее пространство, копирует туда паспорта и даёт доступ службам. Всё "
+"показывается до выполнения; один пароль администратора. Без CIBLE: все "
+"приложения машины."
+
+msgid ""
+"Application à synchroniser : nom (omega-fire) ou dossier ; plusieurs "
+"possibles."
+msgstr ""
+"Приложение для синхронизации: имя (omega-fire) или папка; можно несколько."
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; option "
+"répétable) : réparer puis synchroniser, sans rien taper là-bas (une "
+"application trop ancienne : mettre-a-jour d'abord)."
+msgstr ""
+"Уже просканированная удалённая машина (имя, адрес или пользователь@машина; "
+"параметр можно повторять): исправить, затем синхронизировать, ничего не "
+"вводя там (слишком старое приложение: сначала mettre-a-jour)."
+
+msgid ""
+"Toutes les machines distantes du registre, une à une (un mot de passe par "
+"machine)."
+msgstr "Все удалённые машины из реестра, по очереди (один пароль на машину)."
+
+msgid ""
+"Met à jour les applications trop anciennes d'une machine distante, depuis "
+"leur Release GitHub (rien d'autre)."
+msgstr ""
+"Обновляет слишком старые приложения удалённой машины из их Release на GitHub"
+" (и больше ничего)."
+
+msgid ""
+"Archive prise sur GitHub, empreinte vérifiée avec sha.txt, puis installée "
+"sur la machine (comme la section « Mise à jour » du README de l'outil). Ne "
+"répare ni ne synchronise : voir synchroniser."
+msgstr ""
+"Архив берётся с GitHub, контрольная сумма проверяется по sha.txt, затем он "
+"устанавливается на машину (как в разделе «Обновление» README инструмента). "
+"Не исправляет и не синхронизирует: см. synchroniser."
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; "
+"répétable)."
+msgstr ""
+"Уже просканированная удалённая машина (имя, адрес или пользователь@машина; "
+"можно повторять)."
+
+msgid "Toutes les machines distantes du registre, une à une."
+msgstr "Все удалённые машины из реестра, по очереди."
+
+msgid ""
+"Corrige les écarts trouvés par verifier avec la commande de l'outil qui les "
+"possède (root, après accord)."
+msgstr ""
+"Исправляет расхождения, найденные verifier, командой инструмента-владельца "
+"(root, после согласия)."
+
+msgid ""
+"Ne corrige que ce qu'un outil sait corriger lui-même (omega-jail --apply "
+"--update, omega-serv service permissions, synchro jeton de chaque outil) et "
+"ce que le registre de la zone dit qu'omega-connect a créé (plan d'etablir, "
+"affiché à son tour). omega-connect ne réécrit jamais le fichier d'un autre "
+"outil : le reste est affiché, à faire à la main. Chaque commande est "
+"affichée avant d'être lancée."
+msgstr ""
+"Исправляет только то, что инструмент умеет исправлять сам (omega-jail "
+"--apply --update, omega-serv service permissions, synchro jeton каждого "
+"инструмента), и то, что по реестру зоны создал omega-connect (план etablir, "
+"показывается в свою очередь). omega-connect никогда не переписывает файл "
+"другого инструмента: остальное показывается для выполнения вручную. Каждая "
+"команда показывается перед запуском."
+
+msgid ""
+"Machine distante déjà scannée : réparée depuis ici, rien à taper là-bas "
+"(répétable)."
+msgstr ""
+"Уже просканированная удалённая машина: исправляется отсюда, там ничего "
+"вводить не нужно (можно повторять)."
+
+msgid ""
+"Rapport complet : outils, jetons, fiches, liens et tous leurs contrôles, "
+"zone et registre (lecture seule)."
+msgstr ""
+"Полный отчёт: инструменты, токены, описания, связи и все их проверки, зона и"
+" реестр (только чтение)."
+
+msgid ""
+"Tout ce qu'omega-connect sait à cet instant, en lecture seule et sans root :"
+" outils et instances, jetons, fiches, chaque lien avec tous ses contrôles et"
+" les commandes de correction, remarques de la recherche, zone neutre et son "
+"registre. Affiché, ou enregistré dans var/exports/ avec --enregistrer."
+msgstr ""
+"Всё, что omega-connect знает на данный момент, только чтение и без root: "
+"инструменты и экземпляры, токены, описания, каждая связь со всеми проверками"
+" и командами исправления, замечания о поиске, нейтральная зона и её реестр. "
+"Выводится на экран или сохраняется в var/exports/ с --enregistrer."
+
+msgid ""
+"texte (défaut, traduit), json (jamais traduit) ou html (page autonome)."
+msgstr ""
+"текст (по умолчанию, переведён), json (никогда не переводится) или html "
+"(автономная страница)."
+
+msgid "Thème de la page HTML."
+msgstr "Тема HTML-страницы."
+
+msgid "Enregistre dans var/exports/ au lieu d'afficher, et donne le chemin."
+msgstr "Сохранить в var/exports/ вместо вывода на экран и показать путь."
+
+msgid "Affiche seulement les commandes, sans rien lancer."
+msgstr "Показать только команды, ничего не запуская."
+
+msgid "Lance sans demander l'accord (les commandes restent affichées)."
+msgstr "Запустить без запроса согласия (команды всё равно показываются)."
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro (il ne compte qu'après "
+"une reconnexion) : lecture de la zone avec sudo (find, stat, cat)."
+msgstr ""
+"В вашем сеансе ещё нет группы omega-synchro (она действует только после "
+"повторного входа): зона читается через sudo (find, stat, cat)."
+
+msgid "Authentification sudo refusée ou annulée : rien n'est fait."
+msgstr "Аутентификация sudo отклонена или отменена: ничего не сделано."
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) en root ? [o/N] "
+msgstr "Запустить эти команды от root (количество: {count})? [o/N] "
+
+msgid "Authentification sudo refusée ou annulée : rien n'a été lancé."
+msgstr "Аутентификация sudo отклонена или отменена: ничего не запущено."
+
+msgid ""
+"Pas de terminal pour poser la question : relancez avec --garder-zone ou "
+"--effacer."
+msgstr ""
+"Нет терминала, чтобы задать вопрос: запустите снова с --garder-zone или "
+"--effacer."
+
+msgid "Garder la zone (liens figés) [g], tout retirer [t], ou annuler [a] ? "
+msgstr ""
+"Оставить зону (связи заморожены) [g], убрать всё [t] или отменить [a]? "
+
+msgid ""
+"Pas de terminal pour demander l'accord : relancez avec --oui, ou "
+"--simulation."
+msgstr ""
+"Нет терминала, чтобы запросить согласие: запустите снова с --oui или "
+"--simulation."
+
+msgid "Abandon : rien n'a été lancé."
+msgstr "Отмена: ничего не запущено."
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) ? [o/N] "
+msgstr "Запустить эти команды (количество: {count})? [o/N] "
+
+msgid ""
+"Zone neutre : plan d'« etablir » (seulement ce que le registre dit avoir "
+"créé)."
+msgstr ""
+"Нейтральная зона: план «etablir» (только то, что по реестру было создано)."
+
+#, python-brace-format
+msgid "Registre du parc non enregistré : {error}"
+msgstr "Реестр машин не сохранён: {error}"
+
+msgid "Saisissez utilisateur@machine (nom ou adresse), sans espace ni option."
+msgstr ""
+"Введите пользователь@машина (имя или адрес), без пробелов и параметров."
+
+msgid "Pas de terminal pour demander la confiance : rien n'a été fait."
+msgstr "Нет терминала, чтобы запросить доверие: ничего не сделано."
+
+msgid "Faire confiance à cette machine ? [o/N] "
+msgstr "Доверять этой машине? [o/N] "
+
+msgid "Rien n'a été fait."
+msgstr "Ничего не сделано."
+
+msgid "Impossible d'ajouter la clé à ~/.ssh/known_hosts."
+msgstr "Не удалось добавить ключ в ~/.ssh/known_hosts."
+
+#, python-brace-format
+msgid "Aucune application ne correspond à : {targets}"
+msgstr "Ни одно приложение не соответствует: {targets}"
+
+msgid "Lancer ce plan ? [o/N] "
+msgstr "Запустить этот план? [o/N] "
+
+msgid "Authentification refusée ou annulée : rien n'a été lancé."
+msgstr "Аутентификация отклонена или отменена: ничего не запущено."
+
+#, python-brace-format
+msgid "Machine inconnue ou mal écrite : {target}"
+msgstr "Машина неизвестна или указана с ошибкой: {target}"
+
+msgid ""
+"Aucune machine distante dans le registre : scannez-en une d'abord (scanner "
+"utilisateur@machine)."
+msgstr ""
+"В реестре нет удалённых машин: сначала просканируйте хотя бы одну (scanner "
+"пользователь@машина)."
+
+#, python-brace-format
+msgid ""
+"{target} : clé de la machine pas encore acceptée, ou machine injoignable — "
+"scannez-la d'abord (scanner {target})."
+msgstr ""
+"{target}: ключ машины ещё не принят, или машина недоступна — сначала "
+"просканируйте её (scanner {target})."
+
+#, python-brace-format
+msgid "Lancer sur {name} ? [o/N] "
+msgstr "Запустить на {name}? [o/N] "
+
+#, python-brace-format
+msgid "Rien n'a été lancé sur {name}."
+msgstr "На {name} ничего не запущено."
+
+msgid "Indiquez soit un outil à retirer, soit --tout."
+msgstr "Укажите либо инструмент, который нужно убрать, либо --tout."
+
+msgid "--garder-zone et --effacer vont avec --tout."
+msgstr "--garder-zone и --effacer используются вместе с --tout."
+
+msgid "Machines distantes indisponibles ici."
+msgstr "Удалённые машины здесь недоступны."
+
+msgid "Indiquez --machine MACHINE ou --toutes-machines."
+msgstr "Укажите --machine MACHINE или --toutes-machines."
+
+#, python-brace-format
+msgid "Aucune machine distante du registre ne correspond à : {target}"
+msgstr "Ни одна удалённая машина из реестра не соответствует: {target}"
+
+#, python-brace-format
+msgid "{machine} retirée du registre (rien n'a été modifié sur elle)."
+msgstr "{machine} убрана из реестра (на ней ничего не изменено)."
+
+#, python-brace-format
+msgid "Rapport enregistré : {path}"
+msgstr "Отчёт сохранён: {path}"
+
+#, python-brace-format
+msgid "aucune version publiée sur GitHub ({url})"
+msgstr "на GitHub не опубликовано ни одной версии ({url})"
+
+msgid "GitHub ne répond pas depuis cet ordinateur (réseau)"
+msgstr "GitHub не отвечает с этого компьютера (сеть)"
+
+msgid "l'archive n'est pas citée dans sha.txt de la Release : refusée"
+msgstr "архив не указан в sha.txt релиза: отклонён"
+
+msgid "empreinte différente de sha.txt : archive refusée, rien n'est envoyé"
+msgstr ""
+"контрольная сумма не совпадает с sha.txt: архив отклонён, ничего не "
+"отправлено"
+
+msgid "fichier trop volumineux pour une archive d'outil : refusé"
+msgstr "файл слишком велик для архива инструмента: отклонён"
+
+#, python-brace-format
+msgid ""
+"la dernière version publiée sur GitHub ({latest}) est encore trop ancienne"
+msgstr ""
+"последняя опубликованная на GitHub версия ({latest}) всё ещё слишком старая"
+
+msgid "extraction par-dessus, puis son install.sh"
+msgstr "распаковка поверх, затем его install.sh"
+
+msgid ""
+"ancienne installation mise de côté (sudo mv), nouvelle à sa place, puis son "
+"install.sh qui reprend réglages et données"
+msgstr ""
+"старая установка отложена (sudo mv), новая на её месте, затем её install.sh "
+"переносит настройки и данные"
+
+msgid "Commande"
+msgstr "Команда"
+
+msgid "Mise à jour"
+msgstr "Обновление"
+
+msgid "Réparer"
+msgstr "Исправить"
+
+msgid "Synchroniser"
+msgstr "Синхронизировать"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} ({root}) : réinstallation (installation inachevée) — {how}"
+msgstr ""
+"{tool} {version} ({root}): переустановка (незавершённая установка) — {how}"
+
+msgid "(installation inachevée)"
+msgstr "(незавершённая установка)"
+
+#, python-brace-format
+msgid "{head} → {latest} ({root}) : {how}"
+msgstr "{head} → {latest} ({root}): {how}"
+
+#, python-brace-format
+msgid "{head} ({root}) : pas de mise à jour possible — {reason}"
+msgstr "{head} ({root}): обновление невозможно — {reason}"
+
+#, python-brace-format
+msgid ""
+"Tout se passe dans ce terminal : le mot de passe sudo de {name} est demandé "
+"par la machine elle-même, une fois ; omega-connect ne le voit jamais."
+msgstr ""
+"Всё происходит в этом терминале: пароль sudo для {name} запрашивает сама "
+"машина, один раз; omega-connect его никогда не видит."
+
+#, python-brace-format
+msgid "Réinstaller l'application — machine {name} ({target})"
+msgstr "Переустановить приложение — машина {name} ({target})"
+
+#, python-brace-format
+msgid "Mettre à jour l'application — machine {name} ({target})"
+msgstr "Обновить приложение — машина {name} ({target})"
+
+msgid ""
+"Aucune application trop ancienne sur cette machine : rien à mettre à jour."
+msgstr "На этой машине нет слишком старых приложений: обновлять нечего."
+
+msgid ""
+"Archives prises sur la Release GitHub de chaque application (empreinte "
+"vérifiée avec sha.txt avant tout envoi) :"
+msgstr ""
+"Архивы берутся из Release на GitHub каждого приложения (контрольная сумма "
+"проверяется по sha.txt перед любой отправкой):"
+
+msgid ""
+"Rien d'autre n'est fait. Ensuite, pour remettre les liens en place : "
+"Synchronisation."
+msgstr ""
+"Больше ничего не делается. Затем, чтобы восстановить связи: Синхронизация."
+
+#, python-brace-format
+msgid "Synchroniser — machine {name} ({target})"
+msgstr "Синхронизировать — машина {name} ({target})"
+
+msgid ""
+"Laissées de côté, trop anciennes (Registre → « Mettre à jour l'application »"
+" d'abord) :"
+msgstr "Пропущены, слишком старые (сначала Реестр → «Обновить приложение»):"
+
+msgid ""
+"Rien à synchroniser : tout ce qui peut l'être est relié sur cette machine."
+msgstr "Синхронизировать нечего: всё, что можно, на этой машине уже связано."
+
+msgid "Réparer puis synchroniser, sur la machine. Plan :"
+msgstr "Исправить, затем синхронизировать, на самой машине. План:"
+
+msgid ""
+"L'espace partagé de cette machine n'est lisible qu'avec sudo : il sera relu "
+"au lancement."
+msgstr ""
+"Общее пространство этой машины доступно для чтения только через sudo: оно "
+"будет перечитано при запуске."
+
+#, python-brace-format
+msgid "Réparer — machine {name} ({target})"
+msgstr "Исправить — машина {name} ({target})"
+
+#, python-brace-format
+msgid "« Réparer {name} » lance ces commandes SUR la machine, depuis ici."
+msgstr "«Исправить {name}» запускает эти команды НА машине, отсюда."
+
+#, python-brace-format
+msgid ""
+"Commandes qu'aucun outil ne sait lancer — lancées AUSSI sur {name} par « "
+"Réparer {name} », une à une, après les corrections des outils (celles déjà "
+"réglées entre-temps sont sautées) :"
+msgstr ""
+"Команды, которые не умеет запускать ни один инструмент, — их ТОЖЕ запускает "
+"на {name} кнопка «Исправить {name}», по одной, после исправлений "
+"инструментов (уже исправленное за это время пропускается):"
+
+#, python-brace-format
+msgid "Rien n'a été envoyé à {target} :"
+msgstr "На {target} ничего не отправлено:"
+
+#, python-brace-format
+msgid "Envoi impossible vers {target}."
+msgstr "Не удалось отправить на {target}."
+
+#, python-brace-format
+msgid "Résultat pour {target} :"
+msgstr "Результат для {target}:"
+
+#, python-brace-format
+msgid ""
+"  ✗ aucun résultat rendu par la machine (connexion coupée, ou lancement "
+"interrompu ; code {code})."
+msgstr ""
+"  ✗ машина не вернула результата (соединение прервано или запуск остановлен;"
+" код {code})."
+
+#, python-brace-format
+msgid "ancienne installation gardée dans {path}"
+msgstr "старая установка сохранена в {path}"
+
+#, python-brace-format
+msgid "(code {code})"
+msgstr "(код {code})"
+
+#, python-brace-format
+msgid "code {code}"
+msgstr "код {code}"
+
+msgid "Unison"
+msgstr "Unison"
+
+msgid "~/.ssh/config"
+msgstr "~/.ssh/config"
+
+msgid "connue de SSH"
+msgstr "известна SSH"
+
+msgid "jamais scannée"
+msgstr "ни разу не сканировалась"
+
+msgid "injoignable"
+msgstr "недоступна"
+
+msgid "répond"
+msgstr "отвечает"
+
+#, python-brace-format
+msgid "{machine} — {count} application(s), {state}"
+msgstr "{machine} — приложений: {count}, {state}"
+
+msgid ""
+"Aucune machine trouvée dans vos profils Unison, ~/.ssh/config ou "
+"known_hosts."
+msgstr ""
+"Ни одной машины не найдено в ваших профилях Unison, ~/.ssh/config или "
+"known_hosts."
+
+#, python-brace-format
+msgid "{target} ne répond pas (machine éteinte, ou réseau coupé) : {detail}"
+msgstr "{target} не отвечает (машина выключена или сеть недоступна): {detail}"
+
+#, python-brace-format
+msgid ""
+"Le nom « {host} » est inconnu sur ce réseau. Utilisez l'adresse de la "
+"machine (par exemple utilisateur@192.168.1.109), ou déclarez ce nom dans "
+"/etc/hosts ou dans ~/.ssh/config (Host {host} / HostName <adresse>)."
+msgstr ""
+"Имя «{host}» неизвестно в этой сети. Используйте адрес машины (например, "
+"пользователь@192.168.1.109) или объявите это имя в /etc/hosts или в "
+"~/.ssh/config (Host {host} / HostName <адрес>)."
+
+#, python-brace-format
+msgid ""
+"{host} répond, mais aucun serveur SSH n'y écoute (port 22). Sur cette "
+"machine : installez et démarrez openssh (sudo systemctl enable --now sshd) ;"
+" ou, s'il écoute sur un autre port, indiquez-le dans ~/.ssh/config (Host "
+"{host} / Port …)."
+msgstr ""
+"{host} отвечает, но SSH-сервер на нём не слушает (порт 22). На этой машине: "
+"установите и запустите openssh (sudo systemctl enable --now sshd); или, если"
+" он слушает другой порт, укажите его в ~/.ssh/config (Host {host} / Port …)."
+
+#, python-brace-format
+msgid ""
+"{target} refuse vos clés SSH. Ajoutez votre clé publique sur cette machine "
+"(ssh-copy-id {target}), ou chargez-la dans l'agent SSH si elle est protégée "
+"par une phrase secrète (ssh-add). omega-connect ne demande jamais de mot de "
+"passe."
+msgstr ""
+"{target} отклоняет ваши SSH-ключи. Добавьте свой открытый ключ на эту машину"
+" (ssh-copy-id {target}) или загрузите его в SSH-агент, если он защищён "
+"парольной фразой (ssh-add). omega-connect никогда не запрашивает пароль."
+
+#, python-brace-format
+msgid "{target} n'est pas encore connue : sa clé doit d'abord être acceptée."
+msgstr "{target} ещё неизвестна: сначала нужно принять её ключ."
+
+#, python-brace-format
+msgid ""
+"La clé de {target} a CHANGÉ depuis la dernière connexion : scan refusé. Si "
+"la machine a été réinstallée, retirez l'ancienne clé (ssh-keygen -R {host}) "
+"puis recommencez ; sinon, quelqu'un se fait peut-être passer pour elle."
+msgstr ""
+"Ключ {target} ИЗМЕНИЛСЯ с момента последнего подключения: сканирование "
+"отклонено. Если машина была переустановлена, удалите старый ключ (ssh-keygen"
+" -R {host}) и повторите; иначе, возможно, кто-то выдаёт себя за неё."
+
+#, python-brace-format
+msgid ""
+"{target} n'a pas Python 3 (3.10 ou plus récent) : le scanner ne peut pas y "
+"tourner. Rien n'a été installé."
+msgstr ""
+"На {target} нет Python 3 (3.10 или новее): сканер не может там работать. "
+"Ничего не установлено."
+
+#, python-brace-format
+msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-bas."
+msgstr "Сканирование {target} не удалось ({detail}). Там ничего не изменено."
+
+#, python-brace-format
+msgid ""
+"Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
+msgstr ""
+"На этой машине нет SSH-клиента (команда {detail}): установите openssh."
+
+#, python-brace-format
+msgid ""
+"{target} n'a jamais été jointe depuis ce compte. Vérifiez que l'empreinte de"
+" sa clé est bien la sienne (sur la machine : ssh-keygen -lf "
+"/etc/ssh/ssh_host_ed25519_key.pub) :"
+msgstr ""
+"К {target} ещё ни разу не подключались с этой учётной записи. Убедитесь, что"
+" отпечаток её ключа действительно её (на машине: ssh-keygen -lf "
+"/etc/ssh/ssh_host_ed25519_key.pub):"
+
+msgid "En lui faisant confiance, elle est ajoutée à votre ~/.ssh/known_hosts."
+msgstr "Если доверять ей, она будет добавлена в ваш ~/.ssh/known_hosts."
+
+msgid "Ses applications restent dans le registre, marquées « Injoignable »."
+msgstr "Её приложения остаются в реестре с отметкой «Недоступно»."
+
+#, python-brace-format
+msgid "{machine} : {count} application(s) omega trouvée(s)."
+msgstr "{machine}: найдено приложений omega: {count}."
+
+msgid "Aucune machine distante pour l'instant."
+msgstr "Пока нет удалённых машин."
+
+#, python-brace-format
+msgid "  · {machine} — {count} application(s), dernier scan {date} ({state})"
+msgstr ""
+"  · {machine} — приложений: {count}, последнее сканирование {date} ({state})"
+
+#, python-brace-format
+msgid "{tool} crée ou met à jour son jeton d'installation ({root})"
+msgstr "{tool} создаёт или обновляет свой токен установки ({root})"
+
+#, python-brace-format
+msgid ""
+"omega-serv répare les droits partagés avec le service {service} ({root})"
+msgstr "omega-serv исправляет общие права со службой {service} ({root})"
+
+msgid ""
+"omega-jail remet à jour ce qu'il a posé dans fail2ban (contenu et droits)"
+msgstr ""
+"omega-jail обновляет то, что он установил в fail2ban (содержимое и права)"
+
+#, python-brace-format
+msgid ""
+"{root} appartient au compte {account} : à lancer sous ce compte, ou avec "
+"omega-connect en root."
+msgstr ""
+"{root} принадлежит учётной записи {account}: запускать под этой учётной "
+"записью или с omega-connect от root."
+
+#, python-brace-format
+msgid ""
+"{tool} {version} dans {root} : environnement Python ou carte d'identité "
+"manquants"
+msgstr "{tool} {version} в {root}: нет окружения Python или паспорта"
+
+#, python-brace-format
+msgid "{tool} {version} dans {root} : {minimum} ou plus récent requis"
+msgstr "{tool} {version} в {root}: требуется {minimum} или новее"
+
+msgid "Réparer : corrections faites par les outils eux-mêmes"
+msgstr "Исправление: исправления выполняются самими инструментами"
+
+msgid "Rien à réparer : « verifier » ne signale aucun écart corrigeable."
+msgstr ""
+"Исправлять нечего: «verifier» не сообщает ни об одном исправимом "
+"расхождении."
+
+msgid ""
+"Trop ancien pour être réparé (ses commandes n'existent pas encore dans cette"
+" version) ; à mettre à jour d'abord (Registre → « Mettre à jour "
+"l'application ») :"
+msgstr ""
+"Слишком старое для исправления (нужных команд в этой версии ещё нет); "
+"сначала обновите (Реестр → «Обновить приложение»):"
+
+msgid ""
+"Installation inachevée (son install.sh ne s'est pas terminé) : à réinstaller"
+" d'abord (Registre → « Réinstaller l'application ») :"
+msgstr ""
+"Незавершённая установка (её install.sh не завершился): сначала "
+"переустановите (Реестр → «Переустановить приложение»):"
+
+msgid "Commandes qui seront lancées, une à une (arrêt au premier échec) :"
+msgstr ""
+"Команды, которые будут запущены по одной (остановка при первой ошибке):"
+
+msgid "en root"
+msgstr "от root"
+
+#, python-brace-format
+msgid "sous le compte {account}"
+msgstr "под учётной записью {account}"
+
+msgid ""
+"Zone neutre : « etablir » corrige ce que le registre dit avoir créé ; son "
+"plan sera affiché ensuite, avant tout lancement :"
+msgstr ""
+"Нейтральная зона: «etablir» исправляет то, что по реестру было создано; его "
+"план будет показан затем, до любого запуска:"
+
+msgid ""
+"Ensuite : « etablir » reliera à la zone les outils dont le jeton vient "
+"d'être créé ; son plan sera affiché avant tout lancement."
+msgstr ""
+"Затем «etablir» свяжет с зоной инструменты, токен которых только что создан;"
+" его план будет показан до любого запуска."
+
+msgid ""
+"Zone neutre : illisible sans sudo avant votre reconnexion, son état n'est "
+"pas connu. « etablir » va la lire avec sudo et ne fera que ce qui manque "
+"(outils pas encore reliés, copies, groupe du service) ; son plan sera "
+"affiché avant tout lancement."
+msgstr ""
+"Нейтральная зона: до повторного входа не читается без sudo, её состояние "
+"неизвестно. «etablir» прочитает её через sudo и сделает только недостающее "
+"(ещё не связанные инструменты, копии, группа службы); его план будет показан"
+" до любого запуска."
+
+msgid "Non lancé depuis cette session :"
+msgstr "Не запускалось в этом сеансе:"
+
+msgid ""
+"À faire à la main (aucun outil ne sait le corriger lui-même ; omega-connect "
+"ne réécrit jamais le fichier d'un autre outil) :"
+msgstr ""
+"Сделать вручную (ни один инструмент не умеет исправить это сам; omega-"
+"connect никогда не переписывает файл другого инструмента):"
+
+msgid "À décider (jamais lancé par « reparer ») :"
+msgstr "На ваше усмотрение (никогда не запускается «reparer»):"
+
+msgid "code"
+msgstr "код"
+
+#, python-brace-format
+msgid ""
+"Terminé : {count} commande(s) lancée(s), toutes réussies. Relancez « "
+"verifier » pour constater."
+msgstr ""
+"Готово: команд запущено: {count}, все успешно. Запустите «verifier» снова, "
+"чтобы убедиться."
+
+#, python-brace-format
+msgid "Arrêt à l'étape « {step} » : {error}"
+msgstr "Остановка на шаге «{step}»: {error}"
+
+msgid ""
+"Rien d'autre n'a été lancé. Relancez « reparer » après avoir corrigé la "
+"cause."
+msgstr ""
+"Больше ничего не запускалось. Запустите «reparer» снова после устранения "
+"причины."
+
+msgid "dossier"
+msgstr "папка"
+
+msgid "groupe"
+msgstr "группа"
+
+msgid "membre du groupe"
+msgstr "участник группы"
+
+msgid "groupe donné au service (par omega-serv)"
+msgstr "группа выдана службе (через omega-serv)"
+
+msgid "active (synchronisée)"
+msgstr "активно (синхронизируется)"
+
+msgid "figée (plus synchronisée)"
+msgstr "заморожено (больше не синхронизируется)"
+
+#, python-brace-format
+msgid ""
+"Pas encore d'espace partagé sur cette machine ({zone}) : la Synchronisation "
+"le prépare."
+msgstr ""
+"На этой машине ещё нет общего пространства ({zone}): Синхронизация "
+"подготовит его."
+
+#, python-brace-format
+msgid ""
+"Espace partagé {zone} présent, lisible par root et le groupe omega-synchro "
+"seulement (rapport fait sans sudo ; le groupe compte après une reconnexion)."
+msgstr ""
+"Общее пространство {zone} есть, доступно для чтения только root и группе "
+"omega-synchro (отчёт составлен без sudo; группа действует после повторного "
+"входа)."
+
+#, python-brace-format
+msgid "Espace partagé {zone} : registre {status} ({detail})."
+msgstr "Общее пространство {zone}: реестр {status} ({detail})."
+
+#, python-brace-format
+msgid "Espace partagé {zone} — {state} — mis à jour le {date}."
+msgstr "Общее пространство {zone} — {state} — обновлено {date}."
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : installation inachevée → « Réinstaller l'application »"
+msgstr ""
+"{tool} {version}: незавершённая установка → «Переустановить приложение»"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} → {minimum} ou plus récent : « Mettre à jour l'application "
+"»"
+msgstr "{tool} {version} → {minimum} или новее: «Обновить приложение»"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : à mettre à jour sur ce poste, section « Mise à jour » du "
+"README de l'outil"
+msgstr ""
+"{tool} {version}: обновить на этом компьютере, раздел «Обновление» README "
+"инструмента"
+
+msgid "corrigé par l'outil lui-même (menu Réparer)"
+msgstr "исправляется самим инструментом (меню Исправление)"
+
+#, python-brace-format
+msgid "commande à lancer sur ce poste : {command}"
+msgstr "команда для запуска на этом компьютере: {command}"
+
+#, python-brace-format
+msgid "commande lancée sur la machine par le menu Réparer : {command}"
+msgstr "команда, запускаемая на машине через меню Исправление: {command}"
+
+msgid "aucune correction connue"
+msgstr "исправление неизвестно"
+
+msgid ""
+"Machines qui ne répondent plus — Scanner → « Rescanner les machines connues "
+"»"
+msgstr ""
+"Машины, которые больше не отвечают — Сканирование → «Пересканировать "
+"известные машины»"
+
+msgid "À réinstaller ou à mettre à jour — Registre, bouton sous la ligne"
+msgstr "Переустановить или обновить — Реестр, кнопка под строкой"
+
+msgid "À réparer — menu Réparer"
+msgstr "Требует исправления — меню Исправление"
+
+msgid "À synchroniser — menu Synchronisation"
+msgstr "Синхронизировать — меню Синхронизация"
+
+#, python-brace-format
+msgid "{machine} — {tool} : {state}"
+msgstr "{machine} — {tool}: {state}"
+
+msgid "application inconnue"
+msgstr "неизвестное приложение"
+
+#, python-brace-format
+msgid "propriétaire : {owner} ; trouvée par : {sources}"
+msgstr "владелец: {owner}; найдено через: {sources}"
+
+#, python-brace-format
+msgid "carte d'identité : {card}"
+msgstr "паспорт: {card}"
+
+#, python-brace-format
+msgid "instance {instance}"
+msgstr "экземпляр {instance}"
+
+#, python-brace-format
+msgid "description : {what}"
+msgstr "описание: {what}"
+
+msgid "Remarques :"
+msgstr "Замечания:"
+
+msgid "Aucune application omega trouvée."
+msgstr "Приложения omega не найдены."
+
+#, python-brace-format
+msgid ""
+"{machine} — {target} — {state} — dernier scan {date} — {apps} "
+"application(s), {links} liaison(s)"
+msgstr ""
+"{machine} — {target} — {state} — последнее сканирование {date} — приложений:"
+" {apps}, связей: {links}"
+
+#, python-brace-format
+msgid "dernière erreur : {error}"
+msgstr "последняя ошибка: {error}"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — RAPPORT COMPLET"
+msgstr "OMEGA-CONNECT {version} — ПОЛНЫЙ ОТЧЁТ"
+
+#, python-brace-format
+msgid ""
+"Établi le {date} depuis {machine}, machines du réseau rescannées (lecture "
+"seule, sans root)."
+msgstr ""
+"Составлен {date} с {machine}, машины в сети пересканированы (только чтение, "
+"без root)."
+
+msgid "BILAN"
+msgstr "ИТОГ"
+
+#, python-brace-format
+msgid "{machines} machine(s) : {machine} et {remote} du réseau."
+msgstr "Машин: {machines}: {machine} и в сети: {remote}."
+
+#, python-brace-format
+msgid "{count} application(s) : {summary}."
+msgstr "Приложений: {count}: {summary}."
+
+#, python-brace-format
+msgid "{count} liaison(s) : {summary}."
+msgstr "Связей: {count}: {summary}."
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : {state}."
+msgstr "Общее пространство {machine}: {state}."
+
+msgid "À FAIRE"
+msgstr "ЧТО СДЕЛАТЬ"
+
+msgid "Rien à faire : toutes les applications sont à jour et reliées."
+msgstr "Делать нечего: все приложения актуальны и связаны."
+
+msgid "REGISTRE — APPLICATIONS PAR MACHINE"
+msgstr "РЕЕСТР — ПРИЛОЖЕНИЯ ПО МАШИНАМ"
+
+msgid "MACHINES DU RÉSEAU"
+msgstr "МАШИНЫ В СЕТИ"
+
+msgid "Aucune (Scanner → machine distante, pour en ajouter)."
+msgstr "Нет (Сканирование → удалённая машина, чтобы добавить)."
+
+#, python-brace-format
+msgid "APPLICATIONS DE {machine} EN DÉTAIL"
+msgstr "ПРИЛОЖЕНИЯ {machine} ПОДРОБНО"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (tous les contrôles)"
+msgstr "СВЯЗИ {machine} (все проверки)"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (réseau, scan du {date})"
+msgstr "СВЯЗИ {machine} (сеть, сканирование {date})"
+
+msgid "Aucune liaison relevée."
+msgstr "Связи не обнаружены."
+
+#, python-brace-format
+msgid "ESPACE PARTAGÉ (omega-synchro) DE {machine} ET SON REGISTRE"
+msgstr "ОБЩЕЕ ПРОСТРАНСТВО (omega-synchro) {machine} И ЕГО РЕЕСТР"
+
+msgid "Créé par omega-connect :"
+msgstr "Создано omega-connect:"
+
+msgid "rien"
+msgstr "ничего"
+
+msgid "Applications reliées :"
+msgstr "Связанные приложения:"
+
+msgid "reliée le"
+msgstr "связано"
+
+msgid "conforme"
+msgstr "в порядке"
+
+msgid "info"
+msgstr "инфо"
+
+msgid "écart"
+msgstr "расхождение"
+
+msgid "non vérifiable"
+msgstr "проверка невозможна"
+
+msgid "partielle"
+msgstr "частично"
+
+#, python-brace-format
+msgid "instance « {instance} » — {root}"
+msgstr "экземпляр «{instance}» — {root}"
+
+msgid "machine"
+msgstr "машина"
+
+msgid "Aucun contrôle."
+msgstr "Нет проверок."
+
+msgid "Rapport complet"
+msgstr "Полный отчёт"
+
+#, python-brace-format
+msgid "{count} liaison(s), dont {problems} à corriger."
+msgstr "Связей: {count}, из них требуют исправления: {problems}."
+
+msgid "Applications"
+msgstr "Приложения"
+
+msgid "À faire"
+msgstr "Что сделать"
+
+msgid "Registre — applications par machine"
+msgstr "Реестр — приложения по машинам"
+
+msgid "Application"
+msgstr "Приложение"
+
+msgid "Instance / service"
+msgstr "Экземпляр / служба"
+
+msgid "Machine"
+msgstr "Машина"
+
+msgid "Version"
+msgstr "Версия"
+
+msgid "Dossier"
+msgstr "Папка"
+
+msgid "Machines du réseau"
+msgstr "Машины в сети"
+
+msgid "Connexion"
+msgstr "Соединение"
+
+msgid "Dernier scan"
+msgstr "Последнее сканирование"
+
+msgid "Dernière erreur"
+msgstr "Последняя ошибка"
+
+msgid "Liaisons"
+msgstr "Связи"
+
+#, python-brace-format
+msgid "Applications de {machine} en détail"
+msgstr "Приложения {machine} подробно"
+
+msgid "Propriétaire"
+msgstr "Владелец"
+
+msgid "Trouvée par"
+msgstr "Найдено через"
+
+msgid "Carte d'identité"
+msgstr "Паспорт"
+
+msgid "Aucun outil omega trouvé."
+msgstr "Инструменты omega не найдены."
+
+#, python-brace-format
+msgid "Identifiant en double {identifier} : {roots}"
+msgstr "Повторяющийся идентификатор {identifier}: {roots}"
+
+msgid "Remarques sur la recherche"
+msgstr "Замечания о поиске"
+
+#, python-brace-format
+msgid "Liaisons de {machine}"
+msgstr "Связи {machine}"
+
+#, python-brace-format
+msgid "Liaisons de {machine} (réseau, scan du {date})"
+msgstr "Связи {machine} (сеть, сканирование {date})"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} et son registre"
+msgstr "Общее пространство {machine} и его реестр"
+
+msgid "Créé le"
+msgstr "Создан"
+
+msgid "Élément"
+msgstr "Элемент"
+
+msgid "Identifiant"
+msgstr "Идентификатор"
+
+msgid "Instance"
+msgstr "Экземпляр"
+
+msgid "Reliée le"
+msgstr "Связано"
+
+msgid "Aucune application reliée."
+msgstr "Нет связанных приложений."
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — rapport du {date}, établi depuis {machine}."
+msgstr "OMEGA-CONNECT {version} — отчёт от {date}, составлен с {machine}."
+
+msgid "Rapport complet - Omega-Connect"
+msgstr "Полный отчёт - Omega-Connect"
+
+msgid "Journaux d'omega-serv → jails fail2ban"
+msgstr "Журналы omega-serv → jail'ы fail2ban"
+
+msgid "Journaux magnet (omega-waf) → jails fail2ban"
+msgstr "Журналы magnet (omega-waf) → jail'ы fail2ban"
+
+msgid "Pont fail2ban → liste noire d'omega-serv"
+msgstr "Мост fail2ban → чёрный список omega-serv"
+
+msgid "Liste protégée → jails et pont"
+msgstr "Защищённый список → jail'ы и мост"
+
+msgid "Liste noire d'omega-serv (droits)"
+msgstr "Чёрный список omega-serv (права)"
+
+msgid "Fichiers d'omega-jail dans fail2ban"
+msgstr "Файлы omega-jail в fail2ban"
+
+msgid "Cartes d'identité"
+msgstr "Паспорта"
+
+msgid "Espace partagé (omega-synchro)"
+msgstr "Общее пространство (omega-synchro)"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "à réparer"
+msgstr "требует исправления"
+
+msgid "à réparer (bloquant)"
+msgstr "требует исправления (блокирует)"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — le dossier qui le contient n'est "
+"lisible que par root ({detail})."
+msgstr ""
+"{subject}: проверка невозможна без root — содержащая его папка доступна для "
+"чтения только root ({detail})."
+
+msgid "fail2ban n'est pas installé : aucun jail ne protège cette instance."
+msgstr "fail2ban не установлен: ни один jail не защищает этот экземпляр."
+
+#, python-brace-format
+msgid "dossiers de fail2ban illisibles ({detail}) : non vérifiable sans root."
+msgstr "папки fail2ban нечитаемы ({detail}): проверка невозможна без root."
+
+msgid ""
+"omega-jail n'est pas installé : aucun jail fail2ban ne lit les journaux "
+"d'omega-serv."
+msgstr ""
+"omega-jail не установлен: ни один jail fail2ban не читает журналы omega-"
+"serv."
+
+msgid "aucun jail d'omega-jail pour cette instance."
+msgstr "нет jail'а omega-jail для этого экземпляра."
+
+msgid "omega-jail n'a encore posé aucun fichier dans fail2ban."
+msgstr "omega-jail ещё не установил ни одного файла в fail2ban."
+
+#, python-brace-format
+msgid "fonction {subject} désactivée : rien à relier."
+msgstr "функция {subject} отключена: связывать нечего."
+
+msgid ""
+"non vérifiable : l'outil n'a pas fourni sa description (version trop "
+"ancienne, ou refusée) — voir le Registre."
+msgstr ""
+"проверка невозможна: инструмент не предоставил своё описание (слишком старая"
+" версия или отказ) — см. Реестр."
+
+#, python-brace-format
+msgid "jail {subject} désactivé (enabled = false)."
+msgstr "jail {subject} отключён (enabled = false)."
+
+#, python-brace-format
+msgid ""
+"jail {subject} : filtre {detail} introuvable dans filter.d — fail2ban refuse"
+" de démarrer."
+msgstr ""
+"jail {subject}: фильтр {detail} не найден в filter.d — fail2ban не "
+"запустится."
+
+#, python-brace-format
+msgid "journal {subject} présent ({detail})."
+msgstr "журнал {subject} есть ({detail})."
+
+#, python-brace-format
+msgid ""
+"journal {subject} absent (jail {detail}) : fail2ban refuse de démarrer tant "
+"qu'il manque."
+msgstr ""
+"журнал {subject} отсутствует (jail {detail}): fail2ban не запустится, пока "
+"его нет."
+
+#, python-brace-format
+msgid ""
+"journal {subject} appartient à root ({detail}) : le service omega-serv ne "
+"peut plus y écrire."
+msgstr ""
+"журнал {subject} принадлежит root ({detail}): служба omega-serv больше не "
+"может в него писать."
+
+#, python-brace-format
+msgid ""
+"journal {subject} : droits {detail} ; le service omega-serv risque de ne pas"
+" pouvoir y écrire."
+msgstr ""
+"журнал {subject}: права {detail}; служба omega-serv может не суметь в него "
+"писать."
+
+#, python-brace-format
+msgid ""
+"jail {subject} ne lit pas le fichier qu'écrit l'instance ({detail}) : il ne "
+"bannira jamais."
+msgstr ""
+"jail {subject} не читает файл, который пишет экземпляр ({detail}): он "
+"никогда не забанит."
+
+#, python-brace-format
+msgid ""
+"jail {subject} : la fonction qui écrit son journal ({detail}) est "
+"désactivée, le jail reste sans effet."
+msgstr ""
+"jail {subject}: функция, которая пишет его журнал ({detail}), отключена, "
+"jail не действует."
+
+#, python-brace-format
+msgid ""
+"jail {subject} lit {detail} : aucune instance omega-serv détectée à cet "
+"endroit."
+msgstr ""
+"jail {subject} читает {detail}: в этом месте не обнаружено ни одного "
+"экземпляра omega-serv."
+
+#, python-brace-format
+msgid ""
+"journal {subject} ({detail}) : fonction active mais aucun jail ne le lit."
+msgstr ""
+"журнал {subject} ({detail}): функция включена, но ни один jail его не "
+"читает."
+
+#, python-brace-format
+msgid ""
+"omega-waf est en mode log-only (il note les attaques sans bannir), mais le "
+"jail {subject} posé par omega-jail dans fail2ban bannit, lui, au niveau "
+"réseau. omega-connect indique l'état et relie les outils ; il ne se "
+"substitue pas à fail2ban."
+msgstr ""
+"omega-waf работает в режиме log-only (записывает атаки, не баня), но jail "
+"{subject}, установленный omega-jail в fail2ban, банит на сетевом уровне. "
+"omega-connect показывает состояние и связывает инструменты; он не заменяет "
+"fail2ban."
+
+#, python-brace-format
+msgid "pont {subject} vers la liste noire de cette instance ({detail})."
+msgstr "мост {subject} к чёрному списку этого экземпляра ({detail})."
+
+msgid ""
+"aucun pont vers la liste noire de cette instance : un ban derrière Tailscale"
+" reste sans effet."
+msgstr ""
+"нет моста к чёрному списку этого экземпляра: бан за Tailscale не действует."
+
+#, python-brace-format
+msgid ""
+"pont {subject} sans omega-serv (installé quand omega-serv était introuvable)"
+" : aucun ban relayé."
+msgstr ""
+"мост {subject} без omega-serv (установлен, когда omega-serv не был найден): "
+"баны не передаются."
+
+#, python-brace-format
+msgid ""
+"jail {subject} utilise l'action {detail}, absente d'action.d : fail2ban "
+"refuse de démarrer."
+msgstr ""
+"jail {subject} использует действие {detail}, которого нет в action.d: "
+"fail2ban не запустится."
+
+#, python-brace-format
+msgid "jail {subject} relaie ses bans vers une autre instance ({detail})."
+msgstr "jail {subject} передаёт свои баны другому экземпляру ({detail})."
+
+#, python-brace-format
+msgid "pont {subject} : l'instance visée a disparu ({detail})."
+msgstr "мост {subject}: целевой экземпляр исчез ({detail})."
+
+#, python-brace-format
+msgid ""
+"pont {subject} : l'instance visée ({detail}) n'a pas été détectée (autre "
+"compte ?)."
+msgstr ""
+"мост {subject}: целевой экземпляр ({detail}) не обнаружен (другая учётная "
+"запись?)."
+
+#, python-brace-format
+msgid "jail {subject} sans pont vers la liste noire."
+msgstr "jail {subject} без моста к чёрному списку."
+
+#, python-brace-format
+msgid "script du pont {subject} conforme ({detail})."
+msgstr "скрипт моста {subject} в порядке ({detail})."
+
+#, python-brace-format
+msgid "script du pont {subject} absent : aucun ban n'est relayé."
+msgstr "скрипт моста {subject} отсутствует: баны не передаются."
+
+#, python-brace-format
+msgid ""
+"script du pont {subject} modifiable par un autre compte que root ({detail}),"
+" alors que fail2ban le lance en root."
+msgstr ""
+"скрипт моста {subject} может изменять учётная запись, отличная от root "
+"({detail}), хотя fail2ban запускает его от root."
+
+#, python-brace-format
+msgid "script du pont {subject} : droits {detail} au lieu de root:root 0755."
+msgstr "скрипт моста {subject}: права {detail} вместо root:root 0755."
+
+#, python-brace-format
+msgid ""
+"non vérifiable : la description d'omega-serv ne donne pas sa liste protégée "
+"({detail} ; version antérieure à 2.6.1 ?), comparaison impossible."
+msgstr ""
+"проверка невозможна: описание omega-serv не содержит защищённого списка "
+"({detail}; версия до 2.6.1?), сравнение невозможно."
+
+#, python-brace-format
+msgid "jail {subject} : ignoreip identique à la liste protégée d'omega-serv."
+msgstr "jail {subject}: ignoreip совпадает с защищённым списком omega-serv."
+
+#, python-brace-format
+msgid ""
+"jail {subject} : ignoreip différent de la liste protégée d'omega-serv (en "
+"plus « + », en moins « - » : {detail})."
+msgstr ""
+"jail {subject}: ignoreip отличается от защищённого списка omega-serv (лишнее"
+" «+», недостающее «-»: {detail})."
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés identiques à la liste protégée d'omega-"
+"serv."
+msgstr ""
+"мост {subject}: исключённые сети совпадают с защищённым списком omega-serv."
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés différents de la liste protégée d'omega-"
+"serv (en plus « + », en moins « - » : {detail})."
+msgstr ""
+"мост {subject}: исключённые сети отличаются от защищённого списка omega-serv"
+" (лишнее «+», недостающее «-»: {detail})."
+
+msgid "liste noire désactivée : rien à relier."
+msgstr "чёрный список отключён: связывать нечего."
+
+#, python-brace-format
+msgid "liste noire {subject} pas encore créée (aucun ban jusqu'ici)."
+msgstr "чёрный список {subject} ещё не создан (банов пока не было)."
+
+#, python-brace-format
+msgid "liste noire {subject} conforme ({detail})."
+msgstr "чёрный список {subject} в порядке ({detail})."
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} appartient à root ({detail}) : le service ne peut plus"
+" la lire et le site répond en erreur."
+msgstr ""
+"чёрный список {subject} принадлежит root ({detail}): служба больше не может "
+"его читать, и сайт отвечает ошибкой."
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : mauvais groupe ({detail}) ; le service ne peut pas "
+"la lire."
+msgstr ""
+"чёрный список {subject}: неверная группа ({detail}); служба не может его "
+"читать."
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : droits {detail}, il faut au moins 0660 (lecture et "
+"écriture pour le groupe du service)."
+msgstr ""
+"чёрный список {subject}: права {detail}, нужно не меньше 0660 (чтение и "
+"запись для группы службы)."
+
+#, python-brace-format
+msgid "liste noire {subject} : propriétaire inattendu ({detail})."
+msgstr "чёрный список {subject}: неожиданный владелец ({detail})."
+
+#, python-brace-format
+msgid "{subject} fichier(s) d'omega-jail conforme(s)."
+msgstr "Файлов omega-jail в порядке: {subject}."
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — fichier illisible pour votre compte."
+msgstr ""
+"{subject}: проверка невозможна без root — файл недоступен для чтения вашей "
+"учётной записи."
+
+#, python-brace-format
+msgid ""
+"{subject} modifiable par un autre compte que root ({detail}), alors que "
+"fail2ban le lit en root."
+msgstr ""
+"{subject} может изменять учётная запись, отличная от root ({detail}), хотя "
+"fail2ban читает его от root."
+
+#, python-brace-format
+msgid "{subject} : droits {detail} au lieu de root:root 0644."
+msgstr "{subject}: права {detail} вместо root:root 0644."
+
+#, python-brace-format
+msgid "{subject} abîmé ({detail}) : fail2ban risque de refuser de démarrer."
+msgstr "{subject} повреждён ({detail}): fail2ban может не запуститься."
+
+#, python-brace-format
+msgid ""
+"{subject} : action du pont abîmée ou modifiée à la main (ligne actionban "
+"introuvable)."
+msgstr ""
+"{subject}: действие моста повреждено или изменено вручную (строка actionban "
+"не найдена)."
+
+#, python-brace-format
+msgid "{subject} : carte d'identité présente (identifiant {detail}…)."
+msgstr "{subject}: паспорт есть (идентификатор {detail}…)."
+
+#, python-brace-format
+msgid "{subject} ({detail}) : pas encore de carte d'identité."
+msgstr "{subject} ({detail}): ещё нет паспорта."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : version trop ancienne : ni carte d'identité ni "
+"description."
+msgstr ""
+"{subject} ({detail}): слишком старая версия: нет ни паспорта, ни описания."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : installation inachevée (environnement Python ou carte"
+" d'identité manquants) : à réinstaller."
+msgstr ""
+"{subject} ({detail}): незавершённая установка (нет окружения Python или "
+"паспорта): нужно переустановить."
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, carte d'identité illisible pour votre compte "
+"(droits du fichier ou du dossier : {detail})."
+msgstr ""
+"{subject}: проверка невозможна, паспорт недоступен для чтения вашей учётной "
+"записи (права файла или папки: {detail})."
+
+#, python-brace-format
+msgid "{subject} : carte d'identité abîmée ({detail})."
+msgstr "{subject}: паспорт повреждён ({detail})."
+
+#, python-brace-format
+msgid ""
+"{subject} : carte d'identité d'une version plus récente qu'omega-connect "
+"({detail})."
+msgstr ""
+"{subject}: паспорт из более новой версии, чем omega-connect ({detail})."
+
+#, python-brace-format
+msgid ""
+"{subject} : droits {detail} au lieu de 0644 (ou 0664), au nom du "
+"propriétaire du dossier."
+msgstr ""
+"{subject}: права {detail} вместо 0644 (или 0664), владелец — владелец папки."
+
+#, python-brace-format
+msgid ""
+"identifiant {subject} en double : {detail} (dossier copié à la main ?)."
+msgstr ""
+"идентификатор {subject} повторяется: {detail} (папка скопирована вручную?)."
+
+#, python-brace-format
+msgid ""
+"espace partagé {subject} pas encore préparé : la Synchronisation le prépare."
+msgstr ""
+"общее пространство {subject} ещё не подготовлено: Синхронизация подготовит "
+"его."
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien n'y "
+"est lu."
+msgstr ""
+"{subject} не является настоящей папкой (символическая ссылка или файл): из "
+"неё ничего не читается."
+
+#, python-brace-format
+msgid ""
+"{subject} existe sans registre : créé à la main ou par autre chose qu'omega-"
+"connect (rien n'y sera fait)."
+msgstr ""
+"{subject} существует без реестра: создано вручную или не omega-connect (с "
+"ним ничего не будет делаться)."
+
+#, python-brace-format
+msgid "{subject} : non vérifiable, illisible pour votre compte ({detail})."
+msgstr ""
+"{subject}: проверка невозможна, недоступно для чтения вашей учётной записи "
+"({detail})."
+
+#, python-brace-format
+msgid ""
+"en attente de reconnexion : {subject} est déjà membre du groupe omega-"
+"synchro, mais la session ouverte ne le sait pas encore. {detail} sera "
+"vérifié après la prochaine connexion (ou Registre → « Lire avec sudo »)."
+msgstr ""
+"ожидается повторный вход: {subject} уже участник группы omega-synchro, но "
+"открытый сеанс ещё об этом не знает. {detail} будет проверено после "
+"следующего входа (или Реестр → «Прочитать через sudo»)."
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, lisible par root et le groupe omega-synchro "
+"seulement, et {detail} n'en est pas membre."
+msgstr ""
+"{subject}: проверка невозможна, доступно для чтения только root и группе "
+"omega-synchro, а {detail} в ней не состоит."
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est retiré tant qu'il n'est pas"
+" réparé."
+msgstr ""
+"реестр {subject} повреждён ({detail}): ничего не удаляется, пока он не "
+"исправлен."
+
+msgid "espace partagé figé : gardé tel quel, plus synchronisé."
+msgstr ""
+"общее пространство заморожено: оставлено как есть, больше не "
+"синхронизируется."
+
+#, python-brace-format
+msgid ""
+"{detail} dossier(s) de l'espace partagé conformes (root:omega-synchro 2750)."
+msgstr ""
+"Папок общего пространства в порядке (root:omega-synchro 2750): {detail}."
+
+#, python-brace-format
+msgid "dossier {subject} manquant."
+msgstr "папка {subject} отсутствует."
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 2750."
+msgstr "{subject}: {detail} вместо root:omega-synchro 2750."
+
+#, python-brace-format
+msgid "groupe {subject} absent alors que l'espace partagé existe."
+msgstr "группа {subject} отсутствует, хотя общее пространство существует."
+
+#, python-brace-format
+msgid "{subject} est membre du groupe omega-synchro."
+msgstr "{subject} — участник группы omega-synchro."
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas membre du groupe omega-synchro : l'espace partagé lui "
+"est illisible."
+msgstr ""
+"{subject} не состоит в группе omega-synchro: общее пространство ему "
+"недоступно для чтения."
+
+#, python-brace-format
+msgid ""
+"{subject} est membre du groupe omega-synchro ; cela comptera à la prochaine "
+"connexion."
+msgstr ""
+"{subject} — участник группы omega-synchro; это начнёт действовать при "
+"следующем входе."
+
+#, python-brace-format
+msgid "carte d'identité de {subject} à jour dans l'espace partagé ({detail})."
+msgstr "паспорт {subject} актуален в общем пространстве ({detail})."
+
+#, python-brace-format
+msgid "carte d'identité {subject} absente de l'espace partagé."
+msgstr "паспорт {subject} отсутствует в общем пространстве."
+
+#, python-brace-format
+msgid ""
+"carte d'identité de {subject} périmée dans l'espace partagé ({detail}) : "
+"version, racine ou contrats changés."
+msgstr ""
+"паспорт {subject} устарел в общем пространстве ({detail}): изменились "
+"версия, корневая папка или контракты."
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 0640."
+msgstr "{subject}: {detail} вместо root:omega-synchro 0640."
+
+#, python-brace-format
+msgid "{subject} ({detail}) installé mais pas encore dans l'espace partagé."
+msgstr "{subject} ({detail}) установлен, но ещё не в общем пространстве."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) relié à l'espace partagé mais introuvable : "
+"désinstallé, ou carte d'identité recréée."
+msgstr ""
+"{subject} ({detail}) связан с общим пространством, но не найден: удалён, или"
+" паспорт создан заново."
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) a le groupe omega-synchro (complément "
+"systemd posé par omega-serv)."
+msgstr ""
+"служба {subject} ({detail}) имеет группу omega-synchro (дополнение systemd, "
+"установленное omega-serv)."
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) tourne sous un compte dédié sans le groupe "
+"omega-synchro : il ne pourra pas lire l'espace partagé. La Synchronisation "
+"demande à omega-serv de le lui donner."
+msgstr ""
+"служба {subject} ({detail}) работает под отдельной учётной записью без "
+"группы omega-synchro: она не сможет читать общее пространство. Синхронизация"
+" попросит omega-serv выдать ей группу."
+
+msgid "correction : Synchronisation (omega-connect synchroniser)"
+msgstr "исправление: Синхронизация (omega-connect synchroniser)"
+
+#, python-brace-format
+msgid "correction (compte {account}) : {command}"
+msgstr "исправление (учётная запись {account}): {command}"
+
+#, python-brace-format
+msgid "correction : {command}"
+msgstr "исправление: {command}"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) (--detail pour les voir)"
+msgstr "Проверок в порядке: {count} (--detail, чтобы увидеть их)"
+
+msgid ""
+"Vérification des liens entre outils omega (lecture seule, rien n'est "
+"modifié)"
+msgstr ""
+"Проверка связей между инструментами omega (только чтение, ничего не "
+"изменяется)"
+
+#, python-brace-format
+msgid "omega-serv « {instance} » — {root}"
+msgstr "omega-serv «{instance}» — {root}"
+
+msgid "Hors des instances détectées"
+msgstr "Вне обнаруженных экземпляров"
+
+#, python-brace-format
+msgid "Bilan : {summary}."
+msgstr "Итог: {summary}."
+
+msgid ""
+"Les corrections ne sont jamais lancées par « verifier » : relisez-les avant "
+"de les exécuter."
+msgstr ""
+"Исправления никогда не запускаются «verifier»: перечитайте их перед "
+"выполнением."
+
+#, python-brace-format
+msgid ""
+"{count} écart(s) corrigeable(s) par « reparer » (commandes des outils, "
+"affichées avant tout lancement)."
+msgstr ""
+"Расхождений, исправимых через «reparer»: {count} (команды инструментов, "
+"показываются до любого запуска)."
+
+#, python-brace-format
+msgid "Établir la zone neutre {zone}"
+msgstr "Создать нейтральную зону {zone}"
+
+#, python-brace-format
+msgid "Tout retirer : défaire ce que le registre de {zone} liste"
+msgstr "Убрать всё: отменить то, что перечислено в реестре {zone}"
+
+#, python-brace-format
+msgid "Garder la zone {zone} (liens figés)"
+msgstr "Оставить зону {zone} (связи заморожены)"
+
+#, python-brace-format
+msgid "Retirer un outil désinstallé de la zone {zone}"
+msgstr "Убрать удалённый инструмент из зоны {zone}"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien "
+"n'est fait."
+msgstr ""
+"{subject} не является настоящей папкой (символическая ссылка или файл): "
+"ничего не делается."
+
+#, python-brace-format
+msgid ""
+"{subject} existe déjà sans registre d'omega-connect : rien n'est fait. "
+"Vérifiez ce dossier, puis supprimez-le vous-même s'il est inutile."
+msgstr ""
+"{subject} уже существует без реестра omega-connect: ничего не делается. "
+"Проверьте эту папку и удалите её сами, если она не нужна."
+
+#, python-brace-format
+msgid "{subject} n'a pas pu être lu, même avec sudo : rien n'est fait."
+msgstr "{subject} не удалось прочитать даже через sudo: ничего не делается."
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est fait tant qu'il n'est pas "
+"réparé."
+msgstr ""
+"реестр {subject} повреждён ({detail}): ничего не делается, пока он не "
+"исправлен."
+
+#, python-brace-format
+msgid "aucune zone en {subject} : rien à retirer."
+msgstr "нет зоны в {subject}: убирать нечего."
+
+#, python-brace-format
+msgid ""
+"« {subject} » ne désigne aucun outil du registre (nom, dossier ou 8 premiers"
+" caractères de l'identifiant)."
+msgstr ""
+"«{subject}» не соответствует ни одному инструменту реестра (имя, папка или "
+"первые 8 символов идентификатора)."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est toujours installé : il serait relié de nouveau à la"
+" prochaine actualisation. Désinstallez-le d'abord."
+msgstr ""
+"{subject} ({detail}) всё ещё установлен: он снова будет связан при следующем"
+" обновлении. Сначала удалите его."
+
+#, python-brace-format
+msgid "{subject} ({detail}) est toujours installé : laissé dans la zone."
+msgstr "{subject} ({detail}) всё ещё установлен: оставлен в зоне."
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : jeton {detail} (voir « verifier »)."
+msgstr "{subject} не связан: токен {detail} (см. «verifier»)."
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : identifiant {detail} en double."
+msgstr "{subject} не связан: идентификатор {detail} повторяется."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est au registre mais introuvable : « retirer {detail} »"
+" l'enlèvera."
+msgstr ""
+"{subject} ({detail}) есть в реестре, но не найден: «retirer {detail}» уберёт"
+" его."
+
+#, python-brace-format
+msgid ""
+"{subject} devra se reconnecter pour que le groupe omega-synchro compte "
+"(lecture de la zone)."
+msgstr ""
+"{subject} нужно войти заново, чтобы группа omega-synchro начала действовать "
+"(чтение зоны)."
+
+#, python-brace-format
+msgid "la zone {subject} est à jour : rien à faire."
+msgstr "зона {subject} актуальна: делать нечего."
+
+#, python-brace-format
+msgid ""
+"{subject} n'a pas été créé par omega-connect : gardé, ainsi que son dossier."
+msgstr "{subject} создан не omega-connect: оставлен вместе со своей папкой."
+
+#, python-brace-format
+msgid ""
+"le groupe {subject} est gardé (pas créé par omega-connect, ou zone pas "
+"vide)."
+msgstr ""
+"группа {subject} оставлена (создана не omega-connect, или зона не пуста)."
+
+#, python-brace-format
+msgid ""
+"le service {subject} a toujours le groupe omega-synchro, mais omega-serv est"
+" introuvable pour le lui retirer : le groupe et la zone sont gardés (sans "
+"lui, le service ne démarrerait plus). Lancez « omega-serv synchro groupe-"
+"service retirer --service-name {subject} » depuis son dossier, puis "
+"relancez."
+msgstr ""
+"у службы {subject} всё ещё есть группа omega-synchro, но omega-serv не "
+"найден, чтобы её убрать: группа и зона оставлены (без неё служба больше не "
+"запустится). Запустите «omega-serv synchro groupe-service retirer --service-"
+"name {subject}» из его папки, затем повторите."
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) prendra en compte le groupe omega-synchro à "
+"son prochain redémarrage : omega-connect ne le redémarre pas."
+msgstr ""
+"служба {subject} ({detail}) учтёт группу omega-synchro при следующем "
+"перезапуске: omega-connect её не перезапускает."
+
+#, python-brace-format
+msgid "{subject} figure au registre mais hors de la zone : ignoré."
+msgstr "{subject} есть в реестре, но вне зоны: пропущено."
+
+msgid "la zone est déjà figée : rien à faire."
+msgstr "зона уже заморожена: делать нечего."
+
+#, python-brace-format
+msgid "Créer le groupe {group}"
+msgstr "Создать группу {group}"
+
+#, python-brace-format
+msgid "Créer le dossier {path}"
+msgstr "Создать папку {path}"
+
+#, python-brace-format
+msgid "Remettre les droits du dossier {path}"
+msgstr "Восстановить права папки {path}"
+
+#, python-brace-format
+msgid "Ajouter {user} au groupe {group}"
+msgstr "Добавить {user} в группу {group}"
+
+#, python-brace-format
+msgid "Retirer {user} du groupe {group}"
+msgstr "Убрать {user} из группы {group}"
+
+#, python-brace-format
+msgid "Supprimer le groupe {group}"
+msgstr "Удалить группу {group}"
+
+#, python-brace-format
+msgid "Retirer le dossier {path}"
+msgstr "Убрать папку {path}"
+
+#, python-brace-format
+msgid ""
+"omega-serv donne le groupe {group} à son service {service} (complément "
+"systemd)"
+msgstr ""
+"omega-serv выдаёт группу {group} своей службе {service} (дополнение systemd)"
+
+#, python-brace-format
+msgid "omega-serv retire le groupe {group} de son service {service}"
+msgstr "omega-serv убирает группу {group} у своей службы {service}"
+
+msgid "Retirer le registre de l'espace partagé"
+msgstr "Убрать реестр общего пространства"
+
+msgid "Écrire le registre de l'espace partagé"
+msgstr "Записать реестр общего пространства"
+
+#, python-brace-format
+msgid "Recopier la description de {root} (ce qu'il sait faire)"
+msgstr "Скопировать описание {root} (что он умеет)"
+
+#, python-brace-format
+msgid "Retirer la description de {root}"
+msgstr "Убрать описание {root}"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root}"
+msgstr "Скопировать паспорт {root}"
+
+#, python-brace-format
+msgid "Retirer la carte d'identité de {root}"
+msgstr "Убрать паспорт {root}"
+
+msgid "Commandes qui seront lancées, une à une, en root :"
+msgstr "Команды, которые будут запущены по одной, от root:"
+
+#, python-brace-format
+msgid "Terminé : {count} commande(s) lancée(s), toutes réussies."
+msgstr "Готово: команд запущено: {count}, все успешно."
+
+#, python-brace-format
+msgid "{done} commande(s) sur {total} avaient réussi."
+msgstr "Успешно выполнено команд: {done} из {total}."
+
+msgid "Registre réécrit pour garder la trace de ce qui a été créé."
+msgstr "Реестр перезаписан, чтобы сохранить сведения о созданном."
+
+msgid ""
+"Le registre n'a pas pu être réécrit : notez ce qui a été créé ci-dessus."
+msgstr "Не удалось перезаписать реестр: запишите то, что было создано выше."
+
+msgid ""
+"Relancez la même commande après avoir corrigé la cause : rien n'est fait "
+"deux fois."
+msgstr ""
+"Запустите ту же команду снова после устранения причины: ничего не делается "
+"дважды."
+
+msgid "Dossier des captures non configuré."
+msgstr "Папка снимков экрана не настроена."
+
+msgid "Passer d'un élément à l'autre (lignes d'un tableau, boutons)"
+msgstr "Переход от элемента к элементу (строки таблицы, кнопки)"
+
+msgid "Passer d'une zone de l'écran à l'autre"
+msgstr "Переход от одной области экрана к другой"
+
+msgid ""
+"Activer le bouton choisi ; dans une liste à cocher, cocher ou décocher la "
+"ligne"
+msgstr ""
+"Нажать выбранную кнопку; в списке с флажками — отметить или снять отметку со"
+" строки"
+
+msgid "Entrée / Clic"
+msgstr "Enter / Щелчок"
+
+msgid "Cocher ou décocher la ligne choisie (Synchronisation)"
+msgstr "Отметить или снять отметку с выбранной строки (Синхронизация)"
+
+msgid "Espace"
+msgstr "Пробел"
+
+msgid "Revenir à l'écran précédent"
+msgstr "Вернуться к предыдущему экрану"
+
+msgid "Cette aide, depuis n'importe quel écran"
+msgstr "Эта справка, с любого экрана"
+
+msgid "Réglages, depuis n'importe quel écran"
+msgstr "Настройки, с любого экрана"
+
+msgid "Thème suivant (enregistré)"
+msgstr "Следующая тема (сохраняется)"
+
+msgid "Redessiner l'écran et afficher la taille du terminal"
+msgstr "Перерисовать экран и показать размер терминала"
+
+msgid ""
+"Commandes : thème, capture d'écran (SVG, dans le dossier des captures), "
+"quitter"
+msgstr "Команды: тема, снимок экрана (SVG, в папку снимков), выход"
+
+msgid "Ctrl+P"
+msgstr "Ctrl+P"
+
+msgid ""
+"omega-connect relie entre elles les applications omega (omega-serv, omega-fire, omega-jail…) installées sur cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce qui manque, toujours après vous avoir montré ce qu'il va faire.\n"
+"\n"
+"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
+"2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
+"3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son plan avant d'agir et demande son mot de passe une seule fois.\n"
+"4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue d'ensemble, en cadres.\n"
+"5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
+"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre."
+msgstr ""
+"omega-connect связывает между собой приложения omega (omega-serv, omega-fire, omega-jail…), установленные на этой машине и на машинах вашей сети. Он показывает, что связано, а что нет, и восстанавливает недостающее, всегда сначала показав, что собирается сделать.\n"
+"\n"
+"1. [b]Сканирование[/b]: ищет приложения этой машины. Добавьте другие машины (предложенные по вашим профилям Unison, ~/.ssh/config и known_hosts или введённые вручную): к ним подключаются по SSH с вашими ключами, на них ничего не устанавливается.\n"
+"2. [b]Реестр[/b]: список всех приложений всех машин с их состоянием. Слишком старое или неправильно установленное приложение обновляется или переустанавливается с этого экрана.\n"
+"3. [b]Синхронизация[/b]: отметьте, что нужно связать, затем «Синхронизировать»; каждая машина показывает свой план перед действием и запрашивает пароль только один раз.\n"
+"4. [b]Связи[/b]: что связано, а что нет, на всех машинах. [b]Панель[/b]: общий обзор в рамках.\n"
+"5. [b]Исправление[/b]: список всего, что не в порядке; выберите строку или «Исправить всё».\n"
+"6. [b]Отчёт[/b]: полный документ (текст, JSON или HTML-страница), чтобы сохранить или передать."
+
+msgid "Registre — toutes les applications et leur état"
+msgstr "Реестр — все приложения и их состояние"
+
+msgid ""
+"Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
+"\n"
+"- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
+"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
+"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
+msgstr ""
+"Показывает для каждой машины (этой и машин в сети) каждое найденное приложение omega: его экземпляр или службу, версию, состояние и папку. Сводка вверху подсчитывает состояния.\n"
+"\n"
+"- [b]Обновить реестр[/b]: заново выполняет сканирование на месте (эта машина, затем уже известные машины в сети), не меняя экрана.\n"
+"- [b]Обновить приложение[/b]: в строке «Старая версия» машины в сети устанавливает последнюю опубликованную версию (Release приложения на GitHub, контрольная сумма проверяется по sha.txt перед любой отправкой). Сначала показывается план; больше ничего не делается.\n"
+"- [b]Переустановить приложение[/b]: та же кнопка в строке «Незавершённая установка» (его install.sh не завершился); переустанавливается та же версия.\n"
+"- На этой машине обновление выполняется так, как описано в разделе «Обновление» README приложения.\n"
+"- Выделите строку: под ней появится объяснение её состояния и расхождений."
+
+msgid "Scanner — trouver les applications, ajouter des machines"
+msgstr "Сканирование — найти приложения, добавить машины"
+
+msgid ""
+"- [b]Cette machine[/b] : cherche les applications omega (dossier personnel, services systemd, OpenRC ou runit, /srv, registre des instances d'omega-serv). Jamais de lien symbolique suivi, jamais de montage réseau parcouru.\n"
+"- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
+"- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
+"- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
+"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
+msgstr ""
+"- [b]Эта машина[/b]: ищет приложения omega (домашняя папка, службы systemd, OpenRC или runit, /srv, реестр экземпляров omega-serv). Никогда не переходит по символическим ссылкам и не просматривает сетевые подключения.\n"
+"- [b]Предлагаемые машины[/b]: те, к которым этот компьютер уже умеет подключаться (профили Unison, ~/.ssh/config, known_hosts). Выберите строку, затем «Сканировать выбранную машину».\n"
+"- [b]Ручной ввод[/b]: пользователь@машина (имя или адрес), затем «Сканировать эту машину».\n"
+"- [b]Первое подключение[/b]: показывается отпечаток ключа машины; проверьте его, затем примите. ИЗМЕНИВШИЙСЯ ключ отклоняется (машина переустановлена или подмена).\n"
+"- [b]Известные машины[/b]: «Пересканировать известные машины» или «Убрать эту машину» (она удаляется из реестра; на ней ничего не меняется).\n"
+"- Сканер для машины в сети передаётся в память по SSH, только чтение: на ней ничего не устанавливается и не записывается, пароль не запрашивается (там нужен Python 3.10 или новее)."
+
+msgid "Liaisons — ce qui est relié ou pas"
+msgstr "Связи — что связано, а что нет"
+
+msgid ""
+"Montre chaque lien entre applications, sur toutes les machines, avec son état et sa provenance (Local, ou Réseau — nom de la machine) : journaux d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers la liste noire d'omega-serv, liste protégée, liste noire partagée, fichiers d'omega-jail dans fail2ban, cartes d'identité, espace partagé.\n"
+"\n"
+"- Surlignez une ligne : ses contrôles s'affichent en dessous ; « Détail du lien » les montre tous, avec la commande de chaque correction (« Copier les commandes »).\n"
+"- Cet écran montre seulement : ce qui est « à réparer » se corrige dans le menu Réparer."
+msgstr ""
+"Показывает каждую связь между приложениями на всех машинах, с её состоянием и источником (Локально или Сеть — имя машины): журналы omega-serv и magnet, читаемые jail'ами omega-jail, мост fail2ban к чёрному списку omega-serv, защищённый список, общий чёрный список, файлы omega-jail в fail2ban, паспорта, общее пространство.\n"
+"\n"
+"- Выделите строку: под ней появятся её проверки; «Подробности связи» показывает их все, с командой для каждого исправления («Копировать команды»).\n"
+"- Этот экран только показывает: то, что «требует исправления», исправляется в меню Исправление."
+
+msgid "Synchronisation — relier les applications"
+msgstr "Синхронизация — связать приложения"
+
+msgid ""
+"Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+"- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
+"- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
+"- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
+"- Les machines passent une à une : cette machine d'abord, puis le réseau.\n"
+"- Une application trop ancienne, inachevée ou injoignable ne se coche pas : la ligne dit où aller.\n"
+"- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
+"- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
+msgstr ""
+"Единый список: все ваши машины и их приложения (машины в сети пересканируются при открытии). Отметьте строки (Enter или Пробел), затем:\n"
+"- [b]Синхронизировать выбранное[/b] или [b]Синхронизировать всё[/b].\n"
+"- [b]Эта машина[/b]: один план, показанный до выполнения — недостающие паспорта (их создаёт каждое приложение под своей учётной записью), затем общее пространство (группа omega-synchro, папки, копирование паспортов, доступ служб). Один пароль администратора.\n"
+"- [b]Машина в сети[/b]: её план вычисляется на ней самой и показывается; «Синхронизировать <машина>» запускает его отсюда: интерфейс уступает место терминалу, машина сама запрашивает свой пароль, один раз; Enter возвращает в интерфейс, который показывает результат.\n"
+"- Машины обрабатываются по очереди: сначала эта машина, затем сеть.\n"
+"- Слишком старое, незавершённое или недоступное приложение отметить нельзя: строка подсказывает, куда идти.\n"
+"- [b]Прочитать через sudo[/b]: если ваш сеанс ещё не может читать общее пространство (группа omega-synchro действует только после повторного входа), чтение только через sudo.\n"
+"- [b]Подробности[/b]: что создал omega-connect (реестр общего пространства) и что можно убрать."
+
+msgid "Dashboard — vue d'ensemble"
+msgstr "Панель — общий обзор"
+
+msgid ""
+"Une vue d'ensemble en cadres, comme un tableau de bord web. Rien n'est modifié depuis cet écran.\n"
+"\n"
+"- [b]Machines[/b], [b]Applications[/b], [b]Liaisons[/b], [b]Espace partagé[/b] : les compteurs, avec les mêmes états que le Registre et les Liaisons.\n"
+"- [b]Liaisons par type[/b] : pour chaque type de liaison, combien sont OK sur combien.\n"
+"- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
+"- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
+"\n"
+"Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; « Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner pour les relire). Pour corriger : menu Réparer."
+msgstr ""
+"Общий обзор в рамках, как веб-панель. На этом экране ничего не изменяется.\n"
+"\n"
+"- [b]Машины[/b], [b]Приложения[/b], [b]Связи[/b], [b]Общее пространство[/b]: счётчики с теми же состояниями, что в Реестре и Связях.\n"
+"- [b]Связи по типам[/b]: для каждого типа связи — сколько OK из общего числа.\n"
+"- [b]Эта машина / Сеть[/b]: те же цифры рядом.\n"
+"- [b]Top 5[/b] (top 3 на маленьком экране): машины к исправлению, связи к исправлению, устаревшие версии, самые давние сканирования (машины в сети).\n"
+"\n"
+"Эта машина проверяется при открытии, затем регулярно, пока экран открыт; «Обновить» запускает проверку заново. Машины в сети показывают своё последнее сканирование (меню Сканирование, чтобы перечитать их). Для исправления: меню Исправление."
+
+msgid "Réparer — tout ce qui ne va pas"
+msgstr "Исправление — всё, что не в порядке"
+
+msgid ""
+"La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
+"\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
+"- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
+"- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
+msgstr ""
+"Список всего, что не в порядке, на всех машинах (машины в сети пересканируются при открытии): машина, проблема, состояние и кто исправляет.\n"
+"\n"
+"- [b]Исправить выбранную строку[/b]: открывает план машины. Эта машина: команды самих приложений (omega-jail — для того, что он устанавливает в fail2ban, omega-serv — для прав своей папки var/, каждое приложение — для своего паспорта), затем общее пространство. Машина в сети: те же исправления, плюс команды, которые не умеет запускать ни одно приложение, — они запускаются НА машине отсюда (только объявленные в плане).\n"
+"- [b]Исправить всё[/b]: машины по очереди (сначала обновить, затем исправить).\n"
+"- [b]Подробности[/b]: все проверки выбранной строки.\n"
+"- [b]Копировать команды[/b] (план этой машины): системный буфер обмена (xclip, xsel, wl-copy); иначе команды выводятся в терминале открытым текстом, чтобы выделить их мышью.\n"
+"- omega-connect никогда не переписывает файл другого приложения: он запускает его команду."
+
+msgid "Rapport — un document complet"
+msgstr "Отчёт — полный документ"
+
+msgid ""
+"Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"\n"
+"- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
+"- En ligne de commande : omega-connect rapport --format html --enregistrer."
+msgstr ""
+"Составляется в данный момент (машины в сети предварительно пересканируются): итог, точный список того, что осталось сделать (машина, что, какое меню), реестр всех приложений, машины в сети, приложения этой машины подробно, связи каждой машины, общее пространство и его реестр.\n"
+"\n"
+"- Экспорт в текст, JSON или HTML-страницу (тема на выбор, по умолчанию — из Настроек) в папку экспорта.\n"
+"- В командной строке: omega-connect rapport --format html --enregistrer."
+
+msgid ""
+"- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
+"- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
+"- Tout est enregistré dans var/settings.json."
+msgstr ""
+"- [b]Тема интерфейса[/b] (также клавиша t) и [b]тема экспорта[/b]: сохраняются.\n"
+"- [b]Папка экспорта[/b] и [b]папка снимков экрана[/b]: по умолчанию var/exports/ и var/screenshots/ в папке omega-connect; полный путь или пусто, чтобы вернуть значение по умолчанию.\n"
+"- [b]Очистить папку экспорта / снимков[/b]: после подтверждения удаляет содержимое настроенной папки (сама папка остаётся). Запрещено для системной, домашней папки или папки самого omega-connect; пароль никогда не запрашивается.\n"
+"- Всё сохраняется в var/settings.json."
+
+msgid "Machines du réseau, mises à jour et sécurité"
+msgstr "Машины в сети, обновления и безопасность"
+
+msgid ""
+"- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
+"- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
+"- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
+msgstr ""
+"- [b]Подключение[/b]: SSH только с ВАШИМИ ключами; omega-connect никогда не запрашивает пароль SSH. Ключ, защищённый парольной фразой, должен быть загружен в SSH-агент (ssh-add).\n"
+"- [b]Пароль администратора[/b]: только когда этого требует действие (синхронизировать, исправить, обновить), один раз на машину, вводится вами в терминале; omega-connect его никогда не видит.\n"
+"- [b]Что попадает на машину в сети[/b]: при сканировании — ничего (программа в памяти); при действии — временная личная папка (программа и архивы), удаляемая в конце.\n"
+"- [b]Обновления[/b]: из Release на GitHub каждого приложения (kraynux/<приложение>, метка v<версия>); контрольная сумма проверяется по sha.txt перед любой отправкой, затем повторно на машине. omega-fire: старая установка откладывается (его var/ принадлежит root), затем его install.sh переносит настройки и данные. Остальные: распаковка поверх (рабочее состояние не входит в архив), затем их install.sh.\n"
+"- [b]Никогда не запускается приложение, которое может запросить пароль без терминала[/b]: тихая ошибка sudo считается попыткой и может заблокировать учётную запись на несколько минут."
+
+msgid "États — ce que veut dire chaque mot"
+msgstr "Состояния — что означает каждое слово"
+
+msgid ""
+"[b]Applications[/b] :\n"
+"- ● Reliée : dans l'espace partagé, à jour.\n"
+"- ◐ Inscrite : a sa carte d'identité, pas encore dans l'espace partagé (Synchronisation).\n"
+"- ○ Détectée : trouvée, sans carte d'identité (Synchronisation la lui crée).\n"
+"- ▲ À réparer : un écart (Réparer).\n"
+"- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
+"- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller l'application).\n"
+"- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n"
+"\n"
+"[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session)."
+msgstr ""
+"[b]Приложения[/b]:\n"
+"- ● Связано: в общем пространстве, актуально.\n"
+"- ◐ Зарегистрировано: есть паспорт, но ещё нет в общем пространстве (Синхронизация).\n"
+"- ○ Обнаружено: найдено, без паспорта (Синхронизация создаст его).\n"
+"- ▲ Требует исправления: есть расхождение (Исправление).\n"
+"- ◌ Старая версия: слишком старое для omega-connect (Реестр → Обновить приложение).\n"
+"- ◇ Незавершённая установка: его install.sh не завершился (Реестр → Переустановить приложение).\n"
+"- ✕ Недоступно: машина больше не отвечает (Сканирование → Пересканировать).\n"
+"\n"
+"[b]Связи[/b]: OK; требует исправления; требует исправления (блокирует); отсутствует (связывать нечего, например omega-jail не установлен); проверка невозможна (чтение невозможно из вашего сеанса)."
+
+msgid "Carte d'identité et espace partagé"
+msgstr "Паспорт и общее пространство"
+
+msgid ""
+"- [b]Carte d'identité[/b] : un petit fichier (var/omega-jeton.json) que chaque application écrit à son installation : quelle application, quelle version, quel identifiant, sur quelle machine. Lisible par tous, jamais modifiable par les autres comptes.\n"
+"- [b]Espace partagé[/b] : /var/lib/omega-synchro, groupe omega-synchro, où seul root écrit ; omega-connect y recopie les cartes d'identité et la description de chaque application, pour qu'elles se trouvent entre elles, même quand omega-connect n'est pas lancé.\n"
+"- Tout ce qu'omega-connect crée est inscrit au registre de l'espace partagé : un retrait ne défait que ce qui y est inscrit."
+msgstr ""
+"- [b]Паспорт[/b]: небольшой файл (var/omega-jeton.json), который каждое приложение записывает при установке: какое приложение, какая версия, какой идентификатор, на какой машине. Доступен для чтения всем, никогда не изменяется другими учётными записями.\n"
+"- [b]Общее пространство[/b]: /var/lib/omega-synchro, группа omega-synchro, писать туда может только root; omega-connect копирует туда паспорта и описание каждого приложения, чтобы они находили друг друга, даже когда omega-connect не запущен.\n"
+"- Всё, что создаёт omega-connect, записывается в реестр общего пространства: удаление отменяет только то, что там записано."
+
+msgid "Ligne de commande"
+msgstr "Командная строка"
+
+msgid ""
+"omega-connect.sh <commande> (sans commande : l'interface).\n"
+"- scanner [utilisateur@machine] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout : l'espace partagé, plan affiché avant tout lancement.\n"
+"--simulation montre le plan sans rien lancer ; --oui lance sans poser la question."
+msgstr ""
+"omega-connect.sh <команда> (без команды: интерфейс).\n"
+"- scanner [utilisateur@machine] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout: общее пространство, план показывается до любого запуска.\n"
+"--simulation показывает план, ничего не запуская; --oui запускает без вопроса."
+
+msgid "Fichiers d'omega-connect"
+msgstr "Файлы omega-connect"
+
+msgid ""
+"Tout vit dans le dossier d'omega-connect, sous var/ :\n"
+"- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+"- settings.json : réglages.\n"
+"- exports/ et screenshots/ : par défaut (voir Réglages).\n"
+"- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite)."
+msgstr ""
+"Всё хранится в папке omega-connect, в var/:\n"
+"- parc.json: реестр машин в сети (последнее сканирование, адреса, отпечаток).\n"
+"- settings.json: настройки.\n"
+"- exports/ и screenshots/: по умолчанию (см. Настройки).\n"
+"- declaration.json: анонимная регистрация пользователя (если вы её сделали)."
+
+msgid "Aide, export et contact"
+msgstr "Справка, экспорт и контакты"
+
+msgid ""
+"- [b]Exporter l'aide en HTML[/b] : toute cette aide, dans une page, thème au choix, dans le dossier des exports.\n"
+"- [b]Contact et support[/b] : payer un café (PayPal), se déclarer utilisateur anonyme (une seule fois), contacter le support (mail et formulaire du site), vérifier les mises à jour."
+msgstr ""
+"- [b]Экспорт справки в HTML[/b]: вся эта справка на одной странице, тема на выбор, в папку экспорта.\n"
+"- [b]Контакты и поддержка[/b]: угостить кофе (PayPal), зарегистрироваться как анонимный пользователь (один раз), связаться с поддержкой (почта и форма на сайте), проверить обновления."
+
+msgid "Redémarrer"
+msgstr "Перезапустить"
+
+msgid "Registre"
+msgstr "Реестр"
+
+msgid "Synchronisation"
+msgstr "Синхронизация"
+
+msgid "Dashboard"
+msgstr "Панель"
+
+msgid "Rapport"
+msgstr "Отчёт"
+
+msgid "GESTION"
+msgstr "УПРАВЛЕНИЕ"
+
+msgid "MAINTENANCE"
+msgstr "ОБСЛУЖИВАНИЕ"
+
+msgid "MACHINES"
+msgstr "МАШИНЫ"
+
+msgid "APPLICATIONS"
+msgstr "ПРИЛОЖЕНИЯ"
+
+msgid "LIAISONS"
+msgstr "СВЯЗИ"
+
+msgid "ESPACE PARTAGÉ"
+msgstr "ОБЩЕЕ ПРОСТРАНСТВО"
+
+msgid "LIAISONS PAR TYPE"
+msgstr "СВЯЗИ ПО ТИПАМ"
+
+msgid "CETTE MACHINE / RÉSEAU"
+msgstr "ЭТА МАШИНА / СЕТЬ"
+
+#, python-brace-format
+msgid "TOP {count} · MACHINES À RÉPARER"
+msgstr "TOP {count} · МАШИНЫ К ИСПРАВЛЕНИЮ"
+
+#, python-brace-format
+msgid "TOP {count} · LIAISONS À RÉPARER"
+msgstr "TOP {count} · СВЯЗИ К ИСПРАВЛЕНИЮ"
+
+#, python-brace-format
+msgid "TOP {count} · VERSIONS EN RETARD"
+msgstr "TOP {count} · УСТАРЕВШИЕ ВЕРСИИ"
+
+#, python-brace-format
+msgid "TOP {count} · SCANS LES PLUS ANCIENS"
+msgstr "TOP {count} · ДАВНИЕ СКАНИРОВАНИЯ"
+
+msgid "jamais vue"
+msgstr "не сканировалась"
+
+msgid "à l'instant"
+msgstr "только что"
+
+#, python-brace-format
+msgid "il y a {count} min"
+msgstr "{count} мин назад"
+
+#, python-brace-format
+msgid "il y a {count} h"
+msgstr "{count} ч назад"
+
+#, python-brace-format
+msgid "il y a {count} j"
+msgstr "{count} дн. назад"
+
+#, python-brace-format
+msgid "{count} au total"
+msgstr "всего: {count}"
+
+#, python-brace-format
+msgid "cette machine : {name}"
+msgstr "эта машина: {name}"
+
+#, python-brace-format
+msgid "{count} sur le réseau"
+msgstr "в сети: {count}"
+
+#, python-brace-format
+msgid "{count} injoignable(s)"
+msgstr "недоступно: {count}"
+
+#, python-brace-format
+msgid "{count} application(s) reliée(s)"
+msgstr "связано приложений: {count}"
+
+#, python-brace-format
+msgid "{count} à relier (Synchronisation)"
+msgstr "ожидают связи: {count} (Синхронизация)"
+
+msgid "Aucune liaison connue."
+msgstr "Нет известных связей."
+
+msgid "Machines"
+msgstr "Машины"
+
+msgid "Cette machine"
+msgstr "Эта машина"
+
+msgid "Réseau"
+msgstr "Сеть"
+
+msgid "Rien à réparer."
+msgstr "Исправлять нечего."
+
+#, python-brace-format
+msgid "{count} liaison(s)"
+msgstr "связей: {count}"
+
+#, python-brace-format
+msgid "{count} application(s)"
+msgstr "приложений: {count}"
+
+msgid "Aucune liaison à réparer."
+msgstr "Нет связей для исправления."
+
+msgid "Aucune application en retard."
+msgstr "Нет устаревших приложений."
+
+msgid "Aucune machine du réseau (menu Scanner)."
+msgstr "Нет машин в сети (меню Сканирование)."
+
+#, python-brace-format
+msgid "vue {when}"
+msgstr "сканирована {when}"
+
+msgid "non fournie (ancienne version)"
+msgstr "не предоставлено (старая версия)"
+
+#, python-brace-format
+msgid "déclarée à {time}"
+msgstr "зарегистрирован в {time}"
+
+msgid "(partielle)"
+msgstr "(частично)"
+
+msgid "Local"
+msgstr "Локально"
+
+#, python-brace-format
+msgid "Réseau — {where}"
+msgstr "Сеть — {where}"
+
+#, python-brace-format
+msgid "{count} écart(s)"
+msgstr "Расхождений: {count}"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) : « Détail du lien » pour les voir."
+msgstr "Проверок в порядке: {count}: «Подробности связи», чтобы увидеть их."
+
+msgid "Aucun contrôle pour ce lien."
+msgstr "Для этой связи нет проверок."
+
+msgid "Liens : "
+msgstr "Связи: "
+
+msgid ""
+"omega-connect — authentification sudo pour les commandes affichées (le mot "
+"de passe ne s'affiche pas pendant la saisie). L'interface revient ensuite."
+msgstr ""
+"omega-connect — аутентификация sudo для показанных команд (пароль не "
+"отображается при вводе). Затем интерфейс вернётся."
+
+msgid "Aucune commande à copier."
+msgstr "Нет команд для копирования."
+
+#, python-brace-format
+msgid ""
+"{count} commande(s) copiée(s) dans le presse-papiers ({tool}) : collez-les "
+"dans un terminal (Ctrl+Maj+V)."
+msgstr ""
+"Команд скопировано в буфер обмена ({tool}): {count}. Вставьте их в терминал "
+"(Ctrl+Shift+V)."
+
+msgid ""
+"omega-connect — commandes à copier. Sélectionnez-les à la souris puis copiez"
+" avec le raccourci de votre terminal (souvent Ctrl+Maj+C) :"
+msgstr ""
+"omega-connect — команды для копирования. Выделите их мышью и скопируйте "
+"сочетанием клавиш вашего терминала (обычно Ctrl+Shift+C):"
+
+msgid "Entrée pour revenir à omega-connect… "
+msgstr "Enter — вернуться в omega-connect… "
+
+msgid ""
+"Vous êtes membre du groupe omega-synchro, mais cet omega-connect a été lancé"
+" sans lui. Quittez (q) et relancez ./omega-connect.sh : il le prendra tout "
+"seul, sans mot de passe. Pour cette fois, lecture avec sudo (mot de passe "
+"dans le terminal)."
+msgstr ""
+"Вы участник группы omega-synchro, но этот omega-connect запущен без неё. "
+"Выйдите (q) и снова запустите ./omega-connect.sh: он подхватит группу сам, "
+"без пароля. В этот раз — чтение через sudo (пароль в терминале)."
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro : la zone est lue avec "
+"sudo, mot de passe demandé dans le terminal."
+msgstr ""
+"В вашем сеансе ещё нет группы omega-synchro: зона читается через sudo, "
+"пароль запрашивается в терминале."
+
+msgid "Lecture de la zone avec sudo…"
+msgstr "Чтение зоны через sudo…"
+
+msgid "Préparation des commandes (détection des outils, lecture de la zone)…"
+msgstr "Подготовка команд (обнаружение инструментов, чтение зоны)…"
+
+msgid "Vérifier maintenant"
+msgstr "Проверить сейчас"
+
+msgid "LIENS"
+msgstr "СВЯЗИ"
+
+msgid "Détail du lien"
+msgstr "Подробности связи"
+
+msgid "Constat"
+msgstr "Вывод"
+
+msgid "Lien"
+msgstr "Связь"
+
+msgid "Provenance"
+msgstr "Источник"
+
+msgid "Vérification en cours…"
+msgstr "Идёт проверка…"
+
+#, python-brace-format
+msgid "Erreur : {message}"
+msgstr "Ошибка: {message}"
+
+#, python-brace-format
+msgid "Vérifié à {time}."
+msgstr "Проверено в {time}."
+
+#, python-brace-format
+msgid ""
+"Nouvelle vérification toutes les {minutes} min tant que cet écran est "
+"ouvert."
+msgstr "Повторная проверка каждые {minutes} мин, пока этот экран открыт."
+
+msgid "Lancer (mot de passe administrateur)"
+msgstr "Запустить (пароль администратора)"
+
+msgid "SYNCHRONISER"
+msgstr "СИНХРОНИЗИРОВАТЬ"
+
+msgid ""
+"Tout ce qui sera fait, dans l'ordre. Rien n'est lancé avant « Lancer » ; au "
+"premier échec, tout s'arrête et ce qui a été créé reste noté."
+msgstr ""
+"Всё, что будет сделано, по порядку. Ничего не запускается до «Запустить»; "
+"при первой ошибке всё останавливается, а созданное остаётся записанным."
+
+msgid "AVANCEMENT"
+msgstr "ХОД ВЫПОЛНЕНИЯ"
+
+msgid "Fermer"
+msgstr "Закрыть"
+
+msgid ""
+"Chaque menu, sa fonction et le détail. Cliquez sur un titre pour l'ouvrir."
+msgstr ""
+"Каждое меню, его назначение и подробности. Щёлкните по заголовку, чтобы "
+"открыть его."
+
+msgid "Exporter l'aide en HTML"
+msgstr "Экспорт справки в HTML"
+
+#, python-brace-format
+msgid "Aide exportée : {path}"
+msgstr "Справка экспортирована: {path}"
+
+#, python-brace-format
+msgid "Écran prévu au lot {lot} de l'étape 3."
+msgstr "Экран запланирован на этап {lot} шага 3."
+
+msgid "RETIRER LA ZONE NEUTRE ?"
+msgstr "УБРАТЬ НЕЙТРАЛЬНУЮ ЗОНУ?"
+
+msgid ""
+"Garder : rien n'est supprimé, les outils lisent toujours les copies "
+"actuelles (liens figés). Tout retirer : défait exactement ce que le registre"
+" liste."
+msgstr ""
+"Оставить: ничего не удаляется, инструменты продолжают читать текущие копии "
+"(связи заморожены). Убрать всё: отменяет ровно то, что перечислено в "
+"реестре."
+
+msgid "Garder la zone"
+msgstr "Оставить зону"
+
+msgid "Tout retirer"
+msgstr "Убрать всё"
+
+msgid "CONTRÔLES"
+msgstr "ПРОВЕРКИ"
+
+msgid ""
+"Cet écran montre. Pour corriger : menu Réparer (toutes les machines, machine"
+" du réseau comprise) ; les commandes se copient avec « Copier les commandes "
+"»."
+msgstr ""
+"Этот экран только показывает. Чтобы исправить: меню Исправление (все машины,"
+" включая машины в сети); команды копируются кнопкой «Копировать команды»."
+
+msgid "Copier les commandes"
+msgstr "Копировать команды"
+
+#, python-brace-format
+msgid "vérifié à {time}"
+msgstr "проверено в {time}"
+
+msgid "État : "
+msgstr "Состояние: "
+
+msgid "RÉPARER CETTE MACHINE"
+msgstr "ИСПРАВИТЬ ЭТУ МАШИНУ"
+
+msgid ""
+"Chaque écart est corrigé par l'outil qui possède le fichier (omega-jail, "
+"omega-serv, jeton de chaque outil), ou par « Établir » pour ce que le "
+"registre de la zone dit qu'omega-connect a créé. omega-connect ne réécrit "
+"jamais le fichier d'un autre outil. Rien n'est lancé avant « Lancer »."
+msgstr ""
+"Каждое расхождение исправляется инструментом, которому принадлежит файл "
+"(omega-jail, omega-serv, токен каждого инструмента), или кнопкой «Создать» —"
+" для того, что по реестру зоны создал omega-connect. omega-connect никогда "
+"не переписывает файл другого инструмента. Ничего не запускается до "
+"«Запустить»."
+
+msgid "MACHINES DISTANTES"
+msgstr "УДАЛЁННЫЕ МАШИНЫ"
+
+msgid ""
+"Une machine du registre se répare depuis ici : les commandes des outils sont"
+" lancées SUR elle, son mot de passe sudo est demandé une fois, dans ce "
+"terminal."
+msgstr ""
+"Машина из реестра исправляется отсюда: команды инструментов запускаются НА "
+"ней, её пароль sudo запрашивается один раз, в этом терминале."
+
+msgid "Réparer la machine choisie"
+msgstr "Исправить выбранную машину"
+
+msgid "Zone : établir…"
+msgstr "Зона: создать…"
+
+msgid "Analyser de nouveau"
+msgstr "Проанализировать снова"
+
+msgid "Liaisons à corriger"
+msgstr "Связи, требующие исправления"
+
+msgid "aucune machine distante : scannez-en une (Scanner)"
+msgstr "нет удалённых машин: просканируйте хотя бы одну (Сканирование)"
+
+msgid "Préparation des réparations : vérification des liens en cours…"
+msgstr "Подготовка исправлений: идёт проверка связей…"
+
+msgid "Lancer avec sudo"
+msgstr "Запустить через sudo"
+
+msgid ""
+"Vue d'ensemble de vos machines et de vos applications. Rien n'est modifié "
+"depuis cet écran. Pour corriger : menu Réparer."
+msgstr ""
+"Общий обзор ваших машин и приложений. На этом экране ничего не изменяется. "
+"Для исправления: меню Исправление."
+
+msgid "Actualiser"
+msgstr "Обновить"
+
+msgid "cette machine"
+msgstr "эта машина"
+
+msgid "DASHBOARD"
+msgstr "ПАНЕЛЬ"
+
+#, python-brace-format
+msgid ""
+"Cette machine vérifiée à {time} ; machines du réseau : leur dernier scan."
+msgstr ""
+"Эта машина проверена в {time}; машины в сети: их последнее сканирование."
+
+msgid "QUITTER OMEGA-CONNECT ?"
+msgstr "ВЫЙТИ ИЗ OMEGA-CONNECT?"
+
+msgid "REGISTRE"
+msgstr "РЕЕСТР"
+
+msgid ""
+"Ce que le scanner a trouvé : chaque application omega, son service, sa "
+"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
+" à jour l'application » installe la dernière version d'une application trop "
+"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
+"corriger un écart : Réparer."
+msgstr ""
+"Что нашёл сканер: каждое приложение omega, его служба, версия и состояние. "
+"«Обновить реестр» выполняет сканирование заново; «Обновить приложение» "
+"устанавливает последнюю версию слишком старого приложения (выбранная "
+"строка). Восстановить связи: Синхронизация; исправить расхождение: "
+"Исправление."
+
+msgid "Mettre à jour le registre"
+msgstr "Обновить реестр"
+
+msgid "Mettre à jour l'application"
+msgstr "Обновить приложение"
+
+msgid "Lecture du registre…"
+msgstr "Чтение реестра…"
+
+msgid "Premier scan : recherche des applications omega…"
+msgstr "Первое сканирование: поиск приложений omega…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s)"
+msgstr "Приложений: {count}, машин: {machines}"
+
+#, python-brace-format
+msgid "dernier scan à {time}"
+msgstr "последнее сканирование в {time}"
+
+msgid "Espace partagé : "
+msgstr "Общее пространство: "
+
+msgid "Réinstaller l'application"
+msgstr "Переустановить приложение"
+
+#, python-brace-format
+msgid "→ « {action} » installe la dernière version depuis GitHub."
+msgstr "→ «{action}» устанавливает последнюю версию с GitHub."
+
+msgid ""
+"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
+"possible : suivez la section « Mise à jour » du README de l'outil."
+msgstr ""
+"→ На этом компьютере обновление из omega-connect пока невозможно: следуйте "
+"разделу «Обновление» README инструмента."
+
+#, python-brace-format
+msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
+msgstr "Обновление реестра: сканирование удалённых машин ({count})…"
+
+#, python-brace-format
+msgid ""
+"omega-connect — synchronisation de {machine}. La machine demande elle-même "
+"son mot de passe sudo (il ne s'affiche pas pendant la saisie) ; omega-"
+"connect ne le voit jamais."
+msgstr ""
+"omega-connect — синхронизация {machine}. Машина сама запрашивает свой пароль"
+" sudo (он не отображается при вводе); omega-connect его никогда не видит."
+
+msgid "Terminé. Appuyez sur Entrée pour revenir à omega-connect… "
+msgstr "Готово. Нажмите Enter, чтобы вернуться в omega-connect… "
+
+#, python-brace-format
+msgid "METTRE À JOUR L'APPLICATION — {machine}"
+msgstr "ОБНОВИТЬ ПРИЛОЖЕНИЕ — {machine}"
+
+msgid ""
+"Seulement les applications trop anciennes de cette machine : dernière "
+"version prise sur leur Release GitHub (empreinte vérifiée), installée comme "
+"le dit leur README. Rien d'autre ; rien n'est fait avant « Lancer »."
+msgstr ""
+"Только слишком старые приложения этой машины: последняя версия берётся из их"
+" Release на GitHub (контрольная сумма проверена) и устанавливается так, как "
+"описано в их README. Больше ничего; ничего не делается до «Запустить»."
+
+#, python-brace-format
+msgid "RÉPARER — {machine}"
+msgstr "ИСПРАВИТЬ — {machine}"
+
+msgid ""
+"Corrections faites par les outils eux-mêmes, lancées SUR la machine depuis "
+"ici : rien à y taper. Ce qu'aucun outil ne sait faire se copie (« Copier les"
+" commandes »). Rien n'est fait avant « Lancer »."
+msgstr ""
+"Исправления выполняются самими инструментами и запускаются НА машине отсюда:"
+" там ничего вводить не нужно. То, что не умеет делать ни один инструмент, "
+"можно скопировать («Копировать команды»). Ничего не делается до «Запустить»."
+
+#, python-brace-format
+msgid "SYNCHRONISER — {machine}"
+msgstr "СИНХРОНИЗИРОВАТЬ — {machine}"
+
+msgid ""
+"Plan calculé sur la machine elle-même, sans sudo : réparer puis "
+"synchroniser. Aucune mise à jour ici (Registre → « Mettre à jour "
+"l'application ») ; rien n'est fait avant « Lancer »."
+msgstr ""
+"План вычислен на самой машине, без sudo: исправить, затем синхронизировать. "
+"Обновлений здесь нет (Реестр → «Обновить приложение»); ничего не делается до"
+" «Запустить»."
+
+#, python-brace-format
+msgid "Calcul du plan sur {machine}…"
+msgstr "Вычисление плана на {machine}…"
+
+#, python-brace-format
+msgid "Réinstaller sur {machine}"
+msgstr "Переустановить на {machine}"
+
+#, python-brace-format
+msgid "Mettre à jour sur {machine}"
+msgstr "Обновить на {machine}"
+
+#, python-brace-format
+msgid "Réparer {machine}"
+msgstr "Исправить {machine}"
+
+#, python-brace-format
+msgid "Synchroniser {machine}"
+msgstr "Синхронизировать {machine}"
+
+#, python-brace-format
+msgid "Téléchargement et vérification des archives, envoi vers {machine}…"
+msgstr "Загрузка и проверка архивов, отправка на {machine}…"
+
+#, python-brace-format
+msgid "Lecture du résultat et nouveau scan de {machine}…"
+msgstr "Чтение результата и повторное сканирование {machine}…"
+
+#, python-brace-format
+msgid "{machine} : synchronisation terminée."
+msgstr "{machine}: синхронизация завершена."
+
+#, python-brace-format
+msgid "{machine} : la synchronisation n'est pas allée au bout."
+msgstr "{machine}: синхронизация не дошла до конца."
+
+msgid "l'outil, depuis ici"
+msgstr "инструмент, отсюда"
+
+msgid "commande lancée sur la machine, depuis ici"
+msgstr "команда, запускаемая на машине отсюда"
+
+msgid "à la main (commande à copier)"
+msgstr "вручную (команда для копирования)"
+
+msgid "Mettre à jour l'application, depuis ici"
+msgstr "Обновить приложение, отсюда"
+
+msgid "Réinstaller l'application, depuis ici"
+msgstr "Переустановить приложение, отсюда"
+
+msgid "à la main (README de l'outil)"
+msgstr "вручную (README инструмента)"
+
+msgid "Scanner : rescanner la machine"
+msgstr "Сканирование: пересканировать машину"
+
+msgid "aucune correction connue (voir le détail)"
+msgstr "исправление неизвестно (см. подробности)"
+
+msgid "RÉPARER"
+msgstr "ИСПРАВЛЕНИЕ"
+
+msgid ""
+"Tout ce qui ne va pas, sur toutes les machines. Choisissez une ligne puis « "
+"Réparer la ligne choisie », ou « Tout réparer » : le plan de la machine "
+"s'affiche, rien n'est lancé avant. Machine du réseau : réparée depuis ici, "
+"son mot de passe sudo demandé une fois."
+msgstr ""
+"Всё, что не в порядке, на всех машинах. Выберите строку, затем «Исправить "
+"выбранную строку», или «Исправить всё»: показывается план машины, до этого "
+"ничего не запускается. Машина в сети исправляется отсюда, её пароль sudo "
+"запрашивается один раз."
+
+msgid "Réparer la ligne choisie"
+msgstr "Исправить выбранную строку"
+
+msgid "Détail"
+msgstr "Подробно"
+
+msgid "Tout réparer"
+msgstr "Исправить всё"
+
+msgid "Problème"
+msgstr "Проблема"
+
+msgid "Qui corrige"
+msgstr "Кто исправляет"
+
+msgid "Recherche de tout ce qui ne va pas : vérification de cette machine…"
+msgstr "Поиск всего, что не в порядке: проверка этой машины…"
+
+#, python-brace-format
+msgid "Rescan des machines du réseau ({index}/{count}) : {machine}…"
+msgstr "Повторное сканирование машин в сети ({index}/{count}): {machine}…"
+
+#, python-brace-format
+msgid "{count} problème(s) sur {machines} machine(s)."
+msgstr "Проблем: {count}, машин: {machines}."
+
+msgid "Rien à réparer : tout est OK sur toutes les machines."
+msgstr "Исправлять нечего: на всех машинах всё OK."
+
+msgid "la machine ne répond plus"
+msgstr "машина больше не отвечает"
+
+#, python-brace-format
+msgid "{machine} : rescannez-la d'abord (Scanner)."
+msgstr "{machine}: сначала пересканируйте её (Сканирование)."
+
+msgid "RAPPORT"
+msgstr "ОТЧЁТ"
+
+msgid ""
+"Un document complet, établi à l'instant (les machines du réseau sont "
+"rescannées avant) : bilan, ce qu'il reste à faire, registre, machines du "
+"réseau, liaisons de chaque machine, espace partagé. Enregistré dans le "
+"dossier des exports."
+msgstr ""
+"Полный документ, составленный сейчас (машины в сети сначала сканируются "
+"заново): итог, что осталось сделать, реестр, машины в сети, связи каждой "
+"машины, общее пространство. Сохраняется в папке экспорта."
+
+msgid "THÈME DE LA PAGE HTML"
+msgstr "ТЕМА HTML-СТРАНИЦЫ"
+
+msgid "APERÇU"
+msgstr "ПРЕДПРОСМОТР"
+
+msgid "Exporter JSON"
+msgstr "Экспорт JSON"
+
+msgid "Exporter TXT"
+msgstr "Экспорт TXT"
+
+msgid "Exporter HTML"
+msgstr "Экспорт HTML"
+
+msgid "Génération du rapport en cours (détection, vérification, zone)…"
+msgstr "Идёт создание отчёта (обнаружение, проверка, зона)…"
+
+msgid "Rapport prêt."
+msgstr "Отчёт готов."
+
+#, python-brace-format
+msgid "Export impossible : {error}"
+msgstr "Экспорт невозможен: {error}"
+
+#, python-brace-format
+msgid "{count} application(s) omega trouvée(s) sur cette machine."
+msgstr "На этой машине найдено приложений omega: {count}."
+
+#, python-brace-format
+msgid "Trouvées via : {sources}."
+msgstr "Найдено через: {sources}."
+
+#, python-brace-format
+msgid ""
+"{count} remarque(s) sur la recherche (montages réseau ignorés, etc.) : voir "
+"le Rapport."
+msgstr ""
+"Замечаний о поиске: {count} (пропущенные сетевые подключения и т. п.): см. "
+"Отчёт."
+
+msgid "SCANNER"
+msgstr "СКАНИРОВАНИЕ"
+
+msgid ""
+"Recherche des applications omega, en lecture seule : rien n'est modifié, "
+"aucun mot de passe. Le résultat met à jour le registre."
+msgstr ""
+"Поиск приложений omega, только чтение: ничего не изменяется, пароль не "
+"нужен. Результат обновляет реестр."
+
+#, python-brace-format
+msgid "MACHINE LOCALE — {machine}"
+msgstr "ЛОКАЛЬНАЯ МАШИНА — {machine}"
+
+msgid "MACHINES QUE CET ORDINATEUR SAIT DÉJÀ JOINDRE"
+msgstr "МАШИНЫ, К КОТОРЫМ ЭТОТ КОМПЬЮТЕР УЖЕ УМЕЕТ ПОДКЛЮЧАТЬСЯ"
+
+msgid ""
+"Trouvées dans vos profils Unison, votre ~/.ssh/config et les machines déjà "
+"connues de SSH. Choisissez-en une (Entrée ou clic) : omega-connect s'y "
+"connecte avec vos clés et y lance le même scanner, en mémoire — rien n'y est"
+" installé, aucun mot de passe."
+msgstr ""
+"Найдены в ваших профилях Unison, вашем ~/.ssh/config и среди машин, уже "
+"известных SSH. Выберите одну (Enter или щелчок): omega-connect подключится к"
+" ней с вашими ключами и запустит там тот же сканер, в памяти — ничего не "
+"устанавливается, пароль не нужен."
+
+msgid "Scanner la machine choisie"
+msgstr "Сканировать выбранную машину"
+
+msgid "AUTRE MACHINE (SAISIE MANUELLE)"
+msgstr "ДРУГАЯ МАШИНА (РУЧНОЙ ВВОД)"
+
+msgid ""
+"utilisateur@machine (nom ou adresse), ou un nom de votre ~/.ssh/config."
+msgstr "пользователь@машина (имя или адрес) или имя из вашего ~/.ssh/config."
+
+msgid "utilisateur@machine"
+msgstr "пользователь@машина"
+
+msgid "Scanner cette machine"
+msgstr "Сканировать эту машину"
+
+msgid "MACHINES DISTANTES CONNUES"
+msgstr "ИЗВЕСТНЫЕ УДАЛЁННЫЕ МАШИНЫ"
+
+msgid ""
+"Celles du registre. Sur un grand parc, retirez celles qui ne vous concernent"
+" plus : elles ne sont plus rescannées (rien n'est modifié sur elles)."
+msgstr ""
+"Машины из реестра. В большом парке уберите те, что вас больше не касаются: "
+"они перестанут пересканироваться (на них ничего не меняется)."
+
+msgid "Retirer cette machine"
+msgstr "Убрать эту машину"
+
+msgid "Scanner de nouveau"
+msgstr "Сканировать снова"
+
+msgid "Rescanner les machines connues"
+msgstr "Пересканировать известные машины"
+
+msgid "Voir le registre"
+msgstr "Открыть реестр"
+
+msgid "Trouvée dans"
+msgstr "Найдено в"
+
+msgid "Analyse de la machine locale : recherche des applications omega…"
+msgstr "Анализ локальной машины: поиск приложений omega…"
+
+#, python-brace-format
+msgid "Analysée à {time}."
+msgstr "Проанализировано в {time}."
+
+msgid "aucune machine distante pour l'instant"
+msgstr "пока нет удалённых машин"
+
+msgid "aucune machine trouvée"
+msgstr "машины не найдены"
+
+#, python-brace-format
+msgid "{machine} retirée du registre."
+msgstr "{machine} убрана из реестра."
+
+msgid "RETIRER CETTE MACHINE ?"
+msgstr "УБРАТЬ ЭТУ МАШИНУ?"
+
+#, python-brace-format
+msgid ""
+"{machine} et ses {count} application(s) sortent du registre : elles ne "
+"seront plus rescannées. Rien n'est modifié sur la machine ; vous pourrez la "
+"scanner de nouveau à tout moment."
+msgstr ""
+"{machine} и её приложения (количество: {count}) удаляются из реестра: они "
+"больше не будут пересканироваться. На машине ничего не меняется; вы сможете "
+"снова просканировать её в любой момент."
+
+msgid "Retirer"
+msgstr "Убрать"
+
+#, python-brace-format
+msgid "Connexion à {target}…"
+msgstr "Подключение к {target}…"
+
+#, python-brace-format
+msgid "{target} : rien n'a été fait (machine non acceptée)."
+msgstr "{target}: ничего не сделано (машина не принята)."
+
+#, python-brace-format
+msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
+msgstr "Сканирование {target}: сканер работает там, только чтение…"
+
+msgid "Aucune machine distante connue pour l'instant."
+msgstr "Пока нет известных удалённых машин."
+
+#, python-brace-format
+msgid "Scan des {count} machine(s) connue(s)…"
+msgstr "Сканирование известных машин ({count})…"
+
+#, python-brace-format
+msgid "{good} machine(s) scannée(s) sur {total}."
+msgstr "Просканировано машин: {good} из {total}."
+
+msgid "Enregistrés dans var/settings.json, appliqués tout de suite."
+msgstr "Сохраняются в var/settings.json и применяются сразу."
+
+msgid "Thème de l'interface"
+msgstr "Тема интерфейса"
+
+msgid "Thème des exports (rapport HTML, aide exportée)"
+msgstr "Тема экспорта (HTML-отчёт, экспортированная справка)"
+
+msgid "Dossier des exports"
+msgstr "Папка экспорта"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Laissez vide pour revenir au dossier par défaut."
+msgstr ""
+"По умолчанию: {path}. Оставьте пустым, чтобы вернуться к папке по умолчанию."
+
+msgid "Dossier des captures d'écran"
+msgstr "Папка снимков экрана"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Capture : Ctrl+P → « Capture d'écran »."
+msgstr "По умолчанию: {path}. Снимок: Ctrl+P → «Снимок экрана»."
+
+msgid "Enregistrer les dossiers"
+msgstr "Сохранить папки"
+
+msgid "Maintenance des dossiers"
+msgstr "Обслуживание папок"
+
+msgid ""
+"Supprime définitivement le contenu du dossier configuré ; le dossier reste."
+msgstr ""
+"Безвозвратно удаляет содержимое настроенной папки; сама папка остаётся."
+
+msgid "Vider le dossier des exports"
+msgstr "Очистить папку экспорта"
+
+msgid "Vider le dossier des captures"
+msgstr "Очистить папку снимков экрана"
+
+msgid "des exports"
+msgstr "экспорта"
+
+msgid "des captures"
+msgstr "снимков экрана"
+
+#, python-brace-format
+msgid "Chemin à donner en entier (commençant par / ou ~) : {path}"
+msgstr "Путь нужно указать полностью (начиная с / или ~): {path}"
+
+#, python-brace-format
+msgid "Dossiers enregistrés : {paths}"
+msgstr "Папки сохранены: {paths}"
+
+#, python-brace-format
+msgid "VIDER LE DOSSIER {label} ?"
+msgstr "ОЧИСТИТЬ ПАПКУ {label}?"
+
+#, python-brace-format
+msgid ""
+"Supprime définitivement tout le contenu de {directory}. Le dossier reste."
+msgstr "Безвозвратно удаляет всё содержимое {directory}. Сама папка остаётся."
+
+msgid "Vider"
+msgstr "Очистить"
+
+#, python-brace-format
+msgid "Refusé — {path} : {reason}"
+msgstr "Отклонено — {path}: {reason}"
+
+#, python-brace-format
+msgid "{count} élément(s) supprimé(s) dans {path}."
+msgstr "Удалено элементов в {path}: {count}."
+
+#, python-brace-format
+msgid "Non supprimés : {items}"
+msgstr "Не удалены: {items}"
+
+msgid "Choisir"
+msgstr "Выбрать"
+
+msgid "SYNCHRONISATION"
+msgstr "СИНХРОНИЗАЦИЯ"
+
+msgid ""
+"Toutes vos machines et leurs applications. Cochez des lignes (Entrée ou "
+"Espace) puis « Synchroniser la sélection », ou « Synchroniser tout ». Chaque"
+" machine a son plan, affiché avant d'agir, et un seul mot de passe ; les "
+"machines du réseau sont synchronisées depuis ici."
+msgstr ""
+"Все ваши машины и их приложения. Отметьте строки (Enter или Пробел), затем "
+"«Синхронизировать выбранное» или «Синхронизировать всё». У каждой машины "
+"свой план, показанный до выполнения, и один пароль; машины в сети "
+"синхронизируются отсюда."
+
+msgid "Synchroniser tout"
+msgstr "Синхронизировать всё"
+
+msgid "Synchroniser la sélection"
+msgstr "Синхронизировать выбранное"
+
+msgid "Lire avec sudo"
+msgstr "Прочитать через sudo"
+
+msgid "Vérification de cette machine et de son espace partagé…"
+msgstr "Проверка этой машины и её общего пространства…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s) — vérifié à {time}."
+msgstr "Приложений: {count}, машин: {machines} — проверено в {time}."
+
+msgid "Espace partagé lu avec sudo (lecture seule)."
+msgstr "Общее пространство прочитано через sudo (только чтение)."
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : "
+msgstr "Общее пространство {machine}: "
+
+#, python-brace-format
+msgid "{tool} : {hint}"
+msgstr "{tool}: {hint}"
+
+msgid "Lecture de l'espace partagé…"
+msgstr "Чтение общего пространства…"
+
+#, python-brace-format
+msgid "Préparation du plan de synchronisation de {machine}…"
+msgstr "Подготовка плана синхронизации {machine}…"
+
+msgid "FAIRE CONFIANCE À CETTE MACHINE ?"
+msgstr "ДОВЕРЯТЬ ЭТОЙ МАШИНЕ?"
+
+msgid "Faire confiance"
+msgstr "Доверять"
+
+msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
+msgstr "ПОДРОБНОСТИ ОБЩЕГО ПРОСТРАНСТВА"
+
+#, python-brace-format
+msgid ""
+"Ce qu'omega-connect a créé sur cette machine, et quand (registre de l'espace"
+" partagé {zone}). « Tout retirer » défait exactement cette liste ; un "
+"fichier qu'elle ne connaît pas n'est jamais supprimé."
+msgstr ""
+"Что omega-connect создал на этой машине и когда (реестр общего пространства "
+"{zone}). «Убрать всё» отменяет ровно этот список; файл, которого в нём нет, "
+"никогда не удаляется."
+
+msgid "CRÉATIONS"
+msgstr "СОЗДАНО"
+
+msgid "OUTILS RELIÉS"
+msgstr "СВЯЗАННЫЕ ИНСТРУМЕНТЫ"
+
+msgid "Retirer cet outil"
+msgstr "Убрать этот инструмент"
+
+msgid "Tout retirer…"
+msgstr "Убрать всё…"
+
+msgid "Outil"
+msgstr "Инструмент"
+
+msgid "Relié le"
+msgstr "Связано"
+
+msgid "Initialisation du registre : lecture de la zone en cours…"
+msgstr "Инициализация реестра: идёт чтение зоны…"
+
+#, python-brace-format
+msgid ""
+"Aucune zone en {zone} : rien n'a été créé (menu Synchronisation pour "
+"l'établir)."
+msgstr ""
+"Нет зоны в {zone}: ничего не создано (меню Синхронизация, чтобы её создать)."
+
+msgid ""
+"Registre lisible par root et le groupe omega-synchro seulement : "
+"reconnectez-vous si vous venez d'y être ajouté, ou « Lire avec sudo »."
+msgstr ""
+"Реестр доступен для чтения только root и группе omega-synchro: войдите "
+"заново, если вас только что добавили, или «Прочитать через sudo»."
+
+#, python-brace-format
+msgid ""
+"Registre {status} ({detail}) : rien ne sera retiré tant qu'il n'est pas "
+"réparé."
+msgstr ""
+"Реестр {status} ({detail}): ничего не будет удалено, пока он не исправлен."
+
+#, python-brace-format
+msgid "Zone {zone} — {state} — mise à jour le {date}."
+msgstr "Зона {zone} — {state} — обновлена {date}."
+
+msgid "aucune application reliée pour l'instant"
+msgstr "пока нет связанных приложений"
+
+msgid "Aucune commande."
+msgstr "Нет команд."
+
+msgid ""
+"Commandes lancées une à une en root avec sudo, dans cet ordre. Rien n'est "
+"lancé avant « Lancer ». Au premier échec tout s'arrête, et le registre garde"
+" la trace de ce qui a été créé."
+msgstr ""
+"Команды запускаются по одной от root через sudo, в этом порядке. Ничего не "
+"запускается до «Запустить». При первой ошибке всё останавливается, а реестр "
+"сохраняет сведения о созданном."
+
+msgid "COMMANDES"
+msgstr "КОМАНДЫ"
+
+msgid "REMARQUES"
+msgstr "ЗАМЕЧАНИЯ"
+
+msgid ""
+"Ce qui est relié ou pas, sur toutes vos machines, avec son état (OK, à "
+"réparer, absent…). Cet écran montre : ce qui est « à réparer » se corrige "
+"dans le menu Réparer. Surlignez une ligne pour le détail."
+msgstr ""
+"Что связано, а что нет, на всех ваших машинах, с состоянием (OK, требует "
+"исправления, отсутствует…). Этот экран только показывает: то, что «требует "
+"исправления», исправляется в меню Исправление. Выделите строку, чтобы "
+"увидеть подробности."

@@ -1,0 +1,29 @@
+# Environnement Python
+venv/
+.venv/
+.venv.casse-*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.import_linter_cache/
+*.egg-info/
+
+# État local (registre du parc, réglages, exports, captures, déclaration) : données personnelles,
+# recréé au démarrage, jamais publié (STRUCTURE_PUBLICATION_OMEGA.md §1).
+var/
+
+# omega-lib embarquée par build-release.sh (copie de ~/DEV/LIB/omega-lib)
+vendor/
+
+# Archives de release (générées, pas du code source)
+*.tar.gz
+
+# Éditeurs
+*~
+*.bak
+*.swp
+
+# Fichiers système
+.DS_Store

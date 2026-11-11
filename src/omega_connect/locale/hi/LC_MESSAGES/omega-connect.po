@@ -1,0 +1,3742 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-connect\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, python-brace-format
+msgid "omega-connect — machine {machine}"
+msgstr "omega-connect — मशीन {machine}"
+
+#, python-brace-format
+msgid "== Mise à jour de {tool} vers {version} ({root})"
+msgstr "== {tool} का {version} में अपडेट ({root})"
+
+#, python-brace-format
+msgid "✗ {tool} : {error}"
+msgstr "✗ {tool}: {error}"
+
+#, python-brace-format
+msgid "✓ {tool} {version} installé."
+msgstr "✓ {tool} {version} इंस्टॉल हो गया।"
+
+#, python-brace-format
+msgid "· déjà réglé : {command}"
+msgstr "· पहले से सेट: {command}"
+
+#, python-brace-format
+msgid "archive refusée : chemin inattendu {name}"
+msgstr "आर्काइव अस्वीकृत: अनपेक्षित पथ {name}"
+
+#, python-brace-format
+msgid "archive refusée : {name} n'est ni un fichier ni un dossier"
+msgstr "आर्काइव अस्वीकृत: {name} न फ़ाइल है न फ़ोल्डर"
+
+msgid "archive refusée : trop volumineuse une fois extraite"
+msgstr "आर्काइव अस्वीकृत: एक्सट्रैक्ट करने पर बहुत बड़ा"
+
+#, python-brace-format
+msgid "archive refusée : pas de dossier {tool}/"
+msgstr "आर्काइव अस्वीकृत: कोई {tool}/ फ़ोल्डर नहीं"
+
+#, python-brace-format
+msgid "{path} est un lien : rien n'est copié dedans"
+msgstr "{path} एक लिंक है: इसमें कुछ भी कॉपी नहीं किया जाता"
+
+#, python-brace-format
+msgid "{root} n'est pas un dossier d'installation"
+msgstr "{root} इंस्टॉलेशन फ़ोल्डर नहीं है"
+
+#, python-brace-format
+msgid "{root} n'appartient pas à ce compte : mise à jour faite à la main"
+msgstr "{root} इस खाते का नहीं है: अपडेट हाथ से करना होगा"
+
+msgid "empreinte de l'archive différente de sha.txt : rien n'est installé"
+msgstr ""
+"आर्काइव का फ़िंगरप्रिंट sha.txt से अलग है: कुछ भी इंस्टॉल नहीं किया गया"
+
+#, python-brace-format
+msgid "Mise de côté de l'ancienne installation : {old} → {new}"
+msgstr "पुराना इंस्टॉलेशन अलग रखा जा रहा है: {old} → {new}"
+
+msgid "impossible de mettre l'ancienne installation de côté (sudo mv)"
+msgstr "पुराना इंस्टॉलेशन अलग नहीं रखा जा सका (sudo mv)"
+
+#, python-brace-format
+msgid "{count} fichiers installés dans {root}."
+msgstr "{root} में {count} फ़ाइलें इंस्टॉल की गईं।"
+
+#, python-brace-format
+msgid "install.sh introuvable dans {root}"
+msgstr "{root} में install.sh नहीं मिला"
+
+#, python-brace-format
+msgid ""
+"Environnement Python (.venv) incomplet mis de côté : {path} — install.sh en "
+"recrée un."
+msgstr ""
+"अधूरा Python एनवायरनमेंट (.venv) अलग रखा गया: {path} — install.sh नया "
+"बनाएगा।"
+
+#, python-brace-format
+msgid "Lancement de {path} :"
+msgstr "{path} चलाया जा रहा है:"
+
+#, python-brace-format
+msgid "install.sh a échoué (code {code})"
+msgstr "install.sh विफल रहा (कोड {code})"
+
+#, python-brace-format
+msgid "{script} introuvable : réglages et données restés dans {old}"
+msgstr "{script} नहीं मिला: सेटिंग्स और डेटा {old} में ही रहे"
+
+#, python-brace-format
+msgid ""
+"Reprise des réglages et données de {old} (autres anciennes installations "
+"ignorées : {others})"
+msgstr ""
+"{old} से सेटिंग्स और डेटा लिए जा रहे हैं (अन्य पुराने इंस्टॉलेशन अनदेखे किए "
+"गए: {others})"
+
+#, python-brace-format
+msgid "reprise de {old} échouée ({script})"
+msgstr "{old} से सेटिंग्स और डेटा लेना विफल ({script})"
+
+msgid "contient l'installation d'omega-connect"
+msgstr "इसमें omega-connect का इंस्टॉलेशन है"
+
+msgid "registre omega-serv"
+msgstr "omega-serv रजिस्टर"
+
+msgid "systemd"
+msgstr "systemd"
+
+msgid "OpenRC"
+msgstr "OpenRC"
+
+msgid "runit"
+msgstr "runit"
+
+msgid "dossier personnel"
+msgstr "होम फ़ोल्डर"
+
+msgid "/srv"
+msgstr "/srv"
+
+msgid "chemin saisi"
+msgstr "दर्ज किया गया पथ"
+
+msgid "absent"
+msgstr "अनुपस्थित"
+
+msgid "illisible (droits)"
+msgstr "पढ़ा नहीं जा सकता (अनुमतियाँ)"
+
+msgid "abîmé"
+msgstr "क्षतिग्रस्त"
+
+msgid "d'une version plus récente qu'omega-connect"
+msgstr "omega-connect से नए संस्करण का"
+
+msgid "non fournie (version de l'outil trop ancienne ?)"
+msgstr "नहीं दिया गया (टूल का संस्करण बहुत पुराना?)"
+
+msgid "non obtenue"
+msgstr "प्राप्त नहीं हुआ"
+
+msgid "illisible"
+msgstr "पढ़ा नहीं जा सकता"
+
+msgid "active"
+msgstr "सक्रिय"
+
+msgid "désactivée"
+msgstr "अक्षम"
+
+msgid "absente"
+msgstr "अनुपस्थित"
+
+msgid "inconnue"
+msgstr "अज्ञात"
+
+#, python-brace-format
+msgid "registre des instances omega-serv illisible : {detail}"
+msgstr "omega-serv इंस्टेंस रजिस्टर पढ़ा नहीं जा सकता: {detail}"
+
+#, python-brace-format
+msgid "instance omega-serv enregistrée mais dossier disparu : {detail}"
+msgstr "omega-serv इंस्टेंस दर्ज है लेकिन फ़ोल्डर गायब है: {detail}"
+
+#, python-brace-format
+msgid "fichier de service illisible : {detail}"
+msgstr "सेवा फ़ाइल पढ़ी नहीं जा सकती: {detail}"
+
+#, python-brace-format
+msgid "service {detail} : dossier d'installation introuvable"
+msgstr "सेवा {detail}: इंस्टॉलेशन फ़ोल्डर नहीं मिला"
+
+#, python-brace-format
+msgid "recherche arrêtée (trop de dossiers) dans {detail}"
+msgstr "{detail} में खोज रोकी गई (बहुत अधिक फ़ोल्डर)"
+
+#, python-brace-format
+msgid "montage réseau non parcouru : {detail}"
+msgstr "नेटवर्क माउंट नहीं खोजा गया: {detail}"
+
+#, python-brace-format
+msgid "dossier introuvable : {detail}"
+msgstr "फ़ोल्डर नहीं मिला: {detail}"
+
+#, python-brace-format
+msgid "aucun outil omega dans : {detail}"
+msgstr "इसमें कोई omega टूल नहीं: {detail}"
+
+#, python-brace-format
+msgid "créez-le sous le compte {owner} : {command}"
+msgstr "इसे {owner} खाते से बनाएँ: {command}"
+
+msgid "outil inconnu"
+msgstr "अज्ञात टूल"
+
+#, python-brace-format
+msgid "trouvé par : {sources}"
+msgstr "इससे मिला: {sources}"
+
+#, python-brace-format
+msgid "propriétaire : {owner}"
+msgstr "स्वामी: {owner}"
+
+#, python-brace-format
+msgid "service : {names}"
+msgstr "सेवा: {names}"
+
+#, python-brace-format
+msgid "jeton : présent (identifiant {identifier}, version {version})"
+msgstr "टोकन: मौजूद (ID {identifier}, संस्करण {version})"
+
+#, python-brace-format
+msgid "jeton : {state}"
+msgstr "टोकन: {state}"
+
+#, python-brace-format
+msgid "fiche : {state}"
+msgstr "विवरण-पत्र: {state}"
+
+#, python-brace-format
+msgid "détail technique : {detail}"
+msgstr "तकनीकी विवरण: {detail}"
+
+#, python-brace-format
+msgid "fiche : instance {instance}"
+msgstr "विवरण-पत्र: इंस्टेंस {instance}"
+
+#, python-brace-format
+msgid "service {manager} ({state})"
+msgstr "सेवा {manager} ({state})"
+
+msgid "partielle (sans root)"
+msgstr "आंशिक (root के बिना)"
+
+#, python-brace-format
+msgid "fonctions : {states}"
+msgstr "फ़ंक्शन: {states}"
+
+#, python-brace-format
+msgid "Détection des outils omega (HOME examiné : {home})"
+msgstr "omega टूल्स की पहचान (जाँचा गया HOME: {home})"
+
+msgid "Aucun outil omega trouvé. Indiquez un dossier avec --chemin."
+msgstr "कोई omega टूल नहीं मिला। --chemin से एक फ़ोल्डर बताएँ।"
+
+#, python-brace-format
+msgid ""
+"Identifiant en double {identifier} : {roots} (dossier copié à la main ?). "
+"Ces installations ne sont pas fusionnées ; ouvrez la copie une fois pour lui"
+" donner un nouvel identifiant."
+msgstr ""
+"डुप्लिकेट ID {identifier}: {roots} (फ़ोल्डर हाथ से कॉपी किया गया?)। इन "
+"इंस्टॉलेशन को मिलाया नहीं जाता; कॉपी को एक बार खोलें ताकि उसे नई ID मिले।"
+
+msgid "Remarques sur la recherche :"
+msgstr "खोज पर टिप्पणियाँ:"
+
+#, python-brace-format
+msgid "{count} installation(s) trouvée(s)."
+msgstr "{count} इंस्टॉलेशन मिले।"
+
+msgid "Détectée"
+msgstr "पहचानी गई"
+
+msgid "Inscrite"
+msgstr "पंजीकृत"
+
+msgid "Reliée"
+msgstr "जुड़ी हुई"
+
+msgid "À réparer"
+msgstr "मरम्मत ज़रूरी"
+
+msgid "Ancienne version"
+msgstr "पुराना संस्करण"
+
+msgid "Installation inachevée"
+msgstr "अधूरा इंस्टॉलेशन"
+
+msgid "Injoignable"
+msgstr "पहुँच से बाहर"
+
+msgid "trouvée, sans carte d'identité : la Synchronisation la lui crée"
+msgstr "मिली, पर पहचान पत्र नहीं है: सिंक्रनाइज़ेशन इसे बनाता है"
+
+msgid ""
+"a sa carte d'identité, pas encore dans l'espace partagé : la Synchronisation"
+" l'y ajoute"
+msgstr ""
+"इसका पहचान पत्र है, पर अभी साझा स्थान में नहीं: सिंक्रनाइज़ेशन इसे जोड़ता है"
+
+msgid "dans l'espace partagé, à jour"
+msgstr "साझा स्थान में, अद्यतन"
+
+msgid "un écart : Réparer le corrige"
+msgstr "एक विसंगति: मरम्मत इसे ठीक करता है"
+
+msgid "trop ancienne pour avoir une carte d'identité : mettez-la à jour"
+msgstr "पहचान पत्र रखने के लिए बहुत पुरानी: इसे अपडेट करें"
+
+msgid ""
+"installée, mais son install.sh ne s'est pas terminé (environnement Python ou"
+" carte d'identité manquants) : « Réinstaller l'application » (Registre)"
+msgstr ""
+"इंस्टॉल है, पर इसका install.sh पूरा नहीं हुआ (Python एनवायरनमेंट या पहचान "
+"पत्र गायब): « एप्लिकेशन फिर से इंस्टॉल करें » (रजिस्टर)"
+
+msgid "machine qui ne répond pas"
+msgstr "मशीन जवाब नहीं दे रही"
+
+#, python-brace-format
+msgid ""
+"trop ancienne pour avoir une carte d'identité : {tool} {version} ou plus "
+"récent requis (machine distante : Synchronisation la met à jour depuis "
+"GitHub)"
+msgstr ""
+"पहचान पत्र रखने के लिए बहुत पुरानी: {tool} {version} या नया आवश्यक (दूरस्थ "
+"मशीन: सिंक्रनाइज़ेशन इसे GitHub से अपडेट करता है)"
+
+msgid "pas encore préparé — la Synchronisation le prépare"
+msgstr "अभी तैयार नहीं — सिंक्रनाइज़ेशन इसे तैयार करता है"
+
+msgid "prêt"
+msgstr "तैयार"
+
+msgid "à corriger — la Synchronisation le remet en état"
+msgstr "ठीक करना है — सिंक्रनाइज़ेशन इसे ठीक करता है"
+
+msgid "prêt (lu avec votre autorisation)"
+msgstr "तैयार (आपकी अनुमति से पढ़ा गया)"
+
+msgid ""
+"état inconnu depuis cette session — la Synchronisation le lira avec votre "
+"autorisation"
+msgstr "इस सत्र से स्थिति अज्ञात — सिंक्रनाइज़ेशन आपकी अनुमति से इसे पढ़ेगा"
+
+#, python-brace-format
+msgid "Registre — machine {machine}"
+msgstr "रजिस्टर — मशीन {machine}"
+
+msgid "Aucune application omega trouvée sur cette machine."
+msgstr "इस मशीन पर कोई omega एप्लिकेशन नहीं मिला।"
+
+#, python-brace-format
+msgid "Espace partagé : {status}"
+msgstr "साझा स्थान: {status}"
+
+msgid "Synchroniser : un seul plan, un seul mot de passe administrateur"
+msgstr "सिंक करें: एक ही योजना, एक ही एडमिन पासवर्ड"
+
+msgid "Rien à faire : tout est déjà synchronisé."
+msgstr "कुछ करने को नहीं: सब कुछ पहले से सिंक है।"
+
+msgid ""
+"1. Cartes d'identité à créer (par chaque outil, sous son compte, sans mot de"
+" passe) :"
+msgstr ""
+"1. बनाए जाने वाले पहचान पत्र (हर टूल द्वारा, उसके अपने खाते से, बिना "
+"पासवर्ड):"
+
+msgid "aucune : chaque application choisie a déjà la sienne."
+msgstr "कोई नहीं: हर चुने गए एप्लिकेशन के पास पहले से अपना पहचान पत्र है।"
+
+msgid "2. Espace partagé (en administrateur, une commande après l'autre) :"
+msgstr "2. साझा स्थान (एडमिन के रूप में, एक के बाद एक कमांड):"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root} (créée à l'étape 1)"
+msgstr "{root} का पहचान पत्र कॉपी करें (चरण 1 में बनाया गया)"
+
+msgid "rien : l'espace partagé est déjà à jour."
+msgstr "कुछ नहीं: साझा स्थान पहले से अद्यतन है।"
+
+msgid "Une commande qui n'est pas annoncée ici n'est jamais lancée."
+msgstr "जो कमांड यहाँ नहीं बताई गई, वह कभी नहीं चलाई जाती।"
+
+#, python-brace-format
+msgid ""
+"Arrêt : la carte d'identité de {root} n'a pas pu être créée ({error}). Rien "
+"d'autre n'a été lancé."
+msgstr ""
+"रोका गया: {root} का पहचान पत्र नहीं बन सका ({error})। और कुछ नहीं चलाया गया।"
+
+msgid "échec"
+msgstr "विफल"
+
+#, python-brace-format
+msgid ""
+"Arrêt avant l'espace partagé : le plan a changé ({step}). Rien de plus n'a "
+"été lancé ; relancez la synchronisation pour voir le nouveau plan."
+msgstr ""
+"साझा स्थान से पहले रोका गया: योजना बदल गई ({step})। और कुछ नहीं चलाया गया; "
+"नई योजना देखने के लिए सिंक्रनाइज़ेशन फिर से चलाएँ।"
+
+#, python-brace-format
+msgid ""
+"Arrêt à l'étape « {step} » : {error}. Ce qui a été créé est noté ; relancez "
+"la synchronisation après avoir corrigé la cause."
+msgstr ""
+"चरण « {step} » पर रोका गया: {error}। जो बनाया गया वह दर्ज है; कारण ठीक करने "
+"के बाद सिंक्रनाइज़ेशन फिर से चलाएँ।"
+
+msgid "Synchronisation terminée : les applications choisies sont reliées."
+msgstr "सिंक्रनाइज़ेशन पूरा: चुने गए एप्लिकेशन जुड़ गए हैं।"
+
+msgid "DÉMARRAGE RAPIDE"
+msgstr "त्वरित शुरुआत"
+
+msgid "RACCOURCIS"
+msgstr "शॉर्टकट"
+
+msgid "Aide d’omega-connect"
+msgstr "omega-connect की सहायता"
+
+msgid "Aide complète : chaque menu, sa fonction et le détail."
+msgstr "पूरी सहायता: हर मेनू, उसका काम और विवरण।"
+
+msgid "Démarrage rapide"
+msgstr "त्वरित शुरुआत"
+
+msgid "Raccourcis"
+msgstr "शॉर्टकट"
+
+msgid "Touche"
+msgstr "कुंजी"
+
+msgid "Action"
+msgstr "एक्शन"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — aide."
+msgstr "OMEGA-CONNECT {version} — सहायता।"
+
+msgid "Aide - Omega-Connect"
+msgstr "सहायता - Omega-Connect"
+
+msgid ""
+"Interconnecteur de la suite omega : détecte les outils installés, vérifie et"
+" attribue les droits entre eux."
+msgstr ""
+"omega सूट का इंटरकनेक्टर: इंस्टॉल किए गए टूल्स पहचानता है, उनके बीच "
+"अनुमतियाँ जाँचता और देता है।"
+
+msgid "commandes"
+msgstr "कमांड"
+
+msgid "COMMANDE"
+msgstr "कमांड"
+
+msgid "Cherche les outils omega installés (lecture seule, sans root)."
+msgstr "इंस्टॉल किए गए omega टूल्स खोजता है (केवल पढ़ना, root के बिना)।"
+
+msgid ""
+"Cherche les outils omega installés : registre d'omega-serv, services systemd"
+" / OpenRC / runit, HOME (3 niveaux), /srv (2 niveaux) et chemins saisis. Ne "
+"suit jamais un lien symbolique ni un montage réseau. Lit le jeton de chaque "
+"installation et demande sa fiche à l'outil, sous le compte propriétaire du "
+"dossier."
+msgstr ""
+"इंस्टॉल किए गए omega टूल्स खोजता है: omega-serv का रजिस्टर, systemd / OpenRC"
+" / runit सेवाएँ, HOME (3 स्तर), /srv (2 स्तर) और दर्ज किए गए पथ। कभी किसी "
+"सिंबॉलिक लिंक या नेटवर्क माउंट का अनुसरण नहीं करता। हर इंस्टॉलेशन का टोकन "
+"पढ़ता है और फ़ोल्डर के स्वामी खाते से टूल से उसका विवरण-पत्र माँगता है।"
+
+msgid "DOSSIER"
+msgstr "फ़ोल्डर"
+
+msgid "Dossier d'installation à examiner en plus (option répétable)."
+msgstr ""
+"अतिरिक्त रूप से जाँचने के लिए इंस्टॉलेशन फ़ोल्डर (विकल्प दोहराया जा सकता "
+"है)।"
+
+msgid ""
+"Ne demande pas la fiche aux outils (plus rapide, aucune commande lancée)."
+msgstr "टूल्स से विवरण-पत्र नहीं माँगता (तेज़, कोई कमांड नहीं चलाई जाती)।"
+
+msgid "texte (défaut, traduit) ou json (pour les scripts, jamais traduit)."
+msgstr ""
+"texte (डिफ़ॉल्ट, अनुवादित) या json (स्क्रिप्ट के लिए, कभी अनुवादित नहीं)।"
+
+msgid "Vérifie les liens existants entre outils (lecture seule, sans root)."
+msgstr "टूल्स के बीच मौजूदा लिंक जाँचता है (केवल पढ़ना, root के बिना)।"
+
+msgid ""
+"Détecte les outils (avec leur fiche), puis contrôle chaque lien : journaux "
+"d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers"
+" la liste noire, liste protégée, droits de la liste noire, fichiers d'omega-"
+"jail dans fail2ban, jetons. Chaque écart affiche la commande qui le "
+"corrigerait, sans jamais la lancer. Code de sortie : 0 sans écart, 1 si un "
+"lien est cassé ou dégradé."
+msgstr ""
+"टूल्स पहचानता है (उनके विवरण-पत्र के साथ), फिर हर लिंक जाँचता है: omega-jail"
+" के jails द्वारा पढ़े जाने वाले omega-serv और magnet के लॉग, ब्लैकलिस्ट तक "
+"fail2ban ब्रिज, संरक्षित सूची, ब्लैकलिस्ट की अनुमतियाँ, fail2ban में omega-"
+"jail की फ़ाइलें, टोकन। हर विसंगति के साथ उसे ठीक करने वाली कमांड दिखती है, "
+"पर उसे कभी चलाया नहीं जाता। एग्ज़िट कोड: कोई विसंगति न हो तो 0, कोई लिंक "
+"टूटा या कमज़ोर हो तो 1।"
+
+msgid "Affiche aussi les contrôles conformes."
+msgstr "अनुरूप जाँचें भी दिखाता है।"
+
+msgid ""
+"Ouvre le tableau de bord (défaut sans commande) : outils, liens et leur "
+"état, en lecture seule."
+msgstr ""
+"डैशबोर्ड खोलता है (बिना कमांड के डिफ़ॉल्ट): टूल्स, लिंक और उनकी स्थिति, केवल"
+" पढ़ने के लिए।"
+
+msgid ""
+"Tableau de bord en lecture seule : outils et instances, état de chaque lien,"
+" contrôles et commandes de correction (jamais lancées). Nouvelle "
+"vérification à intervalle régulier tant que l'écran est ouvert."
+msgstr ""
+"केवल पढ़ने वाला डैशबोर्ड: टूल्स और इंस्टेंस, हर लिंक की स्थिति, जाँचें और "
+"सुधार कमांड (कभी चलाई नहीं जातीं)। जब तक स्क्रीन खुली है, नियमित अंतराल पर "
+"फिर से जाँच।"
+
+msgid ""
+"Crée la zone neutre et y recopie jetons et fiches (root, après accord)."
+msgstr ""
+"तटस्थ क्षेत्र बनाता है और उसमें टोकन और विवरण-पत्र कॉपी करता है (root, सहमति"
+" के बाद)।"
+
+msgid ""
+"Crée le groupe omega-synchro et la zone neutre (/var/lib/omega-synchro, "
+"2750), vous ajoute au groupe, recopie le jeton et la fiche de chaque outil "
+"détecté, et inscrit tout au registre. Relancée, elle actualise les copies. "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"omega-synchro समूह और तटस्थ क्षेत्र (/var/lib/omega-synchro, 2750) बनाता है,"
+" आपको समूह में जोड़ता है, हर पहचाने गए टूल का टोकन और विवरण-पत्र कॉपी करता "
+"है, और सब कुछ रजिस्टर में दर्ज करता है। दोबारा चलाने पर कॉपियाँ अद्यतन करता "
+"है। हर कमांड sudo से चलाने से पहले दिखाई जाती है।"
+
+msgid ""
+"Défait ce qu'omega-connect a créé : un outil désinstallé, ou toute la zone "
+"(root, après accord)."
+msgstr ""
+"omega-connect ने जो बनाया उसे पूर्ववत करता है: एक अनइंस्टॉल किया गया टूल, या"
+" पूरा क्षेत्र (root, सहमति के बाद)।"
+
+msgid ""
+"« retirer CIBLE » enlève de la zone un outil désinstallé (nom, dossier ou 8 "
+"premiers caractères de l'identifiant). « retirer --tout » défait exactement "
+"ce que le registre liste, ou garde la zone telle quelle (liens figés). "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"« retirer लक्ष्य » क्षेत्र से एक अनइंस्टॉल किया गया टूल हटाता है (नाम, "
+"फ़ोल्डर या ID के पहले 8 अक्षर)। « retirer --tout » ठीक वही पूर्ववत करता है "
+"जो रजिस्टर में सूचीबद्ध है, या क्षेत्र को जैसा है वैसा रखता है (लिंक स्थिर)।"
+" हर कमांड sudo से चलाने से पहले दिखाई जाती है।"
+
+msgid "CIBLE"
+msgstr "लक्ष्य"
+
+msgid "Outil à retirer de la zone."
+msgstr "क्षेत्र से हटाया जाने वाला टूल।"
+
+msgid "Toute la zone (question : garder ou tout retirer)."
+msgstr "पूरा क्षेत्र (प्रश्न: रखें या सब हटाएँ)।"
+
+msgid "Avec --tout : garder la zone, liens figés (rien n'est supprimé)."
+msgstr "--tout के साथ: क्षेत्र रखें, लिंक स्थिर (कुछ भी हटाया नहीं जाता)।"
+
+msgid "Avec --tout : tout retirer, sans question."
+msgstr "--tout के साथ: सब हटाएँ, बिना प्रश्न के।"
+
+msgid ""
+"Recherche les applications omega de cette machine et met à jour le registre "
+"(lecture seule)."
+msgstr ""
+"इस मशीन के omega एप्लिकेशन खोजता है और रजिस्टर अपडेट करता है (केवल पढ़ना)।"
+
+msgid ""
+"Lecture seule, sans mot de passe : chaque application trouvée, son service "
+"et son état (Détectée, Inscrite, Reliée, À réparer, Ancienne version, "
+"Installation inachevée). Le résultat est enregistré dans le registre du parc"
+" (var/parc.json)."
+msgstr ""
+"केवल पढ़ने के लिए, बिना पासवर्ड: मिला हर एप्लिकेशन, उसकी सेवा और उसकी स्थिति"
+" (पहचानी गई, पंजीकृत, जुड़ी हुई, मरम्मत ज़रूरी, पुराना संस्करण, अधूरा "
+"इंस्टॉलेशन)। परिणाम मशीनों के रजिस्टर (var/parc.json) में सहेजा जाता है।"
+
+msgid "UTILISATEUR@MACHINE"
+msgstr "उपयोगकर्ता@मशीन"
+
+msgid ""
+"Machine distante à scanner par SSH avec vos clés (rien n'y est installé) ; "
+"sans cible : cette machine."
+msgstr ""
+"SSH द्वारा आपकी कुंजियों से स्कैन की जाने वाली दूरस्थ मशीन (वहाँ कुछ भी "
+"इंस्टॉल नहीं होता); लक्ष्य के बिना: यह मशीन।"
+
+msgid "MACHINE"
+msgstr "MACHINE"
+
+msgid ""
+"Retire une machine distante du registre (nom, adresse ou "
+"utilisateur@adresse) ; rien n'est modifié sur elle."
+msgstr ""
+"रजिस्टर से एक दूरस्थ मशीन हटाता है (नाम, पता या उपयोगकर्ता@पता); उस पर कुछ "
+"भी नहीं बदला जाता।"
+
+msgid ""
+"Liste les machines que cet ordinateur sait déjà joindre (profils Unison, "
+"~/.ssh/config, known_hosts)."
+msgstr ""
+"वे मशीनें दिखाता है जिन तक यह कंप्यूटर पहले से पहुँच सकता है (Unison "
+"प्रोफ़ाइल, ~/.ssh/config, known_hosts)।"
+
+msgid ""
+"Remet en place les liens de ce qui est installé : cartes d'identité, espace "
+"partagé, accès des services — un seul plan."
+msgstr ""
+"जो इंस्टॉल है उसके लिंक फिर से ठीक करता है: पहचान पत्र, साझा स्थान, सेवाओं "
+"की पहुँच — एक ही योजना।"
+
+msgid ""
+"Une seule action (décision de l'auteur) : recrée les cartes d'identité qui "
+"manquent (commande de chaque outil, sous son compte), prépare l'espace "
+"partagé, y recopie les cartes et donne l'accès aux services. Tout est "
+"affiché avant d'agir ; un seul mot de passe administrateur. Sans CIBLE : "
+"toutes les applications de la machine."
+msgstr ""
+"एक ही क्रिया (लेखक का निर्णय): गायब पहचान पत्र फिर से बनाता है (हर टूल की "
+"कमांड, उसके खाते से), साझा स्थान तैयार करता है, उसमें पहचान पत्र कॉपी करता "
+"है और सेवाओं को पहुँच देता है। कार्रवाई से पहले सब दिखाया जाता है; एक ही "
+"एडमिन पासवर्ड। लक्ष्य के बिना: मशीन के सभी एप्लिकेशन।"
+
+msgid ""
+"Application à synchroniser : nom (omega-fire) ou dossier ; plusieurs "
+"possibles."
+msgstr ""
+"सिंक करने वाला एप्लिकेशन: नाम (omega-fire) या फ़ोल्डर; एक से अधिक संभव।"
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; option "
+"répétable) : réparer puis synchroniser, sans rien taper là-bas (une "
+"application trop ancienne : mettre-a-jour d'abord)."
+msgstr ""
+"पहले से स्कैन की गई दूरस्थ मशीन (नाम, पता या उपयोगकर्ता@मशीन; विकल्प दोहराया"
+" जा सकता है): मरम्मत फिर सिंक, वहाँ कुछ भी टाइप किए बिना (बहुत पुराना "
+"एप्लिकेशन: पहले mettre-a-jour)।"
+
+msgid ""
+"Toutes les machines distantes du registre, une à une (un mot de passe par "
+"machine)."
+msgstr "रजिस्टर की सभी दूरस्थ मशीनें, एक-एक करके (हर मशीन के लिए एक पासवर्ड)।"
+
+msgid ""
+"Met à jour les applications trop anciennes d'une machine distante, depuis "
+"leur Release GitHub (rien d'autre)."
+msgstr ""
+"दूरस्थ मशीन के बहुत पुराने एप्लिकेशन उनकी GitHub Release से अपडेट करता है "
+"(और कुछ नहीं)।"
+
+msgid ""
+"Archive prise sur GitHub, empreinte vérifiée avec sha.txt, puis installée "
+"sur la machine (comme la section « Mise à jour » du README de l'outil). Ne "
+"répare ni ne synchronise : voir synchroniser."
+msgstr ""
+"आर्काइव GitHub से लिया जाता है, sha.txt से फ़िंगरप्रिंट जाँचा जाता है, फिर "
+"मशीन पर इंस्टॉल किया जाता है (टूल के README के « अपडेट » खंड की तरह)। मरम्मत"
+" या सिंक नहीं करता: synchroniser देखें।"
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; "
+"répétable)."
+msgstr ""
+"पहले से स्कैन की गई दूरस्थ मशीन (नाम, पता या उपयोगकर्ता@मशीन; दोहराया जा "
+"सकता है)।"
+
+msgid "Toutes les machines distantes du registre, une à une."
+msgstr "रजिस्टर की सभी दूरस्थ मशीनें, एक-एक करके।"
+
+msgid ""
+"Corrige les écarts trouvés par verifier avec la commande de l'outil qui les "
+"possède (root, après accord)."
+msgstr ""
+"verifier द्वारा मिली विसंगतियों को उनके स्वामी टूल की कमांड से ठीक करता है "
+"(root, सहमति के बाद)।"
+
+msgid ""
+"Ne corrige que ce qu'un outil sait corriger lui-même (omega-jail --apply "
+"--update, omega-serv service permissions, synchro jeton de chaque outil) et "
+"ce que le registre de la zone dit qu'omega-connect a créé (plan d'etablir, "
+"affiché à son tour). omega-connect ne réécrit jamais le fichier d'un autre "
+"outil : le reste est affiché, à faire à la main. Chaque commande est "
+"affichée avant d'être lancée."
+msgstr ""
+"केवल वही ठीक करता है जो कोई टूल स्वयं ठीक कर सकता है (omega-jail --apply "
+"--update, omega-serv service permissions, हर टूल का synchro jeton) और जो "
+"क्षेत्र का रजिस्टर बताता है कि omega-connect ने बनाया (etablir की योजना, "
+"अपनी बारी में दिखाई जाती है)। omega-connect कभी किसी दूसरे टूल की फ़ाइल "
+"दोबारा नहीं लिखता: बाकी दिखाया जाता है, हाथ से करना होगा। हर कमांड चलाने से "
+"पहले दिखाई जाती है।"
+
+msgid ""
+"Machine distante déjà scannée : réparée depuis ici, rien à taper là-bas "
+"(répétable)."
+msgstr ""
+"पहले से स्कैन की गई दूरस्थ मशीन: यहीं से मरम्मत, वहाँ कुछ टाइप नहीं करना "
+"(दोहराया जा सकता है)।"
+
+msgid ""
+"Rapport complet : outils, jetons, fiches, liens et tous leurs contrôles, "
+"zone et registre (lecture seule)."
+msgstr ""
+"पूरी रिपोर्ट: टूल्स, टोकन, विवरण-पत्र, लिंक और उनकी सभी जाँचें, क्षेत्र और "
+"रजिस्टर (केवल पढ़ना)।"
+
+msgid ""
+"Tout ce qu'omega-connect sait à cet instant, en lecture seule et sans root :"
+" outils et instances, jetons, fiches, chaque lien avec tous ses contrôles et"
+" les commandes de correction, remarques de la recherche, zone neutre et son "
+"registre. Affiché, ou enregistré dans var/exports/ avec --enregistrer."
+msgstr ""
+"इस समय omega-connect जो कुछ जानता है, केवल पढ़ने के लिए और root के बिना: "
+"टूल्स और इंस्टेंस, टोकन, विवरण-पत्र, हर लिंक उसकी सभी जाँचों और सुधार कमांड "
+"के साथ, खोज की टिप्पणियाँ, तटस्थ क्षेत्र और उसका रजिस्टर। दिखाया जाता है, या"
+" --enregistrer के साथ var/exports/ में सेव किया जाता है।"
+
+msgid ""
+"texte (défaut, traduit), json (jamais traduit) ou html (page autonome)."
+msgstr ""
+"texte (डिफ़ॉल्ट, अनुवादित), json (कभी अनुवादित नहीं) या html (स्वतंत्र पेज)।"
+
+msgid "Thème de la page HTML."
+msgstr "HTML पेज की थीम।"
+
+msgid "Enregistre dans var/exports/ au lieu d'afficher, et donne le chemin."
+msgstr "दिखाने के बजाय var/exports/ में सेव करता है, और पथ बताता है।"
+
+msgid "Affiche seulement les commandes, sans rien lancer."
+msgstr "केवल कमांड दिखाता है, कुछ भी चलाए बिना।"
+
+msgid "Lance sans demander l'accord (les commandes restent affichées)."
+msgstr "सहमति माँगे बिना चलाता है (कमांड फिर भी दिखाई जाती हैं)।"
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro (il ne compte qu'après "
+"une reconnexion) : lecture de la zone avec sudo (find, stat, cat)."
+msgstr ""
+"आपके सत्र में अभी omega-synchro समूह नहीं है (यह दोबारा लॉग इन करने के बाद "
+"ही लागू होता है): क्षेत्र sudo से पढ़ा जा रहा है (find, stat, cat)।"
+
+msgid "Authentification sudo refusée ou annulée : rien n'est fait."
+msgstr "sudo प्रमाणीकरण अस्वीकृत या रद्द: कुछ नहीं किया गया।"
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) en root ? [o/N] "
+msgstr "ये {count} कमांड root के रूप में चलाएँ? [o/N] "
+
+msgid "Authentification sudo refusée ou annulée : rien n'a été lancé."
+msgstr "sudo प्रमाणीकरण अस्वीकृत या रद्द: कुछ भी नहीं चलाया गया।"
+
+msgid ""
+"Pas de terminal pour poser la question : relancez avec --garder-zone ou "
+"--effacer."
+msgstr ""
+"प्रश्न पूछने के लिए कोई टर्मिनल नहीं: --garder-zone या --effacer के साथ फिर "
+"से चलाएँ।"
+
+msgid "Garder la zone (liens figés) [g], tout retirer [t], ou annuler [a] ? "
+msgstr "क्षेत्र रखें (लिंक स्थिर) [g], सब हटाएँ [t], या रद्द करें [a]? "
+
+msgid ""
+"Pas de terminal pour demander l'accord : relancez avec --oui, ou "
+"--simulation."
+msgstr ""
+"सहमति माँगने के लिए कोई टर्मिनल नहीं: --oui या --simulation के साथ फिर से "
+"चलाएँ।"
+
+msgid "Abandon : rien n'a été lancé."
+msgstr "रद्द किया गया: कुछ भी नहीं चलाया गया।"
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) ? [o/N] "
+msgstr "ये {count} कमांड चलाएँ? [o/N] "
+
+msgid ""
+"Zone neutre : plan d'« etablir » (seulement ce que le registre dit avoir "
+"créé)."
+msgstr ""
+"तटस्थ क्षेत्र: « etablir » की योजना (केवल वही जो रजिस्टर के अनुसार बनाया गया"
+" था)।"
+
+#, python-brace-format
+msgid "Registre du parc non enregistré : {error}"
+msgstr "मशीनों का रजिस्टर सेव नहीं हुआ: {error}"
+
+msgid "Saisissez utilisateur@machine (nom ou adresse), sans espace ni option."
+msgstr "उपयोगकर्ता@मशीन (नाम या पता) दर्ज करें, बिना स्पेस या विकल्प के।"
+
+msgid "Pas de terminal pour demander la confiance : rien n'a été fait."
+msgstr "भरोसे की पुष्टि माँगने के लिए कोई टर्मिनल नहीं: कुछ नहीं किया गया।"
+
+msgid "Faire confiance à cette machine ? [o/N] "
+msgstr "इस मशीन पर भरोसा करें? [o/N] "
+
+msgid "Rien n'a été fait."
+msgstr "कुछ नहीं किया गया।"
+
+msgid "Impossible d'ajouter la clé à ~/.ssh/known_hosts."
+msgstr "कुंजी ~/.ssh/known_hosts में नहीं जोड़ी जा सकी।"
+
+#, python-brace-format
+msgid "Aucune application ne correspond à : {targets}"
+msgstr "कोई एप्लिकेशन मेल नहीं खाता: {targets}"
+
+msgid "Lancer ce plan ? [o/N] "
+msgstr "यह योजना चलाएँ? [o/N] "
+
+msgid "Authentification refusée ou annulée : rien n'a été lancé."
+msgstr "प्रमाणीकरण अस्वीकृत या रद्द: कुछ भी नहीं चलाया गया।"
+
+#, python-brace-format
+msgid "Machine inconnue ou mal écrite : {target}"
+msgstr "अज्ञात या गलत लिखी मशीन: {target}"
+
+msgid ""
+"Aucune machine distante dans le registre : scannez-en une d'abord (scanner "
+"utilisateur@machine)."
+msgstr ""
+"रजिस्टर में कोई दूरस्थ मशीन नहीं: पहले एक स्कैन करें (scanner "
+"उपयोगकर्ता@मशीन)।"
+
+#, python-brace-format
+msgid ""
+"{target} : clé de la machine pas encore acceptée, ou machine injoignable — "
+"scannez-la d'abord (scanner {target})."
+msgstr ""
+"{target}: मशीन की कुंजी अभी स्वीकार नहीं की गई, या मशीन पहुँच से बाहर है — "
+"पहले उसे स्कैन करें (scanner {target})।"
+
+#, python-brace-format
+msgid "Lancer sur {name} ? [o/N] "
+msgstr "{name} पर चलाएँ? [o/N] "
+
+#, python-brace-format
+msgid "Rien n'a été lancé sur {name}."
+msgstr "{name} पर कुछ भी नहीं चलाया गया।"
+
+msgid "Indiquez soit un outil à retirer, soit --tout."
+msgstr "या तो हटाने के लिए एक टूल बताएँ, या --tout।"
+
+msgid "--garder-zone et --effacer vont avec --tout."
+msgstr "--garder-zone और --effacer केवल --tout के साथ इस्तेमाल होते हैं।"
+
+msgid "Machines distantes indisponibles ici."
+msgstr "दूरस्थ मशीनें यहाँ उपलब्ध नहीं हैं।"
+
+msgid "Indiquez --machine MACHINE ou --toutes-machines."
+msgstr "--machine MACHINE या --toutes-machines बताएँ।"
+
+#, python-brace-format
+msgid "Aucune machine distante du registre ne correspond à : {target}"
+msgstr "रजिस्टर की कोई दूरस्थ मशीन इससे मेल नहीं खाती: {target}"
+
+#, python-brace-format
+msgid "{machine} retirée du registre (rien n'a été modifié sur elle)."
+msgstr "{machine} रजिस्टर से हटाई गई (उस पर कुछ नहीं बदला गया)।"
+
+#, python-brace-format
+msgid "Rapport enregistré : {path}"
+msgstr "रिपोर्ट सेव की गई: {path}"
+
+#, python-brace-format
+msgid "aucune version publiée sur GitHub ({url})"
+msgstr "GitHub पर कोई संस्करण प्रकाशित नहीं ({url})"
+
+msgid "GitHub ne répond pas depuis cet ordinateur (réseau)"
+msgstr "GitHub इस कंप्यूटर से जवाब नहीं दे रहा (नेटवर्क)"
+
+msgid "l'archive n'est pas citée dans sha.txt de la Release : refusée"
+msgstr "आर्काइव Release की sha.txt में सूचीबद्ध नहीं है: अस्वीकृत"
+
+msgid "empreinte différente de sha.txt : archive refusée, rien n'est envoyé"
+msgstr ""
+"फ़िंगरप्रिंट sha.txt से अलग है: आर्काइव अस्वीकृत, कुछ भी नहीं भेजा गया"
+
+msgid "fichier trop volumineux pour une archive d'outil : refusé"
+msgstr "टूल आर्काइव के लिए फ़ाइल बहुत बड़ी है: अस्वीकृत"
+
+#, python-brace-format
+msgid ""
+"la dernière version publiée sur GitHub ({latest}) est encore trop ancienne"
+msgstr "GitHub पर प्रकाशित नवीनतम संस्करण ({latest}) भी अभी बहुत पुराना है"
+
+msgid "extraction par-dessus, puis son install.sh"
+msgstr "ऊपर से एक्सट्रैक्ट, फिर उसका install.sh"
+
+msgid ""
+"ancienne installation mise de côté (sudo mv), nouvelle à sa place, puis son "
+"install.sh qui reprend réglages et données"
+msgstr ""
+"पुराना इंस्टॉलेशन अलग रखा गया (sudo mv), उसकी जगह नया, फिर उसका install.sh "
+"जो सेटिंग्स और डेटा वापस लेता है"
+
+msgid "Commande"
+msgstr "कमांड"
+
+msgid "Mise à jour"
+msgstr "अपडेट"
+
+msgid "Réparer"
+msgstr "मरम्मत"
+
+msgid "Synchroniser"
+msgstr "सिंक करें"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} ({root}) : réinstallation (installation inachevée) — {how}"
+msgstr ""
+"{tool} {version} ({root}): फिर से इंस्टॉलेशन (अधूरा इंस्टॉलेशन) — {how}"
+
+msgid "(installation inachevée)"
+msgstr "(अधूरा इंस्टॉलेशन)"
+
+#, python-brace-format
+msgid "{head} → {latest} ({root}) : {how}"
+msgstr "{head} → {latest} ({root}): {how}"
+
+#, python-brace-format
+msgid "{head} ({root}) : pas de mise à jour possible — {reason}"
+msgstr "{head} ({root}): अपडेट संभव नहीं — {reason}"
+
+#, python-brace-format
+msgid ""
+"Tout se passe dans ce terminal : le mot de passe sudo de {name} est demandé "
+"par la machine elle-même, une fois ; omega-connect ne le voit jamais."
+msgstr ""
+"सब कुछ इसी टर्मिनल में होता है: {name} का sudo पासवर्ड मशीन स्वयं एक बार "
+"माँगती है; omega-connect उसे कभी नहीं देखता।"
+
+#, python-brace-format
+msgid "Réinstaller l'application — machine {name} ({target})"
+msgstr "एप्लिकेशन फिर से इंस्टॉल करें — मशीन {name} ({target})"
+
+#, python-brace-format
+msgid "Mettre à jour l'application — machine {name} ({target})"
+msgstr "एप्लिकेशन अपडेट करें — मशीन {name} ({target})"
+
+msgid ""
+"Aucune application trop ancienne sur cette machine : rien à mettre à jour."
+msgstr "इस मशीन पर कोई बहुत पुराना एप्लिकेशन नहीं: अपडेट करने को कुछ नहीं।"
+
+msgid ""
+"Archives prises sur la Release GitHub de chaque application (empreinte "
+"vérifiée avec sha.txt avant tout envoi) :"
+msgstr ""
+"आर्काइव हर एप्लिकेशन की GitHub Release से लिए जाते हैं (भेजने से पहले "
+"sha.txt से फ़िंगरप्रिंट जाँचा जाता है):"
+
+msgid ""
+"Rien d'autre n'est fait. Ensuite, pour remettre les liens en place : "
+"Synchronisation."
+msgstr ""
+"और कुछ नहीं किया जाता। इसके बाद, लिंक फिर से ठीक करने के लिए: "
+"सिंक्रनाइज़ेशन।"
+
+#, python-brace-format
+msgid "Synchroniser — machine {name} ({target})"
+msgstr "सिंक करें — मशीन {name} ({target})"
+
+msgid ""
+"Laissées de côté, trop anciennes (Registre → « Mettre à jour l'application »"
+" d'abord) :"
+msgstr "छोड़े गए, बहुत पुराने (पहले रजिस्टर → « एप्लिकेशन अपडेट करें »):"
+
+msgid ""
+"Rien à synchroniser : tout ce qui peut l'être est relié sur cette machine."
+msgstr ""
+"सिंक करने को कुछ नहीं: इस मशीन पर जो कुछ जुड़ सकता है वह सब जुड़ा हुआ है।"
+
+msgid "Réparer puis synchroniser, sur la machine. Plan :"
+msgstr "मशीन पर मरम्मत, फिर सिंक। योजना:"
+
+msgid ""
+"L'espace partagé de cette machine n'est lisible qu'avec sudo : il sera relu "
+"au lancement."
+msgstr ""
+"इस मशीन का साझा स्थान केवल sudo से पढ़ा जा सकता है: चलाते समय इसे फिर से "
+"पढ़ा जाएगा।"
+
+#, python-brace-format
+msgid "Réparer — machine {name} ({target})"
+msgstr "मरम्मत — मशीन {name} ({target})"
+
+#, python-brace-format
+msgid "« Réparer {name} » lance ces commandes SUR la machine, depuis ici."
+msgstr "« {name} की मरम्मत करें » ये कमांड यहीं से उसी मशीन पर चलाता है।"
+
+#, python-brace-format
+msgid ""
+"Commandes qu'aucun outil ne sait lancer — lancées AUSSI sur {name} par « "
+"Réparer {name} », une à une, après les corrections des outils (celles déjà "
+"réglées entre-temps sont sautées) :"
+msgstr ""
+"वे कमांड जिन्हें कोई टूल नहीं चला सकता — « {name} की मरम्मत करें » इन्हें भी"
+" {name} पर एक-एक करके चलाता है, टूल्स के सुधारों के बाद (जो इस बीच ठीक हो "
+"चुकी हैं वे छोड़ दी जाती हैं):"
+
+#, python-brace-format
+msgid "Rien n'a été envoyé à {target} :"
+msgstr "{target} को कुछ भी नहीं भेजा गया:"
+
+#, python-brace-format
+msgid "Envoi impossible vers {target}."
+msgstr "{target} को भेजना संभव नहीं।"
+
+#, python-brace-format
+msgid "Résultat pour {target} :"
+msgstr "{target} का परिणाम:"
+
+#, python-brace-format
+msgid ""
+"  ✗ aucun résultat rendu par la machine (connexion coupée, ou lancement "
+"interrompu ; code {code})."
+msgstr ""
+"  ✗ मशीन से कोई परिणाम नहीं मिला (कनेक्शन टूटा, या चलना बीच में रुका; कोड "
+"{code})।"
+
+#, python-brace-format
+msgid "ancienne installation gardée dans {path}"
+msgstr "पुराना इंस्टॉलेशन {path} में रखा गया"
+
+#, python-brace-format
+msgid "(code {code})"
+msgstr "(कोड {code})"
+
+#, python-brace-format
+msgid "code {code}"
+msgstr "कोड {code}"
+
+msgid "Unison"
+msgstr "Unison"
+
+msgid "~/.ssh/config"
+msgstr "~/.ssh/config"
+
+msgid "connue de SSH"
+msgstr "SSH को ज्ञात"
+
+msgid "jamais scannée"
+msgstr "कभी स्कैन नहीं की गई"
+
+msgid "injoignable"
+msgstr "पहुँच से बाहर"
+
+msgid "répond"
+msgstr "जवाब दे रही है"
+
+#, python-brace-format
+msgid "{machine} — {count} application(s), {state}"
+msgstr "{machine} — {count} एप्लिकेशन, {state}"
+
+msgid ""
+"Aucune machine trouvée dans vos profils Unison, ~/.ssh/config ou "
+"known_hosts."
+msgstr ""
+"आपकी Unison प्रोफ़ाइल, ~/.ssh/config या known_hosts में कोई मशीन नहीं मिली।"
+
+#, python-brace-format
+msgid "{target} ne répond pas (machine éteinte, ou réseau coupé) : {detail}"
+msgstr "{target} जवाब नहीं दे रही (मशीन बंद है, या नेटवर्क टूटा है): {detail}"
+
+#, python-brace-format
+msgid ""
+"Le nom « {host} » est inconnu sur ce réseau. Utilisez l'adresse de la "
+"machine (par exemple utilisateur@192.168.1.109), ou déclarez ce nom dans "
+"/etc/hosts ou dans ~/.ssh/config (Host {host} / HostName <adresse>)."
+msgstr ""
+"नाम « {host} » इस नेटवर्क पर अज्ञात है। मशीन का पता इस्तेमाल करें (उदाहरण: "
+"utilisateur@192.168.1.109), या यह नाम /etc/hosts या ~/.ssh/config में दर्ज "
+"करें (Host {host} / HostName <पता>)।"
+
+#, python-brace-format
+msgid ""
+"{host} répond, mais aucun serveur SSH n'y écoute (port 22). Sur cette "
+"machine : installez et démarrez openssh (sudo systemctl enable --now sshd) ;"
+" ou, s'il écoute sur un autre port, indiquez-le dans ~/.ssh/config (Host "
+"{host} / Port …)."
+msgstr ""
+"{host} जवाब दे रही है, पर वहाँ कोई SSH सर्वर नहीं सुन रहा (पोर्ट 22)। उस "
+"मशीन पर: openssh इंस्टॉल करें और शुरू करें (sudo systemctl enable --now "
+"sshd); या, यदि वह किसी दूसरे पोर्ट पर सुन रहा है, तो उसे ~/.ssh/config में "
+"बताएँ (Host {host} / Port …)।"
+
+#, python-brace-format
+msgid ""
+"{target} refuse vos clés SSH. Ajoutez votre clé publique sur cette machine "
+"(ssh-copy-id {target}), ou chargez-la dans l'agent SSH si elle est protégée "
+"par une phrase secrète (ssh-add). omega-connect ne demande jamais de mot de "
+"passe."
+msgstr ""
+"{target} आपकी SSH कुंजियाँ अस्वीकार करती है। इस मशीन पर अपनी सार्वजनिक कुंजी"
+" जोड़ें (ssh-copy-id {target}), या यदि वह पासफ़्रेज़ से सुरक्षित है तो उसे "
+"SSH एजेंट में लोड करें (ssh-add)। omega-connect कभी पासवर्ड नहीं माँगता।"
+
+#, python-brace-format
+msgid "{target} n'est pas encore connue : sa clé doit d'abord être acceptée."
+msgstr "{target} अभी ज्ञात नहीं है: पहले उसकी कुंजी स्वीकार करनी होगी।"
+
+#, python-brace-format
+msgid ""
+"La clé de {target} a CHANGÉ depuis la dernière connexion : scan refusé. Si "
+"la machine a été réinstallée, retirez l'ancienne clé (ssh-keygen -R {host}) "
+"puis recommencez ; sinon, quelqu'un se fait peut-être passer pour elle."
+msgstr ""
+"{target} की कुंजी पिछले कनेक्शन के बाद से बदल गई है: स्कैन अस्वीकृत। यदि "
+"मशीन फिर से इंस्टॉल की गई है, तो पुरानी कुंजी हटाएँ (ssh-keygen -R {host}) "
+"और फिर से कोशिश करें; अन्यथा, शायद कोई उसका रूप धारण कर रहा है।"
+
+#, python-brace-format
+msgid ""
+"{target} n'a pas Python 3 (3.10 ou plus récent) : le scanner ne peut pas y "
+"tourner. Rien n'a été installé."
+msgstr ""
+"{target} पर Python 3 (3.10 या नया) नहीं है: स्कैनर वहाँ नहीं चल सकता। कुछ भी"
+" इंस्टॉल नहीं किया गया।"
+
+#, python-brace-format
+msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-bas."
+msgstr "{target} का स्कैन विफल ({detail})। वहाँ कुछ नहीं बदला गया।"
+
+#, python-brace-format
+msgid ""
+"Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
+msgstr ""
+"इस मशीन पर SSH क्लाइंट नहीं है (कमांड {detail}): openssh इंस्टॉल करें।"
+
+#, python-brace-format
+msgid ""
+"{target} n'a jamais été jointe depuis ce compte. Vérifiez que l'empreinte de"
+" sa clé est bien la sienne (sur la machine : ssh-keygen -lf "
+"/etc/ssh/ssh_host_ed25519_key.pub) :"
+msgstr ""
+"इस खाते से {target} तक कभी कनेक्शन नहीं हुआ। जाँचें कि उसकी कुंजी का "
+"फ़िंगरप्रिंट सचमुच उसी का है (उस मशीन पर: ssh-keygen -lf "
+"/etc/ssh/ssh_host_ed25519_key.pub):"
+
+msgid "En lui faisant confiance, elle est ajoutée à votre ~/.ssh/known_hosts."
+msgstr "उस पर भरोसा करने पर, वह आपकी ~/.ssh/known_hosts में जोड़ दी जाती है।"
+
+msgid "Ses applications restent dans le registre, marquées « Injoignable »."
+msgstr "उसके एप्लिकेशन रजिस्टर में रहते हैं, « पहुँच से बाहर » चिह्नित।"
+
+#, python-brace-format
+msgid "{machine} : {count} application(s) omega trouvée(s)."
+msgstr "{machine}: {count} omega एप्लिकेशन मिले।"
+
+msgid "Aucune machine distante pour l'instant."
+msgstr "अभी कोई दूरस्थ मशीन नहीं।"
+
+#, python-brace-format
+msgid "  · {machine} — {count} application(s), dernier scan {date} ({state})"
+msgstr "  · {machine} — {count} एप्लिकेशन, अंतिम स्कैन {date} ({state})"
+
+#, python-brace-format
+msgid "{tool} crée ou met à jour son jeton d'installation ({root})"
+msgstr "{tool} अपना इंस्टॉलेशन टोकन बनाता या अपडेट करता है ({root})"
+
+#, python-brace-format
+msgid ""
+"omega-serv répare les droits partagés avec le service {service} ({root})"
+msgstr "omega-serv सेवा {service} के साथ साझा अनुमतियाँ ठीक करता है ({root})"
+
+msgid ""
+"omega-jail remet à jour ce qu'il a posé dans fail2ban (contenu et droits)"
+msgstr ""
+"omega-jail ने fail2ban में जो रखा है उसे अपडेट करता है (सामग्री और "
+"अनुमतियाँ)"
+
+#, python-brace-format
+msgid ""
+"{root} appartient au compte {account} : à lancer sous ce compte, ou avec "
+"omega-connect en root."
+msgstr ""
+"{root} खाते {account} का है: इसे इसी खाते से चलाएँ, या omega-connect को root"
+" के रूप में।"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} dans {root} : environnement Python ou carte d'identité "
+"manquants"
+msgstr "{root} में {tool} {version}: Python एनवायरनमेंट या पहचान पत्र गायब"
+
+#, python-brace-format
+msgid "{tool} {version} dans {root} : {minimum} ou plus récent requis"
+msgstr "{root} में {tool} {version}: {minimum} या नया आवश्यक"
+
+msgid "Réparer : corrections faites par les outils eux-mêmes"
+msgstr "मरम्मत: सुधार स्वयं टूल्स द्वारा"
+
+msgid "Rien à réparer : « verifier » ne signale aucun écart corrigeable."
+msgstr ""
+"मरम्मत को कुछ नहीं: « verifier » कोई ठीक करने योग्य विसंगति नहीं बताता।"
+
+msgid ""
+"Trop ancien pour être réparé (ses commandes n'existent pas encore dans cette"
+" version) ; à mettre à jour d'abord (Registre → « Mettre à jour "
+"l'application ») :"
+msgstr ""
+"मरम्मत के लिए बहुत पुराना (इसकी कमांड इस संस्करण में अभी मौजूद नहीं); पहले "
+"अपडेट करें (रजिस्टर → « एप्लिकेशन अपडेट करें »):"
+
+msgid ""
+"Installation inachevée (son install.sh ne s'est pas terminé) : à réinstaller"
+" d'abord (Registre → « Réinstaller l'application ») :"
+msgstr ""
+"अधूरा इंस्टॉलेशन (इसका install.sh पूरा नहीं हुआ): पहले फिर से इंस्टॉल करें "
+"(रजिस्टर → « एप्लिकेशन फिर से इंस्टॉल करें »):"
+
+msgid "Commandes qui seront lancées, une à une (arrêt au premier échec) :"
+msgstr "चलाई जाने वाली कमांड, एक-एक करके (पहली विफलता पर रुकना):"
+
+msgid "en root"
+msgstr "root के रूप में"
+
+#, python-brace-format
+msgid "sous le compte {account}"
+msgstr "खाते {account} से"
+
+msgid ""
+"Zone neutre : « etablir » corrige ce que le registre dit avoir créé ; son "
+"plan sera affiché ensuite, avant tout lancement :"
+msgstr ""
+"तटस्थ क्षेत्र: « etablir » वह ठीक करता है जो रजिस्टर के अनुसार बनाया गया था;"
+" उसकी योजना बाद में, कुछ भी चलाने से पहले दिखाई जाएगी:"
+
+msgid ""
+"Ensuite : « etablir » reliera à la zone les outils dont le jeton vient "
+"d'être créé ; son plan sera affiché avant tout lancement."
+msgstr ""
+"इसके बाद: « etablir » उन टूल्स को क्षेत्र से जोड़ेगा जिनका टोकन अभी बनाया "
+"गया है; उसकी योजना कुछ भी चलाने से पहले दिखाई जाएगी।"
+
+msgid ""
+"Zone neutre : illisible sans sudo avant votre reconnexion, son état n'est "
+"pas connu. « etablir » va la lire avec sudo et ne fera que ce qui manque "
+"(outils pas encore reliés, copies, groupe du service) ; son plan sera "
+"affiché avant tout lancement."
+msgstr ""
+"तटस्थ क्षेत्र: आपके दोबारा लॉग इन करने से पहले sudo के बिना पढ़ा नहीं जा "
+"सकता, उसकी स्थिति अज्ञात है। « etablir » उसे sudo से पढ़ेगा और केवल वही "
+"करेगा जो गायब है (अभी न जुड़े टूल्स, कॉपियाँ, सेवा का समूह); उसकी योजना कुछ "
+"भी चलाने से पहले दिखाई जाएगी।"
+
+msgid "Non lancé depuis cette session :"
+msgstr "इस सत्र से नहीं चलाया गया:"
+
+msgid ""
+"À faire à la main (aucun outil ne sait le corriger lui-même ; omega-connect "
+"ne réécrit jamais le fichier d'un autre outil) :"
+msgstr ""
+"हाथ से करना है (कोई टूल इसे स्वयं ठीक नहीं कर सकता; omega-connect कभी किसी "
+"दूसरे टूल की फ़ाइल दोबारा नहीं लिखता):"
+
+msgid "À décider (jamais lancé par « reparer ») :"
+msgstr "तय करना है (« reparer » इसे कभी नहीं चलाता):"
+
+msgid "code"
+msgstr "कोड"
+
+#, python-brace-format
+msgid ""
+"Terminé : {count} commande(s) lancée(s), toutes réussies. Relancez « "
+"verifier » pour constater."
+msgstr ""
+"पूरा: {count} कमांड चलाई गईं, सभी सफल। पुष्टि के लिए « verifier » फिर से "
+"चलाएँ।"
+
+#, python-brace-format
+msgid "Arrêt à l'étape « {step} » : {error}"
+msgstr "चरण « {step} » पर रोका गया: {error}"
+
+msgid ""
+"Rien d'autre n'a été lancé. Relancez « reparer » après avoir corrigé la "
+"cause."
+msgstr "और कुछ नहीं चलाया गया। कारण ठीक करने के बाद « reparer » फिर से चलाएँ।"
+
+msgid "dossier"
+msgstr "फ़ोल्डर"
+
+msgid "groupe"
+msgstr "समूह"
+
+msgid "membre du groupe"
+msgstr "समूह का सदस्य"
+
+msgid "groupe donné au service (par omega-serv)"
+msgstr "सेवा को दिया गया समूह (omega-serv द्वारा)"
+
+msgid "active (synchronisée)"
+msgstr "सक्रिय (सिंक में)"
+
+msgid "figée (plus synchronisée)"
+msgstr "स्थिर (अब सिंक नहीं)"
+
+#, python-brace-format
+msgid ""
+"Pas encore d'espace partagé sur cette machine ({zone}) : la Synchronisation "
+"le prépare."
+msgstr ""
+"इस मशीन पर अभी कोई साझा स्थान नहीं ({zone}): सिंक्रनाइज़ेशन इसे तैयार करता "
+"है।"
+
+#, python-brace-format
+msgid ""
+"Espace partagé {zone} présent, lisible par root et le groupe omega-synchro "
+"seulement (rapport fait sans sudo ; le groupe compte après une reconnexion)."
+msgstr ""
+"साझा स्थान {zone} मौजूद है, केवल root और omega-synchro समूह द्वारा पढ़ा जा "
+"सकता है (रिपोर्ट sudo के बिना बनाई गई; समूह दोबारा लॉग इन करने के बाद लागू "
+"होता है)।"
+
+#, python-brace-format
+msgid "Espace partagé {zone} : registre {status} ({detail})."
+msgstr "साझा स्थान {zone}: रजिस्टर {status} ({detail})।"
+
+#, python-brace-format
+msgid "Espace partagé {zone} — {state} — mis à jour le {date}."
+msgstr "साझा स्थान {zone} — {state} — {date} को अपडेट किया गया।"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : installation inachevée → « Réinstaller l'application »"
+msgstr ""
+"{tool} {version}: अधूरा इंस्टॉलेशन → « एप्लिकेशन फिर से इंस्टॉल करें »"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} → {minimum} ou plus récent : « Mettre à jour l'application "
+"»"
+msgstr "{tool} {version} → {minimum} या नया: « एप्लिकेशन अपडेट करें »"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : à mettre à jour sur ce poste, section « Mise à jour » du "
+"README de l'outil"
+msgstr ""
+"{tool} {version}: इस कंप्यूटर पर अपडेट करना है, टूल के README का « अपडेट » "
+"खंड"
+
+msgid "corrigé par l'outil lui-même (menu Réparer)"
+msgstr "टूल स्वयं ठीक करता है (मरम्मत मेनू)"
+
+#, python-brace-format
+msgid "commande à lancer sur ce poste : {command}"
+msgstr "इस कंप्यूटर पर चलाने की कमांड: {command}"
+
+#, python-brace-format
+msgid "commande lancée sur la machine par le menu Réparer : {command}"
+msgstr "मरम्मत मेनू द्वारा मशीन पर चलाई गई कमांड: {command}"
+
+msgid "aucune correction connue"
+msgstr "कोई ज्ञात सुधार नहीं"
+
+msgid ""
+"Machines qui ne répondent plus — Scanner → « Rescanner les machines connues "
+"»"
+msgstr ""
+"मशीनें जो अब जवाब नहीं देतीं — स्कैन करें → « ज्ञात मशीनें फिर से स्कैन करें"
+" »"
+
+msgid "À réinstaller ou à mettre à jour — Registre, bouton sous la ligne"
+msgstr "फिर से इंस्टॉल या अपडेट करना है — रजिस्टर, पंक्ति के नीचे का बटन"
+
+msgid "À réparer — menu Réparer"
+msgstr "मरम्मत ज़रूरी — मरम्मत मेनू"
+
+msgid "À synchroniser — menu Synchronisation"
+msgstr "सिंक करना है — सिंक्रनाइज़ेशन मेनू"
+
+#, python-brace-format
+msgid "{machine} — {tool} : {state}"
+msgstr "{machine} — {tool}: {state}"
+
+msgid "application inconnue"
+msgstr "अज्ञात एप्लिकेशन"
+
+#, python-brace-format
+msgid "propriétaire : {owner} ; trouvée par : {sources}"
+msgstr "स्वामी: {owner}; इससे मिली: {sources}"
+
+#, python-brace-format
+msgid "carte d'identité : {card}"
+msgstr "पहचान पत्र: {card}"
+
+#, python-brace-format
+msgid "instance {instance}"
+msgstr "इंस्टेंस {instance}"
+
+#, python-brace-format
+msgid "description : {what}"
+msgstr "विवरण: {what}"
+
+msgid "Remarques :"
+msgstr "टिप्पणियाँ:"
+
+msgid "Aucune application omega trouvée."
+msgstr "कोई omega एप्लिकेशन नहीं मिला।"
+
+#, python-brace-format
+msgid ""
+"{machine} — {target} — {state} — dernier scan {date} — {apps} "
+"application(s), {links} liaison(s)"
+msgstr ""
+"{machine} — {target} — {state} — अंतिम स्कैन {date} — {apps} एप्लिकेशन, "
+"{links} लिंक"
+
+#, python-brace-format
+msgid "dernière erreur : {error}"
+msgstr "अंतिम त्रुटि: {error}"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — RAPPORT COMPLET"
+msgstr "OMEGA-CONNECT {version} — पूरी रिपोर्ट"
+
+#, python-brace-format
+msgid ""
+"Établi le {date} depuis {machine}, machines du réseau rescannées (lecture "
+"seule, sans root)."
+msgstr ""
+"{date} को {machine} से बनाई गई, नेटवर्क की मशीनें फिर से स्कैन की गईं (केवल "
+"पढ़ना, root के बिना)।"
+
+msgid "BILAN"
+msgstr "सारांश"
+
+#, python-brace-format
+msgid "{machines} machine(s) : {machine} et {remote} du réseau."
+msgstr "{machines} मशीनें: {machine} और नेटवर्क की {remote}।"
+
+#, python-brace-format
+msgid "{count} application(s) : {summary}."
+msgstr "{count} एप्लिकेशन: {summary}।"
+
+#, python-brace-format
+msgid "{count} liaison(s) : {summary}."
+msgstr "{count} लिंक: {summary}।"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : {state}."
+msgstr "{machine} का साझा स्थान: {state}।"
+
+msgid "À FAIRE"
+msgstr "करने के काम"
+
+msgid "Rien à faire : toutes les applications sont à jour et reliées."
+msgstr "करने को कुछ नहीं: सभी एप्लिकेशन अद्यतन और जुड़े हुए हैं।"
+
+msgid "REGISTRE — APPLICATIONS PAR MACHINE"
+msgstr "रजिस्टर — मशीन के अनुसार एप्लिकेशन"
+
+msgid "MACHINES DU RÉSEAU"
+msgstr "नेटवर्क की मशीनें"
+
+msgid "Aucune (Scanner → machine distante, pour en ajouter)."
+msgstr "कोई नहीं (जोड़ने के लिए: स्कैन करें → दूरस्थ मशीन)।"
+
+#, python-brace-format
+msgid "APPLICATIONS DE {machine} EN DÉTAIL"
+msgstr "{machine} के एप्लिकेशन विस्तार से"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (tous les contrôles)"
+msgstr "{machine} के लिंक (सभी जाँचें)"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (réseau, scan du {date})"
+msgstr "{machine} के लिंक (नेटवर्क, {date} का स्कैन)"
+
+msgid "Aucune liaison relevée."
+msgstr "कोई लिंक दर्ज नहीं।"
+
+#, python-brace-format
+msgid "ESPACE PARTAGÉ (omega-synchro) DE {machine} ET SON REGISTRE"
+msgstr "{machine} का साझा स्थान (omega-synchro) और उसका रजिस्टर"
+
+msgid "Créé par omega-connect :"
+msgstr "omega-connect द्वारा बनाया गया:"
+
+msgid "rien"
+msgstr "कुछ नहीं"
+
+msgid "Applications reliées :"
+msgstr "जुड़े हुए एप्लिकेशन:"
+
+msgid "reliée le"
+msgstr "जोड़ा गया"
+
+msgid "conforme"
+msgstr "अनुरूप"
+
+msgid "info"
+msgstr "जानकारी"
+
+msgid "écart"
+msgstr "विसंगति"
+
+msgid "non vérifiable"
+msgstr "जाँच संभव नहीं"
+
+msgid "partielle"
+msgstr "आंशिक"
+
+#, python-brace-format
+msgid "instance « {instance} » — {root}"
+msgstr "इंस्टेंस « {instance} » — {root}"
+
+msgid "machine"
+msgstr "मशीन"
+
+msgid "Aucun contrôle."
+msgstr "कोई जाँच नहीं।"
+
+msgid "Rapport complet"
+msgstr "पूरी रिपोर्ट"
+
+#, python-brace-format
+msgid "{count} liaison(s), dont {problems} à corriger."
+msgstr "{count} लिंक, जिनमें से {problems} ठीक करने हैं।"
+
+msgid "Applications"
+msgstr "एप्लिकेशन"
+
+msgid "À faire"
+msgstr "करने के काम"
+
+msgid "Registre — applications par machine"
+msgstr "रजिस्टर — मशीन के अनुसार एप्लिकेशन"
+
+msgid "Application"
+msgstr "एप्लिकेशन"
+
+msgid "Instance / service"
+msgstr "इंस्टेंस / सेवा"
+
+msgid "Machine"
+msgstr "मशीन"
+
+msgid "Version"
+msgstr "संस्करण"
+
+msgid "Dossier"
+msgstr "फ़ोल्डर"
+
+msgid "Machines du réseau"
+msgstr "नेटवर्क की मशीनें"
+
+msgid "Connexion"
+msgstr "कनेक्शन"
+
+msgid "Dernier scan"
+msgstr "अंतिम स्कैन"
+
+msgid "Dernière erreur"
+msgstr "अंतिम त्रुटि"
+
+msgid "Liaisons"
+msgstr "लिंक"
+
+#, python-brace-format
+msgid "Applications de {machine} en détail"
+msgstr "{machine} के एप्लिकेशन विस्तार से"
+
+msgid "Propriétaire"
+msgstr "स्वामी"
+
+msgid "Trouvée par"
+msgstr "इससे मिली"
+
+msgid "Carte d'identité"
+msgstr "पहचान पत्र"
+
+msgid "Aucun outil omega trouvé."
+msgstr "कोई omega टूल नहीं मिला।"
+
+#, python-brace-format
+msgid "Identifiant en double {identifier} : {roots}"
+msgstr "डुप्लिकेट ID {identifier}: {roots}"
+
+msgid "Remarques sur la recherche"
+msgstr "खोज पर टिप्पणियाँ"
+
+#, python-brace-format
+msgid "Liaisons de {machine}"
+msgstr "{machine} के लिंक"
+
+#, python-brace-format
+msgid "Liaisons de {machine} (réseau, scan du {date})"
+msgstr "{machine} के लिंक (नेटवर्क, {date} का स्कैन)"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} et son registre"
+msgstr "{machine} का साझा स्थान और उसका रजिस्टर"
+
+msgid "Créé le"
+msgstr "बनाया गया"
+
+msgid "Élément"
+msgstr "तत्व"
+
+msgid "Identifiant"
+msgstr "पहचानकर्ता"
+
+msgid "Instance"
+msgstr "इंस्टेंस"
+
+msgid "Reliée le"
+msgstr "जोड़ने की तिथि"
+
+msgid "Aucune application reliée."
+msgstr "कोई जुड़ा हुआ एप्लिकेशन नहीं।"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — rapport du {date}, établi depuis {machine}."
+msgstr "OMEGA-CONNECT {version} — {date} की रिपोर्ट, {machine} से बनाई गई।"
+
+msgid "Rapport complet - Omega-Connect"
+msgstr "पूरी रिपोर्ट - Omega-Connect"
+
+msgid "Journaux d'omega-serv → jails fail2ban"
+msgstr "omega-serv के लॉग → fail2ban jails"
+
+msgid "Journaux magnet (omega-waf) → jails fail2ban"
+msgstr "magnet (omega-waf) के लॉग → fail2ban jails"
+
+msgid "Pont fail2ban → liste noire d'omega-serv"
+msgstr "fail2ban ब्रिज → omega-serv की ब्लैकलिस्ट"
+
+msgid "Liste protégée → jails et pont"
+msgstr "संरक्षित सूची → jails और ब्रिज"
+
+msgid "Liste noire d'omega-serv (droits)"
+msgstr "omega-serv की ब्लैकलिस्ट (अनुमतियाँ)"
+
+msgid "Fichiers d'omega-jail dans fail2ban"
+msgstr "fail2ban में omega-jail की फ़ाइलें"
+
+msgid "Cartes d'identité"
+msgstr "पहचान पत्र"
+
+msgid "Espace partagé (omega-synchro)"
+msgstr "साझा स्थान (omega-synchro)"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "à réparer"
+msgstr "मरम्मत ज़रूरी"
+
+msgid "à réparer (bloquant)"
+msgstr "मरम्मत ज़रूरी (अवरोधक)"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — le dossier qui le contient n'est "
+"lisible que par root ({detail})."
+msgstr ""
+"{subject}: root के बिना जाँच संभव नहीं — इसे रखने वाला फ़ोल्डर केवल root पढ़"
+" सकता है ({detail})।"
+
+msgid "fail2ban n'est pas installé : aucun jail ne protège cette instance."
+msgstr "fail2ban इंस्टॉल नहीं है: कोई jail इस इंस्टेंस की रक्षा नहीं करता।"
+
+#, python-brace-format
+msgid "dossiers de fail2ban illisibles ({detail}) : non vérifiable sans root."
+msgstr ""
+"fail2ban के फ़ोल्डर पढ़े नहीं जा सकते ({detail}): root के बिना जाँच संभव "
+"नहीं।"
+
+msgid ""
+"omega-jail n'est pas installé : aucun jail fail2ban ne lit les journaux "
+"d'omega-serv."
+msgstr ""
+"omega-jail इंस्टॉल नहीं है: कोई fail2ban jail omega-serv के लॉग नहीं पढ़ता।"
+
+msgid "aucun jail d'omega-jail pour cette instance."
+msgstr "इस इंस्टेंस के लिए omega-jail का कोई jail नहीं।"
+
+msgid "omega-jail n'a encore posé aucun fichier dans fail2ban."
+msgstr "omega-jail ने अभी तक fail2ban में कोई फ़ाइल नहीं रखी है।"
+
+#, python-brace-format
+msgid "fonction {subject} désactivée : rien à relier."
+msgstr "फ़ंक्शन {subject} बंद है: जोड़ने को कुछ नहीं।"
+
+msgid ""
+"non vérifiable : l'outil n'a pas fourni sa description (version trop "
+"ancienne, ou refusée) — voir le Registre."
+msgstr ""
+"जाँच संभव नहीं: टूल ने अपना विवरण नहीं दिया (संस्करण बहुत पुराना, या "
+"अस्वीकृत) — रजिस्टर देखें।"
+
+#, python-brace-format
+msgid "jail {subject} désactivé (enabled = false)."
+msgstr "jail {subject} बंद है (enabled = false)।"
+
+#, python-brace-format
+msgid ""
+"jail {subject} : filtre {detail} introuvable dans filter.d — fail2ban refuse"
+" de démarrer."
+msgstr ""
+"jail {subject}: फ़िल्टर {detail} filter.d में नहीं मिला — fail2ban शुरू होने"
+" से मना करता है।"
+
+#, python-brace-format
+msgid "journal {subject} présent ({detail})."
+msgstr "लॉग {subject} मौजूद है ({detail})।"
+
+#, python-brace-format
+msgid ""
+"journal {subject} absent (jail {detail}) : fail2ban refuse de démarrer tant "
+"qu'il manque."
+msgstr ""
+"लॉग {subject} गायब है (jail {detail}): जब तक यह गायब है, fail2ban शुरू होने "
+"से मना करता है।"
+
+#, python-brace-format
+msgid ""
+"journal {subject} appartient à root ({detail}) : le service omega-serv ne "
+"peut plus y écrire."
+msgstr ""
+"लॉग {subject} root का है ({detail}): omega-serv सेवा अब इसमें लिख नहीं सकती।"
+
+#, python-brace-format
+msgid ""
+"journal {subject} : droits {detail} ; le service omega-serv risque de ne pas"
+" pouvoir y écrire."
+msgstr ""
+"लॉग {subject}: अनुमतियाँ {detail}; omega-serv सेवा शायद इसमें लिख न सके।"
+
+#, python-brace-format
+msgid ""
+"jail {subject} ne lit pas le fichier qu'écrit l'instance ({detail}) : il ne "
+"bannira jamais."
+msgstr ""
+"jail {subject} वह फ़ाइल नहीं पढ़ता जो इंस्टेंस लिखता है ({detail}): यह कभी "
+"बैन नहीं करेगा।"
+
+#, python-brace-format
+msgid ""
+"jail {subject} : la fonction qui écrit son journal ({detail}) est "
+"désactivée, le jail reste sans effet."
+msgstr ""
+"jail {subject}: इसका लॉग लिखने वाला फ़ंक्शन ({detail}) बंद है, jail बेअसर "
+"रहता है।"
+
+#, python-brace-format
+msgid ""
+"jail {subject} lit {detail} : aucune instance omega-serv détectée à cet "
+"endroit."
+msgstr ""
+"jail {subject} {detail} पढ़ता है: उस जगह कोई omega-serv इंस्टेंस नहीं मिला।"
+
+#, python-brace-format
+msgid ""
+"journal {subject} ({detail}) : fonction active mais aucun jail ne le lit."
+msgstr ""
+"लॉग {subject} ({detail}): फ़ंक्शन सक्रिय है पर कोई jail इसे नहीं पढ़ता।"
+
+#, python-brace-format
+msgid ""
+"omega-waf est en mode log-only (il note les attaques sans bannir), mais le "
+"jail {subject} posé par omega-jail dans fail2ban bannit, lui, au niveau "
+"réseau. omega-connect indique l'état et relie les outils ; il ne se "
+"substitue pas à fail2ban."
+msgstr ""
+"omega-waf log-only मोड में है (यह हमलों को दर्ज करता है पर बैन नहीं करता), "
+"लेकिन omega-jail द्वारा fail2ban में रखा गया jail {subject} नेटवर्क स्तर पर "
+"बैन करता है। omega-connect स्थिति बताता है और टूल्स को जोड़ता है; यह "
+"fail2ban की जगह नहीं लेता।"
+
+#, python-brace-format
+msgid "pont {subject} vers la liste noire de cette instance ({detail})."
+msgstr "इस इंस्टेंस की ब्लैकलिस्ट तक ब्रिज {subject} ({detail})।"
+
+msgid ""
+"aucun pont vers la liste noire de cette instance : un ban derrière Tailscale"
+" reste sans effet."
+msgstr ""
+"इस इंस्टेंस की ब्लैकलिस्ट तक कोई ब्रिज नहीं: Tailscale के पीछे बैन बेअसर "
+"रहता है।"
+
+#, python-brace-format
+msgid ""
+"pont {subject} sans omega-serv (installé quand omega-serv était introuvable)"
+" : aucun ban relayé."
+msgstr ""
+"ब्रिज {subject} omega-serv के बिना (तब इंस्टॉल किया गया जब omega-serv नहीं "
+"मिला था): कोई बैन आगे नहीं भेजा जाता।"
+
+#, python-brace-format
+msgid ""
+"jail {subject} utilise l'action {detail}, absente d'action.d : fail2ban "
+"refuse de démarrer."
+msgstr ""
+"jail {subject} action {detail} इस्तेमाल करता है, जो action.d में नहीं है: "
+"fail2ban शुरू होने से मना करता है।"
+
+#, python-brace-format
+msgid "jail {subject} relaie ses bans vers une autre instance ({detail})."
+msgstr "jail {subject} अपने बैन किसी दूसरे इंस्टेंस को भेजता है ({detail})।"
+
+#, python-brace-format
+msgid "pont {subject} : l'instance visée a disparu ({detail})."
+msgstr "ब्रिज {subject}: लक्षित इंस्टेंस गायब हो गया है ({detail})।"
+
+#, python-brace-format
+msgid ""
+"pont {subject} : l'instance visée ({detail}) n'a pas été détectée (autre "
+"compte ?)."
+msgstr "ब्रिज {subject}: लक्षित इंस्टेंस ({detail}) नहीं मिला (दूसरा खाता?)।"
+
+#, python-brace-format
+msgid "jail {subject} sans pont vers la liste noire."
+msgstr "jail {subject} का ब्लैकलिस्ट तक कोई ब्रिज नहीं।"
+
+#, python-brace-format
+msgid "script du pont {subject} conforme ({detail})."
+msgstr "ब्रिज {subject} की स्क्रिप्ट अनुरूप है ({detail})।"
+
+#, python-brace-format
+msgid "script du pont {subject} absent : aucun ban n'est relayé."
+msgstr "ब्रिज {subject} की स्क्रिप्ट गायब है: कोई बैन आगे नहीं भेजा जाता।"
+
+#, python-brace-format
+msgid ""
+"script du pont {subject} modifiable par un autre compte que root ({detail}),"
+" alors que fail2ban le lance en root."
+msgstr ""
+"ब्रिज {subject} की स्क्रिप्ट root के अलावा किसी दूसरे खाते द्वारा बदली जा "
+"सकती है ({detail}), जबकि fail2ban इसे root के रूप में चलाता है।"
+
+#, python-brace-format
+msgid "script du pont {subject} : droits {detail} au lieu de root:root 0755."
+msgstr ""
+"ब्रिज {subject} की स्क्रिप्ट: अनुमतियाँ {detail}, root:root 0755 के बजाय।"
+
+#, python-brace-format
+msgid ""
+"non vérifiable : la description d'omega-serv ne donne pas sa liste protégée "
+"({detail} ; version antérieure à 2.6.1 ?), comparaison impossible."
+msgstr ""
+"जाँच संभव नहीं: omega-serv का विवरण उसकी संरक्षित सूची नहीं देता ({detail}; "
+"2.6.1 से पहले का संस्करण?), तुलना संभव नहीं।"
+
+#, python-brace-format
+msgid "jail {subject} : ignoreip identique à la liste protégée d'omega-serv."
+msgstr "jail {subject}: ignoreip omega-serv की संरक्षित सूची के समान है।"
+
+#, python-brace-format
+msgid ""
+"jail {subject} : ignoreip différent de la liste protégée d'omega-serv (en "
+"plus « + », en moins « - » : {detail})."
+msgstr ""
+"jail {subject}: ignoreip omega-serv की संरक्षित सूची से अलग है (अतिरिक्त « +"
+" », कम « - »: {detail})।"
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés identiques à la liste protégée d'omega-"
+"serv."
+msgstr ""
+"ब्रिज {subject}: छूट वाले नेटवर्क omega-serv की संरक्षित सूची के समान हैं।"
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés différents de la liste protégée d'omega-"
+"serv (en plus « + », en moins « - » : {detail})."
+msgstr ""
+"ब्रिज {subject}: छूट वाले नेटवर्क omega-serv की संरक्षित सूची से अलग हैं "
+"(अतिरिक्त « + », कम « - »: {detail})।"
+
+msgid "liste noire désactivée : rien à relier."
+msgstr "ब्लैकलिस्ट बंद है: जोड़ने को कुछ नहीं।"
+
+#, python-brace-format
+msgid "liste noire {subject} pas encore créée (aucun ban jusqu'ici)."
+msgstr "ब्लैकलिस्ट {subject} अभी नहीं बनी (अब तक कोई बैन नहीं)।"
+
+#, python-brace-format
+msgid "liste noire {subject} conforme ({detail})."
+msgstr "ब्लैकलिस्ट {subject} अनुरूप है ({detail})।"
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} appartient à root ({detail}) : le service ne peut plus"
+" la lire et le site répond en erreur."
+msgstr ""
+"ब्लैकलिस्ट {subject} root की है ({detail}): सेवा अब इसे पढ़ नहीं सकती और "
+"साइट त्रुटि देती है।"
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : mauvais groupe ({detail}) ; le service ne peut pas "
+"la lire."
+msgstr "ब्लैकलिस्ट {subject}: गलत समूह ({detail}); सेवा इसे पढ़ नहीं सकती।"
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : droits {detail}, il faut au moins 0660 (lecture et "
+"écriture pour le groupe du service)."
+msgstr ""
+"ब्लैकलिस्ट {subject}: अनुमतियाँ {detail}, कम से कम 0660 चाहिए (सेवा के समूह "
+"के लिए पढ़ना और लिखना)।"
+
+#, python-brace-format
+msgid "liste noire {subject} : propriétaire inattendu ({detail})."
+msgstr "ब्लैकलिस्ट {subject}: अनपेक्षित स्वामी ({detail})।"
+
+#, python-brace-format
+msgid "{subject} fichier(s) d'omega-jail conforme(s)."
+msgstr "omega-jail की {subject} फ़ाइलें अनुरूप।"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — fichier illisible pour votre compte."
+msgstr ""
+"{subject}: root के बिना जाँच संभव नहीं — फ़ाइल आपके खाते के लिए पढ़ने योग्य "
+"नहीं।"
+
+#, python-brace-format
+msgid ""
+"{subject} modifiable par un autre compte que root ({detail}), alors que "
+"fail2ban le lit en root."
+msgstr ""
+"{subject} root के अलावा किसी दूसरे खाते द्वारा बदली जा सकती है ({detail}), "
+"जबकि fail2ban इसे root के रूप में पढ़ता है।"
+
+#, python-brace-format
+msgid "{subject} : droits {detail} au lieu de root:root 0644."
+msgstr "{subject}: अनुमतियाँ {detail}, root:root 0644 के बजाय।"
+
+#, python-brace-format
+msgid "{subject} abîmé ({detail}) : fail2ban risque de refuser de démarrer."
+msgstr "{subject} क्षतिग्रस्त ({detail}): fail2ban शायद शुरू होने से मना करे।"
+
+#, python-brace-format
+msgid ""
+"{subject} : action du pont abîmée ou modifiée à la main (ligne actionban "
+"introuvable)."
+msgstr ""
+"{subject}: ब्रिज का action क्षतिग्रस्त या हाथ से बदला गया (actionban पंक्ति "
+"नहीं मिली)।"
+
+#, python-brace-format
+msgid "{subject} : carte d'identité présente (identifiant {detail}…)."
+msgstr "{subject}: पहचान पत्र मौजूद (ID {detail}…)।"
+
+#, python-brace-format
+msgid "{subject} ({detail}) : pas encore de carte d'identité."
+msgstr "{subject} ({detail}): अभी पहचान पत्र नहीं है।"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : version trop ancienne : ni carte d'identité ni "
+"description."
+msgstr "{subject} ({detail}): संस्करण बहुत पुराना: न पहचान पत्र, न विवरण।"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : installation inachevée (environnement Python ou carte"
+" d'identité manquants) : à réinstaller."
+msgstr ""
+"{subject} ({detail}): अधूरा इंस्टॉलेशन (Python एनवायरनमेंट या पहचान पत्र "
+"गायब): फिर से इंस्टॉल करना है।"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, carte d'identité illisible pour votre compte "
+"(droits du fichier ou du dossier : {detail})."
+msgstr ""
+"{subject}: जाँच संभव नहीं, पहचान पत्र आपके खाते के लिए पढ़ने योग्य नहीं "
+"(फ़ाइल या फ़ोल्डर की अनुमतियाँ: {detail})।"
+
+#, python-brace-format
+msgid "{subject} : carte d'identité abîmée ({detail})."
+msgstr "{subject}: पहचान पत्र क्षतिग्रस्त ({detail})।"
+
+#, python-brace-format
+msgid ""
+"{subject} : carte d'identité d'une version plus récente qu'omega-connect "
+"({detail})."
+msgstr "{subject}: पहचान पत्र omega-connect से नए संस्करण का है ({detail})।"
+
+#, python-brace-format
+msgid ""
+"{subject} : droits {detail} au lieu de 0644 (ou 0664), au nom du "
+"propriétaire du dossier."
+msgstr ""
+"{subject}: अनुमतियाँ {detail}, 0644 (या 0664) के बजाय, फ़ोल्डर के स्वामी के "
+"नाम पर।"
+
+#, python-brace-format
+msgid ""
+"identifiant {subject} en double : {detail} (dossier copié à la main ?)."
+msgstr "ID {subject} डुप्लिकेट: {detail} (फ़ोल्डर हाथ से कॉपी किया गया?)।"
+
+#, python-brace-format
+msgid ""
+"espace partagé {subject} pas encore préparé : la Synchronisation le prépare."
+msgstr ""
+"साझा स्थान {subject} अभी तैयार नहीं: सिंक्रनाइज़ेशन इसे तैयार करता है।"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien n'y "
+"est lu."
+msgstr ""
+"{subject} असली फ़ोल्डर नहीं है (सिंबॉलिक लिंक या फ़ाइल): इसमें कुछ नहीं पढ़ा"
+" जाता।"
+
+#, python-brace-format
+msgid ""
+"{subject} existe sans registre : créé à la main ou par autre chose qu'omega-"
+"connect (rien n'y sera fait)."
+msgstr ""
+"{subject} बिना रजिस्टर के मौजूद है: हाथ से या omega-connect के अलावा किसी और"
+" चीज़ द्वारा बनाया गया (इसमें कुछ नहीं किया जाएगा)।"
+
+#, python-brace-format
+msgid "{subject} : non vérifiable, illisible pour votre compte ({detail})."
+msgstr ""
+"{subject}: जाँच संभव नहीं, आपके खाते के लिए पढ़ने योग्य नहीं ({detail})।"
+
+#, python-brace-format
+msgid ""
+"en attente de reconnexion : {subject} est déjà membre du groupe omega-"
+"synchro, mais la session ouverte ne le sait pas encore. {detail} sera "
+"vérifié après la prochaine connexion (ou Registre → « Lire avec sudo »)."
+msgstr ""
+"दोबारा लॉग इन की प्रतीक्षा: {subject} पहले से omega-synchro समूह का सदस्य "
+"है, पर खुला सत्र अभी यह नहीं जानता। {detail} अगली बार लॉग इन करने के बाद "
+"जाँचा जाएगा (या रजिस्टर → « sudo से पढ़ें »)।"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, lisible par root et le groupe omega-synchro "
+"seulement, et {detail} n'en est pas membre."
+msgstr ""
+"{subject}: जाँच संभव नहीं, केवल root और omega-synchro समूह द्वारा पढ़ा जा "
+"सकता है, और {detail} इसका सदस्य नहीं है।"
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est retiré tant qu'il n'est pas"
+" réparé."
+msgstr ""
+"रजिस्टर {subject} क्षतिग्रस्त ({detail}): जब तक यह ठीक नहीं होता, कुछ भी "
+"हटाया नहीं जाता।"
+
+msgid "espace partagé figé : gardé tel quel, plus synchronisé."
+msgstr "साझा स्थान स्थिर: जैसा है वैसा रखा गया, अब सिंक नहीं।"
+
+#, python-brace-format
+msgid ""
+"{detail} dossier(s) de l'espace partagé conformes (root:omega-synchro 2750)."
+msgstr "साझा स्थान के {detail} फ़ोल्डर अनुरूप (root:omega-synchro 2750)।"
+
+#, python-brace-format
+msgid "dossier {subject} manquant."
+msgstr "फ़ोल्डर {subject} गायब है।"
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 2750."
+msgstr "{subject}: {detail}, root:omega-synchro 2750 के बजाय।"
+
+#, python-brace-format
+msgid "groupe {subject} absent alors que l'espace partagé existe."
+msgstr "साझा स्थान मौजूद होते हुए भी समूह {subject} गायब है।"
+
+#, python-brace-format
+msgid "{subject} est membre du groupe omega-synchro."
+msgstr "{subject} omega-synchro समूह का सदस्य है।"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas membre du groupe omega-synchro : l'espace partagé lui "
+"est illisible."
+msgstr ""
+"{subject} omega-synchro समूह का सदस्य नहीं है: साझा स्थान उसके लिए पढ़ने "
+"योग्य नहीं।"
+
+#, python-brace-format
+msgid ""
+"{subject} est membre du groupe omega-synchro ; cela comptera à la prochaine "
+"connexion."
+msgstr ""
+"{subject} omega-synchro समूह का सदस्य है; यह अगली बार लॉग इन करने पर लागू "
+"होगा।"
+
+#, python-brace-format
+msgid "carte d'identité de {subject} à jour dans l'espace partagé ({detail})."
+msgstr "{subject} का पहचान पत्र साझा स्थान में अद्यतन है ({detail})।"
+
+#, python-brace-format
+msgid "carte d'identité {subject} absente de l'espace partagé."
+msgstr "पहचान पत्र {subject} साझा स्थान में नहीं है।"
+
+#, python-brace-format
+msgid ""
+"carte d'identité de {subject} périmée dans l'espace partagé ({detail}) : "
+"version, racine ou contrats changés."
+msgstr ""
+"{subject} का पहचान पत्र साझा स्थान में पुराना हो गया है ({detail}): संस्करण,"
+" मूल फ़ोल्डर या अनुबंध बदल गए।"
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 0640."
+msgstr "{subject}: {detail}, root:omega-synchro 0640 के बजाय।"
+
+#, python-brace-format
+msgid "{subject} ({detail}) installé mais pas encore dans l'espace partagé."
+msgstr "{subject} ({detail}) इंस्टॉल है पर अभी साझा स्थान में नहीं।"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) relié à l'espace partagé mais introuvable : "
+"désinstallé, ou carte d'identité recréée."
+msgstr ""
+"{subject} ({detail}) साझा स्थान से जुड़ा है पर नहीं मिला: अनइंस्टॉल किया "
+"गया, या पहचान पत्र फिर से बनाया गया।"
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) a le groupe omega-synchro (complément "
+"systemd posé par omega-serv)."
+msgstr ""
+"सेवा {subject} ({detail}) के पास omega-synchro समूह है (omega-serv द्वारा "
+"रखा गया systemd पूरक)।"
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) tourne sous un compte dédié sans le groupe "
+"omega-synchro : il ne pourra pas lire l'espace partagé. La Synchronisation "
+"demande à omega-serv de le lui donner."
+msgstr ""
+"सेवा {subject} ({detail}) omega-synchro समूह के बिना एक समर्पित खाते से चलती"
+" है: यह साझा स्थान नहीं पढ़ पाएगी। सिंक्रनाइज़ेशन omega-serv से इसे यह समूह "
+"देने को कहता है।"
+
+msgid "correction : Synchronisation (omega-connect synchroniser)"
+msgstr "सुधार: सिंक्रनाइज़ेशन (omega-connect synchroniser)"
+
+#, python-brace-format
+msgid "correction (compte {account}) : {command}"
+msgstr "सुधार (खाता {account}): {command}"
+
+#, python-brace-format
+msgid "correction : {command}"
+msgstr "सुधार: {command}"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) (--detail pour les voir)"
+msgstr "{count} अनुरूप जाँचें (देखने के लिए --detail)"
+
+msgid ""
+"Vérification des liens entre outils omega (lecture seule, rien n'est "
+"modifié)"
+msgstr "omega टूल्स के बीच लिंक की जाँच (केवल पढ़ना, कुछ नहीं बदला जाता)"
+
+#, python-brace-format
+msgid "omega-serv « {instance} » — {root}"
+msgstr "omega-serv « {instance} » — {root}"
+
+msgid "Hors des instances détectées"
+msgstr "पहचाने गए इंस्टेंस के बाहर"
+
+#, python-brace-format
+msgid "Bilan : {summary}."
+msgstr "सारांश: {summary}।"
+
+msgid ""
+"Les corrections ne sont jamais lancées par « verifier » : relisez-les avant "
+"de les exécuter."
+msgstr "« verifier » कभी सुधार नहीं चलाता: उन्हें चलाने से पहले दोबारा पढ़ें।"
+
+#, python-brace-format
+msgid ""
+"{count} écart(s) corrigeable(s) par « reparer » (commandes des outils, "
+"affichées avant tout lancement)."
+msgstr ""
+"« reparer » द्वारा ठीक की जा सकने वाली {count} विसंगतियाँ (टूल्स की कमांड, "
+"कुछ भी चलाने से पहले दिखाई जाती हैं)।"
+
+#, python-brace-format
+msgid "Établir la zone neutre {zone}"
+msgstr "तटस्थ क्षेत्र {zone} स्थापित करें"
+
+#, python-brace-format
+msgid "Tout retirer : défaire ce que le registre de {zone} liste"
+msgstr "सब हटाएँ: {zone} के रजिस्टर में जो सूचीबद्ध है उसे पूर्ववत करें"
+
+#, python-brace-format
+msgid "Garder la zone {zone} (liens figés)"
+msgstr "क्षेत्र {zone} रखें (लिंक स्थिर)"
+
+#, python-brace-format
+msgid "Retirer un outil désinstallé de la zone {zone}"
+msgstr "क्षेत्र {zone} से एक अनइंस्टॉल किया गया टूल हटाएँ"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien "
+"n'est fait."
+msgstr ""
+"{subject} असली फ़ोल्डर नहीं है (सिंबॉलिक लिंक या फ़ाइल): कुछ नहीं किया गया।"
+
+#, python-brace-format
+msgid ""
+"{subject} existe déjà sans registre d'omega-connect : rien n'est fait. "
+"Vérifiez ce dossier, puis supprimez-le vous-même s'il est inutile."
+msgstr ""
+"{subject} पहले से omega-connect रजिस्टर के बिना मौजूद है: कुछ नहीं किया गया।"
+" इस फ़ोल्डर की जाँच करें, फिर अनावश्यक हो तो इसे स्वयं हटाएँ।"
+
+#, python-brace-format
+msgid "{subject} n'a pas pu être lu, même avec sudo : rien n'est fait."
+msgstr "{subject} sudo से भी पढ़ा नहीं जा सका: कुछ नहीं किया गया।"
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est fait tant qu'il n'est pas "
+"réparé."
+msgstr ""
+"रजिस्टर {subject} क्षतिग्रस्त ({detail}): जब तक यह ठीक नहीं होता, कुछ नहीं "
+"किया जाता।"
+
+#, python-brace-format
+msgid "aucune zone en {subject} : rien à retirer."
+msgstr "{subject} में कोई क्षेत्र नहीं: हटाने को कुछ नहीं।"
+
+#, python-brace-format
+msgid ""
+"« {subject} » ne désigne aucun outil du registre (nom, dossier ou 8 premiers"
+" caractères de l'identifiant)."
+msgstr ""
+"« {subject} » रजिस्टर के किसी टूल को नहीं दर्शाता (नाम, फ़ोल्डर या ID के "
+"पहले 8 अक्षर)।"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est toujours installé : il serait relié de nouveau à la"
+" prochaine actualisation. Désinstallez-le d'abord."
+msgstr ""
+"{subject} ({detail}) अभी भी इंस्टॉल है: अगली बार अद्यतन करने पर यह फिर से "
+"जुड़ जाएगा। पहले इसे अनइंस्टॉल करें।"
+
+#, python-brace-format
+msgid "{subject} ({detail}) est toujours installé : laissé dans la zone."
+msgstr "{subject} ({detail}) अभी भी इंस्टॉल है: क्षेत्र में छोड़ा गया।"
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : jeton {detail} (voir « verifier »)."
+msgstr "{subject} जुड़ा नहीं है: टोकन {detail} (« verifier » देखें)।"
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : identifiant {detail} en double."
+msgstr "{subject} जुड़ा नहीं है: ID {detail} डुप्लिकेट है।"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est au registre mais introuvable : « retirer {detail} »"
+" l'enlèvera."
+msgstr ""
+"{subject} ({detail}) रजिस्टर में है पर नहीं मिला: « retirer {detail} » इसे "
+"हटा देगा।"
+
+#, python-brace-format
+msgid ""
+"{subject} devra se reconnecter pour que le groupe omega-synchro compte "
+"(lecture de la zone)."
+msgstr ""
+"omega-synchro समूह लागू होने के लिए {subject} को दोबारा लॉग इन करना होगा "
+"(क्षेत्र पढ़ने के लिए)।"
+
+#, python-brace-format
+msgid "la zone {subject} est à jour : rien à faire."
+msgstr "क्षेत्र {subject} अद्यतन है: करने को कुछ नहीं।"
+
+#, python-brace-format
+msgid ""
+"{subject} n'a pas été créé par omega-connect : gardé, ainsi que son dossier."
+msgstr ""
+"{subject} omega-connect द्वारा नहीं बनाया गया: रखा गया, उसके फ़ोल्डर सहित।"
+
+#, python-brace-format
+msgid ""
+"le groupe {subject} est gardé (pas créé par omega-connect, ou zone pas "
+"vide)."
+msgstr ""
+"समूह {subject} रखा गया (omega-connect द्वारा नहीं बनाया गया, या क्षेत्र खाली"
+" नहीं)।"
+
+#, python-brace-format
+msgid ""
+"le service {subject} a toujours le groupe omega-synchro, mais omega-serv est"
+" introuvable pour le lui retirer : le groupe et la zone sont gardés (sans "
+"lui, le service ne démarrerait plus). Lancez « omega-serv synchro groupe-"
+"service retirer --service-name {subject} » depuis son dossier, puis "
+"relancez."
+msgstr ""
+"सेवा {subject} के पास अभी भी omega-synchro समूह है, पर उसे हटाने के लिए "
+"omega-serv नहीं मिला: समूह और क्षेत्र रखे गए (इसके बिना सेवा शुरू नहीं "
+"होगी)। उसके फ़ोल्डर से « omega-serv synchro groupe-service retirer "
+"--service-name {subject} » चलाएँ, फिर दोबारा चलाएँ।"
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) prendra en compte le groupe omega-synchro à "
+"son prochain redémarrage : omega-connect ne le redémarre pas."
+msgstr ""
+"सेवा {subject} ({detail}) अपने अगले रीस्टार्ट पर omega-synchro समूह लागू "
+"करेगी: omega-connect इसे रीस्टार्ट नहीं करता।"
+
+#, python-brace-format
+msgid "{subject} figure au registre mais hors de la zone : ignoré."
+msgstr "{subject} रजिस्टर में है पर क्षेत्र के बाहर: अनदेखा किया गया।"
+
+msgid "la zone est déjà figée : rien à faire."
+msgstr "क्षेत्र पहले से स्थिर है: करने को कुछ नहीं।"
+
+#, python-brace-format
+msgid "Créer le groupe {group}"
+msgstr "समूह {group} बनाएँ"
+
+#, python-brace-format
+msgid "Créer le dossier {path}"
+msgstr "फ़ोल्डर {path} बनाएँ"
+
+#, python-brace-format
+msgid "Remettre les droits du dossier {path}"
+msgstr "फ़ोल्डर {path} की अनुमतियाँ फिर से सेट करें"
+
+#, python-brace-format
+msgid "Ajouter {user} au groupe {group}"
+msgstr "{user} को समूह {group} में जोड़ें"
+
+#, python-brace-format
+msgid "Retirer {user} du groupe {group}"
+msgstr "{user} को समूह {group} से हटाएँ"
+
+#, python-brace-format
+msgid "Supprimer le groupe {group}"
+msgstr "समूह {group} मिटाएँ"
+
+#, python-brace-format
+msgid "Retirer le dossier {path}"
+msgstr "फ़ोल्डर {path} हटाएँ"
+
+#, python-brace-format
+msgid ""
+"omega-serv donne le groupe {group} à son service {service} (complément "
+"systemd)"
+msgstr "omega-serv अपनी सेवा {service} को समूह {group} देता है (systemd पूरक)"
+
+#, python-brace-format
+msgid "omega-serv retire le groupe {group} de son service {service}"
+msgstr "omega-serv अपनी सेवा {service} से समूह {group} हटाता है"
+
+msgid "Retirer le registre de l'espace partagé"
+msgstr "साझा स्थान का रजिस्टर हटाएँ"
+
+msgid "Écrire le registre de l'espace partagé"
+msgstr "साझा स्थान का रजिस्टर लिखें"
+
+#, python-brace-format
+msgid "Recopier la description de {root} (ce qu'il sait faire)"
+msgstr "{root} का विवरण कॉपी करें (यह क्या कर सकता है)"
+
+#, python-brace-format
+msgid "Retirer la description de {root}"
+msgstr "{root} का विवरण हटाएँ"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root}"
+msgstr "{root} का पहचान पत्र कॉपी करें"
+
+#, python-brace-format
+msgid "Retirer la carte d'identité de {root}"
+msgstr "{root} का पहचान पत्र हटाएँ"
+
+msgid "Commandes qui seront lancées, une à une, en root :"
+msgstr "चलाई जाने वाली कमांड, एक-एक करके, root के रूप में:"
+
+#, python-brace-format
+msgid "Terminé : {count} commande(s) lancée(s), toutes réussies."
+msgstr "पूरा: {count} कमांड चलाई गईं, सभी सफल।"
+
+#, python-brace-format
+msgid "{done} commande(s) sur {total} avaient réussi."
+msgstr "{total} में से {done} कमांड सफल हुई थीं।"
+
+msgid "Registre réécrit pour garder la trace de ce qui a été créé."
+msgstr "जो बनाया गया उसका रिकॉर्ड रखने के लिए रजिस्टर फिर से लिखा गया।"
+
+msgid ""
+"Le registre n'a pas pu être réécrit : notez ce qui a été créé ci-dessus."
+msgstr "रजिस्टर फिर से नहीं लिखा जा सका: ऊपर जो बनाया गया है उसे नोट कर लें।"
+
+msgid ""
+"Relancez la même commande après avoir corrigé la cause : rien n'est fait "
+"deux fois."
+msgstr ""
+"कारण ठीक करने के बाद वही कमांड फिर से चलाएँ: कुछ भी दो बार नहीं किया जाता।"
+
+msgid "Dossier des captures non configuré."
+msgstr "स्क्रीनशॉट फ़ोल्डर सेट नहीं है।"
+
+msgid "Passer d'un élément à l'autre (lignes d'un tableau, boutons)"
+msgstr "एक तत्व से दूसरे पर जाएँ (तालिका की पंक्तियाँ, बटन)"
+
+msgid "Passer d'une zone de l'écran à l'autre"
+msgstr "स्क्रीन के एक क्षेत्र से दूसरे पर जाएँ"
+
+msgid ""
+"Activer le bouton choisi ; dans une liste à cocher, cocher ou décocher la "
+"ligne"
+msgstr "चुना गया बटन सक्रिय करें; चेकलिस्ट में पंक्ति पर निशान लगाएँ या हटाएँ"
+
+msgid "Entrée / Clic"
+msgstr "Enter / क्लिक"
+
+msgid "Cocher ou décocher la ligne choisie (Synchronisation)"
+msgstr "चुनी गई पंक्ति पर निशान लगाएँ या हटाएँ (सिंक्रनाइज़ेशन)"
+
+msgid "Espace"
+msgstr "Space"
+
+msgid "Revenir à l'écran précédent"
+msgstr "पिछली स्क्रीन पर लौटें"
+
+msgid "Cette aide, depuis n'importe quel écran"
+msgstr "यह सहायता, किसी भी स्क्रीन से"
+
+msgid "Réglages, depuis n'importe quel écran"
+msgstr "सेटिंग्स, किसी भी स्क्रीन से"
+
+msgid "Thème suivant (enregistré)"
+msgstr "अगली थीम (सेव की जाती है)"
+
+msgid "Redessiner l'écran et afficher la taille du terminal"
+msgstr "स्क्रीन फिर से बनाएँ और टर्मिनल का आकार दिखाएँ"
+
+msgid ""
+"Commandes : thème, capture d'écran (SVG, dans le dossier des captures), "
+"quitter"
+msgstr "कमांड: थीम, स्क्रीनशॉट (SVG, स्क्रीनशॉट फ़ोल्डर में), बाहर निकलें"
+
+msgid "Ctrl+P"
+msgstr "Ctrl+P"
+
+msgid ""
+"omega-connect relie entre elles les applications omega (omega-serv, omega-fire, omega-jail…) installées sur cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce qui manque, toujours après vous avoir montré ce qu'il va faire.\n"
+"\n"
+"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
+"2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
+"3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son plan avant d'agir et demande son mot de passe une seule fois.\n"
+"4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue d'ensemble, en cadres.\n"
+"5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
+"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre."
+msgstr ""
+"omega-connect इस मशीन और आपके नेटवर्क की मशीनों पर इंस्टॉल किए गए omega एप्लिकेशन (omega-serv, omega-fire, omega-jail…) को आपस में जोड़ता है। यह दिखाता है कि क्या जुड़ा है और क्या नहीं, और जो छूटा है उसे ठीक करता है — हमेशा पहले यह दिखाकर कि वह क्या करेगा।\n"
+"\n"
+"1. [b]स्कैन करें[/b]: इस मशीन के एप्लिकेशन खोजता है। अपनी दूसरी मशीनें जोड़ें (आपके Unison प्रोफ़ाइल, ~/.ssh/config और known_hosts के आधार पर सुझाई गई, या हाथ से लिखी गई): उन तक आपकी कुंजियों से SSH द्वारा पहुँचा जाता है, वहाँ कुछ भी इंस्टॉल नहीं होता।\n"
+"2. [b]रजिस्टर[/b]: सभी मशीनों के सभी एप्लिकेशन की सूची, उनकी स्थिति के साथ। बहुत पुराना या ठीक से इंस्टॉल न हुआ एप्लिकेशन इसी स्क्रीन से अपडेट या फिर से इंस्टॉल होता है।\n"
+"3. [b]सिंक्रनाइज़ेशन[/b]: जो जोड़ना है उसे चुनें, फिर « सिंक करें »; हर मशीन कुछ करने से पहले अपनी योजना दिखाती है और अपना पासवर्ड केवल एक बार पूछती है।\n"
+"4. [b]लिंक[/b]: सभी मशीनों पर देखें कि क्या जुड़ा है और क्या नहीं। [b]डैशबोर्ड[/b]: फ़्रेमों में अवलोकन।\n"
+"5. [b]मरम्मत[/b]: जो कुछ ठीक नहीं है उसकी सूची; एक पंक्ति चुनें, या « सब की मरम्मत करें »।\n"
+"6. [b]रिपोर्ट[/b]: रखने या भेजने के लिए एक पूरा दस्तावेज़ (टेक्स्ट, JSON या HTML पेज)।"
+
+msgid "Registre — toutes les applications et leur état"
+msgstr "रजिस्टर — सभी एप्लिकेशन और उनकी स्थिति"
+
+msgid ""
+"Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
+"\n"
+"- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
+"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
+"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
+msgstr ""
+"हर मशीन के लिए (यह मशीन और नेटवर्क की मशीनें), मिला हर omega एप्लिकेशन दिखाता है: उसका इंस्टेंस या सेवा, संस्करण, स्थिति और फ़ोल्डर। ऊपर का सारांश स्थितियों की गिनती दिखाता है।\n"
+"\n"
+"- [b]रजिस्टर अपडेट करें[/b]: स्क्रीन बदले बिना, वहीं फिर से स्कैन करता है (यह मशीन, फिर नेटवर्क की पहले से ज्ञात मशीनें)।\n"
+"- [b]एप्लिकेशन अपडेट करें[/b]: नेटवर्क की किसी मशीन की « पुराना संस्करण » पंक्ति पर, नवीनतम प्रकाशित संस्करण इंस्टॉल करता है (एप्लिकेशन की GitHub Release, भेजने से पहले sha.txt से फ़िंगरप्रिंट जाँचा जाता है)। पहले योजना दिखाई जाती है; और कुछ नहीं किया जाता।\n"
+"- [b]एप्लिकेशन फिर से इंस्टॉल करें[/b]: « अधूरा इंस्टॉलेशन » पंक्ति पर वही बटन (उसका install.sh पूरा नहीं हुआ); वही संस्करण फिर से इंस्टॉल होता है।\n"
+"- इसी मशीन पर, अपडेट एप्लिकेशन के README के « अपडेट » खंड के अनुसार किया जाता है।\n"
+"- किसी पंक्ति को हाइलाइट करें: उसकी स्थिति का स्पष्टीकरण और उसकी विसंगतियाँ नीचे दिखती हैं।"
+
+msgid "Scanner — trouver les applications, ajouter des machines"
+msgstr "स्कैन करें — एप्लिकेशन खोजें, मशीनें जोड़ें"
+
+msgid ""
+"- [b]Cette machine[/b] : cherche les applications omega (dossier personnel, services systemd, OpenRC ou runit, /srv, registre des instances d'omega-serv). Jamais de lien symbolique suivi, jamais de montage réseau parcouru.\n"
+"- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
+"- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
+"- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
+"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
+msgstr ""
+"- [b]यह मशीन[/b]: omega एप्लिकेशन खोजता है (होम फ़ोल्डर, systemd, OpenRC या runit सेवाएँ, /srv, omega-serv के इंस्टेंस का रजिस्टर)। कभी किसी सिंबॉलिक लिंक का अनुसरण नहीं, कभी किसी नेटवर्क माउंट में खोज नहीं।\n"
+"- [b]सुझाई गई मशीनें[/b]: वे जिन तक यह कंप्यूटर पहले से पहुँच सकता है (Unison प्रोफ़ाइल, ~/.ssh/config, known_hosts)। एक पंक्ति चुनें, फिर « चुनी गई मशीन स्कैन करें »।\n"
+"- [b]हाथ से दर्ज करना[/b]: उपयोगकर्ता@मशीन (नाम या पता), फिर « यह मशीन स्कैन करें »।\n"
+"- [b]पहला कनेक्शन[/b]: मशीन की कुंजी का फ़िंगरप्रिंट दिखाया जाता है; उसे जाँचें, फिर स्वीकार करें। जो कुंजी बदल गई है वह अस्वीकार की जाती है (मशीन फिर से इंस्टॉल की गई, या कोई उसका रूप धारण कर रहा है)।\n"
+"- [b]ज्ञात मशीनें[/b]: « ज्ञात मशीनें फिर से स्कैन करें », या « यह मशीन हटाएँ » (यह रजिस्टर से निकल जाती है; उस पर कुछ नहीं बदला जाता)।\n"
+"- नेटवर्क की किसी मशीन का स्कैन SSH द्वारा मेमोरी में भेजा जाता है, केवल पढ़ने के लिए: वहाँ कुछ भी इंस्टॉल या लिखा नहीं जाता, कोई पासवर्ड नहीं माँगा जाता (वहाँ Python 3.10 या नया आवश्यक)।"
+
+msgid "Liaisons — ce qui est relié ou pas"
+msgstr "लिंक — क्या जुड़ा है और क्या नहीं"
+
+msgid ""
+"Montre chaque lien entre applications, sur toutes les machines, avec son état et sa provenance (Local, ou Réseau — nom de la machine) : journaux d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers la liste noire d'omega-serv, liste protégée, liste noire partagée, fichiers d'omega-jail dans fail2ban, cartes d'identité, espace partagé.\n"
+"\n"
+"- Surlignez une ligne : ses contrôles s'affichent en dessous ; « Détail du lien » les montre tous, avec la commande de chaque correction (« Copier les commandes »).\n"
+"- Cet écran montre seulement : ce qui est « à réparer » se corrige dans le menu Réparer."
+msgstr ""
+"सभी मशीनों पर एप्लिकेशन के बीच हर लिंक दिखाता है, उसकी स्थिति और स्रोत के साथ (स्थानीय, या नेटवर्क — मशीन का नाम): omega-jail के jails द्वारा पढ़े जाने वाले omega-serv और magnet के लॉग, omega-serv की ब्लैकलिस्ट तक fail2ban ब्रिज, संरक्षित सूची, साझा ब्लैकलिस्ट, fail2ban में omega-jail की फ़ाइलें, पहचान पत्र, साझा स्थान।\n"
+"\n"
+"- किसी पंक्ति को हाइलाइट करें: उसकी जाँचें नीचे दिखती हैं; « लिंक का विवरण » सभी जाँचें दिखाता है, हर सुधार की कमांड के साथ (« कमांड कॉपी करें »)।\n"
+"- यह स्क्रीन केवल दिखाती है: जो « मरम्मत ज़रूरी » है वह मरम्मत मेनू में ठीक होता है।"
+
+msgid "Synchronisation — relier les applications"
+msgstr "सिंक्रनाइज़ेशन — एप्लिकेशन जोड़ें"
+
+msgid ""
+"Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+"- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
+"- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
+"- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
+"- Les machines passent une à une : cette machine d'abord, puis le réseau.\n"
+"- Une application trop ancienne, inachevée ou injoignable ne se coche pas : la ligne dit où aller.\n"
+"- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
+"- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
+msgstr ""
+"एक ही सूची: आपकी सभी मशीनें और उनके एप्लिकेशन (खोलते समय नेटवर्क की मशीनें फिर से स्कैन की जाती हैं)। पंक्तियों पर निशान लगाएँ (Enter या Space), फिर:\n"
+"- [b]चयन सिंक करें[/b], या [b]सब सिंक करें[/b]।\n"
+"- [b]यह मशीन[/b]: एक ही योजना, कार्रवाई से पहले दिखाई जाती है — गायब पहचान पत्र (हर एप्लिकेशन द्वारा, उसके अपने खाते से बनाए जाते हैं), फिर साझा स्थान (omega-synchro समूह, फ़ोल्डर, पहचान पत्रों की कॉपी, सेवाओं की पहुँच)। एक ही एडमिन पासवर्ड।\n"
+"- [b]नेटवर्क की मशीन[/b]: उसकी योजना उसी मशीन पर गणना करके दिखाई जाती है; « <मशीन> सिंक करें » उसे यहीं से चलाता है: इंटरफ़ेस टर्मिनल को जगह देता है, मशीन स्वयं अपना पासवर्ड एक बार माँगती है; Enter इंटरफ़ेस पर लौटाता है, जो परिणाम दिखाता है।\n"
+"- मशीनें एक-एक करके चलती हैं: पहले यह मशीन, फिर नेटवर्क।\n"
+"- बहुत पुराने, अधूरे या पहुँच से बाहर एप्लिकेशन पर निशान नहीं लगाया जा सकता: पंक्ति बताती है कि कहाँ जाना है।\n"
+"- [b]sudo से पढ़ें[/b]: यदि आपका सत्र अभी साझा स्थान नहीं पढ़ सकता (omega-synchro समूह दोबारा लॉग इन करने के बाद ही लागू होता है), sudo से केवल पढ़ना।\n"
+"- [b]विवरण[/b]: omega-connect ने क्या बनाया (साझा स्थान का रजिस्टर) और क्या हटाया जा सकता है।"
+
+msgid "Dashboard — vue d'ensemble"
+msgstr "डैशबोर्ड — अवलोकन"
+
+msgid ""
+"Une vue d'ensemble en cadres, comme un tableau de bord web. Rien n'est modifié depuis cet écran.\n"
+"\n"
+"- [b]Machines[/b], [b]Applications[/b], [b]Liaisons[/b], [b]Espace partagé[/b] : les compteurs, avec les mêmes états que le Registre et les Liaisons.\n"
+"- [b]Liaisons par type[/b] : pour chaque type de liaison, combien sont OK sur combien.\n"
+"- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
+"- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
+"\n"
+"Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; « Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner pour les relire). Pour corriger : menu Réparer."
+msgstr ""
+"फ़्रेमों में एक अवलोकन, वेब डैशबोर्ड की तरह। इस स्क्रीन से कुछ भी बदला नहीं जाता।\n"
+"\n"
+"- [b]मशीनें[/b], [b]एप्लिकेशन[/b], [b]लिंक[/b], [b]साझा स्थान[/b]: गिनतियाँ, रजिस्टर और लिंक जैसी ही स्थितियों के साथ।\n"
+"- [b]प्रकार के अनुसार लिंक[/b]: हर प्रकार के लिंक के लिए, कुल में से कितने OK हैं।\n"
+"- [b]यह मशीन / नेटवर्क[/b]: वही आँकड़े, अगल-बगल।\n"
+"- [b]Top 5[/b] (छोटी स्क्रीन पर top 3): मरम्मत ज़रूरी मशीनें, मरम्मत ज़रूरी लिंक, पिछड़े संस्करण, सबसे पुराने स्कैन (नेटवर्क की मशीनें)।\n"
+"\n"
+"यह मशीन स्क्रीन खुलते ही जाँची जाती है, फिर जब तक स्क्रीन खुली है, नियमित रूप से; « रीफ़्रेश » जाँच फिर से शुरू करता है। नेटवर्क की मशीनें अपना अंतिम स्कैन दिखाती हैं (उन्हें फिर से पढ़ने के लिए स्कैन करें मेनू)। ठीक करने के लिए: मरम्मत मेनू।"
+
+msgid "Réparer — tout ce qui ne va pas"
+msgstr "मरम्मत — जो कुछ ठीक नहीं है"
+
+msgid ""
+"La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
+"\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
+"- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
+"- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
+msgstr ""
+"सभी मशीनों पर जो कुछ ठीक नहीं है उसकी सूची (खोलते समय नेटवर्क की मशीनें फिर से स्कैन की जाती हैं): मशीन, समस्या, स्थिति, और इसे कौन ठीक करता है।\n"
+"\n"
+"- [b]चुनी गई पंक्ति की मरम्मत करें[/b]: मशीन की योजना खोलता है। यह मशीन: स्वयं एप्लिकेशन की कमांड (fail2ban में जो रखता है उसके लिए omega-jail, अपने var/ की अनुमतियों के लिए omega-serv, अपने पहचान पत्र के लिए हर एप्लिकेशन), फिर साझा स्थान। नेटवर्क की मशीन: वही सुधार, साथ में वे कमांड जिन्हें कोई एप्लिकेशन नहीं चला सकता, जो यहीं से उसी मशीन पर चलाई जाती हैं (केवल वे जो योजना में बताई गई हैं)।\n"
+"- [b]सब की मरम्मत करें[/b]: मशीनें एक-एक करके (पहले अपडेट, फिर मरम्मत)।\n"
+"- [b]विवरण[/b]: चुनी गई पंक्ति की सभी जाँचें।\n"
+"- [b]कमांड कॉपी करें[/b] (इस मशीन की योजना): सिस्टम क्लिपबोर्ड (xclip, xsel, wl-copy); अन्यथा कमांड टर्मिनल में सादे रूप में दिखाई जाती हैं, माउस से चुनने के लिए।\n"
+"- omega-connect कभी किसी दूसरे एप्लिकेशन की फ़ाइल दोबारा नहीं लिखता: यह उसकी कमांड चलाता है।"
+
+msgid "Rapport — un document complet"
+msgstr "रिपोर्ट — एक पूरा दस्तावेज़"
+
+msgid ""
+"Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"\n"
+"- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
+"- En ligne de commande : omega-connect rapport --format html --enregistrer."
+msgstr ""
+"अभी बनाई जाती है (पहले नेटवर्क की मशीनें फिर से स्कैन की जाती हैं): सारांश, जो करना बाकी है उसकी सटीक सूची (मशीन, क्या, कौन सा मेनू), सभी एप्लिकेशन का रजिस्टर, नेटवर्क की मशीनें, इस मशीन के एप्लिकेशन विस्तार से, हर मशीन के लिंक, साझा स्थान और उसका रजिस्टर।\n"
+"\n"
+"- टेक्स्ट, JSON या HTML पेज में एक्सपोर्ट (थीम अपनी पसंद की, डिफ़ॉल्ट रूप से सेटिंग्स वाली), एक्सपोर्ट फ़ोल्डर में।\n"
+"- कमांड लाइन से: omega-connect rapport --format html --enregistrer"
+
+msgid ""
+"- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
+"- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
+"- Tout est enregistré dans var/settings.json."
+msgstr ""
+"- [b]इंटरफ़ेस की थीम[/b] (कुंजी t भी) और [b]एक्सपोर्ट की थीम[/b]: सेव की जाती हैं।\n"
+"- [b]एक्सपोर्ट फ़ोल्डर[/b] और [b]स्क्रीनशॉट फ़ोल्डर[/b]: डिफ़ॉल्ट रूप से omega-connect फ़ोल्डर के var/exports/ और var/screenshots/; एक पूरा पथ, या डिफ़ॉल्ट पर लौटने के लिए खाली।\n"
+"- [b]एक्सपोर्ट / स्क्रीनशॉट फ़ोल्डर खाली करें[/b]: पुष्टि के बाद, सेट किए गए फ़ोल्डर की सामग्री मिटाता है (फ़ोल्डर बना रहता है)। सिस्टम फ़ोल्डर, होम फ़ोल्डर, या स्वयं omega-connect के फ़ोल्डर के लिए अस्वीकृत; कभी पासवर्ड नहीं माँगा जाता।\n"
+"- सब कुछ var/settings.json में सेव होता है।"
+
+msgid "Machines du réseau, mises à jour et sécurité"
+msgstr "नेटवर्क की मशीनें, अपडेट और सुरक्षा"
+
+msgid ""
+"- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
+"- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
+"- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
+msgstr ""
+"- [b]कनेक्शन[/b]: केवल आपकी कुंजियों से SSH; omega-connect कभी SSH पासवर्ड नहीं माँगता। पासफ़्रेज़ से सुरक्षित कुंजी SSH एजेंट में लोड होनी चाहिए (ssh-add)।\n"
+"- [b]एडमिन पासवर्ड[/b]: केवल तब जब कोई क्रिया इसे माँगे (सिंक, मरम्मत, अपडेट), हर मशीन के लिए एक बार, आप स्वयं टर्मिनल में टाइप करते हैं; omega-connect इसे कभी नहीं देखता।\n"
+"- [b]नेटवर्क की मशीन पर क्या जाता है[/b]: स्कैन के लिए, कुछ नहीं (प्रोग्राम मेमोरी में); किसी क्रिया के लिए, एक अस्थायी निजी फ़ोल्डर (प्रोग्राम और आर्काइव), जो अंत में मिटा दिया जाता है।\n"
+"- [b]अपडेट[/b]: हर एप्लिकेशन की GitHub Release से (kraynux/<application>, टैग v<version>); फ़िंगरप्रिंट भेजने से पहले sha.txt से जाँचा जाता है, फिर मशीन पर दोबारा। omega-fire: पुराना इंस्टॉलेशन अलग रखा जाता है (उसका var/ root का है), फिर उसका install.sh सेटिंग्स और डेटा वापस लेता है। बाकी: ऊपर से एक्सट्रैक्ट (चालू स्थिति आर्काइव में नहीं होती), फिर उनका install.sh।\n"
+"- [b]कभी ऐसा एप्लिकेशन नहीं चलाया जाता जो बिना टर्मिनल के पासवर्ड माँग सके[/b]: sudo की चुपचाप विफलता एक प्रयास गिनी जाती है और खाते को कुछ मिनटों के लिए लॉक कर सकती है।"
+
+msgid "États — ce que veut dire chaque mot"
+msgstr "स्थितियाँ — हर शब्द का अर्थ"
+
+msgid ""
+"[b]Applications[/b] :\n"
+"- ● Reliée : dans l'espace partagé, à jour.\n"
+"- ◐ Inscrite : a sa carte d'identité, pas encore dans l'espace partagé (Synchronisation).\n"
+"- ○ Détectée : trouvée, sans carte d'identité (Synchronisation la lui crée).\n"
+"- ▲ À réparer : un écart (Réparer).\n"
+"- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
+"- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller l'application).\n"
+"- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n"
+"\n"
+"[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session)."
+msgstr ""
+"[b]एप्लिकेशन[/b]:\n"
+"- ● जुड़ी हुई: साझा स्थान में, अद्यतन।\n"
+"- ◐ पंजीकृत: इसका पहचान पत्र है, पर अभी साझा स्थान में नहीं (सिंक्रनाइज़ेशन)।\n"
+"- ○ पहचानी गई: मिली, पर पहचान पत्र नहीं है (सिंक्रनाइज़ेशन इसे बनाता है)।\n"
+"- ▲ मरम्मत ज़रूरी: एक विसंगति (मरम्मत)।\n"
+"- ◌ पुराना संस्करण: omega-connect के लिए बहुत पुरानी (रजिस्टर → एप्लिकेशन अपडेट करें)।\n"
+"- ◇ अधूरा इंस्टॉलेशन: इसका install.sh पूरा नहीं हुआ (रजिस्टर → एप्लिकेशन फिर से इंस्टॉल करें)।\n"
+"- ✕ पहुँच से बाहर: मशीन अब जवाब नहीं देती (स्कैन करें → फिर से स्कैन करें)।\n"
+"\n"
+"[b]लिंक[/b]: OK; मरम्मत ज़रूरी; मरम्मत ज़रूरी (अवरोधक); अनुपस्थित (जोड़ने को कुछ नहीं, उदाहरण के लिए omega-jail इंस्टॉल नहीं); जाँच संभव नहीं (आपके सत्र से पढ़ना संभव नहीं)।"
+
+msgid "Carte d'identité et espace partagé"
+msgstr "पहचान पत्र और साझा स्थान"
+
+msgid ""
+"- [b]Carte d'identité[/b] : un petit fichier (var/omega-jeton.json) que chaque application écrit à son installation : quelle application, quelle version, quel identifiant, sur quelle machine. Lisible par tous, jamais modifiable par les autres comptes.\n"
+"- [b]Espace partagé[/b] : /var/lib/omega-synchro, groupe omega-synchro, où seul root écrit ; omega-connect y recopie les cartes d'identité et la description de chaque application, pour qu'elles se trouvent entre elles, même quand omega-connect n'est pas lancé.\n"
+"- Tout ce qu'omega-connect crée est inscrit au registre de l'espace partagé : un retrait ne défait que ce qui y est inscrit."
+msgstr ""
+"- [b]पहचान पत्र[/b]: एक छोटी फ़ाइल (var/omega-jeton.json) जिसे हर एप्लिकेशन अपने इंस्टॉलेशन के समय लिखता है: कौन सा एप्लिकेशन, कौन सा संस्करण, कौन सी ID, किस मशीन पर। सभी के लिए पढ़ने योग्य, दूसरे खातों द्वारा कभी बदली नहीं जा सकती।\n"
+"- [b]साझा स्थान[/b]: /var/lib/omega-synchro, omega-synchro समूह, जहाँ केवल root लिखता है; omega-connect इसमें हर एप्लिकेशन का पहचान पत्र और विवरण कॉपी करता है, ताकि वे एक-दूसरे को ढूँढ सकें, तब भी जब omega-connect नहीं चल रहा हो।\n"
+"- omega-connect जो कुछ बनाता है वह साझा स्थान के रजिस्टर में दर्ज होता है: हटाने पर केवल वही पूर्ववत होता है जो उसमें दर्ज है।"
+
+msgid "Ligne de commande"
+msgstr "कमांड लाइन"
+
+msgid ""
+"omega-connect.sh <commande> (sans commande : l'interface).\n"
+"- scanner [utilisateur@machine] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout : l'espace partagé, plan affiché avant tout lancement.\n"
+"--simulation montre le plan sans rien lancer ; --oui lance sans poser la question."
+msgstr ""
+"omega-connect.sh <कमांड> (बिना कमांड के: इंटरफ़ेस)।\n"
+"- scanner [utilisateur@machine] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout: साझा स्थान, कुछ भी चलाने से पहले योजना दिखाई जाती है।\n"
+"--simulation कुछ भी चलाए बिना योजना दिखाता है; --oui बिना प्रश्न पूछे चलाता है।"
+
+msgid "Fichiers d'omega-connect"
+msgstr "omega-connect की फ़ाइलें"
+
+msgid ""
+"Tout vit dans le dossier d'omega-connect, sous var/ :\n"
+"- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+"- settings.json : réglages.\n"
+"- exports/ et screenshots/ : par défaut (voir Réglages).\n"
+"- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite)."
+msgstr ""
+"सब कुछ omega-connect फ़ोल्डर में, var/ के अंदर रहता है:\n"
+"- parc.json: नेटवर्क की मशीनों का रजिस्टर (अंतिम स्कैन, पते, फ़िंगरप्रिंट)।\n"
+"- settings.json: सेटिंग्स।\n"
+"- exports/ और screenshots/: डिफ़ॉल्ट रूप से (सेटिंग्स देखें)।\n"
+"- declaration.json: अनाम उपयोगकर्ता पंजीकरण (यदि आपने किया है)।"
+
+msgid "Aide, export et contact"
+msgstr "सहायता, एक्सपोर्ट और संपर्क"
+
+msgid ""
+"- [b]Exporter l'aide en HTML[/b] : toute cette aide, dans une page, thème au choix, dans le dossier des exports.\n"
+"- [b]Contact et support[/b] : payer un café (PayPal), se déclarer utilisateur anonyme (une seule fois), contacter le support (mail et formulaire du site), vérifier les mises à jour."
+msgstr ""
+"- [b]सहायता HTML में एक्सपोर्ट करें[/b]: यह पूरी सहायता, एक पेज में, थीम अपनी पसंद की, एक्सपोर्ट फ़ोल्डर में।\n"
+"- [b]संपर्क और सहायता[/b]: एक कॉफ़ी पिलाएँ (PayPal), अनाम उपयोगकर्ता के रूप में पंजीकरण करें (केवल एक बार), सहायता से संपर्क करें (ईमेल और साइट का फ़ॉर्म), अपडेट जाँचें।"
+
+msgid "Redémarrer"
+msgstr "रीस्टार्ट"
+
+msgid "Registre"
+msgstr "रजिस्टर"
+
+msgid "Synchronisation"
+msgstr "सिंक्रनाइज़ेशन"
+
+msgid "Dashboard"
+msgstr "डैशबोर्ड"
+
+msgid "Rapport"
+msgstr "रिपोर्ट"
+
+msgid "GESTION"
+msgstr "प्रबंधन"
+
+msgid "MAINTENANCE"
+msgstr "रखरखाव"
+
+msgid "MACHINES"
+msgstr "मशीनें"
+
+msgid "APPLICATIONS"
+msgstr "एप्लिकेशन"
+
+msgid "LIAISONS"
+msgstr "लिंक"
+
+msgid "ESPACE PARTAGÉ"
+msgstr "साझा स्थान"
+
+msgid "LIAISONS PAR TYPE"
+msgstr "प्रकार के अनुसार लिंक"
+
+msgid "CETTE MACHINE / RÉSEAU"
+msgstr "यह मशीन / नेटवर्क"
+
+#, python-brace-format
+msgid "TOP {count} · MACHINES À RÉPARER"
+msgstr "TOP {count} · मरम्मत ज़रूरी मशीनें"
+
+#, python-brace-format
+msgid "TOP {count} · LIAISONS À RÉPARER"
+msgstr "TOP {count} · मरम्मत ज़रूरी लिंक"
+
+#, python-brace-format
+msgid "TOP {count} · VERSIONS EN RETARD"
+msgstr "TOP {count} · पिछड़े संस्करण"
+
+#, python-brace-format
+msgid "TOP {count} · SCANS LES PLUS ANCIENS"
+msgstr "TOP {count} · सबसे पुराने स्कैन"
+
+msgid "jamais vue"
+msgstr "कभी नहीं देखी गई"
+
+msgid "à l'instant"
+msgstr "अभी-अभी"
+
+#, python-brace-format
+msgid "il y a {count} min"
+msgstr "{count} मिनट पहले"
+
+#, python-brace-format
+msgid "il y a {count} h"
+msgstr "{count} घं. पहले"
+
+#, python-brace-format
+msgid "il y a {count} j"
+msgstr "{count} दिन पहले"
+
+#, python-brace-format
+msgid "{count} au total"
+msgstr "कुल {count}"
+
+#, python-brace-format
+msgid "cette machine : {name}"
+msgstr "यह मशीन: {name}"
+
+#, python-brace-format
+msgid "{count} sur le réseau"
+msgstr "नेटवर्क पर {count}"
+
+#, python-brace-format
+msgid "{count} injoignable(s)"
+msgstr "{count} पहुँच से बाहर"
+
+#, python-brace-format
+msgid "{count} application(s) reliée(s)"
+msgstr "{count} जुड़े हुए एप्लिकेशन"
+
+#, python-brace-format
+msgid "{count} à relier (Synchronisation)"
+msgstr "{count} जोड़ने बाकी (सिंक्रनाइज़ेशन)"
+
+msgid "Aucune liaison connue."
+msgstr "कोई ज्ञात लिंक नहीं।"
+
+msgid "Machines"
+msgstr "मशीनें"
+
+msgid "Cette machine"
+msgstr "यह मशीन"
+
+msgid "Réseau"
+msgstr "नेटवर्क"
+
+msgid "Rien à réparer."
+msgstr "मरम्मत के लिए कुछ नहीं।"
+
+#, python-brace-format
+msgid "{count} liaison(s)"
+msgstr "{count} लिंक"
+
+#, python-brace-format
+msgid "{count} application(s)"
+msgstr "{count} एप्लिकेशन"
+
+msgid "Aucune liaison à réparer."
+msgstr "मरम्मत के लिए कोई लिंक नहीं।"
+
+msgid "Aucune application en retard."
+msgstr "कोई एप्लिकेशन पिछड़ा नहीं है।"
+
+msgid "Aucune machine du réseau (menu Scanner)."
+msgstr "नेटवर्क की कोई मशीन नहीं (स्कैन करें मेनू)।"
+
+#, python-brace-format
+msgid "vue {when}"
+msgstr "{when} देखी गई"
+
+msgid "non fournie (ancienne version)"
+msgstr "नहीं दिया गया (पुराना संस्करण)"
+
+#, python-brace-format
+msgid "déclarée à {time}"
+msgstr "{time} पर घोषित"
+
+msgid "(partielle)"
+msgstr "(आंशिक)"
+
+msgid "Local"
+msgstr "स्थानीय"
+
+#, python-brace-format
+msgid "Réseau — {where}"
+msgstr "नेटवर्क — {where}"
+
+#, python-brace-format
+msgid "{count} écart(s)"
+msgstr "{count} विसंगतियाँ"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) : « Détail du lien » pour les voir."
+msgstr "{count} अनुरूप जाँचें: देखने के लिए « लिंक का विवरण »।"
+
+msgid "Aucun contrôle pour ce lien."
+msgstr "इस लिंक के लिए कोई जाँच नहीं।"
+
+msgid "Liens : "
+msgstr "लिंक: "
+
+msgid ""
+"omega-connect — authentification sudo pour les commandes affichées (le mot "
+"de passe ne s'affiche pas pendant la saisie). L'interface revient ensuite."
+msgstr ""
+"omega-connect — दिखाई गई कमांड के लिए sudo प्रमाणीकरण (टाइप करते समय पासवर्ड"
+" नहीं दिखता)। इसके बाद इंटरफ़ेस लौट आता है।"
+
+msgid "Aucune commande à copier."
+msgstr "कॉपी करने के लिए कोई कमांड नहीं।"
+
+#, python-brace-format
+msgid ""
+"{count} commande(s) copiée(s) dans le presse-papiers ({tool}) : collez-les "
+"dans un terminal (Ctrl+Maj+V)."
+msgstr ""
+"{count} कमांड क्लिपबोर्ड में कॉपी की गईं ({tool}): उन्हें टर्मिनल में पेस्ट "
+"करें (Ctrl+Shift+V)।"
+
+msgid ""
+"omega-connect — commandes à copier. Sélectionnez-les à la souris puis copiez"
+" avec le raccourci de votre terminal (souvent Ctrl+Maj+C) :"
+msgstr ""
+"omega-connect — कॉपी करने की कमांड। उन्हें माउस से चुनें, फिर अपने टर्मिनल "
+"के शॉर्टकट से कॉपी करें (अक्सर Ctrl+Shift+C):"
+
+msgid "Entrée pour revenir à omega-connect… "
+msgstr "omega-connect पर लौटने के लिए Enter… "
+
+msgid ""
+"Vous êtes membre du groupe omega-synchro, mais cet omega-connect a été lancé"
+" sans lui. Quittez (q) et relancez ./omega-connect.sh : il le prendra tout "
+"seul, sans mot de passe. Pour cette fois, lecture avec sudo (mot de passe "
+"dans le terminal)."
+msgstr ""
+"आप omega-synchro समूह के सदस्य हैं, पर यह omega-connect उसके बिना शुरू किया "
+"गया था। बाहर निकलें (q) और ./omega-connect.sh फिर से चलाएँ: यह समूह को अपने "
+"आप, बिना पासवर्ड के ले लेगा। इस बार के लिए, sudo से पढ़ना (पासवर्ड टर्मिनल "
+"में)।"
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro : la zone est lue avec "
+"sudo, mot de passe demandé dans le terminal."
+msgstr ""
+"आपके सत्र में अभी omega-synchro समूह नहीं है: क्षेत्र sudo से पढ़ा जाता है, "
+"पासवर्ड टर्मिनल में माँगा जाता है।"
+
+msgid "Lecture de la zone avec sudo…"
+msgstr "sudo से क्षेत्र पढ़ा जा रहा है…"
+
+msgid "Préparation des commandes (détection des outils, lecture de la zone)…"
+msgstr "कमांड तैयार की जा रही हैं (टूल्स की पहचान, क्षेत्र पढ़ना)…"
+
+msgid "Vérifier maintenant"
+msgstr "अभी जाँचें"
+
+msgid "LIENS"
+msgstr "लिंक"
+
+msgid "Détail du lien"
+msgstr "लिंक का विवरण"
+
+msgid "Constat"
+msgstr "निष्कर्ष"
+
+msgid "Lien"
+msgstr "लिंक"
+
+msgid "Provenance"
+msgstr "स्रोत"
+
+msgid "Vérification en cours…"
+msgstr "जाँच चल रही है…"
+
+#, python-brace-format
+msgid "Erreur : {message}"
+msgstr "त्रुटि: {message}"
+
+#, python-brace-format
+msgid "Vérifié à {time}."
+msgstr "{time} पर जाँचा गया।"
+
+#, python-brace-format
+msgid ""
+"Nouvelle vérification toutes les {minutes} min tant que cet écran est "
+"ouvert."
+msgstr "जब तक यह स्क्रीन खुली है, हर {minutes} मिनट में फिर से जाँच।"
+
+msgid "Lancer (mot de passe administrateur)"
+msgstr "शुरू करें (एडमिन पासवर्ड)"
+
+msgid "SYNCHRONISER"
+msgstr "सिंक करें"
+
+msgid ""
+"Tout ce qui sera fait, dans l'ordre. Rien n'est lancé avant « Lancer » ; au "
+"premier échec, tout s'arrête et ce qui a été créé reste noté."
+msgstr ""
+"जो कुछ किया जाएगा, क्रम से। « शुरू करें » से पहले कुछ नहीं चलाया जाता; पहली "
+"विफलता पर सब रुक जाता है और जो बना वह दर्ज रहता है।"
+
+msgid "AVANCEMENT"
+msgstr "प्रगति"
+
+msgid "Fermer"
+msgstr "बंद करें"
+
+msgid ""
+"Chaque menu, sa fonction et le détail. Cliquez sur un titre pour l'ouvrir."
+msgstr "हर मेनू, उसका काम और विवरण। खोलने के लिए किसी शीर्षक पर क्लिक करें।"
+
+msgid "Exporter l'aide en HTML"
+msgstr "सहायता HTML में एक्सपोर्ट करें"
+
+#, python-brace-format
+msgid "Aide exportée : {path}"
+msgstr "सहायता एक्सपोर्ट की गई: {path}"
+
+#, python-brace-format
+msgid "Écran prévu au lot {lot} de l'étape 3."
+msgstr "चरण 3 के लॉट {lot} में नियोजित स्क्रीन।"
+
+msgid "RETIRER LA ZONE NEUTRE ?"
+msgstr "तटस्थ क्षेत्र हटाएँ?"
+
+msgid ""
+"Garder : rien n'est supprimé, les outils lisent toujours les copies "
+"actuelles (liens figés). Tout retirer : défait exactement ce que le registre"
+" liste."
+msgstr ""
+"रखें: कुछ भी नहीं हटाया जाता, टूल्स मौजूदा कॉपियाँ पढ़ते रहते हैं (लिंक "
+"स्थिर)। सब हटाएँ: ठीक वही पूर्ववत करता है जो रजिस्टर में सूचीबद्ध है।"
+
+msgid "Garder la zone"
+msgstr "क्षेत्र रखें"
+
+msgid "Tout retirer"
+msgstr "सब हटाएँ"
+
+msgid "CONTRÔLES"
+msgstr "जाँचें"
+
+msgid ""
+"Cet écran montre. Pour corriger : menu Réparer (toutes les machines, machine"
+" du réseau comprise) ; les commandes se copient avec « Copier les commandes "
+"»."
+msgstr ""
+"यह स्क्रीन केवल दिखाती है। ठीक करने के लिए: मरम्मत मेनू (सभी मशीनें, नेटवर्क"
+" की मशीन सहित); कमांड « कमांड कॉपी करें » से कॉपी होती हैं।"
+
+msgid "Copier les commandes"
+msgstr "कमांड कॉपी करें"
+
+#, python-brace-format
+msgid "vérifié à {time}"
+msgstr "{time} पर जाँचा गया"
+
+msgid "État : "
+msgstr "स्थिति: "
+
+msgid "RÉPARER CETTE MACHINE"
+msgstr "इस मशीन की मरम्मत करें"
+
+msgid ""
+"Chaque écart est corrigé par l'outil qui possède le fichier (omega-jail, "
+"omega-serv, jeton de chaque outil), ou par « Établir » pour ce que le "
+"registre de la zone dit qu'omega-connect a créé. omega-connect ne réécrit "
+"jamais le fichier d'un autre outil. Rien n'est lancé avant « Lancer »."
+msgstr ""
+"हर विसंगति उस टूल द्वारा ठीक की जाती है जिसकी वह फ़ाइल है (omega-jail, "
+"omega-serv, हर टूल का टोकन), या « etablir » द्वारा, उसके लिए जो क्षेत्र का "
+"रजिस्टर बताता है कि omega-connect ने बनाया। omega-connect कभी किसी दूसरे टूल"
+" की फ़ाइल दोबारा नहीं लिखता। « शुरू करें » से पहले कुछ नहीं चलाया जाता।"
+
+msgid "MACHINES DISTANTES"
+msgstr "दूरस्थ मशीनें"
+
+msgid ""
+"Une machine du registre se répare depuis ici : les commandes des outils sont"
+" lancées SUR elle, son mot de passe sudo est demandé une fois, dans ce "
+"terminal."
+msgstr ""
+"रजिस्टर की मशीन की मरम्मत यहीं से होती है: टूल्स की कमांड उसी पर चलाई जाती "
+"हैं, उसका sudo पासवर्ड इसी टर्मिनल में एक बार माँगा जाता है।"
+
+msgid "Réparer la machine choisie"
+msgstr "चुनी गई मशीन की मरम्मत करें"
+
+msgid "Zone : établir…"
+msgstr "क्षेत्र: स्थापित करें…"
+
+msgid "Analyser de nouveau"
+msgstr "फिर से विश्लेषण करें"
+
+msgid "Liaisons à corriger"
+msgstr "ठीक करने योग्य लिंक"
+
+msgid "aucune machine distante : scannez-en une (Scanner)"
+msgstr "कोई दूरस्थ मशीन नहीं: एक मशीन स्कैन करें (स्कैन करें)"
+
+msgid "Préparation des réparations : vérification des liens en cours…"
+msgstr "मरम्मत की तैयारी: लिंक की जाँच चल रही है…"
+
+msgid "Lancer avec sudo"
+msgstr "sudo से शुरू करें"
+
+msgid ""
+"Vue d'ensemble de vos machines et de vos applications. Rien n'est modifié "
+"depuis cet écran. Pour corriger : menu Réparer."
+msgstr ""
+"आपकी मशीनों और एप्लिकेशन का अवलोकन। इस स्क्रीन से कुछ भी बदला नहीं जाता। ठीक"
+" करने के लिए: मरम्मत मेनू।"
+
+msgid "Actualiser"
+msgstr "रीफ़्रेश"
+
+msgid "cette machine"
+msgstr "यह मशीन"
+
+msgid "DASHBOARD"
+msgstr "डैशबोर्ड"
+
+#, python-brace-format
+msgid ""
+"Cette machine vérifiée à {time} ; machines du réseau : leur dernier scan."
+msgstr "यह मशीन {time} पर जाँची गई; नेटवर्क की मशीनें: उनका अंतिम स्कैन।"
+
+msgid "QUITTER OMEGA-CONNECT ?"
+msgstr "OMEGA-CONNECT से बाहर निकलें?"
+
+msgid "REGISTRE"
+msgstr "रजिस्टर"
+
+msgid ""
+"Ce que le scanner a trouvé : chaque application omega, son service, sa "
+"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
+" à jour l'application » installe la dernière version d'une application trop "
+"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
+"corriger un écart : Réparer."
+msgstr ""
+"स्कैनर को क्या मिला: हर omega एप्लिकेशन, उसकी सेवा, संस्करण और स्थिति। « "
+"रजिस्टर अपडेट करें » फिर से स्कैन करता है; « एप्लिकेशन अपडेट करें » बहुत "
+"पुराने एप्लिकेशन (चुनी गई पंक्ति) का नवीनतम संस्करण इंस्टॉल करता है। लिंक "
+"फिर से ठीक करने के लिए: सिंक्रनाइज़ेशन; विसंगति ठीक करने के लिए: मरम्मत।"
+
+msgid "Mettre à jour le registre"
+msgstr "रजिस्टर अपडेट करें"
+
+msgid "Mettre à jour l'application"
+msgstr "एप्लिकेशन अपडेट करें"
+
+msgid "Lecture du registre…"
+msgstr "रजिस्टर पढ़ा जा रहा है…"
+
+msgid "Premier scan : recherche des applications omega…"
+msgstr "पहला स्कैन: omega एप्लिकेशन खोजे जा रहे हैं…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s)"
+msgstr "{machines} मशीनों पर {count} एप्लिकेशन"
+
+#, python-brace-format
+msgid "dernier scan à {time}"
+msgstr "अंतिम स्कैन {time} पर"
+
+msgid "Espace partagé : "
+msgstr "साझा स्थान: "
+
+msgid "Réinstaller l'application"
+msgstr "एप्लिकेशन फिर से इंस्टॉल करें"
+
+#, python-brace-format
+msgid "→ « {action} » installe la dernière version depuis GitHub."
+msgstr "→ « {action} » GitHub से नवीनतम संस्करण इंस्टॉल करता है।"
+
+msgid ""
+"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
+"possible : suivez la section « Mise à jour » du README de l'outil."
+msgstr ""
+"→ इसी कंप्यूटर पर, omega-connect से अपडेट अभी संभव नहीं है: टूल के README का"
+" « अपडेट » खंड देखें।"
+
+#, python-brace-format
+msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
+msgstr "रजिस्टर अपडेट: {count} दूरस्थ मशीनों का स्कैन…"
+
+#, python-brace-format
+msgid ""
+"omega-connect — synchronisation de {machine}. La machine demande elle-même "
+"son mot de passe sudo (il ne s'affiche pas pendant la saisie) ; omega-"
+"connect ne le voit jamais."
+msgstr ""
+"omega-connect — {machine} का सिंक्रनाइज़ेशन। मशीन स्वयं अपना sudo पासवर्ड "
+"माँगती है (टाइप करते समय यह नहीं दिखता); omega-connect इसे कभी नहीं देखता।"
+
+msgid "Terminé. Appuyez sur Entrée pour revenir à omega-connect… "
+msgstr "पूरा। omega-connect पर लौटने के लिए Enter दबाएँ… "
+
+#, python-brace-format
+msgid "METTRE À JOUR L'APPLICATION — {machine}"
+msgstr "एप्लिकेशन अपडेट करें — {machine}"
+
+msgid ""
+"Seulement les applications trop anciennes de cette machine : dernière "
+"version prise sur leur Release GitHub (empreinte vérifiée), installée comme "
+"le dit leur README. Rien d'autre ; rien n'est fait avant « Lancer »."
+msgstr ""
+"इस मशीन के केवल बहुत पुराने एप्लिकेशन: नवीनतम संस्करण उनकी GitHub Release से"
+" लिया जाता है (फ़िंगरप्रिंट जाँचा गया), उनके README के अनुसार इंस्टॉल किया "
+"जाता है। और कुछ नहीं; « शुरू करें » से पहले कुछ नहीं किया जाता।"
+
+#, python-brace-format
+msgid "RÉPARER — {machine}"
+msgstr "मरम्मत — {machine}"
+
+msgid ""
+"Corrections faites par les outils eux-mêmes, lancées SUR la machine depuis "
+"ici : rien à y taper. Ce qu'aucun outil ne sait faire se copie (« Copier les"
+" commandes »). Rien n'est fait avant « Lancer »."
+msgstr ""
+"स्वयं टूल्स द्वारा किए गए सुधार, यहीं से उसी मशीन पर चलाए जाते हैं: वहाँ कुछ"
+" टाइप नहीं करना। जो कोई टूल नहीं कर सकता वह कॉपी किया जाता है (« कमांड कॉपी "
+"करें »)। « शुरू करें » से पहले कुछ नहीं किया जाता।"
+
+#, python-brace-format
+msgid "SYNCHRONISER — {machine}"
+msgstr "सिंक करें — {machine}"
+
+msgid ""
+"Plan calculé sur la machine elle-même, sans sudo : réparer puis "
+"synchroniser. Aucune mise à jour ici (Registre → « Mettre à jour "
+"l'application ») ; rien n'est fait avant « Lancer »."
+msgstr ""
+"योजना की गणना स्वयं मशीन पर, sudo के बिना: मरम्मत, फिर सिंक। यहाँ कोई अपडेट "
+"नहीं (रजिस्टर → « एप्लिकेशन अपडेट करें »); « शुरू करें » से पहले कुछ नहीं "
+"किया जाता।"
+
+#, python-brace-format
+msgid "Calcul du plan sur {machine}…"
+msgstr "{machine} पर योजना की गणना…"
+
+#, python-brace-format
+msgid "Réinstaller sur {machine}"
+msgstr "{machine} पर फिर से इंस्टॉल करें"
+
+#, python-brace-format
+msgid "Mettre à jour sur {machine}"
+msgstr "{machine} पर अपडेट करें"
+
+#, python-brace-format
+msgid "Réparer {machine}"
+msgstr "{machine} की मरम्मत करें"
+
+#, python-brace-format
+msgid "Synchroniser {machine}"
+msgstr "{machine} सिंक करें"
+
+#, python-brace-format
+msgid "Téléchargement et vérification des archives, envoi vers {machine}…"
+msgstr "आर्काइव डाउनलोड और जाँचे जा रहे हैं, {machine} को भेजे जा रहे हैं…"
+
+#, python-brace-format
+msgid "Lecture du résultat et nouveau scan de {machine}…"
+msgstr "परिणाम पढ़ा जा रहा है और {machine} का नया स्कैन…"
+
+#, python-brace-format
+msgid "{machine} : synchronisation terminée."
+msgstr "{machine}: सिंक्रनाइज़ेशन पूरा।"
+
+#, python-brace-format
+msgid "{machine} : la synchronisation n'est pas allée au bout."
+msgstr "{machine}: सिंक्रनाइज़ेशन पूरा नहीं हुआ।"
+
+msgid "l'outil, depuis ici"
+msgstr "टूल, यहीं से"
+
+msgid "commande lancée sur la machine, depuis ici"
+msgstr "मशीन पर चलाई गई कमांड, यहीं से"
+
+msgid "à la main (commande à copier)"
+msgstr "हाथ से (कॉपी करने की कमांड)"
+
+msgid "Mettre à jour l'application, depuis ici"
+msgstr "एप्लिकेशन अपडेट करें, यहीं से"
+
+msgid "Réinstaller l'application, depuis ici"
+msgstr "एप्लिकेशन फिर से इंस्टॉल करें, यहीं से"
+
+msgid "à la main (README de l'outil)"
+msgstr "हाथ से (टूल का README)"
+
+msgid "Scanner : rescanner la machine"
+msgstr "स्कैन करें: मशीन फिर से स्कैन करें"
+
+msgid "aucune correction connue (voir le détail)"
+msgstr "कोई ज्ञात सुधार नहीं (विवरण देखें)"
+
+msgid "RÉPARER"
+msgstr "मरम्मत"
+
+msgid ""
+"Tout ce qui ne va pas, sur toutes les machines. Choisissez une ligne puis « "
+"Réparer la ligne choisie », ou « Tout réparer » : le plan de la machine "
+"s'affiche, rien n'est lancé avant. Machine du réseau : réparée depuis ici, "
+"son mot de passe sudo demandé une fois."
+msgstr ""
+"सभी मशीनों पर जो कुछ ठीक नहीं है। एक पंक्ति चुनें, फिर « चुनी गई पंक्ति की "
+"मरम्मत करें », या « सब की मरम्मत करें »: मशीन की योजना दिखाई जाती है, उससे "
+"पहले कुछ नहीं चलाया जाता। नेटवर्क की मशीन: यहीं से मरम्मत, उसका sudo पासवर्ड"
+" एक बार माँगा जाता है।"
+
+msgid "Réparer la ligne choisie"
+msgstr "चुनी गई पंक्ति की मरम्मत करें"
+
+msgid "Détail"
+msgstr "विवरण"
+
+msgid "Tout réparer"
+msgstr "सब की मरम्मत करें"
+
+msgid "Problème"
+msgstr "समस्या"
+
+msgid "Qui corrige"
+msgstr "कौन ठीक करता है"
+
+msgid "Recherche de tout ce qui ne va pas : vérification de cette machine…"
+msgstr "जो कुछ ठीक नहीं है उसकी खोज: इस मशीन की जाँच…"
+
+#, python-brace-format
+msgid "Rescan des machines du réseau ({index}/{count}) : {machine}…"
+msgstr "नेटवर्क की मशीनों का फिर से स्कैन ({index}/{count}): {machine}…"
+
+#, python-brace-format
+msgid "{count} problème(s) sur {machines} machine(s)."
+msgstr "{machines} मशीनों पर {count} समस्याएँ।"
+
+msgid "Rien à réparer : tout est OK sur toutes les machines."
+msgstr "मरम्मत को कुछ नहीं: सभी मशीनों पर सब OK है।"
+
+msgid "la machine ne répond plus"
+msgstr "मशीन अब जवाब नहीं देती"
+
+#, python-brace-format
+msgid "{machine} : rescannez-la d'abord (Scanner)."
+msgstr "{machine}: पहले इसे फिर से स्कैन करें (स्कैन करें)।"
+
+msgid "RAPPORT"
+msgstr "रिपोर्ट"
+
+msgid ""
+"Un document complet, établi à l'instant (les machines du réseau sont "
+"rescannées avant) : bilan, ce qu'il reste à faire, registre, machines du "
+"réseau, liaisons de chaque machine, espace partagé. Enregistré dans le "
+"dossier des exports."
+msgstr ""
+"एक पूरा दस्तावेज़, अभी तैयार (नेटवर्क की मशीनें पहले फिर से स्कैन होती हैं):"
+" सारांश, क्या करना बाकी है, रजिस्टर, नेटवर्क की मशीनें, हर मशीन के लिंक, "
+"साझा स्थान। निर्यात फ़ोल्डर में सहेजा जाता है।"
+
+msgid "THÈME DE LA PAGE HTML"
+msgstr "HTML पेज की थीम"
+
+msgid "APERÇU"
+msgstr "पूर्वावलोकन"
+
+msgid "Exporter JSON"
+msgstr "JSON एक्सपोर्ट करें"
+
+msgid "Exporter TXT"
+msgstr "TXT एक्सपोर्ट करें"
+
+msgid "Exporter HTML"
+msgstr "HTML एक्सपोर्ट करें"
+
+msgid "Génération du rapport en cours (détection, vérification, zone)…"
+msgstr "रिपोर्ट बनाई जा रही है (पहचान, जाँच, क्षेत्र)…"
+
+msgid "Rapport prêt."
+msgstr "रिपोर्ट तैयार।"
+
+#, python-brace-format
+msgid "Export impossible : {error}"
+msgstr "एक्सपोर्ट नहीं हो सका: {error}"
+
+#, python-brace-format
+msgid "{count} application(s) omega trouvée(s) sur cette machine."
+msgstr "इस मशीन पर {count} omega एप्लिकेशन मिले।"
+
+#, python-brace-format
+msgid "Trouvées via : {sources}."
+msgstr "इनके द्वारा मिले: {sources}।"
+
+#, python-brace-format
+msgid ""
+"{count} remarque(s) sur la recherche (montages réseau ignorés, etc.) : voir "
+"le Rapport."
+msgstr "खोज पर {count} टिप्पणियाँ (नेटवर्क माउंट अनदेखे, आदि): रिपोर्ट देखें।"
+
+msgid "SCANNER"
+msgstr "स्कैन करें"
+
+msgid ""
+"Recherche des applications omega, en lecture seule : rien n'est modifié, "
+"aucun mot de passe. Le résultat met à jour le registre."
+msgstr ""
+"omega एप्लिकेशन की खोज, केवल पढ़ने के लिए: कुछ नहीं बदला जाता, कोई पासवर्ड "
+"नहीं। परिणाम रजिस्टर को अपडेट करता है।"
+
+#, python-brace-format
+msgid "MACHINE LOCALE — {machine}"
+msgstr "स्थानीय मशीन — {machine}"
+
+msgid "MACHINES QUE CET ORDINATEUR SAIT DÉJÀ JOINDRE"
+msgstr "वे मशीनें जिन तक यह कंप्यूटर पहले से पहुँच सकता है"
+
+msgid ""
+"Trouvées dans vos profils Unison, votre ~/.ssh/config et les machines déjà "
+"connues de SSH. Choisissez-en une (Entrée ou clic) : omega-connect s'y "
+"connecte avec vos clés et y lance le même scanner, en mémoire — rien n'y est"
+" installé, aucun mot de passe."
+msgstr ""
+"आपकी Unison प्रोफ़ाइल, आपकी ~/.ssh/config और SSH को पहले से ज्ञात मशीनों में"
+" मिलीं। एक चुनें (Enter या क्लिक): omega-connect आपकी कुंजियों से उससे "
+"जुड़ता है और वहाँ वही स्कैनर मेमोरी में चलाता है — वहाँ कुछ भी इंस्टॉल नहीं "
+"होता, कोई पासवर्ड नहीं।"
+
+msgid "Scanner la machine choisie"
+msgstr "चुनी गई मशीन स्कैन करें"
+
+msgid "AUTRE MACHINE (SAISIE MANUELLE)"
+msgstr "दूसरी मशीन (हाथ से दर्ज करें)"
+
+msgid ""
+"utilisateur@machine (nom ou adresse), ou un nom de votre ~/.ssh/config."
+msgstr "उपयोगकर्ता@मशीन (नाम या पता), या आपकी ~/.ssh/config का कोई नाम।"
+
+msgid "utilisateur@machine"
+msgstr "उपयोगकर्ता@मशीन"
+
+msgid "Scanner cette machine"
+msgstr "यह मशीन स्कैन करें"
+
+msgid "MACHINES DISTANTES CONNUES"
+msgstr "ज्ञात दूरस्थ मशीनें"
+
+msgid ""
+"Celles du registre. Sur un grand parc, retirez celles qui ne vous concernent"
+" plus : elles ne sont plus rescannées (rien n'est modifié sur elles)."
+msgstr ""
+"रजिस्टर वाली मशीनें। बड़े नेटवर्क पर, जो अब आपसे संबंधित नहीं हैं उन्हें "
+"हटाएँ: वे फिर से स्कैन नहीं की जातीं (उन पर कुछ नहीं बदला जाता)।"
+
+msgid "Retirer cette machine"
+msgstr "यह मशीन हटाएँ"
+
+msgid "Scanner de nouveau"
+msgstr "फिर से स्कैन करें"
+
+msgid "Rescanner les machines connues"
+msgstr "ज्ञात मशीनें फिर से स्कैन करें"
+
+msgid "Voir le registre"
+msgstr "रजिस्टर देखें"
+
+msgid "Trouvée dans"
+msgstr "कहाँ मिली"
+
+msgid "Analyse de la machine locale : recherche des applications omega…"
+msgstr "स्थानीय मशीन का विश्लेषण: omega एप्लिकेशन खोजे जा रहे हैं…"
+
+#, python-brace-format
+msgid "Analysée à {time}."
+msgstr "{time} पर विश्लेषण किया गया।"
+
+msgid "aucune machine distante pour l'instant"
+msgstr "अभी कोई दूरस्थ मशीन नहीं"
+
+msgid "aucune machine trouvée"
+msgstr "कोई मशीन नहीं मिली"
+
+#, python-brace-format
+msgid "{machine} retirée du registre."
+msgstr "{machine} रजिस्टर से हटाई गई।"
+
+msgid "RETIRER CETTE MACHINE ?"
+msgstr "यह मशीन हटाएँ?"
+
+#, python-brace-format
+msgid ""
+"{machine} et ses {count} application(s) sortent du registre : elles ne "
+"seront plus rescannées. Rien n'est modifié sur la machine ; vous pourrez la "
+"scanner de nouveau à tout moment."
+msgstr ""
+"{machine} और उसके {count} एप्लिकेशन रजिस्टर से निकल जाते हैं: वे फिर से "
+"स्कैन नहीं किए जाएँगे। मशीन पर कुछ नहीं बदला जाता; आप उसे कभी भी फिर से "
+"स्कैन कर सकते हैं।"
+
+msgid "Retirer"
+msgstr "हटाएँ"
+
+#, python-brace-format
+msgid "Connexion à {target}…"
+msgstr "{target} से कनेक्ट हो रहा है…"
+
+#, python-brace-format
+msgid "{target} : rien n'a été fait (machine non acceptée)."
+msgstr "{target}: कुछ नहीं किया गया (मशीन स्वीकार नहीं की गई)।"
+
+#, python-brace-format
+msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
+msgstr "{target} का स्कैन: स्कैनर वहाँ चल रहा है, केवल पढ़ने के लिए…"
+
+msgid "Aucune machine distante connue pour l'instant."
+msgstr "अभी कोई ज्ञात दूरस्थ मशीन नहीं।"
+
+#, python-brace-format
+msgid "Scan des {count} machine(s) connue(s)…"
+msgstr "{count} ज्ञात मशीनों का स्कैन…"
+
+#, python-brace-format
+msgid "{good} machine(s) scannée(s) sur {total}."
+msgstr "{total} में से {good} मशीनें स्कैन की गईं।"
+
+msgid "Enregistrés dans var/settings.json, appliqués tout de suite."
+msgstr "var/settings.json में सेव, तुरंत लागू।"
+
+msgid "Thème de l'interface"
+msgstr "इंटरफ़ेस की थीम"
+
+msgid "Thème des exports (rapport HTML, aide exportée)"
+msgstr "एक्सपोर्ट की थीम (HTML रिपोर्ट, एक्सपोर्ट की गई सहायता)"
+
+msgid "Dossier des exports"
+msgstr "एक्सपोर्ट फ़ोल्डर"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Laissez vide pour revenir au dossier par défaut."
+msgstr "डिफ़ॉल्ट: {path}। डिफ़ॉल्ट फ़ोल्डर पर लौटने के लिए खाली छोड़ें।"
+
+msgid "Dossier des captures d'écran"
+msgstr "स्क्रीनशॉट फ़ोल्डर"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Capture : Ctrl+P → « Capture d'écran »."
+msgstr "डिफ़ॉल्ट: {path}। स्क्रीनशॉट: Ctrl+P → « स्क्रीनशॉट »।"
+
+msgid "Enregistrer les dossiers"
+msgstr "फ़ोल्डर सेव करें"
+
+msgid "Maintenance des dossiers"
+msgstr "फ़ोल्डरों का रखरखाव"
+
+msgid ""
+"Supprime définitivement le contenu du dossier configuré ; le dossier reste."
+msgstr ""
+"सेट किए गए फ़ोल्डर की सामग्री स्थायी रूप से मिटाता है; फ़ोल्डर बना रहता है।"
+
+msgid "Vider le dossier des exports"
+msgstr "एक्सपोर्ट फ़ोल्डर खाली करें"
+
+msgid "Vider le dossier des captures"
+msgstr "स्क्रीनशॉट फ़ोल्डर खाली करें"
+
+msgid "des exports"
+msgstr "एक्सपोर्ट"
+
+msgid "des captures"
+msgstr "स्क्रीनशॉट"
+
+#, python-brace-format
+msgid "Chemin à donner en entier (commençant par / ou ~) : {path}"
+msgstr "पूरा पथ दें (/ या ~ से शुरू): {path}"
+
+#, python-brace-format
+msgid "Dossiers enregistrés : {paths}"
+msgstr "फ़ोल्डर सेव किए गए: {paths}"
+
+#, python-brace-format
+msgid "VIDER LE DOSSIER {label} ?"
+msgstr "{label} फ़ोल्डर खाली करें?"
+
+#, python-brace-format
+msgid ""
+"Supprime définitivement tout le contenu de {directory}. Le dossier reste."
+msgstr ""
+"{directory} की पूरी सामग्री स्थायी रूप से मिटाता है। फ़ोल्डर बना रहता है।"
+
+msgid "Vider"
+msgstr "खाली करें"
+
+#, python-brace-format
+msgid "Refusé — {path} : {reason}"
+msgstr "अस्वीकृत — {path}: {reason}"
+
+#, python-brace-format
+msgid "{count} élément(s) supprimé(s) dans {path}."
+msgstr "{path} में {count} तत्व मिटाए गए।"
+
+#, python-brace-format
+msgid "Non supprimés : {items}"
+msgstr "नहीं मिटाए गए: {items}"
+
+msgid "Choisir"
+msgstr "चुनें"
+
+msgid "SYNCHRONISATION"
+msgstr "सिंक्रनाइज़ेशन"
+
+msgid ""
+"Toutes vos machines et leurs applications. Cochez des lignes (Entrée ou "
+"Espace) puis « Synchroniser la sélection », ou « Synchroniser tout ». Chaque"
+" machine a son plan, affiché avant d'agir, et un seul mot de passe ; les "
+"machines du réseau sont synchronisées depuis ici."
+msgstr ""
+"आपकी सभी मशीनें और उनके एप्लिकेशन। पंक्तियों पर निशान लगाएँ (Enter या "
+"Space), फिर « चयन सिंक करें », या « सब सिंक करें »। हर मशीन की अपनी योजना "
+"है, जो कार्रवाई से पहले दिखाई जाती है, और एक ही पासवर्ड; नेटवर्क की मशीनें "
+"यहीं से सिंक की जाती हैं।"
+
+msgid "Synchroniser tout"
+msgstr "सब सिंक करें"
+
+msgid "Synchroniser la sélection"
+msgstr "चयन सिंक करें"
+
+msgid "Lire avec sudo"
+msgstr "sudo से पढ़ें"
+
+msgid "Vérification de cette machine et de son espace partagé…"
+msgstr "इस मशीन और इसके साझा स्थान की जाँच…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s) — vérifié à {time}."
+msgstr "{machines} मशीनों पर {count} एप्लिकेशन — {time} पर जाँचा गया।"
+
+msgid "Espace partagé lu avec sudo (lecture seule)."
+msgstr "साझा स्थान sudo से पढ़ा गया (केवल पढ़ना)।"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : "
+msgstr "{machine} का साझा स्थान: "
+
+#, python-brace-format
+msgid "{tool} : {hint}"
+msgstr "{tool}: {hint}"
+
+msgid "Lecture de l'espace partagé…"
+msgstr "साझा स्थान पढ़ा जा रहा है…"
+
+#, python-brace-format
+msgid "Préparation du plan de synchronisation de {machine}…"
+msgstr "{machine} की सिंक्रनाइज़ेशन योजना तैयार की जा रही है…"
+
+msgid "FAIRE CONFIANCE À CETTE MACHINE ?"
+msgstr "इस मशीन पर भरोसा करें?"
+
+msgid "Faire confiance"
+msgstr "भरोसा करें"
+
+msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
+msgstr "साझा स्थान का विवरण"
+
+#, python-brace-format
+msgid ""
+"Ce qu'omega-connect a créé sur cette machine, et quand (registre de l'espace"
+" partagé {zone}). « Tout retirer » défait exactement cette liste ; un "
+"fichier qu'elle ne connaît pas n'est jamais supprimé."
+msgstr ""
+"omega-connect ने इस मशीन पर क्या बनाया, और कब (साझा स्थान {zone} का "
+"रजिस्टर)। « सब हटाएँ » ठीक यही सूची पूर्ववत करता है; जिस फ़ाइल को यह सूची "
+"नहीं जानती वह कभी नहीं मिटाई जाती।"
+
+msgid "CRÉATIONS"
+msgstr "बनाई गई चीज़ें"
+
+msgid "OUTILS RELIÉS"
+msgstr "जुड़े हुए टूल्स"
+
+msgid "Retirer cet outil"
+msgstr "यह टूल हटाएँ"
+
+msgid "Tout retirer…"
+msgstr "सब हटाएँ…"
+
+msgid "Outil"
+msgstr "टूल"
+
+msgid "Relié le"
+msgstr "जोड़ने की तिथि"
+
+msgid "Initialisation du registre : lecture de la zone en cours…"
+msgstr "रजिस्टर शुरू हो रहा है: क्षेत्र पढ़ा जा रहा है…"
+
+#, python-brace-format
+msgid ""
+"Aucune zone en {zone} : rien n'a été créé (menu Synchronisation pour "
+"l'établir)."
+msgstr ""
+"{zone} में कोई क्षेत्र नहीं: कुछ नहीं बनाया गया (इसे स्थापित करने के लिए "
+"सिंक्रनाइज़ेशन मेनू)।"
+
+msgid ""
+"Registre lisible par root et le groupe omega-synchro seulement : "
+"reconnectez-vous si vous venez d'y être ajouté, ou « Lire avec sudo »."
+msgstr ""
+"रजिस्टर केवल root और omega-synchro समूह द्वारा पढ़ा जा सकता है: यदि आपको अभी"
+" इसमें जोड़ा गया है तो दोबारा लॉग इन करें, या « sudo से पढ़ें »।"
+
+#, python-brace-format
+msgid ""
+"Registre {status} ({detail}) : rien ne sera retiré tant qu'il n'est pas "
+"réparé."
+msgstr ""
+"रजिस्टर {status} ({detail}): जब तक यह ठीक नहीं होता, कुछ नहीं हटाया जाएगा।"
+
+#, python-brace-format
+msgid "Zone {zone} — {state} — mise à jour le {date}."
+msgstr "क्षेत्र {zone} — {state} — {date} को अपडेट किया गया।"
+
+msgid "aucune application reliée pour l'instant"
+msgstr "अभी कोई जुड़ा हुआ एप्लिकेशन नहीं"
+
+msgid "Aucune commande."
+msgstr "कोई कमांड नहीं।"
+
+msgid ""
+"Commandes lancées une à une en root avec sudo, dans cet ordre. Rien n'est "
+"lancé avant « Lancer ». Au premier échec tout s'arrête, et le registre garde"
+" la trace de ce qui a été créé."
+msgstr ""
+"कमांड sudo से root के रूप में एक-एक करके, इसी क्रम में चलाई जाती हैं। « शुरू"
+" करें » से पहले कुछ नहीं चलाया जाता। पहली विफलता पर सब रुक जाता है, और "
+"रजिस्टर में दर्ज रहता है कि क्या बनाया गया।"
+
+msgid "COMMANDES"
+msgstr "कमांड"
+
+msgid "REMARQUES"
+msgstr "टिप्पणियाँ"
+
+msgid ""
+"Ce qui est relié ou pas, sur toutes vos machines, avec son état (OK, à "
+"réparer, absent…). Cet écran montre : ce qui est « à réparer » se corrige "
+"dans le menu Réparer. Surlignez une ligne pour le détail."
+msgstr ""
+"सभी मशीनों पर क्या जुड़ा है और क्या नहीं, उसकी स्थिति के साथ (OK, मरम्मत "
+"ज़रूरी, अनुपस्थित…)। यह स्क्रीन केवल दिखाती है: जो « मरम्मत ज़रूरी » है वह "
+"मरम्मत मेनू में ठीक होता है। विवरण के लिए किसी पंक्ति को हाइलाइट करें।"

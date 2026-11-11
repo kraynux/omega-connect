@@ -1,0 +1,3707 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-connect\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, python-brace-format
+msgid "omega-connect — machine {machine}"
+msgstr "omega-connect — เครื่อง {machine}"
+
+#, python-brace-format
+msgid "== Mise à jour de {tool} vers {version} ({root})"
+msgstr "== กำลังอัปเดต {tool} เป็น {version} ({root})"
+
+#, python-brace-format
+msgid "✗ {tool} : {error}"
+msgstr "✗ {tool}: {error}"
+
+#, python-brace-format
+msgid "✓ {tool} {version} installé."
+msgstr "✓ ติดตั้ง {tool} {version} แล้ว"
+
+#, python-brace-format
+msgid "· déjà réglé : {command}"
+msgstr "· ตั้งค่าไว้แล้ว: {command}"
+
+#, python-brace-format
+msgid "archive refusée : chemin inattendu {name}"
+msgstr "ปฏิเสธไฟล์เก็บถาวร: พาธที่ไม่คาดคิด {name}"
+
+#, python-brace-format
+msgid "archive refusée : {name} n'est ni un fichier ni un dossier"
+msgstr "ปฏิเสธไฟล์เก็บถาวร: {name} ไม่ใช่ทั้งไฟล์และโฟลเดอร์"
+
+msgid "archive refusée : trop volumineuse une fois extraite"
+msgstr "ปฏิเสธไฟล์เก็บถาวร: ใหญ่เกินไปเมื่อแตกไฟล์แล้ว"
+
+#, python-brace-format
+msgid "archive refusée : pas de dossier {tool}/"
+msgstr "ปฏิเสธไฟล์เก็บถาวร: ไม่มีโฟลเดอร์ {tool}/"
+
+#, python-brace-format
+msgid "{path} est un lien : rien n'est copié dedans"
+msgstr "{path} เป็นลิงก์: ไม่มีการคัดลอกสิ่งใดลงไป"
+
+#, python-brace-format
+msgid "{root} n'est pas un dossier d'installation"
+msgstr "{root} ไม่ใช่โฟลเดอร์การติดตั้ง"
+
+#, python-brace-format
+msgid "{root} n'appartient pas à ce compte : mise à jour faite à la main"
+msgstr "{root} ไม่ได้เป็นของบัญชีนี้: ต้องอัปเดตด้วยตนเอง"
+
+msgid "empreinte de l'archive différente de sha.txt : rien n'est installé"
+msgstr "ค่าแฮชของไฟล์เก็บถาวรไม่ตรงกับ sha.txt: ไม่มีการติดตั้งสิ่งใด"
+
+#, python-brace-format
+msgid "Mise de côté de l'ancienne installation : {old} → {new}"
+msgstr "ย้ายการติดตั้งเดิมไปเก็บไว้: {old} → {new}"
+
+msgid "impossible de mettre l'ancienne installation de côté (sudo mv)"
+msgstr "ไม่สามารถย้ายการติดตั้งเดิมไปเก็บไว้ได้ (sudo mv)"
+
+#, python-brace-format
+msgid "{count} fichiers installés dans {root}."
+msgstr "ติดตั้ง {count} ไฟล์ใน {root} แล้ว"
+
+#, python-brace-format
+msgid "install.sh introuvable dans {root}"
+msgstr "ไม่พบ install.sh ใน {root}"
+
+#, python-brace-format
+msgid ""
+"Environnement Python (.venv) incomplet mis de côté : {path} — install.sh en "
+"recrée un."
+msgstr ""
+"ย้ายสภาพแวดล้อม Python (.venv) ที่ไม่สมบูรณ์ไปเก็บไว้: {path} — install.sh "
+"จะสร้างขึ้นใหม่"
+
+#, python-brace-format
+msgid "Lancement de {path} :"
+msgstr "กำลังเรียกใช้ {path}:"
+
+#, python-brace-format
+msgid "install.sh a échoué (code {code})"
+msgstr "install.sh ล้มเหลว (รหัส {code})"
+
+#, python-brace-format
+msgid "{script} introuvable : réglages et données restés dans {old}"
+msgstr "ไม่พบ {script}: การตั้งค่าและข้อมูลยังอยู่ใน {old}"
+
+#, python-brace-format
+msgid ""
+"Reprise des réglages et données de {old} (autres anciennes installations "
+"ignorées : {others})"
+msgstr ""
+"นำการตั้งค่าและข้อมูลจาก {old} กลับมาใช้ (ข้ามการติดตั้งเก่าอื่น ๆ: "
+"{others})"
+
+#, python-brace-format
+msgid "reprise de {old} échouée ({script})"
+msgstr "นำข้อมูลจาก {old} กลับมาใช้ไม่สำเร็จ ({script})"
+
+msgid "contient l'installation d'omega-connect"
+msgstr "มีการติดตั้ง omega-connect อยู่"
+
+msgid "registre omega-serv"
+msgstr "ทะเบียน omega-serv"
+
+msgid "systemd"
+msgstr "systemd"
+
+msgid "OpenRC"
+msgstr "OpenRC"
+
+msgid "runit"
+msgstr "runit"
+
+msgid "dossier personnel"
+msgstr "โฟลเดอร์ส่วนตัว"
+
+msgid "/srv"
+msgstr "/srv"
+
+msgid "chemin saisi"
+msgstr "พาธที่ป้อน"
+
+msgid "absent"
+msgstr "ไม่มี"
+
+msgid "illisible (droits)"
+msgstr "อ่านไม่ได้ (สิทธิ์)"
+
+msgid "abîmé"
+msgstr "เสียหาย"
+
+msgid "d'une version plus récente qu'omega-connect"
+msgstr "มาจากเวอร์ชันที่ใหม่กว่า omega-connect"
+
+msgid "non fournie (version de l'outil trop ancienne ?)"
+msgstr "ไม่ได้ให้มา (เวอร์ชันของเครื่องมือเก่าเกินไป?)"
+
+msgid "non obtenue"
+msgstr "ไม่ได้รับ"
+
+msgid "illisible"
+msgstr "อ่านไม่ได้"
+
+msgid "active"
+msgstr "ใช้งานอยู่"
+
+msgid "désactivée"
+msgstr "ปิดใช้งาน"
+
+msgid "absente"
+msgstr "ไม่มี"
+
+msgid "inconnue"
+msgstr "ไม่ทราบ"
+
+#, python-brace-format
+msgid "registre des instances omega-serv illisible : {detail}"
+msgstr "อ่านทะเบียนอินสแตนซ์ omega-serv ไม่ได้: {detail}"
+
+#, python-brace-format
+msgid "instance omega-serv enregistrée mais dossier disparu : {detail}"
+msgstr "อินสแตนซ์ omega-serv ลงทะเบียนไว้แต่โฟลเดอร์หายไป: {detail}"
+
+#, python-brace-format
+msgid "fichier de service illisible : {detail}"
+msgstr "อ่านไฟล์บริการไม่ได้: {detail}"
+
+#, python-brace-format
+msgid "service {detail} : dossier d'installation introuvable"
+msgstr "บริการ {detail}: ไม่พบโฟลเดอร์การติดตั้ง"
+
+#, python-brace-format
+msgid "recherche arrêtée (trop de dossiers) dans {detail}"
+msgstr "หยุดการค้นหา (โฟลเดอร์มากเกินไป) ใน {detail}"
+
+#, python-brace-format
+msgid "montage réseau non parcouru : {detail}"
+msgstr "ไม่ได้สำรวจจุดเมานต์เครือข่าย: {detail}"
+
+#, python-brace-format
+msgid "dossier introuvable : {detail}"
+msgstr "ไม่พบโฟลเดอร์: {detail}"
+
+#, python-brace-format
+msgid "aucun outil omega dans : {detail}"
+msgstr "ไม่มีเครื่องมือ omega ใน: {detail}"
+
+#, python-brace-format
+msgid "créez-le sous le compte {owner} : {command}"
+msgstr "สร้างภายใต้บัญชี {owner}: {command}"
+
+msgid "outil inconnu"
+msgstr "เครื่องมือที่ไม่รู้จัก"
+
+#, python-brace-format
+msgid "trouvé par : {sources}"
+msgstr "พบโดย: {sources}"
+
+#, python-brace-format
+msgid "propriétaire : {owner}"
+msgstr "เจ้าของ: {owner}"
+
+#, python-brace-format
+msgid "service : {names}"
+msgstr "บริการ: {names}"
+
+#, python-brace-format
+msgid "jeton : présent (identifiant {identifier}, version {version})"
+msgstr "โทเค็น: มีอยู่ (ตัวระบุ {identifier}, เวอร์ชัน {version})"
+
+#, python-brace-format
+msgid "jeton : {state}"
+msgstr "โทเค็น: {state}"
+
+#, python-brace-format
+msgid "fiche : {state}"
+msgstr "เอกสารข้อมูล: {state}"
+
+#, python-brace-format
+msgid "détail technique : {detail}"
+msgstr "รายละเอียดทางเทคนิค: {detail}"
+
+#, python-brace-format
+msgid "fiche : instance {instance}"
+msgstr "เอกสารข้อมูล: อินสแตนซ์ {instance}"
+
+#, python-brace-format
+msgid "service {manager} ({state})"
+msgstr "บริการ {manager} ({state})"
+
+msgid "partielle (sans root)"
+msgstr "บางส่วน (ไม่มี root)"
+
+#, python-brace-format
+msgid "fonctions : {states}"
+msgstr "ฟังก์ชัน: {states}"
+
+#, python-brace-format
+msgid "Détection des outils omega (HOME examiné : {home})"
+msgstr "การตรวจหาเครื่องมือ omega (HOME ที่ตรวจ: {home})"
+
+msgid "Aucun outil omega trouvé. Indiquez un dossier avec --chemin."
+msgstr "ไม่พบเครื่องมือ omega ระบุโฟลเดอร์ด้วย --chemin"
+
+#, python-brace-format
+msgid ""
+"Identifiant en double {identifier} : {roots} (dossier copié à la main ?). "
+"Ces installations ne sont pas fusionnées ; ouvrez la copie une fois pour lui"
+" donner un nouvel identifiant."
+msgstr ""
+"ตัวระบุซ้ำ {identifier}: {roots} (คัดลอกโฟลเดอร์ด้วยมือ?) "
+"การติดตั้งเหล่านี้จะไม่ถูกรวมกัน "
+"เปิดสำเนานั้นหนึ่งครั้งเพื่อให้ได้ตัวระบุใหม่"
+
+msgid "Remarques sur la recherche :"
+msgstr "หมายเหตุเกี่ยวกับการค้นหา:"
+
+#, python-brace-format
+msgid "{count} installation(s) trouvée(s)."
+msgstr "พบการติดตั้ง {count} รายการ"
+
+msgid "Détectée"
+msgstr "ตรวจพบแล้ว"
+
+msgid "Inscrite"
+msgstr "ลงทะเบียนแล้ว"
+
+msgid "Reliée"
+msgstr "เชื่อมโยงแล้ว"
+
+msgid "À réparer"
+msgstr "ต้องซ่อมแซม"
+
+msgid "Ancienne version"
+msgstr "เวอร์ชันเก่า"
+
+msgid "Installation inachevée"
+msgstr "ติดตั้งไม่เสร็จ"
+
+msgid "Injoignable"
+msgstr "ติดต่อไม่ได้"
+
+msgid "trouvée, sans carte d'identité : la Synchronisation la lui crée"
+msgstr "พบแล้ว ไม่มีบัตรประจำตัว: การซิงค์จะสร้างให้"
+
+msgid ""
+"a sa carte d'identité, pas encore dans l'espace partagé : la Synchronisation"
+" l'y ajoute"
+msgstr ""
+"มีบัตรประจำตัวแล้ว ยังไม่อยู่ในพื้นที่ใช้ร่วมกัน: การซิงค์จะเพิ่มเข้าไป"
+
+msgid "dans l'espace partagé, à jour"
+msgstr "อยู่ในพื้นที่ใช้ร่วมกัน เป็นปัจจุบัน"
+
+msgid "un écart : Réparer le corrige"
+msgstr "มีความคลาดเคลื่อน: ซ่อมแซมจะแก้ไขให้"
+
+msgid "trop ancienne pour avoir une carte d'identité : mettez-la à jour"
+msgstr "เก่าเกินกว่าจะมีบัตรประจำตัว: โปรดอัปเดต"
+
+msgid ""
+"installée, mais son install.sh ne s'est pas terminé (environnement Python ou"
+" carte d'identité manquants) : « Réinstaller l'application » (Registre)"
+msgstr ""
+"ติดตั้งแล้ว แต่ install.sh ทำงานไม่เสร็จ (ไม่มีสภาพแวดล้อม Python "
+"หรือบัตรประจำตัว): «ติดตั้งแอปพลิเคชันใหม่» (ทะเบียน)"
+
+msgid "machine qui ne répond pas"
+msgstr "เครื่องที่ไม่ตอบสนอง"
+
+#, python-brace-format
+msgid ""
+"trop ancienne pour avoir une carte d'identité : {tool} {version} ou plus "
+"récent requis (machine distante : Synchronisation la met à jour depuis "
+"GitHub)"
+msgstr ""
+"เก่าเกินกว่าจะมีบัตรประจำตัว: ต้องใช้ {tool} {version} หรือใหม่กว่า "
+"(เครื่องระยะไกล: การซิงค์จะอัปเดตจาก GitHub)"
+
+msgid "pas encore préparé — la Synchronisation le prépare"
+msgstr "ยังไม่ได้เตรียม — การซิงค์จะเตรียมให้"
+
+msgid "prêt"
+msgstr "พร้อม"
+
+msgid "à corriger — la Synchronisation le remet en état"
+msgstr "ต้องแก้ไข — การซิงค์จะคืนสภาพให้"
+
+msgid "prêt (lu avec votre autorisation)"
+msgstr "พร้อม (อ่านโดยได้รับอนุญาตจากคุณ)"
+
+msgid ""
+"état inconnu depuis cette session — la Synchronisation le lira avec votre "
+"autorisation"
+msgstr "ไม่ทราบสถานะในเซสชันนี้ — การซิงค์จะอ่านโดยได้รับอนุญาตจากคุณ"
+
+#, python-brace-format
+msgid "Registre — machine {machine}"
+msgstr "ทะเบียน — เครื่อง {machine}"
+
+msgid "Aucune application omega trouvée sur cette machine."
+msgstr "ไม่พบแอปพลิเคชัน omega บนเครื่องนี้"
+
+#, python-brace-format
+msgid "Espace partagé : {status}"
+msgstr "พื้นที่ใช้ร่วมกัน: {status}"
+
+msgid "Synchroniser : un seul plan, un seul mot de passe administrateur"
+msgstr "ซิงค์: แผนเดียว รหัสผ่านผู้ดูแลระบบครั้งเดียว"
+
+msgid "Rien à faire : tout est déjà synchronisé."
+msgstr "ไม่มีอะไรต้องทำ: ทุกอย่างซิงค์แล้ว"
+
+msgid ""
+"1. Cartes d'identité à créer (par chaque outil, sous son compte, sans mot de"
+" passe) :"
+msgstr ""
+"1. บัตรประจำตัวที่ต้องสร้าง (โดยแต่ละเครื่องมือ ภายใต้บัญชีของตน "
+"ไม่ต้องใช้รหัสผ่าน):"
+
+msgid "aucune : chaque application choisie a déjà la sienne."
+msgstr "ไม่มี: แต่ละแอปพลิเคชันที่เลือกมีบัตรของตนแล้ว"
+
+msgid "2. Espace partagé (en administrateur, une commande après l'autre) :"
+msgstr "2. พื้นที่ใช้ร่วมกัน (ในฐานะผู้ดูแลระบบ ทีละคำสั่ง):"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root} (créée à l'étape 1)"
+msgstr "คัดลอกบัตรประจำตัวของ {root} (สร้างในขั้นตอนที่ 1)"
+
+msgid "rien : l'espace partagé est déjà à jour."
+msgstr "ไม่มี: พื้นที่ใช้ร่วมกันเป็นปัจจุบันแล้ว"
+
+msgid "Une commande qui n'est pas annoncée ici n'est jamais lancée."
+msgstr "คำสั่งที่ไม่ได้แสดงไว้ที่นี่จะไม่ถูกเรียกใช้เด็ดขาด"
+
+#, python-brace-format
+msgid ""
+"Arrêt : la carte d'identité de {root} n'a pas pu être créée ({error}). Rien "
+"d'autre n'a été lancé."
+msgstr ""
+"หยุด: ไม่สามารถสร้างบัตรประจำตัวของ {root} ได้ ({error}) "
+"ไม่มีการเรียกใช้สิ่งอื่น"
+
+msgid "échec"
+msgstr "ล้มเหลว"
+
+#, python-brace-format
+msgid ""
+"Arrêt avant l'espace partagé : le plan a changé ({step}). Rien de plus n'a "
+"été lancé ; relancez la synchronisation pour voir le nouveau plan."
+msgstr ""
+"หยุดก่อนถึงพื้นที่ใช้ร่วมกัน: แผนเปลี่ยนไป ({step}) "
+"ไม่มีการเรียกใช้สิ่งใดเพิ่ม เรียกการซิงค์อีกครั้งเพื่อดูแผนใหม่"
+
+#, python-brace-format
+msgid ""
+"Arrêt à l'étape « {step} » : {error}. Ce qui a été créé est noté ; relancez "
+"la synchronisation après avoir corrigé la cause."
+msgstr ""
+"หยุดที่ขั้นตอน «{step}»: {error} สิ่งที่สร้างแล้วถูกบันทึกไว้ "
+"เรียกการซิงค์อีกครั้งหลังแก้ไขสาเหตุ"
+
+msgid "Synchronisation terminée : les applications choisies sont reliées."
+msgstr "การซิงค์เสร็จสิ้น: แอปพลิเคชันที่เลือกเชื่อมโยงกันแล้ว"
+
+msgid "DÉMARRAGE RAPIDE"
+msgstr "เริ่มต้นอย่างรวดเร็ว"
+
+msgid "RACCOURCIS"
+msgstr "ปุ่มลัด"
+
+msgid "Aide d’omega-connect"
+msgstr "ความช่วยเหลือของ omega-connect"
+
+msgid "Aide complète : chaque menu, sa fonction et le détail."
+msgstr "ความช่วยเหลือฉบับเต็ม: แต่ละเมนู หน้าที่ และรายละเอียด"
+
+msgid "Démarrage rapide"
+msgstr "เริ่มต้นอย่างรวดเร็ว"
+
+msgid "Raccourcis"
+msgstr "ปุ่มลัด"
+
+msgid "Touche"
+msgstr "ปุ่ม"
+
+msgid "Action"
+msgstr "การดำเนินการ"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — aide."
+msgstr "OMEGA-CONNECT {version} — ความช่วยเหลือ"
+
+msgid "Aide - Omega-Connect"
+msgstr "ความช่วยเหลือ - Omega-Connect"
+
+msgid ""
+"Interconnecteur de la suite omega : détecte les outils installés, vérifie et"
+" attribue les droits entre eux."
+msgstr ""
+"ตัวเชื่อมต่อของชุด omega: ตรวจหาเครื่องมือที่ติดตั้ง "
+"ตรวจสอบและกำหนดสิทธิ์ระหว่างกัน"
+
+msgid "commandes"
+msgstr "คำสั่ง"
+
+msgid "COMMANDE"
+msgstr "คำสั่ง"
+
+msgid "Cherche les outils omega installés (lecture seule, sans root)."
+msgstr "ค้นหาเครื่องมือ omega ที่ติดตั้ง (อ่านอย่างเดียว ไม่ต้องใช้ root)"
+
+msgid ""
+"Cherche les outils omega installés : registre d'omega-serv, services systemd"
+" / OpenRC / runit, HOME (3 niveaux), /srv (2 niveaux) et chemins saisis. Ne "
+"suit jamais un lien symbolique ni un montage réseau. Lit le jeton de chaque "
+"installation et demande sa fiche à l'outil, sous le compte propriétaire du "
+"dossier."
+msgstr ""
+"ค้นหาเครื่องมือ omega ที่ติดตั้ง: ทะเบียนของ omega-serv, บริการ systemd / "
+"OpenRC / runit, HOME (3 ระดับ), /srv (2 ระดับ) และพาธที่ป้อน "
+"ไม่ตามลิงก์สัญลักษณ์หรือจุดเมานต์เครือข่ายเด็ดขาด "
+"อ่านโทเค็นของแต่ละการติดตั้งและขอเอกสารข้อมูลจากเครื่องมือ "
+"ภายใต้บัญชีเจ้าของโฟลเดอร์"
+
+msgid "DOSSIER"
+msgstr "โฟลเดอร์"
+
+msgid "Dossier d'installation à examiner en plus (option répétable)."
+msgstr "โฟลเดอร์การติดตั้งที่จะตรวจเพิ่ม (ใช้ตัวเลือกซ้ำได้)"
+
+msgid ""
+"Ne demande pas la fiche aux outils (plus rapide, aucune commande lancée)."
+msgstr "ไม่ขอเอกสารข้อมูลจากเครื่องมือ (เร็วกว่า ไม่เรียกใช้คำสั่งใด)"
+
+msgid "texte (défaut, traduit) ou json (pour les scripts, jamais traduit)."
+msgstr "texte (ค่าเริ่มต้น แปลแล้ว) หรือ json (สำหรับสคริปต์ ไม่แปลเด็ดขาด)"
+
+msgid "Vérifie les liens existants entre outils (lecture seule, sans root)."
+msgstr ""
+"ตรวจสอบการเชื่อมโยงที่มีอยู่ระหว่างเครื่องมือ (อ่านอย่างเดียว ไม่ต้องใช้ "
+"root)"
+
+msgid ""
+"Détecte les outils (avec leur fiche), puis contrôle chaque lien : journaux "
+"d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers"
+" la liste noire, liste protégée, droits de la liste noire, fichiers d'omega-"
+"jail dans fail2ban, jetons. Chaque écart affiche la commande qui le "
+"corrigerait, sans jamais la lancer. Code de sortie : 0 sans écart, 1 si un "
+"lien est cassé ou dégradé."
+msgstr ""
+"ตรวจหาเครื่องมือ (พร้อมเอกสารข้อมูล) แล้วตรวจแต่ละการเชื่อมโยง: ล็อกของ "
+"omega-serv และ magnet ที่ jail ของ omega-jail อ่าน, สะพาน fail2ban "
+"ไปยังบัญชีดำ, รายการที่ได้รับการปกป้อง, สิทธิ์ของบัญชีดำ, ไฟล์ของ omega-jail"
+" ใน fail2ban, โทเค็น แต่ละความคลาดเคลื่อนจะแสดงคำสั่งที่ใช้แก้ไข "
+"โดยไม่เรียกใช้เด็ดขาด รหัสออก: 0 เมื่อไม่มีความคลาดเคลื่อน, 1 "
+"หากการเชื่อมโยงเสียหรือเสื่อมสภาพ"
+
+msgid "Affiche aussi les contrôles conformes."
+msgstr "แสดงการตรวจที่ผ่านด้วย"
+
+msgid ""
+"Ouvre le tableau de bord (défaut sans commande) : outils, liens et leur "
+"état, en lecture seule."
+msgstr ""
+"เปิดแดชบอร์ด (ค่าเริ่มต้นเมื่อไม่มีคำสั่ง): เครื่องมือ การเชื่อมโยงและสถานะ "
+"แบบอ่านอย่างเดียว"
+
+msgid ""
+"Tableau de bord en lecture seule : outils et instances, état de chaque lien,"
+" contrôles et commandes de correction (jamais lancées). Nouvelle "
+"vérification à intervalle régulier tant que l'écran est ouvert."
+msgstr ""
+"แดชบอร์ดแบบอ่านอย่างเดียว: เครื่องมือและอินสแตนซ์ สถานะของแต่ละการเชื่อมโยง "
+"การตรวจและคำสั่งแก้ไข (ไม่เรียกใช้เด็ดขาด) "
+"ตรวจสอบใหม่เป็นระยะตราบที่หน้าจอเปิดอยู่"
+
+msgid ""
+"Crée la zone neutre et y recopie jetons et fiches (root, après accord)."
+msgstr ""
+"สร้างโซนกลางและคัดลอกโทเค็นและเอกสารข้อมูลเข้าไป (root หลังได้รับความยินยอม)"
+
+msgid ""
+"Crée le groupe omega-synchro et la zone neutre (/var/lib/omega-synchro, "
+"2750), vous ajoute au groupe, recopie le jeton et la fiche de chaque outil "
+"détecté, et inscrit tout au registre. Relancée, elle actualise les copies. "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"สร้างกลุ่ม omega-synchro และโซนกลาง (/var/lib/omega-synchro, 2750) "
+"เพิ่มคุณเข้ากลุ่ม คัดลอกโทเค็นและเอกสารข้อมูลของแต่ละเครื่องมือที่ตรวจพบ "
+"และลงทุกอย่างในทะเบียน เมื่อเรียกอีกครั้งจะอัปเดตสำเนา "
+"แต่ละคำสั่งจะแสดงก่อนเรียกใช้ด้วย sudo"
+
+msgid ""
+"Défait ce qu'omega-connect a créé : un outil désinstallé, ou toute la zone "
+"(root, après accord)."
+msgstr ""
+"ยกเลิกสิ่งที่ omega-connect สร้างไว้: เครื่องมือที่ถอนการติดตั้งแล้ว "
+"หรือทั้งโซน (root หลังได้รับความยินยอม)"
+
+msgid ""
+"« retirer CIBLE » enlève de la zone un outil désinstallé (nom, dossier ou 8 "
+"premiers caractères de l'identifiant). « retirer --tout » défait exactement "
+"ce que le registre liste, ou garde la zone telle quelle (liens figés). "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"«retirer CIBLE» นำเครื่องมือที่ถอนการติดตั้งแล้วออกจากโซน (ชื่อ โฟลเดอร์ "
+"หรือ 8 อักขระแรกของตัวระบุ) «retirer --tout» ยกเลิกตรงตามที่ทะเบียนระบุ "
+"หรือคงโซนไว้ตามเดิม (การเชื่อมโยงถูกตรึง) แต่ละคำสั่งจะแสดงก่อนเรียกใช้ด้วย "
+"sudo"
+
+msgid "CIBLE"
+msgstr "CIBLE"
+
+msgid "Outil à retirer de la zone."
+msgstr "เครื่องมือที่จะนำออกจากโซน"
+
+msgid "Toute la zone (question : garder ou tout retirer)."
+msgstr "ทั้งโซน (ถาม: เก็บไว้หรือนำออกทั้งหมด)"
+
+msgid "Avec --tout : garder la zone, liens figés (rien n'est supprimé)."
+msgstr "ใช้กับ --tout: เก็บโซนไว้ การเชื่อมโยงถูกตรึง (ไม่มีการลบสิ่งใด)"
+
+msgid "Avec --tout : tout retirer, sans question."
+msgstr "ใช้กับ --tout: นำออกทั้งหมด โดยไม่ถาม"
+
+msgid ""
+"Recherche les applications omega de cette machine et met à jour le registre "
+"(lecture seule)."
+msgstr "ค้นหาแอปพลิเคชัน omega ของเครื่องนี้และอัปเดตทะเบียน (อ่านอย่างเดียว)"
+
+msgid ""
+"Lecture seule, sans mot de passe : chaque application trouvée, son service "
+"et son état (Détectée, Inscrite, Reliée, À réparer, Ancienne version, "
+"Installation inachevée). Le résultat est enregistré dans le registre du parc"
+" (var/parc.json)."
+msgstr ""
+"อ่านอย่างเดียว ไม่ต้องใช้รหัสผ่าน: แต่ละแอปพลิเคชันที่พบ บริการ และสถานะ "
+"(ตรวจพบแล้ว, ลงทะเบียนแล้ว, เชื่อมโยงแล้ว, ต้องซ่อมแซม, เวอร์ชันเก่า, "
+"ติดตั้งไม่เสร็จ) ผลลัพธ์จะบันทึกในทะเบียนเครื่อง (var/parc.json)"
+
+msgid "UTILISATEUR@MACHINE"
+msgstr "UTILISATEUR@MACHINE"
+
+msgid ""
+"Machine distante à scanner par SSH avec vos clés (rien n'y est installé) ; "
+"sans cible : cette machine."
+msgstr ""
+"เครื่องระยะไกลที่จะสแกนผ่าน SSH ด้วยคีย์ของคุณ (ไม่ติดตั้งสิ่งใดที่นั่น) "
+"หากไม่ระบุเป้าหมาย: เครื่องนี้"
+
+msgid "MACHINE"
+msgstr "MACHINE"
+
+msgid ""
+"Retire une machine distante du registre (nom, adresse ou "
+"utilisateur@adresse) ; rien n'est modifié sur elle."
+msgstr ""
+"นำเครื่องระยะไกลออกจากทะเบียน (ชื่อ ที่อยู่ หรือ ผู้ใช้@ที่อยู่) "
+"ไม่มีการแก้ไขสิ่งใดบนเครื่องนั้น"
+
+msgid ""
+"Liste les machines que cet ordinateur sait déjà joindre (profils Unison, "
+"~/.ssh/config, known_hosts)."
+msgstr ""
+"แสดงรายการเครื่องที่คอมพิวเตอร์นี้รู้วิธีเชื่อมต่ออยู่แล้ว (โปรไฟล์ Unison, "
+"~/.ssh/config, known_hosts)"
+
+msgid ""
+"Remet en place les liens de ce qui est installé : cartes d'identité, espace "
+"partagé, accès des services — un seul plan."
+msgstr ""
+"คืนการเชื่อมโยงของสิ่งที่ติดตั้งไว้: บัตรประจำตัว พื้นที่ใช้ร่วมกัน "
+"การเข้าถึงของบริการ — แผนเดียว"
+
+msgid ""
+"Une seule action (décision de l'auteur) : recrée les cartes d'identité qui "
+"manquent (commande de chaque outil, sous son compte), prépare l'espace "
+"partagé, y recopie les cartes et donne l'accès aux services. Tout est "
+"affiché avant d'agir ; un seul mot de passe administrateur. Sans CIBLE : "
+"toutes les applications de la machine."
+msgstr ""
+"การดำเนินการเดียว (การตัดสินใจของผู้พัฒนา): สร้างบัตรประจำตัวที่ขาดหายใหม่ "
+"(คำสั่งของแต่ละเครื่องมือ ภายใต้บัญชีของตน) เตรียมพื้นที่ใช้ร่วมกัน "
+"คัดลอกบัตรเข้าไป และให้สิทธิ์เข้าถึงแก่บริการ ทุกอย่างแสดงก่อนดำเนินการ "
+"ใช้รหัสผ่านผู้ดูแลระบบครั้งเดียว หากไม่ระบุ CIBLE: ทุกแอปพลิเคชันของเครื่อง"
+
+msgid ""
+"Application à synchroniser : nom (omega-fire) ou dossier ; plusieurs "
+"possibles."
+msgstr ""
+"แอปพลิเคชันที่จะซิงค์: ชื่อ (omega-fire) หรือโฟลเดอร์ ระบุได้หลายรายการ"
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; option "
+"répétable) : réparer puis synchroniser, sans rien taper là-bas (une "
+"application trop ancienne : mettre-a-jour d'abord)."
+msgstr ""
+"เครื่องระยะไกลที่สแกนแล้ว (ชื่อ ที่อยู่ หรือ ผู้ใช้@เครื่อง "
+"ใช้ตัวเลือกซ้ำได้): ซ่อมแซมแล้วซิงค์ โดยไม่ต้องพิมพ์อะไรที่นั่น "
+"(แอปพลิเคชันที่เก่าเกินไป: ใช้ mettre-a-jour ก่อน)"
+
+msgid ""
+"Toutes les machines distantes du registre, une à une (un mot de passe par "
+"machine)."
+msgstr ""
+"เครื่องระยะไกลทั้งหมดในทะเบียน ทีละเครื่อง (รหัสผ่านหนึ่งครั้งต่อเครื่อง)"
+
+msgid ""
+"Met à jour les applications trop anciennes d'une machine distante, depuis "
+"leur Release GitHub (rien d'autre)."
+msgstr ""
+"อัปเดตแอปพลิเคชันที่เก่าเกินไปของเครื่องระยะไกล จาก Release บน GitHub "
+"(ไม่ทำอย่างอื่น)"
+
+msgid ""
+"Archive prise sur GitHub, empreinte vérifiée avec sha.txt, puis installée "
+"sur la machine (comme la section « Mise à jour » du README de l'outil). Ne "
+"répare ni ne synchronise : voir synchroniser."
+msgstr ""
+"ดาวน์โหลดไฟล์เก็บถาวรจาก GitHub ตรวจค่าแฮชกับ sha.txt แล้วติดตั้งบนเครื่อง "
+"(เหมือนหัวข้อ «อัปเดต» ใน README ของเครื่องมือ) ไม่ซ่อมแซมและไม่ซิงค์: ดู "
+"synchroniser"
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; "
+"répétable)."
+msgstr ""
+"เครื่องระยะไกลที่สแกนแล้ว (ชื่อ ที่อยู่ หรือ ผู้ใช้@เครื่อง ใช้ซ้ำได้)"
+
+msgid "Toutes les machines distantes du registre, une à une."
+msgstr "เครื่องระยะไกลทั้งหมดในทะเบียน ทีละเครื่อง"
+
+msgid ""
+"Corrige les écarts trouvés par verifier avec la commande de l'outil qui les "
+"possède (root, après accord)."
+msgstr ""
+"แก้ไขความคลาดเคลื่อนที่ verifier พบ ด้วยคำสั่งของเครื่องมือที่เป็นเจ้าของ "
+"(root หลังได้รับความยินยอม)"
+
+msgid ""
+"Ne corrige que ce qu'un outil sait corriger lui-même (omega-jail --apply "
+"--update, omega-serv service permissions, synchro jeton de chaque outil) et "
+"ce que le registre de la zone dit qu'omega-connect a créé (plan d'etablir, "
+"affiché à son tour). omega-connect ne réécrit jamais le fichier d'un autre "
+"outil : le reste est affiché, à faire à la main. Chaque commande est "
+"affichée avant d'être lancée."
+msgstr ""
+"แก้ไขเฉพาะสิ่งที่เครื่องมือแก้เองได้ (omega-jail --apply --update, omega-"
+"serv service permissions, synchro jeton ของแต่ละเครื่องมือ) "
+"และสิ่งที่ทะเบียนของโซนระบุว่า omega-connect สร้างไว้ (แผนของ etablir "
+"ซึ่งจะแสดงในลำดับถัดไป) omega-connect "
+"ไม่เขียนทับไฟล์ของเครื่องมืออื่นเด็ดขาด: ส่วนที่เหลือจะแสดงไว้ให้ทำด้วยตนเอง"
+" แต่ละคำสั่งจะแสดงก่อนเรียกใช้"
+
+msgid ""
+"Machine distante déjà scannée : réparée depuis ici, rien à taper là-bas "
+"(répétable)."
+msgstr ""
+"เครื่องระยะไกลที่สแกนแล้ว: ซ่อมแซมจากที่นี่ ไม่ต้องพิมพ์อะไรที่นั่น "
+"(ใช้ซ้ำได้)"
+
+msgid ""
+"Rapport complet : outils, jetons, fiches, liens et tous leurs contrôles, "
+"zone et registre (lecture seule)."
+msgstr ""
+"รายงานฉบับเต็ม: เครื่องมือ โทเค็น เอกสารข้อมูล การเชื่อมโยงและการตรวจทั้งหมด"
+" โซนและทะเบียน (อ่านอย่างเดียว)"
+
+msgid ""
+"Tout ce qu'omega-connect sait à cet instant, en lecture seule et sans root :"
+" outils et instances, jetons, fiches, chaque lien avec tous ses contrôles et"
+" les commandes de correction, remarques de la recherche, zone neutre et son "
+"registre. Affiché, ou enregistré dans var/exports/ avec --enregistrer."
+msgstr ""
+"ทุกสิ่งที่ omega-connect รู้ ณ ขณะนี้ แบบอ่านอย่างเดียวและไม่ต้องใช้ root: "
+"เครื่องมือและอินสแตนซ์ โทเค็น เอกสารข้อมูล "
+"แต่ละการเชื่อมโยงพร้อมการตรวจทั้งหมดและคำสั่งแก้ไข หมายเหตุการค้นหา "
+"โซนกลางและทะเบียนของโซน แสดงผล หรือบันทึกลงใน var/exports/ ด้วย "
+"--enregistrer"
+
+msgid ""
+"texte (défaut, traduit), json (jamais traduit) ou html (page autonome)."
+msgstr ""
+"texte (ค่าเริ่มต้น แปลแล้ว), json (ไม่แปลเด็ดขาด) หรือ html "
+"(หน้าเว็บแบบสแตนด์อโลน)"
+
+msgid "Thème de la page HTML."
+msgstr "ธีมของหน้า HTML"
+
+msgid "Enregistre dans var/exports/ au lieu d'afficher, et donne le chemin."
+msgstr "บันทึกลงใน var/exports/ แทนการแสดงผล และแจ้งพาธ"
+
+msgid "Affiche seulement les commandes, sans rien lancer."
+msgstr "แสดงเฉพาะคำสั่ง โดยไม่เรียกใช้สิ่งใด"
+
+msgid "Lance sans demander l'accord (les commandes restent affichées)."
+msgstr "เรียกใช้โดยไม่ขอความยินยอม (คำสั่งยังคงแสดงอยู่)"
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro (il ne compte qu'après "
+"une reconnexion) : lecture de la zone avec sudo (find, stat, cat)."
+msgstr ""
+"เซสชันของคุณยังไม่มีกลุ่ม omega-synchro "
+"(มีผลหลังจากเข้าสู่ระบบใหม่เท่านั้น): อ่านโซนด้วย sudo (find, stat, cat)"
+
+msgid "Authentification sudo refusée ou annulée : rien n'est fait."
+msgstr "การยืนยันตัวตน sudo ถูกปฏิเสธหรือยกเลิก: ไม่มีการดำเนินการใด"
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) en root ? [o/N] "
+msgstr "เรียกใช้ {count} คำสั่งนี้ในฐานะ root? [o/N] "
+
+msgid "Authentification sudo refusée ou annulée : rien n'a été lancé."
+msgstr "การยืนยันตัวตน sudo ถูกปฏิเสธหรือยกเลิก: ไม่มีการเรียกใช้สิ่งใด"
+
+msgid ""
+"Pas de terminal pour poser la question : relancez avec --garder-zone ou "
+"--effacer."
+msgstr ""
+"ไม่มีเทอร์มินัลสำหรับถามคำถาม: เรียกใหม่ด้วย --garder-zone หรือ --effacer"
+
+msgid "Garder la zone (liens figés) [g], tout retirer [t], ou annuler [a] ? "
+msgstr ""
+"เก็บโซนไว้ (การเชื่อมโยงถูกตรึง) [g], นำออกทั้งหมด [t] หรือยกเลิก [a]? "
+
+msgid ""
+"Pas de terminal pour demander l'accord : relancez avec --oui, ou "
+"--simulation."
+msgstr ""
+"ไม่มีเทอร์มินัลสำหรับขอความยินยอม: เรียกใหม่ด้วย --oui หรือ --simulation"
+
+msgid "Abandon : rien n'a été lancé."
+msgstr "ยกเลิก: ไม่มีการเรียกใช้สิ่งใด"
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) ? [o/N] "
+msgstr "เรียกใช้ {count} คำสั่งนี้? [o/N] "
+
+msgid ""
+"Zone neutre : plan d'« etablir » (seulement ce que le registre dit avoir "
+"créé)."
+msgstr "โซนกลาง: แผนของ «etablir» (เฉพาะสิ่งที่ทะเบียนระบุว่าสร้างไว้)"
+
+#, python-brace-format
+msgid "Registre du parc non enregistré : {error}"
+msgstr "ไม่ได้บันทึกทะเบียนกลุ่มเครื่อง: {error}"
+
+msgid "Saisissez utilisateur@machine (nom ou adresse), sans espace ni option."
+msgstr "ป้อน ผู้ใช้@เครื่อง (ชื่อหรือที่อยู่) โดยไม่มีช่องว่างหรือตัวเลือก"
+
+msgid "Pas de terminal pour demander la confiance : rien n'a été fait."
+msgstr "ไม่มีเทอร์มินัลสำหรับขอการยืนยันความเชื่อถือ: ไม่มีการดำเนินการใด"
+
+msgid "Faire confiance à cette machine ? [o/N] "
+msgstr "เชื่อถือเครื่องนี้หรือไม่? [o/N] "
+
+msgid "Rien n'a été fait."
+msgstr "ไม่มีการดำเนินการใด"
+
+msgid "Impossible d'ajouter la clé à ~/.ssh/known_hosts."
+msgstr "ไม่สามารถเพิ่มคีย์ลงใน ~/.ssh/known_hosts ได้"
+
+#, python-brace-format
+msgid "Aucune application ne correspond à : {targets}"
+msgstr "ไม่มีแอปพลิเคชันที่ตรงกับ: {targets}"
+
+msgid "Lancer ce plan ? [o/N] "
+msgstr "เรียกใช้แผนนี้? [o/N] "
+
+msgid "Authentification refusée ou annulée : rien n'a été lancé."
+msgstr "การยืนยันตัวตนถูกปฏิเสธหรือยกเลิก: ไม่มีการเรียกใช้สิ่งใด"
+
+#, python-brace-format
+msgid "Machine inconnue ou mal écrite : {target}"
+msgstr "ไม่รู้จักเครื่องหรือเขียนผิด: {target}"
+
+msgid ""
+"Aucune machine distante dans le registre : scannez-en une d'abord (scanner "
+"utilisateur@machine)."
+msgstr ""
+"ไม่มีเครื่องระยะไกลในทะเบียน: สแกนเครื่องก่อน (scanner ผู้ใช้@เครื่อง)"
+
+#, python-brace-format
+msgid ""
+"{target} : clé de la machine pas encore acceptée, ou machine injoignable — "
+"scannez-la d'abord (scanner {target})."
+msgstr ""
+"{target}: ยังไม่ได้ยอมรับคีย์ของเครื่อง หรือเครื่องติดต่อไม่ได้ — สแกนก่อน "
+"(scanner {target})"
+
+#, python-brace-format
+msgid "Lancer sur {name} ? [o/N] "
+msgstr "เรียกใช้บน {name}? [o/N] "
+
+#, python-brace-format
+msgid "Rien n'a été lancé sur {name}."
+msgstr "ไม่มีการเรียกใช้สิ่งใดบน {name}"
+
+msgid "Indiquez soit un outil à retirer, soit --tout."
+msgstr "ระบุเครื่องมือที่จะนำออก หรือ --tout อย่างใดอย่างหนึ่ง"
+
+msgid "--garder-zone et --effacer vont avec --tout."
+msgstr "--garder-zone และ --effacer ใช้คู่กับ --tout"
+
+msgid "Machines distantes indisponibles ici."
+msgstr "ใช้เครื่องระยะไกลที่นี่ไม่ได้"
+
+msgid "Indiquez --machine MACHINE ou --toutes-machines."
+msgstr "ระบุ --machine MACHINE หรือ --toutes-machines"
+
+#, python-brace-format
+msgid "Aucune machine distante du registre ne correspond à : {target}"
+msgstr "ไม่มีเครื่องระยะไกลในทะเบียนที่ตรงกับ: {target}"
+
+#, python-brace-format
+msgid "{machine} retirée du registre (rien n'a été modifié sur elle)."
+msgstr "นำ {machine} ออกจากทะเบียนแล้ว (ไม่มีการแก้ไขสิ่งใดบนเครื่องนั้น)"
+
+#, python-brace-format
+msgid "Rapport enregistré : {path}"
+msgstr "บันทึกรายงานแล้ว: {path}"
+
+#, python-brace-format
+msgid "aucune version publiée sur GitHub ({url})"
+msgstr "ไม่มีเวอร์ชันที่เผยแพร่บน GitHub ({url})"
+
+msgid "GitHub ne répond pas depuis cet ordinateur (réseau)"
+msgstr "GitHub ไม่ตอบสนองจากคอมพิวเตอร์นี้ (เครือข่าย)"
+
+msgid "l'archive n'est pas citée dans sha.txt de la Release : refusée"
+msgstr "ไฟล์เก็บถาวรไม่อยู่ใน sha.txt ของ Release: ปฏิเสธ"
+
+msgid "empreinte différente de sha.txt : archive refusée, rien n'est envoyé"
+msgstr "ค่าแฮชไม่ตรงกับ sha.txt: ปฏิเสธไฟล์เก็บถาวร ไม่มีการส่งสิ่งใด"
+
+msgid "fichier trop volumineux pour une archive d'outil : refusé"
+msgstr "ไฟล์ใหญ่เกินไปสำหรับไฟล์เก็บถาวรของเครื่องมือ: ปฏิเสธ"
+
+#, python-brace-format
+msgid ""
+"la dernière version publiée sur GitHub ({latest}) est encore trop ancienne"
+msgstr "เวอร์ชันล่าสุดที่เผยแพร่บน GitHub ({latest}) ยังเก่าเกินไป"
+
+msgid "extraction par-dessus, puis son install.sh"
+msgstr "แตกไฟล์ทับของเดิม แล้วเรียก install.sh ของเครื่องมือ"
+
+msgid ""
+"ancienne installation mise de côté (sudo mv), nouvelle à sa place, puis son "
+"install.sh qui reprend réglages et données"
+msgstr ""
+"ย้ายการติดตั้งเดิมไปเก็บไว้ (sudo mv) วางการติดตั้งใหม่แทนที่ แล้วเรียก "
+"install.sh ของเครื่องมือซึ่งจะนำการตั้งค่าและข้อมูลกลับมาใช้"
+
+msgid "Commande"
+msgstr "คำสั่ง"
+
+msgid "Mise à jour"
+msgstr "อัปเดต"
+
+msgid "Réparer"
+msgstr "ซ่อมแซม"
+
+msgid "Synchroniser"
+msgstr "ซิงค์"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} ({root}) : réinstallation (installation inachevée) — {how}"
+msgstr "{tool} {version} ({root}): ติดตั้งใหม่ (ติดตั้งไม่เสร็จ) — {how}"
+
+msgid "(installation inachevée)"
+msgstr "(ติดตั้งไม่เสร็จ)"
+
+#, python-brace-format
+msgid "{head} → {latest} ({root}) : {how}"
+msgstr "{head} → {latest} ({root}): {how}"
+
+#, python-brace-format
+msgid "{head} ({root}) : pas de mise à jour possible — {reason}"
+msgstr "{head} ({root}): อัปเดตไม่ได้ — {reason}"
+
+#, python-brace-format
+msgid ""
+"Tout se passe dans ce terminal : le mot de passe sudo de {name} est demandé "
+"par la machine elle-même, une fois ; omega-connect ne le voit jamais."
+msgstr ""
+"ทุกอย่างเกิดขึ้นในเทอร์มินัลนี้: เครื่องจะขอรหัสผ่าน sudo ของ {name} "
+"เองหนึ่งครั้ง omega-connect ไม่เห็นรหัสผ่านเด็ดขาด"
+
+#, python-brace-format
+msgid "Réinstaller l'application — machine {name} ({target})"
+msgstr "ติดตั้งแอปพลิเคชันใหม่ — เครื่อง {name} ({target})"
+
+#, python-brace-format
+msgid "Mettre à jour l'application — machine {name} ({target})"
+msgstr "อัปเดตแอปพลิเคชัน — เครื่อง {name} ({target})"
+
+msgid ""
+"Aucune application trop ancienne sur cette machine : rien à mettre à jour."
+msgstr "ไม่มีแอปพลิเคชันที่เก่าเกินไปบนเครื่องนี้: ไม่มีอะไรต้องอัปเดต"
+
+msgid ""
+"Archives prises sur la Release GitHub de chaque application (empreinte "
+"vérifiée avec sha.txt avant tout envoi) :"
+msgstr ""
+"ไฟล์เก็บถาวรดาวน์โหลดจาก Release บน GitHub ของแต่ละแอปพลิเคชัน "
+"(ตรวจค่าแฮชกับ sha.txt ก่อนส่งทุกครั้ง):"
+
+msgid ""
+"Rien d'autre n'est fait. Ensuite, pour remettre les liens en place : "
+"Synchronisation."
+msgstr "ไม่มีการทำอย่างอื่น จากนั้น เพื่อคืนการเชื่อมโยง: การซิงค์"
+
+#, python-brace-format
+msgid "Synchroniser — machine {name} ({target})"
+msgstr "ซิงค์ — เครื่อง {name} ({target})"
+
+msgid ""
+"Laissées de côté, trop anciennes (Registre → « Mettre à jour l'application »"
+" d'abord) :"
+msgstr "ข้ามไว้ เพราะเก่าเกินไป (ทะเบียน → «อัปเดตแอปพลิเคชัน» ก่อน):"
+
+msgid ""
+"Rien à synchroniser : tout ce qui peut l'être est relié sur cette machine."
+msgstr "ไม่มีอะไรต้องซิงค์: ทุกสิ่งที่เชื่อมโยงได้บนเครื่องนี้เชื่อมโยงแล้ว"
+
+msgid "Réparer puis synchroniser, sur la machine. Plan :"
+msgstr "ซ่อมแซมแล้วซิงค์ บนเครื่อง แผน:"
+
+msgid ""
+"L'espace partagé de cette machine n'est lisible qu'avec sudo : il sera relu "
+"au lancement."
+msgstr ""
+"พื้นที่ใช้ร่วมกันของเครื่องนี้อ่านได้ด้วย sudo เท่านั้น: "
+"จะอ่านอีกครั้งเมื่อเริ่มดำเนินการ"
+
+#, python-brace-format
+msgid "Réparer — machine {name} ({target})"
+msgstr "ซ่อมแซม — เครื่อง {name} ({target})"
+
+#, python-brace-format
+msgid "« Réparer {name} » lance ces commandes SUR la machine, depuis ici."
+msgstr "«ซ่อมแซม {name}» จะเรียกใช้คำสั่งเหล่านี้บนเครื่องนั้น จากที่นี่"
+
+#, python-brace-format
+msgid ""
+"Commandes qu'aucun outil ne sait lancer — lancées AUSSI sur {name} par « "
+"Réparer {name} », une à une, après les corrections des outils (celles déjà "
+"réglées entre-temps sont sautées) :"
+msgstr ""
+"คำสั่งที่ไม่มีเครื่องมือใดเรียกใช้ได้ — «ซ่อมแซม {name}» จะเรียกใช้บน {name}"
+" ด้วย ทีละคำสั่ง หลังการแก้ไขของเครื่องมือ "
+"(คำสั่งที่ตั้งค่าไว้แล้วในระหว่างนั้นจะถูกข้าม):"
+
+#, python-brace-format
+msgid "Rien n'a été envoyé à {target} :"
+msgstr "ไม่มีการส่งสิ่งใดไปยัง {target}:"
+
+#, python-brace-format
+msgid "Envoi impossible vers {target}."
+msgstr "ส่งไปยัง {target} ไม่ได้"
+
+#, python-brace-format
+msgid "Résultat pour {target} :"
+msgstr "ผลลัพธ์สำหรับ {target}:"
+
+#, python-brace-format
+msgid ""
+"  ✗ aucun résultat rendu par la machine (connexion coupée, ou lancement "
+"interrompu ; code {code})."
+msgstr ""
+"  ✗ เครื่องไม่ส่งผลลัพธ์กลับมา (การเชื่อมต่อขาด หรือการเรียกใช้ถูกขัดจังหวะ "
+"รหัส {code})"
+
+#, python-brace-format
+msgid "ancienne installation gardée dans {path}"
+msgstr "เก็บการติดตั้งเดิมไว้ใน {path}"
+
+#, python-brace-format
+msgid "(code {code})"
+msgstr "(รหัส {code})"
+
+#, python-brace-format
+msgid "code {code}"
+msgstr "รหัส {code}"
+
+msgid "Unison"
+msgstr "Unison"
+
+msgid "~/.ssh/config"
+msgstr "~/.ssh/config"
+
+msgid "connue de SSH"
+msgstr "SSH รู้จัก"
+
+msgid "jamais scannée"
+msgstr "ยังไม่เคยสแกน"
+
+msgid "injoignable"
+msgstr "ติดต่อไม่ได้"
+
+msgid "répond"
+msgstr "ตอบสนอง"
+
+#, python-brace-format
+msgid "{machine} — {count} application(s), {state}"
+msgstr "{machine} — {count} แอปพลิเคชัน, {state}"
+
+msgid ""
+"Aucune machine trouvée dans vos profils Unison, ~/.ssh/config ou "
+"known_hosts."
+msgstr "ไม่พบเครื่องในโปรไฟล์ Unison, ~/.ssh/config หรือ known_hosts ของคุณ"
+
+#, python-brace-format
+msgid "{target} ne répond pas (machine éteinte, ou réseau coupé) : {detail}"
+msgstr "{target} ไม่ตอบสนอง (เครื่องปิดอยู่ หรือเครือข่ายขาด): {detail}"
+
+#, python-brace-format
+msgid ""
+"Le nom « {host} » est inconnu sur ce réseau. Utilisez l'adresse de la "
+"machine (par exemple utilisateur@192.168.1.109), ou déclarez ce nom dans "
+"/etc/hosts ou dans ~/.ssh/config (Host {host} / HostName <adresse>)."
+msgstr ""
+"ไม่รู้จักชื่อ «{host}» ในเครือข่ายนี้ ใช้ที่อยู่ของเครื่องแทน (เช่น "
+"ผู้ใช้@192.168.1.109) หรือประกาศชื่อนี้ใน /etc/hosts หรือใน ~/.ssh/config "
+"(Host {host} / HostName <ที่อยู่>)"
+
+#, python-brace-format
+msgid ""
+"{host} répond, mais aucun serveur SSH n'y écoute (port 22). Sur cette "
+"machine : installez et démarrez openssh (sudo systemctl enable --now sshd) ;"
+" ou, s'il écoute sur un autre port, indiquez-le dans ~/.ssh/config (Host "
+"{host} / Port …)."
+msgstr ""
+"{host} ตอบสนอง แต่ไม่มีเซิร์ฟเวอร์ SSH รอรับที่นั่น (พอร์ต 22) "
+"บนเครื่องนั้น: ติดตั้งและเริ่ม openssh (sudo systemctl enable --now sshd) "
+"หรือหากรอรับที่พอร์ตอื่น ให้ระบุใน ~/.ssh/config (Host {host} / Port …)"
+
+#, python-brace-format
+msgid ""
+"{target} refuse vos clés SSH. Ajoutez votre clé publique sur cette machine "
+"(ssh-copy-id {target}), ou chargez-la dans l'agent SSH si elle est protégée "
+"par une phrase secrète (ssh-add). omega-connect ne demande jamais de mot de "
+"passe."
+msgstr ""
+"{target} ปฏิเสธคีย์ SSH ของคุณ เพิ่มคีย์สาธารณะของคุณบนเครื่องนั้น (ssh-"
+"copy-id {target}) หรือโหลดคีย์เข้า SSH agent หากคีย์ป้องกันด้วยวลีรหัสผ่าน "
+"(ssh-add) omega-connect ไม่ขอรหัสผ่านเด็ดขาด"
+
+#, python-brace-format
+msgid "{target} n'est pas encore connue : sa clé doit d'abord être acceptée."
+msgstr "ยังไม่รู้จัก {target}: ต้องยอมรับคีย์ของเครื่องก่อน"
+
+#, python-brace-format
+msgid ""
+"La clé de {target} a CHANGÉ depuis la dernière connexion : scan refusé. Si "
+"la machine a été réinstallée, retirez l'ancienne clé (ssh-keygen -R {host}) "
+"puis recommencez ; sinon, quelqu'un se fait peut-être passer pour elle."
+msgstr ""
+"คีย์ของ {target} เปลี่ยนไปตั้งแต่การเชื่อมต่อครั้งล่าสุด: ปฏิเสธการสแกน "
+"หากเครื่องถูกติดตั้งใหม่ ให้ลบคีย์เก่า (ssh-keygen -R {host}) "
+"แล้วลองอีกครั้ง มิฉะนั้น อาจมีผู้อื่นแอบอ้างเป็นเครื่องนั้น"
+
+#, python-brace-format
+msgid ""
+"{target} n'a pas Python 3 (3.10 ou plus récent) : le scanner ne peut pas y "
+"tourner. Rien n'a été installé."
+msgstr ""
+"{target} ไม่มี Python 3 (3.10 หรือใหม่กว่า): ตัวสแกนทำงานที่นั่นไม่ได้ "
+"ไม่มีการติดตั้งสิ่งใด"
+
+#, python-brace-format
+msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-bas."
+msgstr "การสแกน {target} ล้มเหลว ({detail}) ไม่มีการแก้ไขสิ่งใดที่นั่น"
+
+#, python-brace-format
+msgid ""
+"Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
+msgstr "ไม่มีไคลเอนต์ SSH บนเครื่องนี้ (คำสั่ง {detail}): ติดตั้ง openssh"
+
+#, python-brace-format
+msgid ""
+"{target} n'a jamais été jointe depuis ce compte. Vérifiez que l'empreinte de"
+" sa clé est bien la sienne (sur la machine : ssh-keygen -lf "
+"/etc/ssh/ssh_host_ed25519_key.pub) :"
+msgstr ""
+"ยังไม่เคยเชื่อมต่อ {target} จากบัญชีนี้ "
+"ตรวจสอบว่าลายนิ้วมือคีย์เป็นของเครื่องนั้นจริง (บนเครื่องนั้น: ssh-keygen "
+"-lf /etc/ssh/ssh_host_ed25519_key.pub):"
+
+msgid "En lui faisant confiance, elle est ajoutée à votre ~/.ssh/known_hosts."
+msgstr "เมื่อเชื่อถือแล้ว เครื่องจะถูกเพิ่มลงใน ~/.ssh/known_hosts ของคุณ"
+
+msgid "Ses applications restent dans le registre, marquées « Injoignable »."
+msgstr ""
+"แอปพลิเคชันของเครื่องยังคงอยู่ในทะเบียน โดยทำเครื่องหมาย «ติดต่อไม่ได้»"
+
+#, python-brace-format
+msgid "{machine} : {count} application(s) omega trouvée(s)."
+msgstr "{machine}: พบแอปพลิเคชัน omega {count} รายการ"
+
+msgid "Aucune machine distante pour l'instant."
+msgstr "ยังไม่มีเครื่องระยะไกล"
+
+#, python-brace-format
+msgid "  · {machine} — {count} application(s), dernier scan {date} ({state})"
+msgstr "  · {machine} — {count} แอปพลิเคชัน, สแกนล่าสุด {date} ({state})"
+
+#, python-brace-format
+msgid "{tool} crée ou met à jour son jeton d'installation ({root})"
+msgstr "{tool} สร้างหรืออัปเดตโทเค็นการติดตั้งของตน ({root})"
+
+#, python-brace-format
+msgid ""
+"omega-serv répare les droits partagés avec le service {service} ({root})"
+msgstr "omega-serv ซ่อมแซมสิทธิ์ที่ใช้ร่วมกับบริการ {service} ({root})"
+
+msgid ""
+"omega-jail remet à jour ce qu'il a posé dans fail2ban (contenu et droits)"
+msgstr "omega-jail อัปเดตสิ่งที่ตนวางไว้ใน fail2ban (เนื้อหาและสิทธิ์)"
+
+#, python-brace-format
+msgid ""
+"{root} appartient au compte {account} : à lancer sous ce compte, ou avec "
+"omega-connect en root."
+msgstr ""
+"{root} เป็นของบัญชี {account}: ต้องเรียกใช้ภายใต้บัญชีนั้น หรือใช้ omega-"
+"connect ในฐานะ root"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} dans {root} : environnement Python ou carte d'identité "
+"manquants"
+msgstr "{tool} {version} ใน {root}: ไม่มีสภาพแวดล้อม Python หรือบัตรประจำตัว"
+
+#, python-brace-format
+msgid "{tool} {version} dans {root} : {minimum} ou plus récent requis"
+msgstr "{tool} {version} ใน {root}: ต้องใช้ {minimum} หรือใหม่กว่า"
+
+msgid "Réparer : corrections faites par les outils eux-mêmes"
+msgstr "ซ่อมแซม: การแก้ไขโดยเครื่องมือเอง"
+
+msgid "Rien à réparer : « verifier » ne signale aucun écart corrigeable."
+msgstr "ไม่มีอะไรต้องซ่อมแซม: «verifier» ไม่พบความคลาดเคลื่อนที่แก้ไขได้"
+
+msgid ""
+"Trop ancien pour être réparé (ses commandes n'existent pas encore dans cette"
+" version) ; à mettre à jour d'abord (Registre → « Mettre à jour "
+"l'application ») :"
+msgstr ""
+"เก่าเกินกว่าจะซ่อมแซมได้ (คำสั่งยังไม่มีในเวอร์ชันนี้) ต้องอัปเดตก่อน "
+"(ทะเบียน → «อัปเดตแอปพลิเคชัน»):"
+
+msgid ""
+"Installation inachevée (son install.sh ne s'est pas terminé) : à réinstaller"
+" d'abord (Registre → « Réinstaller l'application ») :"
+msgstr ""
+"ติดตั้งไม่เสร็จ (install.sh ทำงานไม่เสร็จ): ต้องติดตั้งใหม่ก่อน (ทะเบียน → "
+"«ติดตั้งแอปพลิเคชันใหม่»):"
+
+msgid "Commandes qui seront lancées, une à une (arrêt au premier échec) :"
+msgstr "คำสั่งที่จะเรียกใช้ ทีละคำสั่ง (หยุดเมื่อล้มเหลวครั้งแรก):"
+
+msgid "en root"
+msgstr "ในฐานะ root"
+
+#, python-brace-format
+msgid "sous le compte {account}"
+msgstr "ภายใต้บัญชี {account}"
+
+msgid ""
+"Zone neutre : « etablir » corrige ce que le registre dit avoir créé ; son "
+"plan sera affiché ensuite, avant tout lancement :"
+msgstr ""
+"โซนกลาง: «etablir» แก้ไขสิ่งที่ทะเบียนระบุว่าสร้างไว้ แผนของมันจะแสดงถัดไป "
+"ก่อนการเรียกใช้ใด ๆ:"
+
+msgid ""
+"Ensuite : « etablir » reliera à la zone les outils dont le jeton vient "
+"d'être créé ; son plan sera affiché avant tout lancement."
+msgstr ""
+"จากนั้น: «etablir» จะเชื่อมโยงเครื่องมือที่เพิ่งสร้างโทเค็นเข้ากับโซน "
+"แผนของมันจะแสดงก่อนการเรียกใช้ใด ๆ"
+
+msgid ""
+"Zone neutre : illisible sans sudo avant votre reconnexion, son état n'est "
+"pas connu. « etablir » va la lire avec sudo et ne fera que ce qui manque "
+"(outils pas encore reliés, copies, groupe du service) ; son plan sera "
+"affiché avant tout lancement."
+msgstr ""
+"โซนกลาง: อ่านไม่ได้หากไม่ใช้ sudo จนกว่าคุณจะเข้าสู่ระบบใหม่ จึงไม่ทราบสถานะ"
+" «etablir» จะอ่านด้วย sudo และทำเฉพาะสิ่งที่ขาด "
+"(เครื่องมือที่ยังไม่เชื่อมโยง สำเนา กลุ่มของบริการ) "
+"แผนของมันจะแสดงก่อนการเรียกใช้ใด ๆ"
+
+msgid "Non lancé depuis cette session :"
+msgstr "ไม่ได้เรียกใช้จากเซสชันนี้:"
+
+msgid ""
+"À faire à la main (aucun outil ne sait le corriger lui-même ; omega-connect "
+"ne réécrit jamais le fichier d'un autre outil) :"
+msgstr ""
+"ต้องทำด้วยตนเอง (ไม่มีเครื่องมือใดแก้ไขเองได้ omega-connect "
+"ไม่เขียนทับไฟล์ของเครื่องมืออื่นเด็ดขาด):"
+
+msgid "À décider (jamais lancé par « reparer ») :"
+msgstr "ต้องตัดสินใจ («reparer» ไม่เรียกใช้เด็ดขาด):"
+
+msgid "code"
+msgstr "รหัส"
+
+#, python-brace-format
+msgid ""
+"Terminé : {count} commande(s) lancée(s), toutes réussies. Relancez « "
+"verifier » pour constater."
+msgstr ""
+"เสร็จสิ้น: เรียกใช้ {count} คำสั่ง สำเร็จทั้งหมด เรียก «verifier» "
+"อีกครั้งเพื่อตรวจผล"
+
+#, python-brace-format
+msgid "Arrêt à l'étape « {step} » : {error}"
+msgstr "หยุดที่ขั้นตอน «{step}»: {error}"
+
+msgid ""
+"Rien d'autre n'a été lancé. Relancez « reparer » après avoir corrigé la "
+"cause."
+msgstr "ไม่มีการเรียกใช้สิ่งอื่น เรียก «reparer» อีกครั้งหลังแก้ไขสาเหตุ"
+
+msgid "dossier"
+msgstr "โฟลเดอร์"
+
+msgid "groupe"
+msgstr "กลุ่ม"
+
+msgid "membre du groupe"
+msgstr "สมาชิกของกลุ่ม"
+
+msgid "groupe donné au service (par omega-serv)"
+msgstr "กลุ่มที่มอบให้บริการ (โดย omega-serv)"
+
+msgid "active (synchronisée)"
+msgstr "ใช้งานอยู่ (ซิงค์อยู่)"
+
+msgid "figée (plus synchronisée)"
+msgstr "ถูกตรึง (ไม่ซิงค์แล้ว)"
+
+#, python-brace-format
+msgid ""
+"Pas encore d'espace partagé sur cette machine ({zone}) : la Synchronisation "
+"le prépare."
+msgstr "ยังไม่มีพื้นที่ใช้ร่วมกันบนเครื่องนี้ ({zone}): การซิงค์จะเตรียมให้"
+
+#, python-brace-format
+msgid ""
+"Espace partagé {zone} présent, lisible par root et le groupe omega-synchro "
+"seulement (rapport fait sans sudo ; le groupe compte après une reconnexion)."
+msgstr ""
+"มีพื้นที่ใช้ร่วมกัน {zone} อ่านได้เฉพาะ root และกลุ่ม omega-synchro "
+"(รายงานนี้ทำโดยไม่ใช้ sudo กลุ่มจะมีผลหลังเข้าสู่ระบบใหม่)"
+
+#, python-brace-format
+msgid "Espace partagé {zone} : registre {status} ({detail})."
+msgstr "พื้นที่ใช้ร่วมกัน {zone}: ทะเบียน {status} ({detail})"
+
+#, python-brace-format
+msgid "Espace partagé {zone} — {state} — mis à jour le {date}."
+msgstr "พื้นที่ใช้ร่วมกัน {zone} — {state} — อัปเดตเมื่อ {date}"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : installation inachevée → « Réinstaller l'application »"
+msgstr "{tool} {version}: ติดตั้งไม่เสร็จ → «ติดตั้งแอปพลิเคชันใหม่»"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} → {minimum} ou plus récent : « Mettre à jour l'application "
+"»"
+msgstr "{tool} {version} → {minimum} หรือใหม่กว่า: «อัปเดตแอปพลิเคชัน»"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : à mettre à jour sur ce poste, section « Mise à jour » du "
+"README de l'outil"
+msgstr ""
+"{tool} {version}: ต้องอัปเดตบนเครื่องนี้ ดูหัวข้อ «อัปเดต» ใน README "
+"ของเครื่องมือ"
+
+msgid "corrigé par l'outil lui-même (menu Réparer)"
+msgstr "แก้ไขโดยเครื่องมือเอง (เมนูซ่อมแซม)"
+
+#, python-brace-format
+msgid "commande à lancer sur ce poste : {command}"
+msgstr "คำสั่งที่ต้องเรียกใช้บนเครื่องนี้: {command}"
+
+#, python-brace-format
+msgid "commande lancée sur la machine par le menu Réparer : {command}"
+msgstr "คำสั่งที่เมนูซ่อมแซมเรียกใช้บนเครื่อง: {command}"
+
+msgid "aucune correction connue"
+msgstr "ไม่มีวิธีแก้ไขที่ทราบ"
+
+msgid ""
+"Machines qui ne répondent plus — Scanner → « Rescanner les machines connues "
+"»"
+msgstr "เครื่องที่ไม่ตอบสนองแล้ว — สแกน → «สแกนเครื่องที่รู้จักอีกครั้ง»"
+
+msgid "À réinstaller ou à mettre à jour — Registre, bouton sous la ligne"
+msgstr "ต้องติดตั้งใหม่หรืออัปเดต — ทะเบียน ปุ่มใต้แถว"
+
+msgid "À réparer — menu Réparer"
+msgstr "ต้องซ่อมแซม — เมนูซ่อมแซม"
+
+msgid "À synchroniser — menu Synchronisation"
+msgstr "ต้องซิงค์ — เมนูการซิงค์"
+
+#, python-brace-format
+msgid "{machine} — {tool} : {state}"
+msgstr "{machine} — {tool}: {state}"
+
+msgid "application inconnue"
+msgstr "แอปพลิเคชันที่ไม่รู้จัก"
+
+#, python-brace-format
+msgid "propriétaire : {owner} ; trouvée par : {sources}"
+msgstr "เจ้าของ: {owner}, พบโดย: {sources}"
+
+#, python-brace-format
+msgid "carte d'identité : {card}"
+msgstr "บัตรประจำตัว: {card}"
+
+#, python-brace-format
+msgid "instance {instance}"
+msgstr "อินสแตนซ์ {instance}"
+
+#, python-brace-format
+msgid "description : {what}"
+msgstr "คำอธิบาย: {what}"
+
+msgid "Remarques :"
+msgstr "หมายเหตุ:"
+
+msgid "Aucune application omega trouvée."
+msgstr "ไม่พบแอปพลิเคชัน omega"
+
+#, python-brace-format
+msgid ""
+"{machine} — {target} — {state} — dernier scan {date} — {apps} "
+"application(s), {links} liaison(s)"
+msgstr ""
+"{machine} — {target} — {state} — สแกนล่าสุด {date} — {apps} แอปพลิเคชัน, "
+"{links} การเชื่อมโยง"
+
+#, python-brace-format
+msgid "dernière erreur : {error}"
+msgstr "ข้อผิดพลาดล่าสุด: {error}"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — RAPPORT COMPLET"
+msgstr "OMEGA-CONNECT {version} — รายงานฉบับเต็ม"
+
+#, python-brace-format
+msgid ""
+"Établi le {date} depuis {machine}, machines du réseau rescannées (lecture "
+"seule, sans root)."
+msgstr ""
+"จัดทำเมื่อ {date} จาก {machine} สแกนเครื่องในเครือข่ายอีกครั้งแล้ว "
+"(อ่านอย่างเดียว ไม่ต้องใช้ root)"
+
+msgid "BILAN"
+msgstr "สรุป"
+
+#, python-brace-format
+msgid "{machines} machine(s) : {machine} et {remote} du réseau."
+msgstr "{machines} เครื่อง: {machine} และ {remote} เครื่องในเครือข่าย"
+
+#, python-brace-format
+msgid "{count} application(s) : {summary}."
+msgstr "{count} แอปพลิเคชัน: {summary}"
+
+#, python-brace-format
+msgid "{count} liaison(s) : {summary}."
+msgstr "{count} การเชื่อมโยง: {summary}"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : {state}."
+msgstr "พื้นที่ใช้ร่วมกันของ {machine}: {state}"
+
+msgid "À FAIRE"
+msgstr "สิ่งที่ต้องทำ"
+
+msgid "Rien à faire : toutes les applications sont à jour et reliées."
+msgstr "ไม่มีอะไรต้องทำ: แอปพลิเคชันทั้งหมดเป็นปัจจุบันและเชื่อมโยงแล้ว"
+
+msgid "REGISTRE — APPLICATIONS PAR MACHINE"
+msgstr "ทะเบียน — แอปพลิเคชันตามเครื่อง"
+
+msgid "MACHINES DU RÉSEAU"
+msgstr "เครื่องในเครือข่าย"
+
+msgid "Aucune (Scanner → machine distante, pour en ajouter)."
+msgstr "ไม่มี (สแกน → เครื่องระยะไกล เพื่อเพิ่ม)"
+
+#, python-brace-format
+msgid "APPLICATIONS DE {machine} EN DÉTAIL"
+msgstr "แอปพลิเคชันของ {machine} โดยละเอียด"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (tous les contrôles)"
+msgstr "การเชื่อมโยงของ {machine} (การตรวจทั้งหมด)"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (réseau, scan du {date})"
+msgstr "การเชื่อมโยงของ {machine} (เครือข่าย สแกนเมื่อ {date})"
+
+msgid "Aucune liaison relevée."
+msgstr "ไม่พบการเชื่อมโยง"
+
+#, python-brace-format
+msgid "ESPACE PARTAGÉ (omega-synchro) DE {machine} ET SON REGISTRE"
+msgstr "พื้นที่ใช้ร่วมกัน (omega-synchro) ของ {machine} และทะเบียน"
+
+msgid "Créé par omega-connect :"
+msgstr "สร้างโดย omega-connect:"
+
+msgid "rien"
+msgstr "ไม่มี"
+
+msgid "Applications reliées :"
+msgstr "แอปพลิเคชันที่เชื่อมโยงแล้ว:"
+
+msgid "reliée le"
+msgstr "เชื่อมโยงเมื่อ"
+
+msgid "conforme"
+msgstr "ผ่าน"
+
+msgid "info"
+msgstr "ข้อมูล"
+
+msgid "écart"
+msgstr "ความคลาดเคลื่อน"
+
+msgid "non vérifiable"
+msgstr "ตรวจสอบไม่ได้"
+
+msgid "partielle"
+msgstr "บางส่วน"
+
+#, python-brace-format
+msgid "instance « {instance} » — {root}"
+msgstr "อินสแตนซ์ «{instance}» — {root}"
+
+msgid "machine"
+msgstr "เครื่อง"
+
+msgid "Aucun contrôle."
+msgstr "ไม่มีการตรวจ"
+
+msgid "Rapport complet"
+msgstr "รายงานฉบับเต็ม"
+
+#, python-brace-format
+msgid "{count} liaison(s), dont {problems} à corriger."
+msgstr "{count} การเชื่อมโยง ในจำนวนนี้ {problems} รายการต้องแก้ไข"
+
+msgid "Applications"
+msgstr "แอปพลิเคชัน"
+
+msgid "À faire"
+msgstr "สิ่งที่ต้องทำ"
+
+msgid "Registre — applications par machine"
+msgstr "ทะเบียน — แอปพลิเคชันตามเครื่อง"
+
+msgid "Application"
+msgstr "แอปพลิเคชัน"
+
+msgid "Instance / service"
+msgstr "อินสแตนซ์ / บริการ"
+
+msgid "Machine"
+msgstr "เครื่อง"
+
+msgid "Version"
+msgstr "เวอร์ชัน"
+
+msgid "Dossier"
+msgstr "โฟลเดอร์"
+
+msgid "Machines du réseau"
+msgstr "เครื่องในเครือข่าย"
+
+msgid "Connexion"
+msgstr "การเชื่อมต่อ"
+
+msgid "Dernier scan"
+msgstr "สแกนล่าสุด"
+
+msgid "Dernière erreur"
+msgstr "ข้อผิดพลาดล่าสุด"
+
+msgid "Liaisons"
+msgstr "การเชื่อมโยง"
+
+#, python-brace-format
+msgid "Applications de {machine} en détail"
+msgstr "แอปพลิเคชันของ {machine} โดยละเอียด"
+
+msgid "Propriétaire"
+msgstr "เจ้าของ"
+
+msgid "Trouvée par"
+msgstr "พบโดย"
+
+msgid "Carte d'identité"
+msgstr "บัตรประจำตัว"
+
+msgid "Aucun outil omega trouvé."
+msgstr "ไม่พบเครื่องมือ omega"
+
+#, python-brace-format
+msgid "Identifiant en double {identifier} : {roots}"
+msgstr "ตัวระบุซ้ำ {identifier}: {roots}"
+
+msgid "Remarques sur la recherche"
+msgstr "หมายเหตุเกี่ยวกับการค้นหา"
+
+#, python-brace-format
+msgid "Liaisons de {machine}"
+msgstr "การเชื่อมโยงของ {machine}"
+
+#, python-brace-format
+msgid "Liaisons de {machine} (réseau, scan du {date})"
+msgstr "การเชื่อมโยงของ {machine} (เครือข่าย สแกนเมื่อ {date})"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} et son registre"
+msgstr "พื้นที่ใช้ร่วมกันของ {machine} และทะเบียน"
+
+msgid "Créé le"
+msgstr "สร้างเมื่อ"
+
+msgid "Élément"
+msgstr "รายการ"
+
+msgid "Identifiant"
+msgstr "ตัวระบุ"
+
+msgid "Instance"
+msgstr "อินสแตนซ์"
+
+msgid "Reliée le"
+msgstr "เชื่อมโยงเมื่อ"
+
+msgid "Aucune application reliée."
+msgstr "ไม่มีแอปพลิเคชันที่เชื่อมโยงแล้ว"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — rapport du {date}, établi depuis {machine}."
+msgstr "OMEGA-CONNECT {version} — รายงานวันที่ {date} จัดทำจาก {machine}"
+
+msgid "Rapport complet - Omega-Connect"
+msgstr "รายงานฉบับเต็ม - Omega-Connect"
+
+msgid "Journaux d'omega-serv → jails fail2ban"
+msgstr "ล็อกของ omega-serv → jail ของ fail2ban"
+
+msgid "Journaux magnet (omega-waf) → jails fail2ban"
+msgstr "ล็อก magnet (omega-waf) → jail ของ fail2ban"
+
+msgid "Pont fail2ban → liste noire d'omega-serv"
+msgstr "สะพาน fail2ban → บัญชีดำของ omega-serv"
+
+msgid "Liste protégée → jails et pont"
+msgstr "รายการที่ได้รับการปกป้อง → jail และสะพาน"
+
+msgid "Liste noire d'omega-serv (droits)"
+msgstr "บัญชีดำของ omega-serv (สิทธิ์)"
+
+msgid "Fichiers d'omega-jail dans fail2ban"
+msgstr "ไฟล์ของ omega-jail ใน fail2ban"
+
+msgid "Cartes d'identité"
+msgstr "บัตรประจำตัว"
+
+msgid "Espace partagé (omega-synchro)"
+msgstr "พื้นที่ใช้ร่วมกัน (omega-synchro)"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "à réparer"
+msgstr "ต้องซ่อมแซม"
+
+msgid "à réparer (bloquant)"
+msgstr "ต้องซ่อมแซม (ขัดขวาง)"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — le dossier qui le contient n'est "
+"lisible que par root ({detail})."
+msgstr ""
+"{subject}: ตรวจสอบไม่ได้หากไม่มี root — โฟลเดอร์ที่บรรจุอยู่อ่านได้เฉพาะ "
+"root ({detail})"
+
+msgid "fail2ban n'est pas installé : aucun jail ne protège cette instance."
+msgstr "ไม่ได้ติดตั้ง fail2ban: ไม่มี jail ใดปกป้องอินสแตนซ์นี้"
+
+#, python-brace-format
+msgid "dossiers de fail2ban illisibles ({detail}) : non vérifiable sans root."
+msgstr ""
+"อ่านโฟลเดอร์ของ fail2ban ไม่ได้ ({detail}): ตรวจสอบไม่ได้หากไม่มี root"
+
+msgid ""
+"omega-jail n'est pas installé : aucun jail fail2ban ne lit les journaux "
+"d'omega-serv."
+msgstr ""
+"ไม่ได้ติดตั้ง omega-jail: ไม่มี jail ของ fail2ban ใดอ่านล็อกของ omega-serv"
+
+msgid "aucun jail d'omega-jail pour cette instance."
+msgstr "ไม่มี jail ของ omega-jail สำหรับอินสแตนซ์นี้"
+
+msgid "omega-jail n'a encore posé aucun fichier dans fail2ban."
+msgstr "omega-jail ยังไม่ได้วางไฟล์ใดใน fail2ban"
+
+#, python-brace-format
+msgid "fonction {subject} désactivée : rien à relier."
+msgstr "ฟังก์ชัน {subject} ถูกปิดใช้งาน: ไม่มีอะไรต้องเชื่อมโยง"
+
+msgid ""
+"non vérifiable : l'outil n'a pas fourni sa description (version trop "
+"ancienne, ou refusée) — voir le Registre."
+msgstr ""
+"ตรวจสอบไม่ได้: เครื่องมือไม่ได้ให้คำอธิบายของตน (เวอร์ชันเก่าเกินไป "
+"หรือถูกปฏิเสธ) — ดูทะเบียน"
+
+#, python-brace-format
+msgid "jail {subject} désactivé (enabled = false)."
+msgstr "jail {subject} ถูกปิดใช้งาน (enabled = false)"
+
+#, python-brace-format
+msgid ""
+"jail {subject} : filtre {detail} introuvable dans filter.d — fail2ban refuse"
+" de démarrer."
+msgstr ""
+"jail {subject}: ไม่พบตัวกรอง {detail} ใน filter.d — fail2ban "
+"จะไม่ยอมเริ่มทำงาน"
+
+#, python-brace-format
+msgid "journal {subject} présent ({detail})."
+msgstr "ล็อก {subject} มีอยู่ ({detail})"
+
+#, python-brace-format
+msgid ""
+"journal {subject} absent (jail {detail}) : fail2ban refuse de démarrer tant "
+"qu'il manque."
+msgstr ""
+"ไม่มีล็อก {subject} (jail {detail}): fail2ban "
+"จะไม่ยอมเริ่มทำงานตราบที่ยังขาดไฟล์นี้"
+
+#, python-brace-format
+msgid ""
+"journal {subject} appartient à root ({detail}) : le service omega-serv ne "
+"peut plus y écrire."
+msgstr ""
+"ล็อก {subject} เป็นของ root ({detail}): บริการ omega-serv "
+"เขียนลงไปไม่ได้อีกต่อไป"
+
+#, python-brace-format
+msgid ""
+"journal {subject} : droits {detail} ; le service omega-serv risque de ne pas"
+" pouvoir y écrire."
+msgstr "ล็อก {subject}: สิทธิ์ {detail} บริการ omega-serv อาจเขียนลงไปไม่ได้"
+
+#, python-brace-format
+msgid ""
+"jail {subject} ne lit pas le fichier qu'écrit l'instance ({detail}) : il ne "
+"bannira jamais."
+msgstr ""
+"jail {subject} ไม่ได้อ่านไฟล์ที่อินสแตนซ์เขียน ({detail}): จะไม่แบนใครเลย"
+
+#, python-brace-format
+msgid ""
+"jail {subject} : la fonction qui écrit son journal ({detail}) est "
+"désactivée, le jail reste sans effet."
+msgstr ""
+"jail {subject}: ฟังก์ชันที่เขียนล็อกของมัน ({detail}) ถูกปิดใช้งาน jail "
+"จึงไม่มีผล"
+
+#, python-brace-format
+msgid ""
+"jail {subject} lit {detail} : aucune instance omega-serv détectée à cet "
+"endroit."
+msgstr "jail {subject} อ่าน {detail}: ไม่พบอินสแตนซ์ omega-serv ที่ตำแหน่งนี้"
+
+#, python-brace-format
+msgid ""
+"journal {subject} ({detail}) : fonction active mais aucun jail ne le lit."
+msgstr "ล็อก {subject} ({detail}): ฟังก์ชันทำงานอยู่ แต่ไม่มี jail ใดอ่าน"
+
+#, python-brace-format
+msgid ""
+"omega-waf est en mode log-only (il note les attaques sans bannir), mais le "
+"jail {subject} posé par omega-jail dans fail2ban bannit, lui, au niveau "
+"réseau. omega-connect indique l'état et relie les outils ; il ne se "
+"substitue pas à fail2ban."
+msgstr ""
+"omega-waf อยู่ในโหมด log-only (บันทึกการโจมตีโดยไม่แบน) แต่ jail {subject} "
+"ที่ omega-jail วางไว้ใน fail2ban จะแบนในระดับเครือข่าย omega-connect "
+"แสดงสถานะและเชื่อมโยงเครื่องมือ ไม่ได้ทำหน้าที่แทน fail2ban"
+
+#, python-brace-format
+msgid "pont {subject} vers la liste noire de cette instance ({detail})."
+msgstr "สะพาน {subject} ไปยังบัญชีดำของอินสแตนซ์นี้ ({detail})"
+
+msgid ""
+"aucun pont vers la liste noire de cette instance : un ban derrière Tailscale"
+" reste sans effet."
+msgstr "ไม่มีสะพานไปยังบัญชีดำของอินสแตนซ์นี้: การแบนหลัง Tailscale จะไม่มีผล"
+
+#, python-brace-format
+msgid ""
+"pont {subject} sans omega-serv (installé quand omega-serv était introuvable)"
+" : aucun ban relayé."
+msgstr ""
+"สะพาน {subject} ไม่มี omega-serv (ติดตั้งตอนที่หา omega-serv ไม่พบ): "
+"ไม่มีการส่งต่อการแบน"
+
+#, python-brace-format
+msgid ""
+"jail {subject} utilise l'action {detail}, absente d'action.d : fail2ban "
+"refuse de démarrer."
+msgstr ""
+"jail {subject} ใช้การกระทำ {detail} ซึ่งไม่มีใน action.d: fail2ban "
+"จะไม่ยอมเริ่มทำงาน"
+
+#, python-brace-format
+msgid "jail {subject} relaie ses bans vers une autre instance ({detail})."
+msgstr "jail {subject} ส่งต่อการแบนไปยังอินสแตนซ์อื่น ({detail})"
+
+#, python-brace-format
+msgid "pont {subject} : l'instance visée a disparu ({detail})."
+msgstr "สะพาน {subject}: อินสแตนซ์เป้าหมายหายไป ({detail})"
+
+#, python-brace-format
+msgid ""
+"pont {subject} : l'instance visée ({detail}) n'a pas été détectée (autre "
+"compte ?)."
+msgstr "สะพาน {subject}: ตรวจไม่พบอินสแตนซ์เป้าหมาย ({detail}) (บัญชีอื่น?)"
+
+#, python-brace-format
+msgid "jail {subject} sans pont vers la liste noire."
+msgstr "jail {subject} ไม่มีสะพานไปยังบัญชีดำ"
+
+#, python-brace-format
+msgid "script du pont {subject} conforme ({detail})."
+msgstr "สคริปต์ของสะพาน {subject} ถูกต้อง ({detail})"
+
+#, python-brace-format
+msgid "script du pont {subject} absent : aucun ban n'est relayé."
+msgstr "ไม่มีสคริปต์ของสะพาน {subject}: ไม่มีการส่งต่อการแบน"
+
+#, python-brace-format
+msgid ""
+"script du pont {subject} modifiable par un autre compte que root ({detail}),"
+" alors que fail2ban le lance en root."
+msgstr ""
+"สคริปต์ของสะพาน {subject} บัญชีอื่นที่ไม่ใช่ root แก้ไขได้ ({detail}) "
+"ทั้งที่ fail2ban เรียกใช้ในฐานะ root"
+
+#, python-brace-format
+msgid "script du pont {subject} : droits {detail} au lieu de root:root 0755."
+msgstr ""
+"สคริปต์ของสะพาน {subject}: สิทธิ์ {detail} แทนที่จะเป็น root:root 0755"
+
+#, python-brace-format
+msgid ""
+"non vérifiable : la description d'omega-serv ne donne pas sa liste protégée "
+"({detail} ; version antérieure à 2.6.1 ?), comparaison impossible."
+msgstr ""
+"ตรวจสอบไม่ได้: คำอธิบายของ omega-serv ไม่ได้ระบุรายการที่ได้รับการปกป้อง "
+"({detail} เวอร์ชันก่อน 2.6.1?) จึงเปรียบเทียบไม่ได้"
+
+#, python-brace-format
+msgid "jail {subject} : ignoreip identique à la liste protégée d'omega-serv."
+msgstr "jail {subject}: ignoreip ตรงกับรายการที่ได้รับการปกป้องของ omega-serv"
+
+#, python-brace-format
+msgid ""
+"jail {subject} : ignoreip différent de la liste protégée d'omega-serv (en "
+"plus « + », en moins « - » : {detail})."
+msgstr ""
+"jail {subject}: ignoreip ต่างจากรายการที่ได้รับการปกป้องของ omega-serv "
+"(เกินมา «+» ขาดไป «-»: {detail})"
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés identiques à la liste protégée d'omega-"
+"serv."
+msgstr ""
+"สะพาน {subject}: เครือข่ายที่ยกเว้นตรงกับรายการที่ได้รับการปกป้องของ omega-"
+"serv"
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés différents de la liste protégée d'omega-"
+"serv (en plus « + », en moins « - » : {detail})."
+msgstr ""
+"สะพาน {subject}: เครือข่ายที่ยกเว้นต่างจากรายการที่ได้รับการปกป้องของ omega-"
+"serv (เกินมา «+» ขาดไป «-»: {detail})"
+
+msgid "liste noire désactivée : rien à relier."
+msgstr "บัญชีดำถูกปิดใช้งาน: ไม่มีอะไรต้องเชื่อมโยง"
+
+#, python-brace-format
+msgid "liste noire {subject} pas encore créée (aucun ban jusqu'ici)."
+msgstr "ยังไม่ได้สร้างบัญชีดำ {subject} (ยังไม่มีการแบน)"
+
+#, python-brace-format
+msgid "liste noire {subject} conforme ({detail})."
+msgstr "บัญชีดำ {subject} ถูกต้อง ({detail})"
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} appartient à root ({detail}) : le service ne peut plus"
+" la lire et le site répond en erreur."
+msgstr ""
+"บัญชีดำ {subject} เป็นของ root ({detail}): "
+"บริการอ่านไม่ได้อีกต่อไปและเว็บไซต์ตอบกลับด้วยข้อผิดพลาด"
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : mauvais groupe ({detail}) ; le service ne peut pas "
+"la lire."
+msgstr "บัญชีดำ {subject}: กลุ่มไม่ถูกต้อง ({detail}) บริการอ่านไม่ได้"
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : droits {detail}, il faut au moins 0660 (lecture et "
+"écriture pour le groupe du service)."
+msgstr ""
+"บัญชีดำ {subject}: สิทธิ์ {detail} ต้องเป็นอย่างน้อย 0660 "
+"(อ่านและเขียนสำหรับกลุ่มของบริการ)"
+
+#, python-brace-format
+msgid "liste noire {subject} : propriétaire inattendu ({detail})."
+msgstr "บัญชีดำ {subject}: เจ้าของไม่ตรงตามที่คาด ({detail})"
+
+#, python-brace-format
+msgid "{subject} fichier(s) d'omega-jail conforme(s)."
+msgstr "ไฟล์ของ omega-jail ถูกต้อง {subject} ไฟล์"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — fichier illisible pour votre compte."
+msgstr "{subject}: ตรวจสอบไม่ได้หากไม่มี root — บัญชีของคุณอ่านไฟล์ไม่ได้"
+
+#, python-brace-format
+msgid ""
+"{subject} modifiable par un autre compte que root ({detail}), alors que "
+"fail2ban le lit en root."
+msgstr ""
+"{subject} บัญชีอื่นที่ไม่ใช่ root แก้ไขได้ ({detail}) ทั้งที่ fail2ban "
+"อ่านในฐานะ root"
+
+#, python-brace-format
+msgid "{subject} : droits {detail} au lieu de root:root 0644."
+msgstr "{subject}: สิทธิ์ {detail} แทนที่จะเป็น root:root 0644"
+
+#, python-brace-format
+msgid "{subject} abîmé ({detail}) : fail2ban risque de refuser de démarrer."
+msgstr "{subject} เสียหาย ({detail}): fail2ban อาจไม่ยอมเริ่มทำงาน"
+
+#, python-brace-format
+msgid ""
+"{subject} : action du pont abîmée ou modifiée à la main (ligne actionban "
+"introuvable)."
+msgstr ""
+"{subject}: การกระทำของสะพานเสียหายหรือถูกแก้ไขด้วยมือ (ไม่พบบรรทัด "
+"actionban)"
+
+#, python-brace-format
+msgid "{subject} : carte d'identité présente (identifiant {detail}…)."
+msgstr "{subject}: มีบัตรประจำตัว (ตัวระบุ {detail}…)"
+
+#, python-brace-format
+msgid "{subject} ({detail}) : pas encore de carte d'identité."
+msgstr "{subject} ({detail}): ยังไม่มีบัตรประจำตัว"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : version trop ancienne : ni carte d'identité ni "
+"description."
+msgstr ""
+"{subject} ({detail}): เวอร์ชันเก่าเกินไป: ไม่มีทั้งบัตรประจำตัวและคำอธิบาย"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : installation inachevée (environnement Python ou carte"
+" d'identité manquants) : à réinstaller."
+msgstr ""
+"{subject} ({detail}): ติดตั้งไม่เสร็จ (ไม่มีสภาพแวดล้อม Python "
+"หรือบัตรประจำตัว): ต้องติดตั้งใหม่"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, carte d'identité illisible pour votre compte "
+"(droits du fichier ou du dossier : {detail})."
+msgstr ""
+"{subject}: ตรวจสอบไม่ได้ บัญชีของคุณอ่านบัตรประจำตัวไม่ได้ "
+"(สิทธิ์ของไฟล์หรือโฟลเดอร์: {detail})"
+
+#, python-brace-format
+msgid "{subject} : carte d'identité abîmée ({detail})."
+msgstr "{subject}: บัตรประจำตัวเสียหาย ({detail})"
+
+#, python-brace-format
+msgid ""
+"{subject} : carte d'identité d'une version plus récente qu'omega-connect "
+"({detail})."
+msgstr ""
+"{subject}: บัตรประจำตัวมาจากเวอร์ชันที่ใหม่กว่า omega-connect ({detail})"
+
+#, python-brace-format
+msgid ""
+"{subject} : droits {detail} au lieu de 0644 (ou 0664), au nom du "
+"propriétaire du dossier."
+msgstr ""
+"{subject}: สิทธิ์ {detail} แทนที่จะเป็น 0644 (หรือ 0664) "
+"ในนามของเจ้าของโฟลเดอร์"
+
+#, python-brace-format
+msgid ""
+"identifiant {subject} en double : {detail} (dossier copié à la main ?)."
+msgstr "ตัวระบุ {subject} ซ้ำ: {detail} (คัดลอกโฟลเดอร์ด้วยมือ?)"
+
+#, python-brace-format
+msgid ""
+"espace partagé {subject} pas encore préparé : la Synchronisation le prépare."
+msgstr "ยังไม่ได้เตรียมพื้นที่ใช้ร่วมกัน {subject}: การซิงค์จะเตรียมให้"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien n'y "
+"est lu."
+msgstr ""
+"{subject} ไม่ใช่โฟลเดอร์จริง (ลิงก์สัญลักษณ์หรือไฟล์): "
+"ไม่มีการอ่านสิ่งใดในนั้น"
+
+#, python-brace-format
+msgid ""
+"{subject} existe sans registre : créé à la main ou par autre chose qu'omega-"
+"connect (rien n'y sera fait)."
+msgstr ""
+"{subject} มีอยู่โดยไม่มีทะเบียน: สร้างด้วยมือหรือโดยสิ่งอื่นที่ไม่ใช่ omega-"
+"connect (จะไม่ทำสิ่งใดกับมัน)"
+
+#, python-brace-format
+msgid "{subject} : non vérifiable, illisible pour votre compte ({detail})."
+msgstr "{subject}: ตรวจสอบไม่ได้ บัญชีของคุณอ่านไม่ได้ ({detail})"
+
+#, python-brace-format
+msgid ""
+"en attente de reconnexion : {subject} est déjà membre du groupe omega-"
+"synchro, mais la session ouverte ne le sait pas encore. {detail} sera "
+"vérifié après la prochaine connexion (ou Registre → « Lire avec sudo »)."
+msgstr ""
+"รอการเข้าสู่ระบบใหม่: {subject} เป็นสมาชิกของกลุ่ม omega-synchro แล้ว "
+"แต่เซสชันที่เปิดอยู่ยังไม่รับรู้ {detail} "
+"จะถูกตรวจสอบหลังการเข้าสู่ระบบครั้งถัดไป (หรือ ทะเบียน → «อ่านด้วย sudo»)"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, lisible par root et le groupe omega-synchro "
+"seulement, et {detail} n'en est pas membre."
+msgstr ""
+"{subject}: ตรวจสอบไม่ได้ อ่านได้เฉพาะ root และกลุ่ม omega-synchro และ "
+"{detail} ไม่ได้เป็นสมาชิก"
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est retiré tant qu'il n'est pas"
+" réparé."
+msgstr "ทะเบียน {subject} เสียหาย ({detail}): จะไม่นำสิ่งใดออกจนกว่าจะซ่อมแซม"
+
+msgid "espace partagé figé : gardé tel quel, plus synchronisé."
+msgstr "พื้นที่ใช้ร่วมกันถูกตรึง: คงไว้ตามเดิม ไม่ซิงค์แล้ว"
+
+#, python-brace-format
+msgid ""
+"{detail} dossier(s) de l'espace partagé conformes (root:omega-synchro 2750)."
+msgstr ""
+"โฟลเดอร์ของพื้นที่ใช้ร่วมกันถูกต้อง {detail} โฟลเดอร์ (root:omega-synchro "
+"2750)"
+
+#, python-brace-format
+msgid "dossier {subject} manquant."
+msgstr "ไม่มีโฟลเดอร์ {subject}"
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 2750."
+msgstr "{subject}: {detail} แทนที่จะเป็น root:omega-synchro 2750"
+
+#, python-brace-format
+msgid "groupe {subject} absent alors que l'espace partagé existe."
+msgstr "ไม่มีกลุ่ม {subject} ทั้งที่มีพื้นที่ใช้ร่วมกันอยู่"
+
+#, python-brace-format
+msgid "{subject} est membre du groupe omega-synchro."
+msgstr "{subject} เป็นสมาชิกของกลุ่ม omega-synchro"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas membre du groupe omega-synchro : l'espace partagé lui "
+"est illisible."
+msgstr ""
+"{subject} ไม่ได้เป็นสมาชิกของกลุ่ม omega-synchro: "
+"อ่านพื้นที่ใช้ร่วมกันไม่ได้"
+
+#, python-brace-format
+msgid ""
+"{subject} est membre du groupe omega-synchro ; cela comptera à la prochaine "
+"connexion."
+msgstr ""
+"{subject} เป็นสมาชิกของกลุ่ม omega-synchro จะมีผลเมื่อเข้าสู่ระบบครั้งถัดไป"
+
+#, python-brace-format
+msgid "carte d'identité de {subject} à jour dans l'espace partagé ({detail})."
+msgstr "บัตรประจำตัวของ {subject} ในพื้นที่ใช้ร่วมกันเป็นปัจจุบัน ({detail})"
+
+#, python-brace-format
+msgid "carte d'identité {subject} absente de l'espace partagé."
+msgstr "ไม่มีบัตรประจำตัว {subject} ในพื้นที่ใช้ร่วมกัน"
+
+#, python-brace-format
+msgid ""
+"carte d'identité de {subject} périmée dans l'espace partagé ({detail}) : "
+"version, racine ou contrats changés."
+msgstr ""
+"บัตรประจำตัวของ {subject} ในพื้นที่ใช้ร่วมกันล้าสมัย ({detail}): เวอร์ชัน "
+"ตำแหน่งราก หรือข้อกำหนดเปลี่ยนไป"
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 0640."
+msgstr "{subject}: {detail} แทนที่จะเป็น root:omega-synchro 0640"
+
+#, python-brace-format
+msgid "{subject} ({detail}) installé mais pas encore dans l'espace partagé."
+msgstr "{subject} ({detail}) ติดตั้งแล้วแต่ยังไม่อยู่ในพื้นที่ใช้ร่วมกัน"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) relié à l'espace partagé mais introuvable : "
+"désinstallé, ou carte d'identité recréée."
+msgstr ""
+"{subject} ({detail}) เชื่อมโยงกับพื้นที่ใช้ร่วมกันแต่หาไม่พบ: "
+"ถอนการติดตั้งแล้ว หรือบัตรประจำตัวถูกสร้างใหม่"
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) a le groupe omega-synchro (complément "
+"systemd posé par omega-serv)."
+msgstr ""
+"บริการ {subject} ({detail}) มีกลุ่ม omega-synchro (ส่วนเสริม systemd ที่ "
+"omega-serv วางไว้)"
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) tourne sous un compte dédié sans le groupe "
+"omega-synchro : il ne pourra pas lire l'espace partagé. La Synchronisation "
+"demande à omega-serv de le lui donner."
+msgstr ""
+"บริการ {subject} ({detail}) ทำงานภายใต้บัญชีเฉพาะที่ไม่มีกลุ่ม omega-"
+"synchro: จะอ่านพื้นที่ใช้ร่วมกันไม่ได้ การซิงค์จะขอให้ omega-serv "
+"มอบกลุ่มนี้ให้"
+
+msgid "correction : Synchronisation (omega-connect synchroniser)"
+msgstr "วิธีแก้ไข: การซิงค์ (omega-connect synchroniser)"
+
+#, python-brace-format
+msgid "correction (compte {account}) : {command}"
+msgstr "วิธีแก้ไข (บัญชี {account}): {command}"
+
+#, python-brace-format
+msgid "correction : {command}"
+msgstr "วิธีแก้ไข: {command}"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) (--detail pour les voir)"
+msgstr "การตรวจที่ผ่าน {count} รายการ (--detail เพื่อดู)"
+
+msgid ""
+"Vérification des liens entre outils omega (lecture seule, rien n'est "
+"modifié)"
+msgstr ""
+"ตรวจสอบการเชื่อมโยงระหว่างเครื่องมือ omega (อ่านอย่างเดียว "
+"ไม่มีการแก้ไขสิ่งใด)"
+
+#, python-brace-format
+msgid "omega-serv « {instance} » — {root}"
+msgstr "omega-serv «{instance}» — {root}"
+
+msgid "Hors des instances détectées"
+msgstr "นอกอินสแตนซ์ที่ตรวจพบ"
+
+#, python-brace-format
+msgid "Bilan : {summary}."
+msgstr "สรุป: {summary}"
+
+msgid ""
+"Les corrections ne sont jamais lancées par « verifier » : relisez-les avant "
+"de les exécuter."
+msgstr "«verifier» ไม่เรียกใช้การแก้ไขเด็ดขาด: โปรดอ่านทวนก่อนดำเนินการ"
+
+#, python-brace-format
+msgid ""
+"{count} écart(s) corrigeable(s) par « reparer » (commandes des outils, "
+"affichées avant tout lancement)."
+msgstr ""
+"ความคลาดเคลื่อน {count} รายการที่ «reparer» แก้ไขได้ (คำสั่งของเครื่องมือ "
+"แสดงก่อนการเรียกใช้ใด ๆ)"
+
+#, python-brace-format
+msgid "Établir la zone neutre {zone}"
+msgstr "จัดตั้งโซนกลาง {zone}"
+
+#, python-brace-format
+msgid "Tout retirer : défaire ce que le registre de {zone} liste"
+msgstr "นำออกทั้งหมด: ยกเลิกสิ่งที่ทะเบียนของ {zone} ระบุไว้"
+
+#, python-brace-format
+msgid "Garder la zone {zone} (liens figés)"
+msgstr "เก็บโซน {zone} ไว้ (การเชื่อมโยงถูกตรึง)"
+
+#, python-brace-format
+msgid "Retirer un outil désinstallé de la zone {zone}"
+msgstr "นำเครื่องมือที่ถอนการติดตั้งแล้วออกจากโซน {zone}"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien "
+"n'est fait."
+msgstr ""
+"{subject} ไม่ใช่โฟลเดอร์จริง (ลิงก์สัญลักษณ์หรือไฟล์): ไม่มีการดำเนินการใด"
+
+#, python-brace-format
+msgid ""
+"{subject} existe déjà sans registre d'omega-connect : rien n'est fait. "
+"Vérifiez ce dossier, puis supprimez-le vous-même s'il est inutile."
+msgstr ""
+"{subject} มีอยู่แล้วโดยไม่มีทะเบียนของ omega-connect: ไม่มีการดำเนินการใด "
+"ตรวจสอบโฟลเดอร์นี้ แล้วลบด้วยตนเองหากไม่จำเป็น"
+
+#, python-brace-format
+msgid "{subject} n'a pas pu être lu, même avec sudo : rien n'est fait."
+msgstr "อ่าน {subject} ไม่ได้ แม้จะใช้ sudo: ไม่มีการดำเนินการใด"
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est fait tant qu'il n'est pas "
+"réparé."
+msgstr "ทะเบียน {subject} เสียหาย ({detail}): จะไม่ดำเนินการใดจนกว่าจะซ่อมแซม"
+
+#, python-brace-format
+msgid "aucune zone en {subject} : rien à retirer."
+msgstr "ไม่มีโซนที่ {subject}: ไม่มีอะไรต้องนำออก"
+
+#, python-brace-format
+msgid ""
+"« {subject} » ne désigne aucun outil du registre (nom, dossier ou 8 premiers"
+" caractères de l'identifiant)."
+msgstr ""
+"«{subject}» ไม่ตรงกับเครื่องมือใดในทะเบียน (ชื่อ โฟลเดอร์ หรือ 8 "
+"อักขระแรกของตัวระบุ)"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est toujours installé : il serait relié de nouveau à la"
+" prochaine actualisation. Désinstallez-le d'abord."
+msgstr ""
+"{subject} ({detail}) ยังติดตั้งอยู่: "
+"จะถูกเชื่อมโยงอีกครั้งในการอัปเดตครั้งถัดไป ถอนการติดตั้งก่อน"
+
+#, python-brace-format
+msgid "{subject} ({detail}) est toujours installé : laissé dans la zone."
+msgstr "{subject} ({detail}) ยังติดตั้งอยู่: คงไว้ในโซน"
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : jeton {detail} (voir « verifier »)."
+msgstr "{subject} ไม่ได้เชื่อมโยง: โทเค็น {detail} (ดู «verifier»)"
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : identifiant {detail} en double."
+msgstr "{subject} ไม่ได้เชื่อมโยง: ตัวระบุ {detail} ซ้ำ"
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est au registre mais introuvable : « retirer {detail} »"
+" l'enlèvera."
+msgstr ""
+"{subject} ({detail}) อยู่ในทะเบียนแต่หาไม่พบ: «retirer {detail}» จะนำออก"
+
+#, python-brace-format
+msgid ""
+"{subject} devra se reconnecter pour que le groupe omega-synchro compte "
+"(lecture de la zone)."
+msgstr ""
+"{subject} ต้องเข้าสู่ระบบใหม่เพื่อให้กลุ่ม omega-synchro มีผล (การอ่านโซน)"
+
+#, python-brace-format
+msgid "la zone {subject} est à jour : rien à faire."
+msgstr "โซน {subject} เป็นปัจจุบัน: ไม่มีอะไรต้องทำ"
+
+#, python-brace-format
+msgid ""
+"{subject} n'a pas été créé par omega-connect : gardé, ainsi que son dossier."
+msgstr "{subject} ไม่ได้สร้างโดย omega-connect: คงไว้ พร้อมทั้งโฟลเดอร์"
+
+#, python-brace-format
+msgid ""
+"le groupe {subject} est gardé (pas créé par omega-connect, ou zone pas "
+"vide)."
+msgstr ""
+"คงกลุ่ม {subject} ไว้ (ไม่ได้สร้างโดย omega-connect หรือโซนยังไม่ว่าง)"
+
+#, python-brace-format
+msgid ""
+"le service {subject} a toujours le groupe omega-synchro, mais omega-serv est"
+" introuvable pour le lui retirer : le groupe et la zone sont gardés (sans "
+"lui, le service ne démarrerait plus). Lancez « omega-serv synchro groupe-"
+"service retirer --service-name {subject} » depuis son dossier, puis "
+"relancez."
+msgstr ""
+"บริการ {subject} ยังมีกลุ่ม omega-synchro แต่หา omega-serv "
+"ไม่พบเพื่อนำกลุ่มออก: คงกลุ่มและโซนไว้ (หากไม่มีกลุ่ม "
+"บริการจะเริ่มทำงานไม่ได้) เรียก «omega-serv synchro groupe-service retirer "
+"--service-name {subject}» จากโฟลเดอร์ของ omega-serv แล้วเรียกอีกครั้ง"
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) prendra en compte le groupe omega-synchro à "
+"son prochain redémarrage : omega-connect ne le redémarre pas."
+msgstr ""
+"บริการ {subject} ({detail}) จะรับรู้กลุ่ม omega-synchro "
+"เมื่อรีสตาร์ทครั้งถัดไป: omega-connect ไม่รีสตาร์ทให้"
+
+#, python-brace-format
+msgid "{subject} figure au registre mais hors de la zone : ignoré."
+msgstr "{subject} อยู่ในทะเบียนแต่อยู่นอกโซน: ข้าม"
+
+msgid "la zone est déjà figée : rien à faire."
+msgstr "โซนถูกตรึงอยู่แล้ว: ไม่มีอะไรต้องทำ"
+
+#, python-brace-format
+msgid "Créer le groupe {group}"
+msgstr "สร้างกลุ่ม {group}"
+
+#, python-brace-format
+msgid "Créer le dossier {path}"
+msgstr "สร้างโฟลเดอร์ {path}"
+
+#, python-brace-format
+msgid "Remettre les droits du dossier {path}"
+msgstr "คืนสิทธิ์ของโฟลเดอร์ {path}"
+
+#, python-brace-format
+msgid "Ajouter {user} au groupe {group}"
+msgstr "เพิ่ม {user} เข้ากลุ่ม {group}"
+
+#, python-brace-format
+msgid "Retirer {user} du groupe {group}"
+msgstr "นำ {user} ออกจากกลุ่ม {group}"
+
+#, python-brace-format
+msgid "Supprimer le groupe {group}"
+msgstr "ลบกลุ่ม {group}"
+
+#, python-brace-format
+msgid "Retirer le dossier {path}"
+msgstr "นำโฟลเดอร์ {path} ออก"
+
+#, python-brace-format
+msgid ""
+"omega-serv donne le groupe {group} à son service {service} (complément "
+"systemd)"
+msgstr ""
+"omega-serv มอบกลุ่ม {group} ให้บริการ {service} ของตน (ส่วนเสริม systemd)"
+
+#, python-brace-format
+msgid "omega-serv retire le groupe {group} de son service {service}"
+msgstr "omega-serv นำกลุ่ม {group} ออกจากบริการ {service} ของตน"
+
+msgid "Retirer le registre de l'espace partagé"
+msgstr "นำทะเบียนของพื้นที่ใช้ร่วมกันออก"
+
+msgid "Écrire le registre de l'espace partagé"
+msgstr "เขียนทะเบียนของพื้นที่ใช้ร่วมกัน"
+
+#, python-brace-format
+msgid "Recopier la description de {root} (ce qu'il sait faire)"
+msgstr "คัดลอกคำอธิบายของ {root} (สิ่งที่ทำได้)"
+
+#, python-brace-format
+msgid "Retirer la description de {root}"
+msgstr "นำคำอธิบายของ {root} ออก"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root}"
+msgstr "คัดลอกบัตรประจำตัวของ {root}"
+
+#, python-brace-format
+msgid "Retirer la carte d'identité de {root}"
+msgstr "นำบัตรประจำตัวของ {root} ออก"
+
+msgid "Commandes qui seront lancées, une à une, en root :"
+msgstr "คำสั่งที่จะเรียกใช้ ทีละคำสั่ง ในฐานะ root:"
+
+#, python-brace-format
+msgid "Terminé : {count} commande(s) lancée(s), toutes réussies."
+msgstr "เสร็จสิ้น: เรียกใช้ {count} คำสั่ง สำเร็จทั้งหมด"
+
+#, python-brace-format
+msgid "{done} commande(s) sur {total} avaient réussi."
+msgstr "สำเร็จ {done} จาก {total} คำสั่ง"
+
+msgid "Registre réécrit pour garder la trace de ce qui a été créé."
+msgstr "เขียนทะเบียนใหม่เพื่อเก็บร่องรอยของสิ่งที่สร้างแล้ว"
+
+msgid ""
+"Le registre n'a pas pu être réécrit : notez ce qui a été créé ci-dessus."
+msgstr "เขียนทะเบียนใหม่ไม่ได้: โปรดจดสิ่งที่สร้างไว้ข้างต้น"
+
+msgid ""
+"Relancez la même commande après avoir corrigé la cause : rien n'est fait "
+"deux fois."
+msgstr "เรียกคำสั่งเดิมอีกครั้งหลังแก้ไขสาเหตุ: ไม่มีสิ่งใดถูกทำซ้ำสองครั้ง"
+
+msgid "Dossier des captures non configuré."
+msgstr "ยังไม่ได้กำหนดโฟลเดอร์ภาพหน้าจอ"
+
+msgid "Passer d'un élément à l'autre (lignes d'un tableau, boutons)"
+msgstr "ย้ายจากรายการหนึ่งไปอีกรายการ (แถวของตาราง ปุ่ม)"
+
+msgid "Passer d'une zone de l'écran à l'autre"
+msgstr "ย้ายจากส่วนหนึ่งของหน้าจอไปอีกส่วน"
+
+msgid ""
+"Activer le bouton choisi ; dans une liste à cocher, cocher ou décocher la "
+"ligne"
+msgstr ""
+"กดปุ่มที่เลือก ในรายการช่องทำเครื่องหมาย ให้ทำเครื่องหมายหรือยกเลิกแถว"
+
+msgid "Entrée / Clic"
+msgstr "Enter / คลิก"
+
+msgid "Cocher ou décocher la ligne choisie (Synchronisation)"
+msgstr "ทำเครื่องหมายหรือยกเลิกแถวที่เลือก (การซิงค์)"
+
+msgid "Espace"
+msgstr "Space"
+
+msgid "Revenir à l'écran précédent"
+msgstr "กลับไปหน้าจอก่อนหน้า"
+
+msgid "Cette aide, depuis n'importe quel écran"
+msgstr "ความช่วยเหลือนี้ จากหน้าจอใดก็ได้"
+
+msgid "Réglages, depuis n'importe quel écran"
+msgstr "การตั้งค่า จากหน้าจอใดก็ได้"
+
+msgid "Thème suivant (enregistré)"
+msgstr "ธีมถัดไป (บันทึกไว้)"
+
+msgid "Redessiner l'écran et afficher la taille du terminal"
+msgstr "วาดหน้าจอใหม่และแสดงขนาดเทอร์มินัล"
+
+msgid ""
+"Commandes : thème, capture d'écran (SVG, dans le dossier des captures), "
+"quitter"
+msgstr "คำสั่ง: ธีม ภาพหน้าจอ (SVG ในโฟลเดอร์ภาพหน้าจอ) ออก"
+
+msgid "Ctrl+P"
+msgstr "Ctrl+P"
+
+msgid ""
+"omega-connect relie entre elles les applications omega (omega-serv, omega-fire, omega-jail…) installées sur cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce qui manque, toujours après vous avoir montré ce qu'il va faire.\n"
+"\n"
+"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
+"2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
+"3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son plan avant d'agir et demande son mot de passe une seule fois.\n"
+"4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue d'ensemble, en cadres.\n"
+"5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
+"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre."
+msgstr ""
+"omega-connect เชื่อมโยงแอปพลิเคชัน omega (omega-serv, omega-fire, omega-jail…) ที่ติดตั้งบนเครื่องนี้และบนเครื่องในเครือข่ายของคุณเข้าด้วยกัน แสดงว่าอะไรเชื่อมโยงแล้วหรือยัง และจัดการสิ่งที่ขาดหายให้กลับมาครบ โดยแสดงให้คุณเห็นก่อนเสมอว่าจะทำอะไร\n"
+"\n"
+"1. [b]สแกน[/b]: ค้นหาแอปพลิเคชันของเครื่องนี้ เพิ่มเครื่องอื่นๆ ของคุณ (เสนอให้จากโปรไฟล์ Unison, ~/.ssh/config และ known_hosts หรือพิมพ์เอง): เชื่อมต่อผ่าน SSH ด้วยคีย์ของคุณ ไม่มีการติดตั้งอะไรบนเครื่องเหล่านั้น\n"
+"2. [b]ทะเบียน[/b]: รายการแอปพลิเคชันทั้งหมดของทุกเครื่อง พร้อมสถานะ แอปพลิเคชันที่เก่าเกินไปหรือติดตั้งไม่ถูกต้องจะอัปเดตหรือติดตั้งใหม่ได้จากหน้าจอนี้\n"
+"3. [b]การซิงค์[/b]: เลือกสิ่งที่ต้องเชื่อมโยง แล้วกด «ซิงค์» แต่ละเครื่องจะแสดงแผนก่อนดำเนินการ และขอรหัสผ่านเพียงครั้งเดียว\n"
+"4. [b]การเชื่อมโยง[/b]: ดูว่าอะไรเชื่อมโยงแล้วหรือยัง บนทุกเครื่อง [b]แดชบอร์ด[/b]: ภาพรวมแบบกรอบ\n"
+"5. [b]ซ่อมแซม[/b]: รายการทุกสิ่งที่มีปัญหา เลือกหนึ่งแถว หรือ «ซ่อมแซมทั้งหมด»\n"
+"6. [b]รายงาน[/b]: เอกสารฉบับเต็ม (ข้อความ, JSON หรือหน้า HTML) สำหรับเก็บไว้หรือส่งต่อ"
+
+msgid "Registre — toutes les applications et leur état"
+msgstr "ทะเบียน — แอปพลิเคชันทั้งหมดและสถานะ"
+
+msgid ""
+"Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
+"\n"
+"- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
+"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
+"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
+msgstr ""
+"แสดงแอปพลิเคชัน omega แต่ละรายการที่พบในแต่ละเครื่อง (เครื่องนี้และเครื่องในเครือข่าย): อินสแตนซ์หรือบริการ เวอร์ชัน สถานะ และโฟลเดอร์ สรุปด้านบนจะนับจำนวนแต่ละสถานะ\n"
+"\n"
+"- [b]อัปเดตทะเบียน[/b]: สแกนใหม่ในที่ (เครื่องนี้ แล้วตามด้วยเครื่องในเครือข่ายที่รู้จักแล้ว) โดยไม่เปลี่ยนหน้าจอ\n"
+"- [b]อัปเดตแอปพลิเคชัน[/b]: บนแถว «เวอร์ชันเก่า» ของเครื่องในเครือข่าย ติดตั้งเวอร์ชันล่าสุดที่เผยแพร่ (Release บน GitHub ของแอปพลิเคชัน ตรวจค่าแฮชกับ sha.txt ก่อนส่งทุกครั้ง) แผนจะแสดงก่อน ไม่มีการทำอย่างอื่น\n"
+"- [b]ติดตั้งแอปพลิเคชันใหม่[/b]: ปุ่มเดียวกันบนแถว «ติดตั้งไม่เสร็จ» (install.sh ทำงานไม่เสร็จ) จะติดตั้งเวอร์ชันเดิมใหม่\n"
+"- บนเครื่องนี้ การอัปเดตทำตามหัวข้อ «อัปเดต» ใน README ของแอปพลิเคชัน\n"
+"- ไฮไลต์แถว: คำอธิบายสถานะและความคลาดเคลื่อนจะแสดงด้านล่าง"
+
+msgid "Scanner — trouver les applications, ajouter des machines"
+msgstr "สแกน — ค้นหาแอปพลิเคชัน เพิ่มเครื่อง"
+
+msgid ""
+"- [b]Cette machine[/b] : cherche les applications omega (dossier personnel, services systemd, OpenRC ou runit, /srv, registre des instances d'omega-serv). Jamais de lien symbolique suivi, jamais de montage réseau parcouru.\n"
+"- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
+"- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
+"- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
+"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
+msgstr ""
+"- [b]เครื่องนี้[/b]: ค้นหาแอปพลิเคชัน omega (โฟลเดอร์ส่วนตัว บริการ systemd, OpenRC หรือ runit, /srv, ทะเบียนอินสแตนซ์ของ omega-serv) ไม่ตามลิงก์สัญลักษณ์และไม่สำรวจจุดเมานต์เครือข่ายเด็ดขาด\n"
+"- [b]เครื่องที่เสนอ[/b]: เครื่องที่คอมพิวเตอร์นี้รู้วิธีเชื่อมต่ออยู่แล้ว (โปรไฟล์ Unison, ~/.ssh/config, known_hosts) เลือกแถวแล้วกด «สแกนเครื่องที่เลือก»\n"
+"- [b]ป้อนด้วยตนเอง[/b]: ผู้ใช้@เครื่อง (ชื่อหรือที่อยู่) แล้วกด «สแกนเครื่องนี้»\n"
+"- [b]การเชื่อมต่อครั้งแรก[/b]: จะแสดงลายนิ้วมือคีย์ของเครื่อง ตรวจสอบแล้วยอมรับ คีย์ที่เปลี่ยนไปจะถูกปฏิเสธ (เครื่องถูกติดตั้งใหม่ หรือมีการแอบอ้าง)\n"
+"- [b]เครื่องที่รู้จัก[/b]: «สแกนเครื่องที่รู้จักอีกครั้ง» หรือ «นำเครื่องนี้ออก» (ออกจากทะเบียน ไม่มีการแก้ไขสิ่งใดบนเครื่องนั้น)\n"
+"- การสแกนเครื่องในเครือข่ายส่งผ่าน SSH ไปในหน่วยความจำ แบบอ่านอย่างเดียว: ไม่ติดตั้งหรือเขียนสิ่งใดที่นั่น ไม่ขอรหัสผ่าน (ต้องมี Python 3.10 หรือใหม่กว่าที่เครื่องนั้น)"
+
+msgid "Liaisons — ce qui est relié ou pas"
+msgstr "การเชื่อมโยง — สิ่งที่เชื่อมโยงแล้วหรือยัง"
+
+msgid ""
+"Montre chaque lien entre applications, sur toutes les machines, avec son état et sa provenance (Local, ou Réseau — nom de la machine) : journaux d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers la liste noire d'omega-serv, liste protégée, liste noire partagée, fichiers d'omega-jail dans fail2ban, cartes d'identité, espace partagé.\n"
+"\n"
+"- Surlignez une ligne : ses contrôles s'affichent en dessous ; « Détail du lien » les montre tous, avec la commande de chaque correction (« Copier les commandes »).\n"
+"- Cet écran montre seulement : ce qui est « à réparer » se corrige dans le menu Réparer."
+msgstr ""
+"แสดงการเชื่อมโยงแต่ละรายการระหว่างแอปพลิเคชันบนทุกเครื่อง พร้อมสถานะและแหล่งที่มา (ภายในเครื่อง หรือ เครือข่าย — ชื่อเครื่อง): ล็อกของ omega-serv และ magnet ที่ jail ของ omega-jail อ่าน, สะพาน fail2ban ไปยังบัญชีดำของ omega-serv, รายการที่ได้รับการปกป้อง, บัญชีดำที่ใช้ร่วมกัน, ไฟล์ของ omega-jail ใน fail2ban, บัตรประจำตัว, พื้นที่ใช้ร่วมกัน\n"
+"\n"
+"- ไฮไลต์แถว: การตรวจจะแสดงด้านล่าง «รายละเอียดการเชื่อมโยง» แสดงทั้งหมดพร้อมคำสั่งของแต่ละวิธีแก้ไข («คัดลอกคำสั่ง»)\n"
+"- หน้าจอนี้แสดงผลเท่านั้น: สิ่งที่ «ต้องซ่อมแซม» แก้ไขได้ในเมนูซ่อมแซม"
+
+msgid "Synchronisation — relier les applications"
+msgstr "การซิงค์ — เชื่อมโยงแอปพลิเคชัน"
+
+msgid ""
+"Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+"- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
+"- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
+"- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
+"- Les machines passent une à une : cette machine d'abord, puis le réseau.\n"
+"- Une application trop ancienne, inachevée ou injoignable ne se coche pas : la ligne dit où aller.\n"
+"- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
+"- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
+msgstr ""
+"รายการเดียว: ทุกเครื่องของคุณและแอปพลิเคชัน (เครื่องในเครือข่ายจะถูกสแกนอีกครั้งเมื่อเปิด) ทำเครื่องหมายแถว (Enter หรือ Space) แล้ว:\n"
+"- [b]ซิงค์รายการที่เลือก[/b] หรือ [b]ซิงค์ทั้งหมด[/b]\n"
+"- [b]เครื่องนี้[/b]: แผนเดียว แสดงก่อนดำเนินการ — บัตรประจำตัวที่ขาด (แต่ละแอปพลิเคชันสร้างเองภายใต้บัญชีของตน) แล้วพื้นที่ใช้ร่วมกัน (กลุ่ม omega-synchro โฟลเดอร์ สำเนาบัตร การเข้าถึงของบริการ) ใช้รหัสผ่านผู้ดูแลระบบครั้งเดียว\n"
+"- [b]เครื่องในเครือข่าย[/b]: แผนคำนวณบนเครื่องนั้นและแสดงผล «ซิงค์ <machine>» เรียกใช้จากที่นี่: อินเทอร์เฟซหลีกทางให้เทอร์มินัล เครื่องขอรหัสผ่านเองหนึ่งครั้ง Enter จะพากลับมายังอินเทอร์เฟซ ซึ่งแสดงผลลัพธ์\n"
+"- เครื่องจะดำเนินการทีละเครื่อง: เครื่องนี้ก่อน แล้วตามด้วยเครือข่าย\n"
+"- แอปพลิเคชันที่เก่าเกินไป ติดตั้งไม่เสร็จ หรือติดต่อไม่ได้ จะทำเครื่องหมายไม่ได้: แถวจะบอกว่าต้องไปที่ใด\n"
+"- [b]อ่านด้วย sudo[/b]: หากเซสชันของคุณยังอ่านพื้นที่ใช้ร่วมกันไม่ได้ (กลุ่ม omega-synchro มีผลหลังเข้าสู่ระบบใหม่เท่านั้น) อ่านอย่างเดียวด้วย sudo\n"
+"- [b]รายละเอียด[/b]: สิ่งที่ omega-connect สร้างไว้ (ทะเบียนของพื้นที่ใช้ร่วมกัน) และสิ่งที่นำออกได้"
+
+msgid "Dashboard — vue d'ensemble"
+msgstr "แดชบอร์ด — ภาพรวม"
+
+msgid ""
+"Une vue d'ensemble en cadres, comme un tableau de bord web. Rien n'est modifié depuis cet écran.\n"
+"\n"
+"- [b]Machines[/b], [b]Applications[/b], [b]Liaisons[/b], [b]Espace partagé[/b] : les compteurs, avec les mêmes états que le Registre et les Liaisons.\n"
+"- [b]Liaisons par type[/b] : pour chaque type de liaison, combien sont OK sur combien.\n"
+"- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
+"- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
+"\n"
+"Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; « Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner pour les relire). Pour corriger : menu Réparer."
+msgstr ""
+"ภาพรวมแบบกรอบ เหมือนแดชบอร์ดบนเว็บ ไม่มีการเปลี่ยนแปลงใดๆ จากหน้าจอนี้\n"
+"\n"
+"- [b]เครื่อง[/b], [b]แอปพลิเคชัน[/b], [b]การเชื่อมโยง[/b], [b]พื้นที่ใช้ร่วมกัน[/b]: ตัวนับ ใช้สถานะเดียวกับทะเบียนและการเชื่อมโยง\n"
+"- [b]การเชื่อมโยงตามประเภท[/b]: การเชื่อมโยงแต่ละประเภท OK กี่รายการจากทั้งหมด\n"
+"- [b]เครื่องนี้ / เครือข่าย[/b]: ตัวเลขชุดเดียวกัน วางเทียบกัน\n"
+"- [b]Top 5[/b] (top 3 บนหน้าจอเล็ก): เครื่องที่ต้องซ่อมแซม การเชื่อมโยงที่ต้องซ่อมแซม เวอร์ชันที่ล้าหลัง การสแกนที่เก่าที่สุด (เครื่องในเครือข่าย)\n"
+"\n"
+"เครื่องนี้จะถูกตรวจสอบเมื่อเปิดหน้าจอ แล้วตรวจซ้ำเป็นระยะตราบที่หน้าจอยังเปิดอยู่ «รีเฟรช» จะเริ่มการตรวจสอบใหม่ เครื่องในเครือข่ายแสดงผลการสแกนล่าสุด (ใช้เมนูสแกนเพื่ออ่านใหม่) หากต้องการแก้ไข: เมนูซ่อมแซม"
+
+msgid "Réparer — tout ce qui ne va pas"
+msgstr "ซ่อมแซม — ทุกสิ่งที่มีปัญหา"
+
+msgid ""
+"La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
+"\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
+"- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
+"- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
+msgstr ""
+"รายการทุกสิ่งที่มีปัญหาบนทุกเครื่อง (เครื่องในเครือข่ายจะถูกสแกนอีกครั้งเมื่อเปิด): เครื่อง ปัญหา สถานะ และผู้แก้ไข\n"
+"\n"
+"- [b]ซ่อมแซมแถวที่เลือก[/b]: เปิดแผนของเครื่อง เครื่องนี้: คำสั่งของแอปพลิเคชันเอง (omega-jail สำหรับสิ่งที่วางใน fail2ban, omega-serv สำหรับสิทธิ์ของ var/ ของตน, แต่ละแอปพลิเคชันสำหรับบัตรประจำตัวของตน) แล้วตามด้วยพื้นที่ใช้ร่วมกัน เครื่องในเครือข่าย: การแก้ไขแบบเดียวกัน บวกคำสั่งที่ไม่มีแอปพลิเคชันใดเรียกใช้ได้ ซึ่งเรียกใช้บนเครื่องนั้นจากที่นี่ (เฉพาะคำสั่งที่แจ้งไว้ในแผน)\n"
+"- [b]ซ่อมแซมทั้งหมด[/b]: ทีละเครื่อง (อัปเดตก่อน แล้วซ่อมแซม)\n"
+"- [b]รายละเอียด[/b]: การตรวจทั้งหมดของแถวที่เลือก\n"
+"- [b]คัดลอกคำสั่ง[/b] (แผนของเครื่องนี้): คลิปบอร์ดของระบบ (xclip, xsel, wl-copy) หากไม่มี คำสั่งจะแสดงเป็นข้อความธรรมดาในเทอร์มินัลให้เลือกด้วยเมาส์\n"
+"- omega-connect ไม่เขียนทับไฟล์ของแอปพลิเคชันอื่นเด็ดขาด: จะเรียกใช้คำสั่งของแอปพลิเคชันนั้น"
+
+msgid "Rapport — un document complet"
+msgstr "รายงาน — เอกสารฉบับเต็ม"
+
+msgid ""
+"Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"\n"
+"- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
+"- En ligne de commande : omega-connect rapport --format html --enregistrer."
+msgstr ""
+"จัดทำ ณ ขณะนั้น (เครื่องในเครือข่ายจะถูกสแกนอีกครั้งก่อน): สรุป รายการสิ่งที่ยังต้องทำอย่างละเอียด (เครื่อง อะไร เมนูใด) ทะเบียนของแอปพลิเคชันทั้งหมด เครื่องในเครือข่าย แอปพลิเคชันของเครื่องนี้โดยละเอียด การเชื่อมโยงของแต่ละเครื่อง พื้นที่ใช้ร่วมกันและทะเบียน\n"
+"\n"
+"- ส่งออกเป็นข้อความ JSON หรือหน้า HTML (เลือกธีมได้ ค่าเริ่มต้นตามการตั้งค่า) ลงในโฟลเดอร์ส่งออก\n"
+"- ทางบรรทัดคำสั่ง: omega-connect rapport --format html --enregistrer"
+
+msgid ""
+"- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
+"- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
+"- Tout est enregistré dans var/settings.json."
+msgstr ""
+"- [b]ธีมของอินเทอร์เฟซ[/b] (ปุ่ม t ด้วย) และ [b]ธีมของการส่งออก[/b]: บันทึกไว้\n"
+"- [b]โฟลเดอร์ส่งออก[/b] และ [b]โฟลเดอร์ภาพหน้าจอ[/b]: ค่าเริ่มต้นคือ var/exports/ และ var/screenshots/ ในโฟลเดอร์ของ omega-connect ระบุพาธเต็ม หรือเว้นว่างเพื่อกลับไปใช้ค่าเริ่มต้น\n"
+"- [b]ล้างโฟลเดอร์ส่งออก / ภาพหน้าจอ[/b]: หลังยืนยัน จะลบเนื้อหาของโฟลเดอร์ที่กำหนด (โฟลเดอร์ยังอยู่) ปฏิเสธสำหรับโฟลเดอร์ระบบ โฟลเดอร์ส่วนตัว หรือโฟลเดอร์ของ omega-connect เอง ไม่ขอรหัสผ่านเด็ดขาด\n"
+"- ทุกอย่างบันทึกไว้ใน var/settings.json"
+
+msgid "Machines du réseau, mises à jour et sécurité"
+msgstr "เครื่องในเครือข่าย การอัปเดต และความปลอดภัย"
+
+msgid ""
+"- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
+"- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
+"- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
+msgstr ""
+"- [b]การเชื่อมต่อ[/b]: SSH ด้วยคีย์ของคุณเท่านั้น omega-connect ไม่ขอรหัสผ่าน SSH เด็ดขาด คีย์ที่ป้องกันด้วยวลีรหัสผ่านต้องโหลดเข้า SSH agent (ssh-add)\n"
+"- [b]รหัสผ่านผู้ดูแลระบบ[/b]: เฉพาะเมื่อการดำเนินการต้องใช้ (ซิงค์ ซ่อมแซม อัปเดต) ครั้งเดียวต่อเครื่อง คุณพิมพ์เองในเทอร์มินัล omega-connect ไม่เห็นรหัสผ่านเด็ดขาด\n"
+"- [b]สิ่งที่ส่งไปยังเครื่องในเครือข่าย[/b]: สำหรับการสแกน ไม่มีเลย (โปรแกรมอยู่ในหน่วยความจำ) สำหรับการดำเนินการ โฟลเดอร์ส่วนตัวชั่วคราว (โปรแกรมและไฟล์เก็บถาวร) ซึ่งจะถูกลบเมื่อเสร็จ\n"
+"- [b]การอัปเดต[/b]: จาก Release บน GitHub ของแต่ละแอปพลิเคชัน (kraynux/<application>, แท็ก v<version>) ค่าแฮชตรวจกับ sha.txt ก่อนส่งทุกครั้ง แล้วตรวจอีกครั้งบนเครื่อง omega-fire: การติดตั้งเดิมถูกย้ายไปเก็บไว้ (var/ ของมันเป็นของ root) แล้ว install.sh ของมันจะนำการตั้งค่าและข้อมูลกลับมาใช้ ส่วนแอปพลิเคชันอื่น: แตกไฟล์ทับของเดิม (สถานะที่ใช้งานอยู่ไม่ได้อยู่ในไฟล์เก็บถาวร) แล้วเรียก install.sh ของแต่ละตัว\n"
+"- [b]ไม่เรียกใช้แอปพลิเคชันที่อาจขอรหัสผ่านโดยไม่มีเทอร์มินัลเด็ดขาด[/b]: sudo ที่ล้มเหลวแบบเงียบนับเป็นการพยายามหนึ่งครั้ง และอาจล็อกบัญชีไว้หลายนาที"
+
+msgid "États — ce que veut dire chaque mot"
+msgstr "สถานะ — ความหมายของแต่ละคำ"
+
+msgid ""
+"[b]Applications[/b] :\n"
+"- ● Reliée : dans l'espace partagé, à jour.\n"
+"- ◐ Inscrite : a sa carte d'identité, pas encore dans l'espace partagé (Synchronisation).\n"
+"- ○ Détectée : trouvée, sans carte d'identité (Synchronisation la lui crée).\n"
+"- ▲ À réparer : un écart (Réparer).\n"
+"- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
+"- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller l'application).\n"
+"- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n"
+"\n"
+"[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session)."
+msgstr ""
+"[b]แอปพลิเคชัน[/b]:\n"
+"- ● เชื่อมโยงแล้ว: อยู่ในพื้นที่ใช้ร่วมกัน เป็นปัจจุบัน\n"
+"- ◐ ลงทะเบียนแล้ว: มีบัตรประจำตัว ยังไม่อยู่ในพื้นที่ใช้ร่วมกัน (การซิงค์)\n"
+"- ○ ตรวจพบแล้ว: พบแล้ว ไม่มีบัตรประจำตัว (การซิงค์จะสร้างให้)\n"
+"- ▲ ต้องซ่อมแซม: มีความคลาดเคลื่อน (ซ่อมแซม)\n"
+"- ◌ เวอร์ชันเก่า: เก่าเกินไปสำหรับ omega-connect (ทะเบียน → อัปเดตแอปพลิเคชัน)\n"
+"- ◇ ติดตั้งไม่เสร็จ: install.sh ทำงานไม่เสร็จ (ทะเบียน → ติดตั้งแอปพลิเคชันใหม่)\n"
+"- ✕ ติดต่อไม่ได้: เครื่องไม่ตอบสนองแล้ว (สแกน → สแกนอีกครั้ง)\n"
+"\n"
+"[b]การเชื่อมโยง[/b]: OK, ต้องซ่อมแซม, ต้องซ่อมแซม (ขัดขวาง), ไม่มี (ไม่มีอะไรต้องเชื่อมโยง เช่น ไม่ได้ติดตั้ง omega-jail), ตรวจสอบไม่ได้ (อ่านไม่ได้จากเซสชันของคุณ)"
+
+msgid "Carte d'identité et espace partagé"
+msgstr "บัตรประจำตัวและพื้นที่ใช้ร่วมกัน"
+
+msgid ""
+"- [b]Carte d'identité[/b] : un petit fichier (var/omega-jeton.json) que chaque application écrit à son installation : quelle application, quelle version, quel identifiant, sur quelle machine. Lisible par tous, jamais modifiable par les autres comptes.\n"
+"- [b]Espace partagé[/b] : /var/lib/omega-synchro, groupe omega-synchro, où seul root écrit ; omega-connect y recopie les cartes d'identité et la description de chaque application, pour qu'elles se trouvent entre elles, même quand omega-connect n'est pas lancé.\n"
+"- Tout ce qu'omega-connect crée est inscrit au registre de l'espace partagé : un retrait ne défait que ce qui y est inscrit."
+msgstr ""
+"- [b]บัตรประจำตัว[/b]: ไฟล์ขนาดเล็ก (var/omega-jeton.json) ที่แต่ละแอปพลิเคชันเขียนตอนติดตั้ง: แอปพลิเคชันใด เวอร์ชันใด ตัวระบุใด บนเครื่องใด ทุกคนอ่านได้ บัญชีอื่นแก้ไขไม่ได้เด็ดขาด\n"
+"- [b]พื้นที่ใช้ร่วมกัน[/b]: /var/lib/omega-synchro กลุ่ม omega-synchro ซึ่ง root เท่านั้นที่เขียนได้ omega-connect คัดลอกบัตรประจำตัวและคำอธิบายของแต่ละแอปพลิเคชันไว้ที่นี่ เพื่อให้แอปพลิเคชันค้นพบกันเอง แม้ omega-connect ไม่ได้ทำงานอยู่\n"
+"- ทุกสิ่งที่ omega-connect สร้างจะลงไว้ในทะเบียนของพื้นที่ใช้ร่วมกัน: การนำออกจะยกเลิกเฉพาะสิ่งที่ลงไว้ในนั้น"
+
+msgid "Ligne de commande"
+msgstr "บรรทัดคำสั่ง"
+
+msgid ""
+"omega-connect.sh <commande> (sans commande : l'interface).\n"
+"- scanner [utilisateur@machine] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout : l'espace partagé, plan affiché avant tout lancement.\n"
+"--simulation montre le plan sans rien lancer ; --oui lance sans poser la question."
+msgstr ""
+"omega-connect.sh <commande> (ไม่มีคำสั่ง: อินเทอร์เฟซ)\n"
+"- scanner [utilisateur@machine] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout: พื้นที่ใช้ร่วมกัน แสดงแผนก่อนการเรียกใช้ใด ๆ\n"
+"--simulation แสดงแผนโดยไม่เรียกใช้สิ่งใด --oui เรียกใช้โดยไม่ถาม"
+
+msgid "Fichiers d'omega-connect"
+msgstr "ไฟล์ของ omega-connect"
+
+msgid ""
+"Tout vit dans le dossier d'omega-connect, sous var/ :\n"
+"- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+"- settings.json : réglages.\n"
+"- exports/ et screenshots/ : par défaut (voir Réglages).\n"
+"- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite)."
+msgstr ""
+"ทุกอย่างอยู่ในโฟลเดอร์ของ omega-connect ภายใต้ var/:\n"
+"- parc.json: ทะเบียนของเครื่องในเครือข่าย (สแกนล่าสุด ที่อยู่ ลายนิ้วมือ)\n"
+"- settings.json: การตั้งค่า\n"
+"- exports/ และ screenshots/: ค่าเริ่มต้น (ดูการตั้งค่า)\n"
+"- declaration.json: การลงทะเบียนผู้ใช้แบบนิรนาม (หากคุณได้ทำไว้)"
+
+msgid "Aide, export et contact"
+msgstr "ความช่วยเหลือ การส่งออก และการติดต่อ"
+
+msgid ""
+"- [b]Exporter l'aide en HTML[/b] : toute cette aide, dans une page, thème au choix, dans le dossier des exports.\n"
+"- [b]Contact et support[/b] : payer un café (PayPal), se déclarer utilisateur anonyme (une seule fois), contacter le support (mail et formulaire du site), vérifier les mises à jour."
+msgstr ""
+"- [b]ส่งออกความช่วยเหลือเป็น HTML[/b]: ความช่วยเหลือทั้งหมดนี้ในหน้าเดียว เลือกธีมได้ ลงในโฟลเดอร์ส่งออก\n"
+"- [b]ติดต่อและสนับสนุน[/b]: เลี้ยงกาแฟ (PayPal) ลงทะเบียนเป็นผู้ใช้แบบนิรนาม (ครั้งเดียว) ติดต่อฝ่ายสนับสนุน (อีเมลและแบบฟอร์มบนเว็บไซต์) ตรวจหาการอัปเดต"
+
+msgid "Redémarrer"
+msgstr "รีสตาร์ท"
+
+msgid "Registre"
+msgstr "ทะเบียน"
+
+msgid "Synchronisation"
+msgstr "การซิงค์"
+
+msgid "Dashboard"
+msgstr "แดชบอร์ด"
+
+msgid "Rapport"
+msgstr "รายงาน"
+
+msgid "GESTION"
+msgstr "การจัดการ"
+
+msgid "MAINTENANCE"
+msgstr "การบำรุงรักษา"
+
+msgid "MACHINES"
+msgstr "เครื่อง"
+
+msgid "APPLICATIONS"
+msgstr "แอปพลิเคชัน"
+
+msgid "LIAISONS"
+msgstr "การเชื่อมโยง"
+
+msgid "ESPACE PARTAGÉ"
+msgstr "พื้นที่ใช้ร่วมกัน"
+
+msgid "LIAISONS PAR TYPE"
+msgstr "การเชื่อมโยงตามประเภท"
+
+msgid "CETTE MACHINE / RÉSEAU"
+msgstr "เครื่องนี้ / เครือข่าย"
+
+#, python-brace-format
+msgid "TOP {count} · MACHINES À RÉPARER"
+msgstr "TOP {count} · เครื่องที่ต้องซ่อมแซม"
+
+#, python-brace-format
+msgid "TOP {count} · LIAISONS À RÉPARER"
+msgstr "TOP {count} · การเชื่อมโยงที่ต้องซ่อมแซม"
+
+#, python-brace-format
+msgid "TOP {count} · VERSIONS EN RETARD"
+msgstr "TOP {count} · เวอร์ชันที่ล้าหลัง"
+
+#, python-brace-format
+msgid "TOP {count} · SCANS LES PLUS ANCIENS"
+msgstr "TOP {count} · การสแกนที่เก่าที่สุด"
+
+msgid "jamais vue"
+msgstr "ยังไม่เคยพบ"
+
+msgid "à l'instant"
+msgstr "เมื่อสักครู่"
+
+#, python-brace-format
+msgid "il y a {count} min"
+msgstr "{count} นาทีที่แล้ว"
+
+#, python-brace-format
+msgid "il y a {count} h"
+msgstr "{count} ชม. ที่แล้ว"
+
+#, python-brace-format
+msgid "il y a {count} j"
+msgstr "{count} วันที่แล้ว"
+
+#, python-brace-format
+msgid "{count} au total"
+msgstr "ทั้งหมด {count} เครื่อง"
+
+#, python-brace-format
+msgid "cette machine : {name}"
+msgstr "เครื่องนี้: {name}"
+
+#, python-brace-format
+msgid "{count} sur le réseau"
+msgstr "{count} เครื่องในเครือข่าย"
+
+#, python-brace-format
+msgid "{count} injoignable(s)"
+msgstr "ติดต่อไม่ได้ {count} เครื่อง"
+
+#, python-brace-format
+msgid "{count} application(s) reliée(s)"
+msgstr "เชื่อมโยงแล้ว {count} แอปพลิเคชัน"
+
+#, python-brace-format
+msgid "{count} à relier (Synchronisation)"
+msgstr "รอเชื่อมโยง {count} รายการ (การซิงค์)"
+
+msgid "Aucune liaison connue."
+msgstr "ไม่มีการเชื่อมโยงที่รู้จัก"
+
+msgid "Machines"
+msgstr "เครื่อง"
+
+msgid "Cette machine"
+msgstr "เครื่องนี้"
+
+msgid "Réseau"
+msgstr "เครือข่าย"
+
+msgid "Rien à réparer."
+msgstr "ไม่มีอะไรต้องซ่อมแซม"
+
+#, python-brace-format
+msgid "{count} liaison(s)"
+msgstr "{count} การเชื่อมโยง"
+
+#, python-brace-format
+msgid "{count} application(s)"
+msgstr "{count} แอปพลิเคชัน"
+
+msgid "Aucune liaison à réparer."
+msgstr "ไม่มีการเชื่อมโยงที่ต้องซ่อมแซม"
+
+msgid "Aucune application en retard."
+msgstr "ไม่มีแอปพลิเคชันที่ล้าหลัง"
+
+msgid "Aucune machine du réseau (menu Scanner)."
+msgstr "ยังไม่มีเครื่องในเครือข่าย (เมนูสแกน)"
+
+#, python-brace-format
+msgid "vue {when}"
+msgstr "พบล่าสุด {when}"
+
+msgid "non fournie (ancienne version)"
+msgstr "ไม่ได้ให้มา (เวอร์ชันเก่า)"
+
+#, python-brace-format
+msgid "déclarée à {time}"
+msgstr "ลงทะเบียนเมื่อ {time}"
+
+msgid "(partielle)"
+msgstr "(บางส่วน)"
+
+msgid "Local"
+msgstr "ภายในเครื่อง"
+
+#, python-brace-format
+msgid "Réseau — {where}"
+msgstr "เครือข่าย — {where}"
+
+#, python-brace-format
+msgid "{count} écart(s)"
+msgstr "ความคลาดเคลื่อน {count} รายการ"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) : « Détail du lien » pour les voir."
+msgstr "การตรวจที่ผ่าน {count} รายการ: «รายละเอียดการเชื่อมโยง» เพื่อดู"
+
+msgid "Aucun contrôle pour ce lien."
+msgstr "ไม่มีการตรวจสำหรับการเชื่อมโยงนี้"
+
+msgid "Liens : "
+msgstr "การเชื่อมโยง: "
+
+msgid ""
+"omega-connect — authentification sudo pour les commandes affichées (le mot "
+"de passe ne s'affiche pas pendant la saisie). L'interface revient ensuite."
+msgstr ""
+"omega-connect — การยืนยันตัวตน sudo สำหรับคำสั่งที่แสดง "
+"(รหัสผ่านจะไม่แสดงขณะพิมพ์) จากนั้นอินเทอร์เฟซจะกลับมา"
+
+msgid "Aucune commande à copier."
+msgstr "ไม่มีคำสั่งให้คัดลอก"
+
+#, python-brace-format
+msgid ""
+"{count} commande(s) copiée(s) dans le presse-papiers ({tool}) : collez-les "
+"dans un terminal (Ctrl+Maj+V)."
+msgstr ""
+"คัดลอก {count} คำสั่งไปยังคลิปบอร์ดแล้ว ({tool}): วางในเทอร์มินัล "
+"(Ctrl+Shift+V)"
+
+msgid ""
+"omega-connect — commandes à copier. Sélectionnez-les à la souris puis copiez"
+" avec le raccourci de votre terminal (souvent Ctrl+Maj+C) :"
+msgstr ""
+"omega-connect — คำสั่งที่จะคัดลอก "
+"เลือกด้วยเมาส์แล้วคัดลอกด้วยปุ่มลัดของเทอร์มินัล (ส่วนใหญ่คือ Ctrl+Shift+C):"
+
+msgid "Entrée pour revenir à omega-connect… "
+msgstr "กด Enter เพื่อกลับไปยัง omega-connect… "
+
+msgid ""
+"Vous êtes membre du groupe omega-synchro, mais cet omega-connect a été lancé"
+" sans lui. Quittez (q) et relancez ./omega-connect.sh : il le prendra tout "
+"seul, sans mot de passe. Pour cette fois, lecture avec sudo (mot de passe "
+"dans le terminal)."
+msgstr ""
+"คุณเป็นสมาชิกของกลุ่ม omega-synchro แต่ omega-connect "
+"นี้ถูกเปิดโดยไม่มีกลุ่มนี้ ออก (q) แล้วเปิด ./omega-connect.sh ใหม่: "
+"จะรับกลุ่มเองโดยไม่ต้องใช้รหัสผ่าน สำหรับครั้งนี้ อ่านด้วย sudo "
+"(รหัสผ่านในเทอร์มินัล)"
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro : la zone est lue avec "
+"sudo, mot de passe demandé dans le terminal."
+msgstr ""
+"เซสชันของคุณยังไม่มีกลุ่ม omega-synchro: อ่านโซนด้วย sudo "
+"โดยขอรหัสผ่านในเทอร์มินัล"
+
+msgid "Lecture de la zone avec sudo…"
+msgstr "กำลังอ่านโซนด้วย sudo…"
+
+msgid "Préparation des commandes (détection des outils, lecture de la zone)…"
+msgstr "กำลังเตรียมคำสั่ง (ตรวจหาเครื่องมือ อ่านโซน)…"
+
+msgid "Vérifier maintenant"
+msgstr "ตรวจสอบตอนนี้"
+
+msgid "LIENS"
+msgstr "การเชื่อมโยง"
+
+msgid "Détail du lien"
+msgstr "รายละเอียดการเชื่อมโยง"
+
+msgid "Constat"
+msgstr "ผลตรวจ"
+
+msgid "Lien"
+msgstr "การเชื่อมโยง"
+
+msgid "Provenance"
+msgstr "แหล่งที่มา"
+
+msgid "Vérification en cours…"
+msgstr "กำลังตรวจสอบ…"
+
+#, python-brace-format
+msgid "Erreur : {message}"
+msgstr "ข้อผิดพลาด: {message}"
+
+#, python-brace-format
+msgid "Vérifié à {time}."
+msgstr "ตรวจสอบเมื่อ {time}"
+
+#, python-brace-format
+msgid ""
+"Nouvelle vérification toutes les {minutes} min tant que cet écran est "
+"ouvert."
+msgstr "ตรวจสอบใหม่ทุก {minutes} นาที ตราบที่หน้าจอนี้เปิดอยู่"
+
+msgid "Lancer (mot de passe administrateur)"
+msgstr "เปิด (รหัสผ่านผู้ดูแลระบบ)"
+
+msgid "SYNCHRONISER"
+msgstr "ซิงค์"
+
+msgid ""
+"Tout ce qui sera fait, dans l'ordre. Rien n'est lancé avant « Lancer » ; au "
+"premier échec, tout s'arrête et ce qui a été créé reste noté."
+msgstr ""
+"ทุกสิ่งที่จะทำตามลำดับ ไม่มีการเรียกใช้สิ่งใดก่อนกด «เปิด» "
+"เมื่อล้มเหลวครั้งแรก ทุกอย่างจะหยุดและสิ่งที่สร้างแล้วจะถูกบันทึกไว้"
+
+msgid "AVANCEMENT"
+msgstr "ความคืบหน้า"
+
+msgid "Fermer"
+msgstr "ปิด"
+
+msgid ""
+"Chaque menu, sa fonction et le détail. Cliquez sur un titre pour l'ouvrir."
+msgstr "แต่ละเมนู หน้าที่ และรายละเอียด คลิกที่หัวข้อเพื่อเปิด"
+
+msgid "Exporter l'aide en HTML"
+msgstr "ส่งออกความช่วยเหลือเป็น HTML"
+
+#, python-brace-format
+msgid "Aide exportée : {path}"
+msgstr "ส่งออกความช่วยเหลือแล้ว: {path}"
+
+#, python-brace-format
+msgid "Écran prévu au lot {lot} de l'étape 3."
+msgstr "หน้าจอนี้วางแผนไว้ในชุดงาน {lot} ของขั้นตอนที่ 3"
+
+msgid "RETIRER LA ZONE NEUTRE ?"
+msgstr "นำโซนกลางออก?"
+
+msgid ""
+"Garder : rien n'est supprimé, les outils lisent toujours les copies "
+"actuelles (liens figés). Tout retirer : défait exactement ce que le registre"
+" liste."
+msgstr ""
+"เก็บไว้: ไม่มีการลบสิ่งใด เครื่องมือยังคงอ่านสำเนาปัจจุบัน "
+"(การเชื่อมโยงถูกตรึง) นำออกทั้งหมด: ยกเลิกตรงตามที่ทะเบียนระบุ"
+
+msgid "Garder la zone"
+msgstr "เก็บโซนไว้"
+
+msgid "Tout retirer"
+msgstr "นำออกทั้งหมด"
+
+msgid "CONTRÔLES"
+msgstr "การตรวจ"
+
+msgid ""
+"Cet écran montre. Pour corriger : menu Réparer (toutes les machines, machine"
+" du réseau comprise) ; les commandes se copient avec « Copier les commandes "
+"»."
+msgstr ""
+"หน้าจอนี้แสดงผลเท่านั้น หากต้องการแก้ไข: เมนูซ่อมแซม (ทุกเครื่อง "
+"รวมถึงเครื่องในเครือข่าย) คัดลอกคำสั่งได้ด้วย «คัดลอกคำสั่ง»"
+
+msgid "Copier les commandes"
+msgstr "คัดลอกคำสั่ง"
+
+#, python-brace-format
+msgid "vérifié à {time}"
+msgstr "ตรวจสอบเมื่อ {time}"
+
+msgid "État : "
+msgstr "สถานะ: "
+
+msgid "RÉPARER CETTE MACHINE"
+msgstr "ซ่อมแซมเครื่องนี้"
+
+msgid ""
+"Chaque écart est corrigé par l'outil qui possède le fichier (omega-jail, "
+"omega-serv, jeton de chaque outil), ou par « Établir » pour ce que le "
+"registre de la zone dit qu'omega-connect a créé. omega-connect ne réécrit "
+"jamais le fichier d'un autre outil. Rien n'est lancé avant « Lancer »."
+msgstr ""
+"แต่ละความคลาดเคลื่อนจะถูกแก้ไขโดยเครื่องมือที่เป็นเจ้าของไฟล์ (omega-jail, "
+"omega-serv, โทเค็นของแต่ละเครื่องมือ) หรือโดย «จัดตั้ง» "
+"สำหรับสิ่งที่ทะเบียนของโซนระบุว่า omega-connect สร้างไว้ omega-connect "
+"ไม่เขียนทับไฟล์ของเครื่องมืออื่นเด็ดขาด ไม่มีการเรียกใช้สิ่งใดก่อนกด «เปิด»"
+
+msgid "MACHINES DISTANTES"
+msgstr "เครื่องระยะไกล"
+
+msgid ""
+"Une machine du registre se répare depuis ici : les commandes des outils sont"
+" lancées SUR elle, son mot de passe sudo est demandé une fois, dans ce "
+"terminal."
+msgstr ""
+"เครื่องในทะเบียนซ่อมแซมได้จากที่นี่: "
+"คำสั่งของเครื่องมือจะเรียกใช้บนเครื่องนั้น และขอรหัสผ่าน sudo "
+"ของเครื่องหนึ่งครั้งในเทอร์มินัลนี้"
+
+msgid "Réparer la machine choisie"
+msgstr "ซ่อมแซมเครื่องที่เลือก"
+
+msgid "Zone : établir…"
+msgstr "โซน: จัดตั้ง…"
+
+msgid "Analyser de nouveau"
+msgstr "วิเคราะห์อีกครั้ง"
+
+msgid "Liaisons à corriger"
+msgstr "การเชื่อมโยงที่ต้องแก้ไข"
+
+msgid "aucune machine distante : scannez-en une (Scanner)"
+msgstr "ไม่มีเครื่องระยะไกล: สแกนเครื่อง (สแกน)"
+
+msgid "Préparation des réparations : vérification des liens en cours…"
+msgstr "กำลังเตรียมการซ่อมแซม: กำลังตรวจสอบการเชื่อมโยง…"
+
+msgid "Lancer avec sudo"
+msgstr "เปิดด้วย sudo"
+
+msgid ""
+"Vue d'ensemble de vos machines et de vos applications. Rien n'est modifié "
+"depuis cet écran. Pour corriger : menu Réparer."
+msgstr ""
+"ภาพรวมของเครื่องและแอปพลิเคชันของคุณ ไม่มีการเปลี่ยนแปลงใดๆ จากหน้าจอนี้ "
+"หากต้องการแก้ไข: เมนูซ่อมแซม"
+
+msgid "Actualiser"
+msgstr "รีเฟรช"
+
+msgid "cette machine"
+msgstr "เครื่องนี้"
+
+msgid "DASHBOARD"
+msgstr "แดชบอร์ด"
+
+#, python-brace-format
+msgid ""
+"Cette machine vérifiée à {time} ; machines du réseau : leur dernier scan."
+msgstr "ตรวจสอบเครื่องนี้เมื่อ {time}; เครื่องในเครือข่าย: ผลการสแกนล่าสุด"
+
+msgid "QUITTER OMEGA-CONNECT ?"
+msgstr "ออกจาก OMEGA-CONNECT?"
+
+msgid "REGISTRE"
+msgstr "ทะเบียน"
+
+msgid ""
+"Ce que le scanner a trouvé : chaque application omega, son service, sa "
+"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
+" à jour l'application » installe la dernière version d'une application trop "
+"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
+"corriger un écart : Réparer."
+msgstr ""
+"สิ่งที่ตัวสแกนพบ: แอปพลิเคชัน omega แต่ละรายการ บริการ เวอร์ชัน และสถานะ "
+"«อัปเดตทะเบียน» สแกนใหม่ «อัปเดตแอปพลิเคชัน» "
+"ติดตั้งเวอร์ชันล่าสุดของแอปพลิเคชันที่เก่าเกินไป (แถวที่เลือก) "
+"คืนการเชื่อมโยง: การซิงค์ แก้ไขความคลาดเคลื่อน: ซ่อมแซม"
+
+msgid "Mettre à jour le registre"
+msgstr "อัปเดตทะเบียน"
+
+msgid "Mettre à jour l'application"
+msgstr "อัปเดตแอปพลิเคชัน"
+
+msgid "Lecture du registre…"
+msgstr "กำลังอ่านทะเบียน…"
+
+msgid "Premier scan : recherche des applications omega…"
+msgstr "การสแกนครั้งแรก: กำลังค้นหาแอปพลิเคชัน omega…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s)"
+msgstr "{count} แอปพลิเคชัน บน {machines} เครื่อง"
+
+#, python-brace-format
+msgid "dernier scan à {time}"
+msgstr "สแกนล่าสุดเมื่อ {time}"
+
+msgid "Espace partagé : "
+msgstr "พื้นที่ใช้ร่วมกัน: "
+
+msgid "Réinstaller l'application"
+msgstr "ติดตั้งแอปพลิเคชันใหม่"
+
+#, python-brace-format
+msgid "→ « {action} » installe la dernière version depuis GitHub."
+msgstr "→ «{action}» ติดตั้งเวอร์ชันล่าสุดจาก GitHub"
+
+msgid ""
+"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
+"possible : suivez la section « Mise à jour » du README de l'outil."
+msgstr ""
+"→ บนเครื่องนี้ ยังอัปเดตจาก omega-connect ไม่ได้: ทำตามหัวข้อ «อัปเดต» ใน "
+"README ของเครื่องมือ"
+
+#, python-brace-format
+msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
+msgstr "กำลังอัปเดตทะเบียน: สแกนเครื่องระยะไกล {count} เครื่อง…"
+
+#, python-brace-format
+msgid ""
+"omega-connect — synchronisation de {machine}. La machine demande elle-même "
+"son mot de passe sudo (il ne s'affiche pas pendant la saisie) ; omega-"
+"connect ne le voit jamais."
+msgstr ""
+"omega-connect — การซิงค์ {machine} เครื่องจะขอรหัสผ่าน sudo เอง "
+"(รหัสผ่านจะไม่แสดงขณะพิมพ์) omega-connect ไม่เห็นรหัสผ่านเด็ดขาด"
+
+msgid "Terminé. Appuyez sur Entrée pour revenir à omega-connect… "
+msgstr "เสร็จสิ้น กด Enter เพื่อกลับไปยัง omega-connect… "
+
+#, python-brace-format
+msgid "METTRE À JOUR L'APPLICATION — {machine}"
+msgstr "อัปเดตแอปพลิเคชัน — {machine}"
+
+msgid ""
+"Seulement les applications trop anciennes de cette machine : dernière "
+"version prise sur leur Release GitHub (empreinte vérifiée), installée comme "
+"le dit leur README. Rien d'autre ; rien n'est fait avant « Lancer »."
+msgstr ""
+"เฉพาะแอปพลิเคชันที่เก่าเกินไปของเครื่องนี้: เวอร์ชันล่าสุดจาก Release บน "
+"GitHub (ตรวจค่าแฮชแล้ว) ติดตั้งตามที่ README ระบุ ไม่ทำอย่างอื่น "
+"ไม่มีการดำเนินการใดก่อนกด «เปิด»"
+
+#, python-brace-format
+msgid "RÉPARER — {machine}"
+msgstr "ซ่อมแซม — {machine}"
+
+msgid ""
+"Corrections faites par les outils eux-mêmes, lancées SUR la machine depuis "
+"ici : rien à y taper. Ce qu'aucun outil ne sait faire se copie (« Copier les"
+" commandes »). Rien n'est fait avant « Lancer »."
+msgstr ""
+"การแก้ไขโดยเครื่องมือเอง เรียกใช้บนเครื่องนั้นจากที่นี่: "
+"ไม่ต้องพิมพ์อะไรที่นั่น สิ่งที่ไม่มีเครื่องมือใดทำได้ให้คัดลอกไป "
+"(«คัดลอกคำสั่ง») ไม่มีการดำเนินการใดก่อนกด «เปิด»"
+
+#, python-brace-format
+msgid "SYNCHRONISER — {machine}"
+msgstr "ซิงค์ — {machine}"
+
+msgid ""
+"Plan calculé sur la machine elle-même, sans sudo : réparer puis "
+"synchroniser. Aucune mise à jour ici (Registre → « Mettre à jour "
+"l'application ») ; rien n'est fait avant « Lancer »."
+msgstr ""
+"แผนคำนวณบนเครื่องนั้นเอง โดยไม่ใช้ sudo: ซ่อมแซมแล้วซิงค์ "
+"ไม่มีการอัปเดตที่นี่ (ทะเบียน → «อัปเดตแอปพลิเคชัน») "
+"ไม่มีการดำเนินการใดก่อนกด «เปิด»"
+
+#, python-brace-format
+msgid "Calcul du plan sur {machine}…"
+msgstr "กำลังคำนวณแผนบน {machine}…"
+
+#, python-brace-format
+msgid "Réinstaller sur {machine}"
+msgstr "ติดตั้งใหม่บน {machine}"
+
+#, python-brace-format
+msgid "Mettre à jour sur {machine}"
+msgstr "อัปเดตบน {machine}"
+
+#, python-brace-format
+msgid "Réparer {machine}"
+msgstr "ซ่อมแซม {machine}"
+
+#, python-brace-format
+msgid "Synchroniser {machine}"
+msgstr "ซิงค์ {machine}"
+
+#, python-brace-format
+msgid "Téléchargement et vérification des archives, envoi vers {machine}…"
+msgstr "กำลังดาวน์โหลดและตรวจสอบไฟล์เก็บถาวร ส่งไปยัง {machine}…"
+
+#, python-brace-format
+msgid "Lecture du résultat et nouveau scan de {machine}…"
+msgstr "กำลังอ่านผลลัพธ์และสแกน {machine} ใหม่…"
+
+#, python-brace-format
+msgid "{machine} : synchronisation terminée."
+msgstr "{machine}: การซิงค์เสร็จสิ้น"
+
+#, python-brace-format
+msgid "{machine} : la synchronisation n'est pas allée au bout."
+msgstr "{machine}: การซิงค์ไม่เสร็จสมบูรณ์"
+
+msgid "l'outil, depuis ici"
+msgstr "เครื่องมือ จากที่นี่"
+
+msgid "commande lancée sur la machine, depuis ici"
+msgstr "คำสั่งที่เรียกใช้บนเครื่อง จากที่นี่"
+
+msgid "à la main (commande à copier)"
+msgstr "ด้วยตนเอง (คำสั่งที่ต้องคัดลอก)"
+
+msgid "Mettre à jour l'application, depuis ici"
+msgstr "อัปเดตแอปพลิเคชัน จากที่นี่"
+
+msgid "Réinstaller l'application, depuis ici"
+msgstr "ติดตั้งแอปพลิเคชันใหม่ จากที่นี่"
+
+msgid "à la main (README de l'outil)"
+msgstr "ด้วยตนเอง (README ของเครื่องมือ)"
+
+msgid "Scanner : rescanner la machine"
+msgstr "สแกน: สแกนเครื่องอีกครั้ง"
+
+msgid "aucune correction connue (voir le détail)"
+msgstr "ไม่มีวิธีแก้ไขที่ทราบ (ดูรายละเอียด)"
+
+msgid "RÉPARER"
+msgstr "ซ่อมแซม"
+
+msgid ""
+"Tout ce qui ne va pas, sur toutes les machines. Choisissez une ligne puis « "
+"Réparer la ligne choisie », ou « Tout réparer » : le plan de la machine "
+"s'affiche, rien n'est lancé avant. Machine du réseau : réparée depuis ici, "
+"son mot de passe sudo demandé une fois."
+msgstr ""
+"ทุกสิ่งที่มีปัญหาบนทุกเครื่อง เลือกแถวแล้วกด «ซ่อมแซมแถวที่เลือก» หรือ "
+"«ซ่อมแซมทั้งหมด»: แผนของเครื่องจะแสดงขึ้น ไม่มีการเรียกใช้สิ่งใดก่อนหน้านั้น"
+" เครื่องในเครือข่าย: ซ่อมแซมจากที่นี่ ขอรหัสผ่าน sudo ของเครื่องหนึ่งครั้ง"
+
+msgid "Réparer la ligne choisie"
+msgstr "ซ่อมแซมแถวที่เลือก"
+
+msgid "Détail"
+msgstr "รายละเอียด"
+
+msgid "Tout réparer"
+msgstr "ซ่อมแซมทั้งหมด"
+
+msgid "Problème"
+msgstr "ปัญหา"
+
+msgid "Qui corrige"
+msgstr "ผู้แก้ไข"
+
+msgid "Recherche de tout ce qui ne va pas : vérification de cette machine…"
+msgstr "กำลังค้นหาทุกสิ่งที่มีปัญหา: กำลังตรวจสอบเครื่องนี้…"
+
+#, python-brace-format
+msgid "Rescan des machines du réseau ({index}/{count}) : {machine}…"
+msgstr "กำลังสแกนเครื่องในเครือข่ายอีกครั้ง ({index}/{count}): {machine}…"
+
+#, python-brace-format
+msgid "{count} problème(s) sur {machines} machine(s)."
+msgstr "{count} ปัญหา บน {machines} เครื่อง"
+
+msgid "Rien à réparer : tout est OK sur toutes les machines."
+msgstr "ไม่มีอะไรต้องซ่อมแซม: ทุกอย่าง OK บนทุกเครื่อง"
+
+msgid "la machine ne répond plus"
+msgstr "เครื่องไม่ตอบสนองแล้ว"
+
+#, python-brace-format
+msgid "{machine} : rescannez-la d'abord (Scanner)."
+msgstr "{machine}: สแกนอีกครั้งก่อน (สแกน)"
+
+msgid "RAPPORT"
+msgstr "รายงาน"
+
+msgid ""
+"Un document complet, établi à l'instant (les machines du réseau sont "
+"rescannées avant) : bilan, ce qu'il reste à faire, registre, machines du "
+"réseau, liaisons de chaque machine, espace partagé. Enregistré dans le "
+"dossier des exports."
+msgstr ""
+"เอกสารฉบับสมบูรณ์ จัดทำขึ้นในขณะนี้ (สแกนเครื่องในเครือข่ายใหม่ก่อน): สรุป "
+"สิ่งที่ยังต้องทำ ทะเบียน เครื่องในเครือข่าย การเชื่อมโยงของแต่ละเครื่อง "
+"พื้นที่ใช้ร่วมกัน บันทึกในโฟลเดอร์ส่งออก"
+
+msgid "THÈME DE LA PAGE HTML"
+msgstr "ธีมของหน้า HTML"
+
+msgid "APERÇU"
+msgstr "ตัวอย่าง"
+
+msgid "Exporter JSON"
+msgstr "ส่งออก JSON"
+
+msgid "Exporter TXT"
+msgstr "ส่งออก TXT"
+
+msgid "Exporter HTML"
+msgstr "ส่งออก HTML"
+
+msgid "Génération du rapport en cours (détection, vérification, zone)…"
+msgstr "กำลังสร้างรายงาน (ตรวจหา ตรวจสอบ โซน)…"
+
+msgid "Rapport prêt."
+msgstr "รายงานพร้อมแล้ว"
+
+#, python-brace-format
+msgid "Export impossible : {error}"
+msgstr "ส่งออกไม่ได้: {error}"
+
+#, python-brace-format
+msgid "{count} application(s) omega trouvée(s) sur cette machine."
+msgstr "พบแอปพลิเคชัน omega {count} รายการบนเครื่องนี้"
+
+#, python-brace-format
+msgid "Trouvées via : {sources}."
+msgstr "พบผ่าน: {sources}"
+
+#, python-brace-format
+msgid ""
+"{count} remarque(s) sur la recherche (montages réseau ignorés, etc.) : voir "
+"le Rapport."
+msgstr ""
+"หมายเหตุเกี่ยวกับการค้นหา {count} รายการ (ข้ามจุดเมานต์เครือข่าย ฯลฯ): "
+"ดูรายงาน"
+
+msgid "SCANNER"
+msgstr "สแกน"
+
+msgid ""
+"Recherche des applications omega, en lecture seule : rien n'est modifié, "
+"aucun mot de passe. Le résultat met à jour le registre."
+msgstr ""
+"ค้นหาแอปพลิเคชัน omega แบบอ่านอย่างเดียว: ไม่มีการแก้ไขสิ่งใด "
+"ไม่ต้องใช้รหัสผ่าน ผลลัพธ์จะอัปเดตทะเบียน"
+
+#, python-brace-format
+msgid "MACHINE LOCALE — {machine}"
+msgstr "เครื่องนี้ — {machine}"
+
+msgid "MACHINES QUE CET ORDINATEUR SAIT DÉJÀ JOINDRE"
+msgstr "เครื่องที่คอมพิวเตอร์นี้รู้วิธีเชื่อมต่ออยู่แล้ว"
+
+msgid ""
+"Trouvées dans vos profils Unison, votre ~/.ssh/config et les machines déjà "
+"connues de SSH. Choisissez-en une (Entrée ou clic) : omega-connect s'y "
+"connecte avec vos clés et y lance le même scanner, en mémoire — rien n'y est"
+" installé, aucun mot de passe."
+msgstr ""
+"พบในโปรไฟล์ Unison, ~/.ssh/config ของคุณ และเครื่องที่ SSH รู้จักแล้ว "
+"เลือกหนึ่งเครื่อง (Enter หรือคลิก): omega-connect "
+"จะเชื่อมต่อด้วยคีย์ของคุณและเรียกใช้ตัวสแกนเดียวกันในหน่วยความจำ — "
+"ไม่มีการติดตั้งสิ่งใดที่นั่น ไม่ต้องใช้รหัสผ่าน"
+
+msgid "Scanner la machine choisie"
+msgstr "สแกนเครื่องที่เลือก"
+
+msgid "AUTRE MACHINE (SAISIE MANUELLE)"
+msgstr "เครื่องอื่น (ป้อนด้วยตนเอง)"
+
+msgid ""
+"utilisateur@machine (nom ou adresse), ou un nom de votre ~/.ssh/config."
+msgstr "ผู้ใช้@เครื่อง (ชื่อหรือที่อยู่) หรือชื่อใน ~/.ssh/config ของคุณ"
+
+msgid "utilisateur@machine"
+msgstr "ผู้ใช้@เครื่อง"
+
+msgid "Scanner cette machine"
+msgstr "สแกนเครื่องนี้"
+
+msgid "MACHINES DISTANTES CONNUES"
+msgstr "เครื่องระยะไกลที่รู้จัก"
+
+msgid ""
+"Celles du registre. Sur un grand parc, retirez celles qui ne vous concernent"
+" plus : elles ne sont plus rescannées (rien n'est modifié sur elles)."
+msgstr ""
+"เครื่องในทะเบียน ในกลุ่มเครื่องขนาดใหญ่ ให้นำเครื่องที่ไม่เกี่ยวข้องแล้วออก:"
+" จะไม่ถูกสแกนอีก (ไม่มีการแก้ไขสิ่งใดบนเครื่องนั้น)"
+
+msgid "Retirer cette machine"
+msgstr "นำเครื่องนี้ออก"
+
+msgid "Scanner de nouveau"
+msgstr "สแกนอีกครั้ง"
+
+msgid "Rescanner les machines connues"
+msgstr "สแกนเครื่องที่รู้จักอีกครั้ง"
+
+msgid "Voir le registre"
+msgstr "ดูทะเบียน"
+
+msgid "Trouvée dans"
+msgstr "พบใน"
+
+msgid "Analyse de la machine locale : recherche des applications omega…"
+msgstr "กำลังวิเคราะห์เครื่องนี้: กำลังค้นหาแอปพลิเคชัน omega…"
+
+#, python-brace-format
+msgid "Analysée à {time}."
+msgstr "วิเคราะห์เมื่อ {time}"
+
+msgid "aucune machine distante pour l'instant"
+msgstr "ยังไม่มีเครื่องระยะไกล"
+
+msgid "aucune machine trouvée"
+msgstr "ไม่พบเครื่อง"
+
+#, python-brace-format
+msgid "{machine} retirée du registre."
+msgstr "นำ {machine} ออกจากทะเบียนแล้ว"
+
+msgid "RETIRER CETTE MACHINE ?"
+msgstr "นำเครื่องนี้ออก?"
+
+#, python-brace-format
+msgid ""
+"{machine} et ses {count} application(s) sortent du registre : elles ne "
+"seront plus rescannées. Rien n'est modifié sur la machine ; vous pourrez la "
+"scanner de nouveau à tout moment."
+msgstr ""
+"{machine} และแอปพลิเคชัน {count} รายการจะออกจากทะเบียน: จะไม่ถูกสแกนอีก "
+"ไม่มีการแก้ไขสิ่งใดบนเครื่อง คุณสแกนเครื่องนี้อีกครั้งได้ทุกเมื่อ"
+
+msgid "Retirer"
+msgstr "นำออก"
+
+#, python-brace-format
+msgid "Connexion à {target}…"
+msgstr "กำลังเชื่อมต่อกับ {target}…"
+
+#, python-brace-format
+msgid "{target} : rien n'a été fait (machine non acceptée)."
+msgstr "{target}: ไม่มีการดำเนินการใด (ไม่ได้ยอมรับเครื่อง)"
+
+#, python-brace-format
+msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
+msgstr "กำลังสแกน {target}: ตัวสแกนทำงานที่เครื่องนั้น แบบอ่านอย่างเดียว…"
+
+msgid "Aucune machine distante connue pour l'instant."
+msgstr "ยังไม่มีเครื่องระยะไกลที่รู้จัก"
+
+#, python-brace-format
+msgid "Scan des {count} machine(s) connue(s)…"
+msgstr "กำลังสแกนเครื่องที่รู้จัก {count} เครื่อง…"
+
+#, python-brace-format
+msgid "{good} machine(s) scannée(s) sur {total}."
+msgstr "สแกนแล้ว {good} จาก {total} เครื่อง"
+
+msgid "Enregistrés dans var/settings.json, appliqués tout de suite."
+msgstr "บันทึกใน var/settings.json และมีผลทันที"
+
+msgid "Thème de l'interface"
+msgstr "ธีมของอินเทอร์เฟซ"
+
+msgid "Thème des exports (rapport HTML, aide exportée)"
+msgstr "ธีมของการส่งออก (รายงาน HTML ความช่วยเหลือที่ส่งออก)"
+
+msgid "Dossier des exports"
+msgstr "โฟลเดอร์ส่งออก"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Laissez vide pour revenir au dossier par défaut."
+msgstr "ค่าเริ่มต้น: {path} เว้นว่างเพื่อกลับไปใช้โฟลเดอร์เริ่มต้น"
+
+msgid "Dossier des captures d'écran"
+msgstr "โฟลเดอร์ภาพหน้าจอ"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Capture : Ctrl+P → « Capture d'écran »."
+msgstr "ค่าเริ่มต้น: {path} จับภาพ: Ctrl+P → «ภาพหน้าจอ»"
+
+msgid "Enregistrer les dossiers"
+msgstr "บันทึกโฟลเดอร์"
+
+msgid "Maintenance des dossiers"
+msgstr "การบำรุงรักษาโฟลเดอร์"
+
+msgid ""
+"Supprime définitivement le contenu du dossier configuré ; le dossier reste."
+msgstr "ลบเนื้อหาของโฟลเดอร์ที่กำหนดอย่างถาวร โฟลเดอร์ยังคงอยู่"
+
+msgid "Vider le dossier des exports"
+msgstr "ล้างโฟลเดอร์ส่งออก"
+
+msgid "Vider le dossier des captures"
+msgstr "ล้างโฟลเดอร์ภาพหน้าจอ"
+
+msgid "des exports"
+msgstr "ส่งออก"
+
+msgid "des captures"
+msgstr "ภาพหน้าจอ"
+
+#, python-brace-format
+msgid "Chemin à donner en entier (commençant par / ou ~) : {path}"
+msgstr "ต้องระบุพาธเต็ม (เริ่มด้วย / หรือ ~): {path}"
+
+#, python-brace-format
+msgid "Dossiers enregistrés : {paths}"
+msgstr "บันทึกโฟลเดอร์แล้ว: {paths}"
+
+#, python-brace-format
+msgid "VIDER LE DOSSIER {label} ?"
+msgstr "ล้างโฟลเดอร์{label}?"
+
+#, python-brace-format
+msgid ""
+"Supprime définitivement tout le contenu de {directory}. Le dossier reste."
+msgstr "ลบเนื้อหาทั้งหมดของ {directory} อย่างถาวร โฟลเดอร์ยังคงอยู่"
+
+msgid "Vider"
+msgstr "ล้าง"
+
+#, python-brace-format
+msgid "Refusé — {path} : {reason}"
+msgstr "ปฏิเสธ — {path}: {reason}"
+
+#, python-brace-format
+msgid "{count} élément(s) supprimé(s) dans {path}."
+msgstr "ลบ {count} รายการใน {path} แล้ว"
+
+#, python-brace-format
+msgid "Non supprimés : {items}"
+msgstr "ไม่ได้ลบ: {items}"
+
+msgid "Choisir"
+msgstr "เลือก"
+
+msgid "SYNCHRONISATION"
+msgstr "การซิงค์"
+
+msgid ""
+"Toutes vos machines et leurs applications. Cochez des lignes (Entrée ou "
+"Espace) puis « Synchroniser la sélection », ou « Synchroniser tout ». Chaque"
+" machine a son plan, affiché avant d'agir, et un seul mot de passe ; les "
+"machines du réseau sont synchronisées depuis ici."
+msgstr ""
+"ทุกเครื่องของคุณและแอปพลิเคชัน ทำเครื่องหมายแถว (Enter หรือ Space) แล้วกด "
+"«ซิงค์รายการที่เลือก» หรือ «ซิงค์ทั้งหมด» แต่ละเครื่องมีแผนของตน "
+"แสดงก่อนดำเนินการ และใช้รหัสผ่านเพียงครั้งเดียว "
+"เครื่องในเครือข่ายจะซิงค์จากที่นี่"
+
+msgid "Synchroniser tout"
+msgstr "ซิงค์ทั้งหมด"
+
+msgid "Synchroniser la sélection"
+msgstr "ซิงค์รายการที่เลือก"
+
+msgid "Lire avec sudo"
+msgstr "อ่านด้วย sudo"
+
+msgid "Vérification de cette machine et de son espace partagé…"
+msgstr "กำลังตรวจสอบเครื่องนี้และพื้นที่ใช้ร่วมกัน…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s) — vérifié à {time}."
+msgstr "{count} แอปพลิเคชัน บน {machines} เครื่อง — ตรวจสอบเมื่อ {time}"
+
+msgid "Espace partagé lu avec sudo (lecture seule)."
+msgstr "อ่านพื้นที่ใช้ร่วมกันด้วย sudo แล้ว (อ่านอย่างเดียว)"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : "
+msgstr "พื้นที่ใช้ร่วมกันของ {machine}: "
+
+#, python-brace-format
+msgid "{tool} : {hint}"
+msgstr "{tool}: {hint}"
+
+msgid "Lecture de l'espace partagé…"
+msgstr "กำลังอ่านพื้นที่ใช้ร่วมกัน…"
+
+#, python-brace-format
+msgid "Préparation du plan de synchronisation de {machine}…"
+msgstr "กำลังเตรียมแผนการซิงค์ของ {machine}…"
+
+msgid "FAIRE CONFIANCE À CETTE MACHINE ?"
+msgstr "เชื่อถือเครื่องนี้หรือไม่?"
+
+msgid "Faire confiance"
+msgstr "เชื่อถือ"
+
+msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
+msgstr "รายละเอียดของพื้นที่ใช้ร่วมกัน"
+
+#, python-brace-format
+msgid ""
+"Ce qu'omega-connect a créé sur cette machine, et quand (registre de l'espace"
+" partagé {zone}). « Tout retirer » défait exactement cette liste ; un "
+"fichier qu'elle ne connaît pas n'est jamais supprimé."
+msgstr ""
+"สิ่งที่ omega-connect สร้างไว้บนเครื่องนี้และเมื่อใด "
+"(ทะเบียนของพื้นที่ใช้ร่วมกัน {zone}) «นำออกทั้งหมด» จะยกเลิกตรงตามรายการนี้ "
+"ไฟล์ที่ไม่อยู่ในรายการจะไม่ถูกลบเด็ดขาด"
+
+msgid "CRÉATIONS"
+msgstr "สิ่งที่สร้าง"
+
+msgid "OUTILS RELIÉS"
+msgstr "เครื่องมือที่เชื่อมโยงแล้ว"
+
+msgid "Retirer cet outil"
+msgstr "นำเครื่องมือนี้ออก"
+
+msgid "Tout retirer…"
+msgstr "นำออกทั้งหมด…"
+
+msgid "Outil"
+msgstr "เครื่องมือ"
+
+msgid "Relié le"
+msgstr "เชื่อมโยงเมื่อ"
+
+msgid "Initialisation du registre : lecture de la zone en cours…"
+msgstr "กำลังเริ่มต้นทะเบียน: กำลังอ่านโซน…"
+
+#, python-brace-format
+msgid ""
+"Aucune zone en {zone} : rien n'a été créé (menu Synchronisation pour "
+"l'établir)."
+msgstr "ไม่มีโซนที่ {zone}: ยังไม่มีการสร้างสิ่งใด (เมนูการซิงค์เพื่อจัดตั้ง)"
+
+msgid ""
+"Registre lisible par root et le groupe omega-synchro seulement : "
+"reconnectez-vous si vous venez d'y être ajouté, ou « Lire avec sudo »."
+msgstr ""
+"ทะเบียนอ่านได้เฉพาะ root และกลุ่ม omega-synchro: "
+"เข้าสู่ระบบใหม่หากคุณเพิ่งถูกเพิ่มเข้ากลุ่ม หรือ «อ่านด้วย sudo»"
+
+#, python-brace-format
+msgid ""
+"Registre {status} ({detail}) : rien ne sera retiré tant qu'il n'est pas "
+"réparé."
+msgstr "ทะเบียน {status} ({detail}): จะไม่นำสิ่งใดออกจนกว่าจะซ่อมแซม"
+
+#, python-brace-format
+msgid "Zone {zone} — {state} — mise à jour le {date}."
+msgstr "โซน {zone} — {state} — อัปเดตเมื่อ {date}"
+
+msgid "aucune application reliée pour l'instant"
+msgstr "ยังไม่มีแอปพลิเคชันที่เชื่อมโยง"
+
+msgid "Aucune commande."
+msgstr "ไม่มีคำสั่ง"
+
+msgid ""
+"Commandes lancées une à une en root avec sudo, dans cet ordre. Rien n'est "
+"lancé avant « Lancer ». Au premier échec tout s'arrête, et le registre garde"
+" la trace de ce qui a été créé."
+msgstr ""
+"คำสั่งเรียกใช้ทีละคำสั่งในฐานะ root ด้วย sudo ตามลำดับนี้ "
+"ไม่มีการเรียกใช้สิ่งใดก่อนกด «เปิด» เมื่อล้มเหลวครั้งแรก ทุกอย่างจะหยุด "
+"และทะเบียนจะเก็บร่องรอยของสิ่งที่สร้างแล้ว"
+
+msgid "COMMANDES"
+msgstr "คำสั่ง"
+
+msgid "REMARQUES"
+msgstr "หมายเหตุ"
+
+msgid ""
+"Ce qui est relié ou pas, sur toutes vos machines, avec son état (OK, à "
+"réparer, absent…). Cet écran montre : ce qui est « à réparer » se corrige "
+"dans le menu Réparer. Surlignez une ligne pour le détail."
+msgstr ""
+"สิ่งที่เชื่อมโยงแล้วหรือยัง บนทุกเครื่องของคุณ พร้อมสถานะ (OK, ต้องซ่อมแซม, "
+"ไม่มี…) หน้าจอนี้แสดงผลเท่านั้น: สิ่งที่ «ต้องซ่อมแซม» แก้ไขได้ในเมนูซ่อมแซม"
+" ไฮไลต์แถวเพื่อดูรายละเอียด"

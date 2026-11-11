@@ -1,0 +1,3763 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-connect\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, python-brace-format
+msgid "omega-connect — machine {machine}"
+msgstr "omega-connect — máy {machine}"
+
+#, python-brace-format
+msgid "== Mise à jour de {tool} vers {version} ({root})"
+msgstr "== Cập nhật {tool} lên {version} ({root})"
+
+#, python-brace-format
+msgid "✗ {tool} : {error}"
+msgstr "✗ {tool}: {error}"
+
+#, python-brace-format
+msgid "✓ {tool} {version} installé."
+msgstr "✓ Đã cài đặt {tool} {version}."
+
+#, python-brace-format
+msgid "· déjà réglé : {command}"
+msgstr "· đã thiết lập sẵn: {command}"
+
+#, python-brace-format
+msgid "archive refusée : chemin inattendu {name}"
+msgstr "từ chối bản lưu trữ: đường dẫn không mong đợi {name}"
+
+#, python-brace-format
+msgid "archive refusée : {name} n'est ni un fichier ni un dossier"
+msgstr "từ chối bản lưu trữ: {name} không phải tệp cũng không phải thư mục"
+
+msgid "archive refusée : trop volumineuse une fois extraite"
+msgstr "từ chối bản lưu trữ: quá lớn sau khi giải nén"
+
+#, python-brace-format
+msgid "archive refusée : pas de dossier {tool}/"
+msgstr "từ chối bản lưu trữ: không có thư mục {tool}/"
+
+#, python-brace-format
+msgid "{path} est un lien : rien n'est copié dedans"
+msgstr "{path} là một liên kết: không sao chép gì vào đó"
+
+#, python-brace-format
+msgid "{root} n'est pas un dossier d'installation"
+msgstr "{root} không phải thư mục cài đặt"
+
+#, python-brace-format
+msgid "{root} n'appartient pas à ce compte : mise à jour faite à la main"
+msgstr "{root} không thuộc tài khoản này: hãy cập nhật thủ công"
+
+msgid "empreinte de l'archive différente de sha.txt : rien n'est installé"
+msgstr "mã băm của bản lưu trữ khác với sha.txt: không cài đặt gì"
+
+#, python-brace-format
+msgid "Mise de côté de l'ancienne installation : {old} → {new}"
+msgstr "Cất bản cài đặt cũ sang một bên: {old} → {new}"
+
+msgid "impossible de mettre l'ancienne installation de côté (sudo mv)"
+msgstr "không thể cất bản cài đặt cũ sang một bên (sudo mv)"
+
+#, python-brace-format
+msgid "{count} fichiers installés dans {root}."
+msgstr "Đã cài {count} tệp vào {root}."
+
+#, python-brace-format
+msgid "install.sh introuvable dans {root}"
+msgstr "không tìm thấy install.sh trong {root}"
+
+#, python-brace-format
+msgid ""
+"Environnement Python (.venv) incomplet mis de côté : {path} — install.sh en "
+"recrée un."
+msgstr ""
+"Môi trường Python (.venv) chưa hoàn chỉnh đã được cất sang một bên: {path} —"
+" install.sh sẽ tạo lại."
+
+#, python-brace-format
+msgid "Lancement de {path} :"
+msgstr "Đang chạy {path}:"
+
+#, python-brace-format
+msgid "install.sh a échoué (code {code})"
+msgstr "install.sh thất bại (mã {code})"
+
+#, python-brace-format
+msgid "{script} introuvable : réglages et données restés dans {old}"
+msgstr "không tìm thấy {script}: thiết lập và dữ liệu vẫn nằm trong {old}"
+
+#, python-brace-format
+msgid ""
+"Reprise des réglages et données de {old} (autres anciennes installations "
+"ignorées : {others})"
+msgstr ""
+"Lấy lại thiết lập và dữ liệu từ {old} (các bản cài đặt cũ khác bị bỏ qua: "
+"{others})"
+
+#, python-brace-format
+msgid "reprise de {old} échouée ({script})"
+msgstr "lấy lại từ {old} thất bại ({script})"
+
+msgid "contient l'installation d'omega-connect"
+msgstr "chứa bản cài đặt của omega-connect"
+
+msgid "registre omega-serv"
+msgstr "sổ đăng ký omega-serv"
+
+msgid "systemd"
+msgstr "systemd"
+
+msgid "OpenRC"
+msgstr "OpenRC"
+
+msgid "runit"
+msgstr "runit"
+
+msgid "dossier personnel"
+msgstr "thư mục cá nhân"
+
+msgid "/srv"
+msgstr "/srv"
+
+msgid "chemin saisi"
+msgstr "đường dẫn đã nhập"
+
+msgid "absent"
+msgstr "không có"
+
+msgid "illisible (droits)"
+msgstr "không đọc được (quyền)"
+
+msgid "abîmé"
+msgstr "bị hỏng"
+
+msgid "d'une version plus récente qu'omega-connect"
+msgstr "từ phiên bản mới hơn omega-connect"
+
+msgid "non fournie (version de l'outil trop ancienne ?)"
+msgstr "không được cung cấp (phiên bản công cụ quá cũ?)"
+
+msgid "non obtenue"
+msgstr "không lấy được"
+
+msgid "illisible"
+msgstr "không đọc được"
+
+msgid "active"
+msgstr "hoạt động"
+
+msgid "désactivée"
+msgstr "đã tắt"
+
+msgid "absente"
+msgstr "không có"
+
+msgid "inconnue"
+msgstr "không xác định"
+
+#, python-brace-format
+msgid "registre des instances omega-serv illisible : {detail}"
+msgstr "không đọc được sổ đăng ký instance omega-serv: {detail}"
+
+#, python-brace-format
+msgid "instance omega-serv enregistrée mais dossier disparu : {detail}"
+msgstr "instance omega-serv đã đăng ký nhưng thư mục đã biến mất: {detail}"
+
+#, python-brace-format
+msgid "fichier de service illisible : {detail}"
+msgstr "không đọc được tệp dịch vụ: {detail}"
+
+#, python-brace-format
+msgid "service {detail} : dossier d'installation introuvable"
+msgstr "dịch vụ {detail}: không tìm thấy thư mục cài đặt"
+
+#, python-brace-format
+msgid "recherche arrêtée (trop de dossiers) dans {detail}"
+msgstr "đã dừng tìm kiếm (quá nhiều thư mục) trong {detail}"
+
+#, python-brace-format
+msgid "montage réseau non parcouru : {detail}"
+msgstr "không duyệt ổ gắn mạng: {detail}"
+
+#, python-brace-format
+msgid "dossier introuvable : {detail}"
+msgstr "không tìm thấy thư mục: {detail}"
+
+#, python-brace-format
+msgid "aucun outil omega dans : {detail}"
+msgstr "không có công cụ omega nào trong: {detail}"
+
+#, python-brace-format
+msgid "créez-le sous le compte {owner} : {command}"
+msgstr "hãy tạo nó dưới tài khoản {owner}: {command}"
+
+msgid "outil inconnu"
+msgstr "công cụ không xác định"
+
+#, python-brace-format
+msgid "trouvé par : {sources}"
+msgstr "tìm thấy qua: {sources}"
+
+#, python-brace-format
+msgid "propriétaire : {owner}"
+msgstr "chủ sở hữu: {owner}"
+
+#, python-brace-format
+msgid "service : {names}"
+msgstr "dịch vụ: {names}"
+
+#, python-brace-format
+msgid "jeton : présent (identifiant {identifier}, version {version})"
+msgstr "token: có (định danh {identifier}, phiên bản {version})"
+
+#, python-brace-format
+msgid "jeton : {state}"
+msgstr "token: {state}"
+
+#, python-brace-format
+msgid "fiche : {state}"
+msgstr "phiếu mô tả: {state}"
+
+#, python-brace-format
+msgid "détail technique : {detail}"
+msgstr "chi tiết kỹ thuật: {detail}"
+
+#, python-brace-format
+msgid "fiche : instance {instance}"
+msgstr "phiếu mô tả: instance {instance}"
+
+#, python-brace-format
+msgid "service {manager} ({state})"
+msgstr "dịch vụ {manager} ({state})"
+
+msgid "partielle (sans root)"
+msgstr "một phần (không có root)"
+
+#, python-brace-format
+msgid "fonctions : {states}"
+msgstr "chức năng: {states}"
+
+#, python-brace-format
+msgid "Détection des outils omega (HOME examiné : {home})"
+msgstr "Phát hiện công cụ omega (HOME được xem xét: {home})"
+
+msgid "Aucun outil omega trouvé. Indiquez un dossier avec --chemin."
+msgstr ""
+"Không tìm thấy công cụ omega nào. Hãy chỉ định một thư mục bằng --chemin."
+
+#, python-brace-format
+msgid ""
+"Identifiant en double {identifier} : {roots} (dossier copié à la main ?). "
+"Ces installations ne sont pas fusionnées ; ouvrez la copie une fois pour lui"
+" donner un nouvel identifiant."
+msgstr ""
+"Định danh trùng lặp {identifier}: {roots} (thư mục bị sao chép thủ công?). "
+"Các bản cài đặt này không được gộp lại; hãy mở bản sao một lần để nó nhận "
+"định danh mới."
+
+msgid "Remarques sur la recherche :"
+msgstr "Ghi chú về việc tìm kiếm:"
+
+#, python-brace-format
+msgid "{count} installation(s) trouvée(s)."
+msgstr "Tìm thấy {count} bản cài đặt."
+
+msgid "Détectée"
+msgstr "Đã phát hiện"
+
+msgid "Inscrite"
+msgstr "Đã đăng ký"
+
+msgid "Reliée"
+msgstr "Đã liên kết"
+
+msgid "À réparer"
+msgstr "Cần sửa"
+
+msgid "Ancienne version"
+msgstr "Phiên bản cũ"
+
+msgid "Installation inachevée"
+msgstr "Cài đặt dở dang"
+
+msgid "Injoignable"
+msgstr "Không liên lạc được"
+
+msgid "trouvée, sans carte d'identité : la Synchronisation la lui crée"
+msgstr "đã tìm thấy, chưa có thẻ định danh: Đồng bộ hóa sẽ tạo cho nó"
+
+msgid ""
+"a sa carte d'identité, pas encore dans l'espace partagé : la Synchronisation"
+" l'y ajoute"
+msgstr ""
+"đã có thẻ định danh, chưa có trong không gian chia sẻ: Đồng bộ hóa sẽ thêm "
+"vào"
+
+msgid "dans l'espace partagé, à jour"
+msgstr "có trong không gian chia sẻ, đã cập nhật"
+
+msgid "un écart : Réparer le corrige"
+msgstr "có một sai lệch: Sửa chữa sẽ khắc phục"
+
+msgid "trop ancienne pour avoir une carte d'identité : mettez-la à jour"
+msgstr "quá cũ để có thẻ định danh: hãy cập nhật"
+
+msgid ""
+"installée, mais son install.sh ne s'est pas terminé (environnement Python ou"
+" carte d'identité manquants) : « Réinstaller l'application » (Registre)"
+msgstr ""
+"đã cài đặt, nhưng install.sh của nó chưa chạy xong (thiếu môi trường Python "
+"hoặc thẻ định danh): “Cài đặt lại ứng dụng” (Sổ đăng ký)"
+
+msgid "machine qui ne répond pas"
+msgstr "máy không phản hồi"
+
+#, python-brace-format
+msgid ""
+"trop ancienne pour avoir une carte d'identité : {tool} {version} ou plus "
+"récent requis (machine distante : Synchronisation la met à jour depuis "
+"GitHub)"
+msgstr ""
+"quá cũ để có thẻ định danh: cần {tool} {version} hoặc mới hơn (máy từ xa: "
+"Đồng bộ hóa sẽ cập nhật từ GitHub)"
+
+msgid "pas encore préparé — la Synchronisation le prépare"
+msgstr "chưa được chuẩn bị — Đồng bộ hóa sẽ chuẩn bị"
+
+msgid "prêt"
+msgstr "sẵn sàng"
+
+msgid "à corriger — la Synchronisation le remet en état"
+msgstr "cần chỉnh lại — Đồng bộ hóa sẽ khôi phục"
+
+msgid "prêt (lu avec votre autorisation)"
+msgstr "sẵn sàng (đọc với sự cho phép của bạn)"
+
+msgid ""
+"état inconnu depuis cette session — la Synchronisation le lira avec votre "
+"autorisation"
+msgstr ""
+"trạng thái chưa biết trong phiên này — Đồng bộ hóa sẽ đọc với sự cho phép "
+"của bạn"
+
+#, python-brace-format
+msgid "Registre — machine {machine}"
+msgstr "Sổ đăng ký — máy {machine}"
+
+msgid "Aucune application omega trouvée sur cette machine."
+msgstr "Không tìm thấy ứng dụng omega nào trên máy này."
+
+#, python-brace-format
+msgid "Espace partagé : {status}"
+msgstr "Không gian chia sẻ: {status}"
+
+msgid "Synchroniser : un seul plan, un seul mot de passe administrateur"
+msgstr "Đồng bộ: một kế hoạch duy nhất, một mật khẩu quản trị duy nhất"
+
+msgid "Rien à faire : tout est déjà synchronisé."
+msgstr "Không có gì để làm: mọi thứ đã được đồng bộ."
+
+msgid ""
+"1. Cartes d'identité à créer (par chaque outil, sous son compte, sans mot de"
+" passe) :"
+msgstr ""
+"1. Thẻ định danh cần tạo (bởi từng công cụ, dưới tài khoản của nó, không cần"
+" mật khẩu):"
+
+msgid "aucune : chaque application choisie a déjà la sienne."
+msgstr "không có: mỗi ứng dụng đã chọn đều đã có thẻ của mình."
+
+msgid "2. Espace partagé (en administrateur, une commande après l'autre) :"
+msgstr "2. Không gian chia sẻ (với quyền quản trị, từng lệnh một):"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root} (créée à l'étape 1)"
+msgstr "Sao chép thẻ định danh của {root} (đã tạo ở bước 1)"
+
+msgid "rien : l'espace partagé est déjà à jour."
+msgstr "không có gì: không gian chia sẻ đã được cập nhật."
+
+msgid "Une commande qui n'est pas annoncée ici n'est jamais lancée."
+msgstr "Lệnh nào không được thông báo ở đây sẽ không bao giờ được chạy."
+
+#, python-brace-format
+msgid ""
+"Arrêt : la carte d'identité de {root} n'a pas pu être créée ({error}). Rien "
+"d'autre n'a été lancé."
+msgstr ""
+"Dừng: không thể tạo thẻ định danh của {root} ({error}). Không có gì khác "
+"được chạy."
+
+msgid "échec"
+msgstr "thất bại"
+
+#, python-brace-format
+msgid ""
+"Arrêt avant l'espace partagé : le plan a changé ({step}). Rien de plus n'a "
+"été lancé ; relancez la synchronisation pour voir le nouveau plan."
+msgstr ""
+"Dừng trước không gian chia sẻ: kế hoạch đã thay đổi ({step}). Không chạy "
+"thêm gì; hãy chạy lại đồng bộ để xem kế hoạch mới."
+
+#, python-brace-format
+msgid ""
+"Arrêt à l'étape « {step} » : {error}. Ce qui a été créé est noté ; relancez "
+"la synchronisation après avoir corrigé la cause."
+msgstr ""
+"Dừng ở bước “{step}”: {error}. Những gì đã tạo đều được ghi lại; hãy chạy "
+"lại đồng bộ sau khi khắc phục nguyên nhân."
+
+msgid "Synchronisation terminée : les applications choisies sont reliées."
+msgstr "Đồng bộ hoàn tất: các ứng dụng đã chọn đã được liên kết."
+
+msgid "DÉMARRAGE RAPIDE"
+msgstr "BẮT ĐẦU NHANH"
+
+msgid "RACCOURCIS"
+msgstr "PHÍM TẮT"
+
+msgid "Aide d’omega-connect"
+msgstr "Trợ giúp omega-connect"
+
+msgid "Aide complète : chaque menu, sa fonction et le détail."
+msgstr "Trợ giúp đầy đủ: từng menu, chức năng và chi tiết."
+
+msgid "Démarrage rapide"
+msgstr "Bắt đầu nhanh"
+
+msgid "Raccourcis"
+msgstr "Phím tắt"
+
+msgid "Touche"
+msgstr "Phím"
+
+msgid "Action"
+msgstr "Hành động"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — aide."
+msgstr "OMEGA-CONNECT {version} — trợ giúp."
+
+msgid "Aide - Omega-Connect"
+msgstr "Trợ giúp - Omega-Connect"
+
+msgid ""
+"Interconnecteur de la suite omega : détecte les outils installés, vérifie et"
+" attribue les droits entre eux."
+msgstr ""
+"Bộ kết nối của bộ công cụ omega: phát hiện các công cụ đã cài, kiểm tra và "
+"cấp quyền giữa chúng."
+
+msgid "commandes"
+msgstr "các lệnh"
+
+msgid "COMMANDE"
+msgstr "LỆNH"
+
+msgid "Cherche les outils omega installés (lecture seule, sans root)."
+msgstr "Tìm các công cụ omega đã cài (chỉ đọc, không cần root)."
+
+msgid ""
+"Cherche les outils omega installés : registre d'omega-serv, services systemd"
+" / OpenRC / runit, HOME (3 niveaux), /srv (2 niveaux) et chemins saisis. Ne "
+"suit jamais un lien symbolique ni un montage réseau. Lit le jeton de chaque "
+"installation et demande sa fiche à l'outil, sous le compte propriétaire du "
+"dossier."
+msgstr ""
+"Tìm các công cụ omega đã cài: sổ đăng ký của omega-serv, dịch vụ systemd / "
+"OpenRC / runit, HOME (3 cấp), /srv (2 cấp) và các đường dẫn đã nhập. Không "
+"bao giờ đi theo liên kết tượng trưng hay ổ gắn mạng. Đọc token của từng bản "
+"cài đặt và yêu cầu công cụ cung cấp phiếu mô tả, dưới tài khoản sở hữu thư "
+"mục."
+
+msgid "DOSSIER"
+msgstr "THƯ MỤC"
+
+msgid "Dossier d'installation à examiner en plus (option répétable)."
+msgstr "Thư mục cài đặt cần xem xét thêm (tùy chọn có thể lặp lại)."
+
+msgid ""
+"Ne demande pas la fiche aux outils (plus rapide, aucune commande lancée)."
+msgstr ""
+"Không yêu cầu phiếu mô tả từ các công cụ (nhanh hơn, không chạy lệnh nào)."
+
+msgid "texte (défaut, traduit) ou json (pour les scripts, jamais traduit)."
+msgstr ""
+"văn bản (mặc định, được dịch) hoặc json (cho script, không bao giờ dịch)."
+
+msgid "Vérifie les liens existants entre outils (lecture seule, sans root)."
+msgstr ""
+"Kiểm tra các liên kết hiện có giữa các công cụ (chỉ đọc, không cần root)."
+
+msgid ""
+"Détecte les outils (avec leur fiche), puis contrôle chaque lien : journaux "
+"d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers"
+" la liste noire, liste protégée, droits de la liste noire, fichiers d'omega-"
+"jail dans fail2ban, jetons. Chaque écart affiche la commande qui le "
+"corrigerait, sans jamais la lancer. Code de sortie : 0 sans écart, 1 si un "
+"lien est cassé ou dégradé."
+msgstr ""
+"Phát hiện các công cụ (kèm phiếu mô tả), rồi kiểm tra từng liên kết: nhật ký"
+" của omega-serv và magnet được các jail của omega-jail đọc, cầu nối fail2ban"
+" tới danh sách đen, danh sách được bảo vệ, quyền của danh sách đen, tệp của "
+"omega-jail trong fail2ban, token. Mỗi sai lệch hiển thị lệnh để khắc phục, "
+"nhưng không bao giờ chạy lệnh đó. Mã thoát: 0 nếu không có sai lệch, 1 nếu "
+"một liên kết bị hỏng hoặc suy giảm."
+
+msgid "Affiche aussi les contrôles conformes."
+msgstr "Hiển thị cả các mục kiểm tra đạt."
+
+msgid ""
+"Ouvre le tableau de bord (défaut sans commande) : outils, liens et leur "
+"état, en lecture seule."
+msgstr ""
+"Mở bảng điều khiển (mặc định khi không có lệnh): công cụ, liên kết và trạng "
+"thái của chúng, chỉ đọc."
+
+msgid ""
+"Tableau de bord en lecture seule : outils et instances, état de chaque lien,"
+" contrôles et commandes de correction (jamais lancées). Nouvelle "
+"vérification à intervalle régulier tant que l'écran est ouvert."
+msgstr ""
+"Bảng điều khiển chỉ đọc: công cụ và instance, trạng thái từng liên kết, các "
+"mục kiểm tra và lệnh khắc phục (không bao giờ được chạy). Tự kiểm tra lại "
+"định kỳ khi màn hình còn mở."
+
+msgid ""
+"Crée la zone neutre et y recopie jetons et fiches (root, après accord)."
+msgstr ""
+"Tạo vùng trung lập và sao chép token cùng phiếu mô tả vào đó (root, sau khi "
+"bạn đồng ý)."
+
+msgid ""
+"Crée le groupe omega-synchro et la zone neutre (/var/lib/omega-synchro, "
+"2750), vous ajoute au groupe, recopie le jeton et la fiche de chaque outil "
+"détecté, et inscrit tout au registre. Relancée, elle actualise les copies. "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"Tạo nhóm omega-synchro và vùng trung lập (/var/lib/omega-synchro, 2750), "
+"thêm bạn vào nhóm, sao chép token và phiếu mô tả của từng công cụ đã phát "
+"hiện, rồi ghi tất cả vào sổ đăng ký. Khi chạy lại, nó cập nhật các bản sao. "
+"Mỗi lệnh được hiển thị trước khi chạy bằng sudo."
+
+msgid ""
+"Défait ce qu'omega-connect a créé : un outil désinstallé, ou toute la zone "
+"(root, après accord)."
+msgstr ""
+"Hoàn tác những gì omega-connect đã tạo: một công cụ đã gỡ cài đặt, hoặc toàn"
+" bộ vùng (root, sau khi bạn đồng ý)."
+
+msgid ""
+"« retirer CIBLE » enlève de la zone un outil désinstallé (nom, dossier ou 8 "
+"premiers caractères de l'identifiant). « retirer --tout » défait exactement "
+"ce que le registre liste, ou garde la zone telle quelle (liens figés). "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"“retirer CIBLE” gỡ khỏi vùng một công cụ đã gỡ cài đặt (tên, thư mục hoặc 8 "
+"ký tự đầu của định danh). “retirer --tout” hoàn tác đúng những gì sổ đăng ký"
+" liệt kê, hoặc giữ nguyên vùng (liên kết bị đóng băng). Mỗi lệnh được hiển "
+"thị trước khi chạy bằng sudo."
+
+msgid "CIBLE"
+msgstr "ĐÍCH"
+
+msgid "Outil à retirer de la zone."
+msgstr "Công cụ cần gỡ khỏi vùng."
+
+msgid "Toute la zone (question : garder ou tout retirer)."
+msgstr "Toàn bộ vùng (hỏi: giữ lại hay gỡ tất cả)."
+
+msgid "Avec --tout : garder la zone, liens figés (rien n'est supprimé)."
+msgstr "Với --tout: giữ vùng, liên kết bị đóng băng (không xóa gì)."
+
+msgid "Avec --tout : tout retirer, sans question."
+msgstr "Với --tout: gỡ tất cả, không hỏi."
+
+msgid ""
+"Recherche les applications omega de cette machine et met à jour le registre "
+"(lecture seule)."
+msgstr "Tìm các ứng dụng omega trên máy này và cập nhật sổ đăng ký (chỉ đọc)."
+
+msgid ""
+"Lecture seule, sans mot de passe : chaque application trouvée, son service "
+"et son état (Détectée, Inscrite, Reliée, À réparer, Ancienne version, "
+"Installation inachevée). Le résultat est enregistré dans le registre du parc"
+" (var/parc.json)."
+msgstr ""
+"Chỉ đọc, không cần mật khẩu: mỗi ứng dụng được tìm thấy, dịch vụ và trạng "
+"thái của nó (Đã phát hiện, Đã đăng ký, Đã liên kết, Cần sửa, Phiên bản cũ, "
+"Cài đặt dở dang). Kết quả được lưu trong sổ đăng ký các máy (var/parc.json)."
+
+msgid "UTILISATEUR@MACHINE"
+msgstr "NGƯỜI_DÙNG@MÁY"
+
+msgid ""
+"Machine distante à scanner par SSH avec vos clés (rien n'y est installé) ; "
+"sans cible : cette machine."
+msgstr ""
+"Máy từ xa cần quét qua SSH bằng khóa của bạn (không cài gì lên đó); không có"
+" đích: máy này."
+
+msgid "MACHINE"
+msgstr "MACHINE"
+
+msgid ""
+"Retire une machine distante du registre (nom, adresse ou "
+"utilisateur@adresse) ; rien n'est modifié sur elle."
+msgstr ""
+"Gỡ một máy từ xa khỏi sổ đăng ký (tên, địa chỉ hoặc người_dùng@địa_chỉ); "
+"không thay đổi gì trên máy đó."
+
+msgid ""
+"Liste les machines que cet ordinateur sait déjà joindre (profils Unison, "
+"~/.ssh/config, known_hosts)."
+msgstr ""
+"Liệt kê các máy mà máy tính này đã biết cách kết nối (hồ sơ Unison, "
+"~/.ssh/config, known_hosts)."
+
+msgid ""
+"Remet en place les liens de ce qui est installé : cartes d'identité, espace "
+"partagé, accès des services — un seul plan."
+msgstr ""
+"Khôi phục liên kết cho những gì đã cài: thẻ định danh, không gian chia sẻ, "
+"quyền truy cập của dịch vụ — một kế hoạch duy nhất."
+
+msgid ""
+"Une seule action (décision de l'auteur) : recrée les cartes d'identité qui "
+"manquent (commande de chaque outil, sous son compte), prépare l'espace "
+"partagé, y recopie les cartes et donne l'accès aux services. Tout est "
+"affiché avant d'agir ; un seul mot de passe administrateur. Sans CIBLE : "
+"toutes les applications de la machine."
+msgstr ""
+"Một hành động duy nhất (quyết định của tác giả): tạo lại các thẻ định danh "
+"còn thiếu (bằng lệnh của từng công cụ, dưới tài khoản của nó), chuẩn bị "
+"không gian chia sẻ, sao chép thẻ vào đó và cấp quyền truy cập cho các dịch "
+"vụ. Mọi thứ được hiển thị trước khi thực hiện; chỉ một mật khẩu quản trị. "
+"Không có ĐÍCH: tất cả ứng dụng trên máy."
+
+msgid ""
+"Application à synchroniser : nom (omega-fire) ou dossier ; plusieurs "
+"possibles."
+msgstr "Ứng dụng cần đồng bộ: tên (omega-fire) hoặc thư mục; có thể nhiều."
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; option "
+"répétable) : réparer puis synchroniser, sans rien taper là-bas (une "
+"application trop ancienne : mettre-a-jour d'abord)."
+msgstr ""
+"Máy từ xa đã quét (tên, địa chỉ hoặc người_dùng@máy; tùy chọn có thể lặp "
+"lại): sửa chữa rồi đồng bộ, không cần gõ gì trên máy đó (ứng dụng quá cũ: "
+"chạy mettre-a-jour trước)."
+
+msgid ""
+"Toutes les machines distantes du registre, une à une (un mot de passe par "
+"machine)."
+msgstr ""
+"Tất cả máy từ xa trong sổ đăng ký, lần lượt từng máy (mỗi máy một mật khẩu)."
+
+msgid ""
+"Met à jour les applications trop anciennes d'une machine distante, depuis "
+"leur Release GitHub (rien d'autre)."
+msgstr ""
+"Cập nhật các ứng dụng quá cũ của một máy từ xa, từ bản Release GitHub của "
+"chúng (không làm gì khác)."
+
+msgid ""
+"Archive prise sur GitHub, empreinte vérifiée avec sha.txt, puis installée "
+"sur la machine (comme la section « Mise à jour » du README de l'outil). Ne "
+"répare ni ne synchronise : voir synchroniser."
+msgstr ""
+"Bản lưu trữ lấy từ GitHub, mã băm được kiểm tra với sha.txt, rồi được cài "
+"lên máy (như phần “Cập nhật” trong README của công cụ). Không sửa chữa cũng "
+"không đồng bộ: xem synchroniser."
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; "
+"répétable)."
+msgstr "Máy từ xa đã quét (tên, địa chỉ hoặc người_dùng@máy; có thể lặp lại)."
+
+msgid "Toutes les machines distantes du registre, une à une."
+msgstr "Tất cả máy từ xa trong sổ đăng ký, lần lượt từng máy."
+
+msgid ""
+"Corrige les écarts trouvés par verifier avec la commande de l'outil qui les "
+"possède (root, après accord)."
+msgstr ""
+"Khắc phục các sai lệch mà verifier tìm thấy bằng lệnh của công cụ sở hữu "
+"chúng (root, sau khi bạn đồng ý)."
+
+msgid ""
+"Ne corrige que ce qu'un outil sait corriger lui-même (omega-jail --apply "
+"--update, omega-serv service permissions, synchro jeton de chaque outil) et "
+"ce que le registre de la zone dit qu'omega-connect a créé (plan d'etablir, "
+"affiché à son tour). omega-connect ne réécrit jamais le fichier d'un autre "
+"outil : le reste est affiché, à faire à la main. Chaque commande est "
+"affichée avant d'être lancée."
+msgstr ""
+"Chỉ khắc phục những gì một công cụ tự biết khắc phục (omega-jail --apply "
+"--update, omega-serv service permissions, synchro jeton của từng công cụ) và"
+" những gì sổ đăng ký của vùng ghi là do omega-connect tạo (kế hoạch của "
+"etablir, được hiển thị lần lượt). omega-connect không bao giờ ghi đè tệp của"
+" công cụ khác: phần còn lại được hiển thị để làm thủ công. Mỗi lệnh được "
+"hiển thị trước khi chạy."
+
+msgid ""
+"Machine distante déjà scannée : réparée depuis ici, rien à taper là-bas "
+"(répétable)."
+msgstr ""
+"Máy từ xa đã quét: được sửa chữa từ đây, không cần gõ gì trên máy đó (có thể"
+" lặp lại)."
+
+msgid ""
+"Rapport complet : outils, jetons, fiches, liens et tous leurs contrôles, "
+"zone et registre (lecture seule)."
+msgstr ""
+"Báo cáo đầy đủ: công cụ, token, phiếu mô tả, liên kết và mọi mục kiểm tra, "
+"vùng và sổ đăng ký (chỉ đọc)."
+
+msgid ""
+"Tout ce qu'omega-connect sait à cet instant, en lecture seule et sans root :"
+" outils et instances, jetons, fiches, chaque lien avec tous ses contrôles et"
+" les commandes de correction, remarques de la recherche, zone neutre et son "
+"registre. Affiché, ou enregistré dans var/exports/ avec --enregistrer."
+msgstr ""
+"Mọi điều omega-connect biết tại thời điểm này, chỉ đọc và không cần root: "
+"công cụ và instance, token, phiếu mô tả, từng liên kết với mọi mục kiểm tra "
+"và lệnh khắc phục, ghi chú về việc tìm kiếm, vùng trung lập và sổ đăng ký "
+"của nó. Hiển thị, hoặc lưu vào var/exports/ với --enregistrer."
+
+msgid ""
+"texte (défaut, traduit), json (jamais traduit) ou html (page autonome)."
+msgstr ""
+"văn bản (mặc định, được dịch), json (không bao giờ dịch) hoặc html (trang "
+"độc lập)."
+
+msgid "Thème de la page HTML."
+msgstr "Giao diện của trang HTML."
+
+msgid "Enregistre dans var/exports/ au lieu d'afficher, et donne le chemin."
+msgstr "Lưu vào var/exports/ thay vì hiển thị, và cho biết đường dẫn."
+
+msgid "Affiche seulement les commandes, sans rien lancer."
+msgstr "Chỉ hiển thị các lệnh, không chạy gì."
+
+msgid "Lance sans demander l'accord (les commandes restent affichées)."
+msgstr "Chạy mà không hỏi ý kiến (các lệnh vẫn được hiển thị)."
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro (il ne compte qu'après "
+"une reconnexion) : lecture de la zone avec sudo (find, stat, cat)."
+msgstr ""
+"Phiên của bạn chưa có nhóm omega-synchro (nhóm chỉ có hiệu lực sau khi đăng "
+"nhập lại): đọc vùng bằng sudo (find, stat, cat)."
+
+msgid "Authentification sudo refusée ou annulée : rien n'est fait."
+msgstr "Xác thực sudo bị từ chối hoặc bị hủy: không làm gì cả."
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) en root ? [o/N] "
+msgstr "Chạy {count} lệnh này với quyền root? [y/N] "
+
+msgid "Authentification sudo refusée ou annulée : rien n'a été lancé."
+msgstr "Xác thực sudo bị từ chối hoặc bị hủy: không chạy gì cả."
+
+msgid ""
+"Pas de terminal pour poser la question : relancez avec --garder-zone ou "
+"--effacer."
+msgstr ""
+"Không có terminal để hỏi: hãy chạy lại với --garder-zone hoặc --effacer."
+
+msgid "Garder la zone (liens figés) [g], tout retirer [t], ou annuler [a] ? "
+msgstr "Giữ vùng (liên kết bị đóng băng) [g], gỡ tất cả [t], hoặc hủy [a]? "
+
+msgid ""
+"Pas de terminal pour demander l'accord : relancez avec --oui, ou "
+"--simulation."
+msgstr ""
+"Không có terminal để hỏi ý kiến: hãy chạy lại với --oui, hoặc --simulation."
+
+msgid "Abandon : rien n'a été lancé."
+msgstr "Đã hủy: không chạy gì cả."
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) ? [o/N] "
+msgstr "Chạy {count} lệnh này? [y/N] "
+
+msgid ""
+"Zone neutre : plan d'« etablir » (seulement ce que le registre dit avoir "
+"créé)."
+msgstr ""
+"Vùng trung lập: kế hoạch “etablir” (chỉ những gì sổ đăng ký ghi là đã tạo)."
+
+#, python-brace-format
+msgid "Registre du parc non enregistré : {error}"
+msgstr "Chưa lưu được sổ đăng ký các máy: {error}"
+
+msgid "Saisissez utilisateur@machine (nom ou adresse), sans espace ni option."
+msgstr ""
+"Hãy nhập người_dùng@máy (tên hoặc địa chỉ), không có dấu cách hay tùy chọn."
+
+msgid "Pas de terminal pour demander la confiance : rien n'a été fait."
+msgstr "Không có terminal để hỏi về độ tin cậy: không làm gì cả."
+
+msgid "Faire confiance à cette machine ? [o/N] "
+msgstr "Tin cậy máy này? [y/N] "
+
+msgid "Rien n'a été fait."
+msgstr "Không làm gì cả."
+
+msgid "Impossible d'ajouter la clé à ~/.ssh/known_hosts."
+msgstr "Không thể thêm khóa vào ~/.ssh/known_hosts."
+
+#, python-brace-format
+msgid "Aucune application ne correspond à : {targets}"
+msgstr "Không có ứng dụng nào khớp với: {targets}"
+
+msgid "Lancer ce plan ? [o/N] "
+msgstr "Chạy kế hoạch này? [y/N] "
+
+msgid "Authentification refusée ou annulée : rien n'a été lancé."
+msgstr "Xác thực bị từ chối hoặc bị hủy: không chạy gì cả."
+
+#, python-brace-format
+msgid "Machine inconnue ou mal écrite : {target}"
+msgstr "Máy không xác định hoặc viết sai: {target}"
+
+msgid ""
+"Aucune machine distante dans le registre : scannez-en une d'abord (scanner "
+"utilisateur@machine)."
+msgstr ""
+"Chưa có máy từ xa nào trong sổ đăng ký: hãy quét một máy trước (scanner "
+"người_dùng@máy)."
+
+#, python-brace-format
+msgid ""
+"{target} : clé de la machine pas encore acceptée, ou machine injoignable — "
+"scannez-la d'abord (scanner {target})."
+msgstr ""
+"{target}: khóa của máy chưa được chấp nhận, hoặc máy không liên lạc được — "
+"hãy quét nó trước (scanner {target})."
+
+#, python-brace-format
+msgid "Lancer sur {name} ? [o/N] "
+msgstr "Chạy trên {name}? [y/N] "
+
+#, python-brace-format
+msgid "Rien n'a été lancé sur {name}."
+msgstr "Không chạy gì trên {name}."
+
+msgid "Indiquez soit un outil à retirer, soit --tout."
+msgstr "Hãy chỉ định một công cụ cần gỡ, hoặc --tout."
+
+msgid "--garder-zone et --effacer vont avec --tout."
+msgstr "--garder-zone và --effacer đi kèm với --tout."
+
+msgid "Machines distantes indisponibles ici."
+msgstr "Máy từ xa không khả dụng ở đây."
+
+msgid "Indiquez --machine MACHINE ou --toutes-machines."
+msgstr "Hãy chỉ định --machine MACHINE hoặc --toutes-machines."
+
+#, python-brace-format
+msgid "Aucune machine distante du registre ne correspond à : {target}"
+msgstr "Không có máy từ xa nào trong sổ đăng ký khớp với: {target}"
+
+#, python-brace-format
+msgid "{machine} retirée du registre (rien n'a été modifié sur elle)."
+msgstr "Đã gỡ {machine} khỏi sổ đăng ký (không thay đổi gì trên máy đó)."
+
+#, python-brace-format
+msgid "Rapport enregistré : {path}"
+msgstr "Đã lưu báo cáo: {path}"
+
+#, python-brace-format
+msgid "aucune version publiée sur GitHub ({url})"
+msgstr "chưa có phiên bản nào được phát hành trên GitHub ({url})"
+
+msgid "GitHub ne répond pas depuis cet ordinateur (réseau)"
+msgstr "GitHub không phản hồi từ máy tính này (mạng)"
+
+msgid "l'archive n'est pas citée dans sha.txt de la Release : refusée"
+msgstr "bản lưu trữ không có trong sha.txt của bản Release: bị từ chối"
+
+msgid "empreinte différente de sha.txt : archive refusée, rien n'est envoyé"
+msgstr "mã băm khác với sha.txt: từ chối bản lưu trữ, không gửi gì"
+
+msgid "fichier trop volumineux pour une archive d'outil : refusé"
+msgstr "tệp quá lớn đối với bản lưu trữ của công cụ: bị từ chối"
+
+#, python-brace-format
+msgid ""
+"la dernière version publiée sur GitHub ({latest}) est encore trop ancienne"
+msgstr "phiên bản mới nhất phát hành trên GitHub ({latest}) vẫn quá cũ"
+
+msgid "extraction par-dessus, puis son install.sh"
+msgstr "giải nén đè lên, rồi chạy install.sh của nó"
+
+msgid ""
+"ancienne installation mise de côté (sudo mv), nouvelle à sa place, puis son "
+"install.sh qui reprend réglages et données"
+msgstr ""
+"bản cài đặt cũ được cất sang một bên (sudo mv), bản mới thay vào chỗ đó, rồi"
+" install.sh của nó lấy lại thiết lập và dữ liệu"
+
+msgid "Commande"
+msgstr "Lệnh"
+
+msgid "Mise à jour"
+msgstr "Cập nhật"
+
+msgid "Réparer"
+msgstr "Sửa chữa"
+
+msgid "Synchroniser"
+msgstr "Đồng bộ"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} ({root}) : réinstallation (installation inachevée) — {how}"
+msgstr "{tool} {version} ({root}): cài đặt lại (cài đặt dở dang) — {how}"
+
+msgid "(installation inachevée)"
+msgstr "(cài đặt dở dang)"
+
+#, python-brace-format
+msgid "{head} → {latest} ({root}) : {how}"
+msgstr "{head} → {latest} ({root}): {how}"
+
+#, python-brace-format
+msgid "{head} ({root}) : pas de mise à jour possible — {reason}"
+msgstr "{head} ({root}): không thể cập nhật — {reason}"
+
+#, python-brace-format
+msgid ""
+"Tout se passe dans ce terminal : le mot de passe sudo de {name} est demandé "
+"par la machine elle-même, une fois ; omega-connect ne le voit jamais."
+msgstr ""
+"Mọi việc diễn ra trong terminal này: chính máy {name} sẽ hỏi mật khẩu sudo, "
+"một lần; omega-connect không bao giờ thấy mật khẩu đó."
+
+#, python-brace-format
+msgid "Réinstaller l'application — machine {name} ({target})"
+msgstr "Cài đặt lại ứng dụng — máy {name} ({target})"
+
+#, python-brace-format
+msgid "Mettre à jour l'application — machine {name} ({target})"
+msgstr "Cập nhật ứng dụng — máy {name} ({target})"
+
+msgid ""
+"Aucune application trop ancienne sur cette machine : rien à mettre à jour."
+msgstr "Không có ứng dụng nào quá cũ trên máy này: không có gì để cập nhật."
+
+msgid ""
+"Archives prises sur la Release GitHub de chaque application (empreinte "
+"vérifiée avec sha.txt avant tout envoi) :"
+msgstr ""
+"Bản lưu trữ lấy từ bản Release GitHub của từng ứng dụng (mã băm được kiểm "
+"tra với sha.txt trước khi gửi):"
+
+msgid ""
+"Rien d'autre n'est fait. Ensuite, pour remettre les liens en place : "
+"Synchronisation."
+msgstr "Không làm gì khác. Sau đó, để khôi phục liên kết: Đồng bộ hóa."
+
+#, python-brace-format
+msgid "Synchroniser — machine {name} ({target})"
+msgstr "Đồng bộ — máy {name} ({target})"
+
+msgid ""
+"Laissées de côté, trop anciennes (Registre → « Mettre à jour l'application »"
+" d'abord) :"
+msgstr "Bỏ qua, quá cũ (trước hết: Sổ đăng ký → “Cập nhật ứng dụng”):"
+
+msgid ""
+"Rien à synchroniser : tout ce qui peut l'être est relié sur cette machine."
+msgstr ""
+"Không có gì để đồng bộ: mọi thứ có thể liên kết đều đã được liên kết trên "
+"máy này."
+
+msgid "Réparer puis synchroniser, sur la machine. Plan :"
+msgstr "Sửa chữa rồi đồng bộ, trên máy đó. Kế hoạch:"
+
+msgid ""
+"L'espace partagé de cette machine n'est lisible qu'avec sudo : il sera relu "
+"au lancement."
+msgstr ""
+"Không gian chia sẻ của máy này chỉ đọc được bằng sudo: nó sẽ được đọc lại "
+"khi chạy."
+
+#, python-brace-format
+msgid "Réparer — machine {name} ({target})"
+msgstr "Sửa chữa — máy {name} ({target})"
+
+#, python-brace-format
+msgid "« Réparer {name} » lance ces commandes SUR la machine, depuis ici."
+msgstr "“Sửa chữa {name}” chạy các lệnh này TRÊN máy đó, từ đây."
+
+#, python-brace-format
+msgid ""
+"Commandes qu'aucun outil ne sait lancer — lancées AUSSI sur {name} par « "
+"Réparer {name} », une à une, après les corrections des outils (celles déjà "
+"réglées entre-temps sont sautées) :"
+msgstr ""
+"Các lệnh mà không công cụ nào biết chạy — CŨNG được chạy trên {name} bởi "
+"“Sửa chữa {name}”, lần lượt từng lệnh, sau các bước khắc phục của công cụ "
+"(lệnh nào trong lúc đó đã được thiết lập sẽ bị bỏ qua):"
+
+#, python-brace-format
+msgid "Rien n'a été envoyé à {target} :"
+msgstr "Không gửi gì đến {target}:"
+
+#, python-brace-format
+msgid "Envoi impossible vers {target}."
+msgstr "Không thể gửi đến {target}."
+
+#, python-brace-format
+msgid "Résultat pour {target} :"
+msgstr "Kết quả cho {target}:"
+
+#, python-brace-format
+msgid ""
+"  ✗ aucun résultat rendu par la machine (connexion coupée, ou lancement "
+"interrompu ; code {code})."
+msgstr ""
+"  ✗ máy không trả về kết quả nào (mất kết nối, hoặc quá trình chạy bị gián "
+"đoạn; mã {code})."
+
+#, python-brace-format
+msgid "ancienne installation gardée dans {path}"
+msgstr "bản cài đặt cũ được giữ trong {path}"
+
+#, python-brace-format
+msgid "(code {code})"
+msgstr "(mã {code})"
+
+#, python-brace-format
+msgid "code {code}"
+msgstr "mã {code}"
+
+msgid "Unison"
+msgstr "Unison"
+
+msgid "~/.ssh/config"
+msgstr "~/.ssh/config"
+
+msgid "connue de SSH"
+msgstr "SSH đã biết"
+
+msgid "jamais scannée"
+msgstr "chưa từng quét"
+
+msgid "injoignable"
+msgstr "không liên lạc được"
+
+msgid "répond"
+msgstr "có phản hồi"
+
+#, python-brace-format
+msgid "{machine} — {count} application(s), {state}"
+msgstr "{machine} — {count} ứng dụng, {state}"
+
+msgid ""
+"Aucune machine trouvée dans vos profils Unison, ~/.ssh/config ou "
+"known_hosts."
+msgstr ""
+"Không tìm thấy máy nào trong hồ sơ Unison, ~/.ssh/config hay known_hosts của"
+" bạn."
+
+#, python-brace-format
+msgid "{target} ne répond pas (machine éteinte, ou réseau coupé) : {detail}"
+msgstr "{target} không phản hồi (máy đã tắt, hoặc mất mạng): {detail}"
+
+#, python-brace-format
+msgid ""
+"Le nom « {host} » est inconnu sur ce réseau. Utilisez l'adresse de la "
+"machine (par exemple utilisateur@192.168.1.109), ou déclarez ce nom dans "
+"/etc/hosts ou dans ~/.ssh/config (Host {host} / HostName <adresse>)."
+msgstr ""
+"Tên “{host}” không xác định trên mạng này. Hãy dùng địa chỉ của máy (ví dụ "
+"người_dùng@192.168.1.109), hoặc khai báo tên này trong /etc/hosts hay trong "
+"~/.ssh/config (Host {host} / HostName <địa_chỉ>)."
+
+#, python-brace-format
+msgid ""
+"{host} répond, mais aucun serveur SSH n'y écoute (port 22). Sur cette "
+"machine : installez et démarrez openssh (sudo systemctl enable --now sshd) ;"
+" ou, s'il écoute sur un autre port, indiquez-le dans ~/.ssh/config (Host "
+"{host} / Port …)."
+msgstr ""
+"{host} có phản hồi, nhưng không có máy chủ SSH nào lắng nghe (cổng 22). Trên"
+" máy đó: hãy cài đặt và khởi động openssh (sudo systemctl enable --now "
+"sshd); hoặc nếu nó lắng nghe trên cổng khác, hãy khai báo trong "
+"~/.ssh/config (Host {host} / Port …)."
+
+#, python-brace-format
+msgid ""
+"{target} refuse vos clés SSH. Ajoutez votre clé publique sur cette machine "
+"(ssh-copy-id {target}), ou chargez-la dans l'agent SSH si elle est protégée "
+"par une phrase secrète (ssh-add). omega-connect ne demande jamais de mot de "
+"passe."
+msgstr ""
+"{target} từ chối khóa SSH của bạn. Hãy thêm khóa công khai của bạn lên máy "
+"đó (ssh-copy-id {target}), hoặc nạp nó vào SSH agent nếu nó được bảo vệ bằng"
+" cụm mật khẩu (ssh-add). omega-connect không bao giờ hỏi mật khẩu."
+
+#, python-brace-format
+msgid "{target} n'est pas encore connue : sa clé doit d'abord être acceptée."
+msgstr "{target} chưa được biết: khóa của nó phải được chấp nhận trước."
+
+#, python-brace-format
+msgid ""
+"La clé de {target} a CHANGÉ depuis la dernière connexion : scan refusé. Si "
+"la machine a été réinstallée, retirez l'ancienne clé (ssh-keygen -R {host}) "
+"puis recommencez ; sinon, quelqu'un se fait peut-être passer pour elle."
+msgstr ""
+"Khóa của {target} đã THAY ĐỔI kể từ lần kết nối trước: từ chối quét. Nếu máy"
+" đã được cài lại, hãy xóa khóa cũ (ssh-keygen -R {host}) rồi thử lại; nếu "
+"không, có thể ai đó đang giả mạo máy này."
+
+#, python-brace-format
+msgid ""
+"{target} n'a pas Python 3 (3.10 ou plus récent) : le scanner ne peut pas y "
+"tourner. Rien n'a été installé."
+msgstr ""
+"{target} không có Python 3 (3.10 hoặc mới hơn): trình quét không thể chạy "
+"trên đó. Không cài đặt gì."
+
+#, python-brace-format
+msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-bas."
+msgstr "Quét {target} thất bại ({detail}). Không thay đổi gì trên máy đó."
+
+#, python-brace-format
+msgid ""
+"Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
+msgstr ""
+"Không có SSH client trên máy này (lệnh {detail}): hãy cài đặt openssh."
+
+#, python-brace-format
+msgid ""
+"{target} n'a jamais été jointe depuis ce compte. Vérifiez que l'empreinte de"
+" sa clé est bien la sienne (sur la machine : ssh-keygen -lf "
+"/etc/ssh/ssh_host_ed25519_key.pub) :"
+msgstr ""
+"{target} chưa từng được kết nối từ tài khoản này. Hãy kiểm tra dấu vân tay "
+"khóa đúng là của nó (trên máy đó: ssh-keygen -lf "
+"/etc/ssh/ssh_host_ed25519_key.pub):"
+
+msgid "En lui faisant confiance, elle est ajoutée à votre ~/.ssh/known_hosts."
+msgstr "Khi bạn tin cậy, máy sẽ được thêm vào ~/.ssh/known_hosts của bạn."
+
+msgid "Ses applications restent dans le registre, marquées « Injoignable »."
+msgstr ""
+"Các ứng dụng của nó vẫn ở trong sổ đăng ký, được đánh dấu “Không liên lạc "
+"được”."
+
+#, python-brace-format
+msgid "{machine} : {count} application(s) omega trouvée(s)."
+msgstr "{machine}: tìm thấy {count} ứng dụng omega."
+
+msgid "Aucune machine distante pour l'instant."
+msgstr "Hiện chưa có máy từ xa nào."
+
+#, python-brace-format
+msgid "  · {machine} — {count} application(s), dernier scan {date} ({state})"
+msgstr "  · {machine} — {count} ứng dụng, lần quét cuối {date} ({state})"
+
+#, python-brace-format
+msgid "{tool} crée ou met à jour son jeton d'installation ({root})"
+msgstr "{tool} tạo hoặc cập nhật token cài đặt của nó ({root})"
+
+#, python-brace-format
+msgid ""
+"omega-serv répare les droits partagés avec le service {service} ({root})"
+msgstr "omega-serv sửa quyền được chia sẻ với dịch vụ {service} ({root})"
+
+msgid ""
+"omega-jail remet à jour ce qu'il a posé dans fail2ban (contenu et droits)"
+msgstr ""
+"omega-jail cập nhật lại những gì nó đã đặt vào fail2ban (nội dung và quyền)"
+
+#, python-brace-format
+msgid ""
+"{root} appartient au compte {account} : à lancer sous ce compte, ou avec "
+"omega-connect en root."
+msgstr ""
+"{root} thuộc tài khoản {account}: hãy chạy dưới tài khoản này, hoặc chạy "
+"omega-connect với quyền root."
+
+#, python-brace-format
+msgid ""
+"{tool} {version} dans {root} : environnement Python ou carte d'identité "
+"manquants"
+msgstr ""
+"{tool} {version} trong {root}: thiếu môi trường Python hoặc thẻ định danh"
+
+#, python-brace-format
+msgid "{tool} {version} dans {root} : {minimum} ou plus récent requis"
+msgstr "{tool} {version} trong {root}: cần {minimum} hoặc mới hơn"
+
+msgid "Réparer : corrections faites par les outils eux-mêmes"
+msgstr "Sửa chữa: các bước khắc phục do chính các công cụ thực hiện"
+
+msgid "Rien à réparer : « verifier » ne signale aucun écart corrigeable."
+msgstr ""
+"Không có gì để sửa: “verifier” không báo sai lệch nào có thể khắc phục."
+
+msgid ""
+"Trop ancien pour être réparé (ses commandes n'existent pas encore dans cette"
+" version) ; à mettre à jour d'abord (Registre → « Mettre à jour "
+"l'application ») :"
+msgstr ""
+"Quá cũ để sửa chữa (các lệnh của nó chưa có trong phiên bản này); cần cập "
+"nhật trước (Sổ đăng ký → “Cập nhật ứng dụng”):"
+
+msgid ""
+"Installation inachevée (son install.sh ne s'est pas terminé) : à réinstaller"
+" d'abord (Registre → « Réinstaller l'application ») :"
+msgstr ""
+"Cài đặt dở dang (install.sh của nó chưa chạy xong): cần cài đặt lại trước "
+"(Sổ đăng ký → “Cài đặt lại ứng dụng”):"
+
+msgid "Commandes qui seront lancées, une à une (arrêt au premier échec) :"
+msgstr "Các lệnh sẽ được chạy, lần lượt từng lệnh (dừng ở lỗi đầu tiên):"
+
+msgid "en root"
+msgstr "với quyền root"
+
+#, python-brace-format
+msgid "sous le compte {account}"
+msgstr "dưới tài khoản {account}"
+
+msgid ""
+"Zone neutre : « etablir » corrige ce que le registre dit avoir créé ; son "
+"plan sera affiché ensuite, avant tout lancement :"
+msgstr ""
+"Vùng trung lập: “etablir” khắc phục những gì sổ đăng ký ghi là đã tạo; kế "
+"hoạch của nó sẽ được hiển thị sau đó, trước khi chạy:"
+
+msgid ""
+"Ensuite : « etablir » reliera à la zone les outils dont le jeton vient "
+"d'être créé ; son plan sera affiché avant tout lancement."
+msgstr ""
+"Sau đó: “etablir” sẽ liên kết vào vùng các công cụ vừa được tạo token; kế "
+"hoạch của nó sẽ được hiển thị trước khi chạy."
+
+msgid ""
+"Zone neutre : illisible sans sudo avant votre reconnexion, son état n'est "
+"pas connu. « etablir » va la lire avec sudo et ne fera que ce qui manque "
+"(outils pas encore reliés, copies, groupe du service) ; son plan sera "
+"affiché avant tout lancement."
+msgstr ""
+"Vùng trung lập: không đọc được nếu không có sudo cho tới khi bạn đăng nhập "
+"lại, trạng thái của nó chưa rõ. “etablir” sẽ đọc nó bằng sudo và chỉ làm "
+"những gì còn thiếu (công cụ chưa liên kết, bản sao, nhóm của dịch vụ); kế "
+"hoạch của nó sẽ được hiển thị trước khi chạy."
+
+msgid "Non lancé depuis cette session :"
+msgstr "Không chạy từ phiên này:"
+
+msgid ""
+"À faire à la main (aucun outil ne sait le corriger lui-même ; omega-connect "
+"ne réécrit jamais le fichier d'un autre outil) :"
+msgstr ""
+"Cần làm thủ công (không công cụ nào tự biết khắc phục; omega-connect không "
+"bao giờ ghi đè tệp của công cụ khác):"
+
+msgid "À décider (jamais lancé par « reparer ») :"
+msgstr "Cần quyết định (không bao giờ được chạy bởi “reparer”):"
+
+msgid "code"
+msgstr "mã"
+
+#, python-brace-format
+msgid ""
+"Terminé : {count} commande(s) lancée(s), toutes réussies. Relancez « "
+"verifier » pour constater."
+msgstr ""
+"Hoàn tất: đã chạy {count} lệnh, tất cả đều thành công. Hãy chạy lại "
+"“verifier” để kiểm tra."
+
+#, python-brace-format
+msgid "Arrêt à l'étape « {step} » : {error}"
+msgstr "Dừng ở bước “{step}”: {error}"
+
+msgid ""
+"Rien d'autre n'a été lancé. Relancez « reparer » après avoir corrigé la "
+"cause."
+msgstr ""
+"Không chạy gì thêm. Hãy chạy lại “reparer” sau khi khắc phục nguyên nhân."
+
+msgid "dossier"
+msgstr "thư mục"
+
+msgid "groupe"
+msgstr "nhóm"
+
+msgid "membre du groupe"
+msgstr "thành viên nhóm"
+
+msgid "groupe donné au service (par omega-serv)"
+msgstr "nhóm được cấp cho dịch vụ (bởi omega-serv)"
+
+msgid "active (synchronisée)"
+msgstr "hoạt động (được đồng bộ)"
+
+msgid "figée (plus synchronisée)"
+msgstr "đóng băng (không còn đồng bộ)"
+
+#, python-brace-format
+msgid ""
+"Pas encore d'espace partagé sur cette machine ({zone}) : la Synchronisation "
+"le prépare."
+msgstr ""
+"Chưa có không gian chia sẻ trên máy này ({zone}): Đồng bộ hóa sẽ chuẩn bị."
+
+#, python-brace-format
+msgid ""
+"Espace partagé {zone} présent, lisible par root et le groupe omega-synchro "
+"seulement (rapport fait sans sudo ; le groupe compte après une reconnexion)."
+msgstr ""
+"Không gian chia sẻ {zone} đã có, chỉ root và nhóm omega-synchro đọc được "
+"(báo cáo được lập không dùng sudo; nhóm có hiệu lực sau khi đăng nhập lại)."
+
+#, python-brace-format
+msgid "Espace partagé {zone} : registre {status} ({detail})."
+msgstr "Không gian chia sẻ {zone}: sổ đăng ký {status} ({detail})."
+
+#, python-brace-format
+msgid "Espace partagé {zone} — {state} — mis à jour le {date}."
+msgstr "Không gian chia sẻ {zone} — {state} — cập nhật lúc {date}."
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : installation inachevée → « Réinstaller l'application »"
+msgstr "{tool} {version}: cài đặt dở dang → “Cài đặt lại ứng dụng”"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} → {minimum} ou plus récent : « Mettre à jour l'application "
+"»"
+msgstr "{tool} {version} → {minimum} hoặc mới hơn: “Cập nhật ứng dụng”"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : à mettre à jour sur ce poste, section « Mise à jour » du "
+"README de l'outil"
+msgstr ""
+"{tool} {version}: cần cập nhật trên máy này, xem phần “Cập nhật” trong "
+"README của công cụ"
+
+msgid "corrigé par l'outil lui-même (menu Réparer)"
+msgstr "do chính công cụ khắc phục (menu Sửa chữa)"
+
+#, python-brace-format
+msgid "commande à lancer sur ce poste : {command}"
+msgstr "lệnh cần chạy trên máy này: {command}"
+
+#, python-brace-format
+msgid "commande lancée sur la machine par le menu Réparer : {command}"
+msgstr "lệnh được chạy trên máy bởi menu Sửa chữa: {command}"
+
+msgid "aucune correction connue"
+msgstr "không có cách khắc phục đã biết"
+
+msgid ""
+"Machines qui ne répondent plus — Scanner → « Rescanner les machines connues "
+"»"
+msgstr "Máy không còn phản hồi — Quét → “Quét lại các máy đã biết”"
+
+msgid "À réinstaller ou à mettre à jour — Registre, bouton sous la ligne"
+msgstr "Cần cài đặt lại hoặc cập nhật — Sổ đăng ký, nút bên dưới dòng"
+
+msgid "À réparer — menu Réparer"
+msgstr "Cần sửa — menu Sửa chữa"
+
+msgid "À synchroniser — menu Synchronisation"
+msgstr "Cần đồng bộ — menu Đồng bộ hóa"
+
+#, python-brace-format
+msgid "{machine} — {tool} : {state}"
+msgstr "{machine} — {tool}: {state}"
+
+msgid "application inconnue"
+msgstr "ứng dụng không xác định"
+
+#, python-brace-format
+msgid "propriétaire : {owner} ; trouvée par : {sources}"
+msgstr "chủ sở hữu: {owner}; tìm thấy qua: {sources}"
+
+#, python-brace-format
+msgid "carte d'identité : {card}"
+msgstr "thẻ định danh: {card}"
+
+#, python-brace-format
+msgid "instance {instance}"
+msgstr "instance {instance}"
+
+#, python-brace-format
+msgid "description : {what}"
+msgstr "mô tả: {what}"
+
+msgid "Remarques :"
+msgstr "Ghi chú:"
+
+msgid "Aucune application omega trouvée."
+msgstr "Không tìm thấy ứng dụng omega nào."
+
+#, python-brace-format
+msgid ""
+"{machine} — {target} — {state} — dernier scan {date} — {apps} "
+"application(s), {links} liaison(s)"
+msgstr ""
+"{machine} — {target} — {state} — lần quét cuối {date} — {apps} ứng dụng, "
+"{links} liên kết"
+
+#, python-brace-format
+msgid "dernière erreur : {error}"
+msgstr "lỗi gần nhất: {error}"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — RAPPORT COMPLET"
+msgstr "OMEGA-CONNECT {version} — BÁO CÁO ĐẦY ĐỦ"
+
+#, python-brace-format
+msgid ""
+"Établi le {date} depuis {machine}, machines du réseau rescannées (lecture "
+"seule, sans root)."
+msgstr ""
+"Lập lúc {date} từ {machine}, các máy trong mạng đã được quét lại (chỉ đọc, "
+"không cần root)."
+
+msgid "BILAN"
+msgstr "TỔNG KẾT"
+
+#, python-brace-format
+msgid "{machines} machine(s) : {machine} et {remote} du réseau."
+msgstr "{machines} máy: {machine} và {remote} máy trong mạng."
+
+#, python-brace-format
+msgid "{count} application(s) : {summary}."
+msgstr "{count} ứng dụng: {summary}."
+
+#, python-brace-format
+msgid "{count} liaison(s) : {summary}."
+msgstr "{count} liên kết: {summary}."
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : {state}."
+msgstr "Không gian chia sẻ của {machine}: {state}."
+
+msgid "À FAIRE"
+msgstr "CẦN LÀM"
+
+msgid "Rien à faire : toutes les applications sont à jour et reliées."
+msgstr "Không có gì để làm: tất cả ứng dụng đều đã cập nhật và được liên kết."
+
+msgid "REGISTRE — APPLICATIONS PAR MACHINE"
+msgstr "SỔ ĐĂNG KÝ — ỨNG DỤNG THEO MÁY"
+
+msgid "MACHINES DU RÉSEAU"
+msgstr "MÁY TRONG MẠNG"
+
+msgid "Aucune (Scanner → machine distante, pour en ajouter)."
+msgstr "Không có (Quét → máy từ xa, để thêm máy)."
+
+#, python-brace-format
+msgid "APPLICATIONS DE {machine} EN DÉTAIL"
+msgstr "CHI TIẾT ỨNG DỤNG CỦA {machine}"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (tous les contrôles)"
+msgstr "LIÊN KẾT CỦA {machine} (mọi mục kiểm tra)"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (réseau, scan du {date})"
+msgstr "LIÊN KẾT CỦA {machine} (mạng, quét lúc {date})"
+
+msgid "Aucune liaison relevée."
+msgstr "Không ghi nhận liên kết nào."
+
+#, python-brace-format
+msgid "ESPACE PARTAGÉ (omega-synchro) DE {machine} ET SON REGISTRE"
+msgstr "KHÔNG GIAN CHIA SẺ (omega-synchro) CỦA {machine} VÀ SỔ ĐĂNG KÝ CỦA NÓ"
+
+msgid "Créé par omega-connect :"
+msgstr "Do omega-connect tạo:"
+
+msgid "rien"
+msgstr "không có gì"
+
+msgid "Applications reliées :"
+msgstr "Ứng dụng đã liên kết:"
+
+msgid "reliée le"
+msgstr "liên kết lúc"
+
+msgid "conforme"
+msgstr "đạt"
+
+msgid "info"
+msgstr "thông tin"
+
+msgid "écart"
+msgstr "sai lệch"
+
+msgid "non vérifiable"
+msgstr "không kiểm tra được"
+
+msgid "partielle"
+msgstr "một phần"
+
+#, python-brace-format
+msgid "instance « {instance} » — {root}"
+msgstr "instance “{instance}” — {root}"
+
+msgid "machine"
+msgstr "máy"
+
+msgid "Aucun contrôle."
+msgstr "Không có mục kiểm tra nào."
+
+msgid "Rapport complet"
+msgstr "Báo cáo đầy đủ"
+
+#, python-brace-format
+msgid "{count} liaison(s), dont {problems} à corriger."
+msgstr "{count} liên kết, trong đó {problems} cần khắc phục."
+
+msgid "Applications"
+msgstr "Ứng dụng"
+
+msgid "À faire"
+msgstr "Cần làm"
+
+msgid "Registre — applications par machine"
+msgstr "Sổ đăng ký — ứng dụng theo máy"
+
+msgid "Application"
+msgstr "Ứng dụng"
+
+msgid "Instance / service"
+msgstr "Instance / dịch vụ"
+
+msgid "Machine"
+msgstr "Máy"
+
+msgid "Version"
+msgstr "Phiên bản"
+
+msgid "Dossier"
+msgstr "Thư mục"
+
+msgid "Machines du réseau"
+msgstr "Máy trong mạng"
+
+msgid "Connexion"
+msgstr "Kết nối"
+
+msgid "Dernier scan"
+msgstr "Lần quét cuối"
+
+msgid "Dernière erreur"
+msgstr "Lỗi gần nhất"
+
+msgid "Liaisons"
+msgstr "Liên kết"
+
+#, python-brace-format
+msgid "Applications de {machine} en détail"
+msgstr "Chi tiết ứng dụng của {machine}"
+
+msgid "Propriétaire"
+msgstr "Chủ sở hữu"
+
+msgid "Trouvée par"
+msgstr "Tìm thấy qua"
+
+msgid "Carte d'identité"
+msgstr "Thẻ định danh"
+
+msgid "Aucun outil omega trouvé."
+msgstr "Không tìm thấy công cụ omega nào."
+
+#, python-brace-format
+msgid "Identifiant en double {identifier} : {roots}"
+msgstr "Định danh trùng lặp {identifier}: {roots}"
+
+msgid "Remarques sur la recherche"
+msgstr "Ghi chú về việc tìm kiếm"
+
+#, python-brace-format
+msgid "Liaisons de {machine}"
+msgstr "Liên kết của {machine}"
+
+#, python-brace-format
+msgid "Liaisons de {machine} (réseau, scan du {date})"
+msgstr "Liên kết của {machine} (mạng, quét lúc {date})"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} et son registre"
+msgstr "Không gian chia sẻ của {machine} và sổ đăng ký của nó"
+
+msgid "Créé le"
+msgstr "Tạo lúc"
+
+msgid "Élément"
+msgstr "Mục"
+
+msgid "Identifiant"
+msgstr "Định danh"
+
+msgid "Instance"
+msgstr "Instance"
+
+msgid "Reliée le"
+msgstr "Liên kết lúc"
+
+msgid "Aucune application reliée."
+msgstr "Không có ứng dụng nào được liên kết."
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — rapport du {date}, établi depuis {machine}."
+msgstr "OMEGA-CONNECT {version} — báo cáo ngày {date}, lập từ {machine}."
+
+msgid "Rapport complet - Omega-Connect"
+msgstr "Báo cáo đầy đủ - Omega-Connect"
+
+msgid "Journaux d'omega-serv → jails fail2ban"
+msgstr "Nhật ký của omega-serv → jail fail2ban"
+
+msgid "Journaux magnet (omega-waf) → jails fail2ban"
+msgstr "Nhật ký magnet (omega-waf) → jail fail2ban"
+
+msgid "Pont fail2ban → liste noire d'omega-serv"
+msgstr "Cầu nối fail2ban → danh sách đen của omega-serv"
+
+msgid "Liste protégée → jails et pont"
+msgstr "Danh sách được bảo vệ → jail và cầu nối"
+
+msgid "Liste noire d'omega-serv (droits)"
+msgstr "Danh sách đen của omega-serv (quyền)"
+
+msgid "Fichiers d'omega-jail dans fail2ban"
+msgstr "Tệp của omega-jail trong fail2ban"
+
+msgid "Cartes d'identité"
+msgstr "Thẻ định danh"
+
+msgid "Espace partagé (omega-synchro)"
+msgstr "Không gian chia sẻ (omega-synchro)"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "à réparer"
+msgstr "cần sửa"
+
+msgid "à réparer (bloquant)"
+msgstr "cần sửa (gây chặn)"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — le dossier qui le contient n'est "
+"lisible que par root ({detail})."
+msgstr ""
+"{subject}: không kiểm tra được nếu không có root — thư mục chứa nó chỉ root "
+"đọc được ({detail})."
+
+msgid "fail2ban n'est pas installé : aucun jail ne protège cette instance."
+msgstr "fail2ban chưa được cài đặt: không có jail nào bảo vệ instance này."
+
+#, python-brace-format
+msgid "dossiers de fail2ban illisibles ({detail}) : non vérifiable sans root."
+msgstr ""
+"không đọc được các thư mục của fail2ban ({detail}): không kiểm tra được nếu "
+"không có root."
+
+msgid ""
+"omega-jail n'est pas installé : aucun jail fail2ban ne lit les journaux "
+"d'omega-serv."
+msgstr ""
+"omega-jail chưa được cài đặt: không có jail fail2ban nào đọc nhật ký của "
+"omega-serv."
+
+msgid "aucun jail d'omega-jail pour cette instance."
+msgstr "không có jail nào của omega-jail cho instance này."
+
+msgid "omega-jail n'a encore posé aucun fichier dans fail2ban."
+msgstr "omega-jail chưa đặt tệp nào vào fail2ban."
+
+#, python-brace-format
+msgid "fonction {subject} désactivée : rien à relier."
+msgstr "chức năng {subject} đã tắt: không có gì để liên kết."
+
+msgid ""
+"non vérifiable : l'outil n'a pas fourni sa description (version trop "
+"ancienne, ou refusée) — voir le Registre."
+msgstr ""
+"không kiểm tra được: công cụ không cung cấp mô tả của nó (phiên bản quá cũ, "
+"hoặc bị từ chối) — xem Sổ đăng ký."
+
+#, python-brace-format
+msgid "jail {subject} désactivé (enabled = false)."
+msgstr "jail {subject} đã tắt (enabled = false)."
+
+#, python-brace-format
+msgid ""
+"jail {subject} : filtre {detail} introuvable dans filter.d — fail2ban refuse"
+" de démarrer."
+msgstr ""
+"jail {subject}: không tìm thấy bộ lọc {detail} trong filter.d — fail2ban sẽ "
+"không khởi động."
+
+#, python-brace-format
+msgid "journal {subject} présent ({detail})."
+msgstr "có nhật ký {subject} ({detail})."
+
+#, python-brace-format
+msgid ""
+"journal {subject} absent (jail {detail}) : fail2ban refuse de démarrer tant "
+"qu'il manque."
+msgstr ""
+"không có nhật ký {subject} (jail {detail}): fail2ban sẽ không khởi động khi "
+"còn thiếu nó."
+
+#, python-brace-format
+msgid ""
+"journal {subject} appartient à root ({detail}) : le service omega-serv ne "
+"peut plus y écrire."
+msgstr ""
+"nhật ký {subject} thuộc về root ({detail}): dịch vụ omega-serv không thể ghi"
+" vào đó nữa."
+
+#, python-brace-format
+msgid ""
+"journal {subject} : droits {detail} ; le service omega-serv risque de ne pas"
+" pouvoir y écrire."
+msgstr ""
+"nhật ký {subject}: quyền {detail}; dịch vụ omega-serv có thể không ghi vào "
+"được."
+
+#, python-brace-format
+msgid ""
+"jail {subject} ne lit pas le fichier qu'écrit l'instance ({detail}) : il ne "
+"bannira jamais."
+msgstr ""
+"jail {subject} không đọc tệp mà instance ghi ({detail}): nó sẽ không bao giờ"
+" cấm."
+
+#, python-brace-format
+msgid ""
+"jail {subject} : la fonction qui écrit son journal ({detail}) est "
+"désactivée, le jail reste sans effet."
+msgstr ""
+"jail {subject}: chức năng ghi nhật ký của nó ({detail}) đã tắt, jail không "
+"có tác dụng."
+
+#, python-brace-format
+msgid ""
+"jail {subject} lit {detail} : aucune instance omega-serv détectée à cet "
+"endroit."
+msgstr ""
+"jail {subject} đọc {detail}: không phát hiện instance omega-serv nào tại vị "
+"trí này."
+
+#, python-brace-format
+msgid ""
+"journal {subject} ({detail}) : fonction active mais aucun jail ne le lit."
+msgstr ""
+"nhật ký {subject} ({detail}): chức năng đang bật nhưng không có jail nào đọc"
+" nó."
+
+#, python-brace-format
+msgid ""
+"omega-waf est en mode log-only (il note les attaques sans bannir), mais le "
+"jail {subject} posé par omega-jail dans fail2ban bannit, lui, au niveau "
+"réseau. omega-connect indique l'état et relie les outils ; il ne se "
+"substitue pas à fail2ban."
+msgstr ""
+"omega-waf đang ở chế độ log-only (ghi lại các cuộc tấn công mà không cấm), "
+"nhưng jail {subject} do omega-jail đặt trong fail2ban thì vẫn cấm ở cấp "
+"mạng. omega-connect hiển thị trạng thái và liên kết các công cụ; nó không "
+"thay thế fail2ban."
+
+#, python-brace-format
+msgid "pont {subject} vers la liste noire de cette instance ({detail})."
+msgstr "cầu nối {subject} tới danh sách đen của instance này ({detail})."
+
+msgid ""
+"aucun pont vers la liste noire de cette instance : un ban derrière Tailscale"
+" reste sans effet."
+msgstr ""
+"không có cầu nối tới danh sách đen của instance này: một lệnh cấm phía sau "
+"Tailscale sẽ không có tác dụng."
+
+#, python-brace-format
+msgid ""
+"pont {subject} sans omega-serv (installé quand omega-serv était introuvable)"
+" : aucun ban relayé."
+msgstr ""
+"cầu nối {subject} không có omega-serv (được cài khi không tìm thấy omega-"
+"serv): không chuyển tiếp lệnh cấm nào."
+
+#, python-brace-format
+msgid ""
+"jail {subject} utilise l'action {detail}, absente d'action.d : fail2ban "
+"refuse de démarrer."
+msgstr ""
+"jail {subject} dùng action {detail}, không có trong action.d: fail2ban sẽ "
+"không khởi động."
+
+#, python-brace-format
+msgid "jail {subject} relaie ses bans vers une autre instance ({detail})."
+msgstr ""
+"jail {subject} chuyển tiếp lệnh cấm sang một instance khác ({detail})."
+
+#, python-brace-format
+msgid "pont {subject} : l'instance visée a disparu ({detail})."
+msgstr "cầu nối {subject}: instance đích đã biến mất ({detail})."
+
+#, python-brace-format
+msgid ""
+"pont {subject} : l'instance visée ({detail}) n'a pas été détectée (autre "
+"compte ?)."
+msgstr ""
+"cầu nối {subject}: không phát hiện được instance đích ({detail}) (tài khoản "
+"khác?)."
+
+#, python-brace-format
+msgid "jail {subject} sans pont vers la liste noire."
+msgstr "jail {subject} không có cầu nối tới danh sách đen."
+
+#, python-brace-format
+msgid "script du pont {subject} conforme ({detail})."
+msgstr "script cầu nối {subject} đạt ({detail})."
+
+#, python-brace-format
+msgid "script du pont {subject} absent : aucun ban n'est relayé."
+msgstr "không có script cầu nối {subject}: không chuyển tiếp lệnh cấm nào."
+
+#, python-brace-format
+msgid ""
+"script du pont {subject} modifiable par un autre compte que root ({detail}),"
+" alors que fail2ban le lance en root."
+msgstr ""
+"script cầu nối {subject} có thể bị sửa bởi một tài khoản khác root "
+"({detail}), trong khi fail2ban chạy nó với quyền root."
+
+#, python-brace-format
+msgid "script du pont {subject} : droits {detail} au lieu de root:root 0755."
+msgstr "script cầu nối {subject}: quyền {detail} thay vì root:root 0755."
+
+#, python-brace-format
+msgid ""
+"non vérifiable : la description d'omega-serv ne donne pas sa liste protégée "
+"({detail} ; version antérieure à 2.6.1 ?), comparaison impossible."
+msgstr ""
+"không kiểm tra được: mô tả của omega-serv không cho biết danh sách được bảo "
+"vệ ({detail}; phiên bản trước 2.6.1?), không thể so sánh."
+
+#, python-brace-format
+msgid "jail {subject} : ignoreip identique à la liste protégée d'omega-serv."
+msgstr ""
+"jail {subject}: ignoreip giống với danh sách được bảo vệ của omega-serv."
+
+#, python-brace-format
+msgid ""
+"jail {subject} : ignoreip différent de la liste protégée d'omega-serv (en "
+"plus « + », en moins « - » : {detail})."
+msgstr ""
+"jail {subject}: ignoreip khác với danh sách được bảo vệ của omega-serv (thừa"
+" “+”, thiếu “-”: {detail})."
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés identiques à la liste protégée d'omega-"
+"serv."
+msgstr ""
+"cầu nối {subject}: các mạng được miễn giống với danh sách được bảo vệ của "
+"omega-serv."
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés différents de la liste protégée d'omega-"
+"serv (en plus « + », en moins « - » : {detail})."
+msgstr ""
+"cầu nối {subject}: các mạng được miễn khác với danh sách được bảo vệ của "
+"omega-serv (thừa “+”, thiếu “-”: {detail})."
+
+msgid "liste noire désactivée : rien à relier."
+msgstr "danh sách đen đã tắt: không có gì để liên kết."
+
+#, python-brace-format
+msgid "liste noire {subject} pas encore créée (aucun ban jusqu'ici)."
+msgstr "danh sách đen {subject} chưa được tạo (chưa có lệnh cấm nào)."
+
+#, python-brace-format
+msgid "liste noire {subject} conforme ({detail})."
+msgstr "danh sách đen {subject} đạt ({detail})."
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} appartient à root ({detail}) : le service ne peut plus"
+" la lire et le site répond en erreur."
+msgstr ""
+"danh sách đen {subject} thuộc về root ({detail}): dịch vụ không thể đọc nó "
+"nữa và trang web trả về lỗi."
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : mauvais groupe ({detail}) ; le service ne peut pas "
+"la lire."
+msgstr ""
+"danh sách đen {subject}: sai nhóm ({detail}); dịch vụ không thể đọc nó."
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : droits {detail}, il faut au moins 0660 (lecture et "
+"écriture pour le groupe du service)."
+msgstr ""
+"danh sách đen {subject}: quyền {detail}, cần ít nhất 0660 (đọc và ghi cho "
+"nhóm của dịch vụ)."
+
+#, python-brace-format
+msgid "liste noire {subject} : propriétaire inattendu ({detail})."
+msgstr "danh sách đen {subject}: chủ sở hữu không mong đợi ({detail})."
+
+#, python-brace-format
+msgid "{subject} fichier(s) d'omega-jail conforme(s)."
+msgstr "{subject} tệp của omega-jail đạt."
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — fichier illisible pour votre compte."
+msgstr ""
+"{subject}: không kiểm tra được nếu không có root — tài khoản của bạn không "
+"đọc được tệp."
+
+#, python-brace-format
+msgid ""
+"{subject} modifiable par un autre compte que root ({detail}), alors que "
+"fail2ban le lit en root."
+msgstr ""
+"{subject} có thể bị sửa bởi một tài khoản khác root ({detail}), trong khi "
+"fail2ban đọc nó với quyền root."
+
+#, python-brace-format
+msgid "{subject} : droits {detail} au lieu de root:root 0644."
+msgstr "{subject}: quyền {detail} thay vì root:root 0644."
+
+#, python-brace-format
+msgid "{subject} abîmé ({detail}) : fail2ban risque de refuser de démarrer."
+msgstr "{subject} bị hỏng ({detail}): fail2ban có thể sẽ không khởi động."
+
+#, python-brace-format
+msgid ""
+"{subject} : action du pont abîmée ou modifiée à la main (ligne actionban "
+"introuvable)."
+msgstr ""
+"{subject}: action của cầu nối bị hỏng hoặc bị sửa thủ công (không tìm thấy "
+"dòng actionban)."
+
+#, python-brace-format
+msgid "{subject} : carte d'identité présente (identifiant {detail}…)."
+msgstr "{subject}: có thẻ định danh (định danh {detail}…)."
+
+#, python-brace-format
+msgid "{subject} ({detail}) : pas encore de carte d'identité."
+msgstr "{subject} ({detail}): chưa có thẻ định danh."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : version trop ancienne : ni carte d'identité ni "
+"description."
+msgstr ""
+"{subject} ({detail}): phiên bản quá cũ: không có thẻ định danh lẫn mô tả."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : installation inachevée (environnement Python ou carte"
+" d'identité manquants) : à réinstaller."
+msgstr ""
+"{subject} ({detail}): cài đặt dở dang (thiếu môi trường Python hoặc thẻ định"
+" danh): cần cài đặt lại."
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, carte d'identité illisible pour votre compte "
+"(droits du fichier ou du dossier : {detail})."
+msgstr ""
+"{subject}: không kiểm tra được, tài khoản của bạn không đọc được thẻ định "
+"danh (quyền của tệp hoặc thư mục: {detail})."
+
+#, python-brace-format
+msgid "{subject} : carte d'identité abîmée ({detail})."
+msgstr "{subject}: thẻ định danh bị hỏng ({detail})."
+
+#, python-brace-format
+msgid ""
+"{subject} : carte d'identité d'une version plus récente qu'omega-connect "
+"({detail})."
+msgstr ""
+"{subject}: thẻ định danh từ phiên bản mới hơn omega-connect ({detail})."
+
+#, python-brace-format
+msgid ""
+"{subject} : droits {detail} au lieu de 0644 (ou 0664), au nom du "
+"propriétaire du dossier."
+msgstr ""
+"{subject}: quyền {detail} thay vì 0644 (hoặc 0664), thuộc chủ sở hữu thư "
+"mục."
+
+#, python-brace-format
+msgid ""
+"identifiant {subject} en double : {detail} (dossier copié à la main ?)."
+msgstr ""
+"định danh {subject} bị trùng lặp: {detail} (thư mục bị sao chép thủ công?)."
+
+#, python-brace-format
+msgid ""
+"espace partagé {subject} pas encore préparé : la Synchronisation le prépare."
+msgstr ""
+"không gian chia sẻ {subject} chưa được chuẩn bị: Đồng bộ hóa sẽ chuẩn bị."
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien n'y "
+"est lu."
+msgstr ""
+"{subject} không phải thư mục thật (liên kết tượng trưng hoặc tệp): không đọc"
+" gì trong đó."
+
+#, python-brace-format
+msgid ""
+"{subject} existe sans registre : créé à la main ou par autre chose qu'omega-"
+"connect (rien n'y sera fait)."
+msgstr ""
+"{subject} tồn tại mà không có sổ đăng ký: được tạo thủ công hoặc bởi thứ "
+"khác ngoài omega-connect (sẽ không làm gì với nó)."
+
+#, python-brace-format
+msgid "{subject} : non vérifiable, illisible pour votre compte ({detail})."
+msgstr ""
+"{subject}: không kiểm tra được, tài khoản của bạn không đọc được ({detail})."
+
+#, python-brace-format
+msgid ""
+"en attente de reconnexion : {subject} est déjà membre du groupe omega-"
+"synchro, mais la session ouverte ne le sait pas encore. {detail} sera "
+"vérifié après la prochaine connexion (ou Registre → « Lire avec sudo »)."
+msgstr ""
+"đang chờ đăng nhập lại: {subject} đã là thành viên nhóm omega-synchro, nhưng"
+" phiên đang mở chưa biết điều đó. {detail} sẽ được kiểm tra sau lần đăng "
+"nhập tới (hoặc Sổ đăng ký → “Đọc bằng sudo”)."
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, lisible par root et le groupe omega-synchro "
+"seulement, et {detail} n'en est pas membre."
+msgstr ""
+"{subject}: không kiểm tra được, chỉ root và nhóm omega-synchro đọc được, và "
+"{detail} không phải thành viên."
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est retiré tant qu'il n'est pas"
+" réparé."
+msgstr ""
+"sổ đăng ký {subject} bị hỏng ({detail}): không gỡ gì cho tới khi nó được "
+"sửa."
+
+msgid "espace partagé figé : gardé tel quel, plus synchronisé."
+msgstr "không gian chia sẻ bị đóng băng: giữ nguyên, không còn đồng bộ."
+
+#, python-brace-format
+msgid ""
+"{detail} dossier(s) de l'espace partagé conformes (root:omega-synchro 2750)."
+msgstr ""
+"{detail} thư mục của không gian chia sẻ đạt (root:omega-synchro 2750)."
+
+#, python-brace-format
+msgid "dossier {subject} manquant."
+msgstr "thiếu thư mục {subject}."
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 2750."
+msgstr "{subject}: {detail} thay vì root:omega-synchro 2750."
+
+#, python-brace-format
+msgid "groupe {subject} absent alors que l'espace partagé existe."
+msgstr "không có nhóm {subject} trong khi không gian chia sẻ đã tồn tại."
+
+#, python-brace-format
+msgid "{subject} est membre du groupe omega-synchro."
+msgstr "{subject} là thành viên nhóm omega-synchro."
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas membre du groupe omega-synchro : l'espace partagé lui "
+"est illisible."
+msgstr ""
+"{subject} không phải thành viên nhóm omega-synchro: không đọc được không "
+"gian chia sẻ."
+
+#, python-brace-format
+msgid ""
+"{subject} est membre du groupe omega-synchro ; cela comptera à la prochaine "
+"connexion."
+msgstr ""
+"{subject} là thành viên nhóm omega-synchro; điều này sẽ có hiệu lực ở lần "
+"đăng nhập tới."
+
+#, python-brace-format
+msgid "carte d'identité de {subject} à jour dans l'espace partagé ({detail})."
+msgstr ""
+"thẻ định danh của {subject} đã cập nhật trong không gian chia sẻ ({detail})."
+
+#, python-brace-format
+msgid "carte d'identité {subject} absente de l'espace partagé."
+msgstr "không có thẻ định danh {subject} trong không gian chia sẻ."
+
+#, python-brace-format
+msgid ""
+"carte d'identité de {subject} périmée dans l'espace partagé ({detail}) : "
+"version, racine ou contrats changés."
+msgstr ""
+"thẻ định danh của {subject} đã lỗi thời trong không gian chia sẻ ({detail}):"
+" phiên bản, thư mục gốc hoặc hợp đồng đã thay đổi."
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 0640."
+msgstr "{subject}: {detail} thay vì root:omega-synchro 0640."
+
+#, python-brace-format
+msgid "{subject} ({detail}) installé mais pas encore dans l'espace partagé."
+msgstr ""
+"{subject} ({detail}) đã cài đặt nhưng chưa có trong không gian chia sẻ."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) relié à l'espace partagé mais introuvable : "
+"désinstallé, ou carte d'identité recréée."
+msgstr ""
+"{subject} ({detail}) đã liên kết với không gian chia sẻ nhưng không tìm "
+"thấy: đã gỡ cài đặt, hoặc thẻ định danh đã được tạo lại."
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) a le groupe omega-synchro (complément "
+"systemd posé par omega-serv)."
+msgstr ""
+"dịch vụ {subject} ({detail}) có nhóm omega-synchro (phần bổ sung systemd do "
+"omega-serv đặt)."
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) tourne sous un compte dédié sans le groupe "
+"omega-synchro : il ne pourra pas lire l'espace partagé. La Synchronisation "
+"demande à omega-serv de le lui donner."
+msgstr ""
+"dịch vụ {subject} ({detail}) chạy dưới một tài khoản riêng không có nhóm "
+"omega-synchro: nó sẽ không đọc được không gian chia sẻ. Đồng bộ hóa sẽ yêu "
+"cầu omega-serv cấp nhóm này cho nó."
+
+msgid "correction : Synchronisation (omega-connect synchroniser)"
+msgstr "khắc phục: Đồng bộ hóa (omega-connect synchroniser)"
+
+#, python-brace-format
+msgid "correction (compte {account}) : {command}"
+msgstr "khắc phục (tài khoản {account}): {command}"
+
+#, python-brace-format
+msgid "correction : {command}"
+msgstr "khắc phục: {command}"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) (--detail pour les voir)"
+msgstr "{count} mục kiểm tra đạt (--detail để xem)"
+
+msgid ""
+"Vérification des liens entre outils omega (lecture seule, rien n'est "
+"modifié)"
+msgstr "Kiểm tra liên kết giữa các công cụ omega (chỉ đọc, không thay đổi gì)"
+
+#, python-brace-format
+msgid "omega-serv « {instance} » — {root}"
+msgstr "omega-serv “{instance}” — {root}"
+
+msgid "Hors des instances détectées"
+msgstr "Ngoài các instance đã phát hiện"
+
+#, python-brace-format
+msgid "Bilan : {summary}."
+msgstr "Tổng kết: {summary}."
+
+msgid ""
+"Les corrections ne sont jamais lancées par « verifier » : relisez-les avant "
+"de les exécuter."
+msgstr ""
+"Các bước khắc phục không bao giờ được chạy bởi “verifier”: hãy đọc lại trước"
+" khi thực hiện."
+
+#, python-brace-format
+msgid ""
+"{count} écart(s) corrigeable(s) par « reparer » (commandes des outils, "
+"affichées avant tout lancement)."
+msgstr ""
+"{count} sai lệch có thể khắc phục bằng “reparer” (lệnh của các công cụ, hiển"
+" thị trước khi chạy)."
+
+#, python-brace-format
+msgid "Établir la zone neutre {zone}"
+msgstr "Tạo lập vùng trung lập {zone}"
+
+#, python-brace-format
+msgid "Tout retirer : défaire ce que le registre de {zone} liste"
+msgstr "Gỡ tất cả: hoàn tác những gì sổ đăng ký của {zone} liệt kê"
+
+#, python-brace-format
+msgid "Garder la zone {zone} (liens figés)"
+msgstr "Giữ vùng {zone} (liên kết bị đóng băng)"
+
+#, python-brace-format
+msgid "Retirer un outil désinstallé de la zone {zone}"
+msgstr "Gỡ một công cụ đã gỡ cài đặt khỏi vùng {zone}"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien "
+"n'est fait."
+msgstr ""
+"{subject} không phải thư mục thật (liên kết tượng trưng hoặc tệp): không làm"
+" gì cả."
+
+#, python-brace-format
+msgid ""
+"{subject} existe déjà sans registre d'omega-connect : rien n'est fait. "
+"Vérifiez ce dossier, puis supprimez-le vous-même s'il est inutile."
+msgstr ""
+"{subject} đã tồn tại mà không có sổ đăng ký của omega-connect: không làm gì "
+"cả. Hãy kiểm tra thư mục này, rồi tự xóa nó nếu không cần."
+
+#, python-brace-format
+msgid "{subject} n'a pas pu être lu, même avec sudo : rien n'est fait."
+msgstr "Không thể đọc {subject}, kể cả bằng sudo: không làm gì cả."
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est fait tant qu'il n'est pas "
+"réparé."
+msgstr ""
+"sổ đăng ký {subject} bị hỏng ({detail}): không làm gì cho tới khi nó được "
+"sửa."
+
+#, python-brace-format
+msgid "aucune zone en {subject} : rien à retirer."
+msgstr "không có vùng tại {subject}: không có gì để gỡ."
+
+#, python-brace-format
+msgid ""
+"« {subject} » ne désigne aucun outil du registre (nom, dossier ou 8 premiers"
+" caractères de l'identifiant)."
+msgstr ""
+"“{subject}” không chỉ tới công cụ nào trong sổ đăng ký (tên, thư mục hoặc 8 "
+"ký tự đầu của định danh)."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est toujours installé : il serait relié de nouveau à la"
+" prochaine actualisation. Désinstallez-le d'abord."
+msgstr ""
+"{subject} ({detail}) vẫn đang được cài đặt: nó sẽ được liên kết lại ở lần "
+"cập nhật tới. Hãy gỡ cài đặt nó trước."
+
+#, python-brace-format
+msgid "{subject} ({detail}) est toujours installé : laissé dans la zone."
+msgstr "{subject} ({detail}) vẫn đang được cài đặt: được giữ lại trong vùng."
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : jeton {detail} (voir « verifier »)."
+msgstr "{subject} chưa được liên kết: token {detail} (xem “verifier”)."
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : identifiant {detail} en double."
+msgstr "{subject} chưa được liên kết: định danh {detail} bị trùng lặp."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est au registre mais introuvable : « retirer {detail} »"
+" l'enlèvera."
+msgstr ""
+"{subject} ({detail}) có trong sổ đăng ký nhưng không tìm thấy: “retirer "
+"{detail}” sẽ gỡ nó."
+
+#, python-brace-format
+msgid ""
+"{subject} devra se reconnecter pour que le groupe omega-synchro compte "
+"(lecture de la zone)."
+msgstr ""
+"{subject} cần đăng nhập lại để nhóm omega-synchro có hiệu lực (đọc vùng)."
+
+#, python-brace-format
+msgid "la zone {subject} est à jour : rien à faire."
+msgstr "vùng {subject} đã cập nhật: không có gì để làm."
+
+#, python-brace-format
+msgid ""
+"{subject} n'a pas été créé par omega-connect : gardé, ainsi que son dossier."
+msgstr ""
+"{subject} không do omega-connect tạo: được giữ lại, cùng với thư mục của nó."
+
+#, python-brace-format
+msgid ""
+"le groupe {subject} est gardé (pas créé par omega-connect, ou zone pas "
+"vide)."
+msgstr ""
+"nhóm {subject} được giữ lại (không do omega-connect tạo, hoặc vùng chưa "
+"trống)."
+
+#, python-brace-format
+msgid ""
+"le service {subject} a toujours le groupe omega-synchro, mais omega-serv est"
+" introuvable pour le lui retirer : le groupe et la zone sont gardés (sans "
+"lui, le service ne démarrerait plus). Lancez « omega-serv synchro groupe-"
+"service retirer --service-name {subject} » depuis son dossier, puis "
+"relancez."
+msgstr ""
+"dịch vụ {subject} vẫn có nhóm omega-synchro, nhưng không tìm thấy omega-serv"
+" để gỡ nhóm đó: nhóm và vùng được giữ lại (thiếu nhóm, dịch vụ sẽ không khởi"
+" động được nữa). Hãy chạy “omega-serv synchro groupe-service retirer "
+"--service-name {subject}” từ thư mục của nó, rồi chạy lại."
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) prendra en compte le groupe omega-synchro à "
+"son prochain redémarrage : omega-connect ne le redémarre pas."
+msgstr ""
+"dịch vụ {subject} ({detail}) sẽ nhận nhóm omega-synchro ở lần khởi động lại "
+"tới: omega-connect không khởi động lại nó."
+
+#, python-brace-format
+msgid "{subject} figure au registre mais hors de la zone : ignoré."
+msgstr "{subject} có trong sổ đăng ký nhưng nằm ngoài vùng: bỏ qua."
+
+msgid "la zone est déjà figée : rien à faire."
+msgstr "vùng đã bị đóng băng: không có gì để làm."
+
+#, python-brace-format
+msgid "Créer le groupe {group}"
+msgstr "Tạo nhóm {group}"
+
+#, python-brace-format
+msgid "Créer le dossier {path}"
+msgstr "Tạo thư mục {path}"
+
+#, python-brace-format
+msgid "Remettre les droits du dossier {path}"
+msgstr "Đặt lại quyền của thư mục {path}"
+
+#, python-brace-format
+msgid "Ajouter {user} au groupe {group}"
+msgstr "Thêm {user} vào nhóm {group}"
+
+#, python-brace-format
+msgid "Retirer {user} du groupe {group}"
+msgstr "Gỡ {user} khỏi nhóm {group}"
+
+#, python-brace-format
+msgid "Supprimer le groupe {group}"
+msgstr "Xóa nhóm {group}"
+
+#, python-brace-format
+msgid "Retirer le dossier {path}"
+msgstr "Gỡ thư mục {path}"
+
+#, python-brace-format
+msgid ""
+"omega-serv donne le groupe {group} à son service {service} (complément "
+"systemd)"
+msgstr ""
+"omega-serv cấp nhóm {group} cho dịch vụ {service} của nó (phần bổ sung "
+"systemd)"
+
+#, python-brace-format
+msgid "omega-serv retire le groupe {group} de son service {service}"
+msgstr "omega-serv gỡ nhóm {group} khỏi dịch vụ {service} của nó"
+
+msgid "Retirer le registre de l'espace partagé"
+msgstr "Gỡ sổ đăng ký của không gian chia sẻ"
+
+msgid "Écrire le registre de l'espace partagé"
+msgstr "Ghi sổ đăng ký của không gian chia sẻ"
+
+#, python-brace-format
+msgid "Recopier la description de {root} (ce qu'il sait faire)"
+msgstr "Sao chép mô tả của {root} (những gì nó làm được)"
+
+#, python-brace-format
+msgid "Retirer la description de {root}"
+msgstr "Gỡ mô tả của {root}"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root}"
+msgstr "Sao chép thẻ định danh của {root}"
+
+#, python-brace-format
+msgid "Retirer la carte d'identité de {root}"
+msgstr "Gỡ thẻ định danh của {root}"
+
+msgid "Commandes qui seront lancées, une à une, en root :"
+msgstr "Các lệnh sẽ được chạy, lần lượt từng lệnh, với quyền root:"
+
+#, python-brace-format
+msgid "Terminé : {count} commande(s) lancée(s), toutes réussies."
+msgstr "Hoàn tất: đã chạy {count} lệnh, tất cả đều thành công."
+
+#, python-brace-format
+msgid "{done} commande(s) sur {total} avaient réussi."
+msgstr "{done} trên {total} lệnh đã thành công."
+
+msgid "Registre réécrit pour garder la trace de ce qui a été créé."
+msgstr "Đã ghi lại sổ đăng ký để lưu vết những gì đã tạo."
+
+msgid ""
+"Le registre n'a pas pu être réécrit : notez ce qui a été créé ci-dessus."
+msgstr "Không thể ghi lại sổ đăng ký: hãy ghi chú những gì đã tạo ở trên."
+
+msgid ""
+"Relancez la même commande après avoir corrigé la cause : rien n'est fait "
+"deux fois."
+msgstr ""
+"Hãy chạy lại cùng lệnh sau khi khắc phục nguyên nhân: không có gì bị làm hai"
+" lần."
+
+msgid "Dossier des captures non configuré."
+msgstr "Chưa cấu hình thư mục ảnh chụp."
+
+msgid "Passer d'un élément à l'autre (lignes d'un tableau, boutons)"
+msgstr "Chuyển từ mục này sang mục khác (dòng của bảng, nút)"
+
+msgid "Passer d'une zone de l'écran à l'autre"
+msgstr "Chuyển từ vùng này sang vùng khác của màn hình"
+
+msgid ""
+"Activer le bouton choisi ; dans une liste à cocher, cocher ou décocher la "
+"ligne"
+msgstr ""
+"Kích hoạt nút đang chọn; trong danh sách đánh dấu, đánh dấu hoặc bỏ đánh dấu"
+" dòng"
+
+msgid "Entrée / Clic"
+msgstr "Enter / Nhấp"
+
+msgid "Cocher ou décocher la ligne choisie (Synchronisation)"
+msgstr "Đánh dấu hoặc bỏ đánh dấu dòng đang chọn (Đồng bộ hóa)"
+
+msgid "Espace"
+msgstr "Space"
+
+msgid "Revenir à l'écran précédent"
+msgstr "Quay lại màn hình trước"
+
+msgid "Cette aide, depuis n'importe quel écran"
+msgstr "Trợ giúp này, từ bất kỳ màn hình nào"
+
+msgid "Réglages, depuis n'importe quel écran"
+msgstr "Thiết lập, từ bất kỳ màn hình nào"
+
+msgid "Thème suivant (enregistré)"
+msgstr "Giao diện tiếp theo (được lưu)"
+
+msgid "Redessiner l'écran et afficher la taille du terminal"
+msgstr "Vẽ lại màn hình và hiển thị kích thước terminal"
+
+msgid ""
+"Commandes : thème, capture d'écran (SVG, dans le dossier des captures), "
+"quitter"
+msgstr "Lệnh: giao diện, chụp màn hình (SVG, trong thư mục ảnh chụp), thoát"
+
+msgid "Ctrl+P"
+msgstr "Ctrl+P"
+
+msgid ""
+"omega-connect relie entre elles les applications omega (omega-serv, omega-fire, omega-jail…) installées sur cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce qui manque, toujours après vous avoir montré ce qu'il va faire.\n"
+"\n"
+"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
+"2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
+"3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son plan avant d'agir et demande son mot de passe une seule fois.\n"
+"4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue d'ensemble, en cadres.\n"
+"5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
+"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre."
+msgstr ""
+"omega-connect liên kết với nhau các ứng dụng omega (omega-serv, omega-fire, omega-jail…) được cài trên máy này và trên các máy trong mạng của bạn. Nó cho thấy những gì đã liên kết hay chưa, và khôi phục những gì còn thiếu, luôn sau khi đã cho bạn xem nó sẽ làm gì.\n"
+"\n"
+"1. [b]Quét[/b]: tìm các ứng dụng của máy này. Thêm các máy khác của bạn (được đề xuất từ hồ sơ Unison, ~/.ssh/config và known_hosts của bạn, hoặc nhập tay): chúng được kết nối qua SSH bằng khóa của bạn, không cài gì lên đó.\n"
+"2. [b]Sổ đăng ký[/b]: danh sách mọi ứng dụng trên mọi máy, kèm trạng thái. Ứng dụng quá cũ hoặc cài đặt lỗi có thể được cập nhật hoặc cài lại từ màn hình này.\n"
+"3. [b]Đồng bộ hóa[/b]: đánh dấu những gì cần liên kết, rồi “Đồng bộ”; mỗi máy cho xem kế hoạch trước khi thực hiện và chỉ hỏi mật khẩu một lần.\n"
+"4. [b]Liên kết[/b]: xem những gì đã liên kết hay chưa, trên mọi máy. [b]Bảng điều khiển[/b]: tổng quan, dạng khung.\n"
+"5. [b]Sửa chữa[/b]: danh sách mọi thứ đang có vấn đề; chọn một dòng, hoặc “Sửa tất cả”.\n"
+"6. [b]Báo cáo[/b]: một tài liệu đầy đủ (văn bản, JSON hoặc trang HTML) để lưu giữ hoặc chuyển cho người khác."
+
+msgid "Registre — toutes les applications et leur état"
+msgstr "Sổ đăng ký — mọi ứng dụng và trạng thái của chúng"
+
+msgid ""
+"Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
+"\n"
+"- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
+"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
+"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
+msgstr ""
+"Hiển thị, cho từng máy (máy này và các máy trong mạng), từng ứng dụng omega tìm thấy: instance hoặc dịch vụ, phiên bản, trạng thái và thư mục của nó. Phần tóm tắt ở trên cùng đếm các trạng thái.\n"
+"\n"
+"- [b]Cập nhật sổ đăng ký[/b]: quét lại ngay tại chỗ (máy này, rồi các máy trong mạng đã biết), không đổi màn hình.\n"
+"- [b]Cập nhật ứng dụng[/b]: trên một dòng “Phiên bản cũ” của một máy trong mạng, cài phiên bản mới nhất đã phát hành (bản Release GitHub của ứng dụng, mã băm được kiểm tra với sha.txt trước khi gửi). Kế hoạch được hiển thị trước; không làm gì khác.\n"
+"- [b]Cài đặt lại ứng dụng[/b]: cùng nút đó trên một dòng “Cài đặt dở dang” (install.sh của nó chưa chạy xong); cùng phiên bản được cài lại.\n"
+"- Trên chính máy này, việc cập nhật được thực hiện theo phần “Cập nhật” trong README của ứng dụng.\n"
+"- Tô sáng một dòng: phần giải thích trạng thái và các sai lệch của nó hiển thị bên dưới."
+
+msgid "Scanner — trouver les applications, ajouter des machines"
+msgstr "Quét — tìm ứng dụng, thêm máy"
+
+msgid ""
+"- [b]Cette machine[/b] : cherche les applications omega (dossier personnel, services systemd, OpenRC ou runit, /srv, registre des instances d'omega-serv). Jamais de lien symbolique suivi, jamais de montage réseau parcouru.\n"
+"- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
+"- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
+"- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
+"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
+msgstr ""
+"- [b]Máy này[/b]: tìm các ứng dụng omega (thư mục cá nhân, dịch vụ systemd, OpenRC hoặc runit, /srv, sổ đăng ký instance của omega-serv). Không bao giờ đi theo liên kết tượng trưng, không bao giờ duyệt ổ gắn mạng.\n"
+"- [b]Máy được gợi ý[/b]: những máy mà máy tính này đã biết cách kết nối (hồ sơ Unison, ~/.ssh/config, known_hosts). Chọn một dòng rồi “Quét máy đã chọn”.\n"
+"- [b]Nhập thủ công[/b]: người_dùng@máy (tên hoặc địa chỉ), rồi “Quét máy này”.\n"
+"- [b]Kết nối lần đầu[/b]: dấu vân tay khóa của máy được hiển thị; hãy kiểm tra, rồi chấp nhận. Khóa đã THAY ĐỔI sẽ bị từ chối (máy đã cài lại, hoặc bị giả mạo).\n"
+"- [b]Máy đã biết[/b]: “Quét lại các máy đã biết”, hoặc “Gỡ máy này” (máy rời khỏi sổ đăng ký; không thay đổi gì trên máy đó).\n"
+"- Việc quét một máy trong mạng được gửi vào bộ nhớ qua SSH, chỉ đọc: không cài hay ghi gì lên đó, không hỏi mật khẩu nào (máy đó cần Python 3.10 hoặc mới hơn)."
+
+msgid "Liaisons — ce qui est relié ou pas"
+msgstr "Liên kết — những gì đã liên kết hay chưa"
+
+msgid ""
+"Montre chaque lien entre applications, sur toutes les machines, avec son état et sa provenance (Local, ou Réseau — nom de la machine) : journaux d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers la liste noire d'omega-serv, liste protégée, liste noire partagée, fichiers d'omega-jail dans fail2ban, cartes d'identité, espace partagé.\n"
+"\n"
+"- Surlignez une ligne : ses contrôles s'affichent en dessous ; « Détail du lien » les montre tous, avec la commande de chaque correction (« Copier les commandes »).\n"
+"- Cet écran montre seulement : ce qui est « à réparer » se corrige dans le menu Réparer."
+msgstr ""
+"Hiển thị từng liên kết giữa các ứng dụng, trên mọi máy, kèm trạng thái và nguồn gốc (Cục bộ, hoặc Mạng — tên máy): nhật ký của omega-serv và magnet được các jail của omega-jail đọc, cầu nối fail2ban tới danh sách đen của omega-serv, danh sách được bảo vệ, danh sách đen dùng chung, tệp của omega-jail trong fail2ban, thẻ định danh, không gian chia sẻ.\n"
+"\n"
+"- Tô sáng một dòng: các mục kiểm tra của nó hiển thị bên dưới; “Chi tiết liên kết” hiển thị tất cả, kèm lệnh của từng bước khắc phục (“Sao chép các lệnh”).\n"
+"- Màn hình này chỉ để xem: những gì “cần sửa” được khắc phục trong menu Sửa chữa."
+
+msgid "Synchronisation — relier les applications"
+msgstr "Đồng bộ hóa — liên kết các ứng dụng"
+
+msgid ""
+"Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+"- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
+"- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
+"- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
+"- Les machines passent une à une : cette machine d'abord, puis le réseau.\n"
+"- Une application trop ancienne, inachevée ou injoignable ne se coche pas : la ligne dit où aller.\n"
+"- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
+"- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
+msgstr ""
+"Một danh sách duy nhất: mọi máy của bạn và ứng dụng của chúng (các máy trong mạng được quét lại khi mở). Đánh dấu các dòng (Enter hoặc Space), rồi:\n"
+"- [b]Đồng bộ mục đã chọn[/b], hoặc [b]Đồng bộ tất cả[/b].\n"
+"- [b]Máy này[/b]: một kế hoạch duy nhất, hiển thị trước khi thực hiện — các thẻ định danh còn thiếu (do từng ứng dụng tạo, dưới tài khoản của nó), rồi không gian chia sẻ (nhóm omega-synchro, thư mục, sao chép thẻ, quyền truy cập của dịch vụ). Chỉ một mật khẩu quản trị.\n"
+"- [b]Máy trong mạng[/b]: kế hoạch được tính trên chính máy đó và hiển thị; “Đồng bộ <máy>” chạy nó từ đây: giao diện nhường chỗ cho terminal, chính máy đó hỏi mật khẩu, một lần; Enter đưa bạn trở lại giao diện, nơi hiển thị kết quả.\n"
+"- Các máy được xử lý lần lượt: máy này trước, rồi đến mạng.\n"
+"- Ứng dụng quá cũ, cài đặt dở dang hoặc không liên lạc được thì không đánh dấu được: dòng đó cho biết cần đi đâu.\n"
+"- [b]Đọc bằng sudo[/b]: nếu phiên của bạn chưa đọc được không gian chia sẻ (nhóm omega-synchro chỉ có hiệu lực sau khi đăng nhập lại), đọc bằng sudo, chỉ đọc.\n"
+"- [b]Chi tiết[/b]: những gì omega-connect đã tạo (sổ đăng ký của không gian chia sẻ) và các thao tác gỡ có thể thực hiện."
+
+msgid "Dashboard — vue d'ensemble"
+msgstr "Bảng điều khiển — tổng quan"
+
+msgid ""
+"Une vue d'ensemble en cadres, comme un tableau de bord web. Rien n'est modifié depuis cet écran.\n"
+"\n"
+"- [b]Machines[/b], [b]Applications[/b], [b]Liaisons[/b], [b]Espace partagé[/b] : les compteurs, avec les mêmes états que le Registre et les Liaisons.\n"
+"- [b]Liaisons par type[/b] : pour chaque type de liaison, combien sont OK sur combien.\n"
+"- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
+"- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
+"\n"
+"Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; « Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner pour les relire). Pour corriger : menu Réparer."
+msgstr ""
+"Tổng quan dạng khung, giống một bảng điều khiển web. Không có gì bị thay đổi từ màn hình này.\n"
+"\n"
+"- [b]Máy[/b], [b]Ứng dụng[/b], [b]Liên kết[/b], [b]Không gian chia sẻ[/b]: các bộ đếm, với cùng trạng thái như Sổ đăng ký và Liên kết.\n"
+"- [b]Liên kết theo loại[/b]: với mỗi loại liên kết, bao nhiêu OK trên tổng số.\n"
+"- [b]Máy này / Mạng[/b]: cùng các con số, đặt cạnh nhau.\n"
+"- [b]Top 5[/b] (top 3 trên màn hình nhỏ): máy cần sửa, liên kết cần sửa, phiên bản lạc hậu, lần quét cũ nhất (máy trong mạng).\n"
+"\n"
+"Máy này được kiểm tra khi mở màn hình, rồi định kỳ khi màn hình còn mở; “Làm mới” chạy lại việc kiểm tra. Các máy trong mạng hiển thị lần quét cuối (menu Quét để quét lại). Để khắc phục: menu Sửa chữa."
+
+msgid "Réparer — tout ce qui ne va pas"
+msgstr "Sửa chữa — mọi thứ đang có vấn đề"
+
+msgid ""
+"La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
+"\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
+"- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
+"- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
+msgstr ""
+"Danh sách mọi thứ đang có vấn đề, trên mọi máy (các máy trong mạng được quét lại khi mở): máy, sự cố, trạng thái, và ai khắc phục.\n"
+"\n"
+"- [b]Sửa dòng đã chọn[/b]: mở kế hoạch của máy. Máy này: lệnh của chính các ứng dụng (omega-jail cho những gì nó đặt trong fail2ban, omega-serv cho quyền của var/ của nó, từng ứng dụng cho thẻ định danh của mình), rồi không gian chia sẻ. Máy trong mạng: cùng các bước khắc phục đó, cộng thêm các lệnh mà không ứng dụng nào biết chạy, được chạy TRÊN máy đó từ đây (chỉ những lệnh đã thông báo trong kế hoạch).\n"
+"- [b]Sửa tất cả[/b]: lần lượt từng máy (cập nhật trước, rồi sửa chữa).\n"
+"- [b]Chi tiết[/b]: mọi mục kiểm tra của dòng đã chọn.\n"
+"- [b]Sao chép các lệnh[/b] (kế hoạch của máy này): bộ nhớ tạm của hệ thống (xclip, xsel, wl-copy); nếu không, các lệnh được hiển thị rõ trong terminal để bạn chọn bằng chuột.\n"
+"- omega-connect không bao giờ ghi đè tệp của ứng dụng khác: nó chạy lệnh của ứng dụng đó."
+
+msgid "Rapport — un document complet"
+msgstr "Báo cáo — một tài liệu đầy đủ"
+
+msgid ""
+"Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"\n"
+"- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
+"- En ligne de commande : omega-connect rapport --format html --enregistrer."
+msgstr ""
+"Được lập ngay lúc đó (các máy trong mạng được quét lại trước): tổng kết, danh sách chính xác những gì còn phải làm (máy, việc gì, menu nào), sổ đăng ký mọi ứng dụng, các máy trong mạng, chi tiết ứng dụng của máy này, liên kết của từng máy, không gian chia sẻ và sổ đăng ký của nó.\n"
+"\n"
+"- Xuất ra văn bản, JSON hoặc trang HTML (giao diện tùy chọn, mặc định là giao diện trong Thiết lập), vào thư mục xuất.\n"
+"- Từ dòng lệnh: omega-connect rapport --format html --enregistrer."
+
+msgid ""
+"- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
+"- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
+"- Tout est enregistré dans var/settings.json."
+msgstr ""
+"- [b]Giao diện của ứng dụng[/b] (cũng là phím t) và [b]giao diện của bản xuất[/b]: được lưu.\n"
+"- [b]Thư mục xuất[/b] và [b]thư mục ảnh chụp màn hình[/b]: mặc định là var/exports/ và var/screenshots/ trong thư mục của omega-connect; một đường dẫn đầy đủ, hoặc để trống để trở về mặc định.\n"
+"- [b]Làm trống thư mục xuất / ảnh chụp[/b]: sau khi xác nhận, xóa nội dung của thư mục đã cấu hình (thư mục vẫn còn). Bị từ chối với thư mục hệ thống, thư mục cá nhân, hoặc chính thư mục của omega-connect; không bao giờ hỏi mật khẩu.\n"
+"- Mọi thứ được lưu trong var/settings.json."
+
+msgid "Machines du réseau, mises à jour et sécurité"
+msgstr "Máy trong mạng, cập nhật và bảo mật"
+
+msgid ""
+"- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
+"- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
+"- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
+msgstr ""
+"- [b]Kết nối[/b]: SSH chỉ bằng khóa CỦA BẠN; omega-connect không bao giờ hỏi mật khẩu SSH. Khóa được bảo vệ bằng cụm mật khẩu phải được nạp vào SSH agent (ssh-add).\n"
+"- [b]Mật khẩu quản trị[/b]: chỉ khi một thao tác cần đến (đồng bộ, sửa chữa, cập nhật), một lần cho mỗi máy, do bạn gõ trong terminal; omega-connect không bao giờ thấy nó.\n"
+"- [b]Những gì được đưa lên một máy trong mạng[/b]: khi quét, không gì cả (chương trình trong bộ nhớ); khi thực hiện thao tác, một thư mục riêng tạm thời (chương trình và bản lưu trữ), được xóa khi kết thúc.\n"
+"- [b]Cập nhật[/b]: từ bản Release GitHub của từng ứng dụng (kraynux/<ứng_dụng>, nhãn v<phiên_bản>); mã băm được kiểm tra với sha.txt trước khi gửi, rồi kiểm tra lại trên máy đó. omega-fire: bản cài đặt cũ được cất sang một bên (var/ của nó thuộc root), rồi install.sh của nó lấy lại thiết lập và dữ liệu. Các ứng dụng khác: giải nén đè lên (trạng thái đang hoạt động không nằm trong bản lưu trữ), rồi chạy install.sh của chúng.\n"
+"- [b]Không bao giờ chạy ứng dụng có thể hỏi mật khẩu khi không có terminal[/b]: một lần sudo thất bại âm thầm vẫn tính là một lần thử và có thể khóa tài khoản trong vài phút."
+
+msgid "États — ce que veut dire chaque mot"
+msgstr "Trạng thái — ý nghĩa của từng từ"
+
+msgid ""
+"[b]Applications[/b] :\n"
+"- ● Reliée : dans l'espace partagé, à jour.\n"
+"- ◐ Inscrite : a sa carte d'identité, pas encore dans l'espace partagé (Synchronisation).\n"
+"- ○ Détectée : trouvée, sans carte d'identité (Synchronisation la lui crée).\n"
+"- ▲ À réparer : un écart (Réparer).\n"
+"- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
+"- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller l'application).\n"
+"- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n"
+"\n"
+"[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session)."
+msgstr ""
+"[b]Ứng dụng[/b]:\n"
+"- ● Đã liên kết: có trong không gian chia sẻ, đã cập nhật.\n"
+"- ◐ Đã đăng ký: đã có thẻ định danh, chưa có trong không gian chia sẻ (Đồng bộ hóa).\n"
+"- ○ Đã phát hiện: đã tìm thấy, chưa có thẻ định danh (Đồng bộ hóa sẽ tạo cho nó).\n"
+"- ▲ Cần sửa: có một sai lệch (Sửa chữa).\n"
+"- ◌ Phiên bản cũ: quá cũ đối với omega-connect (Sổ đăng ký → Cập nhật ứng dụng).\n"
+"- ◇ Cài đặt dở dang: install.sh của nó chưa chạy xong (Sổ đăng ký → Cài đặt lại ứng dụng).\n"
+"- ✕ Không liên lạc được: máy không còn phản hồi (Quét → Quét lại).\n"
+"\n"
+"[b]Liên kết[/b]: OK; cần sửa; cần sửa (gây chặn); không có (không có gì để liên kết, ví dụ omega-jail chưa được cài); không kiểm tra được (không thể đọc từ phiên của bạn)."
+
+msgid "Carte d'identité et espace partagé"
+msgstr "Thẻ định danh và không gian chia sẻ"
+
+msgid ""
+"- [b]Carte d'identité[/b] : un petit fichier (var/omega-jeton.json) que chaque application écrit à son installation : quelle application, quelle version, quel identifiant, sur quelle machine. Lisible par tous, jamais modifiable par les autres comptes.\n"
+"- [b]Espace partagé[/b] : /var/lib/omega-synchro, groupe omega-synchro, où seul root écrit ; omega-connect y recopie les cartes d'identité et la description de chaque application, pour qu'elles se trouvent entre elles, même quand omega-connect n'est pas lancé.\n"
+"- Tout ce qu'omega-connect crée est inscrit au registre de l'espace partagé : un retrait ne défait que ce qui y est inscrit."
+msgstr ""
+"- [b]Thẻ định danh[/b]: một tệp nhỏ (var/omega-jeton.json) mà mỗi ứng dụng ghi khi cài đặt: ứng dụng nào, phiên bản nào, định danh nào, trên máy nào. Ai cũng đọc được, các tài khoản khác không bao giờ sửa được.\n"
+"- [b]Không gian chia sẻ[/b]: /var/lib/omega-synchro, nhóm omega-synchro, nơi chỉ root được ghi; omega-connect sao chép vào đó thẻ định danh và mô tả của từng ứng dụng, để chúng tìm thấy nhau, ngay cả khi omega-connect không chạy.\n"
+"- Mọi thứ omega-connect tạo ra đều được ghi vào sổ đăng ký của không gian chia sẻ: thao tác gỡ chỉ hoàn tác những gì đã được ghi ở đó."
+
+msgid "Ligne de commande"
+msgstr "Dòng lệnh"
+
+msgid ""
+"omega-connect.sh <commande> (sans commande : l'interface).\n"
+"- scanner [utilisateur@machine] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout : l'espace partagé, plan affiché avant tout lancement.\n"
+"--simulation montre le plan sans rien lancer ; --oui lance sans poser la question."
+msgstr ""
+"omega-connect.sh <lệnh> (không có lệnh: giao diện).\n"
+"- scanner [người_dùng@máy] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout: không gian chia sẻ, kế hoạch hiển thị trước khi chạy.\n"
+"--simulation hiển thị kế hoạch mà không chạy gì; --oui chạy mà không hỏi."
+
+msgid "Fichiers d'omega-connect"
+msgstr "Tệp của omega-connect"
+
+msgid ""
+"Tout vit dans le dossier d'omega-connect, sous var/ :\n"
+"- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+"- settings.json : réglages.\n"
+"- exports/ et screenshots/ : par défaut (voir Réglages).\n"
+"- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite)."
+msgstr ""
+"Mọi thứ nằm trong thư mục của omega-connect, dưới var/:\n"
+"- parc.json: sổ đăng ký các máy trong mạng (lần quét cuối, địa chỉ, dấu vân tay).\n"
+"- settings.json: thiết lập.\n"
+"- exports/ và screenshots/: mặc định (xem Thiết lập).\n"
+"- declaration.json: khai báo người dùng ẩn danh (nếu bạn đã khai báo)."
+
+msgid "Aide, export et contact"
+msgstr "Trợ giúp, xuất và liên hệ"
+
+msgid ""
+"- [b]Exporter l'aide en HTML[/b] : toute cette aide, dans une page, thème au choix, dans le dossier des exports.\n"
+"- [b]Contact et support[/b] : payer un café (PayPal), se déclarer utilisateur anonyme (une seule fois), contacter le support (mail et formulaire du site), vérifier les mises à jour."
+msgstr ""
+"- [b]Xuất trợ giúp ra HTML[/b]: toàn bộ trợ giúp này, trong một trang, giao diện tùy chọn, vào thư mục xuất.\n"
+"- [b]Liên hệ và hỗ trợ[/b]: mời một ly cà phê (PayPal), khai báo là người dùng ẩn danh (chỉ một lần), liên hệ bộ phận hỗ trợ (mail và biểu mẫu trên trang web), kiểm tra cập nhật."
+
+msgid "Redémarrer"
+msgstr "Khởi động lại"
+
+msgid "Registre"
+msgstr "Sổ đăng ký"
+
+msgid "Synchronisation"
+msgstr "Đồng bộ hóa"
+
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+msgid "Rapport"
+msgstr "Báo cáo"
+
+msgid "GESTION"
+msgstr "QUẢN LÝ"
+
+msgid "MAINTENANCE"
+msgstr "BẢO TRÌ"
+
+msgid "MACHINES"
+msgstr "MÁY"
+
+msgid "APPLICATIONS"
+msgstr "ỨNG DỤNG"
+
+msgid "LIAISONS"
+msgstr "LIÊN KẾT"
+
+msgid "ESPACE PARTAGÉ"
+msgstr "KHÔNG GIAN CHIA SẺ"
+
+msgid "LIAISONS PAR TYPE"
+msgstr "LIÊN KẾT THEO LOẠI"
+
+msgid "CETTE MACHINE / RÉSEAU"
+msgstr "MÁY NÀY / MẠNG"
+
+#, python-brace-format
+msgid "TOP {count} · MACHINES À RÉPARER"
+msgstr "TOP {count} · MÁY CẦN SỬA"
+
+#, python-brace-format
+msgid "TOP {count} · LIAISONS À RÉPARER"
+msgstr "TOP {count} · LIÊN KẾT CẦN SỬA"
+
+#, python-brace-format
+msgid "TOP {count} · VERSIONS EN RETARD"
+msgstr "TOP {count} · PHIÊN BẢN LẠC HẬU"
+
+#, python-brace-format
+msgid "TOP {count} · SCANS LES PLUS ANCIENS"
+msgstr "TOP {count} · LẦN QUÉT CŨ NHẤT"
+
+msgid "jamais vue"
+msgstr "chưa từng quét"
+
+msgid "à l'instant"
+msgstr "vừa xong"
+
+#, python-brace-format
+msgid "il y a {count} min"
+msgstr "{count} phút trước"
+
+#, python-brace-format
+msgid "il y a {count} h"
+msgstr "{count} giờ trước"
+
+#, python-brace-format
+msgid "il y a {count} j"
+msgstr "{count} ngày trước"
+
+#, python-brace-format
+msgid "{count} au total"
+msgstr "tổng {count}"
+
+#, python-brace-format
+msgid "cette machine : {name}"
+msgstr "máy này: {name}"
+
+#, python-brace-format
+msgid "{count} sur le réseau"
+msgstr "{count} trong mạng"
+
+#, python-brace-format
+msgid "{count} injoignable(s)"
+msgstr "{count} không liên lạc được"
+
+#, python-brace-format
+msgid "{count} application(s) reliée(s)"
+msgstr "{count} ứng dụng đã liên kết"
+
+#, python-brace-format
+msgid "{count} à relier (Synchronisation)"
+msgstr "{count} cần liên kết (Đồng bộ hóa)"
+
+msgid "Aucune liaison connue."
+msgstr "Chưa biết liên kết nào."
+
+msgid "Machines"
+msgstr "Máy"
+
+msgid "Cette machine"
+msgstr "Máy này"
+
+msgid "Réseau"
+msgstr "Mạng"
+
+msgid "Rien à réparer."
+msgstr "Không có gì để sửa."
+
+#, python-brace-format
+msgid "{count} liaison(s)"
+msgstr "{count} liên kết"
+
+#, python-brace-format
+msgid "{count} application(s)"
+msgstr "{count} ứng dụng"
+
+msgid "Aucune liaison à réparer."
+msgstr "Không có liên kết nào cần sửa."
+
+msgid "Aucune application en retard."
+msgstr "Không có ứng dụng nào lạc hậu."
+
+msgid "Aucune machine du réseau (menu Scanner)."
+msgstr "Chưa có máy nào trong mạng (menu Quét)."
+
+#, python-brace-format
+msgid "vue {when}"
+msgstr "quét {when}"
+
+msgid "non fournie (ancienne version)"
+msgstr "không được cung cấp (phiên bản cũ)"
+
+#, python-brace-format
+msgid "déclarée à {time}"
+msgstr "đã khai báo lúc {time}"
+
+msgid "(partielle)"
+msgstr "(một phần)"
+
+msgid "Local"
+msgstr "Cục bộ"
+
+#, python-brace-format
+msgid "Réseau — {where}"
+msgstr "Mạng — {where}"
+
+#, python-brace-format
+msgid "{count} écart(s)"
+msgstr "{count} sai lệch"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) : « Détail du lien » pour les voir."
+msgstr "{count} mục kiểm tra đạt: “Chi tiết liên kết” để xem."
+
+msgid "Aucun contrôle pour ce lien."
+msgstr "Không có mục kiểm tra nào cho liên kết này."
+
+msgid "Liens : "
+msgstr "Liên kết: "
+
+msgid ""
+"omega-connect — authentification sudo pour les commandes affichées (le mot "
+"de passe ne s'affiche pas pendant la saisie). L'interface revient ensuite."
+msgstr ""
+"omega-connect — xác thực sudo cho các lệnh đã hiển thị (mật khẩu không hiện "
+"khi gõ). Sau đó giao diện sẽ quay lại."
+
+msgid "Aucune commande à copier."
+msgstr "Không có lệnh nào để sao chép."
+
+#, python-brace-format
+msgid ""
+"{count} commande(s) copiée(s) dans le presse-papiers ({tool}) : collez-les "
+"dans un terminal (Ctrl+Maj+V)."
+msgstr ""
+"Đã sao chép {count} lệnh vào bộ nhớ tạm ({tool}): hãy dán vào một terminal "
+"(Ctrl+Shift+V)."
+
+msgid ""
+"omega-connect — commandes à copier. Sélectionnez-les à la souris puis copiez"
+" avec le raccourci de votre terminal (souvent Ctrl+Maj+C) :"
+msgstr ""
+"omega-connect — các lệnh cần sao chép. Hãy chọn bằng chuột rồi sao chép bằng"
+" phím tắt của terminal (thường là Ctrl+Shift+C):"
+
+msgid "Entrée pour revenir à omega-connect… "
+msgstr "Nhấn Enter để quay lại omega-connect… "
+
+msgid ""
+"Vous êtes membre du groupe omega-synchro, mais cet omega-connect a été lancé"
+" sans lui. Quittez (q) et relancez ./omega-connect.sh : il le prendra tout "
+"seul, sans mot de passe. Pour cette fois, lecture avec sudo (mot de passe "
+"dans le terminal)."
+msgstr ""
+"Bạn là thành viên nhóm omega-synchro, nhưng omega-connect này được khởi chạy"
+" khi chưa có nhóm đó. Hãy thoát (q) và chạy lại ./omega-connect.sh: nó sẽ tự"
+" nhận nhóm, không cần mật khẩu. Lần này, đọc bằng sudo (mật khẩu trong "
+"terminal)."
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro : la zone est lue avec "
+"sudo, mot de passe demandé dans le terminal."
+msgstr ""
+"Phiên của bạn chưa có nhóm omega-synchro: vùng được đọc bằng sudo, mật khẩu "
+"được hỏi trong terminal."
+
+msgid "Lecture de la zone avec sudo…"
+msgstr "Đang đọc vùng bằng sudo…"
+
+msgid "Préparation des commandes (détection des outils, lecture de la zone)…"
+msgstr "Đang chuẩn bị các lệnh (phát hiện công cụ, đọc vùng)…"
+
+msgid "Vérifier maintenant"
+msgstr "Kiểm tra ngay"
+
+msgid "LIENS"
+msgstr "LIÊN KẾT"
+
+msgid "Détail du lien"
+msgstr "Chi tiết liên kết"
+
+msgid "Constat"
+msgstr "Nhận định"
+
+msgid "Lien"
+msgstr "Liên kết"
+
+msgid "Provenance"
+msgstr "Nguồn gốc"
+
+msgid "Vérification en cours…"
+msgstr "Đang kiểm tra…"
+
+#, python-brace-format
+msgid "Erreur : {message}"
+msgstr "Lỗi: {message}"
+
+#, python-brace-format
+msgid "Vérifié à {time}."
+msgstr "Đã kiểm tra lúc {time}."
+
+#, python-brace-format
+msgid ""
+"Nouvelle vérification toutes les {minutes} min tant que cet écran est "
+"ouvert."
+msgstr "Kiểm tra lại mỗi {minutes} phút khi màn hình này còn mở."
+
+msgid "Lancer (mot de passe administrateur)"
+msgstr "Khởi chạy (mật khẩu quản trị)"
+
+msgid "SYNCHRONISER"
+msgstr "ĐỒNG BỘ"
+
+msgid ""
+"Tout ce qui sera fait, dans l'ordre. Rien n'est lancé avant « Lancer » ; au "
+"premier échec, tout s'arrête et ce qui a été créé reste noté."
+msgstr ""
+"Mọi việc sẽ được làm, theo thứ tự. Không chạy gì trước khi nhấn “Khởi chạy”;"
+" ở lỗi đầu tiên, mọi thứ dừng lại và những gì đã tạo vẫn được ghi lại."
+
+msgid "AVANCEMENT"
+msgstr "TIẾN ĐỘ"
+
+msgid "Fermer"
+msgstr "Đóng"
+
+msgid ""
+"Chaque menu, sa fonction et le détail. Cliquez sur un titre pour l'ouvrir."
+msgstr "Từng menu, chức năng và chi tiết. Nhấp vào một tiêu đề để mở."
+
+msgid "Exporter l'aide en HTML"
+msgstr "Xuất trợ giúp ra HTML"
+
+#, python-brace-format
+msgid "Aide exportée : {path}"
+msgstr "Đã xuất trợ giúp: {path}"
+
+#, python-brace-format
+msgid "Écran prévu au lot {lot} de l'étape 3."
+msgstr "Màn hình dự kiến cho đợt {lot} của bước 3."
+
+msgid "RETIRER LA ZONE NEUTRE ?"
+msgstr "GỠ VÙNG TRUNG LẬP?"
+
+msgid ""
+"Garder : rien n'est supprimé, les outils lisent toujours les copies "
+"actuelles (liens figés). Tout retirer : défait exactement ce que le registre"
+" liste."
+msgstr ""
+"Giữ: không xóa gì, các công cụ vẫn đọc các bản sao hiện tại (liên kết bị "
+"đóng băng). Gỡ tất cả: hoàn tác đúng những gì sổ đăng ký liệt kê."
+
+msgid "Garder la zone"
+msgstr "Giữ vùng"
+
+msgid "Tout retirer"
+msgstr "Gỡ tất cả"
+
+msgid "CONTRÔLES"
+msgstr "MỤC KIỂM TRA"
+
+msgid ""
+"Cet écran montre. Pour corriger : menu Réparer (toutes les machines, machine"
+" du réseau comprise) ; les commandes se copient avec « Copier les commandes "
+"»."
+msgstr ""
+"Màn hình này chỉ để xem. Để khắc phục: menu Sửa chữa (mọi máy, kể cả máy "
+"trong mạng); các lệnh được sao chép bằng “Sao chép các lệnh”."
+
+msgid "Copier les commandes"
+msgstr "Sao chép các lệnh"
+
+#, python-brace-format
+msgid "vérifié à {time}"
+msgstr "đã kiểm tra lúc {time}"
+
+msgid "État : "
+msgstr "Trạng thái: "
+
+msgid "RÉPARER CETTE MACHINE"
+msgstr "SỬA CHỮA MÁY NÀY"
+
+msgid ""
+"Chaque écart est corrigé par l'outil qui possède le fichier (omega-jail, "
+"omega-serv, jeton de chaque outil), ou par « Établir » pour ce que le "
+"registre de la zone dit qu'omega-connect a créé. omega-connect ne réécrit "
+"jamais le fichier d'un autre outil. Rien n'est lancé avant « Lancer »."
+msgstr ""
+"Mỗi sai lệch được khắc phục bởi công cụ sở hữu tệp đó (omega-jail, omega-"
+"serv, token của từng công cụ), hoặc bởi “Tạo lập” đối với những gì sổ đăng "
+"ký của vùng ghi là do omega-connect tạo. omega-connect không bao giờ ghi đè "
+"tệp của công cụ khác. Không chạy gì trước khi nhấn “Khởi chạy”."
+
+msgid "MACHINES DISTANTES"
+msgstr "MÁY TỪ XA"
+
+msgid ""
+"Une machine du registre se répare depuis ici : les commandes des outils sont"
+" lancées SUR elle, son mot de passe sudo est demandé une fois, dans ce "
+"terminal."
+msgstr ""
+"Một máy trong sổ đăng ký được sửa chữa từ đây: các lệnh của công cụ được "
+"chạy TRÊN máy đó, mật khẩu sudo của nó được hỏi một lần, trong terminal này."
+
+msgid "Réparer la machine choisie"
+msgstr "Sửa máy đã chọn"
+
+msgid "Zone : établir…"
+msgstr "Vùng: tạo lập…"
+
+msgid "Analyser de nouveau"
+msgstr "Phân tích lại"
+
+msgid "Liaisons à corriger"
+msgstr "Liên kết cần khắc phục"
+
+msgid "aucune machine distante : scannez-en une (Scanner)"
+msgstr "không có máy từ xa nào: hãy quét một máy (Quét)"
+
+msgid "Préparation des réparations : vérification des liens en cours…"
+msgstr "Đang chuẩn bị sửa chữa: đang kiểm tra các liên kết…"
+
+msgid "Lancer avec sudo"
+msgstr "Khởi chạy bằng sudo"
+
+msgid ""
+"Vue d'ensemble de vos machines et de vos applications. Rien n'est modifié "
+"depuis cet écran. Pour corriger : menu Réparer."
+msgstr ""
+"Tổng quan về các máy và ứng dụng của bạn. Không có gì bị thay đổi từ màn "
+"hình này. Để khắc phục: menu Sửa chữa."
+
+msgid "Actualiser"
+msgstr "Làm mới"
+
+msgid "cette machine"
+msgstr "máy này"
+
+msgid "DASHBOARD"
+msgstr "BẢNG ĐIỀU KHIỂN"
+
+#, python-brace-format
+msgid ""
+"Cette machine vérifiée à {time} ; machines du réseau : leur dernier scan."
+msgstr ""
+"Máy này được kiểm tra lúc {time}; máy trong mạng: lần quét cuối của chúng."
+
+msgid "QUITTER OMEGA-CONNECT ?"
+msgstr "THOÁT OMEGA-CONNECT?"
+
+msgid "REGISTRE"
+msgstr "SỔ ĐĂNG KÝ"
+
+msgid ""
+"Ce que le scanner a trouvé : chaque application omega, son service, sa "
+"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
+" à jour l'application » installe la dernière version d'une application trop "
+"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
+"corriger un écart : Réparer."
+msgstr ""
+"Những gì trình quét đã tìm thấy: từng ứng dụng omega, dịch vụ, phiên bản và "
+"trạng thái của nó. “Cập nhật sổ đăng ký” quét lại; “Cập nhật ứng dụng” cài "
+"phiên bản mới nhất cho một ứng dụng quá cũ (dòng đã chọn). Khôi phục liên "
+"kết: Đồng bộ hóa; khắc phục sai lệch: Sửa chữa."
+
+msgid "Mettre à jour le registre"
+msgstr "Cập nhật sổ đăng ký"
+
+msgid "Mettre à jour l'application"
+msgstr "Cập nhật ứng dụng"
+
+msgid "Lecture du registre…"
+msgstr "Đang đọc sổ đăng ký…"
+
+msgid "Premier scan : recherche des applications omega…"
+msgstr "Lần quét đầu tiên: đang tìm các ứng dụng omega…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s)"
+msgstr "{count} ứng dụng trên {machines} máy"
+
+#, python-brace-format
+msgid "dernier scan à {time}"
+msgstr "lần quét cuối lúc {time}"
+
+msgid "Espace partagé : "
+msgstr "Không gian chia sẻ: "
+
+msgid "Réinstaller l'application"
+msgstr "Cài đặt lại ứng dụng"
+
+#, python-brace-format
+msgid "→ « {action} » installe la dernière version depuis GitHub."
+msgstr "→ “{action}” cài phiên bản mới nhất từ GitHub."
+
+msgid ""
+"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
+"possible : suivez la section « Mise à jour » du README de l'outil."
+msgstr ""
+"→ Trên chính máy này, chưa thể cập nhật từ omega-connect: hãy làm theo phần "
+"“Cập nhật” trong README của công cụ."
+
+#, python-brace-format
+msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
+msgstr "Đang cập nhật sổ đăng ký: quét {count} máy từ xa…"
+
+#, python-brace-format
+msgid ""
+"omega-connect — synchronisation de {machine}. La machine demande elle-même "
+"son mot de passe sudo (il ne s'affiche pas pendant la saisie) ; omega-"
+"connect ne le voit jamais."
+msgstr ""
+"omega-connect — đồng bộ {machine}. Chính máy đó sẽ hỏi mật khẩu sudo (mật "
+"khẩu không hiện khi gõ); omega-connect không bao giờ thấy nó."
+
+msgid "Terminé. Appuyez sur Entrée pour revenir à omega-connect… "
+msgstr "Hoàn tất. Nhấn Enter để quay lại omega-connect… "
+
+#, python-brace-format
+msgid "METTRE À JOUR L'APPLICATION — {machine}"
+msgstr "CẬP NHẬT ỨNG DỤNG — {machine}"
+
+msgid ""
+"Seulement les applications trop anciennes de cette machine : dernière "
+"version prise sur leur Release GitHub (empreinte vérifiée), installée comme "
+"le dit leur README. Rien d'autre ; rien n'est fait avant « Lancer »."
+msgstr ""
+"Chỉ các ứng dụng quá cũ của máy này: phiên bản mới nhất lấy từ bản Release "
+"GitHub của chúng (đã kiểm tra mã băm), được cài theo hướng dẫn trong README "
+"của chúng. Không làm gì khác; không làm gì trước khi nhấn “Khởi chạy”."
+
+#, python-brace-format
+msgid "RÉPARER — {machine}"
+msgstr "SỬA CHỮA — {machine}"
+
+msgid ""
+"Corrections faites par les outils eux-mêmes, lancées SUR la machine depuis "
+"ici : rien à y taper. Ce qu'aucun outil ne sait faire se copie (« Copier les"
+" commandes »). Rien n'est fait avant « Lancer »."
+msgstr ""
+"Các bước khắc phục do chính các công cụ thực hiện, được chạy TRÊN máy đó từ "
+"đây: không cần gõ gì ở đó. Những gì không công cụ nào làm được thì được sao "
+"chép (“Sao chép các lệnh”). Không làm gì trước khi nhấn “Khởi chạy”."
+
+#, python-brace-format
+msgid "SYNCHRONISER — {machine}"
+msgstr "ĐỒNG BỘ — {machine}"
+
+msgid ""
+"Plan calculé sur la machine elle-même, sans sudo : réparer puis "
+"synchroniser. Aucune mise à jour ici (Registre → « Mettre à jour "
+"l'application ») ; rien n'est fait avant « Lancer »."
+msgstr ""
+"Kế hoạch được tính trên chính máy đó, không dùng sudo: sửa chữa rồi đồng bộ."
+" Không cập nhật ở đây (Sổ đăng ký → “Cập nhật ứng dụng”); không làm gì trước"
+" khi nhấn “Khởi chạy”."
+
+#, python-brace-format
+msgid "Calcul du plan sur {machine}…"
+msgstr "Đang tính kế hoạch trên {machine}…"
+
+#, python-brace-format
+msgid "Réinstaller sur {machine}"
+msgstr "Cài đặt lại trên {machine}"
+
+#, python-brace-format
+msgid "Mettre à jour sur {machine}"
+msgstr "Cập nhật trên {machine}"
+
+#, python-brace-format
+msgid "Réparer {machine}"
+msgstr "Sửa chữa {machine}"
+
+#, python-brace-format
+msgid "Synchroniser {machine}"
+msgstr "Đồng bộ {machine}"
+
+#, python-brace-format
+msgid "Téléchargement et vérification des archives, envoi vers {machine}…"
+msgstr "Đang tải và kiểm tra các bản lưu trữ, gửi đến {machine}…"
+
+#, python-brace-format
+msgid "Lecture du résultat et nouveau scan de {machine}…"
+msgstr "Đang đọc kết quả và quét lại {machine}…"
+
+#, python-brace-format
+msgid "{machine} : synchronisation terminée."
+msgstr "{machine}: đồng bộ hoàn tất."
+
+#, python-brace-format
+msgid "{machine} : la synchronisation n'est pas allée au bout."
+msgstr "{machine}: đồng bộ chưa hoàn tất."
+
+msgid "l'outil, depuis ici"
+msgstr "công cụ, từ đây"
+
+msgid "commande lancée sur la machine, depuis ici"
+msgstr "lệnh được chạy trên máy, từ đây"
+
+msgid "à la main (commande à copier)"
+msgstr "thủ công (lệnh cần sao chép)"
+
+msgid "Mettre à jour l'application, depuis ici"
+msgstr "Cập nhật ứng dụng, từ đây"
+
+msgid "Réinstaller l'application, depuis ici"
+msgstr "Cài đặt lại ứng dụng, từ đây"
+
+msgid "à la main (README de l'outil)"
+msgstr "thủ công (README của công cụ)"
+
+msgid "Scanner : rescanner la machine"
+msgstr "Quét: quét lại máy"
+
+msgid "aucune correction connue (voir le détail)"
+msgstr "không có cách khắc phục đã biết (xem chi tiết)"
+
+msgid "RÉPARER"
+msgstr "SỬA CHỮA"
+
+msgid ""
+"Tout ce qui ne va pas, sur toutes les machines. Choisissez une ligne puis « "
+"Réparer la ligne choisie », ou « Tout réparer » : le plan de la machine "
+"s'affiche, rien n'est lancé avant. Machine du réseau : réparée depuis ici, "
+"son mot de passe sudo demandé une fois."
+msgstr ""
+"Mọi thứ đang có vấn đề, trên mọi máy. Chọn một dòng rồi “Sửa dòng đã chọn”, "
+"hoặc “Sửa tất cả”: kế hoạch của máy được hiển thị, không chạy gì trước đó. "
+"Máy trong mạng: được sửa chữa từ đây, mật khẩu sudo của nó được hỏi một lần."
+
+msgid "Réparer la ligne choisie"
+msgstr "Sửa dòng đã chọn"
+
+msgid "Détail"
+msgstr "Chi tiết"
+
+msgid "Tout réparer"
+msgstr "Sửa tất cả"
+
+msgid "Problème"
+msgstr "Sự cố"
+
+msgid "Qui corrige"
+msgstr "Ai khắc phục"
+
+msgid "Recherche de tout ce qui ne va pas : vérification de cette machine…"
+msgstr "Đang tìm mọi thứ có vấn đề: đang kiểm tra máy này…"
+
+#, python-brace-format
+msgid "Rescan des machines du réseau ({index}/{count}) : {machine}…"
+msgstr "Đang quét lại các máy trong mạng ({index}/{count}): {machine}…"
+
+#, python-brace-format
+msgid "{count} problème(s) sur {machines} machine(s)."
+msgstr "{count} sự cố trên {machines} máy."
+
+msgid "Rien à réparer : tout est OK sur toutes les machines."
+msgstr "Không có gì để sửa: mọi thứ đều OK trên mọi máy."
+
+msgid "la machine ne répond plus"
+msgstr "máy không còn phản hồi"
+
+#, python-brace-format
+msgid "{machine} : rescannez-la d'abord (Scanner)."
+msgstr "{machine}: hãy quét lại máy này trước (Quét)."
+
+msgid "RAPPORT"
+msgstr "BÁO CÁO"
+
+msgid ""
+"Un document complet, établi à l'instant (les machines du réseau sont "
+"rescannées avant) : bilan, ce qu'il reste à faire, registre, machines du "
+"réseau, liaisons de chaque machine, espace partagé. Enregistré dans le "
+"dossier des exports."
+msgstr ""
+"Một tài liệu đầy đủ, lập ngay lúc này (các máy trong mạng được quét lại "
+"trước): tổng kết, những việc còn phải làm, sổ đăng ký, các máy trong mạng, "
+"liên kết của từng máy, không gian chia sẻ. Lưu trong thư mục xuất."
+
+msgid "THÈME DE LA PAGE HTML"
+msgstr "GIAO DIỆN CỦA TRANG HTML"
+
+msgid "APERÇU"
+msgstr "XEM TRƯỚC"
+
+msgid "Exporter JSON"
+msgstr "Xuất JSON"
+
+msgid "Exporter TXT"
+msgstr "Xuất TXT"
+
+msgid "Exporter HTML"
+msgstr "Xuất HTML"
+
+msgid "Génération du rapport en cours (détection, vérification, zone)…"
+msgstr "Đang tạo báo cáo (phát hiện, kiểm tra, vùng)…"
+
+msgid "Rapport prêt."
+msgstr "Báo cáo đã sẵn sàng."
+
+#, python-brace-format
+msgid "Export impossible : {error}"
+msgstr "Không xuất được: {error}"
+
+#, python-brace-format
+msgid "{count} application(s) omega trouvée(s) sur cette machine."
+msgstr "Tìm thấy {count} ứng dụng omega trên máy này."
+
+#, python-brace-format
+msgid "Trouvées via : {sources}."
+msgstr "Tìm thấy qua: {sources}."
+
+#, python-brace-format
+msgid ""
+"{count} remarque(s) sur la recherche (montages réseau ignorés, etc.) : voir "
+"le Rapport."
+msgstr ""
+"{count} ghi chú về việc tìm kiếm (bỏ qua ổ gắn mạng, v.v.): xem Báo cáo."
+
+msgid "SCANNER"
+msgstr "QUÉT"
+
+msgid ""
+"Recherche des applications omega, en lecture seule : rien n'est modifié, "
+"aucun mot de passe. Le résultat met à jour le registre."
+msgstr ""
+"Tìm các ứng dụng omega, chỉ đọc: không thay đổi gì, không cần mật khẩu. Kết "
+"quả cập nhật sổ đăng ký."
+
+#, python-brace-format
+msgid "MACHINE LOCALE — {machine}"
+msgstr "MÁY CỤC BỘ — {machine}"
+
+msgid "MACHINES QUE CET ORDINATEUR SAIT DÉJÀ JOINDRE"
+msgstr "CÁC MÁY MÀ MÁY TÍNH NÀY ĐÃ BIẾT CÁCH KẾT NỐI"
+
+msgid ""
+"Trouvées dans vos profils Unison, votre ~/.ssh/config et les machines déjà "
+"connues de SSH. Choisissez-en une (Entrée ou clic) : omega-connect s'y "
+"connecte avec vos clés et y lance le même scanner, en mémoire — rien n'y est"
+" installé, aucun mot de passe."
+msgstr ""
+"Tìm thấy trong hồ sơ Unison, ~/.ssh/config của bạn và các máy SSH đã biết. "
+"Hãy chọn một máy (Enter hoặc nhấp): omega-connect kết nối tới đó bằng khóa "
+"của bạn và chạy cùng trình quét, trong bộ nhớ — không cài gì lên đó, không "
+"cần mật khẩu."
+
+msgid "Scanner la machine choisie"
+msgstr "Quét máy đã chọn"
+
+msgid "AUTRE MACHINE (SAISIE MANUELLE)"
+msgstr "MÁY KHÁC (NHẬP THỦ CÔNG)"
+
+msgid ""
+"utilisateur@machine (nom ou adresse), ou un nom de votre ~/.ssh/config."
+msgstr ""
+"người_dùng@máy (tên hoặc địa chỉ), hoặc một tên trong ~/.ssh/config của bạn."
+
+msgid "utilisateur@machine"
+msgstr "người_dùng@máy"
+
+msgid "Scanner cette machine"
+msgstr "Quét máy này"
+
+msgid "MACHINES DISTANTES CONNUES"
+msgstr "CÁC MÁY TỪ XA ĐÃ BIẾT"
+
+msgid ""
+"Celles du registre. Sur un grand parc, retirez celles qui ne vous concernent"
+" plus : elles ne sont plus rescannées (rien n'est modifié sur elles)."
+msgstr ""
+"Các máy trong sổ đăng ký. Với hệ thống lớn, hãy gỡ những máy không còn liên "
+"quan đến bạn: chúng sẽ không được quét lại nữa (không thay đổi gì trên các "
+"máy đó)."
+
+msgid "Retirer cette machine"
+msgstr "Gỡ máy này"
+
+msgid "Scanner de nouveau"
+msgstr "Quét lại"
+
+msgid "Rescanner les machines connues"
+msgstr "Quét lại các máy đã biết"
+
+msgid "Voir le registre"
+msgstr "Xem sổ đăng ký"
+
+msgid "Trouvée dans"
+msgstr "Tìm thấy trong"
+
+msgid "Analyse de la machine locale : recherche des applications omega…"
+msgstr "Đang phân tích máy cục bộ: đang tìm các ứng dụng omega…"
+
+#, python-brace-format
+msgid "Analysée à {time}."
+msgstr "Đã phân tích lúc {time}."
+
+msgid "aucune machine distante pour l'instant"
+msgstr "hiện chưa có máy từ xa nào"
+
+msgid "aucune machine trouvée"
+msgstr "không tìm thấy máy nào"
+
+#, python-brace-format
+msgid "{machine} retirée du registre."
+msgstr "Đã gỡ {machine} khỏi sổ đăng ký."
+
+msgid "RETIRER CETTE MACHINE ?"
+msgstr "GỠ MÁY NÀY?"
+
+#, python-brace-format
+msgid ""
+"{machine} et ses {count} application(s) sortent du registre : elles ne "
+"seront plus rescannées. Rien n'est modifié sur la machine ; vous pourrez la "
+"scanner de nouveau à tout moment."
+msgstr ""
+"{machine} và {count} ứng dụng của nó sẽ rời khỏi sổ đăng ký: chúng sẽ không "
+"được quét lại nữa. Không thay đổi gì trên máy đó; bạn có thể quét lại nó bất"
+" cứ lúc nào."
+
+msgid "Retirer"
+msgstr "Gỡ"
+
+#, python-brace-format
+msgid "Connexion à {target}…"
+msgstr "Đang kết nối tới {target}…"
+
+#, python-brace-format
+msgid "{target} : rien n'a été fait (machine non acceptée)."
+msgstr "{target}: không làm gì cả (máy không được chấp nhận)."
+
+#, python-brace-format
+msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
+msgstr "Đang quét {target}: trình quét đang chạy ở đó, chỉ đọc…"
+
+msgid "Aucune machine distante connue pour l'instant."
+msgstr "Hiện chưa biết máy từ xa nào."
+
+#, python-brace-format
+msgid "Scan des {count} machine(s) connue(s)…"
+msgstr "Đang quét {count} máy đã biết…"
+
+#, python-brace-format
+msgid "{good} machine(s) scannée(s) sur {total}."
+msgstr "Đã quét {good} trên {total} máy."
+
+msgid "Enregistrés dans var/settings.json, appliqués tout de suite."
+msgstr "Được lưu trong var/settings.json, áp dụng ngay."
+
+msgid "Thème de l'interface"
+msgstr "Giao diện của ứng dụng"
+
+msgid "Thème des exports (rapport HTML, aide exportée)"
+msgstr "Giao diện của bản xuất (báo cáo HTML, trợ giúp đã xuất)"
+
+msgid "Dossier des exports"
+msgstr "Thư mục xuất"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Laissez vide pour revenir au dossier par défaut."
+msgstr "Mặc định: {path}. Để trống để trở về thư mục mặc định."
+
+msgid "Dossier des captures d'écran"
+msgstr "Thư mục ảnh chụp màn hình"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Capture : Ctrl+P → « Capture d'écran »."
+msgstr "Mặc định: {path}. Chụp màn hình: Ctrl+P → “Chụp màn hình”."
+
+msgid "Enregistrer les dossiers"
+msgstr "Lưu các thư mục"
+
+msgid "Maintenance des dossiers"
+msgstr "Bảo trì thư mục"
+
+msgid ""
+"Supprime définitivement le contenu du dossier configuré ; le dossier reste."
+msgstr "Xóa vĩnh viễn nội dung của thư mục đã cấu hình; thư mục vẫn còn."
+
+msgid "Vider le dossier des exports"
+msgstr "Làm trống thư mục xuất"
+
+msgid "Vider le dossier des captures"
+msgstr "Làm trống thư mục ảnh chụp"
+
+msgid "des exports"
+msgstr "xuất"
+
+msgid "des captures"
+msgstr "ảnh chụp"
+
+#, python-brace-format
+msgid "Chemin à donner en entier (commençant par / ou ~) : {path}"
+msgstr "Phải nhập đường dẫn đầy đủ (bắt đầu bằng / hoặc ~): {path}"
+
+#, python-brace-format
+msgid "Dossiers enregistrés : {paths}"
+msgstr "Đã lưu các thư mục: {paths}"
+
+#, python-brace-format
+msgid "VIDER LE DOSSIER {label} ?"
+msgstr "LÀM TRỐNG THƯ MỤC {label}?"
+
+#, python-brace-format
+msgid ""
+"Supprime définitivement tout le contenu de {directory}. Le dossier reste."
+msgstr "Xóa vĩnh viễn toàn bộ nội dung của {directory}. Thư mục vẫn còn."
+
+msgid "Vider"
+msgstr "Làm trống"
+
+#, python-brace-format
+msgid "Refusé — {path} : {reason}"
+msgstr "Bị từ chối — {path}: {reason}"
+
+#, python-brace-format
+msgid "{count} élément(s) supprimé(s) dans {path}."
+msgstr "Đã xóa {count} mục trong {path}."
+
+#, python-brace-format
+msgid "Non supprimés : {items}"
+msgstr "Không xóa được: {items}"
+
+msgid "Choisir"
+msgstr "Chọn"
+
+msgid "SYNCHRONISATION"
+msgstr "ĐỒNG BỘ HÓA"
+
+msgid ""
+"Toutes vos machines et leurs applications. Cochez des lignes (Entrée ou "
+"Espace) puis « Synchroniser la sélection », ou « Synchroniser tout ». Chaque"
+" machine a son plan, affiché avant d'agir, et un seul mot de passe ; les "
+"machines du réseau sont synchronisées depuis ici."
+msgstr ""
+"Mọi máy của bạn và ứng dụng của chúng. Đánh dấu các dòng (Enter hoặc Space) "
+"rồi “Đồng bộ mục đã chọn”, hoặc “Đồng bộ tất cả”. Mỗi máy có kế hoạch riêng,"
+" hiển thị trước khi thực hiện, và chỉ một mật khẩu; các máy trong mạng được "
+"đồng bộ từ đây."
+
+msgid "Synchroniser tout"
+msgstr "Đồng bộ tất cả"
+
+msgid "Synchroniser la sélection"
+msgstr "Đồng bộ mục đã chọn"
+
+msgid "Lire avec sudo"
+msgstr "Đọc bằng sudo"
+
+msgid "Vérification de cette machine et de son espace partagé…"
+msgstr "Đang kiểm tra máy này và không gian chia sẻ của nó…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s) — vérifié à {time}."
+msgstr "{count} ứng dụng trên {machines} máy — đã kiểm tra lúc {time}."
+
+msgid "Espace partagé lu avec sudo (lecture seule)."
+msgstr "Đã đọc không gian chia sẻ bằng sudo (chỉ đọc)."
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : "
+msgstr "Không gian chia sẻ của {machine}: "
+
+#, python-brace-format
+msgid "{tool} : {hint}"
+msgstr "{tool}: {hint}"
+
+msgid "Lecture de l'espace partagé…"
+msgstr "Đang đọc không gian chia sẻ…"
+
+#, python-brace-format
+msgid "Préparation du plan de synchronisation de {machine}…"
+msgstr "Đang chuẩn bị kế hoạch đồng bộ cho {machine}…"
+
+msgid "FAIRE CONFIANCE À CETTE MACHINE ?"
+msgstr "TIN CẬY MÁY NÀY?"
+
+msgid "Faire confiance"
+msgstr "Tin cậy"
+
+msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
+msgstr "CHI TIẾT KHÔNG GIAN CHIA SẺ"
+
+#, python-brace-format
+msgid ""
+"Ce qu'omega-connect a créé sur cette machine, et quand (registre de l'espace"
+" partagé {zone}). « Tout retirer » défait exactement cette liste ; un "
+"fichier qu'elle ne connaît pas n'est jamais supprimé."
+msgstr ""
+"Những gì omega-connect đã tạo trên máy này, và khi nào (sổ đăng ký của không"
+" gian chia sẻ {zone}). “Gỡ tất cả” hoàn tác đúng danh sách này; tệp nào "
+"không có trong danh sách sẽ không bao giờ bị xóa."
+
+msgid "CRÉATIONS"
+msgstr "MỤC ĐÃ TẠO"
+
+msgid "OUTILS RELIÉS"
+msgstr "CÔNG CỤ ĐÃ LIÊN KẾT"
+
+msgid "Retirer cet outil"
+msgstr "Gỡ công cụ này"
+
+msgid "Tout retirer…"
+msgstr "Gỡ tất cả…"
+
+msgid "Outil"
+msgstr "Công cụ"
+
+msgid "Relié le"
+msgstr "Liên kết lúc"
+
+msgid "Initialisation du registre : lecture de la zone en cours…"
+msgstr "Đang khởi tạo sổ đăng ký: đang đọc vùng…"
+
+#, python-brace-format
+msgid ""
+"Aucune zone en {zone} : rien n'a été créé (menu Synchronisation pour "
+"l'établir)."
+msgstr ""
+"Không có vùng tại {zone}: chưa tạo gì (dùng menu Đồng bộ hóa để tạo lập)."
+
+msgid ""
+"Registre lisible par root et le groupe omega-synchro seulement : "
+"reconnectez-vous si vous venez d'y être ajouté, ou « Lire avec sudo »."
+msgstr ""
+"Chỉ root và nhóm omega-synchro đọc được sổ đăng ký: hãy đăng nhập lại nếu "
+"bạn vừa được thêm vào nhóm, hoặc “Đọc bằng sudo”."
+
+#, python-brace-format
+msgid ""
+"Registre {status} ({detail}) : rien ne sera retiré tant qu'il n'est pas "
+"réparé."
+msgstr "Sổ đăng ký {status} ({detail}): không gỡ gì cho tới khi nó được sửa."
+
+#, python-brace-format
+msgid "Zone {zone} — {state} — mise à jour le {date}."
+msgstr "Vùng {zone} — {state} — cập nhật lúc {date}."
+
+msgid "aucune application reliée pour l'instant"
+msgstr "hiện chưa có ứng dụng nào được liên kết"
+
+msgid "Aucune commande."
+msgstr "Không có lệnh nào."
+
+msgid ""
+"Commandes lancées une à une en root avec sudo, dans cet ordre. Rien n'est "
+"lancé avant « Lancer ». Au premier échec tout s'arrête, et le registre garde"
+" la trace de ce qui a été créé."
+msgstr ""
+"Các lệnh được chạy lần lượt với quyền root bằng sudo, theo thứ tự này. Không"
+" chạy gì trước khi nhấn “Khởi chạy”. Ở lỗi đầu tiên mọi thứ dừng lại, và sổ "
+"đăng ký lưu vết những gì đã tạo."
+
+msgid "COMMANDES"
+msgstr "LỆNH"
+
+msgid "REMARQUES"
+msgstr "GHI CHÚ"
+
+msgid ""
+"Ce qui est relié ou pas, sur toutes vos machines, avec son état (OK, à "
+"réparer, absent…). Cet écran montre : ce qui est « à réparer » se corrige "
+"dans le menu Réparer. Surlignez une ligne pour le détail."
+msgstr ""
+"Những gì đã liên kết hay chưa, trên mọi máy của bạn, kèm trạng thái (OK, cần"
+" sửa, không có…). Màn hình này chỉ để xem: những gì “cần sửa” được khắc phục"
+" trong menu Sửa chữa. Tô sáng một dòng để xem chi tiết."

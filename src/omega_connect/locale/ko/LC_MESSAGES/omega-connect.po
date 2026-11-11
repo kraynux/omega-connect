@@ -1,0 +1,3519 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-connect\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, python-brace-format
+msgid "omega-connect — machine {machine}"
+msgstr "omega-connect — 머신 {machine}"
+
+#, python-brace-format
+msgid "== Mise à jour de {tool} vers {version} ({root})"
+msgstr "== {tool}을(를) {version}(으)로 업데이트 ({root})"
+
+#, python-brace-format
+msgid "✗ {tool} : {error}"
+msgstr "✗ {tool}: {error}"
+
+#, python-brace-format
+msgid "✓ {tool} {version} installé."
+msgstr "✓ {tool} {version} 설치됨."
+
+#, python-brace-format
+msgid "· déjà réglé : {command}"
+msgstr "· 이미 설정됨: {command}"
+
+#, python-brace-format
+msgid "archive refusée : chemin inattendu {name}"
+msgstr "아카이브 거부: 예상치 못한 경로 {name}"
+
+#, python-brace-format
+msgid "archive refusée : {name} n'est ni un fichier ni un dossier"
+msgstr "아카이브 거부: {name}은(는) 파일도 폴더도 아닙니다"
+
+msgid "archive refusée : trop volumineuse une fois extraite"
+msgstr "아카이브 거부: 압축을 풀면 너무 큽니다"
+
+#, python-brace-format
+msgid "archive refusée : pas de dossier {tool}/"
+msgstr "아카이브 거부: {tool}/ 폴더가 없습니다"
+
+#, python-brace-format
+msgid "{path} est un lien : rien n'est copié dedans"
+msgstr "{path}은(는) 링크입니다: 그 안에는 아무것도 복사하지 않습니다"
+
+#, python-brace-format
+msgid "{root} n'est pas un dossier d'installation"
+msgstr "{root}은(는) 설치 폴더가 아닙니다"
+
+#, python-brace-format
+msgid "{root} n'appartient pas à ce compte : mise à jour faite à la main"
+msgstr "{root}은(는) 이 계정의 소유가 아닙니다: 직접 업데이트하세요"
+
+msgid "empreinte de l'archive différente de sha.txt : rien n'est installé"
+msgstr "아카이브 해시가 sha.txt와 다릅니다: 아무것도 설치하지 않았습니다"
+
+#, python-brace-format
+msgid "Mise de côté de l'ancienne installation : {old} → {new}"
+msgstr "이전 설치를 따로 보관: {old} → {new}"
+
+msgid "impossible de mettre l'ancienne installation de côté (sudo mv)"
+msgstr "이전 설치를 따로 보관할 수 없습니다 (sudo mv)"
+
+#, python-brace-format
+msgid "{count} fichiers installés dans {root}."
+msgstr "{root}에 파일 {count}개를 설치했습니다."
+
+#, python-brace-format
+msgid "install.sh introuvable dans {root}"
+msgstr "{root}에서 install.sh를 찾을 수 없습니다"
+
+#, python-brace-format
+msgid ""
+"Environnement Python (.venv) incomplet mis de côté : {path} — install.sh en "
+"recrée un."
+msgstr "불완전한 Python 환경(.venv)을 따로 보관했습니다: {path} — install.sh가 새로 만듭니다."
+
+#, python-brace-format
+msgid "Lancement de {path} :"
+msgstr "{path} 실행:"
+
+#, python-brace-format
+msgid "install.sh a échoué (code {code})"
+msgstr "install.sh 실패 (코드 {code})"
+
+#, python-brace-format
+msgid "{script} introuvable : réglages et données restés dans {old}"
+msgstr "{script}을(를) 찾을 수 없습니다: 설정과 데이터는 {old}에 남아 있습니다"
+
+#, python-brace-format
+msgid ""
+"Reprise des réglages et données de {old} (autres anciennes installations "
+"ignorées : {others})"
+msgstr "{old}의 설정과 데이터를 가져옵니다 (무시한 다른 이전 설치: {others})"
+
+#, python-brace-format
+msgid "reprise de {old} échouée ({script})"
+msgstr "{old}에서 가져오기 실패 ({script})"
+
+msgid "contient l'installation d'omega-connect"
+msgstr "omega-connect 설치를 포함합니다"
+
+msgid "registre omega-serv"
+msgstr "omega-serv 레지스트리"
+
+msgid "systemd"
+msgstr "systemd"
+
+msgid "OpenRC"
+msgstr "OpenRC"
+
+msgid "runit"
+msgstr "runit"
+
+msgid "dossier personnel"
+msgstr "개인 폴더"
+
+msgid "/srv"
+msgstr "/srv"
+
+msgid "chemin saisi"
+msgstr "입력한 경로"
+
+msgid "absent"
+msgstr "없음"
+
+msgid "illisible (droits)"
+msgstr "읽을 수 없음 (권한)"
+
+msgid "abîmé"
+msgstr "손상됨"
+
+msgid "d'une version plus récente qu'omega-connect"
+msgstr "omega-connect보다 최신 버전의 것"
+
+msgid "non fournie (version de l'outil trop ancienne ?)"
+msgstr "제공되지 않음 (도구 버전이 너무 오래됨?)"
+
+msgid "non obtenue"
+msgstr "받지 못함"
+
+msgid "illisible"
+msgstr "읽을 수 없음"
+
+msgid "active"
+msgstr "활성"
+
+msgid "désactivée"
+msgstr "비활성화"
+
+msgid "absente"
+msgstr "없음"
+
+msgid "inconnue"
+msgstr "알 수 없음"
+
+#, python-brace-format
+msgid "registre des instances omega-serv illisible : {detail}"
+msgstr "omega-serv 인스턴스 레지스트리를 읽을 수 없습니다: {detail}"
+
+#, python-brace-format
+msgid "instance omega-serv enregistrée mais dossier disparu : {detail}"
+msgstr "omega-serv 인스턴스가 등록되어 있지만 폴더가 사라졌습니다: {detail}"
+
+#, python-brace-format
+msgid "fichier de service illisible : {detail}"
+msgstr "서비스 파일을 읽을 수 없습니다: {detail}"
+
+#, python-brace-format
+msgid "service {detail} : dossier d'installation introuvable"
+msgstr "서비스 {detail}: 설치 폴더를 찾을 수 없습니다"
+
+#, python-brace-format
+msgid "recherche arrêtée (trop de dossiers) dans {detail}"
+msgstr "검색 중단 (폴더가 너무 많음): {detail}"
+
+#, python-brace-format
+msgid "montage réseau non parcouru : {detail}"
+msgstr "탐색하지 않은 네트워크 마운트: {detail}"
+
+#, python-brace-format
+msgid "dossier introuvable : {detail}"
+msgstr "폴더를 찾을 수 없습니다: {detail}"
+
+#, python-brace-format
+msgid "aucun outil omega dans : {detail}"
+msgstr "omega 도구가 없습니다: {detail}"
+
+#, python-brace-format
+msgid "créez-le sous le compte {owner} : {command}"
+msgstr "{owner} 계정으로 만드세요: {command}"
+
+msgid "outil inconnu"
+msgstr "알 수 없는 도구"
+
+#, python-brace-format
+msgid "trouvé par : {sources}"
+msgstr "찾은 경로: {sources}"
+
+#, python-brace-format
+msgid "propriétaire : {owner}"
+msgstr "소유자: {owner}"
+
+#, python-brace-format
+msgid "service : {names}"
+msgstr "서비스: {names}"
+
+#, python-brace-format
+msgid "jeton : présent (identifiant {identifier}, version {version})"
+msgstr "토큰: 있음 (식별자 {identifier}, 버전 {version})"
+
+#, python-brace-format
+msgid "jeton : {state}"
+msgstr "토큰: {state}"
+
+#, python-brace-format
+msgid "fiche : {state}"
+msgstr "정보 시트: {state}"
+
+#, python-brace-format
+msgid "détail technique : {detail}"
+msgstr "기술 세부 정보: {detail}"
+
+#, python-brace-format
+msgid "fiche : instance {instance}"
+msgstr "정보 시트: 인스턴스 {instance}"
+
+#, python-brace-format
+msgid "service {manager} ({state})"
+msgstr "{manager} 서비스 ({state})"
+
+msgid "partielle (sans root)"
+msgstr "부분 (root 없이)"
+
+#, python-brace-format
+msgid "fonctions : {states}"
+msgstr "기능: {states}"
+
+#, python-brace-format
+msgid "Détection des outils omega (HOME examiné : {home})"
+msgstr "omega 도구 감지 (검사한 HOME: {home})"
+
+msgid "Aucun outil omega trouvé. Indiquez un dossier avec --chemin."
+msgstr "omega 도구를 찾지 못했습니다. --chemin으로 폴더를 지정하세요."
+
+#, python-brace-format
+msgid ""
+"Identifiant en double {identifier} : {roots} (dossier copié à la main ?). "
+"Ces installations ne sont pas fusionnées ; ouvrez la copie une fois pour lui"
+" donner un nouvel identifiant."
+msgstr ""
+"중복된 식별자 {identifier}: {roots} (폴더를 직접 복사했나요?). 이 설치들은 합쳐지지 않습니다. 복사본을 한 번 열어"
+" 새 식별자를 받게 하세요."
+
+msgid "Remarques sur la recherche :"
+msgstr "검색 관련 참고 사항:"
+
+#, python-brace-format
+msgid "{count} installation(s) trouvée(s)."
+msgstr "설치 {count}개를 찾았습니다."
+
+msgid "Détectée"
+msgstr "감지됨"
+
+msgid "Inscrite"
+msgstr "등록됨"
+
+msgid "Reliée"
+msgstr "연결됨"
+
+msgid "À réparer"
+msgstr "복구 필요"
+
+msgid "Ancienne version"
+msgstr "구버전"
+
+msgid "Installation inachevée"
+msgstr "설치 미완료"
+
+msgid "Injoignable"
+msgstr "응답 없음"
+
+msgid "trouvée, sans carte d'identité : la Synchronisation la lui crée"
+msgstr "찾았지만 ID 카드가 없음: 동기화가 만들어 줍니다"
+
+msgid ""
+"a sa carte d'identité, pas encore dans l'espace partagé : la Synchronisation"
+" l'y ajoute"
+msgstr "ID 카드는 있지만 아직 공유 공간에 없음: 동기화가 추가합니다"
+
+msgid "dans l'espace partagé, à jour"
+msgstr "공유 공간에 있으며 최신 상태"
+
+msgid "un écart : Réparer le corrige"
+msgstr "불일치 있음: 복구가 해결합니다"
+
+msgid "trop ancienne pour avoir une carte d'identité : mettez-la à jour"
+msgstr "ID 카드를 갖기에는 너무 오래됨: 업데이트하세요"
+
+msgid ""
+"installée, mais son install.sh ne s'est pas terminé (environnement Python ou"
+" carte d'identité manquants) : « Réinstaller l'application » (Registre)"
+msgstr ""
+"설치되었지만 install.sh가 끝나지 않았습니다 (Python 환경 또는 ID 카드 없음): “애플리케이션 재설치” (레지스트리)"
+
+msgid "machine qui ne répond pas"
+msgstr "응답하지 않는 머신"
+
+#, python-brace-format
+msgid ""
+"trop ancienne pour avoir une carte d'identité : {tool} {version} ou plus "
+"récent requis (machine distante : Synchronisation la met à jour depuis "
+"GitHub)"
+msgstr ""
+"ID 카드를 갖기에는 너무 오래됨: {tool} {version} 이상 필요 (원격 머신: 동기화가 GitHub에서 업데이트합니다)"
+
+msgid "pas encore préparé — la Synchronisation le prépare"
+msgstr "아직 준비되지 않음 — 동기화가 준비합니다"
+
+msgid "prêt"
+msgstr "준비됨"
+
+msgid "à corriger — la Synchronisation le remet en état"
+msgstr "수정 필요 — 동기화가 바로잡습니다"
+
+msgid "prêt (lu avec votre autorisation)"
+msgstr "준비됨 (승인을 받아 읽음)"
+
+msgid ""
+"état inconnu depuis cette session — la Synchronisation le lira avec votre "
+"autorisation"
+msgstr "이 세션에서는 상태를 알 수 없음 — 동기화가 승인을 받아 읽습니다"
+
+#, python-brace-format
+msgid "Registre — machine {machine}"
+msgstr "레지스트리 — 머신 {machine}"
+
+msgid "Aucune application omega trouvée sur cette machine."
+msgstr "이 머신에서 omega 애플리케이션을 찾지 못했습니다."
+
+#, python-brace-format
+msgid "Espace partagé : {status}"
+msgstr "공유 공간: {status}"
+
+msgid "Synchroniser : un seul plan, un seul mot de passe administrateur"
+msgstr "동기화: 하나의 계획, 관리자 비밀번호 한 번"
+
+msgid "Rien à faire : tout est déjà synchronisé."
+msgstr "할 일 없음: 모두 이미 동기화되어 있습니다."
+
+msgid ""
+"1. Cartes d'identité à créer (par chaque outil, sous son compte, sans mot de"
+" passe) :"
+msgstr "1. 만들 ID 카드 (각 도구가 자기 계정으로, 비밀번호 없이):"
+
+msgid "aucune : chaque application choisie a déjà la sienne."
+msgstr "없음: 선택한 애플리케이션마다 이미 ID 카드가 있습니다."
+
+msgid "2. Espace partagé (en administrateur, une commande après l'autre) :"
+msgstr "2. 공유 공간 (관리자 권한으로, 명령 하나씩 차례로):"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root} (créée à l'étape 1)"
+msgstr "{root}의 ID 카드 복사 (1단계에서 만든 것)"
+
+msgid "rien : l'espace partagé est déjà à jour."
+msgstr "없음: 공유 공간이 이미 최신 상태입니다."
+
+msgid "Une commande qui n'est pas annoncée ici n'est jamais lancée."
+msgstr "여기에 표시되지 않은 명령은 절대 실행되지 않습니다."
+
+#, python-brace-format
+msgid ""
+"Arrêt : la carte d'identité de {root} n'a pas pu être créée ({error}). Rien "
+"d'autre n'a été lancé."
+msgstr "중단: {root}의 ID 카드를 만들 수 없습니다 ({error}). 다른 것은 실행하지 않았습니다."
+
+msgid "échec"
+msgstr "실패"
+
+#, python-brace-format
+msgid ""
+"Arrêt avant l'espace partagé : le plan a changé ({step}). Rien de plus n'a "
+"été lancé ; relancez la synchronisation pour voir le nouveau plan."
+msgstr ""
+"공유 공간 전에 중단: 계획이 바뀌었습니다 ({step}). 더 이상 실행하지 않았습니다. 새 계획을 보려면 동기화를 다시 실행하세요."
+
+#, python-brace-format
+msgid ""
+"Arrêt à l'étape « {step} » : {error}. Ce qui a été créé est noté ; relancez "
+"la synchronisation après avoir corrigé la cause."
+msgstr "“{step}” 단계에서 중단: {error}. 만들어진 것은 기록되었습니다. 원인을 해결한 후 동기화를 다시 실행하세요."
+
+msgid "Synchronisation terminée : les applications choisies sont reliées."
+msgstr "동기화 완료: 선택한 애플리케이션이 연결되었습니다."
+
+msgid "DÉMARRAGE RAPIDE"
+msgstr "빠른 시작"
+
+msgid "RACCOURCIS"
+msgstr "바로 가기"
+
+msgid "Aide d’omega-connect"
+msgstr "omega-connect 도움말"
+
+msgid "Aide complète : chaque menu, sa fonction et le détail."
+msgstr "전체 도움말: 각 메뉴, 그 기능과 세부 내용."
+
+msgid "Démarrage rapide"
+msgstr "빠른 시작"
+
+msgid "Raccourcis"
+msgstr "단축키"
+
+msgid "Touche"
+msgstr "키"
+
+msgid "Action"
+msgstr "작업"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — aide."
+msgstr "OMEGA-CONNECT {version} — 도움말."
+
+msgid "Aide - Omega-Connect"
+msgstr "도움말 - Omega-Connect"
+
+msgid ""
+"Interconnecteur de la suite omega : détecte les outils installés, vérifie et"
+" attribue les droits entre eux."
+msgstr "omega 제품군 연결 도구: 설치된 도구를 감지하고, 도구 간 권한을 확인하고 부여합니다."
+
+msgid "commandes"
+msgstr "명령"
+
+msgid "COMMANDE"
+msgstr "명령"
+
+msgid "Cherche les outils omega installés (lecture seule, sans root)."
+msgstr "설치된 omega 도구를 찾습니다 (읽기 전용, root 없이)."
+
+msgid ""
+"Cherche les outils omega installés : registre d'omega-serv, services systemd"
+" / OpenRC / runit, HOME (3 niveaux), /srv (2 niveaux) et chemins saisis. Ne "
+"suit jamais un lien symbolique ni un montage réseau. Lit le jeton de chaque "
+"installation et demande sa fiche à l'outil, sous le compte propriétaire du "
+"dossier."
+msgstr ""
+"설치된 omega 도구를 찾습니다: omega-serv 레지스트리, systemd / OpenRC / runit 서비스, HOME "
+"(3단계), /srv (2단계), 입력한 경로. 심볼릭 링크나 네트워크 마운트는 절대 따라가지 않습니다. 각 설치의 토큰을 읽고, 폴더 "
+"소유자 계정으로 도구에 정보 시트를 요청합니다."
+
+msgid "DOSSIER"
+msgstr "폴더"
+
+msgid "Dossier d'installation à examiner en plus (option répétable)."
+msgstr "추가로 검사할 설치 폴더 (반복 가능한 옵션)."
+
+msgid ""
+"Ne demande pas la fiche aux outils (plus rapide, aucune commande lancée)."
+msgstr "도구에 정보 시트를 요청하지 않습니다 (더 빠름, 명령을 실행하지 않음)."
+
+msgid "texte (défaut, traduit) ou json (pour les scripts, jamais traduit)."
+msgstr "텍스트 (기본값, 번역됨) 또는 json (스크립트용, 번역 안 됨)."
+
+msgid "Vérifie les liens existants entre outils (lecture seule, sans root)."
+msgstr "도구 간 기존 연결을 확인합니다 (읽기 전용, root 없이)."
+
+msgid ""
+"Détecte les outils (avec leur fiche), puis contrôle chaque lien : journaux "
+"d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers"
+" la liste noire, liste protégée, droits de la liste noire, fichiers d'omega-"
+"jail dans fail2ban, jetons. Chaque écart affiche la commande qui le "
+"corrigerait, sans jamais la lancer. Code de sortie : 0 sans écart, 1 si un "
+"lien est cassé ou dégradé."
+msgstr ""
+"도구를 (정보 시트와 함께) 감지한 다음 각 연결을 점검합니다: omega-jail의 jail이 읽는 omega-serv와 magnet "
+"로그, 블랙리스트로 가는 fail2ban 브리지, 보호 목록, 블랙리스트 권한, fail2ban 안의 omega-jail 파일, 토큰. "
+"불일치마다 이를 고칠 명령을 표시하지만 절대 실행하지 않습니다. 종료 코드: 불일치가 없으면 0, 연결이 끊기거나 저하되었으면 1."
+
+msgid "Affiche aussi les contrôles conformes."
+msgstr "정상인 점검 항목도 표시합니다."
+
+msgid ""
+"Ouvre le tableau de bord (défaut sans commande) : outils, liens et leur "
+"état, en lecture seule."
+msgstr "대시보드를 엽니다 (명령 없을 때 기본값): 도구, 연결과 그 상태를 읽기 전용으로."
+
+msgid ""
+"Tableau de bord en lecture seule : outils et instances, état de chaque lien,"
+" contrôles et commandes de correction (jamais lancées). Nouvelle "
+"vérification à intervalle régulier tant que l'écran est ouvert."
+msgstr ""
+"읽기 전용 대시보드: 도구와 인스턴스, 각 연결의 상태, 점검 항목과 수정 명령 (절대 실행하지 않음). 화면이 열려 있는 동안 일정 "
+"간격으로 다시 확인합니다."
+
+msgid ""
+"Crée la zone neutre et y recopie jetons et fiches (root, après accord)."
+msgstr "중립 영역을 만들고 토큰과 정보 시트를 복사합니다 (root, 승인 후)."
+
+msgid ""
+"Crée le groupe omega-synchro et la zone neutre (/var/lib/omega-synchro, "
+"2750), vous ajoute au groupe, recopie le jeton et la fiche de chaque outil "
+"détecté, et inscrit tout au registre. Relancée, elle actualise les copies. "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"omega-synchro 그룹과 중립 영역(/var/lib/omega-synchro, 2750)을 만들고, 사용자를 그룹에 추가하고, "
+"감지된 각 도구의 토큰과 정보 시트를 복사하고, 모두 레지스트리에 기록합니다. 다시 실행하면 복사본을 갱신합니다. 각 명령은 sudo로 "
+"실행하기 전에 표시됩니다."
+
+msgid ""
+"Défait ce qu'omega-connect a créé : un outil désinstallé, ou toute la zone "
+"(root, après accord)."
+msgstr "omega-connect가 만든 것을 되돌립니다: 제거된 도구 하나, 또는 영역 전체 (root, 승인 후)."
+
+msgid ""
+"« retirer CIBLE » enlève de la zone un outil désinstallé (nom, dossier ou 8 "
+"premiers caractères de l'identifiant). « retirer --tout » défait exactement "
+"ce que le registre liste, ou garde la zone telle quelle (liens figés). "
+"Chaque commande est affichée avant d'être lancée avec sudo."
+msgstr ""
+"“retirer 대상”은 제거된 도구를 영역에서 뺍니다 (이름, 폴더 또는 식별자의 앞 8자). “retirer --tout”은 "
+"레지스트리에 나열된 것만 정확히 되돌리거나, 영역을 그대로 둡니다 (연결 고정). 각 명령은 sudo로 실행하기 전에 표시됩니다."
+
+msgid "CIBLE"
+msgstr "대상"
+
+msgid "Outil à retirer de la zone."
+msgstr "영역에서 뺄 도구."
+
+msgid "Toute la zone (question : garder ou tout retirer)."
+msgstr "영역 전체 (질문: 유지 또는 모두 제거)."
+
+msgid "Avec --tout : garder la zone, liens figés (rien n'est supprimé)."
+msgstr "--tout과 함께: 영역 유지, 연결 고정 (아무것도 삭제하지 않음)."
+
+msgid "Avec --tout : tout retirer, sans question."
+msgstr "--tout과 함께: 묻지 않고 모두 제거."
+
+msgid ""
+"Recherche les applications omega de cette machine et met à jour le registre "
+"(lecture seule)."
+msgstr "이 머신의 omega 애플리케이션을 찾아 레지스트리를 업데이트합니다 (읽기 전용)."
+
+msgid ""
+"Lecture seule, sans mot de passe : chaque application trouvée, son service "
+"et son état (Détectée, Inscrite, Reliée, À réparer, Ancienne version, "
+"Installation inachevée). Le résultat est enregistré dans le registre du parc"
+" (var/parc.json)."
+msgstr ""
+"읽기 전용, 비밀번호 없음: 찾은 각 애플리케이션, 그 서비스와 상태(감지됨, 등록됨, 연결됨, 복구 필요, 구버전, 설치 미완료). "
+"결과는 머신 레지스트리(var/parc.json)에 저장됩니다."
+
+msgid "UTILISATEUR@MACHINE"
+msgstr "사용자@머신"
+
+msgid ""
+"Machine distante à scanner par SSH avec vos clés (rien n'y est installé) ; "
+"sans cible : cette machine."
+msgstr "SSH와 사용자 키로 스캔할 원격 머신 (아무것도 설치하지 않음). 대상이 없으면: 이 머신."
+
+msgid "MACHINE"
+msgstr "MACHINE"
+
+msgid ""
+"Retire une machine distante du registre (nom, adresse ou "
+"utilisateur@adresse) ; rien n'est modifié sur elle."
+msgstr "레지스트리에서 원격 머신을 제거합니다 (이름, 주소 또는 사용자@주소). 그 머신에서는 아무것도 바꾸지 않습니다."
+
+msgid ""
+"Liste les machines que cet ordinateur sait déjà joindre (profils Unison, "
+"~/.ssh/config, known_hosts)."
+msgstr ""
+"이 컴퓨터가 이미 접속할 수 있는 머신을 나열합니다 (Unison 프로필, ~/.ssh/config, known_hosts)."
+
+msgid ""
+"Remet en place les liens de ce qui est installé : cartes d'identité, espace "
+"partagé, accès des services — un seul plan."
+msgstr "설치된 것의 연결을 복구합니다: ID 카드, 공유 공간, 서비스 접근 — 하나의 계획으로."
+
+msgid ""
+"Une seule action (décision de l'auteur) : recrée les cartes d'identité qui "
+"manquent (commande de chaque outil, sous son compte), prépare l'espace "
+"partagé, y recopie les cartes et donne l'accès aux services. Tout est "
+"affiché avant d'agir ; un seul mot de passe administrateur. Sans CIBLE : "
+"toutes les applications de la machine."
+msgstr ""
+"단 하나의 작업 (개발자 결정): 없는 ID 카드를 다시 만들고 (각 도구의 명령, 자기 계정으로), 공유 공간을 준비하고, 카드를 "
+"복사하고, 서비스에 접근 권한을 줍니다. 작업 전에 모두 표시되며, 관리자 비밀번호는 한 번만 묻습니다. 대상이 없으면: 이 머신의 모든"
+" 애플리케이션."
+
+msgid ""
+"Application à synchroniser : nom (omega-fire) ou dossier ; plusieurs "
+"possibles."
+msgstr "동기화할 애플리케이션: 이름 (omega-fire) 또는 폴더. 여러 개 가능."
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; option "
+"répétable) : réparer puis synchroniser, sans rien taper là-bas (une "
+"application trop ancienne : mettre-a-jour d'abord)."
+msgstr ""
+"이미 스캔한 원격 머신 (이름, 주소 또는 사용자@머신. 반복 가능한 옵션): 복구 후 동기화, 그곳에서 아무것도 입력할 필요 없음 "
+"(너무 오래된 애플리케이션: 먼저 mettre-a-jour)."
+
+msgid ""
+"Toutes les machines distantes du registre, une à une (un mot de passe par "
+"machine)."
+msgstr "레지스트리의 모든 원격 머신, 하나씩 차례로 (머신마다 비밀번호 한 번)."
+
+msgid ""
+"Met à jour les applications trop anciennes d'une machine distante, depuis "
+"leur Release GitHub (rien d'autre)."
+msgstr "원격 머신의 너무 오래된 애플리케이션을 GitHub Release에서 업데이트합니다 (다른 작업은 하지 않음)."
+
+msgid ""
+"Archive prise sur GitHub, empreinte vérifiée avec sha.txt, puis installée "
+"sur la machine (comme la section « Mise à jour » du README de l'outil). Ne "
+"répare ni ne synchronise : voir synchroniser."
+msgstr ""
+"GitHub에서 받은 아카이브를 sha.txt로 해시 확인한 후 머신에 설치합니다 (도구 README의 “업데이트” 절과 같은 방식). "
+"복구나 동기화는 하지 않습니다: synchroniser 참고."
+
+msgid ""
+"Machine distante déjà scannée (nom, adresse ou utilisateur@machine ; "
+"répétable)."
+msgstr "이미 스캔한 원격 머신 (이름, 주소 또는 사용자@머신. 반복 가능)."
+
+msgid "Toutes les machines distantes du registre, une à une."
+msgstr "레지스트리의 모든 원격 머신, 하나씩 차례로."
+
+msgid ""
+"Corrige les écarts trouvés par verifier avec la commande de l'outil qui les "
+"possède (root, après accord)."
+msgstr "verifier가 찾은 불일치를 해당 파일을 소유한 도구의 명령으로 고칩니다 (root, 승인 후)."
+
+msgid ""
+"Ne corrige que ce qu'un outil sait corriger lui-même (omega-jail --apply "
+"--update, omega-serv service permissions, synchro jeton de chaque outil) et "
+"ce que le registre de la zone dit qu'omega-connect a créé (plan d'etablir, "
+"affiché à son tour). omega-connect ne réécrit jamais le fichier d'un autre "
+"outil : le reste est affiché, à faire à la main. Chaque commande est "
+"affichée avant d'être lancée."
+msgstr ""
+"도구가 스스로 고칠 수 있는 것 (omega-jail --apply --update, omega-serv service "
+"permissions, 각 도구의 synchro jeton)과 영역 레지스트리에 omega-connect가 만들었다고 기록된 것 "
+"(etablir 계획, 이어서 표시됨)만 고칩니다. omega-connect는 다른 도구의 파일을 절대 다시 쓰지 않습니다: 나머지는 "
+"표시만 하며 직접 해야 합니다. 각 명령은 실행 전에 표시됩니다."
+
+msgid ""
+"Machine distante déjà scannée : réparée depuis ici, rien à taper là-bas "
+"(répétable)."
+msgstr "이미 스캔한 원격 머신: 여기서 복구하며, 그곳에서 입력할 것은 없습니다 (반복 가능)."
+
+msgid ""
+"Rapport complet : outils, jetons, fiches, liens et tous leurs contrôles, "
+"zone et registre (lecture seule)."
+msgstr "전체 보고서: 도구, 토큰, 정보 시트, 연결과 모든 점검 항목, 영역과 레지스트리 (읽기 전용)."
+
+msgid ""
+"Tout ce qu'omega-connect sait à cet instant, en lecture seule et sans root :"
+" outils et instances, jetons, fiches, chaque lien avec tous ses contrôles et"
+" les commandes de correction, remarques de la recherche, zone neutre et son "
+"registre. Affiché, ou enregistré dans var/exports/ avec --enregistrer."
+msgstr ""
+"omega-connect가 지금 알고 있는 모든 것, 읽기 전용이며 root 없이: 도구와 인스턴스, 토큰, 정보 시트, 각 연결과 모든"
+" 점검 항목 및 수정 명령, 검색 관련 참고 사항, 중립 영역과 그 레지스트리. 화면에 표시하거나, --enregistrer로 "
+"var/exports/에 저장합니다."
+
+msgid ""
+"texte (défaut, traduit), json (jamais traduit) ou html (page autonome)."
+msgstr "텍스트 (기본값, 번역됨), json (번역 안 됨) 또는 html (독립 페이지)."
+
+msgid "Thème de la page HTML."
+msgstr "HTML 페이지 테마."
+
+msgid "Enregistre dans var/exports/ au lieu d'afficher, et donne le chemin."
+msgstr "표시하는 대신 var/exports/에 저장하고 경로를 알려 줍니다."
+
+msgid "Affiche seulement les commandes, sans rien lancer."
+msgstr "명령만 표시하고 아무것도 실행하지 않습니다."
+
+msgid "Lance sans demander l'accord (les commandes restent affichées)."
+msgstr "승인을 묻지 않고 실행합니다 (명령은 계속 표시됨)."
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro (il ne compte qu'après "
+"une reconnexion) : lecture de la zone avec sudo (find, stat, cat)."
+msgstr ""
+"세션에 아직 omega-synchro 그룹이 없습니다 (다시 로그인해야 적용됨): sudo로 영역을 읽습니다 (find, stat, "
+"cat)."
+
+msgid "Authentification sudo refusée ou annulée : rien n'est fait."
+msgstr "sudo 인증이 거부되거나 취소되었습니다: 아무것도 하지 않았습니다."
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) en root ? [o/N] "
+msgstr "이 명령 {count}개를 root로 실행할까요? [y/N] "
+
+msgid "Authentification sudo refusée ou annulée : rien n'a été lancé."
+msgstr "sudo 인증이 거부되거나 취소되었습니다: 아무것도 실행하지 않았습니다."
+
+msgid ""
+"Pas de terminal pour poser la question : relancez avec --garder-zone ou "
+"--effacer."
+msgstr "질문할 터미널이 없습니다: --garder-zone 또는 --effacer로 다시 실행하세요."
+
+msgid "Garder la zone (liens figés) [g], tout retirer [t], ou annuler [a] ? "
+msgstr "영역 유지 (연결 고정) [g], 모두 제거 [t], 또는 취소 [a]? "
+
+msgid ""
+"Pas de terminal pour demander l'accord : relancez avec --oui, ou "
+"--simulation."
+msgstr "승인을 요청할 터미널이 없습니다: --oui 또는 --simulation으로 다시 실행하세요."
+
+msgid "Abandon : rien n'a été lancé."
+msgstr "중단: 아무것도 실행하지 않았습니다."
+
+#, python-brace-format
+msgid "Lancer ces {count} commande(s) ? [o/N] "
+msgstr "이 명령 {count}개를 실행할까요? [y/N] "
+
+msgid ""
+"Zone neutre : plan d'« etablir » (seulement ce que le registre dit avoir "
+"créé)."
+msgstr "중립 영역: “etablir” 계획 (레지스트리에 만들었다고 기록된 것만)."
+
+#, python-brace-format
+msgid "Registre du parc non enregistré : {error}"
+msgstr "머신 레지스트리를 저장하지 못했습니다: {error}"
+
+msgid "Saisissez utilisateur@machine (nom ou adresse), sans espace ni option."
+msgstr "사용자@머신 (이름 또는 주소)을 공백이나 옵션 없이 입력하세요."
+
+msgid "Pas de terminal pour demander la confiance : rien n'a été fait."
+msgstr "신뢰 여부를 물을 터미널이 없습니다: 아무것도 하지 않았습니다."
+
+msgid "Faire confiance à cette machine ? [o/N] "
+msgstr "이 머신을 신뢰할까요? [y/N] "
+
+msgid "Rien n'a été fait."
+msgstr "아무것도 하지 않았습니다."
+
+msgid "Impossible d'ajouter la clé à ~/.ssh/known_hosts."
+msgstr "~/.ssh/known_hosts에 키를 추가할 수 없습니다."
+
+#, python-brace-format
+msgid "Aucune application ne correspond à : {targets}"
+msgstr "일치하는 애플리케이션이 없습니다: {targets}"
+
+msgid "Lancer ce plan ? [o/N] "
+msgstr "이 계획을 실행할까요? [y/N] "
+
+msgid "Authentification refusée ou annulée : rien n'a été lancé."
+msgstr "인증이 거부되거나 취소되었습니다: 아무것도 실행하지 않았습니다."
+
+#, python-brace-format
+msgid "Machine inconnue ou mal écrite : {target}"
+msgstr "알 수 없거나 잘못 입력한 머신: {target}"
+
+msgid ""
+"Aucune machine distante dans le registre : scannez-en une d'abord (scanner "
+"utilisateur@machine)."
+msgstr "레지스트리에 원격 머신이 없습니다: 먼저 하나를 스캔하세요 (scanner 사용자@머신)."
+
+#, python-brace-format
+msgid ""
+"{target} : clé de la machine pas encore acceptée, ou machine injoignable — "
+"scannez-la d'abord (scanner {target})."
+msgstr ""
+"{target}: 머신의 키를 아직 수락하지 않았거나 머신에 연결할 수 없습니다 — 먼저 스캔하세요 (scanner {target})."
+
+#, python-brace-format
+msgid "Lancer sur {name} ? [o/N] "
+msgstr "{name}에서 실행할까요? [y/N] "
+
+#, python-brace-format
+msgid "Rien n'a été lancé sur {name}."
+msgstr "{name}에서 아무것도 실행하지 않았습니다."
+
+msgid "Indiquez soit un outil à retirer, soit --tout."
+msgstr "제거할 도구 또는 --tout 중 하나를 지정하세요."
+
+msgid "--garder-zone et --effacer vont avec --tout."
+msgstr "--garder-zone과 --effacer는 --tout과 함께 씁니다."
+
+msgid "Machines distantes indisponibles ici."
+msgstr "여기서는 원격 머신을 사용할 수 없습니다."
+
+msgid "Indiquez --machine MACHINE ou --toutes-machines."
+msgstr "--machine 머신 또는 --toutes-machines를 지정하세요."
+
+#, python-brace-format
+msgid "Aucune machine distante du registre ne correspond à : {target}"
+msgstr "일치하는 레지스트리 원격 머신이 없습니다: {target}"
+
+#, python-brace-format
+msgid "{machine} retirée du registre (rien n'a été modifié sur elle)."
+msgstr "{machine}을(를) 레지스트리에서 제거했습니다 (그 머신에서는 아무것도 바꾸지 않았습니다)."
+
+#, python-brace-format
+msgid "Rapport enregistré : {path}"
+msgstr "보고서 저장됨: {path}"
+
+#, python-brace-format
+msgid "aucune version publiée sur GitHub ({url})"
+msgstr "GitHub에 게시된 버전이 없습니다 ({url})"
+
+msgid "GitHub ne répond pas depuis cet ordinateur (réseau)"
+msgstr "이 컴퓨터에서 GitHub가 응답하지 않습니다 (네트워크)"
+
+msgid "l'archive n'est pas citée dans sha.txt de la Release : refusée"
+msgstr "아카이브가 Release의 sha.txt에 없습니다: 거부됨"
+
+msgid "empreinte différente de sha.txt : archive refusée, rien n'est envoyé"
+msgstr "해시가 sha.txt와 다릅니다: 아카이브 거부, 아무것도 보내지 않습니다"
+
+msgid "fichier trop volumineux pour une archive d'outil : refusé"
+msgstr "도구 아카이브로 보기에는 파일이 너무 큽니다: 거부됨"
+
+#, python-brace-format
+msgid ""
+"la dernière version publiée sur GitHub ({latest}) est encore trop ancienne"
+msgstr "GitHub에 게시된 최신 버전({latest})도 여전히 너무 오래되었습니다"
+
+msgid "extraction par-dessus, puis son install.sh"
+msgstr "덮어써서 압축을 푼 다음 install.sh 실행"
+
+msgid ""
+"ancienne installation mise de côté (sudo mv), nouvelle à sa place, puis son "
+"install.sh qui reprend réglages et données"
+msgstr ""
+"이전 설치를 따로 보관하고 (sudo mv), 새 설치를 그 자리에 둔 다음, install.sh가 설정과 데이터를 가져옵니다"
+
+msgid "Commande"
+msgstr "명령"
+
+msgid "Mise à jour"
+msgstr "업데이트"
+
+msgid "Réparer"
+msgstr "복구"
+
+msgid "Synchroniser"
+msgstr "동기화"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} ({root}) : réinstallation (installation inachevée) — {how}"
+msgstr "{tool} {version} ({root}): 재설치 (설치 미완료) — {how}"
+
+msgid "(installation inachevée)"
+msgstr "(설치 미완료)"
+
+#, python-brace-format
+msgid "{head} → {latest} ({root}) : {how}"
+msgstr "{head} → {latest} ({root}): {how}"
+
+#, python-brace-format
+msgid "{head} ({root}) : pas de mise à jour possible — {reason}"
+msgstr "{head} ({root}): 업데이트할 수 없음 — {reason}"
+
+#, python-brace-format
+msgid ""
+"Tout se passe dans ce terminal : le mot de passe sudo de {name} est demandé "
+"par la machine elle-même, une fois ; omega-connect ne le voit jamais."
+msgstr ""
+"모든 작업이 이 터미널에서 이루어집니다: {name}의 sudo 비밀번호는 그 머신이 직접 한 번 묻습니다. omega-connect는 "
+"비밀번호를 절대 보지 않습니다."
+
+#, python-brace-format
+msgid "Réinstaller l'application — machine {name} ({target})"
+msgstr "애플리케이션 재설치 — 머신 {name} ({target})"
+
+#, python-brace-format
+msgid "Mettre à jour l'application — machine {name} ({target})"
+msgstr "애플리케이션 업데이트 — 머신 {name} ({target})"
+
+msgid ""
+"Aucune application trop ancienne sur cette machine : rien à mettre à jour."
+msgstr "이 머신에는 너무 오래된 애플리케이션이 없습니다: 업데이트할 것이 없습니다."
+
+msgid ""
+"Archives prises sur la Release GitHub de chaque application (empreinte "
+"vérifiée avec sha.txt avant tout envoi) :"
+msgstr "각 애플리케이션의 GitHub Release에서 받은 아카이브 (보내기 전에 sha.txt로 해시 확인):"
+
+msgid ""
+"Rien d'autre n'est fait. Ensuite, pour remettre les liens en place : "
+"Synchronisation."
+msgstr "다른 작업은 하지 않습니다. 그다음 연결을 복구하려면: 동기화."
+
+#, python-brace-format
+msgid "Synchroniser — machine {name} ({target})"
+msgstr "동기화 — 머신 {name} ({target})"
+
+msgid ""
+"Laissées de côté, trop anciennes (Registre → « Mettre à jour l'application »"
+" d'abord) :"
+msgstr "너무 오래되어 제외됨 (먼저 레지스트리 → “애플리케이션 업데이트”):"
+
+msgid ""
+"Rien à synchroniser : tout ce qui peut l'être est relié sur cette machine."
+msgstr "동기화할 것이 없습니다: 이 머신에서 연결할 수 있는 것은 모두 연결되어 있습니다."
+
+msgid "Réparer puis synchroniser, sur la machine. Plan :"
+msgstr "머신에서 복구 후 동기화. 계획:"
+
+msgid ""
+"L'espace partagé de cette machine n'est lisible qu'avec sudo : il sera relu "
+"au lancement."
+msgstr "이 머신의 공유 공간은 sudo로만 읽을 수 있습니다: 실행할 때 다시 읽습니다."
+
+#, python-brace-format
+msgid "Réparer — machine {name} ({target})"
+msgstr "복구 — 머신 {name} ({target})"
+
+#, python-brace-format
+msgid "« Réparer {name} » lance ces commandes SUR la machine, depuis ici."
+msgstr "“{name} 복구”는 여기에서 이 명령들을 그 머신에서 실행합니다."
+
+#, python-brace-format
+msgid ""
+"Commandes qu'aucun outil ne sait lancer — lancées AUSSI sur {name} par « "
+"Réparer {name} », une à une, après les corrections des outils (celles déjà "
+"réglées entre-temps sont sautées) :"
+msgstr ""
+"어떤 도구도 실행할 수 없는 명령 — “{name} 복구”가 도구의 수정 작업 후 {name}에서 하나씩 함께 실행합니다 (그사이 이미 "
+"해결된 것은 건너뜀):"
+
+#, python-brace-format
+msgid "Rien n'a été envoyé à {target} :"
+msgstr "{target}(으)로 아무것도 보내지 않았습니다:"
+
+#, python-brace-format
+msgid "Envoi impossible vers {target}."
+msgstr "{target}(으)로 보낼 수 없습니다."
+
+#, python-brace-format
+msgid "Résultat pour {target} :"
+msgstr "{target} 결과:"
+
+#, python-brace-format
+msgid ""
+"  ✗ aucun résultat rendu par la machine (connexion coupée, ou lancement "
+"interrompu ; code {code})."
+msgstr "  ✗ 머신이 결과를 돌려주지 않았습니다 (연결 끊김 또는 실행 중단. 코드 {code})."
+
+#, python-brace-format
+msgid "ancienne installation gardée dans {path}"
+msgstr "이전 설치를 {path}에 보관했습니다"
+
+#, python-brace-format
+msgid "(code {code})"
+msgstr "(코드 {code})"
+
+#, python-brace-format
+msgid "code {code}"
+msgstr "코드 {code}"
+
+msgid "Unison"
+msgstr "Unison"
+
+msgid "~/.ssh/config"
+msgstr "~/.ssh/config"
+
+msgid "connue de SSH"
+msgstr "SSH에 알려짐"
+
+msgid "jamais scannée"
+msgstr "스캔한 적 없음"
+
+msgid "injoignable"
+msgstr "응답 없음"
+
+msgid "répond"
+msgstr "응답함"
+
+#, python-brace-format
+msgid "{machine} — {count} application(s), {state}"
+msgstr "{machine} — 애플리케이션 {count}개, {state}"
+
+msgid ""
+"Aucune machine trouvée dans vos profils Unison, ~/.ssh/config ou "
+"known_hosts."
+msgstr "Unison 프로필, ~/.ssh/config 또는 known_hosts에서 머신을 찾지 못했습니다."
+
+#, python-brace-format
+msgid "{target} ne répond pas (machine éteinte, ou réseau coupé) : {detail}"
+msgstr "{target}이(가) 응답하지 않습니다 (머신이 꺼졌거나 네트워크가 끊김): {detail}"
+
+#, python-brace-format
+msgid ""
+"Le nom « {host} » est inconnu sur ce réseau. Utilisez l'adresse de la "
+"machine (par exemple utilisateur@192.168.1.109), ou déclarez ce nom dans "
+"/etc/hosts ou dans ~/.ssh/config (Host {host} / HostName <adresse>)."
+msgstr ""
+"이 네트워크에서 “{host}”라는 이름을 알 수 없습니다. 머신의 주소를 사용하거나 (예: 사용자@192.168.1.109), "
+"/etc/hosts 또는 ~/.ssh/config에 이 이름을 등록하세요 (Host {host} / HostName <주소>)."
+
+#, python-brace-format
+msgid ""
+"{host} répond, mais aucun serveur SSH n'y écoute (port 22). Sur cette "
+"machine : installez et démarrez openssh (sudo systemctl enable --now sshd) ;"
+" ou, s'il écoute sur un autre port, indiquez-le dans ~/.ssh/config (Host "
+"{host} / Port …)."
+msgstr ""
+"{host}은(는) 응답하지만 SSH 서버가 수신 대기하고 있지 않습니다 (포트 22). 그 머신에서 openssh를 설치하고 시작하세요"
+" (sudo systemctl enable --now sshd). 다른 포트에서 수신 대기한다면 ~/.ssh/config에 지정하세요 "
+"(Host {host} / Port …)."
+
+#, python-brace-format
+msgid ""
+"{target} refuse vos clés SSH. Ajoutez votre clé publique sur cette machine "
+"(ssh-copy-id {target}), ou chargez-la dans l'agent SSH si elle est protégée "
+"par une phrase secrète (ssh-add). omega-connect ne demande jamais de mot de "
+"passe."
+msgstr ""
+"{target}이(가) SSH 키를 거부합니다. 그 머신에 공개 키를 추가하거나 (ssh-copy-id {target}), 암호로 보호된"
+" 키라면 SSH 에이전트에 로드하세요 (ssh-add). omega-connect는 비밀번호를 절대 묻지 않습니다."
+
+#, python-brace-format
+msgid "{target} n'est pas encore connue : sa clé doit d'abord être acceptée."
+msgstr "{target}은(는) 아직 알려지지 않았습니다: 먼저 키를 수락해야 합니다."
+
+#, python-brace-format
+msgid ""
+"La clé de {target} a CHANGÉ depuis la dernière connexion : scan refusé. Si "
+"la machine a été réinstallée, retirez l'ancienne clé (ssh-keygen -R {host}) "
+"puis recommencez ; sinon, quelqu'un se fait peut-être passer pour elle."
+msgstr ""
+"마지막 연결 이후 {target}의 키가 바뀌었습니다: 스캔 거부. 머신을 다시 설치했다면 이전 키를 지우고 (ssh-keygen -R "
+"{host}) 다시 시도하세요. 그렇지 않다면 누군가 그 머신을 사칭하고 있을 수 있습니다."
+
+#, python-brace-format
+msgid ""
+"{target} n'a pas Python 3 (3.10 ou plus récent) : le scanner ne peut pas y "
+"tourner. Rien n'a été installé."
+msgstr "{target}에 Python 3 (3.10 이상)이 없습니다: 스캐너를 실행할 수 없습니다. 아무것도 설치하지 않았습니다."
+
+#, python-brace-format
+msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-bas."
+msgstr "{target} 스캔 실패 ({detail}). 그곳에서는 아무것도 바꾸지 않았습니다."
+
+#, python-brace-format
+msgid ""
+"Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
+msgstr "이 머신에 SSH 클라이언트가 없습니다 (명령 {detail}): openssh를 설치하세요."
+
+#, python-brace-format
+msgid ""
+"{target} n'a jamais été jointe depuis ce compte. Vérifiez que l'empreinte de"
+" sa clé est bien la sienne (sur la machine : ssh-keygen -lf "
+"/etc/ssh/ssh_host_ed25519_key.pub) :"
+msgstr ""
+"이 계정에서 {target}에 접속한 적이 없습니다. 키 지문이 그 머신의 것이 맞는지 확인하세요 (그 머신에서: ssh-keygen "
+"-lf /etc/ssh/ssh_host_ed25519_key.pub):"
+
+msgid "En lui faisant confiance, elle est ajoutée à votre ~/.ssh/known_hosts."
+msgstr "신뢰하면 ~/.ssh/known_hosts에 추가됩니다."
+
+msgid "Ses applications restent dans le registre, marquées « Injoignable »."
+msgstr "그 머신의 애플리케이션은 레지스트리에 “응답 없음”으로 표시된 채 남습니다."
+
+#, python-brace-format
+msgid "{machine} : {count} application(s) omega trouvée(s)."
+msgstr "{machine}: omega 애플리케이션 {count}개를 찾았습니다."
+
+msgid "Aucune machine distante pour l'instant."
+msgstr "아직 원격 머신이 없습니다."
+
+#, python-brace-format
+msgid "  · {machine} — {count} application(s), dernier scan {date} ({state})"
+msgstr "  · {machine} — 애플리케이션 {count}개, 마지막 스캔 {date} ({state})"
+
+#, python-brace-format
+msgid "{tool} crée ou met à jour son jeton d'installation ({root})"
+msgstr "{tool}이(가) 설치 토큰을 만들거나 업데이트합니다 ({root})"
+
+#, python-brace-format
+msgid ""
+"omega-serv répare les droits partagés avec le service {service} ({root})"
+msgstr "omega-serv가 {service} 서비스와 공유하는 권한을 복구합니다 ({root})"
+
+msgid ""
+"omega-jail remet à jour ce qu'il a posé dans fail2ban (contenu et droits)"
+msgstr "omega-jail이 fail2ban에 설치한 것을 업데이트합니다 (내용과 권한)"
+
+#, python-brace-format
+msgid ""
+"{root} appartient au compte {account} : à lancer sous ce compte, ou avec "
+"omega-connect en root."
+msgstr ""
+"{root}은(는) {account} 계정 소유입니다: 이 계정으로 실행하거나, omega-connect를 root로 실행하세요."
+
+#, python-brace-format
+msgid ""
+"{tool} {version} dans {root} : environnement Python ou carte d'identité "
+"manquants"
+msgstr "{root}의 {tool} {version}: Python 환경 또는 ID 카드 없음"
+
+#, python-brace-format
+msgid "{tool} {version} dans {root} : {minimum} ou plus récent requis"
+msgstr "{root}의 {tool} {version}: {minimum} 이상 필요"
+
+msgid "Réparer : corrections faites par les outils eux-mêmes"
+msgstr "복구: 도구가 직접 하는 수정"
+
+msgid "Rien à réparer : « verifier » ne signale aucun écart corrigeable."
+msgstr "복구할 것이 없습니다: “verifier”가 고칠 수 있는 불일치를 보고하지 않았습니다."
+
+msgid ""
+"Trop ancien pour être réparé (ses commandes n'existent pas encore dans cette"
+" version) ; à mettre à jour d'abord (Registre → « Mettre à jour "
+"l'application ») :"
+msgstr ""
+"너무 오래되어 복구할 수 없음 (이 버전에는 해당 명령이 아직 없음). 먼저 업데이트하세요 (레지스트리 → “애플리케이션 업데이트”):"
+
+msgid ""
+"Installation inachevée (son install.sh ne s'est pas terminé) : à réinstaller"
+" d'abord (Registre → « Réinstaller l'application ») :"
+msgstr "설치 미완료 (install.sh가 끝나지 않음). 먼저 재설치하세요 (레지스트리 → “애플리케이션 재설치”):"
+
+msgid "Commandes qui seront lancées, une à une (arrêt au premier échec) :"
+msgstr "하나씩 실행될 명령 (첫 실패 시 중단):"
+
+msgid "en root"
+msgstr "root로"
+
+#, python-brace-format
+msgid "sous le compte {account}"
+msgstr "{account} 계정으로"
+
+msgid ""
+"Zone neutre : « etablir » corrige ce que le registre dit avoir créé ; son "
+"plan sera affiché ensuite, avant tout lancement :"
+msgstr "중립 영역: “etablir”가 레지스트리에 만들었다고 기록된 것을 고칩니다. 그 계획은 실행 전에 이어서 표시됩니다:"
+
+msgid ""
+"Ensuite : « etablir » reliera à la zone les outils dont le jeton vient "
+"d'être créé ; son plan sera affiché avant tout lancement."
+msgstr "그다음: “etablir”가 방금 토큰이 만들어진 도구들을 영역에 연결합니다. 그 계획은 실행 전에 표시됩니다."
+
+msgid ""
+"Zone neutre : illisible sans sudo avant votre reconnexion, son état n'est "
+"pas connu. « etablir » va la lire avec sudo et ne fera que ce qui manque "
+"(outils pas encore reliés, copies, groupe du service) ; son plan sera "
+"affiché avant tout lancement."
+msgstr ""
+"중립 영역: 다시 로그인하기 전에는 sudo 없이 읽을 수 없어 상태를 알 수 없습니다. “etablir”가 sudo로 읽고 빠진 것만 "
+"합니다 (아직 연결되지 않은 도구, 복사본, 서비스 그룹). 그 계획은 실행 전에 표시됩니다."
+
+msgid "Non lancé depuis cette session :"
+msgstr "이 세션에서 실행하지 않음:"
+
+msgid ""
+"À faire à la main (aucun outil ne sait le corriger lui-même ; omega-connect "
+"ne réécrit jamais le fichier d'un autre outil) :"
+msgstr ""
+"직접 해야 할 것 (어떤 도구도 스스로 고칠 수 없음. omega-connect는 다른 도구의 파일을 절대 다시 쓰지 않습니다):"
+
+msgid "À décider (jamais lancé par « reparer ») :"
+msgstr "결정 필요 (“reparer”는 절대 실행하지 않음):"
+
+msgid "code"
+msgstr "코드"
+
+#, python-brace-format
+msgid ""
+"Terminé : {count} commande(s) lancée(s), toutes réussies. Relancez « "
+"verifier » pour constater."
+msgstr "완료: 명령 {count}개 실행, 모두 성공. 확인하려면 “verifier”를 다시 실행하세요."
+
+#, python-brace-format
+msgid "Arrêt à l'étape « {step} » : {error}"
+msgstr "“{step}” 단계에서 중단: {error}"
+
+msgid ""
+"Rien d'autre n'a été lancé. Relancez « reparer » après avoir corrigé la "
+"cause."
+msgstr "다른 것은 실행하지 않았습니다. 원인을 해결한 후 “reparer”를 다시 실행하세요."
+
+msgid "dossier"
+msgstr "폴더"
+
+msgid "groupe"
+msgstr "그룹"
+
+msgid "membre du groupe"
+msgstr "그룹 구성원"
+
+msgid "groupe donné au service (par omega-serv)"
+msgstr "서비스에 부여된 그룹 (omega-serv가 부여)"
+
+msgid "active (synchronisée)"
+msgstr "활성 (동기화됨)"
+
+msgid "figée (plus synchronisée)"
+msgstr "고정됨 (더 이상 동기화 안 됨)"
+
+#, python-brace-format
+msgid ""
+"Pas encore d'espace partagé sur cette machine ({zone}) : la Synchronisation "
+"le prépare."
+msgstr "이 머신에는 아직 공유 공간이 없습니다 ({zone}): 동기화가 준비합니다."
+
+#, python-brace-format
+msgid ""
+"Espace partagé {zone} présent, lisible par root et le groupe omega-synchro "
+"seulement (rapport fait sans sudo ; le groupe compte après une reconnexion)."
+msgstr ""
+"공유 공간 {zone} 있음, root와 omega-synchro 그룹만 읽을 수 있음 (sudo 없이 만든 보고서. 그룹은 다시 "
+"로그인한 후 적용됨)."
+
+#, python-brace-format
+msgid "Espace partagé {zone} : registre {status} ({detail})."
+msgstr "공유 공간 {zone}: 레지스트리 {status} ({detail})."
+
+#, python-brace-format
+msgid "Espace partagé {zone} — {state} — mis à jour le {date}."
+msgstr "공유 공간 {zone} — {state} — {date}에 업데이트됨."
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : installation inachevée → « Réinstaller l'application »"
+msgstr "{tool} {version}: 설치 미완료 → “애플리케이션 재설치”"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} → {minimum} ou plus récent : « Mettre à jour l'application "
+"»"
+msgstr "{tool} {version} → {minimum} 이상: “애플리케이션 업데이트”"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} : à mettre à jour sur ce poste, section « Mise à jour » du "
+"README de l'outil"
+msgstr "{tool} {version}: 이 컴퓨터에서 업데이트하세요. 도구 README의 “업데이트” 절 참고"
+
+msgid "corrigé par l'outil lui-même (menu Réparer)"
+msgstr "도구가 직접 수정 (복구 메뉴)"
+
+#, python-brace-format
+msgid "commande à lancer sur ce poste : {command}"
+msgstr "이 컴퓨터에서 실행할 명령: {command}"
+
+#, python-brace-format
+msgid "commande lancée sur la machine par le menu Réparer : {command}"
+msgstr "복구 메뉴가 머신에서 실행하는 명령: {command}"
+
+msgid "aucune correction connue"
+msgstr "알려진 수정 방법 없음"
+
+msgid ""
+"Machines qui ne répondent plus — Scanner → « Rescanner les machines connues "
+"»"
+msgstr "더 이상 응답하지 않는 머신 — 스캔 → “알려진 머신 다시 스캔”"
+
+msgid "À réinstaller ou à mettre à jour — Registre, bouton sous la ligne"
+msgstr "재설치 또는 업데이트 필요 — 레지스트리, 행 아래 버튼"
+
+msgid "À réparer — menu Réparer"
+msgstr "복구 필요 — 복구 메뉴"
+
+msgid "À synchroniser — menu Synchronisation"
+msgstr "동기화 필요 — 동기화 메뉴"
+
+#, python-brace-format
+msgid "{machine} — {tool} : {state}"
+msgstr "{machine} — {tool}: {state}"
+
+msgid "application inconnue"
+msgstr "알 수 없는 애플리케이션"
+
+#, python-brace-format
+msgid "propriétaire : {owner} ; trouvée par : {sources}"
+msgstr "소유자: {owner}; 찾은 경로: {sources}"
+
+#, python-brace-format
+msgid "carte d'identité : {card}"
+msgstr "ID 카드: {card}"
+
+#, python-brace-format
+msgid "instance {instance}"
+msgstr "인스턴스 {instance}"
+
+#, python-brace-format
+msgid "description : {what}"
+msgstr "설명: {what}"
+
+msgid "Remarques :"
+msgstr "참고 사항:"
+
+msgid "Aucune application omega trouvée."
+msgstr "omega 애플리케이션을 찾지 못했습니다."
+
+#, python-brace-format
+msgid ""
+"{machine} — {target} — {state} — dernier scan {date} — {apps} "
+"application(s), {links} liaison(s)"
+msgstr ""
+"{machine} — {target} — {state} — 마지막 스캔 {date} — 애플리케이션 {apps}개, 연결 {links}개"
+
+#, python-brace-format
+msgid "dernière erreur : {error}"
+msgstr "마지막 오류: {error}"
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — RAPPORT COMPLET"
+msgstr "OMEGA-CONNECT {version} — 전체 보고서"
+
+#, python-brace-format
+msgid ""
+"Établi le {date} depuis {machine}, machines du réseau rescannées (lecture "
+"seule, sans root)."
+msgstr "{date}에 {machine}에서 작성, 네트워크 머신 다시 스캔함 (읽기 전용, root 없이)."
+
+msgid "BILAN"
+msgstr "요약"
+
+#, python-brace-format
+msgid "{machines} machine(s) : {machine} et {remote} du réseau."
+msgstr "머신 {machines}대: {machine} 및 네트워크 머신 {remote}대."
+
+#, python-brace-format
+msgid "{count} application(s) : {summary}."
+msgstr "애플리케이션 {count}개: {summary}."
+
+#, python-brace-format
+msgid "{count} liaison(s) : {summary}."
+msgstr "연결 {count}개: {summary}."
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : {state}."
+msgstr "{machine}의 공유 공간: {state}."
+
+msgid "À FAIRE"
+msgstr "할 일"
+
+msgid "Rien à faire : toutes les applications sont à jour et reliées."
+msgstr "할 일 없음: 모든 애플리케이션이 최신 상태이며 연결되어 있습니다."
+
+msgid "REGISTRE — APPLICATIONS PAR MACHINE"
+msgstr "레지스트리 — 머신별 애플리케이션"
+
+msgid "MACHINES DU RÉSEAU"
+msgstr "네트워크 머신"
+
+msgid "Aucune (Scanner → machine distante, pour en ajouter)."
+msgstr "없음 (추가하려면 스캔 → 원격 머신)."
+
+#, python-brace-format
+msgid "APPLICATIONS DE {machine} EN DÉTAIL"
+msgstr "{machine}의 애플리케이션 상세"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (tous les contrôles)"
+msgstr "{machine}의 연결 (모든 점검 항목)"
+
+#, python-brace-format
+msgid "LIAISONS DE {machine} (réseau, scan du {date})"
+msgstr "{machine}의 연결 (네트워크, {date} 스캔)"
+
+msgid "Aucune liaison relevée."
+msgstr "확인된 연결이 없습니다."
+
+#, python-brace-format
+msgid "ESPACE PARTAGÉ (omega-synchro) DE {machine} ET SON REGISTRE"
+msgstr "{machine}의 공유 공간 (omega-synchro)과 그 레지스트리"
+
+msgid "Créé par omega-connect :"
+msgstr "omega-connect가 만든 것:"
+
+msgid "rien"
+msgstr "없음"
+
+msgid "Applications reliées :"
+msgstr "연결된 애플리케이션:"
+
+msgid "reliée le"
+msgstr "연결 일시"
+
+msgid "conforme"
+msgstr "정상"
+
+msgid "info"
+msgstr "정보"
+
+msgid "écart"
+msgstr "불일치"
+
+msgid "non vérifiable"
+msgstr "확인 불가"
+
+msgid "partielle"
+msgstr "부분"
+
+#, python-brace-format
+msgid "instance « {instance} » — {root}"
+msgstr "인스턴스 “{instance}” — {root}"
+
+msgid "machine"
+msgstr "머신"
+
+msgid "Aucun contrôle."
+msgstr "점검 항목 없음."
+
+msgid "Rapport complet"
+msgstr "전체 보고서"
+
+#, python-brace-format
+msgid "{count} liaison(s), dont {problems} à corriger."
+msgstr "연결 {count}개, 그중 {problems}개 수정 필요."
+
+msgid "Applications"
+msgstr "애플리케이션"
+
+msgid "À faire"
+msgstr "할 일"
+
+msgid "Registre — applications par machine"
+msgstr "레지스트리 — 머신별 애플리케이션"
+
+msgid "Application"
+msgstr "애플리케이션"
+
+msgid "Instance / service"
+msgstr "인스턴스 / 서비스"
+
+msgid "Machine"
+msgstr "머신"
+
+msgid "Version"
+msgstr "버전"
+
+msgid "Dossier"
+msgstr "폴더"
+
+msgid "Machines du réseau"
+msgstr "네트워크 머신"
+
+msgid "Connexion"
+msgstr "연결"
+
+msgid "Dernier scan"
+msgstr "마지막 스캔"
+
+msgid "Dernière erreur"
+msgstr "마지막 오류"
+
+msgid "Liaisons"
+msgstr "연결"
+
+#, python-brace-format
+msgid "Applications de {machine} en détail"
+msgstr "{machine}의 애플리케이션 상세"
+
+msgid "Propriétaire"
+msgstr "소유자"
+
+msgid "Trouvée par"
+msgstr "찾은 경로"
+
+msgid "Carte d'identité"
+msgstr "ID 카드"
+
+msgid "Aucun outil omega trouvé."
+msgstr "omega 도구를 찾지 못했습니다."
+
+#, python-brace-format
+msgid "Identifiant en double {identifier} : {roots}"
+msgstr "중복된 식별자 {identifier}: {roots}"
+
+msgid "Remarques sur la recherche"
+msgstr "검색 관련 참고 사항"
+
+#, python-brace-format
+msgid "Liaisons de {machine}"
+msgstr "{machine}의 연결"
+
+#, python-brace-format
+msgid "Liaisons de {machine} (réseau, scan du {date})"
+msgstr "{machine}의 연결 (네트워크, {date} 스캔)"
+
+#, python-brace-format
+msgid "Espace partagé de {machine} et son registre"
+msgstr "{machine}의 공유 공간과 그 레지스트리"
+
+msgid "Créé le"
+msgstr "생성 일시"
+
+msgid "Élément"
+msgstr "항목"
+
+msgid "Identifiant"
+msgstr "식별자"
+
+msgid "Instance"
+msgstr "인스턴스"
+
+msgid "Reliée le"
+msgstr "연결 일시"
+
+msgid "Aucune application reliée."
+msgstr "연결된 애플리케이션이 없습니다."
+
+#, python-brace-format
+msgid "OMEGA-CONNECT {version} — rapport du {date}, établi depuis {machine}."
+msgstr "OMEGA-CONNECT {version} — {date} 보고서, {machine}에서 작성."
+
+msgid "Rapport complet - Omega-Connect"
+msgstr "전체 보고서 - Omega-Connect"
+
+msgid "Journaux d'omega-serv → jails fail2ban"
+msgstr "omega-serv 로그 → fail2ban jail"
+
+msgid "Journaux magnet (omega-waf) → jails fail2ban"
+msgstr "magnet 로그 (omega-waf) → fail2ban jail"
+
+msgid "Pont fail2ban → liste noire d'omega-serv"
+msgstr "fail2ban 브리지 → omega-serv 블랙리스트"
+
+msgid "Liste protégée → jails et pont"
+msgstr "보호 목록 → jail과 브리지"
+
+msgid "Liste noire d'omega-serv (droits)"
+msgstr "omega-serv 블랙리스트 (권한)"
+
+msgid "Fichiers d'omega-jail dans fail2ban"
+msgstr "fail2ban 안의 omega-jail 파일"
+
+msgid "Cartes d'identité"
+msgstr "ID 카드"
+
+msgid "Espace partagé (omega-synchro)"
+msgstr "공유 공간 (omega-synchro)"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "à réparer"
+msgstr "복구 필요"
+
+msgid "à réparer (bloquant)"
+msgstr "복구 필요 (차단)"
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — le dossier qui le contient n'est "
+"lisible que par root ({detail})."
+msgstr "{subject}: root 없이는 확인 불가 — 이를 담은 폴더는 root만 읽을 수 있습니다 ({detail})."
+
+msgid "fail2ban n'est pas installé : aucun jail ne protège cette instance."
+msgstr "fail2ban이 설치되어 있지 않습니다: 이 인스턴스를 보호하는 jail이 없습니다."
+
+#, python-brace-format
+msgid "dossiers de fail2ban illisibles ({detail}) : non vérifiable sans root."
+msgstr "fail2ban 폴더를 읽을 수 없습니다 ({detail}): root 없이는 확인 불가."
+
+msgid ""
+"omega-jail n'est pas installé : aucun jail fail2ban ne lit les journaux "
+"d'omega-serv."
+msgstr "omega-jail이 설치되어 있지 않습니다: omega-serv 로그를 읽는 fail2ban jail이 없습니다."
+
+msgid "aucun jail d'omega-jail pour cette instance."
+msgstr "이 인스턴스에 대한 omega-jail의 jail이 없습니다."
+
+msgid "omega-jail n'a encore posé aucun fichier dans fail2ban."
+msgstr "omega-jail이 아직 fail2ban에 파일을 설치하지 않았습니다."
+
+#, python-brace-format
+msgid "fonction {subject} désactivée : rien à relier."
+msgstr "{subject} 기능이 꺼져 있습니다: 연결할 것이 없습니다."
+
+msgid ""
+"non vérifiable : l'outil n'a pas fourni sa description (version trop "
+"ancienne, ou refusée) — voir le Registre."
+msgstr "확인 불가: 도구가 설명을 제공하지 않았습니다 (버전이 너무 오래되었거나 거부됨) — 레지스트리를 참고하세요."
+
+#, python-brace-format
+msgid "jail {subject} désactivé (enabled = false)."
+msgstr "jail {subject}이(가) 꺼져 있습니다 (enabled = false)."
+
+#, python-brace-format
+msgid ""
+"jail {subject} : filtre {detail} introuvable dans filter.d — fail2ban refuse"
+" de démarrer."
+msgstr ""
+"jail {subject}: filter.d에서 필터 {detail}을(를) 찾을 수 없습니다 — fail2ban이 시작되지 않습니다."
+
+#, python-brace-format
+msgid "journal {subject} présent ({detail})."
+msgstr "로그 {subject} 있음 ({detail})."
+
+#, python-brace-format
+msgid ""
+"journal {subject} absent (jail {detail}) : fail2ban refuse de démarrer tant "
+"qu'il manque."
+msgstr "로그 {subject} 없음 (jail {detail}): 로그가 없는 동안 fail2ban이 시작되지 않습니다."
+
+#, python-brace-format
+msgid ""
+"journal {subject} appartient à root ({detail}) : le service omega-serv ne "
+"peut plus y écrire."
+msgstr ""
+"로그 {subject}이(가) root 소유입니다 ({detail}): omega-serv 서비스가 더 이상 쓸 수 없습니다."
+
+#, python-brace-format
+msgid ""
+"journal {subject} : droits {detail} ; le service omega-serv risque de ne pas"
+" pouvoir y écrire."
+msgstr "로그 {subject}: 권한 {detail}. omega-serv 서비스가 쓰지 못할 수 있습니다."
+
+#, python-brace-format
+msgid ""
+"jail {subject} ne lit pas le fichier qu'écrit l'instance ({detail}) : il ne "
+"bannira jamais."
+msgstr "jail {subject}이(가) 인스턴스가 쓰는 파일을 읽지 않습니다 ({detail}): 절대 차단하지 못합니다."
+
+#, python-brace-format
+msgid ""
+"jail {subject} : la fonction qui écrit son journal ({detail}) est "
+"désactivée, le jail reste sans effet."
+msgstr "jail {subject}: 로그를 쓰는 기능({detail})이 꺼져 있어 jail이 효과가 없습니다."
+
+#, python-brace-format
+msgid ""
+"jail {subject} lit {detail} : aucune instance omega-serv détectée à cet "
+"endroit."
+msgstr ""
+"jail {subject}이(가) {detail}을(를) 읽습니다: 그 위치에서 감지된 omega-serv 인스턴스가 없습니다."
+
+#, python-brace-format
+msgid ""
+"journal {subject} ({detail}) : fonction active mais aucun jail ne le lit."
+msgstr "로그 {subject} ({detail}): 기능은 켜져 있지만 이를 읽는 jail이 없습니다."
+
+#, python-brace-format
+msgid ""
+"omega-waf est en mode log-only (il note les attaques sans bannir), mais le "
+"jail {subject} posé par omega-jail dans fail2ban bannit, lui, au niveau "
+"réseau. omega-connect indique l'état et relie les outils ; il ne se "
+"substitue pas à fail2ban."
+msgstr ""
+"omega-waf는 log-only 모드입니다 (공격을 기록만 하고 차단하지 않음). 하지만 omega-jail이 fail2ban에 "
+"설치한 jail {subject}은(는) 네트워크 수준에서 차단합니다. omega-connect는 상태를 알려 주고 도구를 연결할 뿐, "
+"fail2ban을 대신하지 않습니다."
+
+#, python-brace-format
+msgid "pont {subject} vers la liste noire de cette instance ({detail})."
+msgstr "이 인스턴스의 블랙리스트로 가는 브리지 {subject} ({detail})."
+
+msgid ""
+"aucun pont vers la liste noire de cette instance : un ban derrière Tailscale"
+" reste sans effet."
+msgstr "이 인스턴스의 블랙리스트로 가는 브리지가 없습니다: Tailscale 뒤의 차단은 효과가 없습니다."
+
+#, python-brace-format
+msgid ""
+"pont {subject} sans omega-serv (installé quand omega-serv était introuvable)"
+" : aucun ban relayé."
+msgstr ""
+"omega-serv 없는 브리지 {subject} (omega-serv를 찾을 수 없을 때 설치됨): 전달되는 차단이 없습니다."
+
+#, python-brace-format
+msgid ""
+"jail {subject} utilise l'action {detail}, absente d'action.d : fail2ban "
+"refuse de démarrer."
+msgstr ""
+"jail {subject}이(가) action.d에 없는 액션 {detail}을(를) 사용합니다: fail2ban이 시작되지 않습니다."
+
+#, python-brace-format
+msgid "jail {subject} relaie ses bans vers une autre instance ({detail})."
+msgstr "jail {subject}이(가) 차단을 다른 인스턴스로 전달합니다 ({detail})."
+
+#, python-brace-format
+msgid "pont {subject} : l'instance visée a disparu ({detail})."
+msgstr "브리지 {subject}: 대상 인스턴스가 사라졌습니다 ({detail})."
+
+#, python-brace-format
+msgid ""
+"pont {subject} : l'instance visée ({detail}) n'a pas été détectée (autre "
+"compte ?)."
+msgstr "브리지 {subject}: 대상 인스턴스({detail})가 감지되지 않았습니다 (다른 계정?)."
+
+#, python-brace-format
+msgid "jail {subject} sans pont vers la liste noire."
+msgstr "jail {subject}에 블랙리스트로 가는 브리지가 없습니다."
+
+#, python-brace-format
+msgid "script du pont {subject} conforme ({detail})."
+msgstr "브리지 {subject}의 스크립트 정상 ({detail})."
+
+#, python-brace-format
+msgid "script du pont {subject} absent : aucun ban n'est relayé."
+msgstr "브리지 {subject}의 스크립트 없음: 전달되는 차단이 없습니다."
+
+#, python-brace-format
+msgid ""
+"script du pont {subject} modifiable par un autre compte que root ({detail}),"
+" alors que fail2ban le lance en root."
+msgstr ""
+"브리지 {subject}의 스크립트를 root가 아닌 계정이 수정할 수 있습니다 ({detail}). fail2ban은 이를 root로 "
+"실행합니다."
+
+#, python-brace-format
+msgid "script du pont {subject} : droits {detail} au lieu de root:root 0755."
+msgstr "브리지 {subject}의 스크립트: 권한이 root:root 0755가 아니라 {detail}입니다."
+
+#, python-brace-format
+msgid ""
+"non vérifiable : la description d'omega-serv ne donne pas sa liste protégée "
+"({detail} ; version antérieure à 2.6.1 ?), comparaison impossible."
+msgstr ""
+"확인 불가: omega-serv 설명에 보호 목록이 없습니다 ({detail}. 2.6.1 이전 버전?), 비교할 수 없습니다."
+
+#, python-brace-format
+msgid "jail {subject} : ignoreip identique à la liste protégée d'omega-serv."
+msgstr "jail {subject}: ignoreip가 omega-serv 보호 목록과 같습니다."
+
+#, python-brace-format
+msgid ""
+"jail {subject} : ignoreip différent de la liste protégée d'omega-serv (en "
+"plus « + », en moins « - » : {detail})."
+msgstr ""
+"jail {subject}: ignoreip가 omega-serv 보호 목록과 다릅니다 (추가 “+”, 누락 “-”: {detail})."
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés identiques à la liste protégée d'omega-"
+"serv."
+msgstr "브리지 {subject}: 예외 네트워크가 omega-serv 보호 목록과 같습니다."
+
+#, python-brace-format
+msgid ""
+"pont {subject} : réseaux exemptés différents de la liste protégée d'omega-"
+"serv (en plus « + », en moins « - » : {detail})."
+msgstr ""
+"브리지 {subject}: 예외 네트워크가 omega-serv 보호 목록과 다릅니다 (추가 “+”, 누락 “-”: {detail})."
+
+msgid "liste noire désactivée : rien à relier."
+msgstr "블랙리스트가 꺼져 있습니다: 연결할 것이 없습니다."
+
+#, python-brace-format
+msgid "liste noire {subject} pas encore créée (aucun ban jusqu'ici)."
+msgstr "블랙리스트 {subject}이(가) 아직 만들어지지 않았습니다 (지금까지 차단 없음)."
+
+#, python-brace-format
+msgid "liste noire {subject} conforme ({detail})."
+msgstr "블랙리스트 {subject} 정상 ({detail})."
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} appartient à root ({detail}) : le service ne peut plus"
+" la lire et le site répond en erreur."
+msgstr ""
+"블랙리스트 {subject}이(가) root 소유입니다 ({detail}): 서비스가 더 이상 읽을 수 없어 사이트가 오류로 응답합니다."
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : mauvais groupe ({detail}) ; le service ne peut pas "
+"la lire."
+msgstr "블랙리스트 {subject}: 그룹이 잘못되었습니다 ({detail}). 서비스가 읽을 수 없습니다."
+
+#, python-brace-format
+msgid ""
+"liste noire {subject} : droits {detail}, il faut au moins 0660 (lecture et "
+"écriture pour le groupe du service)."
+msgstr "블랙리스트 {subject}: 권한 {detail}. 최소 0660이 필요합니다 (서비스 그룹의 읽기와 쓰기)."
+
+#, python-brace-format
+msgid "liste noire {subject} : propriétaire inattendu ({detail})."
+msgstr "블랙리스트 {subject}: 예상치 못한 소유자 ({detail})."
+
+#, python-brace-format
+msgid "{subject} fichier(s) d'omega-jail conforme(s)."
+msgstr "omega-jail 파일 {subject}개 정상."
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable sans root — fichier illisible pour votre compte."
+msgstr "{subject}: root 없이는 확인 불가 — 사용자 계정으로 파일을 읽을 수 없습니다."
+
+#, python-brace-format
+msgid ""
+"{subject} modifiable par un autre compte que root ({detail}), alors que "
+"fail2ban le lit en root."
+msgstr ""
+"{subject}을(를) root가 아닌 계정이 수정할 수 있습니다 ({detail}). fail2ban은 이를 root로 읽습니다."
+
+#, python-brace-format
+msgid "{subject} : droits {detail} au lieu de root:root 0644."
+msgstr "{subject}: 권한이 root:root 0644가 아니라 {detail}입니다."
+
+#, python-brace-format
+msgid "{subject} abîmé ({detail}) : fail2ban risque de refuser de démarrer."
+msgstr "{subject} 손상됨 ({detail}): fail2ban이 시작되지 않을 수 있습니다."
+
+#, python-brace-format
+msgid ""
+"{subject} : action du pont abîmée ou modifiée à la main (ligne actionban "
+"introuvable)."
+msgstr "{subject}: 브리지 액션이 손상되었거나 직접 수정되었습니다 (actionban 줄을 찾을 수 없음)."
+
+#, python-brace-format
+msgid "{subject} : carte d'identité présente (identifiant {detail}…)."
+msgstr "{subject}: ID 카드 있음 (식별자 {detail}…)."
+
+#, python-brace-format
+msgid "{subject} ({detail}) : pas encore de carte d'identité."
+msgstr "{subject} ({detail}): 아직 ID 카드가 없습니다."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : version trop ancienne : ni carte d'identité ni "
+"description."
+msgstr "{subject} ({detail}): 버전이 너무 오래됨: ID 카드도 설명도 없습니다."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) : installation inachevée (environnement Python ou carte"
+" d'identité manquants) : à réinstaller."
+msgstr "{subject} ({detail}): 설치 미완료 (Python 환경 또는 ID 카드 없음): 재설치가 필요합니다."
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, carte d'identité illisible pour votre compte "
+"(droits du fichier ou du dossier : {detail})."
+msgstr "{subject}: 확인 불가, 사용자 계정으로 ID 카드를 읽을 수 없습니다 (파일 또는 폴더 권한: {detail})."
+
+#, python-brace-format
+msgid "{subject} : carte d'identité abîmée ({detail})."
+msgstr "{subject}: ID 카드 손상됨 ({detail})."
+
+#, python-brace-format
+msgid ""
+"{subject} : carte d'identité d'une version plus récente qu'omega-connect "
+"({detail})."
+msgstr "{subject}: omega-connect보다 최신 버전의 ID 카드입니다 ({detail})."
+
+#, python-brace-format
+msgid ""
+"{subject} : droits {detail} au lieu de 0644 (ou 0664), au nom du "
+"propriétaire du dossier."
+msgstr ""
+"{subject}: 권한이 0644 (또는 0664)가 아니라 {detail}입니다. 폴더 소유자 이름으로 설정되어야 합니다."
+
+#, python-brace-format
+msgid ""
+"identifiant {subject} en double : {detail} (dossier copié à la main ?)."
+msgstr "중복된 식별자 {subject}: {detail} (폴더를 직접 복사했나요?)."
+
+#, python-brace-format
+msgid ""
+"espace partagé {subject} pas encore préparé : la Synchronisation le prépare."
+msgstr "공유 공간 {subject}이(가) 아직 준비되지 않았습니다: 동기화가 준비합니다."
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien n'y "
+"est lu."
+msgstr "{subject}은(는) 실제 폴더가 아닙니다 (심볼릭 링크 또는 파일): 아무것도 읽지 않습니다."
+
+#, python-brace-format
+msgid ""
+"{subject} existe sans registre : créé à la main ou par autre chose qu'omega-"
+"connect (rien n'y sera fait)."
+msgstr ""
+"{subject}이(가) 레지스트리 없이 존재합니다: 직접 만들었거나 omega-connect가 아닌 다른 것이 만들었습니다 (아무 "
+"작업도 하지 않음)."
+
+#, python-brace-format
+msgid "{subject} : non vérifiable, illisible pour votre compte ({detail})."
+msgstr "{subject}: 확인 불가, 사용자 계정으로 읽을 수 없습니다 ({detail})."
+
+#, python-brace-format
+msgid ""
+"en attente de reconnexion : {subject} est déjà membre du groupe omega-"
+"synchro, mais la session ouverte ne le sait pas encore. {detail} sera "
+"vérifié après la prochaine connexion (ou Registre → « Lire avec sudo »)."
+msgstr ""
+"다시 로그인 대기 중: {subject}은(는) 이미 omega-synchro 그룹 구성원이지만, 열려 있는 세션은 아직 이를 모릅니다."
+" {detail}은(는) 다음 로그인 후 확인됩니다 (또는 레지스트리 → “sudo로 읽기”)."
+
+#, python-brace-format
+msgid ""
+"{subject} : non vérifiable, lisible par root et le groupe omega-synchro "
+"seulement, et {detail} n'en est pas membre."
+msgstr ""
+"{subject}: 확인 불가, root와 omega-synchro 그룹만 읽을 수 있는데 {detail}은(는) 구성원이 아닙니다."
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est retiré tant qu'il n'est pas"
+" réparé."
+msgstr "레지스트리 {subject} 손상됨 ({detail}): 복구될 때까지 아무것도 제거하지 않습니다."
+
+msgid "espace partagé figé : gardé tel quel, plus synchronisé."
+msgstr "공유 공간 고정됨: 그대로 유지되며 더 이상 동기화되지 않습니다."
+
+#, python-brace-format
+msgid ""
+"{detail} dossier(s) de l'espace partagé conformes (root:omega-synchro 2750)."
+msgstr "공유 공간 폴더 {detail}개 정상 (root:omega-synchro 2750)."
+
+#, python-brace-format
+msgid "dossier {subject} manquant."
+msgstr "{subject} 폴더가 없습니다."
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 2750."
+msgstr "{subject}: root:omega-synchro 2750이 아니라 {detail}입니다."
+
+#, python-brace-format
+msgid "groupe {subject} absent alors que l'espace partagé existe."
+msgstr "공유 공간은 있는데 {subject} 그룹이 없습니다."
+
+#, python-brace-format
+msgid "{subject} est membre du groupe omega-synchro."
+msgstr "{subject}은(는) omega-synchro 그룹 구성원입니다."
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas membre du groupe omega-synchro : l'espace partagé lui "
+"est illisible."
+msgstr "{subject}은(는) omega-synchro 그룹 구성원이 아닙니다: 공유 공간을 읽을 수 없습니다."
+
+#, python-brace-format
+msgid ""
+"{subject} est membre du groupe omega-synchro ; cela comptera à la prochaine "
+"connexion."
+msgstr "{subject}은(는) omega-synchro 그룹 구성원입니다. 다음 로그인부터 적용됩니다."
+
+#, python-brace-format
+msgid "carte d'identité de {subject} à jour dans l'espace partagé ({detail})."
+msgstr "공유 공간에 있는 {subject}의 ID 카드가 최신 상태입니다 ({detail})."
+
+#, python-brace-format
+msgid "carte d'identité {subject} absente de l'espace partagé."
+msgstr "{subject}의 ID 카드가 공유 공간에 없습니다."
+
+#, python-brace-format
+msgid ""
+"carte d'identité de {subject} périmée dans l'espace partagé ({detail}) : "
+"version, racine ou contrats changés."
+msgstr "공유 공간에 있는 {subject}의 ID 카드가 오래되었습니다 ({detail}): 버전, 루트 또는 계약이 바뀌었습니다."
+
+#, python-brace-format
+msgid "{subject} : {detail} au lieu de root:omega-synchro 0640."
+msgstr "{subject}: root:omega-synchro 0640이 아니라 {detail}입니다."
+
+#, python-brace-format
+msgid "{subject} ({detail}) installé mais pas encore dans l'espace partagé."
+msgstr "{subject} ({detail})이(가) 설치되었지만 아직 공유 공간에 없습니다."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) relié à l'espace partagé mais introuvable : "
+"désinstallé, ou carte d'identité recréée."
+msgstr ""
+"{subject} ({detail})이(가) 공유 공간에 연결되어 있지만 찾을 수 없습니다: 제거되었거나 ID 카드가 다시 "
+"만들어졌습니다."
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) a le groupe omega-synchro (complément "
+"systemd posé par omega-serv)."
+msgstr ""
+"{subject} 서비스 ({detail})에 omega-synchro 그룹이 있습니다 (omega-serv가 설치한 systemd 추가"
+" 설정)."
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) tourne sous un compte dédié sans le groupe "
+"omega-synchro : il ne pourra pas lire l'espace partagé. La Synchronisation "
+"demande à omega-serv de le lui donner."
+msgstr ""
+"{subject} 서비스 ({detail})가 omega-synchro 그룹 없이 전용 계정으로 실행됩니다: 공유 공간을 읽을 수 "
+"없습니다. 동기화가 omega-serv에 그룹 부여를 요청합니다."
+
+msgid "correction : Synchronisation (omega-connect synchroniser)"
+msgstr "수정: 동기화 (omega-connect synchroniser)"
+
+#, python-brace-format
+msgid "correction (compte {account}) : {command}"
+msgstr "수정 ({account} 계정): {command}"
+
+#, python-brace-format
+msgid "correction : {command}"
+msgstr "수정: {command}"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) (--detail pour les voir)"
+msgstr "정상 점검 항목 {count}개 (보려면 --detail)"
+
+msgid ""
+"Vérification des liens entre outils omega (lecture seule, rien n'est "
+"modifié)"
+msgstr "omega 도구 간 연결 확인 (읽기 전용, 아무것도 바꾸지 않음)"
+
+#, python-brace-format
+msgid "omega-serv « {instance} » — {root}"
+msgstr "omega-serv “{instance}” — {root}"
+
+msgid "Hors des instances détectées"
+msgstr "감지된 인스턴스 외"
+
+#, python-brace-format
+msgid "Bilan : {summary}."
+msgstr "요약: {summary}."
+
+msgid ""
+"Les corrections ne sont jamais lancées par « verifier » : relisez-les avant "
+"de les exécuter."
+msgstr "“verifier”는 수정 명령을 절대 실행하지 않습니다: 실행하기 전에 다시 읽어 보세요."
+
+#, python-brace-format
+msgid ""
+"{count} écart(s) corrigeable(s) par « reparer » (commandes des outils, "
+"affichées avant tout lancement)."
+msgstr "“reparer”로 고칠 수 있는 불일치 {count}개 (도구의 명령, 실행 전에 표시됨)."
+
+#, python-brace-format
+msgid "Établir la zone neutre {zone}"
+msgstr "중립 영역 {zone} 구성"
+
+#, python-brace-format
+msgid "Tout retirer : défaire ce que le registre de {zone} liste"
+msgstr "모두 제거: {zone} 레지스트리에 나열된 것을 되돌림"
+
+#, python-brace-format
+msgid "Garder la zone {zone} (liens figés)"
+msgstr "영역 {zone} 유지 (연결 고정)"
+
+#, python-brace-format
+msgid "Retirer un outil désinstallé de la zone {zone}"
+msgstr "제거된 도구를 영역 {zone}에서 빼기"
+
+#, python-brace-format
+msgid ""
+"{subject} n'est pas un vrai dossier (lien symbolique ou fichier) : rien "
+"n'est fait."
+msgstr "{subject}은(는) 실제 폴더가 아닙니다 (심볼릭 링크 또는 파일): 아무 작업도 하지 않습니다."
+
+#, python-brace-format
+msgid ""
+"{subject} existe déjà sans registre d'omega-connect : rien n'est fait. "
+"Vérifiez ce dossier, puis supprimez-le vous-même s'il est inutile."
+msgstr ""
+"{subject}이(가) omega-connect 레지스트리 없이 이미 존재합니다: 아무 작업도 하지 않습니다. 이 폴더를 확인한 후 "
+"필요 없으면 직접 삭제하세요."
+
+#, python-brace-format
+msgid "{subject} n'a pas pu être lu, même avec sudo : rien n'est fait."
+msgstr "sudo로도 {subject}을(를) 읽을 수 없었습니다: 아무 작업도 하지 않습니다."
+
+#, python-brace-format
+msgid ""
+"registre {subject} abîmé ({detail}) : rien n'est fait tant qu'il n'est pas "
+"réparé."
+msgstr "레지스트리 {subject} 손상됨 ({detail}): 복구될 때까지 아무 작업도 하지 않습니다."
+
+#, python-brace-format
+msgid "aucune zone en {subject} : rien à retirer."
+msgstr "{subject}에 영역이 없습니다: 제거할 것이 없습니다."
+
+#, python-brace-format
+msgid ""
+"« {subject} » ne désigne aucun outil du registre (nom, dossier ou 8 premiers"
+" caractères de l'identifiant)."
+msgstr "“{subject}”은(는) 레지스트리의 어떤 도구도 가리키지 않습니다 (이름, 폴더 또는 식별자의 앞 8자)."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est toujours installé : il serait relié de nouveau à la"
+" prochaine actualisation. Désinstallez-le d'abord."
+msgstr "{subject} ({detail})이(가) 아직 설치되어 있습니다: 다음 갱신 때 다시 연결됩니다. 먼저 제거하세요."
+
+#, python-brace-format
+msgid "{subject} ({detail}) est toujours installé : laissé dans la zone."
+msgstr "{subject} ({detail})이(가) 아직 설치되어 있습니다: 영역에 남겨 둡니다."
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : jeton {detail} (voir « verifier »)."
+msgstr "{subject}이(가) 연결되지 않았습니다: 토큰 {detail} (“verifier” 참고)."
+
+#, python-brace-format
+msgid "{subject} n'est pas relié : identifiant {detail} en double."
+msgstr "{subject}이(가) 연결되지 않았습니다: 식별자 {detail} 중복."
+
+#, python-brace-format
+msgid ""
+"{subject} ({detail}) est au registre mais introuvable : « retirer {detail} »"
+" l'enlèvera."
+msgstr ""
+"{subject} ({detail})이(가) 레지스트리에 있지만 찾을 수 없습니다: “retirer {detail}”로 제거됩니다."
+
+#, python-brace-format
+msgid ""
+"{subject} devra se reconnecter pour que le groupe omega-synchro compte "
+"(lecture de la zone)."
+msgstr "omega-synchro 그룹이 적용되려면 {subject}이(가) 다시 로그인해야 합니다 (영역 읽기)."
+
+#, python-brace-format
+msgid "la zone {subject} est à jour : rien à faire."
+msgstr "영역 {subject}이(가) 최신 상태입니다: 할 일 없음."
+
+#, python-brace-format
+msgid ""
+"{subject} n'a pas été créé par omega-connect : gardé, ainsi que son dossier."
+msgstr "{subject}은(는) omega-connect가 만든 것이 아닙니다: 그 폴더와 함께 유지합니다."
+
+#, python-brace-format
+msgid ""
+"le groupe {subject} est gardé (pas créé par omega-connect, ou zone pas "
+"vide)."
+msgstr "{subject} 그룹은 유지합니다 (omega-connect가 만들지 않았거나 영역이 비어 있지 않음)."
+
+#, python-brace-format
+msgid ""
+"le service {subject} a toujours le groupe omega-synchro, mais omega-serv est"
+" introuvable pour le lui retirer : le groupe et la zone sont gardés (sans "
+"lui, le service ne démarrerait plus). Lancez « omega-serv synchro groupe-"
+"service retirer --service-name {subject} » depuis son dossier, puis "
+"relancez."
+msgstr ""
+"{subject} 서비스에 아직 omega-synchro 그룹이 있지만, 이를 제거할 omega-serv를 찾을 수 없습니다: 그룹과 "
+"영역을 유지합니다 (그룹이 없으면 서비스가 시작되지 않음). omega-serv 폴더에서 “omega-serv synchro "
+"groupe-service retirer --service-name {subject}”를 실행한 후 다시 실행하세요."
+
+#, python-brace-format
+msgid ""
+"le service {subject} ({detail}) prendra en compte le groupe omega-synchro à "
+"son prochain redémarrage : omega-connect ne le redémarre pas."
+msgstr ""
+"{subject} 서비스 ({detail})는 다음 재시작 때 omega-synchro 그룹을 적용합니다: omega-connect는 "
+"서비스를 재시작하지 않습니다."
+
+#, python-brace-format
+msgid "{subject} figure au registre mais hors de la zone : ignoré."
+msgstr "{subject}이(가) 레지스트리에 있지만 영역 밖에 있습니다: 무시합니다."
+
+msgid "la zone est déjà figée : rien à faire."
+msgstr "영역이 이미 고정되어 있습니다: 할 일 없음."
+
+#, python-brace-format
+msgid "Créer le groupe {group}"
+msgstr "{group} 그룹 만들기"
+
+#, python-brace-format
+msgid "Créer le dossier {path}"
+msgstr "{path} 폴더 만들기"
+
+#, python-brace-format
+msgid "Remettre les droits du dossier {path}"
+msgstr "{path} 폴더 권한 복원"
+
+#, python-brace-format
+msgid "Ajouter {user} au groupe {group}"
+msgstr "{user}을(를) {group} 그룹에 추가"
+
+#, python-brace-format
+msgid "Retirer {user} du groupe {group}"
+msgstr "{user}을(를) {group} 그룹에서 제거"
+
+#, python-brace-format
+msgid "Supprimer le groupe {group}"
+msgstr "{group} 그룹 삭제"
+
+#, python-brace-format
+msgid "Retirer le dossier {path}"
+msgstr "{path} 폴더 제거"
+
+#, python-brace-format
+msgid ""
+"omega-serv donne le groupe {group} à son service {service} (complément "
+"systemd)"
+msgstr "omega-serv가 {service} 서비스에 {group} 그룹 부여 (systemd 추가 설정)"
+
+#, python-brace-format
+msgid "omega-serv retire le groupe {group} de son service {service}"
+msgstr "omega-serv가 {service} 서비스에서 {group} 그룹 제거"
+
+msgid "Retirer le registre de l'espace partagé"
+msgstr "공유 공간 레지스트리 제거"
+
+msgid "Écrire le registre de l'espace partagé"
+msgstr "공유 공간 레지스트리 쓰기"
+
+#, python-brace-format
+msgid "Recopier la description de {root} (ce qu'il sait faire)"
+msgstr "{root}의 설명 복사 (할 수 있는 기능)"
+
+#, python-brace-format
+msgid "Retirer la description de {root}"
+msgstr "{root}의 설명 제거"
+
+#, python-brace-format
+msgid "Recopier la carte d'identité de {root}"
+msgstr "{root}의 ID 카드 복사"
+
+#, python-brace-format
+msgid "Retirer la carte d'identité de {root}"
+msgstr "{root}의 ID 카드 제거"
+
+msgid "Commandes qui seront lancées, une à une, en root :"
+msgstr "root로 하나씩 실행될 명령:"
+
+#, python-brace-format
+msgid "Terminé : {count} commande(s) lancée(s), toutes réussies."
+msgstr "완료: 명령 {count}개 실행, 모두 성공."
+
+#, python-brace-format
+msgid "{done} commande(s) sur {total} avaient réussi."
+msgstr "명령 {total}개 중 {done}개가 성공했습니다."
+
+msgid "Registre réécrit pour garder la trace de ce qui a été créé."
+msgstr "만들어진 것을 기록하기 위해 레지스트리를 다시 썼습니다."
+
+msgid ""
+"Le registre n'a pas pu être réécrit : notez ce qui a été créé ci-dessus."
+msgstr "레지스트리를 다시 쓸 수 없었습니다: 위에서 만들어진 것을 기록해 두세요."
+
+msgid ""
+"Relancez la même commande après avoir corrigé la cause : rien n'est fait "
+"deux fois."
+msgstr "원인을 해결한 후 같은 명령을 다시 실행하세요: 같은 작업을 두 번 하지 않습니다."
+
+msgid "Dossier des captures non configuré."
+msgstr "스크린샷 폴더가 설정되지 않았습니다."
+
+msgid "Passer d'un élément à l'autre (lignes d'un tableau, boutons)"
+msgstr "요소 간 이동 (표의 행, 버튼)"
+
+msgid "Passer d'une zone de l'écran à l'autre"
+msgstr "화면 영역 간 이동"
+
+msgid ""
+"Activer le bouton choisi ; dans une liste à cocher, cocher ou décocher la "
+"ligne"
+msgstr "선택한 버튼 실행. 체크 목록에서는 행 선택 또는 해제"
+
+msgid "Entrée / Clic"
+msgstr "Enter / 클릭"
+
+msgid "Cocher ou décocher la ligne choisie (Synchronisation)"
+msgstr "선택한 행 선택 또는 해제 (동기화)"
+
+msgid "Espace"
+msgstr "Space"
+
+msgid "Revenir à l'écran précédent"
+msgstr "이전 화면으로 돌아가기"
+
+msgid "Cette aide, depuis n'importe quel écran"
+msgstr "이 도움말, 어느 화면에서나"
+
+msgid "Réglages, depuis n'importe quel écran"
+msgstr "설정, 어느 화면에서나"
+
+msgid "Thème suivant (enregistré)"
+msgstr "다음 테마 (저장됨)"
+
+msgid "Redessiner l'écran et afficher la taille du terminal"
+msgstr "화면을 다시 그리고 터미널 크기 표시"
+
+msgid ""
+"Commandes : thème, capture d'écran (SVG, dans le dossier des captures), "
+"quitter"
+msgstr "명령: 테마, 스크린샷 (SVG, 스크린샷 폴더에 저장), 종료"
+
+msgid "Ctrl+P"
+msgstr "Ctrl+P"
+
+msgid ""
+"omega-connect relie entre elles les applications omega (omega-serv, omega-fire, omega-jail…) installées sur cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce qui manque, toujours après vous avoir montré ce qu'il va faire.\n"
+"\n"
+"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
+"2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
+"3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son plan avant d'agir et demande son mot de passe une seule fois.\n"
+"4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue d'ensemble, en cadres.\n"
+"5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
+"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre."
+msgstr ""
+"omega-connect는 이 머신과 네트워크 머신에 설치된 omega 애플리케이션 (omega-serv, omega-fire, omega-jail…)을 서로 연결합니다. 무엇이 연결되었고 무엇이 안 되었는지 보여 주고, 빠진 것을 복구합니다. 항상 무엇을 할지 먼저 보여 드린 뒤에 실행합니다.\n"
+"\n"
+"1. [b]스캔[/b]: 이 머신의 애플리케이션을 찾습니다. 다른 머신을 추가하세요 (Unison 프로필, ~/.ssh/config, known_hosts를 바탕으로 제안되거나 직접 입력): 사용자 키로 SSH를 통해 접속하며, 그곳에는 아무것도 설치하지 않습니다.\n"
+"2. [b]레지스트리[/b]: 모든 머신의 모든 애플리케이션 목록과 그 상태. 너무 오래되었거나 잘못 설치된 애플리케이션은 이 화면에서 업데이트하거나 재설치합니다.\n"
+"3. [b]동기화[/b]: 연결할 항목을 선택한 뒤 “동기화”를 누르세요. 각 머신은 실행 전에 계획을 보여 주고 비밀번호를 한 번만 묻습니다.\n"
+"4. [b]연결[/b]: 모든 머신에서 무엇이 연결되었고 무엇이 안 되었는지 봅니다. [b]대시보드[/b]: 프레임으로 나뉜 전체 보기.\n"
+"5. [b]복구[/b]: 문제가 있는 모든 것의 목록. 행 하나를 고르거나 “모두 복구”를 누르세요.\n"
+"6. [b]보고서[/b]: 보관하거나 전달할 전체 문서 (텍스트, JSON 또는 HTML 페이지)."
+
+msgid "Registre — toutes les applications et leur état"
+msgstr "레지스트리 — 모든 애플리케이션과 그 상태"
+
+msgid ""
+"Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
+"\n"
+"- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
+"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
+"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
+msgstr ""
+"각 머신 (이 머신과 네트워크 머신)마다 찾은 omega 애플리케이션을 표시합니다: 인스턴스 또는 서비스, 버전, 상태, 폴더. 위쪽 요약은 상태별 개수를 보여 줍니다.\n"
+"\n"
+"- [b]레지스트리 업데이트[/b]: 화면을 바꾸지 않고 그 자리에서 다시 스캔합니다 (이 머신, 그다음 이미 알려진 네트워크 머신).\n"
+"- [b]애플리케이션 업데이트[/b]: 네트워크 머신의 “구버전” 행에서, 게시된 최신 버전을 설치합니다 (애플리케이션의 GitHub Release, 보내기 전에 sha.txt로 해시 확인). 먼저 계획이 표시되며, 다른 작업은 하지 않습니다.\n"
+"- [b]애플리케이션 재설치[/b]: “설치 미완료” 행 (install.sh가 끝나지 않음)에서의 같은 버튼. 같은 버전을 다시 설치합니다.\n"
+"- 이 머신에서는 애플리케이션 README의 “업데이트” 절에 따라 업데이트합니다.\n"
+"- 행을 강조하면 그 상태에 대한 설명과 불일치가 아래에 표시됩니다."
+
+msgid "Scanner — trouver les applications, ajouter des machines"
+msgstr "스캔 — 애플리케이션 찾기, 머신 추가"
+
+msgid ""
+"- [b]Cette machine[/b] : cherche les applications omega (dossier personnel, services systemd, OpenRC ou runit, /srv, registre des instances d'omega-serv). Jamais de lien symbolique suivi, jamais de montage réseau parcouru.\n"
+"- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
+"- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
+"- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
+"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
+msgstr ""
+"- [b]이 머신[/b]: omega 애플리케이션을 찾습니다 (개인 폴더, systemd, OpenRC 또는 runit 서비스, /srv, omega-serv 인스턴스 레지스트리). 심볼릭 링크를 따라가거나 네트워크 마운트를 탐색하는 일은 절대 없습니다.\n"
+"- [b]제안된 머신[/b]: 이 컴퓨터가 이미 접속할 수 있는 머신 (Unison 프로필, ~/.ssh/config, known_hosts). 행을 선택한 다음 “선택한 머신 스캔”.\n"
+"- [b]직접 입력[/b]: 사용자@머신 (이름 또는 주소), 그다음 “이 머신 스캔”.\n"
+"- [b]첫 연결[/b]: 머신 키의 지문이 표시됩니다. 확인한 다음 수락하세요. 바뀐 키는 거부됩니다 (머신 재설치 또는 사칭).\n"
+"- [b]알려진 머신[/b]: “알려진 머신 다시 스캔” 또는 “이 머신 제거” (레지스트리에서 빠지며, 그 머신에서는 아무것도 바꾸지 않음).\n"
+"- 네트워크 머신의 스캔은 SSH를 통해 메모리로 보내져 읽기 전용으로 실행됩니다: 그곳에는 아무것도 설치하거나 쓰지 않으며, 비밀번호를 묻지 않습니다 (그 머신에 Python 3.10 이상 필요)."
+
+msgid "Liaisons — ce qui est relié ou pas"
+msgstr "연결 — 연결된 것과 안 된 것"
+
+msgid ""
+"Montre chaque lien entre applications, sur toutes les machines, avec son état et sa provenance (Local, ou Réseau — nom de la machine) : journaux d'omega-serv et de magnet lus par les jails d'omega-jail, pont fail2ban vers la liste noire d'omega-serv, liste protégée, liste noire partagée, fichiers d'omega-jail dans fail2ban, cartes d'identité, espace partagé.\n"
+"\n"
+"- Surlignez une ligne : ses contrôles s'affichent en dessous ; « Détail du lien » les montre tous, avec la commande de chaque correction (« Copier les commandes »).\n"
+"- Cet écran montre seulement : ce qui est « à réparer » se corrige dans le menu Réparer."
+msgstr ""
+"모든 머신에서 애플리케이션 간 각 연결을 상태와 출처 (로컬, 또는 네트워크 — 머신 이름)와 함께 보여 줍니다: omega-jail의 jail이 읽는 omega-serv와 magnet 로그, omega-serv 블랙리스트로 가는 fail2ban 브리지, 보호 목록, 공유 블랙리스트, fail2ban 안의 omega-jail 파일, ID 카드, 공유 공간.\n"
+"\n"
+"- 행을 강조하면 그 점검 항목이 아래에 표시됩니다. “연결 상세”는 각 수정 명령과 함께 모두 보여 줍니다 (“명령 복사”).\n"
+"- 이 화면은 보여 주기만 합니다: “복구 필요” 항목은 복구 메뉴에서 고칩니다."
+
+msgid "Synchronisation — relier les applications"
+msgstr "동기화 — 애플리케이션 연결"
+
+msgid ""
+"Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+"- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
+"- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
+"- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
+"- Les machines passent une à une : cette machine d'abord, puis le réseau.\n"
+"- Une application trop ancienne, inachevée ou injoignable ne se coche pas : la ligne dit où aller.\n"
+"- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
+"- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
+msgstr ""
+"하나의 목록: 모든 머신과 그 애플리케이션 (네트워크 머신은 화면을 열 때 다시 스캔됨). 행을 선택한 다음 (Enter 또는 Space):\n"
+"- [b]선택 항목 동기화[/b] 또는 [b]모두 동기화[/b].\n"
+"- [b]이 머신[/b]: 작업 전에 표시되는 하나의 계획 — 빠진 ID 카드 (각 애플리케이션이 자기 계정으로 만듦), 그다음 공유 공간 (omega-synchro 그룹, 폴더, 카드 복사, 서비스 접근). 관리자 비밀번호는 한 번만.\n"
+"- [b]네트워크 머신[/b]: 계획을 그 머신에서 계산해 표시합니다. “<머신> 동기화”가 여기에서 실행합니다: 인터페이스가 터미널로 전환되고, 머신이 직접 비밀번호를 한 번 묻습니다. Enter를 누르면 결과가 표시된 인터페이스로 돌아갑니다.\n"
+"- 머신은 하나씩 처리됩니다: 먼저 이 머신, 그다음 네트워크.\n"
+"- 너무 오래되었거나, 설치가 끝나지 않았거나, 응답이 없는 애플리케이션은 선택할 수 없습니다: 어디로 가야 하는지 행에 표시됩니다.\n"
+"- [b]sudo로 읽기[/b]: 세션이 아직 공유 공간을 읽을 수 없으면 (omega-synchro 그룹은 다시 로그인한 후 적용됨), sudo로 읽기 전용으로 읽습니다.\n"
+"- [b]상세[/b]: omega-connect가 만든 것 (공유 공간 레지스트리)과 가능한 제거 작업."
+
+msgid "Dashboard — vue d'ensemble"
+msgstr "대시보드 — 전체 보기"
+
+msgid ""
+"Une vue d'ensemble en cadres, comme un tableau de bord web. Rien n'est modifié depuis cet écran.\n"
+"\n"
+"- [b]Machines[/b], [b]Applications[/b], [b]Liaisons[/b], [b]Espace partagé[/b] : les compteurs, avec les mêmes états que le Registre et les Liaisons.\n"
+"- [b]Liaisons par type[/b] : pour chaque type de liaison, combien sont OK sur combien.\n"
+"- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
+"- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
+"\n"
+"Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; « Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner pour les relire). Pour corriger : menu Réparer."
+msgstr ""
+"웹 대시보드처럼 프레임으로 나뉜 전체 보기입니다. 이 화면에서는 아무것도 바꾸지 않습니다.\n"
+"\n"
+"- [b]머신[/b], [b]애플리케이션[/b], [b]연결[/b], [b]공유 공간[/b]: 레지스트리 및 연결 화면과 같은 상태로 센 개수.\n"
+"- [b]유형별 연결[/b]: 연결 유형마다 전체 중 몇 개가 OK인지.\n"
+"- [b]이 머신 / 네트워크[/b]: 같은 숫자를 나란히 표시.\n"
+"- [b]Top 5[/b] (작은 화면에서는 top 3): 복구할 머신, 복구할 연결, 오래된 버전, 가장 오래된 스캔 (네트워크 머신).\n"
+"\n"
+"이 머신은 화면을 열 때 확인하고, 화면이 열려 있는 동안 주기적으로 다시 확인합니다. “새로 고침”을 누르면 다시 확인합니다. 네트워크 머신은 마지막 스캔 결과를 보여 줍니다 (다시 읽으려면 스캔 메뉴). 수정하려면: 복구 메뉴."
+
+msgid "Réparer — tout ce qui ne va pas"
+msgstr "복구 — 문제가 있는 모든 것"
+
+msgid ""
+"La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
+"\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
+"- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
+"- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
+msgstr ""
+"모든 머신에서 문제가 있는 모든 항목의 목록 (네트워크 머신은 화면을 열 때 다시 스캔됨): 머신, 문제, 상태, 고치는 주체.\n"
+"\n"
+"- [b]선택한 행 복구[/b]: 해당 머신의 계획을 엽니다. 이 머신: 애플리케이션 자체의 명령 (fail2ban에 설치한 것은 omega-jail, var/ 권한은 omega-serv, ID 카드는 각 애플리케이션), 그다음 공유 공간. 네트워크 머신: 같은 수정에 더해 어떤 애플리케이션도 실행할 수 없는 명령을 여기에서 그 머신에서 실행합니다 (계획에 표시된 것만).\n"
+"- [b]모두 복구[/b]: 머신을 하나씩 (먼저 업데이트, 그다음 복구).\n"
+"- [b]상세[/b]: 선택한 행의 모든 점검 항목.\n"
+"- [b]명령 복사[/b] (이 머신의 계획): 시스템 클립보드 (xclip, xsel, wl-copy). 안 되면 명령이 터미널에 그대로 표시되므로 마우스로 선택하세요.\n"
+"- omega-connect는 다른 애플리케이션의 파일을 절대 다시 쓰지 않습니다: 그 애플리케이션의 명령을 실행합니다."
+
+msgid "Rapport — un document complet"
+msgstr "보고서 — 전체 문서"
+
+msgid ""
+"Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"\n"
+"- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
+"- En ligne de commande : omega-connect rapport --format html --enregistrer."
+msgstr ""
+"지금 바로 작성 (네트워크 머신을 먼저 다시 스캔함): 요약, 남은 할 일의 정확한 목록 (머신, 무엇을, 어느 메뉴에서), 모든 애플리케이션의 레지스트리, 네트워크 머신, 이 머신의 애플리케이션 상세, 각 머신의 연결, 공유 공간과 그 레지스트리.\n"
+"\n"
+"- 텍스트, JSON 또는 HTML 페이지로 내보내기 (테마 선택 가능, 기본값은 설정의 테마), 내보내기 폴더에 저장.\n"
+"- 명령줄에서: omega-connect rapport --format html --enregistrer."
+
+msgid ""
+"- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
+"- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
+"- Tout est enregistré dans var/settings.json."
+msgstr ""
+"- [b]인터페이스 테마[/b] (t 키로도 변경)와 [b]내보내기 테마[/b]: 저장됩니다.\n"
+"- [b]내보내기 폴더[/b]와 [b]스크린샷 폴더[/b]: 기본값은 omega-connect 폴더의 var/exports/와 var/screenshots/. 전체 경로를 입력하거나, 비워 두면 기본값으로 돌아갑니다.\n"
+"- [b]내보내기 / 스크린샷 폴더 비우기[/b]: 확인 후 설정된 폴더의 내용을 삭제합니다 (폴더는 남음). 시스템 폴더, 개인 폴더, omega-connect 자체 폴더는 거부됩니다. 비밀번호는 절대 묻지 않습니다.\n"
+"- 모든 것은 var/settings.json에 저장됩니다."
+
+msgid "Machines du réseau, mises à jour et sécurité"
+msgstr "네트워크 머신, 업데이트, 보안"
+
+msgid ""
+"- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
+"- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
+"- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
+msgstr ""
+"- [b]연결[/b]: 사용자의 SSH 키만 사용합니다. omega-connect는 SSH 비밀번호를 절대 묻지 않습니다. 암호로 보호된 키는 SSH 에이전트에 로드해야 합니다 (ssh-add).\n"
+"- [b]관리자 비밀번호[/b]: 작업에 필요할 때만 (동기화, 복구, 업데이트), 머신마다 한 번, 사용자가 터미널에 직접 입력합니다. omega-connect는 이를 절대 보지 않습니다.\n"
+"- [b]네트워크 머신으로 가는 것[/b]: 스캔은 아무것도 없음 (메모리 속 프로그램). 작업은 임시 개인 폴더 (프로그램과 아카이브)이며, 끝나면 지워집니다.\n"
+"- [b]업데이트[/b]: 각 애플리케이션의 GitHub Release에서 (kraynux/<애플리케이션>, 태그 v<버전>). 보내기 전에 sha.txt로 해시를 확인하고, 머신에서 다시 확인합니다. omega-fire: 이전 설치를 따로 보관하고 (var/가 root 소유), install.sh가 설정과 데이터를 가져옵니다. 나머지: 덮어써서 압축을 푼 다음 (실행 중 상태는 아카이브에 없음) install.sh를 실행합니다.\n"
+"- [b]터미널 없이 비밀번호를 물을 수 있는 애플리케이션은 절대 실행하지 않음[/b]: sudo가 조용히 실패해도 시도로 집계되어 계정이 몇 분간 잠길 수 있습니다."
+
+msgid "États — ce que veut dire chaque mot"
+msgstr "상태 — 각 용어의 의미"
+
+msgid ""
+"[b]Applications[/b] :\n"
+"- ● Reliée : dans l'espace partagé, à jour.\n"
+"- ◐ Inscrite : a sa carte d'identité, pas encore dans l'espace partagé (Synchronisation).\n"
+"- ○ Détectée : trouvée, sans carte d'identité (Synchronisation la lui crée).\n"
+"- ▲ À réparer : un écart (Réparer).\n"
+"- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
+"- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller l'application).\n"
+"- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n"
+"\n"
+"[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session)."
+msgstr ""
+"[b]애플리케이션[/b]:\n"
+"- ● 연결됨: 공유 공간에 있으며 최신 상태.\n"
+"- ◐ 등록됨: ID 카드가 있지만 아직 공유 공간에 없음 (동기화).\n"
+"- ○ 감지됨: 찾았지만 ID 카드가 없음 (동기화가 만들어 줌).\n"
+"- ▲ 복구 필요: 불일치 있음 (복구).\n"
+"- ◌ 구버전: omega-connect에 비해 너무 오래됨 (레지스트리 → 애플리케이션 업데이트).\n"
+"- ◇ 설치 미완료: install.sh가 끝나지 않음 (레지스트리 → 애플리케이션 재설치).\n"
+"- ✕ 응답 없음: 머신이 더 이상 응답하지 않음 (스캔 → 다시 스캔).\n"
+"\n"
+"[b]연결[/b]: OK, 복구 필요, 복구 필요 (차단), 없음 (연결할 것이 없음, 예: omega-jail 미설치), 확인 불가 (사용자 세션에서 읽을 수 없음)."
+
+msgid "Carte d'identité et espace partagé"
+msgstr "ID 카드와 공유 공간"
+
+msgid ""
+"- [b]Carte d'identité[/b] : un petit fichier (var/omega-jeton.json) que chaque application écrit à son installation : quelle application, quelle version, quel identifiant, sur quelle machine. Lisible par tous, jamais modifiable par les autres comptes.\n"
+"- [b]Espace partagé[/b] : /var/lib/omega-synchro, groupe omega-synchro, où seul root écrit ; omega-connect y recopie les cartes d'identité et la description de chaque application, pour qu'elles se trouvent entre elles, même quand omega-connect n'est pas lancé.\n"
+"- Tout ce qu'omega-connect crée est inscrit au registre de l'espace partagé : un retrait ne défait que ce qui y est inscrit."
+msgstr ""
+"- [b]ID 카드[/b]: 각 애플리케이션이 설치할 때 쓰는 작은 파일 (var/omega-jeton.json): 어떤 애플리케이션, 어떤 버전, 어떤 식별자, 어느 머신인지. 누구나 읽을 수 있지만 다른 계정은 절대 수정할 수 없습니다.\n"
+"- [b]공유 공간[/b]: /var/lib/omega-synchro, omega-synchro 그룹, root만 씁니다. omega-connect는 각 애플리케이션의 ID 카드와 설명을 여기에 복사하여, omega-connect가 실행되지 않을 때에도 애플리케이션끼리 서로 찾을 수 있게 합니다.\n"
+"- omega-connect가 만드는 모든 것은 공유 공간 레지스트리에 기록됩니다: 제거 작업은 그곳에 기록된 것만 되돌립니다."
+
+msgid "Ligne de commande"
+msgstr "명령줄"
+
+msgid ""
+"omega-connect.sh <commande> (sans commande : l'interface).\n"
+"- scanner [utilisateur@machine] [--liste] [--retirer MACHINE]\n"
+"- synchroniser [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine MACHINE | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine MACHINE | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout : l'espace partagé, plan affiché avant tout lancement.\n"
+"--simulation montre le plan sans rien lancer ; --oui lance sans poser la question."
+msgstr ""
+"omega-connect.sh <명령> (명령 없음: 인터페이스).\n"
+"- scanner [사용자@머신] [--liste] [--retirer 머신]\n"
+"- synchroniser [--machine 머신 | --toutes-machines] [--simulation] [--oui]\n"
+"- mettre-a-jour --machine 머신 | --toutes-machines [--simulation] [--oui]\n"
+"- reparer [--machine 머신 | --toutes-machines] [--simulation] [--oui]\n"
+"- verifier [--format json], detecter [--format json]\n"
+"- rapport [--format texte|json|html] [--enregistrer]\n"
+"- etablir, retirer --tout: 공유 공간, 실행 전에 계획 표시.\n"
+"--simulation은 아무것도 실행하지 않고 계획을 보여 줍니다. --oui는 묻지 않고 실행합니다."
+
+msgid "Fichiers d'omega-connect"
+msgstr "omega-connect 파일"
+
+msgid ""
+"Tout vit dans le dossier d'omega-connect, sous var/ :\n"
+"- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+"- settings.json : réglages.\n"
+"- exports/ et screenshots/ : par défaut (voir Réglages).\n"
+"- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite)."
+msgstr ""
+"모든 것은 omega-connect 폴더의 var/ 아래에 있습니다:\n"
+"- parc.json: 네트워크 머신 레지스트리 (마지막 스캔, 주소, 지문).\n"
+"- settings.json: 설정.\n"
+"- exports/와 screenshots/: 기본값 (설정 참고).\n"
+"- declaration.json: 익명 사용자 등록 (등록한 경우)."
+
+msgid "Aide, export et contact"
+msgstr "도움말, 내보내기, 문의"
+
+msgid ""
+"- [b]Exporter l'aide en HTML[/b] : toute cette aide, dans une page, thème au choix, dans le dossier des exports.\n"
+"- [b]Contact et support[/b] : payer un café (PayPal), se déclarer utilisateur anonyme (une seule fois), contacter le support (mail et formulaire du site), vérifier les mises à jour."
+msgstr ""
+"- [b]도움말을 HTML로 내보내기[/b]: 이 도움말 전체를 한 페이지로, 테마 선택 가능, 내보내기 폴더에 저장.\n"
+"- [b]문의 및 지원[/b]: 커피 한 잔 사기 (PayPal), 익명 사용자로 등록 (한 번만), 지원팀 문의 (메일과 사이트 양식), 업데이트 확인."
+
+msgid "Redémarrer"
+msgstr "재시작"
+
+msgid "Registre"
+msgstr "레지스트리"
+
+msgid "Synchronisation"
+msgstr "동기화"
+
+msgid "Dashboard"
+msgstr "대시보드"
+
+msgid "Rapport"
+msgstr "보고서"
+
+msgid "GESTION"
+msgstr "관리"
+
+msgid "MAINTENANCE"
+msgstr "유지 관리"
+
+msgid "MACHINES"
+msgstr "머신"
+
+msgid "APPLICATIONS"
+msgstr "애플리케이션"
+
+msgid "LIAISONS"
+msgstr "연결"
+
+msgid "ESPACE PARTAGÉ"
+msgstr "공유 공간"
+
+msgid "LIAISONS PAR TYPE"
+msgstr "유형별 연결"
+
+msgid "CETTE MACHINE / RÉSEAU"
+msgstr "이 머신 / 네트워크"
+
+#, python-brace-format
+msgid "TOP {count} · MACHINES À RÉPARER"
+msgstr "TOP {count} · 복구할 머신"
+
+#, python-brace-format
+msgid "TOP {count} · LIAISONS À RÉPARER"
+msgstr "TOP {count} · 복구할 연결"
+
+#, python-brace-format
+msgid "TOP {count} · VERSIONS EN RETARD"
+msgstr "TOP {count} · 오래된 버전"
+
+#, python-brace-format
+msgid "TOP {count} · SCANS LES PLUS ANCIENS"
+msgstr "TOP {count} · 가장 오래된 스캔"
+
+msgid "jamais vue"
+msgstr "확인된 적 없음"
+
+msgid "à l'instant"
+msgstr "방금"
+
+#, python-brace-format
+msgid "il y a {count} min"
+msgstr "{count}분 전"
+
+#, python-brace-format
+msgid "il y a {count} h"
+msgstr "{count}시간 전"
+
+#, python-brace-format
+msgid "il y a {count} j"
+msgstr "{count}일 전"
+
+#, python-brace-format
+msgid "{count} au total"
+msgstr "총 {count}대"
+
+#, python-brace-format
+msgid "cette machine : {name}"
+msgstr "이 머신: {name}"
+
+#, python-brace-format
+msgid "{count} sur le réseau"
+msgstr "네트워크에 {count}대"
+
+#, python-brace-format
+msgid "{count} injoignable(s)"
+msgstr "응답 없음 {count}대"
+
+#, python-brace-format
+msgid "{count} application(s) reliée(s)"
+msgstr "연결된 애플리케이션 {count}개"
+
+#, python-brace-format
+msgid "{count} à relier (Synchronisation)"
+msgstr "연결 대기 {count}개 (동기화)"
+
+msgid "Aucune liaison connue."
+msgstr "알려진 연결이 없습니다."
+
+msgid "Machines"
+msgstr "머신"
+
+msgid "Cette machine"
+msgstr "이 머신"
+
+msgid "Réseau"
+msgstr "네트워크"
+
+msgid "Rien à réparer."
+msgstr "복구할 것이 없습니다."
+
+#, python-brace-format
+msgid "{count} liaison(s)"
+msgstr "연결 {count}개"
+
+#, python-brace-format
+msgid "{count} application(s)"
+msgstr "애플리케이션 {count}개"
+
+msgid "Aucune liaison à réparer."
+msgstr "복구할 연결이 없습니다."
+
+msgid "Aucune application en retard."
+msgstr "오래된 버전의 애플리케이션이 없습니다."
+
+msgid "Aucune machine du réseau (menu Scanner)."
+msgstr "네트워크 머신이 없습니다 (스캔 메뉴)."
+
+#, python-brace-format
+msgid "vue {when}"
+msgstr "{when} 확인됨"
+
+msgid "non fournie (ancienne version)"
+msgstr "제공되지 않음 (구버전)"
+
+#, python-brace-format
+msgid "déclarée à {time}"
+msgstr "{time}에 등록됨"
+
+msgid "(partielle)"
+msgstr "(부분)"
+
+msgid "Local"
+msgstr "로컬"
+
+#, python-brace-format
+msgid "Réseau — {where}"
+msgstr "네트워크 — {where}"
+
+#, python-brace-format
+msgid "{count} écart(s)"
+msgstr "불일치 {count}개"
+
+#, python-brace-format
+msgid "{count} contrôle(s) conforme(s) : « Détail du lien » pour les voir."
+msgstr "정상 점검 항목 {count}개: 보려면 “연결 상세”."
+
+msgid "Aucun contrôle pour ce lien."
+msgstr "이 연결에 대한 점검 항목이 없습니다."
+
+msgid "Liens : "
+msgstr "연결: "
+
+msgid ""
+"omega-connect — authentification sudo pour les commandes affichées (le mot "
+"de passe ne s'affiche pas pendant la saisie). L'interface revient ensuite."
+msgstr ""
+"omega-connect — 표시된 명령을 위한 sudo 인증 (입력하는 동안 비밀번호는 표시되지 않습니다). 그다음 인터페이스로 "
+"돌아옵니다."
+
+msgid "Aucune commande à copier."
+msgstr "복사할 명령이 없습니다."
+
+#, python-brace-format
+msgid ""
+"{count} commande(s) copiée(s) dans le presse-papiers ({tool}) : collez-les "
+"dans un terminal (Ctrl+Maj+V)."
+msgstr "명령 {count}개를 클립보드에 복사했습니다 ({tool}): 터미널에 붙여 넣으세요 (Ctrl+Shift+V)."
+
+msgid ""
+"omega-connect — commandes à copier. Sélectionnez-les à la souris puis copiez"
+" avec le raccourci de votre terminal (souvent Ctrl+Maj+C) :"
+msgstr ""
+"omega-connect — 복사할 명령. 마우스로 선택한 다음 터미널의 단축키로 복사하세요 (보통 Ctrl+Shift+C):"
+
+msgid "Entrée pour revenir à omega-connect… "
+msgstr "omega-connect로 돌아가려면 Enter… "
+
+msgid ""
+"Vous êtes membre du groupe omega-synchro, mais cet omega-connect a été lancé"
+" sans lui. Quittez (q) et relancez ./omega-connect.sh : il le prendra tout "
+"seul, sans mot de passe. Pour cette fois, lecture avec sudo (mot de passe "
+"dans le terminal)."
+msgstr ""
+"omega-synchro 그룹 구성원이지만, 이 omega-connect는 그룹 없이 실행되었습니다. 종료(q)한 후 ./omega-"
+"connect.sh를 다시 실행하세요: 비밀번호 없이 자동으로 그룹을 적용합니다. 이번에는 sudo로 읽습니다 (터미널에서 비밀번호 "
+"입력)."
+
+msgid ""
+"Votre session n'a pas encore le groupe omega-synchro : la zone est lue avec "
+"sudo, mot de passe demandé dans le terminal."
+msgstr "세션에 아직 omega-synchro 그룹이 없습니다: sudo로 영역을 읽으며, 터미널에서 비밀번호를 묻습니다."
+
+msgid "Lecture de la zone avec sudo…"
+msgstr "sudo로 영역 읽는 중…"
+
+msgid "Préparation des commandes (détection des outils, lecture de la zone)…"
+msgstr "명령 준비 중 (도구 감지, 영역 읽기)…"
+
+msgid "Vérifier maintenant"
+msgstr "지금 확인"
+
+msgid "LIENS"
+msgstr "연결"
+
+msgid "Détail du lien"
+msgstr "연결 상세"
+
+msgid "Constat"
+msgstr "진단"
+
+msgid "Lien"
+msgstr "연결"
+
+msgid "Provenance"
+msgstr "출처"
+
+msgid "Vérification en cours…"
+msgstr "확인 중…"
+
+#, python-brace-format
+msgid "Erreur : {message}"
+msgstr "오류: {message}"
+
+#, python-brace-format
+msgid "Vérifié à {time}."
+msgstr "{time}에 확인함."
+
+#, python-brace-format
+msgid ""
+"Nouvelle vérification toutes les {minutes} min tant que cet écran est "
+"ouvert."
+msgstr "이 화면이 열려 있는 동안 {minutes}분마다 다시 확인합니다."
+
+msgid "Lancer (mot de passe administrateur)"
+msgstr "실행 (관리자 비밀번호)"
+
+msgid "SYNCHRONISER"
+msgstr "동기화"
+
+msgid ""
+"Tout ce qui sera fait, dans l'ordre. Rien n'est lancé avant « Lancer » ; au "
+"premier échec, tout s'arrête et ce qui a été créé reste noté."
+msgstr ""
+"수행할 모든 작업, 순서대로. “실행” 전에는 아무것도 실행하지 않습니다. 첫 실패 시 모두 중단되며, 만들어진 것은 기록된 채 "
+"남습니다."
+
+msgid "AVANCEMENT"
+msgstr "진행 상황"
+
+msgid "Fermer"
+msgstr "닫기"
+
+msgid ""
+"Chaque menu, sa fonction et le détail. Cliquez sur un titre pour l'ouvrir."
+msgstr "각 메뉴, 그 기능과 세부 내용. 제목을 클릭하면 열립니다."
+
+msgid "Exporter l'aide en HTML"
+msgstr "도움말을 HTML로 내보내기"
+
+#, python-brace-format
+msgid "Aide exportée : {path}"
+msgstr "도움말 내보냄: {path}"
+
+#, python-brace-format
+msgid "Écran prévu au lot {lot} de l'étape 3."
+msgstr "3단계의 {lot} 작업에서 제공 예정인 화면입니다."
+
+msgid "RETIRER LA ZONE NEUTRE ?"
+msgstr "중립 영역을 제거하시겠습니까?"
+
+msgid ""
+"Garder : rien n'est supprimé, les outils lisent toujours les copies "
+"actuelles (liens figés). Tout retirer : défait exactement ce que le registre"
+" liste."
+msgstr ""
+"유지: 아무것도 삭제하지 않으며, 도구는 현재 복사본을 계속 읽습니다 (연결 고정). 모두 제거: 레지스트리에 나열된 것만 정확히 "
+"되돌립니다."
+
+msgid "Garder la zone"
+msgstr "영역 유지"
+
+msgid "Tout retirer"
+msgstr "모두 제거"
+
+msgid "CONTRÔLES"
+msgstr "점검 항목"
+
+msgid ""
+"Cet écran montre. Pour corriger : menu Réparer (toutes les machines, machine"
+" du réseau comprise) ; les commandes se copient avec « Copier les commandes "
+"»."
+msgstr ""
+"이 화면은 보여 주기만 합니다. 고치려면: 복구 메뉴 (네트워크 머신을 포함한 모든 머신). 명령은 “명령 복사”로 복사합니다."
+
+msgid "Copier les commandes"
+msgstr "명령 복사"
+
+#, python-brace-format
+msgid "vérifié à {time}"
+msgstr "{time}에 확인함"
+
+msgid "État : "
+msgstr "상태: "
+
+msgid "RÉPARER CETTE MACHINE"
+msgstr "이 머신 복구"
+
+msgid ""
+"Chaque écart est corrigé par l'outil qui possède le fichier (omega-jail, "
+"omega-serv, jeton de chaque outil), ou par « Établir » pour ce que le "
+"registre de la zone dit qu'omega-connect a créé. omega-connect ne réécrit "
+"jamais le fichier d'un autre outil. Rien n'est lancé avant « Lancer »."
+msgstr ""
+"각 불일치는 해당 파일을 소유한 도구 (omega-jail, omega-serv, 각 도구의 토큰)가 고치거나, 영역 레지스트리에 "
+"omega-connect가 만들었다고 기록된 것은 “구성”이 고칩니다. omega-connect는 다른 도구의 파일을 절대 다시 쓰지 "
+"않습니다. “실행” 전에는 아무것도 실행하지 않습니다."
+
+msgid "MACHINES DISTANTES"
+msgstr "원격 머신"
+
+msgid ""
+"Une machine du registre se répare depuis ici : les commandes des outils sont"
+" lancées SUR elle, son mot de passe sudo est demandé une fois, dans ce "
+"terminal."
+msgstr ""
+"레지스트리의 머신은 여기에서 복구합니다: 도구의 명령이 그 머신에서 실행되며, sudo 비밀번호는 이 터미널에서 한 번 묻습니다."
+
+msgid "Réparer la machine choisie"
+msgstr "선택한 머신 복구"
+
+msgid "Zone : établir…"
+msgstr "영역: 구성…"
+
+msgid "Analyser de nouveau"
+msgstr "다시 분석"
+
+msgid "Liaisons à corriger"
+msgstr "고쳐야 할 연결"
+
+msgid "aucune machine distante : scannez-en une (Scanner)"
+msgstr "원격 머신 없음: 하나를 스캔하세요 (스캔)"
+
+msgid "Préparation des réparations : vérification des liens en cours…"
+msgstr "복구 준비 중: 연결 확인 중…"
+
+msgid "Lancer avec sudo"
+msgstr "sudo로 실행"
+
+msgid ""
+"Vue d'ensemble de vos machines et de vos applications. Rien n'est modifié "
+"depuis cet écran. Pour corriger : menu Réparer."
+msgstr "머신과 애플리케이션의 전체 보기입니다. 이 화면에서는 아무것도 바꾸지 않습니다. 수정하려면: 복구 메뉴."
+
+msgid "Actualiser"
+msgstr "새로 고침"
+
+msgid "cette machine"
+msgstr "이 머신"
+
+msgid "DASHBOARD"
+msgstr "대시보드"
+
+#, python-brace-format
+msgid ""
+"Cette machine vérifiée à {time} ; machines du réseau : leur dernier scan."
+msgstr "이 머신은 {time}에 확인함; 네트워크 머신: 마지막 스캔 기준."
+
+msgid "QUITTER OMEGA-CONNECT ?"
+msgstr "OMEGA-CONNECT를 종료하시겠습니까?"
+
+msgid "REGISTRE"
+msgstr "레지스트리"
+
+msgid ""
+"Ce que le scanner a trouvé : chaque application omega, son service, sa "
+"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
+" à jour l'application » installe la dernière version d'une application trop "
+"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
+"corriger un écart : Réparer."
+msgstr ""
+"스캐너가 찾은 것: 각 omega 애플리케이션, 그 서비스, 버전, 상태. “레지스트리 업데이트”는 다시 스캔합니다. “애플리케이션 "
+"업데이트”는 너무 오래된 애플리케이션 (선택한 행)에 최신 버전을 설치합니다. 연결 복구: 동기화. 불일치 수정: 복구."
+
+msgid "Mettre à jour le registre"
+msgstr "레지스트리 업데이트"
+
+msgid "Mettre à jour l'application"
+msgstr "애플리케이션 업데이트"
+
+msgid "Lecture du registre…"
+msgstr "레지스트리 읽는 중…"
+
+msgid "Premier scan : recherche des applications omega…"
+msgstr "첫 스캔: omega 애플리케이션 찾는 중…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s)"
+msgstr "머신 {machines}대에 애플리케이션 {count}개"
+
+#, python-brace-format
+msgid "dernier scan à {time}"
+msgstr "마지막 스캔 {time}"
+
+msgid "Espace partagé : "
+msgstr "공유 공간: "
+
+msgid "Réinstaller l'application"
+msgstr "애플리케이션 재설치"
+
+#, python-brace-format
+msgid "→ « {action} » installe la dernière version depuis GitHub."
+msgstr "→ “{action}”이(가) GitHub에서 최신 버전을 설치합니다."
+
+msgid ""
+"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
+"possible : suivez la section « Mise à jour » du README de l'outil."
+msgstr "→ 이 컴퓨터에서는 아직 omega-connect로 업데이트할 수 없습니다: 도구 README의 “업데이트” 절을 따르세요."
+
+#, python-brace-format
+msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
+msgstr "레지스트리 업데이트: 원격 머신 {count}대 스캔 중…"
+
+#, python-brace-format
+msgid ""
+"omega-connect — synchronisation de {machine}. La machine demande elle-même "
+"son mot de passe sudo (il ne s'affiche pas pendant la saisie) ; omega-"
+"connect ne le voit jamais."
+msgstr ""
+"omega-connect — {machine} 동기화. 머신이 직접 sudo 비밀번호를 묻습니다 (입력하는 동안 표시되지 않음). "
+"omega-connect는 비밀번호를 절대 보지 않습니다."
+
+msgid "Terminé. Appuyez sur Entrée pour revenir à omega-connect… "
+msgstr "완료. omega-connect로 돌아가려면 Enter를 누르세요… "
+
+#, python-brace-format
+msgid "METTRE À JOUR L'APPLICATION — {machine}"
+msgstr "애플리케이션 업데이트 — {machine}"
+
+msgid ""
+"Seulement les applications trop anciennes de cette machine : dernière "
+"version prise sur leur Release GitHub (empreinte vérifiée), installée comme "
+"le dit leur README. Rien d'autre ; rien n'est fait avant « Lancer »."
+msgstr ""
+"이 머신의 너무 오래된 애플리케이션만: GitHub Release에서 받은 최신 버전 (해시 확인)을 README에 따라 설치합니다. "
+"다른 작업은 없으며, “실행” 전에는 아무것도 하지 않습니다."
+
+#, python-brace-format
+msgid "RÉPARER — {machine}"
+msgstr "복구 — {machine}"
+
+msgid ""
+"Corrections faites par les outils eux-mêmes, lancées SUR la machine depuis "
+"ici : rien à y taper. Ce qu'aucun outil ne sait faire se copie (« Copier les"
+" commandes »). Rien n'est fait avant « Lancer »."
+msgstr ""
+"도구가 직접 하는 수정을 여기에서 그 머신에서 실행합니다: 그곳에서 입력할 것은 없습니다. 어떤 도구도 할 수 없는 것은 복사합니다 "
+"(“명령 복사”). “실행” 전에는 아무것도 하지 않습니다."
+
+#, python-brace-format
+msgid "SYNCHRONISER — {machine}"
+msgstr "동기화 — {machine}"
+
+msgid ""
+"Plan calculé sur la machine elle-même, sans sudo : réparer puis "
+"synchroniser. Aucune mise à jour ici (Registre → « Mettre à jour "
+"l'application ») ; rien n'est fait avant « Lancer »."
+msgstr ""
+"sudo 없이 머신 자체에서 계산한 계획: 복구 후 동기화. 여기서는 업데이트하지 않습니다 (레지스트리 → “애플리케이션 업데이트”). "
+"“실행” 전에는 아무것도 하지 않습니다."
+
+#, python-brace-format
+msgid "Calcul du plan sur {machine}…"
+msgstr "{machine}에서 계획 계산 중…"
+
+#, python-brace-format
+msgid "Réinstaller sur {machine}"
+msgstr "{machine}에 재설치"
+
+#, python-brace-format
+msgid "Mettre à jour sur {machine}"
+msgstr "{machine}에서 업데이트"
+
+#, python-brace-format
+msgid "Réparer {machine}"
+msgstr "{machine} 복구"
+
+#, python-brace-format
+msgid "Synchroniser {machine}"
+msgstr "{machine} 동기화"
+
+#, python-brace-format
+msgid "Téléchargement et vérification des archives, envoi vers {machine}…"
+msgstr "아카이브 다운로드 및 확인, {machine}(으)로 보내는 중…"
+
+#, python-brace-format
+msgid "Lecture du résultat et nouveau scan de {machine}…"
+msgstr "결과 읽기 및 {machine} 다시 스캔 중…"
+
+#, python-brace-format
+msgid "{machine} : synchronisation terminée."
+msgstr "{machine}: 동기화 완료."
+
+#, python-brace-format
+msgid "{machine} : la synchronisation n'est pas allée au bout."
+msgstr "{machine}: 동기화가 끝까지 진행되지 않았습니다."
+
+msgid "l'outil, depuis ici"
+msgstr "도구, 여기에서"
+
+msgid "commande lancée sur la machine, depuis ici"
+msgstr "머신에서 실행하는 명령, 여기에서"
+
+msgid "à la main (commande à copier)"
+msgstr "직접 (복사할 명령)"
+
+msgid "Mettre à jour l'application, depuis ici"
+msgstr "애플리케이션 업데이트, 여기에서"
+
+msgid "Réinstaller l'application, depuis ici"
+msgstr "애플리케이션 재설치, 여기에서"
+
+msgid "à la main (README de l'outil)"
+msgstr "직접 (도구 README)"
+
+msgid "Scanner : rescanner la machine"
+msgstr "스캔: 머신 다시 스캔"
+
+msgid "aucune correction connue (voir le détail)"
+msgstr "알려진 수정 방법 없음 (상세 참고)"
+
+msgid "RÉPARER"
+msgstr "복구"
+
+msgid ""
+"Tout ce qui ne va pas, sur toutes les machines. Choisissez une ligne puis « "
+"Réparer la ligne choisie », ou « Tout réparer » : le plan de la machine "
+"s'affiche, rien n'est lancé avant. Machine du réseau : réparée depuis ici, "
+"son mot de passe sudo demandé une fois."
+msgstr ""
+"모든 머신에서 문제가 있는 모든 것. 행을 선택한 다음 “선택한 행 복구” 또는 “모두 복구”: 머신의 계획이 표시되며, 그 전에는 "
+"아무것도 실행하지 않습니다. 네트워크 머신: 여기에서 복구하며, sudo 비밀번호는 한 번 묻습니다."
+
+msgid "Réparer la ligne choisie"
+msgstr "선택한 행 복구"
+
+msgid "Détail"
+msgstr "상세"
+
+msgid "Tout réparer"
+msgstr "모두 복구"
+
+msgid "Problème"
+msgstr "문제"
+
+msgid "Qui corrige"
+msgstr "고치는 주체"
+
+msgid "Recherche de tout ce qui ne va pas : vérification de cette machine…"
+msgstr "문제가 있는 모든 것을 찾는 중: 이 머신 확인 중…"
+
+#, python-brace-format
+msgid "Rescan des machines du réseau ({index}/{count}) : {machine}…"
+msgstr "네트워크 머신 다시 스캔 중 ({index}/{count}): {machine}…"
+
+#, python-brace-format
+msgid "{count} problème(s) sur {machines} machine(s)."
+msgstr "머신 {machines}대에서 문제 {count}개."
+
+msgid "Rien à réparer : tout est OK sur toutes les machines."
+msgstr "복구할 것이 없습니다: 모든 머신이 OK입니다."
+
+msgid "la machine ne répond plus"
+msgstr "머신이 더 이상 응답하지 않습니다"
+
+#, python-brace-format
+msgid "{machine} : rescannez-la d'abord (Scanner)."
+msgstr "{machine}: 먼저 다시 스캔하세요 (스캔)."
+
+msgid "RAPPORT"
+msgstr "보고서"
+
+msgid ""
+"Un document complet, établi à l'instant (les machines du réseau sont "
+"rescannées avant) : bilan, ce qu'il reste à faire, registre, machines du "
+"réseau, liaisons de chaque machine, espace partagé. Enregistré dans le "
+"dossier des exports."
+msgstr ""
+"지금 작성하는 완전한 문서(네트워크 머신을 먼저 다시 스캔): 요약, 남은 할 일, 레지스트리, 네트워크 머신, 각 머신의 연결, 공유 "
+"공간. 내보내기 폴더에 저장됩니다."
+
+msgid "THÈME DE LA PAGE HTML"
+msgstr "HTML 페이지 테마"
+
+msgid "APERÇU"
+msgstr "미리 보기"
+
+msgid "Exporter JSON"
+msgstr "JSON 내보내기"
+
+msgid "Exporter TXT"
+msgstr "TXT 내보내기"
+
+msgid "Exporter HTML"
+msgstr "HTML 내보내기"
+
+msgid "Génération du rapport en cours (détection, vérification, zone)…"
+msgstr "보고서 생성 중 (감지, 확인, 영역)…"
+
+msgid "Rapport prêt."
+msgstr "보고서 준비 완료."
+
+#, python-brace-format
+msgid "Export impossible : {error}"
+msgstr "내보낼 수 없습니다: {error}"
+
+#, python-brace-format
+msgid "{count} application(s) omega trouvée(s) sur cette machine."
+msgstr "이 머신에서 omega 애플리케이션 {count}개를 찾았습니다."
+
+#, python-brace-format
+msgid "Trouvées via : {sources}."
+msgstr "찾은 경로: {sources}."
+
+#, python-brace-format
+msgid ""
+"{count} remarque(s) sur la recherche (montages réseau ignorés, etc.) : voir "
+"le Rapport."
+msgstr "검색 관련 참고 사항 {count}개 (무시한 네트워크 마운트 등): 보고서 참고."
+
+msgid "SCANNER"
+msgstr "스캔"
+
+msgid ""
+"Recherche des applications omega, en lecture seule : rien n'est modifié, "
+"aucun mot de passe. Le résultat met à jour le registre."
+msgstr ""
+"omega 애플리케이션을 읽기 전용으로 찾습니다: 아무것도 바꾸지 않으며, 비밀번호도 없습니다. 결과로 레지스트리를 업데이트합니다."
+
+#, python-brace-format
+msgid "MACHINE LOCALE — {machine}"
+msgstr "로컬 머신 — {machine}"
+
+msgid "MACHINES QUE CET ORDINATEUR SAIT DÉJÀ JOINDRE"
+msgstr "이 컴퓨터가 이미 접속할 수 있는 머신"
+
+msgid ""
+"Trouvées dans vos profils Unison, votre ~/.ssh/config et les machines déjà "
+"connues de SSH. Choisissez-en une (Entrée ou clic) : omega-connect s'y "
+"connecte avec vos clés et y lance le même scanner, en mémoire — rien n'y est"
+" installé, aucun mot de passe."
+msgstr ""
+"Unison 프로필, ~/.ssh/config, SSH에 이미 알려진 머신에서 찾았습니다. 하나를 선택하세요 (Enter 또는 클릭): "
+"omega-connect가 사용자 키로 접속하여 같은 스캐너를 메모리에서 실행합니다 — 그곳에는 아무것도 설치하지 않으며, 비밀번호도 "
+"없습니다."
+
+msgid "Scanner la machine choisie"
+msgstr "선택한 머신 스캔"
+
+msgid "AUTRE MACHINE (SAISIE MANUELLE)"
+msgstr "다른 머신 (직접 입력)"
+
+msgid ""
+"utilisateur@machine (nom ou adresse), ou un nom de votre ~/.ssh/config."
+msgstr "사용자@머신 (이름 또는 주소), 또는 ~/.ssh/config에 있는 이름."
+
+msgid "utilisateur@machine"
+msgstr "사용자@머신"
+
+msgid "Scanner cette machine"
+msgstr "이 머신 스캔"
+
+msgid "MACHINES DISTANTES CONNUES"
+msgstr "알려진 원격 머신"
+
+msgid ""
+"Celles du registre. Sur un grand parc, retirez celles qui ne vous concernent"
+" plus : elles ne sont plus rescannées (rien n'est modifié sur elles)."
+msgstr ""
+"레지스트리에 있는 머신입니다. 머신이 많다면 더 이상 관련 없는 머신은 제거하세요: 더 이상 다시 스캔되지 않습니다 (그 머신에서는 "
+"아무것도 바꾸지 않음)."
+
+msgid "Retirer cette machine"
+msgstr "이 머신 제거"
+
+msgid "Scanner de nouveau"
+msgstr "다시 스캔"
+
+msgid "Rescanner les machines connues"
+msgstr "알려진 머신 다시 스캔"
+
+msgid "Voir le registre"
+msgstr "레지스트리 보기"
+
+msgid "Trouvée dans"
+msgstr "찾은 위치"
+
+msgid "Analyse de la machine locale : recherche des applications omega…"
+msgstr "로컬 머신 분석: omega 애플리케이션 찾는 중…"
+
+#, python-brace-format
+msgid "Analysée à {time}."
+msgstr "{time}에 분석함."
+
+msgid "aucune machine distante pour l'instant"
+msgstr "아직 원격 머신 없음"
+
+msgid "aucune machine trouvée"
+msgstr "찾은 머신 없음"
+
+#, python-brace-format
+msgid "{machine} retirée du registre."
+msgstr "{machine}을(를) 레지스트리에서 제거했습니다."
+
+msgid "RETIRER CETTE MACHINE ?"
+msgstr "이 머신을 제거하시겠습니까?"
+
+#, python-brace-format
+msgid ""
+"{machine} et ses {count} application(s) sortent du registre : elles ne "
+"seront plus rescannées. Rien n'est modifié sur la machine ; vous pourrez la "
+"scanner de nouveau à tout moment."
+msgstr ""
+"{machine}과(와) 그 애플리케이션 {count}개가 레지스트리에서 빠집니다: 더 이상 다시 스캔되지 않습니다. 머신에서는 아무것도"
+" 바꾸지 않으며, 언제든 다시 스캔할 수 있습니다."
+
+msgid "Retirer"
+msgstr "제외"
+
+#, python-brace-format
+msgid "Connexion à {target}…"
+msgstr "{target}에 연결 중…"
+
+#, python-brace-format
+msgid "{target} : rien n'a été fait (machine non acceptée)."
+msgstr "{target}: 아무것도 하지 않았습니다 (머신을 수락하지 않음)."
+
+#, python-brace-format
+msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
+msgstr "{target} 스캔: 스캐너가 그곳에서 읽기 전용으로 실행 중…"
+
+msgid "Aucune machine distante connue pour l'instant."
+msgstr "아직 알려진 원격 머신이 없습니다."
+
+#, python-brace-format
+msgid "Scan des {count} machine(s) connue(s)…"
+msgstr "알려진 머신 {count}대 스캔 중…"
+
+#, python-brace-format
+msgid "{good} machine(s) scannée(s) sur {total}."
+msgstr "머신 {total}대 중 {good}대 스캔함."
+
+msgid "Enregistrés dans var/settings.json, appliqués tout de suite."
+msgstr "var/settings.json에 저장되며, 바로 적용됩니다."
+
+msgid "Thème de l'interface"
+msgstr "인터페이스 테마"
+
+msgid "Thème des exports (rapport HTML, aide exportée)"
+msgstr "내보내기 테마 (HTML 보고서, 내보낸 도움말)"
+
+msgid "Dossier des exports"
+msgstr "내보내기 폴더"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Laissez vide pour revenir au dossier par défaut."
+msgstr "기본값: {path}. 비워 두면 기본 폴더로 돌아갑니다."
+
+msgid "Dossier des captures d'écran"
+msgstr "스크린샷 폴더"
+
+#, python-brace-format
+msgid "Par défaut : {path}. Capture : Ctrl+P → « Capture d'écran »."
+msgstr "기본값: {path}. 스크린샷: Ctrl+P → “스크린샷”."
+
+msgid "Enregistrer les dossiers"
+msgstr "폴더 저장"
+
+msgid "Maintenance des dossiers"
+msgstr "폴더 유지 관리"
+
+msgid ""
+"Supprime définitivement le contenu du dossier configuré ; le dossier reste."
+msgstr "설정된 폴더의 내용을 영구적으로 삭제합니다. 폴더는 남습니다."
+
+msgid "Vider le dossier des exports"
+msgstr "내보내기 폴더 비우기"
+
+msgid "Vider le dossier des captures"
+msgstr "스크린샷 폴더 비우기"
+
+msgid "des exports"
+msgstr "내보내기"
+
+msgid "des captures"
+msgstr "스크린샷"
+
+#, python-brace-format
+msgid "Chemin à donner en entier (commençant par / ou ~) : {path}"
+msgstr "전체 경로를 입력하세요 (/ 또는 ~로 시작): {path}"
+
+#, python-brace-format
+msgid "Dossiers enregistrés : {paths}"
+msgstr "폴더 저장됨: {paths}"
+
+#, python-brace-format
+msgid "VIDER LE DOSSIER {label} ?"
+msgstr "{label} 폴더를 비우시겠습니까?"
+
+#, python-brace-format
+msgid ""
+"Supprime définitivement tout le contenu de {directory}. Le dossier reste."
+msgstr "{directory}의 모든 내용을 영구적으로 삭제합니다. 폴더는 남습니다."
+
+msgid "Vider"
+msgstr "비우기"
+
+#, python-brace-format
+msgid "Refusé — {path} : {reason}"
+msgstr "거부됨 — {path}: {reason}"
+
+#, python-brace-format
+msgid "{count} élément(s) supprimé(s) dans {path}."
+msgstr "{path}에서 항목 {count}개를 삭제했습니다."
+
+#, python-brace-format
+msgid "Non supprimés : {items}"
+msgstr "삭제되지 않음: {items}"
+
+msgid "Choisir"
+msgstr "선택"
+
+msgid "SYNCHRONISATION"
+msgstr "동기화"
+
+msgid ""
+"Toutes vos machines et leurs applications. Cochez des lignes (Entrée ou "
+"Espace) puis « Synchroniser la sélection », ou « Synchroniser tout ». Chaque"
+" machine a son plan, affiché avant d'agir, et un seul mot de passe ; les "
+"machines du réseau sont synchronisées depuis ici."
+msgstr ""
+"모든 머신과 그 애플리케이션. 행을 선택한 다음 (Enter 또는 Space) “선택 항목 동기화” 또는 “모두 동기화”. 각 머신은 "
+"작업 전에 표시되는 자체 계획과 비밀번호 한 번을 가집니다. 네트워크 머신은 여기에서 동기화됩니다."
+
+msgid "Synchroniser tout"
+msgstr "모두 동기화"
+
+msgid "Synchroniser la sélection"
+msgstr "선택 항목 동기화"
+
+msgid "Lire avec sudo"
+msgstr "sudo로 읽기"
+
+msgid "Vérification de cette machine et de son espace partagé…"
+msgstr "이 머신과 그 공유 공간 확인 중…"
+
+#, python-brace-format
+msgid "{count} application(s) sur {machines} machine(s) — vérifié à {time}."
+msgstr "머신 {machines}대에 애플리케이션 {count}개 — {time}에 확인함."
+
+msgid "Espace partagé lu avec sudo (lecture seule)."
+msgstr "sudo로 공유 공간을 읽었습니다 (읽기 전용)."
+
+#, python-brace-format
+msgid "Espace partagé de {machine} : "
+msgstr "{machine}의 공유 공간: "
+
+#, python-brace-format
+msgid "{tool} : {hint}"
+msgstr "{tool}: {hint}"
+
+msgid "Lecture de l'espace partagé…"
+msgstr "공유 공간 읽는 중…"
+
+#, python-brace-format
+msgid "Préparation du plan de synchronisation de {machine}…"
+msgstr "{machine}의 동기화 계획 준비 중…"
+
+msgid "FAIRE CONFIANCE À CETTE MACHINE ?"
+msgstr "이 머신을 신뢰하시겠습니까?"
+
+msgid "Faire confiance"
+msgstr "신뢰"
+
+msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
+msgstr "공유 공간 상세"
+
+#, python-brace-format
+msgid ""
+"Ce qu'omega-connect a créé sur cette machine, et quand (registre de l'espace"
+" partagé {zone}). « Tout retirer » défait exactement cette liste ; un "
+"fichier qu'elle ne connaît pas n'est jamais supprimé."
+msgstr ""
+"omega-connect가 이 머신에 만든 것과 그 시점 (공유 공간 {zone}의 레지스트리). “모두 제거”는 이 목록만 정확히 "
+"되돌립니다. 목록에 없는 파일은 절대 삭제하지 않습니다."
+
+msgid "CRÉATIONS"
+msgstr "생성 항목"
+
+msgid "OUTILS RELIÉS"
+msgstr "연결된 도구"
+
+msgid "Retirer cet outil"
+msgstr "이 도구 제거"
+
+msgid "Tout retirer…"
+msgstr "모두 제거…"
+
+msgid "Outil"
+msgstr "도구"
+
+msgid "Relié le"
+msgstr "연결 일시"
+
+msgid "Initialisation du registre : lecture de la zone en cours…"
+msgstr "레지스트리 초기화: 영역 읽는 중…"
+
+#, python-brace-format
+msgid ""
+"Aucune zone en {zone} : rien n'a été créé (menu Synchronisation pour "
+"l'établir)."
+msgstr "{zone}에 영역이 없습니다: 아무것도 만들어지지 않았습니다 (구성하려면 동기화 메뉴)."
+
+msgid ""
+"Registre lisible par root et le groupe omega-synchro seulement : "
+"reconnectez-vous si vous venez d'y être ajouté, ou « Lire avec sudo »."
+msgstr ""
+"레지스트리는 root와 omega-synchro 그룹만 읽을 수 있습니다: 방금 그룹에 추가되었다면 다시 로그인하거나, “sudo로 "
+"읽기”를 사용하세요."
+
+#, python-brace-format
+msgid ""
+"Registre {status} ({detail}) : rien ne sera retiré tant qu'il n'est pas "
+"réparé."
+msgstr "레지스트리 {status} ({detail}): 복구될 때까지 아무것도 제거하지 않습니다."
+
+#, python-brace-format
+msgid "Zone {zone} — {state} — mise à jour le {date}."
+msgstr "영역 {zone} — {state} — {date}에 업데이트됨."
+
+msgid "aucune application reliée pour l'instant"
+msgstr "아직 연결된 애플리케이션 없음"
+
+msgid "Aucune commande."
+msgstr "명령이 없습니다."
+
+msgid ""
+"Commandes lancées une à une en root avec sudo, dans cet ordre. Rien n'est "
+"lancé avant « Lancer ». Au premier échec tout s'arrête, et le registre garde"
+" la trace de ce qui a été créé."
+msgstr ""
+"sudo를 사용해 root로, 이 순서대로 하나씩 실행하는 명령입니다. “실행” 전에는 아무것도 실행하지 않습니다. 첫 실패 시 모두 "
+"중단되며, 레지스트리에 만들어진 것이 기록됩니다."
+
+msgid "COMMANDES"
+msgstr "명령"
+
+msgid "REMARQUES"
+msgstr "참고 사항"
+
+msgid ""
+"Ce qui est relié ou pas, sur toutes vos machines, avec son état (OK, à "
+"réparer, absent…). Cet écran montre : ce qui est « à réparer » se corrige "
+"dans le menu Réparer. Surlignez une ligne pour le détail."
+msgstr ""
+"모든 머신에서 연결된 것과 안 된 것, 그 상태 (OK, 복구 필요, 없음…). 이 화면은 보여 주기만 합니다: “복구 필요” 항목은 "
+"복구 메뉴에서 고칩니다. 자세히 보려면 행을 강조하세요."
