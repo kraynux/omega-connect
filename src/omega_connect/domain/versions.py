@@ -33,9 +33,11 @@ SHA_FILE = "sha.txt"
 MAX_ARCHIVE_BYTES = 64 * 1024 * 1024
 """Au-dela, ce n'est pas une archive d'outil omega (omega-serv 2.6.1 : 7,7 Mo)."""
 
-VERSION_FILES = {"omega-fire": ("src/omega_fire/core/constants.py", r'^OMEGA_FIRE_VERSION\s*=\s*"([^"]+)"')}
-"""Ou lire la version, outil par outil ; par defaut `pyproject.toml`, ligne `version = "..."`."""
 DEFAULT_VERSION_FILE = ("pyproject.toml", r'^version\s*=\s*"([^"]+)"')
+"""Ou lire la version : `pyproject.toml`, ligne `version = "..."` (seule source dans chaque outil, 2026-11-22)."""
+LEGACY_VERSION_FILES = {"omega-fire": ("src/omega_fire/core/constants.py", r'^OMEGA_FIRE_VERSION\s*=\s*"([^"]+)"')}
+"""Repli pour les installations d'avant : omega-fire jusqu'a la 3.6.2 construite le 2026-11-21 avait un
+pyproject.toml vide et sa version dans cette constante."""
 
 _VERSION = re.compile(r"^\d+(?:\.\d+){0,3}$")
 _SHA = re.compile(r"^[0-9a-f]{64}$")
@@ -52,17 +54,19 @@ def version_key(version: str) -> tuple[int, ...] | None:
     return tuple(numbers)
 
 
+def version_files(tool: str) -> tuple[tuple[str, str], ...]:
+    """(fichier, motif) dans l'ordre ou les lire : pyproject.toml d'abord, puis l'ancien emplacement."""
+    legacy = LEGACY_VERSION_FILES.get(tool)
+    return (DEFAULT_VERSION_FILE, legacy) if legacy else (DEFAULT_VERSION_FILE,)
+
+
 def read_version(text: str, tool: str) -> str:
-    """Version tiree du contenu du fichier de version de l'outil ; vide si absente ou illisible."""
-    _path, pattern = VERSION_FILES.get(tool, DEFAULT_VERSION_FILE)
-    match = re.search(pattern, text, re.MULTILINE)
-    if match is None or version_key(match.group(1)) is None:
-        return ""
-    return match.group(1)
-
-
-def version_file(tool: str) -> str:
-    return VERSION_FILES.get(tool, DEFAULT_VERSION_FILE)[0]
+    """Version tiree du contenu d'un fichier de version de l'outil ; vide si absente ou illisible."""
+    for _path, pattern in version_files(tool):
+        match = re.search(pattern, text, re.MULTILINE)
+        if match is not None and version_key(match.group(1)) is not None:
+            return match.group(1)
+    return ""
 
 
 def minimum_version(tool: str) -> str:
@@ -122,6 +126,9 @@ class UpdateMode(str, Enum):
     ASIDE = "aside"
     """omega-fire : son var/ appartient a root ; l'ancienne installation est mise de cote (`sudo mv`), la nouvelle
     extraite a sa place, et son `install.sh` reprend lui-meme l'etat de l'ancienne (README, « Mise a jour »)."""
+    INSTALL = "install"
+    """Installer (2026-11-22) : nouveau dossier (absent ou vide), archive extraite dedans, puis `install.sh` (qui
+    ecrit la carte d'identite des outils qui en ont). omega-fire : son install.sh demande sudo lui-meme."""
 
 
 UPDATE_MODES = {"omega-fire": UpdateMode.ASIDE}
@@ -145,6 +152,8 @@ class Outdated:
     utilisable) ; constate le 2026-11-11 sur omega-server. Reinstallee comme une mise a jour."""
     contains: str = ""
     """omega-suite mise a jour pour l'outil qu'elle embarque (« omega-stress ») ; vide sinon."""
+    install: bool = False
+    """Installer : l'outil n'est pas sur la machine, `root` est le dossier a creer (`~/<outil>`)."""
 
 
 def may_ask_sheet(tool: str, token_status: ReadStatus, version: str) -> bool:

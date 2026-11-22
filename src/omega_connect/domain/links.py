@@ -716,6 +716,8 @@ def token_mode_ok(mode: int) -> bool:
 
 
 def _token_check(item: DetectedInstallation, context: _Context) -> Check | None:
+    if item.tool and item.tool not in TOOL_LAUNCHERS and item.token_status is not ReadStatus.OK:
+        return None  # outil sans liaison (domain/tools.py) : aucune carte d'identite a attendre de lui
     launcher = TOOL_LAUNCHERS.get(item.tool)
     command = f"{item.root}/{launcher} {' '.join(TOKEN_ARGUMENTS)}" if launcher else ""
     repair = Repair(RepairKind.TOKEN, item.root, item.tool) if launcher else None

@@ -21,7 +21,7 @@ from omega_connect.interfaces.tui.screens.home import HomeScreen
 
 MENU_TITLES = {"registry": "Registre", "scanner": "Scanner", "links": "Liaisons", "synchronisation": "Synchronisation",
                "dashboard": "Dashboard", "repair": "Réparer", "report": "Rapport", "settings": "Réglages",
-               "help": "Aide", "updater": "Updater"}
+               "help": "Aide", "updater": "Updater", "installer": "Installer"}
 
 
 def test_every_menu_entry_has_its_section_and_no_internal_jargon():

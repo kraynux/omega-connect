@@ -21,6 +21,7 @@ STATE_LABELS = {
     AppState.OLD_VERSION: N_("Ancienne version"),
     AppState.INCOMPLETE: N_("Installation inachevée"),
     AppState.UNREACHABLE: N_("Injoignable"),
+    AppState.INSTALLED: N_("Installée"),
 }
 STATE_HINTS = {
     AppState.DETECTED: N_("trouvée, sans carte d'identité : la Synchronisation la lui crée"),
@@ -31,6 +32,7 @@ STATE_HINTS = {
     AppState.INCOMPLETE: N_("installée, mais son install.sh ne s'est pas terminé (environnement Python ou carte "
                             "d'identité manquants) : « Réinstaller l'application » (Registre)"),
     AppState.UNREACHABLE: N_("machine qui ne répond pas"),
+    AppState.INSTALLED: N_("installée ; cette application n'a pas de liaison avec les autres (rien à relier)"),
 }
 CONTRACT_VERSIONS = VERSION_MINIMUMS
 """Premiere version de chaque outil qui a une carte d'identite (`synchro`) : `domain/versions.py`."""
@@ -47,7 +49,7 @@ def state_hint(row: RegistryRow) -> str:
 
 STATE_MARKS = {
     AppState.DETECTED: "○", AppState.ENROLLED: "◐", AppState.LINKED: "●", AppState.TO_FIX: "▲",
-    AppState.OLD_VERSION: "◌", AppState.INCOMPLETE: "◇", AppState.UNREACHABLE: "✕",
+    AppState.OLD_VERSION: "◌", AppState.INCOMPLETE: "◇", AppState.UNREACHABLE: "✕", AppState.INSTALLED: "■",
 }
 SPACE_LABELS = {
     SpaceStatus.NOT_PREPARED: N_("pas encore préparé — la Synchronisation le prépare"),

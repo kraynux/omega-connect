@@ -19,7 +19,6 @@ from textual.css.query import NoMatches
 from textual.screen import Screen
 from textual.widgets import Button, DataTable, Footer, Header, Static
 
-from omega_connect.application.remote_actions import scan_remote
 from omega_connect.application.remote_sync import RemoteSyncTools
 from omega_connect.domain.fleet import AppState, registry_rows
 from omega_connect.domain.links import LinkKind
@@ -112,7 +111,7 @@ class RepairScreen(OmegaScreen):
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Tout réparer"), id="repair-all", disabled=True)
             with Container(classes="omega-btn-frame"):
-                yield Button(_("Analyser de nouveau"), id="again")
+                yield Button(_("Relancer le scan"), id="again")
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Retour"), id="back")
         yield Footer()
@@ -129,31 +128,22 @@ class RepairScreen(OmegaScreen):
             busy = self.query_one(Busy)
             busy.show(text) if text is not None else busy.hide()
 
-    def _load(self) -> None:
-        """Cette machine verifiee, PUIS les machines du reseau rescannees : la liste dit l'etat reel (retour de
-        l'auteur, 2026-11-11 : une liste faite d'apres un ancien scan proposait de reparer ce qui ne l'etait plus —
-        « rien a reparer », et on tournait en boucle)."""
+    def _load(self, rescan: bool = False) -> None:
+        """Le dernier scan relu (decision de l'auteur, 2026-11-22) ; « Relancer le scan » : cette machine et les
+        machines du reseau rescannees d'abord. Apres une reparation, la machine touchee est rescannee par l'ecran
+        qui a repare : la liste ne propose pas ce qui vient d'etre repare (retour de l'auteur, 2026-11-11)."""
         if self._loading:
             return
         self._loading = True
-        self._busy(_("Recherche de tout ce qui ne va pas : vérification de cette machine…"))
-        remote = self._remote_sync.remote if self._remote_sync is not None else None
+        self._busy(_("Scan de cette machine…") if rescan else _("Lecture du dernier scan…"))
 
         def collect() -> None:
             try:
+                if rescan:
+                    self.app.rescan_everything(  # type: ignore[attr-defined]
+                        lambda text: self.app.call_from_thread(self._busy, text))
                 report = self._verify()
                 rows = registry_rows(report, self._inspector.inspect(elevated=False), self._machine)
-                network = self._parc.load() if self._parc is not None else ()
-                machines = [entry for entry in network if not entry.local]
-                for index, entry in enumerate(machines, start=1):
-                    target = parse_target(entry.target)
-                    if remote is None or target is None:
-                        continue
-                    self.app.call_from_thread(self._busy, _("Rescan des machines du réseau ({index}/{count}) : "
-                                                            "{machine}…").format(index=index, count=len(machines),
-                                                                                 machine=entry.label))
-                    with contextlib.suppress(Exception):
-                        scan_remote(target, remote)
                 network = self._parc.load() if self._parc is not None else ()
                 found = problems(self._machine, report.links, rows, network)
             except Exception as exc:  # noqa: BLE001 - jamais planter l'interface
@@ -261,7 +251,7 @@ class RepairScreen(OmegaScreen):
         elif button == "repair-all":
             self._repair_all()
         elif button == "again":
-            self._load()
+            self._load(rescan=True)
         elif button == "back":
             self.action_back()
 

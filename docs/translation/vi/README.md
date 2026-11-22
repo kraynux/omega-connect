@@ -30,6 +30,7 @@ Trang chính thức: [OMEGA-CONNECT](https://kraynux.snake-mackarel.ts.net/omega
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/C.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/D.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/E.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/F.png" width="32%" />
 </p>
 
 ## 1. Tầm nhìn và phạm vi
@@ -45,6 +46,7 @@ Các ứng dụng omega được tạo ra để làm việc cùng nhau: nhật k
 - **Liên kết tải phân tán của omega-stress**: máy này điều phối, các máy được đánh dấu giúp nó tạo tải lên mục tiêu; một nút (quyền truy cập gửi qua SSH, chọn kiểu đồng ý, tường lửa chỉ mở cổng omega-stress).
 - **Sửa chữa**: để chính ứng dụng sở hữu tệp khắc phục từng sai lệch; omega-connect không bao giờ làm thay.
 - **Cập nhật hoặc cài lại** các ứng dụng của máy này và của mạng, từ **Updater**: từ GitHub Release của chúng hoặc, nếu không có, từ trang web của chúng (kiểm tra dấu vân tay); phiên bản chưa phát hành không bao giờ được đề xuất.
+- **Cài đặt** các ứng dụng omega đã phát hành lên máy này và mạng, từ **Installer**: cùng quy trình với cập nhật, chỉ cài đặt (gồm thẻ định danh và đăng ký).
 - Thao tác trên một máy trong mạng **từ máy của bạn**: không cần gõ gì ở máy đó, mật khẩu của nó được chính nó hỏi một lần.
 - Tạo một **báo cáo** đầy đủ (văn bản, JSON hoặc trang HTML).
 
@@ -106,13 +108,14 @@ Menu chính có hai cột:
 
 | Quản lý | Bảo trì |
 |---|---|
-| **Sổ đăng ký** — mọi ứng dụng trên mọi máy, phiên bản và trạng thái của chúng | **Sửa chữa** — danh sách mọi thứ đang có vấn đề, và bạn chọn |
-| **Quét** — máy này, và thêm các máy trong mạng | **Updater** — kiểm tra phiên bản, cập nhật hoặc cài lại, trên mọi máy |
+| **Sổ đăng ký** — mọi ứng dụng trên mọi máy, phiên bản và trạng thái của chúng | **Updater** — kiểm tra phiên bản, cập nhật hoặc cài lại, trên mọi máy |
+| **Quét** — máy này, và thêm các máy trong mạng | **Installer** — cài các ứng dụng omega, trên mọi máy |
 | **Liên kết** — những gì đã liên kết hay chưa, kèm trạng thái | **Báo cáo** — một tài liệu đầy đủ, để xuất |
 | **Đồng bộ hóa** — liên kết các ứng dụng, trên mọi máy | **Thiết lập** — ngôn ngữ, giao diện, thư mục, dọn dẹp |
-| **Bảng điều khiển** — cái nhìn tổng quan | **Trợ giúp** — từng menu, chức năng và chi tiết |
+| **Sửa chữa** — danh sách mọi thứ đang có vấn đề, và bạn chọn | **Trợ giúp** — từng menu, chức năng và chi tiết |
+| **Bảng điều khiển** — cái nhìn tổng quan | **Thoát** |
 
-Quy trình điển hình: **Quét** (máy này, rồi các máy khác của bạn, được đề xuất dựa trên hồ sơ Unison, `~/.ssh/config` và `known_hosts` của bạn) → **Sổ đăng ký** (cập nhật hoặc cài đặt lại một ứng dụng cũ) → **Đồng bộ hóa** (đánh dấu, rồi đồng bộ) → **Liên kết** và **Bảng điều khiển** để xem kết quả → **Sửa chữa** nếu vẫn còn sai lệch.
+Quy trình điển hình: **Quét** (máy này, rồi các máy khác của bạn, được đề xuất từ cấu hình SSH của bạn: `~/.ssh/config` và `known_hosts`) → **Sổ đăng ký** (cập nhật hoặc cài đặt lại một ứng dụng cũ) → **Đồng bộ hóa** (đánh dấu, rồi đồng bộ) → **Liên kết** và **Bảng điều khiển** để xem kết quả → **Sửa chữa** nếu vẫn còn sai lệch.
 
 Mỗi hành động đều hiển thị kế hoạch trước; không có gì được chạy trước khi bạn đồng ý. Với một máy trong mạng, giao diện nhường chỗ cho terminal trong thời gian thực hiện: chính máy đó hỏi mật khẩu của nó, một lần.
 
@@ -227,7 +230,6 @@ Các bài kiểm thử không bao giờ chạm vào `var/` thật, cũng không 
 
 - Thay thế fail2ban, omega-fire hoặc omega-jail.
 - Giám sát liên tục (không có dịch vụ thường trực).
-- Cài đặt một ứng dụng omega lần đầu tiên trên một máy trong mạng.
 - Bảng điều khiển web.
 
 ## Giấy phép
@@ -236,5 +238,5 @@ MIT — xem [LICENSE](../../../LICENSE).
 
 ---
 
-> Omega-connect — Tìm, liên kết, sửa chữa.
+> OMEGA-CONNECT — Tìm, liên kết, sửa chữa, cập nhật và cài đặt.
 > Các ứng dụng omega trò chuyện với nhau; omega-connect đảm bảo chúng có thể làm vậy.

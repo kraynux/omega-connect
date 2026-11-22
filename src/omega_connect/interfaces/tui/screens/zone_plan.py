@@ -19,7 +19,7 @@ from omega_connect.interfaces.cli.zone_view import (
     render_result,
     step_line,
 )
-from omega_connect.interfaces.tui.screens._base import SUDO_MESSAGE, OmegaScreen, suspended
+from omega_connect.interfaces.tui.screens._base import SUDO_MESSAGE, OmegaScreen, set_label, suspended
 from omega_connect.shared.i18n import _
 
 
@@ -116,6 +116,7 @@ class ZonePlanScreen(OmegaScreen):
         self.query_one(VerticalScroll).scroll_end(animate=False)
 
     def _finish(self, result: ApplyResult | None, error: str) -> None:
+        getattr(self.app, "local_changed", lambda: None)()  # scan relu : cette machine a change
         self._applying = False
         self._ran = True
         try:
@@ -123,7 +124,7 @@ class ZonePlanScreen(OmegaScreen):
         except NoMatches:
             return
         back.disabled = False
-        back.label = _("Fermer")
+        set_label(back, _("Fermer"))
         message = render_result(result, self._plan) if result is not None else _("Erreur : {message}").format(
             message=error)
         self._progress("\n" + message)

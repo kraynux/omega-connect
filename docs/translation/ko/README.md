@@ -30,6 +30,7 @@
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/C.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/D.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/E.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/F.png" width="32%" />
 </p>
 
 ## 1. 비전과 범위
@@ -45,6 +46,7 @@ omega 애플리케이션은 함께 동작하도록 만들어졌습니다: omega-
 - **omega-stress의 분산 부하 연결**: 이 머신이 지휘하고, 체크한 머신들이 대상에 부하를 거는 것을 돕습니다. 버튼 하나(접근 정보는 SSH로 전송, 동의 방식 선택, 방화벽은 omega-stress 포트만 개방).
 - **복구**: 각 불일치는 해당 파일을 소유한 애플리케이션이 고치게 합니다. omega-connect가 대신 고치는 일은 절대 없습니다.
 - 이 머신과 네트워크의 애플리케이션을 **Updater**에서 **업데이트하거나 다시 설치**합니다: 각 GitHub Release에서, 없으면 사이트에서 가져옵니다(지문 확인). 게시되지 않은 버전은 절대 제안하지 않습니다.
+- 이 머신과 네트워크에 게시된 omega 애플리케이션을 **Installer**에서 **설치**합니다: 업데이트와 같은 방식, 설치만(신분증과 등록 포함).
 - 네트워크 머신에 **사용자의 컴퓨터에서** 작업합니다: 그곳에서 입력할 것은 없으며, 비밀번호는 그 머신이 직접 한 번만 묻습니다.
 - 완전한 **보고서**(텍스트, JSON 또는 HTML 페이지)를 만듭니다.
 
@@ -106,13 +108,14 @@ cd omega-connect/
 
 | 관리 | 유지 관리 |
 |---|---|
-| **레지스트리** — 모든 머신의 모든 애플리케이션과 그 버전, 상태 | **복구** — 문제가 있는 모든 것의 목록에서 고릅니다 |
-| **스캔** — 이 머신, 그리고 네트워크 머신 추가 | **Updater** — 모든 머신에서 버전 확인, 업데이트 또는 재설치 |
+| **레지스트리** — 모든 머신의 모든 애플리케이션과 그 버전, 상태 | **Updater** — 모든 머신에서 버전 확인, 업데이트 또는 재설치 |
+| **스캔** — 이 머신, 그리고 네트워크 머신 추가 | **Installer** — 모든 머신에 omega 애플리케이션 설치 |
 | **연결** — 연결된 것과 안 된 것, 그 상태 | **보고서** — 내보낼 수 있는 전체 문서 |
 | **동기화** — 모든 머신에서 애플리케이션 연결 | **설정** — 언어, 테마, 폴더, 정리 |
-| **대시보드** — 전체 보기 | **도움말** — 각 메뉴, 그 기능과 세부 내용 |
+| **복구** — 문제가 있는 모든 것의 목록에서 고릅니다 | **도움말** — 각 메뉴, 그 기능과 세부 내용 |
+| **대시보드** — 전체 보기 | **종료** |
 
-일반적인 흐름: **스캔**(이 머신, 그다음 다른 머신들. Unison 프로필, `~/.ssh/config`, `known_hosts`를 바탕으로 제안) → **레지스트리**(오래된 애플리케이션 업데이트 또는 재설치) → **동기화**(선택한 다음 동기화) → **연결**과 **대시보드**에서 결과 확인 → 불일치가 남아 있으면 **복구**.
+일반적인 흐름: **스캔**(이 머신, 그다음 다른 머신. SSH 설정 `~/.ssh/config`와 `known_hosts`에서 제안) → **레지스트리**(오래된 애플리케이션 업데이트 또는 재설치) → **동기화**(선택한 다음 동기화) → **연결**과 **대시보드**에서 결과 확인 → 불일치가 남아 있으면 **복구**.
 
 각 작업은 먼저 계획을 보여 주며, 사용자가 동의하기 전에는 아무것도 실행하지 않습니다. 네트워크 머신의 경우 작업하는 동안 인터페이스가 터미널에 자리를 내줍니다: 비밀번호는 그 머신이 직접 한 번만 묻습니다.
 
@@ -227,7 +230,6 @@ mypy src
 
 - fail2ban, omega-fire, omega-jail 대체.
 - 지속적인 감시(상주 서비스 없음).
-- 네트워크 머신에 omega 애플리케이션을 처음으로 설치하는 일.
 - 웹 대시보드.
 
 ## 라이선스
@@ -236,5 +238,5 @@ MIT — [LICENSE](../../../LICENSE)를 참고하세요.
 
 ---
 
-> Omega-connect — 찾고, 연결하고, 복구합니다.
+> OMEGA-CONNECT — 찾기, 연결, 수리, 업데이트, 설치.
 > omega 애플리케이션은 서로 대화합니다. omega-connect는 그것이 가능한지 확인합니다.

@@ -16,10 +16,10 @@ from omega_connect.shared.i18n import _
 STATE_STYLE_KEYS = {
     AppState.LINKED: "success", AppState.ENROLLED: "secondary", AppState.DETECTED: "warning",
     AppState.TO_FIX: "error", AppState.OLD_VERSION: "dim", AppState.INCOMPLETE: "warning",
-    AppState.UNREACHABLE: "error",
+    AppState.UNREACHABLE: "error", AppState.INSTALLED: "secondary",
 }
 SUMMARY_ORDER = (AppState.LINKED, AppState.ENROLLED, AppState.DETECTED, AppState.TO_FIX, AppState.OLD_VERSION,
-                 AppState.INCOMPLETE, AppState.UNREACHABLE)
+                 AppState.INCOMPLETE, AppState.UNREACHABLE, AppState.INSTALLED)
 
 
 def theme_styles(app: App[object]) -> dict[str, str]:

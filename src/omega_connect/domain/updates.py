@@ -29,6 +29,9 @@ class Purpose(str, Enum):
     """Synchroniser : reparer puis synchroniser ; jamais de mise a jour."""
     REPAIR = "repair"
     """Reparer : seulement les corrections faites par les outils eux-memes (`reparer`)."""
+    INSTALL = "install"
+    """Installer (2026-11-22) : les outils choisis, puis la synchronisation de la machine (carte d'identite et
+    espace partage) s'il y a parmi eux un outil a liaisons ; aucune configuration de l'outil."""
 
 
 class ReleaseFailure(str, Enum):
@@ -69,12 +72,14 @@ class UpdateChoice:
 
     @property
     def mode(self) -> UpdateMode:
-        return update_mode(self.outdated.tool)
+        return UpdateMode.INSTALL if self.outdated.install else update_mode(self.outdated.tool)
 
 
 def choose_update(item: Outdated, latest: str | ReleaseFailure) -> UpdateChoice:
     if isinstance(latest, ReleaseFailure):
         return UpdateChoice(item, failure=latest)
+    if item.install:  # installer : la derniere version publiee, quelle qu'elle soit
+        return UpdateChoice(item, latest)
     if item.incomplete:  # reinstallation : la meme version convient
         same_or_newer = not is_newer(item.version, latest)
         return UpdateChoice(item, latest) if same_or_newer and not too_old(item.tool, latest) else \

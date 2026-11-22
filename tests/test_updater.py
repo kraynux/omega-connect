@@ -66,15 +66,32 @@ def test_lignes_et_etats() -> None:
     assert not checked["omega-stress"].actionable
 
 
-def test_github_puis_le_site_la_plus_haute_version() -> None:
-    github = FakeSource("GitHub", {"omega-stress": "1.6.0"})
-    site = FakeSource("site", {"omega-stress": "2.0.0", "omega-connect": "0.2.0"})
-    releases = ChainedReleases(github, site)
-    assert releases.latest("omega-stress") == "2.0.0" and releases.origin("omega-stress") == "site"
-    assert releases.latest("omega-connect") == "0.2.0"
+def test_github_puis_kraynux_puis_craftdark() -> None:
+    """Procedure de l'auteur (2026-11-22) : GitHub ; si absent ou injoignable, le site kraynux ; si absent ou
+    injoignable, le site craftdark. La premiere source qui publie l'outil donne sa version."""
+    github = FakeSource("GitHub", {"omega-fire": "3.6.2"})
+    kraynux = FakeSource("kraynux", {"omega-stress": "2.0.0", "omega-fire": "3.6.3"})
+    craftdark = FakeSource("craftdark", {"omega-connect": "0.2.0", "omega-stress": "2.0.0"})
+    releases = ChainedReleases(github, kraynux, craftdark)
+    assert releases.latest("omega-fire") == "3.6.2" and releases.origin("omega-fire") == "GitHub"
+    assert releases.latest("omega-stress") == "2.0.0" and releases.origin("omega-stress") == "kraynux"
+    assert craftdark.asked == []  # kraynux a repondu pour chacun : craftdark n'est pas interroge
+    assert releases.latest("omega-connect") == "0.2.0" and releases.origin("omega-connect") == "craftdark"
     assert releases.latest("omega-inconnu") is ReleaseFailure.NO_RELEASE
-    egal = ChainedReleases(FakeSource("GitHub", {"x": "1.0"}), FakeSource("site", {"x": "1.0"}))
-    assert egal.latest("x") == "1.0" and egal.origin("x") == "GitHub"  # GitHub a egalite
+    down = FakeSource("GitHub", {"omega-x": ReleaseFailure.NETWORK})
+    assert ChainedReleases(down, FakeSource("kraynux", {"omega-x": "1.0"})).latest("omega-x") == "1.0"
+
+
+def test_sites_kraynux_et_craftdark_meme_structure() -> None:
+    from omega_lib.declaration.models import MIRROR_SITE_URL
+
+    from omega_connect.infrastructure.updates.site_releases import SiteReleases
+
+    kraynux, craftdark = SiteReleases(), SiteReleases(MIRROR_SITE_URL, "craftdark")
+    assert kraynux.label == "kraynux" and craftdark.label == "craftdark"
+    assert kraynux._sha_url("omega-log", "1.6.0") == "https://kraynux.snake-mackarel.ts.net/omega-log/download/sha.txt"
+    assert craftdark._archive_url("omega-log", "1.6.0", "omega-log-1.6.0.tar.gz") == (
+        "https://craftdark.snake-mackarel.ts.net/omega-log/download/omega-log-1.6.0.tar.gz")
 
 
 def test_une_requete_par_outil() -> None:
@@ -168,18 +185,21 @@ def test_omega_stress_d_omega_suite_reconnu_et_mis_a_jour_avec_elle(tmp_path: Pa
     suite, embedded = _fake_suite(tmp_path)
     report = detect_installations(str(tmp_path), [FilesystemScanLocator(tmp_path, 4, Source.HOME)],
                                   FilesystemInspector(), None)
-    (item,) = report.installations
+    item = next(found for found in report.installations if found.tool == "omega-stress")
+    assert {found.tool for found in report.installations} == {"omega-stress", "omega-suite"}
     assert item.root == str(embedded) and item.suite == str(suite) and item.suite_version == "1.6.0"
     assert item.venv_ready is True  # celui de la suite
     found = outdated(item)  # omega-stress 1.6.0 < 2.0.0 (charge distribuee)
     assert found is not None and found.tool == "omega-suite" and found.root == str(suite)
     assert found.contains == "omega-stress" and not found.incomplete
-    (row,) = registry_rows(VerificationReport(report, ()), None, "pc")
+    row = next(line for line in registry_rows(VerificationReport(report, ()), None, "pc")
+               if line.tool == "omega-stress")
     assert row.state is AppState.OLD_VERSION and row.suite == str(suite)
     from omega_connect.domain.remote import rows_from_list, rows_to_list
 
     assert rows_from_list(rows_to_list([row]), "pc")[0].suite_version == "1.6.0"  # garde par le registre du parc
-    (line,) = app_rows([MachineEntry("pc", True, "", (row,))])
+    (line,) = app_rows([MachineEntry("pc", True, "", tuple(registry_rows(VerificationReport(report, ()), None,
+                                                                         "pc")))])
     assert (line.tool, line.root, line.version, line.contains) == ("omega-suite", str(suite), "1.6.0",
                                                                     "omega-stress 1.6.0")
     releases = ChainedReleases(FakeSource("site", {"omega-suite": "1.7.0", "omega-stress": "2.0.0"}))
@@ -194,3 +214,109 @@ def test_copie_vendor_sans_omega_suite_reste_un_omega_stress(tmp_path: Path) -> 
     (tmp_path / "omega-suite" / "omega-suite.sh").unlink()
     assert embedding_suite(str(embedded)) == ("", "")
     assert embedding_suite("/home/kr/omega-stress") == ("", "")
+
+
+def test_version_d_omega_fire_dans_pyproject_puis_ancienne_constante(tmp_path: Path) -> None:
+    """2026-11-22 : omega-fire porte sa version dans pyproject.toml (seule source) ; une installation d'avant
+    (pyproject.toml vide, constante OMEGA_FIRE_VERSION) reste lue."""
+    from omega_connect.infrastructure.detection.layout import installed_version
+
+    new, old = tmp_path / "neuf", tmp_path / "ancien"
+    for root in (new, old):
+        (root / "src" / "omega_fire" / "core").mkdir(parents=True)
+    (new / "pyproject.toml").write_text('# commentaire\n[project]\nname = "omega-fire"\nversion = "3.6.3"\n')
+    (new / "src/omega_fire/core/constants.py").write_text("OMEGA_FIRE_VERSION = project_version(ROOT)\n")
+    (old / "pyproject.toml").write_text("")
+    (old / "src/omega_fire/core/constants.py").write_text('OMEGA_FIRE_VERSION = "3.6.1"\n')
+    assert installed_version(new, "omega-fire") == "3.6.3"
+    assert installed_version(old, "omega-fire") == "3.6.1"
+
+
+def test_omega_suite_reconnue_elle_meme_et_ses_outils_une_seule_ligne(tmp_path: Path) -> None:
+    """2026-11-22 : omega-connect reconnait les 13 outils publies ; omega-suite et son omega-stress embarque sont
+    trouves tous les deux, l'Updater n'en fait qu'une ligne ; un outil sans liaison est « Installee »."""
+    from omega_connect.application.detect_installations import detect_installations
+    from omega_connect.domain.detection import Source
+    from omega_connect.domain.fleet import registry_rows
+    from omega_connect.domain.links import VerificationReport
+    from omega_connect.infrastructure.detection.filesystem_scan import FilesystemScanLocator
+    from omega_connect.infrastructure.detection.layout import FilesystemInspector
+
+    suite, embedded = _fake_suite(tmp_path, stress="2.0.0")
+    log = tmp_path / "omega-log"
+    (log / "src" / "omega_log").mkdir(parents=True)
+    (log / "omega-log.sh").write_text("#!/bin/sh\n")
+    (log / "pyproject.toml").write_text('[project]\nname = "omega-log"\nversion = "1.6.0"\n')
+    report = detect_installations(str(tmp_path), [FilesystemScanLocator(tmp_path, 4, Source.HOME)],
+                                  FilesystemInspector(), None)
+    assert sorted((item.tool, item.version) for item in report.installations) == [
+        ("omega-log", "1.6.0"), ("omega-stress", "2.0.0"), ("omega-suite", "1.6.0")]
+    rows = registry_rows(VerificationReport(report, ()), None, "pc")
+    assert {row.tool: row.state for row in rows}["omega-log"] is AppState.INSTALLED
+    assert {row.tool: row.state for row in rows}["omega-suite"] is AppState.INSTALLED
+    lines = app_rows([MachineEntry("pc", True, "", rows)])
+    assert sorted((line.tool, line.root, line.contains) for line in lines) == [
+        ("omega-log", str(log), ""), ("omega-suite", str(suite), "omega-stress 2.0.0")]
+
+
+def test_installer_lignes_par_machine(tmp_path: Path) -> None:
+    """Installer (2026-11-22) : chaque machine joignable x les 13 outils publies ; deja la ou a installer dans
+    ~/<outil> ; l'omega-stress d'omega-suite ne compte pas ; une machine injoignable n'est pas proposee."""
+    from omega_connect.application.updater import install_rows
+    from omega_connect.domain.tools import INSTALLABLE_TOOLS
+
+    local = MachineEntry("pc", True, "", (_row("pc", "omega-fire", "/f", "3.6.2"),
+                                          RegistryRow("pc", "omega-stress", "/s/vendor/omega-stress", "", "", "2.0.0",
+                                                      AppState.ENROLLED, (), "/s", "1.7.0")))
+    remote = MachineEntry("mpc", False, "", (), "fp", ("mpc",), "kr@mpc")
+    gone = MachineEntry("vieux", False, "", (), "fp2", ("v",), "kr@v", reachable=False)
+    rows = install_rows([remote, gone, local])
+    assert len(rows) == 2 * len(INSTALLABLE_TOOLS) == 26
+    by = {(row.machine, row.tool): row for row in rows}
+    assert by[("pc", "omega-fire")].state is UpdateState.PRESENT and not by[("pc", "omega-fire")].actionable
+    stress = by[("pc", "omega-stress")]
+    assert stress.install and stress.root == "~/omega-stress" and stress.state is UpdateState.NOT_CHECKED
+    checked = {row.key: row for row in check_versions(rows, ChainedReleases(FakeSource("site", {"omega-log": "1.6.0"})))}
+    log = checked[by[("mpc", "omega-log")].key]
+    assert log.state is UpdateState.TO_INSTALL and log.actionable and log.target == "kr@mpc"
+    assert checked[by[("mpc", "omega-scan")].key].state is UpdateState.UNKNOWN  # rien de publie
+
+
+def test_installer_cette_machine_de_bout_en_bout(tmp_path: Path, monkeypatch) -> None:
+    """Nouveau dossier ~/omega-demo, archive verifiee, extraite, install.sh lance ; un dossier deja rempli est
+    refuse (jamais par-dessus autre chose)."""
+    from omega_connect.domain.updates import Purpose
+
+    home = tmp_path / "maison"
+    home.mkdir()
+    monkeypatch.setenv("HOME", str(home))
+    archive = _archive(tmp_path, "omega-demo", "1.0.0")
+    releases = ChainedReleases(FakeSource("site", {"omega-demo": "1.0.0"}, {("omega-demo", "1.0.0"): archive}))
+    row = check_versions([AppRow("pc", "", True, "omega-demo", "~/omega-demo", "", install=True)], releases)[0]
+    prepared = prepare_local([row], releases, Purpose.INSTALL)
+    assert not prepared.refused
+    code = run_local(prepared, run_in_terminal)
+    ok, text = finish_local(prepared)
+    assert code == 0 and ok, text
+    assert (home / "omega-demo" / "VERSION").read_text() == "1.0.0"
+    assert (home / "omega-demo" / "installe.txt").is_file()
+    # deuxieme fois : le dossier existe et n'est pas vide -> refus, rien n'est touche
+    archive = _archive(tmp_path, "omega-demo", "1.0.0")
+    releases = ChainedReleases(FakeSource("site", {"omega-demo": "1.0.0"}, {("omega-demo", "1.0.0"): archive}))
+    prepared = prepare_local([row], releases, Purpose.INSTALL)
+    run_local(prepared, run_in_terminal)
+    ok, text = finish_local(prepared)
+    assert not ok and "existe déjà" in text
+
+
+def test_version_affichee_egale_pyproject() -> None:
+    """Etape B (2026-11-22) : aucune copie du numero dans le code ; splash, barre, rapport et contact lisent
+    pyproject.toml."""
+    import re
+
+    import omega_connect
+
+    root = Path(omega_connect.__file__).resolve().parents[2]
+    found = re.search(r'^version = "([^"]+)"', (root / "pyproject.toml").read_text(), re.M)
+    assert found is not None and omega_connect.__version__ == found.group(1)
+    assert '__version__ = "' not in (root / "src/omega_connect/__init__.py").read_text()

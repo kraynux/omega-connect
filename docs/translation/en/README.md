@@ -30,6 +30,7 @@ Official page: [OMEGA-CONNECT](https://kraynux.snake-mackarel.ts.net/omega-conne
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/C.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/D.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/E.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/F.png" width="32%" />
 </p>
 
 ## 1. Vision and scope
@@ -45,6 +46,7 @@ The omega applications are made to work together: omega-serv's logs are read by 
 - **Links omega-stress distributed load**: this machine leads, the ticked machines help it load the target; one button (access sent over SSH, consent chosen, firewall opened to the omega-stress port only).
 - **Repairs**: has each discrepancy fixed by the application that owns the file; never omega-connect in its place.
 - **Updates or reinstalls** the applications of this machine and of the network, from the **Updater**: their GitHub Release or, failing that, their site (fingerprint checked); an unpublished version is never offered.
+- **Installs** the published omega applications on this machine and on the network, from the **Installer**: same process as the updates, just installing (identity card and registration included).
 - Acts on a network machine **from your computer**: nothing to type over there, its password asked once, by the machine itself.
 - Produces a complete **report** (text, JSON or HTML page).
 
@@ -106,13 +108,14 @@ The main menu has two columns:
 
 | Management | Maintenance |
 |---|---|
-| **Registry** — all the applications of all the machines, their version and their state | **Repair** — the list of everything that is wrong, and you choose |
-| **Scan** — this machine, and adding the network machines | **Updater** — check versions, update or reinstall, on all machines |
+| **Registry** — all the applications of all the machines, their version and their state | **Updater** — check versions, update or reinstall, on all machines |
+| **Scan** — this machine, and adding the network machines | **Installer** — install the omega applications, on all machines |
 | **Links** — what is linked or not, with its state | **Report** — a complete document, to export |
 | **Synchronization** — link the applications, on all the machines | **Settings** — language, themes, folders, purge |
-| **Dashboard** — the overview | **Help** — each menu, what it does and the details |
+| **Repair** — the list of everything that is wrong, and you choose | **Help** — each menu, what it does and the details |
+| **Dashboard** — the overview | **Quit** |
 
-Typical path: **Scan** (this machine, then your other machines, suggested from your Unison profiles, `~/.ssh/config` and `known_hosts`) → **Registry** (update or reinstall an old application) → **Synchronization** (check, then synchronize) → **Links** and **Dashboard** to see the result → **Repair** if a discrepancy remains.
+Typical path: **Scan** (this machine, then your other machines, suggested from your SSH configuration: `~/.ssh/config` and `known_hosts`) → **Registry** (update or reinstall an old application) → **Synchronization** (check, then synchronize) → **Links** and **Dashboard** to see the result → **Repair** if a discrepancy remains.
 
 Each action first displays its plan; nothing is run before you agree. For a network machine, the interface gives way to the terminal for the duration of the action: the machine asks for its password itself, once.
 
@@ -227,7 +230,6 @@ The tests never touch the real `var/`, the network or sudo: fake SSH run locally
 
 - Replacing fail2ban, omega-fire or omega-jail.
 - Continuous monitoring (no permanent service).
-- Installing an omega application for the first time on a network machine.
 - Web dashboard.
 
 ## License
@@ -236,5 +238,5 @@ MIT — see [LICENSE](../../../LICENSE).
 
 ---
 
-> Omega-connect — Find, link, repair.
+> OMEGA-CONNECT — Find, link, repair, update and install.
 > The omega applications talk to each other; omega-connect makes sure they can.

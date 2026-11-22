@@ -20,15 +20,17 @@ from textual.binding import Binding, BindingType
 
 from omega_connect.application.distributed_actions import DistributedTools
 from omega_connect.application.enroll_actions import EnrollTools
-from omega_connect.application.remote_actions import RemoteTools
+from omega_connect.application.remote_actions import RemoteTools, scan_remote
 from omega_connect.application.remote_sync import RemoteSyncTools
 from omega_connect.application.repair_actions import RepairTools
 from omega_connect.application.report import ReportTools
+from omega_connect.application.scan_cache import ScanCache, request_rescan
 from omega_connect.application.settings import KEY_THEME, SettingsTools
 from omega_connect.application.updater import UpdaterTools
 from omega_connect.application.zone_actions import ZoneTools
 from omega_connect.domain.detection import DetectionReport
 from omega_connect.domain.links import VerificationReport
+from omega_connect.domain.remote import parse_target
 from omega_connect.interfaces.tui.language_setting import notify_language_at_startup
 from omega_connect.interfaces.tui.rendering.stylesheet_loader import load_paths_for
 from omega_connect.interfaces.tui.rendering.textual_theme_builder import build_all_textual_themes
@@ -47,7 +49,7 @@ from omega_connect.interfaces.tui.screens.scanner import ScannerScreen
 from omega_connect.interfaces.tui.screens.settings import SettingsScreen
 from omega_connect.interfaces.tui.screens.splash import SplashScreen
 from omega_connect.interfaces.tui.screens.synchronisation import SynchronisationScreen
-from omega_connect.interfaces.tui.screens.updater import UpdaterScreen, rescan_local_machine
+from omega_connect.interfaces.tui.screens.updater import InstallerScreen, UpdaterScreen, rescan_local_machine
 from omega_connect.interfaces.tui.views import VIEWS
 from omega_connect.ports.fleet import ParcStore
 from omega_connect.shared.i18n import _
@@ -122,6 +124,46 @@ class OmegaConnectApp(App[None]):
         self.push_screen(HomeScreen(open_screen=self.screen_for))
         if self._splash:
             self.push_screen(SplashScreen(version=self._version))
+        if isinstance(self._verify, ScanCache):  # scan de demarrage, relu ensuite par tous les ecrans
+            self.run_worker(self._startup_scan, thread=True, group="startup-scan", exclusive=True)
+
+    # ---- scan relu (decision de l'auteur, 2026-11-22) ----
+    def rescan_everything(self, progress: Callable[[str], None] | None = None) -> int:
+        """« Relancer le scan » (et le demarrage) : cette machine, puis chaque machine connue du reseau, une a une.
+        A appeler dans un fil ; renvoie le nombre de machines du reseau scannees."""
+        request_rescan(self._verify)
+        if progress is not None:
+            progress(_("Scan de cette machine…"))
+        if self._parc is not None and self._zone is not None:
+            rescan_local_machine(self._verify, self._zone.inspector, self._parc, self._machine)
+        else:
+            self._verify()
+        remote = self._remote
+        if remote is None:
+            return 0
+        machines = [entry for entry in remote.parc.load() if not entry.local and parse_target(entry.target)]
+        for index, entry in enumerate(machines, start=1):
+            if progress is not None:
+                progress(_("Scan des machines du réseau ({index}/{count}) : {machine}…").format(
+                    index=index, count=len(machines), machine=entry.label))
+            target = parse_target(entry.target)
+            if target is not None:
+                with contextlib.suppress(Exception):  # une machine ne bloque jamais les autres
+                    scan_remote(target, remote)
+        return len(machines)
+
+    def local_changed(self) -> None:
+        """Une action a change CETTE machine (reparation, synchronisation, liaison, mise a jour) : le prochain
+        affichage la rescanne au lieu de relire l'ancien scan."""
+        request_rescan(self._verify)
+
+    def _startup_scan(self) -> None:
+        try:
+            count = self.rescan_everything()
+        except Exception:  # noqa: BLE001 - le scan sera refait a l'ouverture d'un ecran
+            return
+        self.call_from_thread(self.notify, _("Scan terminé : cette machine et {count} machine(s) du réseau.").format(
+            count=count), title=_("Scan"))
 
     def screen_for(self, key: str) -> Screen[None] | None:
         parc = self._parc
@@ -180,6 +222,10 @@ class OmegaConnectApp(App[None]):
 
         if key == "updater":
             return updater()
+        if key == "installer" and updater_tools is not None and store is not None:
+            return InstallerScreen(parc=store, releases=updater_tools.releases, remote_sync=self._remote_sync,
+                                   rescan_local=lambda: rescan_local_machine(verify, zone.inspector, store, machine),
+                                   runner=updater_tools.runner, machine=machine)
         if key == "synchronisation" and self._repair_tools is not None:
             tools = EnrollTools(zone=zone, repair=self._repair_tools, detect=self._detect)
             return SynchronisationScreen(verify=self._verify, tools=tools, machine=self._machine,

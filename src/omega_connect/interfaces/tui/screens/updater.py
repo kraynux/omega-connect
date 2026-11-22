@@ -29,6 +29,7 @@ from omega_connect.application.updater import (
     app_rows,
     check_versions,
     finish_local,
+    install_rows,
     prepare_local,
     run_local,
 )
@@ -52,10 +53,13 @@ STATE_WORDS = {
     UpdateState.INCOMPLETE: N_("installation inachevée — à réinstaller"),
     UpdateState.UNKNOWN: N_("aucune version publiée trouvée"),
     UpdateState.UNREACHABLE: N_("machine injoignable"),
+    UpdateState.TO_INSTALL: N_("à installer"),
+    UpdateState.PRESENT: N_("déjà installée"),
 }
 STATE_STYLES = {
     UpdateState.UP_TO_DATE: "green", UpdateState.OUTDATED: "bold yellow", UpdateState.INCOMPLETE: "bold yellow",
     UpdateState.UNKNOWN: "dim", UpdateState.UNREACHABLE: "red", UpdateState.NOT_CHECKED: "dim",
+    UpdateState.TO_INSTALL: "bold cyan", UpdateState.PRESENT: "green",
 }
 LOCAL_MESSAGE = N_("omega-connect — mise à jour sur cette machine. Les install.sh peuvent demander le mot de passe "
                    "sudo (il ne s'affiche pas pendant la saisie).")
@@ -63,6 +67,23 @@ LOCAL_MESSAGE = N_("omega-connect — mise à jour sur cette machine. Les instal
 
 class UpdaterScreen(OmegaScreen):
     BINDINGS = [*OmegaScreen.BINDINGS, Binding("space", "choose_row", _("Choisir"), show=False)]
+    PURPOSE = Purpose.UPDATE
+    TITLE_TEXT = N_("UPDATER")
+    HINT_TEXT = N_("Les applications déjà scannées, sur cette machine et sur le réseau. « Vérifier les versions » "
+                   "cherche la dernière version publiée (GitHub, puis le site). Cochez (Entrée ou Espace) puis "
+                   "« Mettre à jour la sélection », ou « Tout mettre à jour » : chaque machine montre son plan avant "
+                   "d'agir, et un seul mot de passe est demandé, dans le terminal.")
+    CHOSEN_LABEL = N_("Mettre à jour la sélection")
+    LOCAL_TEXT = LOCAL_MESSAGE
+
+    def build_rows(self, machines: tuple[MachineEntry, ...]) -> list[AppRow]:
+        return app_rows(machines)
+
+    def status_text(self, counts: dict[UpdateState, int]) -> str:
+        return _("{count} application(s) — à jour : {ok} ; à mettre à jour : {old} ; inachevées : {incomplete} ; "
+                 "non vérifiées : {unchecked}.").format(
+            count=len(self._rows), ok=counts[UpdateState.UP_TO_DATE], old=counts[UpdateState.OUTDATED],
+            incomplete=counts[UpdateState.INCOMPLETE], unchecked=counts[UpdateState.NOT_CHECKED])
 
     def __init__(self, *, parc: object, releases: Releases, remote_sync: RemoteSyncTools | None,
                  rescan_local: Callable[[], None], runner: Callable[[list[str]], int], machine: str,
@@ -86,12 +107,8 @@ class UpdaterScreen(OmegaScreen):
     def compose(self) -> ComposeResult:
         yield Header()
         with Vertical(classes="omega-panel omega-fill"):
-            yield Static(_("UPDATER"), classes="omega-title")
-            yield Static(_("Les applications déjà scannées, sur cette machine et sur le réseau. « Vérifier les "
-                           "versions » cherche la dernière version publiée (GitHub, puis le site). Cochez (Entrée ou "
-                           "Espace) puis « Mettre à jour la sélection », ou « Tout mettre à jour » : chaque machine "
-                           "montre son plan avant d'agir, et un seul mot de passe est demandé, dans le terminal."),
-                         classes="omega-hint")
+            yield Static(_(self.TITLE_TEXT), classes="omega-title")
+            yield Static(_(self.HINT_TEXT), classes="omega-hint")
             yield Static("", id="updater-status", classes="omega-hint")
             yield Busy(id="busy")
             yield WideTable(id="updater-table")
@@ -100,8 +117,8 @@ class UpdaterScreen(OmegaScreen):
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Vérifier les versions"), id="check", variant="primary")
             with Container(classes="omega-btn-frame"):
-                yield Button(_("Mettre à jour la sélection"), id="update-chosen", disabled=True)
-            with Container(classes="omega-btn-frame"):
+                yield Button(_(self.CHOSEN_LABEL), id="update-chosen", disabled=True)
+            with Container(classes="omega-btn-frame", id="update-all-frame"):
                 yield Button(_("Tout mettre à jour"), id="update-all", disabled=True)
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Retour"), id="back")
@@ -125,7 +142,7 @@ class UpdaterScreen(OmegaScreen):
             machines = self._parc.load()  # type: ignore[attr-defined]
         except Exception:  # noqa: BLE001
             machines = ()
-        fresh = app_rows(machines)
+        fresh = self.build_rows(tuple(machines))
         # garde les versions deja verifiees (meme outil) : pas de nouvelle requete au retour d'une mise a jour
         latest = {row.tool: row for row in known.values() if row.latest or row.failure}
         self._rows = [replace(row, latest=latest[row.tool].latest, origin=latest[row.tool].origin,
@@ -144,7 +161,8 @@ class UpdaterScreen(OmegaScreen):
                 state = Text(_(STATE_WORDS[row.state]), style=STATE_STYLES[row.state])
                 tool = _("{tool} (contient {tools})").format(tool=row.tool, tools=row.contains) if row.contains \
                     else row.tool
-                table.add_row(mark, row.machine, tool, row.version or "?", row.latest or "—",
+                table.add_row(mark, row.machine, tool, "—" if row.install else (row.version or "?"),
+                              row.latest or "—",
                               row.origin or "—", state, key=row.key)
             if cursor is not None and cursor < table.row_count:
                 table.move_cursor(row=cursor)
@@ -154,11 +172,7 @@ class UpdaterScreen(OmegaScreen):
             self.query_one("#update-all", Button).disabled = self._working or not actionable
             self.query_one("#check", Button).disabled = self._working
             counts = {state: sum(1 for row in self._rows if row.state is state) for state in UpdateState}
-            self.query_one("#updater-status", Static).update(
-                _("{count} application(s) — à jour : {ok} ; à mettre à jour : {old} ; inachevées : {incomplete} ; "
-                  "non vérifiées : {unchecked}.").format(
-                    count=len(self._rows), ok=counts[UpdateState.UP_TO_DATE], old=counts[UpdateState.OUTDATED],
-                    incomplete=counts[UpdateState.INCOMPLETE], unchecked=counts[UpdateState.NOT_CHECKED]))
+            self.query_one("#updater-status", Static).update(self.status_text(counts))
 
     def action_choose_row(self) -> None:
         table = self.query_one("#updater-table", WideTable)
@@ -230,7 +244,7 @@ class UpdaterScreen(OmegaScreen):
         self._busy(_("Téléchargement et vérification des archives…"))
 
         def prepare() -> None:
-            prepared = prepare_local(rows, self._releases)
+            prepared = prepare_local(rows, self._releases, self.PURPOSE)
             self.app.call_from_thread(self._run_local, prepared)
 
         self.run_worker(prepare, thread=True, group="updater", exclusive=True)
@@ -244,7 +258,7 @@ class UpdaterScreen(OmegaScreen):
             self._show_report()
             self._next_remote()
             return
-        with suspended(self.app, _(LOCAL_MESSAGE)):
+        with suspended(self.app, _(self.LOCAL_TEXT)):
             run_local(prepared, self._runner)
             with contextlib.suppress(EOFError, KeyboardInterrupt):
                 input(_(BACK_PROMPT))
@@ -281,7 +295,7 @@ class UpdaterScreen(OmegaScreen):
             self._next_remote()
             return
         self.app.push_screen(
-            RemoteMachineScreen(target=target, tools=self._remote_sync, purpose=Purpose.UPDATE,
+            RemoteMachineScreen(target=target, tools=self._remote_sync, purpose=self.PURPOSE,
                                 items=tuple(row.outdated() for row in rows)),
             self._next_remote)
 
@@ -291,10 +305,45 @@ class UpdaterScreen(OmegaScreen):
                 self.query_one("#updater-report", Static).update("\n".join(self._report))
 
 
+
+class InstallerScreen(UpdaterScreen):
+    """INSTALLER (menu Maintenance, sous l'Updater ; demande de l'auteur, 2026-11-22) : installer les applications
+    omega sur cette machine et sur les machines du reseau, avec le meme procede que les mises a jour (archive prise
+    sur GitHub puis le site, empreinte verifiee, envoyee, `install.sh` dans le terminal). Juste installer, sauf la
+    carte d'identite et l'inscription des applications qui se relient aux autres. Dossier : `~/<application>`."""
+
+    PURPOSE = Purpose.INSTALL
+    TITLE_TEXT = N_("INSTALLER")
+    HINT_TEXT = N_("Pour chaque machine joignable (cette machine et le réseau, d'après le dernier scan), les "
+                   "applications omega publiées : déjà installées, ou à installer dans ~/<application>. « Vérifier "
+                   "les versions » cherche la dernière version publiée (GitHub, puis le site). Cochez (Entrée ou "
+                   "Espace) puis « Installer la sélection » : chaque machine montre son plan avant d'agir ; omega-fire "
+                   "demande le mot de passe sudo, dans le terminal.")
+    CHOSEN_LABEL = N_("Installer la sélection")
+    LOCAL_TEXT = N_("omega-connect — installation sur cette machine. Les install.sh peuvent demander le mot de passe "
+                    "sudo (il ne s'affiche pas pendant la saisie).")
+
+    def build_rows(self, machines: tuple[MachineEntry, ...]) -> list[AppRow]:
+        return install_rows(machines)
+
+    def status_text(self, counts: dict[UpdateState, int]) -> str:
+        return _("{count} ligne(s) — déjà installées : {present} ; à installer : {todo} ; non vérifiées : "
+                 "{unchecked}.").format(count=len(self._rows), present=counts[UpdateState.PRESENT],
+                                        todo=counts[UpdateState.TO_INSTALL],
+                                        unchecked=counts[UpdateState.NOT_CHECKED])
+
+    def on_mount(self) -> None:
+        # Textual appelle aussi on_mount de UpdaterScreen (colonnes, lignes) : ne pas le rappeler ici
+        self.query_one("#update-all-frame").display = False  # tout installer partout : jamais d'un seul geste
+
+
 def rescan_local_machine(verify: Callable[[], object], inspector: object, parc: object, machine: str) -> None:
     """Cette machine relue apres une mise a jour (comme le Scanner) : ses lignes du registre du parc a jour."""
     from omega_lib.synchro.policies import format_utc
 
+    from omega_connect.application.scan_cache import request_rescan
+
+    request_rescan(verify)  # apres une action : le scan relu de cette machine est refait
     report = verify()
     facts = inspector.inspect(elevated=False)  # type: ignore[attr-defined]
     parc.save(MachineEntry(machine, True, format_utc(datetime.now(timezone.utc)),  # type: ignore[attr-defined]

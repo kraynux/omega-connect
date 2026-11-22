@@ -55,6 +55,10 @@ msgstr "{root} bukan folder instalasi"
 msgid "{root} n'appartient pas à ce compte : mise à jour faite à la main"
 msgstr "{root} bukan milik akun ini: pembaruan dilakukan secara manual"
 
+#, python-brace-format
+msgid "{root} existe déjà et n'est pas vide : rien n'est installé"
+msgstr "{root} sudah ada dan tidak kosong: tidak ada yang dipasang"
+
 msgid "empreinte de l'archive différente de sha.txt : rien n'est installé"
 msgstr "sidik jari arsip berbeda dari sha.txt: tidak ada yang dipasang"
 
@@ -289,6 +293,9 @@ msgstr "Instalasi belum selesai"
 msgid "Injoignable"
 msgstr "Tidak terjangkau"
 
+msgid "Installée"
+msgstr "Terpasang"
+
 msgid "trouvée, sans carte d'identité : la Synchronisation la lui crée"
 msgstr "ditemukan, tanpa kartu identitas: Sinkronisasi akan membuatkannya"
 
@@ -317,6 +324,13 @@ msgstr ""
 
 msgid "machine qui ne répond pas"
 msgstr "mesin yang tidak merespons"
+
+msgid ""
+"installée ; cette application n'a pas de liaison avec les autres (rien à "
+"relier)"
+msgstr ""
+"terpasang; aplikasi ini tidak terhubung dengan yang lain (tidak ada yang "
+"perlu dihubungkan)"
 
 #, python-brace-format
 msgid ""
@@ -927,6 +941,9 @@ msgstr ""
 "instalasi lama disisihkan (sudo mv), yang baru menggantikannya, lalu "
 "install.sh-nya mengambil alih pengaturan dan data"
 
+msgid "nouveau dossier, archive extraite dedans, puis son install.sh"
+msgstr "folder baru, arsip diekstrak ke dalamnya, lalu install.sh-nya"
+
 msgid "Commande"
 msgstr "Perintah"
 
@@ -938,6 +955,14 @@ msgstr "Perbaiki"
 
 msgid "Synchroniser"
 msgstr "Sinkronkan"
+
+#, python-brace-format
+msgid "{tool} {version} → {root} : installation — {how}"
+msgstr "{tool} {version} → {root}: pemasangan — {how}"
+
+#, python-brace-format
+msgid "{tool} ({root}) : pas d'installation possible — {reason}"
+msgstr "{tool} ({root}): pemasangan tidak mungkin — {reason}"
 
 #, python-brace-format
 msgid ""
@@ -964,6 +989,29 @@ msgid ""
 msgstr ""
 "Semuanya berlangsung di terminal ini: kata sandi sudo {name} diminta oleh "
 "mesin itu sendiri, satu kali; omega-connect tidak pernah melihatnya."
+
+#, python-brace-format
+msgid "Installer — machine {name} ({target})"
+msgstr "Pasang — mesin {name} ({target})"
+
+msgid "Aucune application choisie : rien à installer."
+msgstr "Tidak ada aplikasi yang dipilih: tidak ada yang dipasang."
+
+msgid ""
+"Archives prises sur GitHub, puis le site de chaque application (empreinte "
+"vérifiée avec sha.txt avant tout envoi) :"
+msgstr ""
+"Arsip diambil dari GitHub, lalu dari situs setiap aplikasi (sidik jari "
+"diperiksa dengan sha.txt sebelum apa pun dikirim):"
+
+msgid ""
+"Juste installer : sa carte d'identité (install.sh) et, pour les applications"
+" qui se relient aux autres, l'inscription dans l'espace partagé de la "
+"machine. Aucune configuration : elle se fait dans l'application elle-même."
+msgstr ""
+"Hanya memasang: kartu identitasnya (install.sh) dan, untuk aplikasi yang "
+"terhubung dengan yang lain, pendaftaran di ruang bersama mesin. Tanpa "
+"konfigurasi: itu dilakukan di aplikasinya sendiri."
 
 #, python-brace-format
 msgid "Réinstaller l'application — machine {name} ({target})"
@@ -1466,11 +1514,11 @@ msgstr "OMEGA-CONNECT {version} — LAPORAN LENGKAP"
 
 #, python-brace-format
 msgid ""
-"Établi le {date} depuis {machine}, machines du réseau rescannées (lecture "
-"seule, sans root)."
+"Établi le {date} depuis {machine}, d'après le dernier scan de chaque machine"
+" (lecture seule, sans root)."
 msgstr ""
-"Dibuat pada {date} dari {machine}, mesin jaringan dipindai ulang (hanya "
-"baca, tanpa root)."
+"Dibuat pada {date} dari {machine}, dari pemindaian terakhir setiap mesin "
+"(hanya baca, tanpa root)."
 
 msgid "BILAN"
 msgstr "RINGKASAN"
@@ -2534,6 +2582,20 @@ msgstr ""
 "Jalankan ulang perintah yang sama setelah penyebabnya diperbaiki: tidak ada "
 "yang dikerjakan dua kali."
 
+msgid "Scan de cette machine…"
+msgstr "Memindai mesin ini…"
+
+#, python-brace-format
+msgid "Scan des machines du réseau ({index}/{count}) : {machine}…"
+msgstr "Memindai mesin jaringan ({index}/{count}): {machine}…"
+
+#, python-brace-format
+msgid "Scan terminé : cette machine et {count} machine(s) du réseau."
+msgstr "Pemindaian selesai: mesin ini dan {count} mesin jaringan."
+
+msgid "Scan"
+msgstr "Pemindaian"
+
 msgid "Dossier des captures non configuré."
 msgstr "Folder tangkapan layar belum dikonfigurasi."
 
@@ -2586,21 +2648,25 @@ msgstr "Ctrl+P"
 msgid ""
 "omega-connect relie entre elles les applications omega (omega-serv, omega-fire, omega-jail…) installées sur cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce qui manque, toujours après vous avoir montré ce qu'il va faire.\n"
 "\n"
-"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
+"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après votre configuration SSH — ~/.ssh/config, known_hosts — et vos profils Unison si vous en avez, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
 "2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
 "3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son plan avant d'agir et demande son mot de passe une seule fois.\n"
 "4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue d'ensemble, en cadres.\n"
 "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
-"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre."
+"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n"
+"\n"
+"Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont rescannées."
 msgstr ""
 "omega-connect menautkan satu sama lain aplikasi omega (omega-serv, omega-fire, omega-jail…) yang terpasang di mesin ini dan di mesin-mesin dalam jaringan Anda. Ia menampilkan apa yang tertaut atau belum, dan memulihkan yang kurang, selalu setelah menunjukkan kepada Anda apa yang akan dilakukannya.\n"
 "\n"
-"1. [b]Pindai[/b]: mencari aplikasi di mesin ini. Tambahkan mesin Anda yang lain (diusulkan dari profil Unison, ~/.ssh/config, dan known_hosts Anda, atau diketik manual): mesin dijangkau lewat SSH dengan kunci Anda, tidak ada yang dipasang di sana.\n"
+"1. [b]Pindai[/b]: mencari aplikasi mesin ini. Tambahkan mesin Anda yang lain (diusulkan dari konfigurasi SSH Anda — ~/.ssh/config, known_hosts — dan profil Unison jika ada, atau diketik manual): mesin dijangkau lewat SSH dengan kunci Anda, tidak ada yang dipasang di sana.\n"
 "2. [b]Registri[/b]: daftar semua aplikasi di semua mesin, beserta statusnya. Aplikasi yang terlalu lama atau terpasang tidak benar dapat diperbarui atau dipasang ulang dari layar ini.\n"
 "3. [b]Sinkronisasi[/b]: centang apa yang harus ditautkan, lalu “Sinkronkan”; setiap mesin menampilkan rencananya sebelum bertindak dan meminta kata sandinya sekali saja.\n"
 "4. [b]Tautan[/b]: melihat apa yang tertaut atau belum, di semua mesin. [b]Dasbor[/b]: ikhtisar, dalam bingkai.\n"
 "5. [b]Perbaiki[/b]: daftar semua yang bermasalah; pilih satu baris, atau “Perbaiki semua”.\n"
-"6. [b]Laporan[/b]: dokumen lengkap (teks, JSON, atau halaman HTML) untuk disimpan atau diteruskan."
+"6. [b]Laporan[/b]: dokumen lengkap (teks, JSON, atau halaman HTML) untuk disimpan atau diteruskan.\n"
+"\n"
+"Pemindaian dilakukan sekali, saat mulai (mesin ini, lalu mesin jaringan yang dikenal), lalu dibaca ulang oleh semua layar: « Pindai ulang » mengulanginya. Setelah suatu tindakan, hanya mesin yang terkena yang dipindai ulang."
 
 msgid "Registre — toutes les applications et leur état"
 msgstr "Registri — semua aplikasi dan statusnya"
@@ -2608,13 +2674,13 @@ msgstr "Registri — semua aplikasi dan statusnya"
 msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
-"- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
 "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "Menampilkan, untuk setiap mesin (mesin ini dan mesin jaringan), setiap aplikasi omega yang ditemukan: instance atau layanannya, versinya, statusnya, dan foldernya. Ringkasan di bagian atas menghitung jumlah tiap status.\n"
 "\n"
-"- [b]Perbarui registri[/b]: mengulang pemindaian di tempat (mesin ini, lalu mesin jaringan yang sudah dikenal), tanpa berpindah layar.\n"
+"- [b]Pindai ulang[/b]: mengulang pemindaian di tempat (mesin ini, lalu mesin jaringan yang sudah dikenal), tanpa berpindah layar.\n"
 "- [b]Perbarui aplikasi[/b] / [b]Pasang ulang aplikasi[/b]: membuka Updater, dengan aplikasi dari baris itu sudah dicentang (« Versi lama »; atau « Instalasi belum selesai »: install.sh-nya tidak selesai, versi yang sama dipasang ulang). Di mesin ini maupun di mesin jaringan.\n"
 "- Sorot sebuah baris: penjelasan status dan ketidaksesuaiannya ditampilkan di bawahnya."
 
@@ -2654,7 +2720,7 @@ msgid "Synchronisation — relier les applications"
 msgstr "Sinkronisasi — menautkan aplikasi"
 
 msgid ""
-"Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
 "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
 "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
 "- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
@@ -2663,7 +2729,7 @@ msgid ""
 "- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
 "- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
 msgstr ""
-"Satu daftar saja: semua mesin Anda dan aplikasinya (mesin jaringan dipindai ulang saat layar dibuka). Centang baris (Enter atau Spasi), lalu:\n"
+"Satu daftar: semua mesin Anda dan aplikasinya, menurut pemindaian terakhir (« Pindai ulang » mengulanginya). Centang baris (Enter atau Spasi), lalu:\n"
 "- [b]Sinkronkan pilihan[/b], atau [b]Sinkronkan semua[/b].\n"
 "- [b]Mesin ini[/b]: satu rencana, ditampilkan sebelum bertindak — kartu identitas yang belum ada (dibuat oleh setiap aplikasi, di bawah akunnya), lalu ruang bersama (grup omega-synchro, folder, salinan kartu, akses layanan). Satu kata sandi administrator saja.\n"
 "- [b]Mesin jaringan[/b]: rencananya dihitung di mesin itu dan ditampilkan; “Sinkronkan <mesin>” menjalankannya dari sini: antarmuka memberi tempat bagi terminal, mesin itu sendiri meminta kata sandinya, satu kali; Enter membawa kembali ke antarmuka, yang menampilkan hasilnya.\n"
@@ -2703,7 +2769,7 @@ msgid ""
 "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
 "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
 "\n"
-"Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; « Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner pour les relire). Pour corriger : menu Réparer."
+"Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du réseau. Pour corriger : menu Réparer."
 msgstr ""
 "Ikhtisar dalam bingkai, seperti dasbor web. Tidak ada yang diubah dari layar ini.\n"
 "\n"
@@ -2712,13 +2778,13 @@ msgstr ""
 "- [b]Mesin ini / Jaringan[/b]: angka yang sama, berdampingan.\n"
 "- [b]Top 5[/b] (top 3 di layar kecil): mesin yang perlu diperbaiki, tautan yang perlu diperbaiki, versi tertinggal, pemindaian paling lama (mesin jaringan).\n"
 "\n"
-"Mesin ini diperiksa saat layar dibuka, lalu secara berkala selama layar terbuka; “Segarkan” menjalankan ulang pemeriksaan. Mesin jaringan menampilkan pemindaian terakhirnya (menu Pindai untuk memindai ulang). Untuk memperbaiki: menu Perbaiki."
+"Semuanya berasal dari pemindaian terakhir; « Pindai ulang » mengulangi pemindaian mesin ini dan mesin jaringan. Untuk memperbaiki: menu Perbaiki."
 
 msgid "Réparer — tout ce qui ne va pas"
 msgstr "Perbaiki — semua yang bermasalah"
 
 msgid ""
-"La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
+"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le corrige.\n"
 "\n"
 "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
 "- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
@@ -2727,7 +2793,7 @@ msgid ""
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
 msgstr ""
-"Daftar semua yang bermasalah, di semua mesin (mesin jaringan dipindai ulang saat layar dibuka): mesin, masalah, status, dan siapa yang memperbaikinya.\n"
+"Daftar semua yang tidak beres, di semua mesin, menurut pemindaian terakhir (« Pindai ulang » mengulanginya; mesin yang diperbaiki langsung dipindai ulang): mesin, masalah, status, dan siapa yang memperbaikinya.\n"
 "\n"
 "- [b]Perbaiki baris yang dipilih[/b]: membuka rencana untuk mesin tersebut. Mesin ini: perintah dari aplikasi itu sendiri (omega-jail untuk apa yang dipasangnya di fail2ban, omega-serv untuk hak akses var/-nya, setiap aplikasi untuk kartu identitasnya), lalu ruang bersama. Mesin jaringan: perbaikan yang sama, ditambah perintah yang tidak bisa dijalankan oleh aplikasi mana pun, dijalankan DI mesin itu dari sini (hanya yang disebutkan dalam rencana).\n"
 "- Baris « Versi lama » atau « Instalasi belum selesai » membuka Updater, dengan aplikasi sudah dicentang: hanya Updater yang memperbarui.\n"
@@ -2756,18 +2822,40 @@ msgstr ""
 "- Di akhir: apa yang telah dilakukan, aplikasi demi aplikasi, dan mesin dipindai ulang.\n"
 "- [b]omega-suite[/b]: omega-stress yang disertakannya adalah bagian darinya. Barisnya milik omega-suite (« berisi omega-stress … »): diperbarui bersama alat-alatnya yang diuji bersama, tidak pernah omega-stress sendiri. Mulai 2.0.0, ia membantu beban terdistribusi seperti omega-stress mandiri; jika mesin juga punya omega-stress mandiri, yang mandiri itulah yang membantu."
 
+msgid "Installer — installer les applications"
+msgstr "Installer — memasang aplikasi"
+
+msgid ""
+"Installe les applications omega sur cette machine et sur les machines du réseau, depuis ici, avec le même procédé que l'Updater.\n"
+"\n"
+"- Les lignes : chaque machine joignable (d'après le dernier scan) et chaque application omega publiée, « déjà installée » (avec sa version) ou à installer dans ~/<application>.\n"
+"- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application).\n"
+"- [b]Installer la sélection[/b] : cette machine d'abord, dans le terminal, puis chaque machine du réseau, son plan affiché avant d'agir. L'archive est vérifiée (sha.txt), extraite dans un nouveau dossier (jamais par-dessus un dossier qui n'est pas vide), puis son install.sh est lancé ; omega-fire demande le mot de passe sudo.\n"
+"- Juste installer : la carte d'identité (install.sh) et, pour les applications qui se relient aux autres (omega-serv, omega-fire, omega-jail, omega-stress), l'inscription dans l'espace partagé de la machine. La configuration se fait ensuite dans l'application elle-même.\n"
+"- À la fin : ce qui a été fait, et les machines touchées rescannées."
+msgstr ""
+"Memasang aplikasi omega di mesin ini dan di mesin jaringan, dari sini, dengan proses yang sama seperti Updater.\n"
+"\n"
+"- Baris-barisnya: setiap mesin yang terjangkau (menurut pemindaian terakhir) dan setiap aplikasi omega yang diterbitkan, « sudah terpasang » (dengan versinya) atau perlu dipasang di ~/<aplikasi>.\n"
+"- [b]Periksa versi[/b]: versi terbit terbaru setiap aplikasi (Release GitHub, jika tidak situs aplikasi).\n"
+"- [b]Pasang pilihan[/b]: mesin ini dulu, di terminal, lalu setiap mesin jaringan, rencananya ditampilkan sebelum bertindak. Arsip diperiksa (sha.txt), diekstrak ke folder baru (tidak pernah menimpa folder yang tidak kosong), lalu install.sh-nya dijalankan; omega-fire meminta kata sandi sudo.\n"
+"- Hanya memasang: kartu identitas (install.sh) dan, untuk aplikasi yang terhubung dengan yang lain (omega-serv, omega-fire, omega-jail, omega-stress), pendaftaran di ruang bersama mesin. Konfigurasi dilakukan kemudian di aplikasinya sendiri.\n"
+"- Di akhir: apa yang telah dilakukan, dan mesin yang terkena dipindai ulang."
+
 msgid "Rapport — un document complet"
 msgstr "Laporan — dokumen lengkap"
 
 msgid ""
-"Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
 "\n"
 "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
+"- [b]Voir les exports[/b] : le dossier des exports s'ouvre dans votre navigateur, chaque export se lit d'un clic (sans quitter omega-connect). Sans navigateur (serveur, connexion SSH), la liste s'affiche ici et chaque export s'y lit.\n"
 "- En ligne de commande : omega-connect rapport --format html --enregistrer."
 msgstr ""
-"Dibuat saat itu juga (mesin jaringan dipindai ulang terlebih dahulu): ringkasan, daftar rinci apa yang masih harus dilakukan (mesin, apa, menu mana), registri semua aplikasi, mesin jaringan, detail aplikasi di mesin ini, tautan setiap mesin, ruang bersama dan registrinya.\n"
+"Dibuat dari pemindaian terakhir (« Pindai ulang » memindai ulang mesin ini dan jaringan terlebih dahulu): ringkasan, daftar tepat apa yang masih harus dilakukan (mesin, apa, menu mana), registri semua aplikasi, mesin jaringan, aplikasi mesin ini secara rinci, tautan setiap mesin, ruang bersama dan registrinya.\n"
 "\n"
 "- Ekspor dalam teks, JSON, atau halaman HTML (tema bisa dipilih, bawaannya tema dari Pengaturan), di folder ekspor.\n"
+"- [b]Lihat ekspor[/b]: folder ekspor terbuka di peramban Anda, setiap ekspor dibaca dengan satu klik (tanpa keluar dari omega-connect). Tanpa peramban (server, koneksi SSH), daftarnya tampil di sini dan setiap ekspor dibaca di sini.\n"
 "- Lewat baris perintah: omega-connect rapport --format html --enregistrer."
 
 msgid ""
@@ -2808,6 +2896,7 @@ msgid ""
 "- ▲ À réparer : un écart (Réparer).\n"
 "- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
 "- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller l'application).\n"
+"- ■ Installée : application sans liaison avec les autres (omega-log, omega-scan, omega-suite…) : rien à relier.\n"
 "- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n"
 "\n"
 "[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session)."
@@ -2819,6 +2908,7 @@ msgstr ""
 "- ▲ Perlu diperbaiki: ada ketidaksesuaian (Perbaiki).\n"
 "- ◌ Versi lama: terlalu lama untuk omega-connect (Registri → Perbarui aplikasi).\n"
 "- ◇ Instalasi belum selesai: install.sh-nya tidak selesai (Registri → Pasang ulang aplikasi).\n"
+"- ■ Terpasang: aplikasi tanpa tautan dengan yang lain (omega-log, omega-scan, omega-suite…): tidak ada yang perlu dihubungkan.\n"
 "- ✕ Tidak terjangkau: mesin tidak lagi merespons (Pindai → Pindai ulang).\n"
 "\n"
 "[b]Tautan[/b]: OK; perlu diperbaiki; perlu diperbaiki (memblokir); tidak ada (tidak ada yang perlu ditautkan, misalnya omega-jail tidak terpasang); tidak dapat diperiksa (tidak dapat dibaca dari sesi Anda)."
@@ -2864,13 +2954,13 @@ msgstr "Berkas omega-connect"
 
 msgid ""
 "Tout vit dans le dossier d'omega-connect, sous var/ :\n"
-"- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+"- omega-connect.db : registre des machines (SQLite : machines, applications, liaisons, historique des scans) ; l'ancien parc.json est repris une fois puis gardé à côté.\n"
 "- settings.json : réglages.\n"
 "- exports/ et screenshots/ : par défaut (voir Réglages).\n"
 "- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite)."
 msgstr ""
 "Semuanya ada di folder omega-connect, di bawah var/:\n"
-"- parc.json: registri mesin jaringan (pemindaian terakhir, alamat, sidik jari).\n"
+"- omega-connect.db: registri mesin (SQLite: mesin, aplikasi, tautan, riwayat pemindaian); parc.json lama diambil alih sekali lalu disimpan di sampingnya.\n"
 "- settings.json: pengaturan.\n"
 "- exports/ dan screenshots/: bawaan (lihat Pengaturan).\n"
 "- declaration.json: pendaftaran pengguna anonim (jika Anda telah melakukannya)."
@@ -2899,6 +2989,9 @@ msgstr "Dasbor"
 
 msgid "Updater"
 msgstr "Updater"
+
+msgid "Installer"
+msgstr "Installer"
 
 msgid "Rapport"
 msgstr "Laporan"
@@ -3110,6 +3203,9 @@ msgstr "Periksa sekarang"
 msgid "LIENS"
 msgstr "TAUTAN"
 
+msgid "Relancer le scan"
+msgstr "Pindai ulang"
+
 msgid "Détail du lien"
 msgstr "Detail tautan"
 
@@ -3292,6 +3388,33 @@ msgstr "KEMAJUAN"
 msgid "Fermer"
 msgstr "Tutup"
 
+#, python-brace-format
+msgid "Fichier trop volumineux pour être lu ici : {path}"
+msgstr "Berkas terlalu besar untuk dibaca di sini: {path}"
+
+#, python-brace-format
+msgid "Lecture impossible : {error}"
+msgstr "Tidak dapat dibaca: {error}"
+
+msgid "EXPORTS"
+msgstr "EKSPOR"
+
+msgid ""
+"Pas de navigateur dans cette session (serveur, connexion SSH) : les exports "
+"sont listés et lus ici. Choisissez une ligne (Entrée) pour la lire."
+msgstr ""
+"Tidak ada peramban di sesi ini (server, koneksi SSH): ekspor dicantumkan dan"
+" dibaca di sini. Pilih satu baris (Enter) untuk membacanya."
+
+msgid "Lire"
+msgstr "Baca"
+
+msgid "Taille"
+msgstr "Ukuran"
+
+msgid "Aucun export pour l'instant."
+msgstr "Belum ada ekspor."
+
 msgid ""
 "Chaque menu, sa fonction et le détail. Cliquez sur un titre pour l'ouvrir."
 msgstr ""
@@ -3431,9 +3554,6 @@ msgstr ""
 "dipilih). Memulihkan tautan: Sinkronisasi; membereskan ketidaksesuaian: "
 "Perbaiki."
 
-msgid "Mettre à jour le registre"
-msgstr "Perbarui registri"
-
 msgid "Mettre à jour l'application"
 msgstr "Perbarui aplikasi"
 
@@ -3474,10 +3594,6 @@ msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
 msgstr "→ « {action} » membuka Updater, dengan aplikasi sudah dicentang."
 
 #, python-brace-format
-msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
-msgstr "Memperbarui registri: memindai {count} mesin jarak jauh…"
-
-#, python-brace-format
 msgid ""
 "omega-connect — synchronisation de {machine}. La machine demande elle-même "
 "son mot de passe sudo (il ne s'affiche pas pendant la saisie) ; omega-"
@@ -3489,6 +3605,20 @@ msgstr ""
 
 msgid "Terminé. Appuyez sur Entrée pour revenir à omega-connect… "
 msgstr "Selesai. Tekan Enter untuk kembali ke omega-connect… "
+
+#, python-brace-format
+msgid "INSTALLER — {machine}"
+msgstr "INSTALLER — {machine}"
+
+msgid ""
+"Les applications choisies, installées sur cette machine depuis ici : archive"
+" vérifiée, envoyée, puis son install.sh dans le terminal ; ensuite "
+"l'inscription de celles qui se relient aux autres. Rien n'est fait avant « "
+"Lancer »."
+msgstr ""
+"Aplikasi yang dipilih, dipasang di mesin ini dari sini: arsip diperiksa, "
+"dikirim, lalu install.sh-nya di terminal; kemudian pendaftaran aplikasi yang"
+" terhubung dengan yang lain. Tidak ada yang dilakukan sebelum « Jalankan »."
 
 #, python-brace-format
 msgid "METTRE À JOUR L'APPLICATION — {machine}"
@@ -3546,6 +3676,10 @@ msgstr "Perbarui di {machine}"
 #, python-brace-format
 msgid "Réparer {machine}"
 msgstr "Perbaiki {machine}"
+
+#, python-brace-format
+msgid "Installer sur {machine}"
+msgstr "Pasang di {machine}"
 
 #, python-brace-format
 msgid "Synchroniser {machine}"
@@ -3626,12 +3760,8 @@ msgstr "Masalah"
 msgid "Qui corrige"
 msgstr "Siapa yang memperbaiki"
 
-msgid "Recherche de tout ce qui ne va pas : vérification de cette machine…"
-msgstr "Mencari semua yang bermasalah: memeriksa mesin ini…"
-
-#, python-brace-format
-msgid "Rescan des machines du réseau ({index}/{count}) : {machine}…"
-msgstr "Memindai ulang mesin jaringan ({index}/{count}): {machine}…"
+msgid "Lecture du dernier scan…"
+msgstr "Membaca pemindaian terakhir…"
 
 #, python-brace-format
 msgid "{count} problème(s) sur {machines} machine(s)."
@@ -3651,14 +3781,15 @@ msgid "RAPPORT"
 msgstr "LAPORAN"
 
 msgid ""
-"Un document complet, établi à l'instant (les machines du réseau sont "
-"rescannées avant) : bilan, ce qu'il reste à faire, registre, machines du "
-"réseau, liaisons de chaque machine, espace partagé. Enregistré dans le "
-"dossier des exports."
+"Un document complet, d'après le dernier scan (« Relancer le scan » le "
+"refait) : bilan, ce qu'il reste à faire, registre, machines du réseau, "
+"liaisons de chaque machine, espace partagé. Enregistré dans le dossier des "
+"exports ; « Voir les exports » les ouvre dans le navigateur pour les lire."
 msgstr ""
-"Dokumen lengkap, dibuat saat ini (mesin jaringan dipindai ulang terlebih "
-"dahulu): ringkasan, yang masih harus dilakukan, registri, mesin jaringan, "
-"tautan setiap mesin, ruang bersama. Disimpan di folder ekspor."
+"Dokumen lengkap, dari pemindaian terakhir (« Pindai ulang » mengulanginya): "
+"ringkasan, yang masih harus dilakukan, registri, mesin jaringan, tautan "
+"setiap mesin, ruang bersama. Disimpan di folder ekspor; « Lihat ekspor » "
+"membukanya di peramban untuk dibaca."
 
 msgid "THÈME DE LA PAGE HTML"
 msgstr "TEMA HALAMAN HTML"
@@ -3675,6 +3806,12 @@ msgstr "Ekspor TXT"
 msgid "Exporter HTML"
 msgstr "Ekspor HTML"
 
+msgid "Voir les exports"
+msgstr "Lihat ekspor"
+
+msgid "Scan de cette machine et des machines du réseau…"
+msgstr "Memindai mesin ini dan mesin jaringan…"
+
 msgid "Génération du rapport en cours (détection, vérification, zone)…"
 msgstr "Sedang membuat laporan (deteksi, pemeriksaan, zona)…"
 
@@ -3684,6 +3821,10 @@ msgstr "Laporan siap."
 #, python-brace-format
 msgid "Export impossible : {error}"
 msgstr "Ekspor gagal: {error}"
+
+#, python-brace-format
+msgid "Dossier des exports ouvert dans le navigateur : {path}"
+msgstr "Folder ekspor dibuka di peramban: {path}"
 
 #, python-brace-format
 msgid "{count} application(s) omega trouvée(s) sur cette machine."
@@ -3931,9 +4072,6 @@ msgstr "Beban terdistribusi…"
 msgid "Lire avec sudo"
 msgstr "Baca dengan sudo"
 
-msgid "Vérification de cette machine et de son espace partagé…"
-msgstr "Memeriksa mesin ini dan ruang bersamanya…"
-
 #, python-brace-format
 msgid "{count} application(s) sur {machines} machine(s) — vérifié à {time}."
 msgstr "{count} aplikasi di {machines} mesin — diperiksa pada {time}."
@@ -3980,6 +4118,12 @@ msgstr "tidak ada versi terbit yang ditemukan"
 msgid "machine injoignable"
 msgstr "mesin tidak terjangkau"
 
+msgid "à installer"
+msgstr "perlu dipasang"
+
+msgid "déjà installée"
+msgstr "sudah terpasang"
+
 msgid ""
 "omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
 "demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
@@ -4003,24 +4147,8 @@ msgstr ""
 "menampilkan rencananya sebelum bertindak, dan hanya satu kata sandi diminta,"
 " di terminal."
 
-msgid "Vérifier les versions"
-msgstr "Periksa versi"
-
 msgid "Mettre à jour la sélection"
 msgstr "Perbarui pilihan"
-
-msgid "Tout mettre à jour"
-msgstr "Perbarui semua"
-
-msgid "Disponible"
-msgstr "Tersedia"
-
-msgid "Installée"
-msgstr "Terpasang"
-
-#, python-brace-format
-msgid "{tool} (contient {tools})"
-msgstr "{tool} (berisi {tools})"
 
 #, python-brace-format
 msgid ""
@@ -4030,6 +4158,19 @@ msgstr ""
 "{count} aplikasi — terbaru: {ok}; perlu diperbarui: {old}; belum selesai: "
 "{incomplete}; belum diperiksa: {unchecked}."
 
+msgid "Vérifier les versions"
+msgstr "Periksa versi"
+
+msgid "Tout mettre à jour"
+msgstr "Perbarui semua"
+
+msgid "Disponible"
+msgstr "Tersedia"
+
+#, python-brace-format
+msgid "{tool} (contient {tools})"
+msgstr "{tool} (berisi {tools})"
+
 msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
 msgstr "Mencari versi terbit terbaru (GitHub, lalu situs)…"
 
@@ -4038,6 +4179,42 @@ msgstr "Mengunduh dan memeriksa arsip…"
 
 msgid "Rescan de cette machine…"
 msgstr "Memindai ulang mesin ini…"
+
+msgid "INSTALLER"
+msgstr "INSTALLER"
+
+msgid ""
+"Pour chaque machine joignable (cette machine et le réseau, d'après le "
+"dernier scan), les applications omega publiées : déjà installées, ou à "
+"installer dans ~/<application>. « Vérifier les versions » cherche la "
+"dernière version publiée (GitHub, puis le site). Cochez (Entrée ou Espace) "
+"puis « Installer la sélection » : chaque machine montre son plan avant "
+"d'agir ; omega-fire demande le mot de passe sudo, dans le terminal."
+msgstr ""
+"Untuk setiap mesin yang terjangkau (mesin ini dan jaringan, menurut "
+"pemindaian terakhir), aplikasi omega yang diterbitkan: sudah terpasang, atau"
+" perlu dipasang di ~/<aplikasi>. « Periksa versi » mencari versi terbit "
+"terbaru (GitHub, lalu situs). Centang (Enter atau Spasi) lalu « Pasang "
+"pilihan »: setiap mesin menampilkan rencananya sebelum bertindak; omega-fire"
+" meminta kata sandi sudo, di terminal."
+
+msgid "Installer la sélection"
+msgstr "Pasang pilihan"
+
+msgid ""
+"omega-connect — installation sur cette machine. Les install.sh peuvent "
+"demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
+msgstr ""
+"omega-connect — pemasangan di mesin ini. install.sh dapat meminta kata sandi"
+" sudo (tidak tampil saat diketik)."
+
+#, python-brace-format
+msgid ""
+"{count} ligne(s) — déjà installées : {present} ; à installer : {todo} ; non "
+"vérifiées : {unchecked}."
+msgstr ""
+"{count} baris — sudah terpasang: {present}; perlu dipasang: {todo}; belum "
+"diperiksa: {unchecked}."
 
 msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
 msgstr "DETAIL RUANG BERSAMA"

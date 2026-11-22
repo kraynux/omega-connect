@@ -7,19 +7,21 @@ import pwd
 from pathlib import Path
 
 from omega_lib.infrastructure.synchro.install_token import read_install_token
-from omega_lib.synchro.constants import TOKEN_RELATIVE_PATH, TOOL_LAUNCHERS
+from omega_lib.synchro.constants import TOKEN_RELATIVE_PATH
 from omega_lib.synchro.models import InstallToken, ReadResult
 
 from omega_connect.domain.suite import SUITE_LAUNCHER, SUITE_PACKAGE, SUITE_TOOL, suite_candidate
-from omega_connect.domain.versions import read_version, version_file
+from omega_connect.domain.tools import ALL_LAUNCHERS, package_name
+from omega_connect.domain.versions import read_version, version_files
 
 MAX_VERSION_FILE_BYTES = 256 * 1024
 
 
 def layout_tool(root: Path) -> str:
-    """Outil dont le lanceur (`omega-serv.sh`...) ET le paquet (`src/omega_serv`) sont a la racine."""
-    for tool, launcher in TOOL_LAUNCHERS.items():
-        package = root / "src" / tool.replace("-", "_")
+    """Outil dont le lanceur (`omega-serv.sh`...) ET le paquet (`src/omega_serv`) sont a la racine (les 13 outils
+    reconnus, domain/tools.py)."""
+    for tool, launcher in ALL_LAUNCHERS.items():
+        package = root / "src" / package_name(tool)
         try:
             if (root / launcher).is_file() and package.is_dir():
                 return tool
@@ -88,14 +90,19 @@ def embedding_suite(root: str) -> tuple[str, str]:
 
 
 def installed_version(root: Path, tool: str) -> str:
-    """Lecture seule d'un fichier ordinaire de l'outil (jamais un lien), taille bornee."""
-    path = root / version_file(tool)
-    try:
-        if path.is_symlink() or not path.is_file() or path.stat().st_size > MAX_VERSION_FILE_BYTES:
-            return ""
-        return read_version(path.read_text(encoding="utf-8", errors="replace"), tool)
-    except OSError:
-        return ""
+    """Lecture seule d'un fichier ordinaire de l'outil (jamais un lien), taille bornee ; pyproject.toml d'abord,
+    puis l'ancien emplacement (omega-fire d'avant le 2026-11-22)."""
+    for relative, _pattern in version_files(tool):
+        path = root / relative
+        try:
+            if path.is_symlink() or not path.is_file() or path.stat().st_size > MAX_VERSION_FILE_BYTES:
+                continue
+            found = read_version(path.read_text(encoding="utf-8", errors="replace"), tool)
+        except OSError:
+            continue
+        if found:
+            return found
+    return ""
 
 
 def real_directory(path: str | Path) -> str | None:

@@ -151,8 +151,8 @@ async def test_menu_is_the_one_chosen_by_the_author(system):
         await pilot.pause()
         home = app.screen
         labels = [str(button.label) for button in home.query(Button)]
-        assert labels == ["REGISTRE", "SCANNER", "LIAISONS", "SYNCHRONISATION", "DASHBOARD",
-                          "RÉPARER", "UPDATER", "RAPPORT", "RÉGLAGES", "AIDE"]
+        assert labels == ["REGISTRE", "SCANNER", "LIAISONS", "SYNCHRONISATION", "RÉPARER", "DASHBOARD",
+                          "UPDATER", "INSTALLER", "RAPPORT", "RÉGLAGES", "AIDE", "QUITTER"]
         assert labels == [entry.label.upper() for entry in MENU]
         await pilot.click("#menu-settings")  # Reglages : lot F, notification seulement
         await pilot.pause()
@@ -172,7 +172,7 @@ async def test_registry_only_displays_what_was_scanned(system):
         summary = str(registry.query_one("#registry-summary", Static).render())
         assert "◐ 2 Inscrite" in summary and "○ 1 Détectée" in summary
         assert {button.id for button in registry.query(Button)} == {"update", "update-app", "back"}
-        assert str(registry.query_one("#update", Button).label) == "Mettre à jour le registre"
+        assert str(registry.query_one("#update", Button).label) == "Relancer le scan"
         assert str(registry.query_one("#update-app", Button).label) == "Mettre à jour l'application"
         assert registry.query_one("#update-app", Button).disabled
         await pilot.click("#update")
@@ -661,6 +661,11 @@ async def test_registry_updates_an_old_application_of_a_remote_machine(system):
         text = str(machine.query_one("#machine-plan", Static).render())
         assert "omega-serv 0.1.0 → 2.6.1" in text and "Rien d'autre n'est fait" in text
         assert str(machine.query_one("#launch", Button).label) == "Mettre à jour sur hpc-109"
+        await pilot.pause()
+        # retour de l'auteur (2026-11-22) : le libelle « Installer sur … » s'affichait coupe (« Installe »)
+        launch = machine.query_one("#launch", Button)
+        visible = launch.region.intersection(launch.parent.region)  # type: ignore[union-attr]
+        assert visible.width >= len("Mettre à jour sur hpc-109") + 2, (launch.region, launch.parent.region)
         await pilot.click("#launch")
         await _settle(app, pilot)
         assert '"purpose": "update"' in calls[0] and "omega-serv-2.6.1.tar.gz" in calls[0]
@@ -765,3 +770,72 @@ async def test_dashboard_reads_the_shared_space_and_the_parc(system):
         await pilot.pause()
         assert isinstance(screen, OverviewScreen) and screen.overview is not None
         assert screen.overview.machines[0].local and screen.overview.machines[0].rows
+
+
+async def test_scan_relu_retour_ne_rescanne_pas(system):
+    """Retour de l'auteur (2026-11-22) : « quand on fait Retour, ca relance un scan ». Le scan de cette machine est
+    fait une fois (demarrage), puis relu : Registre, Retour, Registre, Reparer, Dashboard ne le refont pas ;
+    « Relancer le scan » le refait."""
+    from omega_connect.application.scan_cache import ScanCache
+
+    calls: list[int] = []
+
+    def verify() -> VerificationReport:
+        calls.append(1)
+        return VerificationReport(DETECTION, (zone_link(system.inspect(), DETECTION, SUBJECT, "oc"),))
+
+    tools = ZoneTools(inspector=system, runner=system, subject=_Subject(), now=lambda: AT, interactive=lambda: False)
+    app = OmegaConnectApp(verify=ScanCache(verify), version="0.2.0", render_profile=RenderProfile.COMPLETE,
+                          refresh_seconds=0, zone=tools, detect=lambda: DETECTION, splash=False, machine="pc-test",
+                          repair=RepairTools(runner=_NotedRunner(), user=lambda: "k"))
+    async with app.run_test(size=(140, 50)) as pilot:
+        await app.workers.wait_for_complete()  # scan de demarrage
+        assert len(calls) == 1
+        for entry in ("registry", "repair", "dashboard", "registry", "links"):
+            await _open(app, pilot, entry)
+            await app.workers.wait_for_complete()
+            await pilot.pause()
+            app.pop_screen()
+            await pilot.pause()
+        assert len(calls) == 1  # relu partout, jamais rescanne a l'ouverture ni au retour
+        registry = await _open(app, pilot, "registry")
+        await pilot.click("#update")  # « Relancer le scan »
+        await app.workers.wait_for_complete()
+        await pilot.pause()
+        assert len(calls) == 2 and isinstance(registry, RegistryScreen)
+
+
+async def test_libelle_du_bouton_jamais_coupe_quand_le_plan_arrive_tard():
+    """Retour de l'auteur (2026-11-22) : Installer -> « Installer la selection » -> le bouton affichait
+    « Installe » : le plan arrive par SSH apres le premier affichage, le cadre gardait la largeur de « Lancer »."""
+    import time
+    from types import SimpleNamespace
+
+    from omega_connect.domain.remote import RemoteTarget
+    from omega_connect.domain.updates import Purpose, RemotePlan
+    from omega_connect.domain.versions import Outdated
+    from omega_connect.interfaces.tui.screens.remote_machine import RemoteMachineScreen
+
+    plan = RemotePlan("omega-server", "f" * 16, (), "", "", False, True, False, False, ())
+
+    def slow(_target):  # type: ignore[no-untyped-def]
+        time.sleep(0.5)
+        return plan
+
+    tools = SimpleNamespace(session=SimpleNamespace(plan=slow), remote=None,
+                            releases=SimpleNamespace(latest=lambda _tool: "1.6.0", origin=lambda _tool: "site"))
+    app = OmegaConnectApp(verify=lambda: VerificationReport(DETECTION, ()), version="0.2.0",
+                          render_profile=RenderProfile.COMPLETE, refresh_seconds=0, splash=False)
+    async with app.run_test(size=(120, 40)) as pilot:
+        await pilot.pause()
+        screen = RemoteMachineScreen(target=RemoteTarget("kraynux", "192.168.1.109"), tools=tools,  # type: ignore[arg-type]
+                                     purpose=Purpose.INSTALL,
+                                     items=(Outdated("omega-log", "~/omega-log", "", "", install=True),))
+        app.push_screen(screen)
+        await pilot.pause(0.2)  # premier affichage avec « Lancer »
+        await app.workers.wait_for_complete()
+        await pilot.pause()
+        launch = screen.query_one("#launch", Button)
+        assert str(launch.label) == "Installer sur omega-server"
+        assert launch.region.width >= len("Installer sur omega-server") + 2
+        assert launch.parent.region.width >= launch.region.width  # type: ignore[union-attr]

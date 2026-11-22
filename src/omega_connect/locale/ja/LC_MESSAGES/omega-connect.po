@@ -55,6 +55,10 @@ msgstr "{root} はインストールフォルダーではありません"
 msgid "{root} n'appartient pas à ce compte : mise à jour faite à la main"
 msgstr "{root} はこのアカウントの所有ではありません：手動で更新してください"
 
+#, python-brace-format
+msgid "{root} existe déjà et n'est pas vide : rien n'est installé"
+msgstr "{root} はすでに存在し、空ではありません: 何もインストールしません"
+
 msgid "empreinte de l'archive différente de sha.txt : rien n'est installé"
 msgstr "アーカイブのハッシュが sha.txt と一致しません：何もインストールしていません"
 
@@ -284,6 +288,9 @@ msgstr "インストール未完了"
 msgid "Injoignable"
 msgstr "接続不可"
 
+msgid "Installée"
+msgstr "インストール済み"
+
 msgid "trouvée, sans carte d'identité : la Synchronisation la lui crée"
 msgstr "見つかりましたが ID カードがありません：同期で作成されます"
 
@@ -310,6 +317,11 @@ msgstr ""
 
 msgid "machine qui ne répond pas"
 msgstr "応答しないマシン"
+
+msgid ""
+"installée ; cette application n'a pas de liaison avec les autres (rien à "
+"relier)"
+msgstr "インストール済み。このアプリケーションは他と連携しません（連携するものはありません）"
 
 #, python-brace-format
 msgid ""
@@ -835,6 +847,9 @@ msgid ""
 "install.sh qui reprend réglages et données"
 msgstr "旧インストールを退避（sudo mv）して新しいものを配置し、設定とデータを引き継ぐ install.sh を実行"
 
+msgid "nouveau dossier, archive extraite dedans, puis son install.sh"
+msgstr "新しいフォルダーにアーカイブを展開し、その install.sh を実行"
+
 msgid "Commande"
 msgstr "コマンド"
 
@@ -846,6 +861,14 @@ msgstr "修復"
 
 msgid "Synchroniser"
 msgstr "同期"
+
+#, python-brace-format
+msgid "{tool} {version} → {root} : installation — {how}"
+msgstr "{tool} {version} → {root}: インストール — {how}"
+
+#, python-brace-format
+msgid "{tool} ({root}) : pas d'installation possible — {reason}"
+msgstr "{tool}（{root}）: インストールできません — {reason}"
 
 #, python-brace-format
 msgid ""
@@ -870,6 +893,26 @@ msgid ""
 msgstr ""
 "すべてこの端末で行われます：{name} の sudo パスワードはマシン自身が 1 回だけ尋ねます。omega-connect "
 "がそれを見ることはありません。"
+
+#, python-brace-format
+msgid "Installer — machine {name} ({target})"
+msgstr "インストール — マシン {name}（{target}）"
+
+msgid "Aucune application choisie : rien à installer."
+msgstr "アプリケーションが選択されていません: インストールするものはありません。"
+
+msgid ""
+"Archives prises sur GitHub, puis le site de chaque application (empreinte "
+"vérifiée avec sha.txt avant tout envoi) :"
+msgstr "アーカイブは GitHub、なければ各アプリケーションのサイトから取得（送信前に sha.txt でフィンガープリントを確認）:"
+
+msgid ""
+"Juste installer : sa carte d'identité (install.sh) et, pour les applications"
+" qui se relient aux autres, l'inscription dans l'espace partagé de la "
+"machine. Aucune configuration : elle se fait dans l'application elle-même."
+msgstr ""
+"インストールのみ: 身分証（install.sh）と、他と連携するアプリケーションについてはマシンの共有スペースへの登録。設定はしません: "
+"アプリケーション自体で行います。"
 
 #, python-brace-format
 msgid "Réinstaller l'application — machine {name} ({target})"
@@ -1316,9 +1359,9 @@ msgstr "OMEGA-CONNECT {version} — 完全なレポート"
 
 #, python-brace-format
 msgid ""
-"Établi le {date} depuis {machine}, machines du réseau rescannées (lecture "
-"seule, sans root)."
-msgstr "{date} に {machine} から作成。ネットワーク上のマシンを再スキャン済み（読み取り専用、root 不要）。"
+"Établi le {date} depuis {machine}, d'après le dernier scan de chaque machine"
+" (lecture seule, sans root)."
+msgstr "{date} に {machine} から作成、各マシンの前回のスキャンに基づく（読み取り専用、root 不要）。"
 
 msgid "BILAN"
 msgstr "概要"
@@ -2272,6 +2315,20 @@ msgid ""
 "deux fois."
 msgstr "原因を直してから同じコマンドを再実行してください：同じことが二度行われることはありません。"
 
+msgid "Scan de cette machine…"
+msgstr "このマシンをスキャン中…"
+
+#, python-brace-format
+msgid "Scan des machines du réseau ({index}/{count}) : {machine}…"
+msgstr "ネットワーク上のマシンをスキャン中（{index}/{count}）: {machine}…"
+
+#, python-brace-format
+msgid "Scan terminé : cette machine et {count} machine(s) du réseau."
+msgstr "スキャン完了: このマシンとネットワーク上の {count} 台。"
+
+msgid "Scan"
+msgstr "スキャン"
+
 msgid "Dossier des captures non configuré."
 msgstr "スクリーンショットフォルダーが設定されていません。"
 
@@ -2321,21 +2378,25 @@ msgstr "Ctrl+P"
 msgid ""
 "omega-connect relie entre elles les applications omega (omega-serv, omega-fire, omega-jail…) installées sur cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce qui manque, toujours après vous avoir montré ce qu'il va faire.\n"
 "\n"
-"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
+"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après votre configuration SSH — ~/.ssh/config, known_hosts — et vos profils Unison si vous en avez, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
 "2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
 "3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son plan avant d'agir et demande son mot de passe une seule fois.\n"
 "4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue d'ensemble, en cadres.\n"
 "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
-"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre."
+"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n"
+"\n"
+"Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont rescannées."
 msgstr ""
 "omega-connect は、このマシンとネットワーク上のマシンにインストールされた omega アプリケーション（omega-serv、omega-fire、omega-jail…）を互いに連携します。連携されているもの・いないものを表示し、足りないものを元に戻します。必ず、何をするかを先に見せてから行います。\n"
 "\n"
-"1. [b]スキャン[/b]：このマシンのアプリケーションを探します。ほかのマシンを追加します（Unison プロファイル、~/.ssh/config、known_hosts から候補を表示、または手入力）：あなたの鍵で SSH 接続し、そこには何もインストールしません。\n"
+"1. [b]スキャン[/b]: このマシンのアプリケーションを探します。ほかのマシンを追加します（SSH の設定 — ~/.ssh/config、known_hosts — と、あれば Unison プロファイルから候補を表示、または手入力）: お使いの鍵で SSH 接続し、そこには何もインストールしません。\n"
 "2. [b]レジストリ[/b]：すべてのマシンのすべてのアプリケーションとその状態の一覧。古すぎる、または正しくインストールされていないアプリケーションは、この画面から更新または再インストールできます。\n"
 "3. [b]同期[/b]：連携するものにチェックを入れ、「同期」を押します。各マシンは実行前に計画を表示し、パスワードは一度だけ尋ねます。\n"
 "4. [b]連携[/b]：すべてのマシンで、連携されているもの・いないものを確認します。[b]ダッシュボード[/b]：全体像を枠で表示します。\n"
 "5. [b]修復[/b]：問題のあるものすべての一覧。行を選ぶか、「すべて修復」を押します。\n"
-"6. [b]レポート[/b]：保存や共有のための完全な文書（テキスト、JSON、HTML ページ）。"
+"6. [b]レポート[/b]：保存や共有のための完全な文書（テキスト、JSON、HTML ページ）。\n"
+"\n"
+"スキャンは起動時に一度だけ行い（このマシン、次に既知のネットワーク上のマシン）、その後はすべての画面がその結果を読み込みます: 「再スキャン」でやり直します。操作の後は、対象のマシンだけを再スキャンします。"
 
 msgid "Registre — toutes les applications et leur état"
 msgstr "レジストリ — すべてのアプリケーションとその状態"
@@ -2343,13 +2404,13 @@ msgstr "レジストリ — すべてのアプリケーションとその状態"
 msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
-"- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
 "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "各マシン（このマシンとネットワーク上のマシン）について、見つかった omega アプリケーションごとに、インスタンスまたはサービス、バージョン、状態、フォルダーを表示します。上部の概要は状態ごとの数を示します。\n"
 "\n"
-"- [b]レジストリを更新[/b]：その場でスキャンをやり直します（このマシン、続いて既知のネットワーク上のマシン）。画面は変わりません。\n"
+"- [b]再スキャン[/b]: 画面を切り替えずにその場でスキャンをやり直します（このマシン、次に既知のネットワーク上のマシン）。\n"
 "- [b]アプリケーションを更新[/b] / [b]アプリケーションを再インストール[/b]: その行のアプリケーションにチェックを付けた状態で Updater を開きます（「旧バージョン」、または「インストール未完了」: install.sh が完了しておらず、同じバージョンを再インストールします）。このマシンでもネットワーク上のマシンでも同じです。\n"
 "- 行をハイライトすると、その状態の説明と不整合が下に表示されます。"
 
@@ -2389,7 +2450,7 @@ msgid "Synchronisation — relier les applications"
 msgstr "同期 — アプリケーションを連携"
 
 msgid ""
-"Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
 "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
 "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
 "- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
@@ -2398,7 +2459,7 @@ msgid ""
 "- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
 "- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
 msgstr ""
-"ひとつの一覧：すべてのマシンとそのアプリケーション（ネットワーク上のマシンは画面を開いたときに再スキャンされます）。行にチェックを入れて（Enter または Space）から：\n"
+"1 つの一覧: 前回のスキャンに基づく、すべてのマシンとそのアプリケーション（「再スキャン」でやり直し）。行にチェックを付けて（Enter または Space）、次に:\n"
 "- [b]選択項目を同期[/b]、または [b]すべて同期[/b]。\n"
 "- [b]このマシン[/b]：計画はひとつで、実行前に表示されます — 不足している ID カード（各アプリケーションが自分のアカウントで作成）、続いて共有スペース（omega-synchro グループ、フォルダー、カードのコピー、サービスのアクセス）。管理者パスワードは 1 回だけ。\n"
 "- [b]ネットワーク上のマシン[/b]：計画はそのマシン上で計算されて表示されます。「<マシン> を同期」でここから実行します：インターフェースが端末に切り替わり、マシン自身がパスワードを 1 回だけ尋ねます。Enter でインターフェースに戻り、結果が表示されます。\n"
@@ -2438,7 +2499,7 @@ msgid ""
 "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
 "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
 "\n"
-"Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; « Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner pour les relire). Pour corriger : menu Réparer."
+"Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du réseau. Pour corriger : menu Réparer."
 msgstr ""
 "Web ダッシュボードのように、枠で表示する全体像です。この画面からは何も変更されません。\n"
 "\n"
@@ -2447,13 +2508,13 @@ msgstr ""
 "- [b]このマシン / ネットワーク[/b]：同じ数字を並べて表示。\n"
 "- [b]Top 5[/b]（小さい画面では Top 3）：要修復のマシン、要修復の連携、遅れているバージョン、スキャンが最も古いもの（ネットワーク上のマシン）。\n"
 "\n"
-"このマシンは画面を開いたときに確認し、開いている間は定期的に確認します。「更新」で再確認します。ネットワーク上のマシンは最終スキャンの結果を表示します（読み直すにはスキャンメニュー）。修正するには：修復メニュー。"
+"すべて前回のスキャンに基づきます。「再スキャン」でこのマシンとネットワーク上のマシンのスキャンをやり直します。修正するには: 修復 メニュー。"
 
 msgid "Réparer — tout ce qui ne va pas"
 msgstr "修復 — 問題のあるものすべて"
 
 msgid ""
-"La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
+"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le corrige.\n"
 "\n"
 "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
 "- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
@@ -2462,7 +2523,7 @@ msgid ""
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
 msgstr ""
-"すべてのマシンで問題のあるものすべての一覧（ネットワーク上のマシンは画面を開いたときに再スキャンされます）：マシン、問題、状態、修正元。\n"
+"前回のスキャンに基づく、すべてのマシンの問題の一覧（「再スキャン」でやり直し。修復したマシンはすぐに再スキャン）: マシン、問題、状態、修正担当。\n"
 "\n"
 "- [b]選んだ行を修復[/b]：マシンの計画を開きます。このマシン：アプリケーション自身のコマンド（fail2ban に配置したものは omega-jail、その var/ の権限は omega-serv、ID カードは各アプリケーション）、続いて共有スペース。ネットワーク上のマシン：同じ修正に加えて、どのアプリケーションも実行できないコマンドを、ここからそのマシン上で実行します（計画に示されたものだけ）。\n"
 "- 「旧バージョン」または「インストール未完了」の行は、アプリケーションにチェックを付けた状態で Updater を開きます: 更新するのは Updater だけです。\n"
@@ -2491,18 +2552,40 @@ msgstr ""
 "- 最後に: アプリケーションごとの実施内容と、再スキャンしたマシンを表示します。\n"
 "- [b]omega-suite[/b]: 同梱の omega-stress は omega-suite の一部です。行は omega-suite のものです（「omega-stress … を含む」）。一緒にテストされたツールとともに更新され、omega-stress だけを更新することはありません。2.0.0 以降は、単体の omega-stress と同じように分散負荷に参加します。マシンに単体の omega-stress もある場合は、そちらが参加します。"
 
+msgid "Installer — installer les applications"
+msgstr "Installer — アプリケーションのインストール"
+
+msgid ""
+"Installe les applications omega sur cette machine et sur les machines du réseau, depuis ici, avec le même procédé que l'Updater.\n"
+"\n"
+"- Les lignes : chaque machine joignable (d'après le dernier scan) et chaque application omega publiée, « déjà installée » (avec sa version) ou à installer dans ~/<application>.\n"
+"- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application).\n"
+"- [b]Installer la sélection[/b] : cette machine d'abord, dans le terminal, puis chaque machine du réseau, son plan affiché avant d'agir. L'archive est vérifiée (sha.txt), extraite dans un nouveau dossier (jamais par-dessus un dossier qui n'est pas vide), puis son install.sh est lancé ; omega-fire demande le mot de passe sudo.\n"
+"- Juste installer : la carte d'identité (install.sh) et, pour les applications qui se relient aux autres (omega-serv, omega-fire, omega-jail, omega-stress), l'inscription dans l'espace partagé de la machine. La configuration se fait ensuite dans l'application elle-même.\n"
+"- À la fin : ce qui a été fait, et les machines touchées rescannées."
+msgstr ""
+"Updater と同じ手順で、ここからこのマシンとネットワーク上のマシンに omega アプリケーションをインストールします。\n"
+"\n"
+"- 行: 接続できる各マシン（前回のスキャンに基づく）と公開済みの各 omega アプリケーション。「インストール済み」（バージョン付き）、または ~/<アプリケーション> へのインストール対象。\n"
+"- [b]バージョンを確認[/b]: 各アプリケーションの最新の公開版（GitHub Release、なければアプリケーションのサイト）。\n"
+"- [b]選択をインストール[/b]: まずこのマシン（ターミナル内）、次にネットワーク上の各マシン。実行前に計画を表示します。アーカイブを確認（sha.txt）して新しいフォルダーに展開し（空でないフォルダーには上書きしません）、install.sh を実行します。omega-fire は sudo パスワードを尋ねます。\n"
+"- インストールのみ: 身分証（install.sh）と、他と連携するアプリケーション（omega-serv、omega-fire、omega-jail、omega-stress）についてはマシンの共有スペースへの登録。設定はその後アプリケーション自体で行います。\n"
+"- 最後に: 実施内容と、再スキャンした対象のマシンを表示します。"
+
 msgid "Rapport — un document complet"
 msgstr "レポート — 完全な文書"
 
 msgid ""
-"Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
 "\n"
 "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
+"- [b]Voir les exports[/b] : le dossier des exports s'ouvre dans votre navigateur, chaque export se lit d'un clic (sans quitter omega-connect). Sans navigateur (serveur, connexion SSH), la liste s'affiche ici et chaque export s'y lit.\n"
 "- En ligne de commande : omega-connect rapport --format html --enregistrer."
 msgstr ""
-"その場で作成（ネットワーク上のマシンは先に再スキャン）：概要、残りのやることの正確な一覧（マシン、内容、どのメニュー）、すべてのアプリケーションのレジストリ、ネットワーク上のマシン、このマシンのアプリケーションの詳細、各マシンの連携、共有スペースとそのレジストリ。\n"
+"前回のスキャンに基づいて作成（「再スキャン」はまずこのマシンとネットワークを再スキャン）: 概要、残りの作業の正確な一覧（マシン、内容、メニュー）、全アプリケーションの登録簿、ネットワーク上のマシン、このマシンのアプリケーションの詳細、各マシンの連携、共有スペースとその登録簿。\n"
 "\n"
 "- テキスト、JSON、HTML ページでエクスポートし（テーマは選択可、既定は設定のテーマ）、エクスポートフォルダーに保存します。\n"
+"- [b]エクスポートを見る[/b]: エクスポートフォルダーがブラウザーで開き、各エクスポートをクリック 1 つで読めます（omega-connect を終了せずに）。ブラウザーがない場合（サーバー、SSH 接続）は、ここに一覧を表示し、ここで読めます。\n"
 "- コマンドラインでは：omega-connect rapport --format html --enregistrer。"
 
 msgid ""
@@ -2543,6 +2626,7 @@ msgid ""
 "- ▲ À réparer : un écart (Réparer).\n"
 "- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
 "- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller l'application).\n"
+"- ■ Installée : application sans liaison avec les autres (omega-log, omega-scan, omega-suite…) : rien à relier.\n"
 "- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n"
 "\n"
 "[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session)."
@@ -2554,6 +2638,7 @@ msgstr ""
 "- ▲ 要修復：不整合がある（修復）。\n"
 "- ◌ 旧バージョン：omega-connect には古すぎる（レジストリ → アプリケーションを更新）。\n"
 "- ◇ インストール未完了：install.sh が完了していない（レジストリ → アプリケーションを再インストール）。\n"
+"- ■ インストール済み: 他と連携しないアプリケーション（omega-log、omega-scan、omega-suite…）: 連携するものはありません。\n"
 "- ✕ 接続不可：マシンが応答しない（スキャン → 再スキャン）。\n"
 "\n"
 "[b]連携[/b]：OK、要修復、要修復（重大）、なし（連携するものがない。例：omega-jail が未インストール）、確認不可（あなたのセッションから読めない）。"
@@ -2599,13 +2684,13 @@ msgstr "omega-connect のファイル"
 
 msgid ""
 "Tout vit dans le dossier d'omega-connect, sous var/ :\n"
-"- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+"- omega-connect.db : registre des machines (SQLite : machines, applications, liaisons, historique des scans) ; l'ancien parc.json est repris une fois puis gardé à côté.\n"
 "- settings.json : réglages.\n"
 "- exports/ et screenshots/ : par défaut (voir Réglages).\n"
 "- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite)."
 msgstr ""
 "すべて omega-connect のフォルダー内の var/ にあります：\n"
-"- parc.json：ネットワーク上のマシンのレジストリ（最終スキャン、アドレス、フィンガープリント）。\n"
+"- omega-connect.db: マシンの登録簿（SQLite: マシン、アプリケーション、連携、スキャン履歴）。以前の parc.json は一度だけ引き継ぎ、そのまま横に残します。\n"
 "- settings.json：設定。\n"
 "- exports/ と screenshots/：既定の場所（設定を参照）。\n"
 "- declaration.json：匿名ユーザー登録（行った場合）。"
@@ -2634,6 +2719,9 @@ msgstr "ダッシュボード"
 
 msgid "Updater"
 msgstr "Updater"
+
+msgid "Installer"
+msgstr "Installer"
 
 msgid "Rapport"
 msgstr "レポート"
@@ -2838,6 +2926,9 @@ msgstr "今すぐ確認"
 msgid "LIENS"
 msgstr "連携"
 
+msgid "Relancer le scan"
+msgstr "再スキャン"
+
 msgid "Détail du lien"
 msgstr "連携の詳細"
 
@@ -3011,6 +3102,32 @@ msgstr "進行状況"
 msgid "Fermer"
 msgstr "閉じる"
 
+#, python-brace-format
+msgid "Fichier trop volumineux pour être lu ici : {path}"
+msgstr "ファイルが大きすぎてここでは読めません: {path}"
+
+#, python-brace-format
+msgid "Lecture impossible : {error}"
+msgstr "読み込めません: {error}"
+
+msgid "EXPORTS"
+msgstr "エクスポート"
+
+msgid ""
+"Pas de navigateur dans cette session (serveur, connexion SSH) : les exports "
+"sont listés et lus ici. Choisissez une ligne (Entrée) pour la lire."
+msgstr ""
+"このセッションにはブラウザーがありません（サーバー、SSH 接続）: エクスポートをここに一覧表示し、ここで読みます。行を選んで（Enter）読みます。"
+
+msgid "Lire"
+msgstr "読む"
+
+msgid "Taille"
+msgstr "サイズ"
+
+msgid "Aucun export pour l'instant."
+msgstr "まだエクスポートはありません。"
+
 msgid ""
 "Chaque menu, sa fonction et le détail. Cliquez sur un titre pour l'ouvrir."
 msgstr "各メニュー、その機能と詳細。タイトルをクリックすると開きます。"
@@ -3137,9 +3254,6 @@ msgstr ""
 "スキャナーが見つけたもの：各 omega "
 "アプリケーション、そのサービス、バージョン、状態。「レジストリを更新」でスキャンをやり直し、「アプリケーションを更新」で古すぎるアプリケーション（選んだ行）の最新バージョンをインストールします。連携を元に戻すには：同期。不整合を直すには：修復。"
 
-msgid "Mettre à jour le registre"
-msgstr "レジストリを更新"
-
 msgid "Mettre à jour l'application"
 msgstr "アプリケーションを更新"
 
@@ -3178,10 +3292,6 @@ msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
 msgstr "→「{action}」は、アプリケーションにチェックを付けた状態で Updater を開きます。"
 
 #, python-brace-format
-msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
-msgstr "レジストリを更新中：リモートマシン {count} 台をスキャン中…"
-
-#, python-brace-format
 msgid ""
 "omega-connect — synchronisation de {machine}. La machine demande elle-même "
 "son mot de passe sudo (il ne s'affiche pas pendant la saisie) ; omega-"
@@ -3192,6 +3302,19 @@ msgstr ""
 
 msgid "Terminé. Appuyez sur Entrée pour revenir à omega-connect… "
 msgstr "完了。Enter を押すと omega-connect に戻ります… "
+
+#, python-brace-format
+msgid "INSTALLER — {machine}"
+msgstr "INSTALLER — {machine}"
+
+msgid ""
+"Les applications choisies, installées sur cette machine depuis ici : archive"
+" vérifiée, envoyée, puis son install.sh dans le terminal ; ensuite "
+"l'inscription de celles qui se relient aux autres. Rien n'est fait avant « "
+"Lancer »."
+msgstr ""
+"選択したアプリケーションを、ここからこのマシンにインストールします: アーカイブを確認して送信し、ターミナルで install.sh "
+"を実行。その後、他と連携するアプリケーションを登録します。「起動」まで何も行いません。"
 
 #, python-brace-format
 msgid "METTRE À JOUR L'APPLICATION — {machine}"
@@ -3243,6 +3366,10 @@ msgstr "{machine} で更新"
 #, python-brace-format
 msgid "Réparer {machine}"
 msgstr "{machine} を修復"
+
+#, python-brace-format
+msgid "Installer sur {machine}"
+msgstr "{machine} にインストール"
 
 #, python-brace-format
 msgid "Synchroniser {machine}"
@@ -3321,12 +3448,8 @@ msgstr "問題"
 msgid "Qui corrige"
 msgstr "修正元"
 
-msgid "Recherche de tout ce qui ne va pas : vérification de cette machine…"
-msgstr "問題のあるものを検索中：このマシンを確認しています…"
-
-#, python-brace-format
-msgid "Rescan des machines du réseau ({index}/{count}) : {machine}…"
-msgstr "ネットワーク上のマシンを再スキャン中（{index}/{count}）：{machine}…"
+msgid "Lecture du dernier scan…"
+msgstr "前回のスキャンを読み込み中…"
 
 #, python-brace-format
 msgid "{count} problème(s) sur {machines} machine(s)."
@@ -3346,12 +3469,13 @@ msgid "RAPPORT"
 msgstr "レポート"
 
 msgid ""
-"Un document complet, établi à l'instant (les machines du réseau sont "
-"rescannées avant) : bilan, ce qu'il reste à faire, registre, machines du "
-"réseau, liaisons de chaque machine, espace partagé. Enregistré dans le "
-"dossier des exports."
+"Un document complet, d'après le dernier scan (« Relancer le scan » le "
+"refait) : bilan, ce qu'il reste à faire, registre, machines du réseau, "
+"liaisons de chaque machine, espace partagé. Enregistré dans le dossier des "
+"exports ; « Voir les exports » les ouvre dans le navigateur pour les lire."
 msgstr ""
-"今この時点で作成する完全なドキュメント（先にネットワーク上のマシンを再スキャン）：概要、残っている作業、レジストリ、ネットワーク上のマシン、各マシンの連携、共有スペース。エクスポートフォルダーに保存されます。"
+"前回のスキャンに基づく完全な文書（「再スキャン」でやり直し）: "
+"概要、残りの作業、登録簿、ネットワーク上のマシン、各マシンの連携、共有スペース。エクスポートフォルダーに保存。「エクスポートを見る」でブラウザーで開いて読めます。"
 
 msgid "THÈME DE LA PAGE HTML"
 msgstr "HTML ページのテーマ"
@@ -3368,6 +3492,12 @@ msgstr "TXT をエクスポート"
 msgid "Exporter HTML"
 msgstr "HTML をエクスポート"
 
+msgid "Voir les exports"
+msgstr "エクスポートを見る"
+
+msgid "Scan de cette machine et des machines du réseau…"
+msgstr "このマシンとネットワーク上のマシンをスキャン中…"
+
 msgid "Génération du rapport en cours (détection, vérification, zone)…"
 msgstr "レポートを生成中（検出、確認、ゾーン）…"
 
@@ -3377,6 +3507,10 @@ msgstr "レポートの準備ができました。"
 #, python-brace-format
 msgid "Export impossible : {error}"
 msgstr "エクスポートできません：{error}"
+
+#, python-brace-format
+msgid "Dossier des exports ouvert dans le navigateur : {path}"
+msgstr "エクスポートフォルダーをブラウザーで開きました: {path}"
 
 #, python-brace-format
 msgid "{count} application(s) omega trouvée(s) sur cette machine."
@@ -3614,9 +3748,6 @@ msgstr "分散負荷…"
 msgid "Lire avec sudo"
 msgstr "sudo で読む"
 
-msgid "Vérification de cette machine et de son espace partagé…"
-msgstr "このマシンとその共有スペースを確認中…"
-
 #, python-brace-format
 msgid "{count} application(s) sur {machines} machine(s) — vérifié à {time}."
 msgstr "アプリケーション {count} 件（マシン {machines} 台） — {time} に確認。"
@@ -3663,6 +3794,12 @@ msgstr "公開版が見つかりません"
 msgid "machine injoignable"
 msgstr "マシンに接続できません"
 
+msgid "à installer"
+msgstr "インストール対象"
+
+msgid "déjà installée"
+msgstr "インストール済み"
+
 msgid ""
 "omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
 "demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
@@ -3682,24 +3819,8 @@ msgstr ""
 "このマシンとネットワーク上で、すでにスキャン済みのアプリケーションです。「バージョンを確認」で最新の公開版を探します（GitHub、次にサイト）。チェックを付けて（Enter"
 " または Space）「選択を更新」または「すべて更新」: 各マシンは実行前に計画を表示し、パスワードはターミナルで一度だけ尋ねます。"
 
-msgid "Vérifier les versions"
-msgstr "バージョンを確認"
-
 msgid "Mettre à jour la sélection"
 msgstr "選択を更新"
-
-msgid "Tout mettre à jour"
-msgstr "すべて更新"
-
-msgid "Disponible"
-msgstr "公開版"
-
-msgid "Installée"
-msgstr "インストール済み"
-
-#, python-brace-format
-msgid "{tool} (contient {tools})"
-msgstr "{tool}（{tools} を含む）"
 
 #, python-brace-format
 msgid ""
@@ -3709,6 +3830,19 @@ msgstr ""
 "{count} 個のアプリケーション — 最新: {ok}、更新が必要: {old}、未完了: {incomplete}、未確認: "
 "{unchecked}。"
 
+msgid "Vérifier les versions"
+msgstr "バージョンを確認"
+
+msgid "Tout mettre à jour"
+msgstr "すべて更新"
+
+msgid "Disponible"
+msgstr "公開版"
+
+#, python-brace-format
+msgid "{tool} (contient {tools})"
+msgstr "{tool}（{tools} を含む）"
+
 msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
 msgstr "最新の公開版を検索中（GitHub、次にサイト）…"
 
@@ -3717,6 +3851,37 @@ msgstr "アーカイブをダウンロードして確認中…"
 
 msgid "Rescan de cette machine…"
 msgstr "このマシンを再スキャン中…"
+
+msgid "INSTALLER"
+msgstr "INSTALLER"
+
+msgid ""
+"Pour chaque machine joignable (cette machine et le réseau, d'après le "
+"dernier scan), les applications omega publiées : déjà installées, ou à "
+"installer dans ~/<application>. « Vérifier les versions » cherche la "
+"dernière version publiée (GitHub, puis le site). Cochez (Entrée ou Espace) "
+"puis « Installer la sélection » : chaque machine montre son plan avant "
+"d'agir ; omega-fire demande le mot de passe sudo, dans le terminal."
+msgstr ""
+"接続できる各マシン（前回のスキャンに基づく、このマシンとネットワーク）について、公開済みの omega アプリケーション: インストール済み、または "
+"~/<アプリケーション> へのインストール対象。「バージョンを確認」で最新の公開版を探します（GitHub、次にサイト）。チェックを付けて（Enter "
+"または Space）「選択をインストール」: 各マシンは実行前に計画を表示し、omega-fire はターミナルで sudo パスワードを尋ねます。"
+
+msgid "Installer la sélection"
+msgstr "選択をインストール"
+
+msgid ""
+"omega-connect — installation sur cette machine. Les install.sh peuvent "
+"demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
+msgstr ""
+"omega-connect — このマシンにインストールします。install.sh が sudo "
+"パスワードを尋ねることがあります（入力中は表示されません）。"
+
+#, python-brace-format
+msgid ""
+"{count} ligne(s) — déjà installées : {present} ; à installer : {todo} ; non "
+"vérifiées : {unchecked}."
+msgstr "{count} 行 — インストール済み: {present}、インストール対象: {todo}、未確認: {unchecked}。"
 
 msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
 msgstr "共有スペースの詳細"

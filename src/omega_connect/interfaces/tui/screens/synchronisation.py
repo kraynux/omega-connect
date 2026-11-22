@@ -23,7 +23,6 @@ from textual.screen import Screen
 from textual.widgets import Button, DataTable, Footer, Header, Static
 
 from omega_connect.application.enroll_actions import EnrollTools, enroll_plan
-from omega_connect.application.remote_actions import scan_remote
 from omega_connect.application.remote_sync import RemoteSyncTools
 from omega_connect.domain.enroll import EnrollPlan
 from omega_connect.domain.fail2ban import Presence
@@ -102,6 +101,8 @@ class SynchronisationScreen(OmegaScreen):
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Détail"), id="detail")
             with Container(classes="omega-btn-frame"):
+                yield Button(_("Relancer le scan"), id="rescan")
+            with Container(classes="omega-btn-frame"):
                 yield Button(_("Retour"), id="back")
         yield Footer()
 
@@ -119,29 +120,22 @@ class SynchronisationScreen(OmegaScreen):
             busy = self.query_one(Busy)
             busy.show(text) if text is not None else busy.hide()
 
-    def _load(self) -> None:
-        """Toujours l'etat reel : cette machine verifiee, les machines du reseau rescannees."""
+    def _load(self, rescan: bool = False) -> None:
+        """Le dernier scan relu (decision de l'auteur, 2026-11-22) ; « Relancer le scan » : cette machine et les
+        machines du reseau rescannees d'abord ; apres une synchronisation, les machines touchees le sont."""
         if self._loading:
             return
         self._loading = True
-        self._busy(_("Vérification de cette machine et de son espace partagé…"))
+        self._busy(_("Scan de cette machine…") if rescan else _("Lecture du dernier scan…"))
         remote = self._remote_sync.remote if self._remote_sync is not None else None
 
         def collect() -> None:
             try:
+                if rescan:
+                    self.app.rescan_everything(  # type: ignore[attr-defined]
+                        lambda text: self.app.call_from_thread(self._busy, text))
                 report = self._verify()
                 facts = self._tools.zone.inspector.inspect(elevated=False)
-                machines = [entry for entry in (remote.parc.load() if remote is not None else ())
-                            if not entry.local]
-                for index, entry in enumerate(machines, start=1):
-                    target = parse_target(entry.target)
-                    if remote is None or target is None:
-                        continue
-                    self.app.call_from_thread(self._busy, _("Rescan des machines du réseau ({index}/{count}) : "
-                                                            "{machine}…").format(index=index, count=len(machines),
-                                                                                 machine=entry.label))
-                    with contextlib.suppress(Exception):
-                        scan_remote(target, remote)
                 network = tuple(entry for entry in (remote.parc.load() if remote is not None else ())
                                 if not entry.local)
             except Exception as exc:  # noqa: BLE001 - jamais planter l'interface
@@ -268,6 +262,8 @@ class SynchronisationScreen(OmegaScreen):
         elif button == "detail":
             self.app.push_screen(ZoneDetailScreen(tools=self._tools.zone, detect=self._tools.detect),
                                  lambda _result: self._load())
+        elif button == "rescan":
+            self._load(rescan=True)
         elif button == "back":
             self.action_back()
 

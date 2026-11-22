@@ -198,8 +198,8 @@ def render_report_text(report: FullReport) -> str:
     rule = "=" * 78
     machine = report.machine or "?"
     lines = [rule, _("OMEGA-CONNECT {version} — RAPPORT COMPLET").format(version=report.version),
-             _("Établi le {date} depuis {machine}, machines du réseau rescannées (lecture seule, sans "
-               "root).").format(date=local_time(report.generated_at), machine=machine), rule, ""]
+             _("Établi le {date} depuis {machine}, d'après le dernier scan de chaque machine (lecture seule, "
+               "sans root).").format(date=local_time(report.generated_at), machine=machine), rule, ""]
     links = _all_links(report)
     counts = _counts(links)
     link_summary = ", ".join(f"{counts[state]} {_(STATE_LABELS[state])}" for state in LinkState if counts[state])
@@ -301,7 +301,7 @@ STATE_BADGES = {LinkState.ACTIVE: "success", LinkState.DEGRADED: "warning", Link
                 LinkState.ABSENT: "neutral", LinkState.UNVERIFIABLE: "info"}
 APP_BADGES = {AppState.LINKED: "success", AppState.ENROLLED: "info", AppState.DETECTED: "warning",
               AppState.TO_FIX: "danger", AppState.OLD_VERSION: "neutral", AppState.INCOMPLETE: "warning",
-              AppState.UNREACHABLE: "danger"}
+              AppState.UNREACHABLE: "danger", AppState.INSTALLED: "info"}
 CHECK_BADGES = {CheckStatus.OK: "success", CheckStatus.INFO: "neutral", CheckStatus.WARNING: "warning",
                 CheckStatus.FAILURE: "danger", CheckStatus.UNVERIFIABLE: "info"}
 EXTRA_CSS = """
@@ -438,8 +438,8 @@ def render_report_html(report: FullReport, theme: str = DEFAULT_EXPORT_THEME) ->
     links = _all_links(report)
     counts = _counts(links)
     plan = todo(report.rows)
-    made = _("Établi le {date} depuis {machine}, machines du réseau rescannées (lecture seule, sans "
-             "root).").format(date=local_time(report.generated_at), machine=machine)
+    made = _("Établi le {date} depuis {machine}, d'après le dernier scan de chaque machine (lecture seule, "
+             "sans root).").format(date=local_time(report.generated_at), machine=machine)
     problems = counts[LinkState.BROKEN] + counts[LinkState.DEGRADED]
     body = [
         f'<h1>{_e(_("Rapport complet"))}<span class="cursor"></span></h1>',

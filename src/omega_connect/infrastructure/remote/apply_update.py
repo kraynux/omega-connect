@@ -110,6 +110,13 @@ def _check_root(root: Path) -> None:
         raise UpdateError(_("{root} n'appartient pas à ce compte : mise à jour faite à la main").format(root=root))
 
 
+def _new_root(root: Path) -> None:
+    """Installer : le dossier n'existe pas (il est cree) ou il est vide ; jamais par-dessus autre chose."""
+    if root.is_symlink() or (root.exists() and (not root.is_dir() or any(root.iterdir()))):
+        raise UpdateError(_("{root} existe déjà et n'est pas vide : rien n'est installé").format(root=root))
+    root.mkdir(mode=0o755, parents=True, exist_ok=True)
+
+
 def _looks_old(path: Path, tool: str) -> bool:
     """Meme regle que l'install.sh d'omega-fire : `config/<outil>.conf`, ou une base dans var/db."""
     try:
@@ -177,7 +184,9 @@ def apply_update(order: UpdateOrder, session: Path, *, now: datetime | None = No
     archive = session / order.archive
     if not archive.is_file() or _sha256(archive) != order.sha256:
         raise UpdateError(_("empreinte de l'archive différente de sha.txt : rien n'est installé"))
-    root = Path(order.root)
+    root = Path(order.root).expanduser()  # installer : « ~/<outil> », le dossier personnel de CETTE machine
+    if order.mode is UpdateMode.INSTALL:
+        _new_root(root)
     _check_root(root)
     work = session / f"extrait-{order.tool}"
     work.mkdir(mode=0o700)

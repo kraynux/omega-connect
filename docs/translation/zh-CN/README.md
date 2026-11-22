@@ -30,6 +30,7 @@
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/C.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/D.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/E.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/F.png" width="32%" />
 </p>
 
 ## 1. 愿景与范围
@@ -45,6 +46,7 @@ omega 应用程序是为协同工作而设计的：omega-serv 的日志由 omega
 - **关联 omega-stress 的分布式负载**：本机主控，勾选的机器协助对目标施加负载；一个按钮即可（访问凭据通过 SSH 传送，选择授权方式，防火墙仅开放 omega-stress 端口）。
 - **修复**：每一处偏差都交由拥有该文件的应用程序来纠正；绝不由 omega-connect 代劳。
 - 通过 **Updater** **更新或重新安装** 本机和网络上的应用程序：来自其 GitHub Release，没有时来自其网站（校验指纹）；从不提供未发布的版本。
+- 通过 **Installer** 在本机和网络上 **安装** 已发布的 omega 应用程序：与更新相同的流程，只做安装（含身份卡和登记）。
 - **从您的工作站**对网络中的机器进行操作：无需在那台机器上输入任何内容，它的密码只由它自己询问一次。
 - 生成一份完整的**报告**（文本、JSON 或 HTML 页面）。
 
@@ -106,13 +108,14 @@ cd omega-connect/
 
 | 管理 | 维护 |
 |---|---|
-| **登记册** —— 所有机器上的所有应用程序、其版本和状态 | **修复** —— 列出所有问题，由您选择 |
-| **扫描** —— 本机，以及添加网络中的机器 | **Updater** — 在所有机器上检查版本、更新或重新安装 |
+| **登记册** —— 所有机器上的所有应用程序、其版本和状态 | **Updater** — 在所有机器上检查版本、更新或重新安装 |
+| **扫描** —— 本机，以及添加网络中的机器 | **Installer** — 在所有机器上安装 omega 应用程序 |
 | **关联** —— 哪些已关联，哪些未关联，以及其状态 | **报告** —— 一份完整文档，可导出 |
 | **同步** —— 在所有机器上关联应用程序 | **设置** —— 语言、主题、文件夹、清除 |
-| **仪表盘** —— 总览 | **帮助** —— 每个菜单、其功能及详细说明 |
+| **修复** —— 列出所有问题，由您选择 | **帮助** —— 每个菜单、其功能及详细说明 |
+| **仪表盘** —— 总览 | **退出** |
 
-典型流程：**扫描**（先扫描本机，再扫描您的其他机器，这些机器会根据您的 Unison 配置、`~/.ssh/config` 和 `known_hosts` 推荐给您）→ **登记册**（更新或重新安装旧版应用程序）→ **同步**（勾选，然后同步）→ 通过 **关联** 和 **仪表盘** 查看结果 → 如果仍有偏差，使用 **修复**。
+典型流程：**扫描**（本机，然后是您的其他机器，根据您的 SSH 配置 `~/.ssh/config` 和 `known_hosts` 提供建议）→ **登记册**（更新或重新安装旧版应用程序）→ **同步**（勾选，然后同步）→ 通过 **关联** 和 **仪表盘** 查看结果 → 如果仍有偏差，使用 **修复**。
 
 每个操作都会先显示其计划；未经您同意，什么都不会执行。对于网络中的机器，界面会在操作期间让位给终端：由那台机器自己询问一次密码。
 
@@ -227,7 +230,6 @@ mypy src
 
 - 替代 fail2ban、omega-fire 或 omega-jail。
 - 持续监控（没有常驻服务）。
-- 首次在网络中的某台机器上安装 omega 应用程序。
 - Web 仪表盘。
 
 ## 许可证
@@ -236,5 +238,5 @@ MIT —— 参见 [LICENSE](../../../LICENSE)。
 
 ---
 
-> Omega-connect —— 查找、关联、修复。
+> OMEGA-CONNECT — 查找、关联、修复、更新和安装。
 > omega 应用程序彼此对话；omega-connect 确保它们能够做到。

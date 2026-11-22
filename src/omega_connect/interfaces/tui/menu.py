@@ -33,13 +33,15 @@ MENU: tuple[MenuEntry, ...] = (
     MenuEntry("scanner", N_("Scanner"), Column.MAIN),
     MenuEntry("links", N_("Liaisons"), Column.MAIN),
     MenuEntry("synchronisation", N_("Synchronisation"), Column.MAIN),
+    MenuEntry("repair", N_("Réparer"), Column.MAIN),
     MenuEntry("dashboard", N_("Dashboard"), Column.MAIN),
-    MenuEntry("repair", N_("Réparer"), Column.MAINTENANCE),
     MenuEntry("updater", N_("Updater"), Column.MAINTENANCE),
+    MenuEntry("installer", N_("Installer"), Column.MAINTENANCE),
     MenuEntry("report", N_("Rapport"), Column.MAINTENANCE),
     MenuEntry("settings", N_("Réglages"), Column.MAINTENANCE),
     MenuEntry("help", N_("Aide"), Column.MAINTENANCE),
+    MenuEntry("quit", N_("Quitter"), Column.MAINTENANCE),
 )
-"""Contact et support : dans l'Aide, comme les autres outils de la suite (lot F). « Quitter » retire du menu le
-2026-11-22 (demande de l'auteur) : touches q et Echap ; « Updater » sous « Reparer »."""
+"""Disposition de l'auteur (2026-11-22, 6/6) : Registre, Scanner, Liaisons, Synchronisation, Reparer, Dashboard |
+Updater, Installer, Rapport, Reglages, Aide, Quitter. Contact et support : dans l'Aide (lot F)."""
 COLUMN_TITLES = {Column.MAIN: N_("GESTION"), Column.MAINTENANCE: N_("MAINTENANCE")}

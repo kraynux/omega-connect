@@ -36,7 +36,7 @@ from omega_connect.interfaces.cli.remote_sync_view import (
     render_machine_plan,
     render_sync_outcome,
 )
-from omega_connect.interfaces.tui.screens._base import OmegaScreen, copy_commands, suspended
+from omega_connect.interfaces.tui.screens._base import OmegaScreen, copy_commands, set_label, suspended
 from omega_connect.interfaces.tui.widgets.busy import Busy
 from omega_connect.shared.i18n import N_, _
 
@@ -63,7 +63,12 @@ class RemoteMachineScreen(OmegaScreen):
     def compose(self) -> ComposeResult:
         yield Header()
         with VerticalScroll(classes="omega-panel"):
-            if self._purpose is Purpose.UPDATE:
+            if self._purpose is Purpose.INSTALL:
+                title = _("INSTALLER — {machine}").format(machine=self._target.text)
+                hint = _("Les applications choisies, installées sur cette machine depuis ici : archive vérifiée, "
+                         "envoyée, puis son install.sh dans le terminal ; ensuite l'inscription de celles qui se "
+                         "relient aux autres. Rien n'est fait avant « Lancer ».")
+            elif self._purpose is Purpose.UPDATE:
                 title = _("METTRE À JOUR L'APPLICATION — {machine}").format(machine=self._target.text)
                 hint = _("Seulement les applications trop anciennes de cette machine : dernière version prise sur "
                          "leur Release GitHub (empreinte vérifiée), installée comme le dit leur README. Rien "
@@ -137,10 +142,11 @@ class RemoteMachineScreen(OmegaScreen):
         with contextlib.suppress(NoMatches):
             update_label = _("Réinstaller sur {machine}") if reinstall_only(result) else \
                 _("Mettre à jour sur {machine}")
-            label = {Purpose.UPDATE: update_label, Purpose.REPAIR: _("Réparer {machine}")}.get(
+            label = {Purpose.UPDATE: update_label, Purpose.REPAIR: _("Réparer {machine}"),
+                     Purpose.INSTALL: _("Installer sur {machine}")}.get(
                 self._purpose, _("Synchroniser {machine}"))
             self.query_one("#copy-frame").display = bool(result.plan.manual_commands)
-            self.query_one("#launch", Button).label = label.format(machine=result.plan.hostname)
+            set_label(self.query_one("#launch", Button), label.format(machine=result.plan.hostname))
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "launch" and self._plan is not None and not self._working:

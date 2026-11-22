@@ -20,6 +20,7 @@ MODE_LABELS = {
     UpdateMode.OVER: N_("extraction par-dessus, puis son install.sh"),
     UpdateMode.ASIDE: N_("ancienne installation mise de côté (sudo mv), nouvelle à sa place, puis son install.sh qui "
                          "reprend réglages et données"),
+    UpdateMode.INSTALL: N_("nouveau dossier, archive extraite dedans, puis son install.sh"),
 }
 STEP_LABELS = {StepName.UPDATE: N_("Mise à jour"), StepName.REPAIR: N_("Réparer"), StepName.MANUAL: N_("Commande"),
                StepName.ENROLL: N_("Synchroniser")}
@@ -31,6 +32,13 @@ def release_failure_text(choice: UpdateChoice, failure: ReleaseFailure) -> str:
 
 def update_line(choice: UpdateChoice) -> str:
     item = choice.outdated
+    if item.install:
+        if choice.possible:
+            return _("{tool} {version} → {root} : installation — {how}").format(
+                tool=item.tool, version=choice.latest, root=item.root, how=_(MODE_LABELS[choice.mode]))
+        reason = release_failure_text(choice, choice.failure) if choice.failure else "?"
+        return _("{tool} ({root}) : pas d'installation possible — {reason}").format(tool=item.tool, root=item.root,
+                                                                                    reason=reason)
     head = f"{item.tool} {item.version or '?'}"
     if item.incomplete and choice.possible:
         return _("{tool} {version} ({root}) : réinstallation (installation inachevée) — {how}").format(
@@ -61,6 +69,21 @@ def _password_line(name: str) -> str:
 
 def render_machine_plan(plan: MachinePlan) -> str:
     remote = plan.plan
+    if plan.purpose is Purpose.INSTALL:
+        lines = [_("Installer — machine {name} ({target})").format(name=remote.hostname, target=plan.target.text),
+                 ""]
+        if not plan.updates:
+            lines.append(_("Aucune application choisie : rien à installer."))
+            return "\n".join(lines) + "\n"
+        lines.append(_("Archives prises sur GitHub, puis le site de chaque application (empreinte vérifiée avec "
+                       "sha.txt avant tout envoi) :"))
+        lines.extend(f"  · {update_line(choice)}" for choice in plan.updates)
+        lines.append("")
+        lines.append(_("Juste installer : sa carte d'identité (install.sh) et, pour les applications qui se relient "
+                       "aux autres, l'inscription dans l'espace partagé de la machine. Aucune configuration : elle se "
+                       "fait dans l'application elle-même."))
+        lines.append(_password_line(remote.hostname))
+        return "\n".join(lines) + "\n"
     if plan.purpose is Purpose.UPDATE:
         title = _("Réinstaller l'application — machine {name} ({target})") if reinstall_only(plan) else \
             _("Mettre à jour l'application — machine {name} ({target})")

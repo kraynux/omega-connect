@@ -30,6 +30,7 @@ Offizielle Seite: [OMEGA-CONNECT](https://kraynux.snake-mackarel.ts.net/omega-co
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/C.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/D.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/E.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/F.png" width="32%" />
 </p>
 
 ## 1. Vision und Umfang
@@ -45,6 +46,7 @@ Die omega-Anwendungen sind für die Zusammenarbeit gemacht: Die Logs von omega-s
 - **Verbindet die verteilte Last von omega-stress**: Dieser Rechner steuert, die angehakten Rechner helfen ihm, das Ziel zu belasten; ein Knopf (Zugang per SSH übertragen, Zustimmung gewählt, Firewall nur für den omega-stress-Port geöffnet).
 - **Repariert**: lässt jede Abweichung von der Anwendung korrigieren, der die Datei gehört; niemals omega-connect an ihrer Stelle.
 - **Aktualisiert oder installiert neu** die Anwendungen dieses Rechners und des Netzwerks, über den **Updater**: aus ihrem GitHub-Release oder, ersatzweise, von ihrer Website (Fingerabdruck geprüft); eine unveröffentlichte Version wird nie angeboten.
+- **Installiert** die veröffentlichten omega-Anwendungen auf diesem Rechner und im Netzwerk, über den **Installer**: dasselbe Verfahren wie bei den Aktualisierungen, nur installieren (Ausweis und Eintragung inbegriffen).
 - Handelt auf einem Netzwerkrechner **von Ihrem Arbeitsplatz aus**: dort ist nichts einzutippen, sein Passwort wird einmal abgefragt, von ihm selbst.
 - Erstellt einen vollständigen **Bericht** (Text, JSON oder HTML-Seite).
 
@@ -106,13 +108,14 @@ Das Hauptmenü hat zwei Spalten:
 
 | Verwaltung | Wartung |
 |---|---|
-| **Register** — alle Anwendungen aller Rechner, ihre Version und ihr Zustand | **Reparieren** — die Liste von allem, was nicht stimmt, und Sie wählen aus |
-| **Scannen** — dieser Rechner und das Hinzufügen der Netzwerkrechner | **Updater** — Versionen prüfen, aktualisieren oder neu installieren, auf allen Rechnern |
+| **Register** — alle Anwendungen aller Rechner, ihre Version und ihr Zustand | **Updater** — Versionen prüfen, aktualisieren oder neu installieren, auf allen Rechnern |
+| **Scannen** — dieser Rechner und das Hinzufügen der Netzwerkrechner | **Installer** — die omega-Anwendungen installieren, auf allen Rechnern |
 | **Verbindungen** — was verbunden ist und was nicht, mit seinem Zustand | **Bericht** — ein vollständiges Dokument zum Exportieren |
 | **Synchronisierung** — die Anwendungen verbinden, auf allen Rechnern | **Einstellungen** — Sprache, Themes, Ordner, Bereinigen |
-| **Dashboard** — die Gesamtübersicht | **Hilfe** — jedes Menü, seine Funktion und die Details |
+| **Reparieren** — die Liste von allem, was nicht stimmt, und Sie wählen aus | **Hilfe** — jedes Menü, seine Funktion und die Details |
+| **Dashboard** — die Gesamtübersicht | **Beenden** |
 
-Typischer Ablauf: **Scannen** (dieser Rechner, dann Ihre anderen Rechner, vorgeschlagen anhand Ihrer Unison-Profile, `~/.ssh/config` und `known_hosts`) → **Register** (eine alte Anwendung aktualisieren oder neu installieren) → **Synchronisierung** (abhaken, dann synchronisieren) → **Verbindungen** und **Dashboard**, um das Ergebnis zu sehen → **Reparieren**, falls noch eine Abweichung bleibt.
+Typischer Ablauf: **Scannen** (dieser Rechner, dann Ihre anderen Rechner, vorgeschlagen anhand Ihrer SSH-Konfiguration: `~/.ssh/config` und `known_hosts`) → **Register** (eine alte Anwendung aktualisieren oder neu installieren) → **Synchronisierung** (abhaken, dann synchronisieren) → **Verbindungen** und **Dashboard**, um das Ergebnis zu sehen → **Reparieren**, falls noch eine Abweichung bleibt.
 
 Jede Aktion zeigt zuerst ihren Plan; nichts wird ohne Ihre Zustimmung gestartet. Bei einem Netzwerkrechner überlässt die Oberfläche dem Terminal für die Dauer der Aktion den Platz: Der Rechner fragt selbst nach seinem Passwort, einmal.
 
@@ -227,7 +230,6 @@ Die Tests berühren niemals das echte `var/`, weder das Netzwerk noch sudo: fals
 
 - fail2ban, omega-fire oder omega-jail ersetzen.
 - Kontinuierlich überwachen (kein dauerhafter Dienst).
-- Eine omega-Anwendung zum ersten Mal auf einem Netzwerkrechner installieren.
 - Web-Dashboard.
 
 ## Lizenz
@@ -236,5 +238,5 @@ MIT — siehe [LICENSE](../../../LICENSE).
 
 ---
 
-> Omega-connect — Finden, verbinden, reparieren.
+> OMEGA-CONNECT — Finden, verbinden, reparieren, aktualisieren und installieren.
 > Die omega-Anwendungen sprechen miteinander; omega-connect sorgt dafür, dass sie es können.

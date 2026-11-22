@@ -288,6 +288,7 @@ class DistributedLoadScreen(OmegaScreen):
         self.run_worker(work, thread=True, group="distributed", exclusive=True)
 
     def _done(self, results: list[StepResult]) -> None:
+        getattr(self.app, "local_changed", lambda: None)()  # scan relu : cette machine a change
         self._working = False
         failed = [r for r in results if not r.ok]
         text = Text()

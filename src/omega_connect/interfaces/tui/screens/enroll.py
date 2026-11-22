@@ -18,7 +18,7 @@ from omega_connect.domain.zone import CommandOutcome, Operation
 from omega_connect.interfaces.cli.enroll_view import render_enroll_plan, render_enroll_result
 from omega_connect.interfaces.cli.repair_view import repair_step_line
 from omega_connect.interfaces.cli.zone_view import step_line
-from omega_connect.interfaces.tui.screens._base import SUDO_MESSAGE, OmegaScreen, suspended
+from omega_connect.interfaces.tui.screens._base import SUDO_MESSAGE, OmegaScreen, set_label, suspended
 from omega_connect.shared.i18n import _
 
 
@@ -106,12 +106,13 @@ class EnrollScreen(OmegaScreen):
             self.query_one(VerticalScroll).scroll_end(animate=False)
 
     def _finish(self, result: EnrollResult | None, error: str) -> None:
+        getattr(self.app, "local_changed", lambda: None)()  # scan relu : cette machine a change
         self._working = False
         self._ran = True
         with contextlib.suppress(NoMatches):
             back = self.query_one("#back", Button)
             back.disabled = False
-            back.label = _("Fermer")
+            set_label(back, _("Fermer"))
         message = render_enroll_result(result) if result is not None else _("Erreur : {message}").format(
             message=error)
         self._progress("\n" + message)

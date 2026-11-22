@@ -30,6 +30,7 @@ Halaman resmi: [OMEGA-CONNECT](https://kraynux.snake-mackarel.ts.net/omega-conne
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/C.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/D.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/E.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/F.png" width="32%" />
 </p>
 
 ## 1. Visi dan cakupan
@@ -45,6 +46,7 @@ Aplikasi omega dibuat untuk bekerja sama: log omega-serv dibaca oleh jail omega-
 - **Menautkan beban terdistribusi omega-stress**: mesin ini memimpin, mesin yang dicentang membantunya membebani target; satu tombol (akses dikirim lewat SSH, persetujuan dipilih, firewall dibuka hanya untuk port omega-stress).
 - **Memperbaiki**: meminta aplikasi pemilik berkas untuk membereskan setiap ketidaksesuaian; omega-connect tidak pernah melakukannya sendiri.
 - **Memperbarui atau memasang ulang** aplikasi mesin ini dan jaringan, dari **Updater**: dari Release GitHub-nya atau, jika tidak ada, dari situsnya (sidik jari diperiksa); versi yang belum terbit tidak pernah ditawarkan.
+- **Memasang** aplikasi omega yang diterbitkan di mesin ini dan di jaringan, dari **Installer**: proses yang sama seperti pembaruan, hanya memasang (kartu identitas dan pendaftaran termasuk).
 - Bertindak pada mesin jaringan **dari komputer Anda**: tidak ada yang perlu diketik di sana, kata sandinya diminta sekali, oleh mesin itu sendiri.
 - Menghasilkan **laporan** lengkap (teks, JSON, atau halaman HTML).
 
@@ -106,13 +108,14 @@ Menu utama memiliki dua kolom:
 
 | Pengelolaan | Pemeliharaan |
 |---|---|
-| **Registri** — semua aplikasi di semua mesin, versi dan statusnya | **Perbaiki** — daftar semua yang bermasalah, dan Anda yang memilih |
-| **Pindai** — mesin ini, dan penambahan mesin jaringan | **Updater** — periksa versi, perbarui atau pasang ulang, di semua mesin |
+| **Registri** — semua aplikasi di semua mesin, versi dan statusnya | **Updater** — periksa versi, perbarui atau pasang ulang, di semua mesin |
+| **Pindai** — mesin ini, dan penambahan mesin jaringan | **Installer** — memasang aplikasi omega, di semua mesin |
 | **Tautan** — apa yang tertaut atau belum, beserta statusnya | **Laporan** — dokumen lengkap, untuk diekspor |
 | **Sinkronisasi** — menautkan aplikasi, di semua mesin | **Pengaturan** — bahasa, tema, folder, pembersihan |
-| **Dasbor** — gambaran umum | **Bantuan** — setiap menu, fungsinya, dan detailnya |
+| **Perbaiki** — daftar semua yang bermasalah, dan Anda yang memilih | **Bantuan** — setiap menu, fungsinya, dan detailnya |
+| **Dasbor** — gambaran umum | **Keluar** |
 
-Alur umum: **Pindai** (mesin ini, lalu mesin Anda yang lain, yang diusulkan berdasarkan profil Unison, `~/.ssh/config`, dan `known_hosts` Anda) → **Registri** (perbarui atau pasang ulang aplikasi yang lama) → **Sinkronisasi** (centang, lalu sinkronkan) → **Tautan** dan **Dasbor** untuk melihat hasilnya → **Perbaiki** jika masih ada ketidaksesuaian.
+Alur umum: **Pindai** (mesin ini, lalu mesin Anda yang lain, diusulkan dari konfigurasi SSH Anda: `~/.ssh/config` dan `known_hosts`) → **Registri** (perbarui atau pasang ulang aplikasi yang lama) → **Sinkronisasi** (centang, lalu sinkronkan) → **Tautan** dan **Dasbor** untuk melihat hasilnya → **Perbaiki** jika masih ada ketidaksesuaian.
 
 Setiap tindakan menampilkan rencananya terlebih dahulu; tidak ada yang dijalankan sebelum Anda setuju. Untuk mesin jaringan, antarmuka memberi tempat bagi terminal selama tindakan berlangsung: mesin itu sendiri yang meminta kata sandinya, sekali.
 
@@ -227,7 +230,6 @@ Pengujian tidak pernah menyentuh `var/` yang sebenarnya, jaringan, maupun sudo: 
 
 - Menggantikan fail2ban, omega-fire, atau omega-jail.
 - Pemantauan terus-menerus (tidak ada layanan permanen).
-- Memasang aplikasi omega untuk pertama kalinya di mesin jaringan.
 - Dasbor web.
 
 ## Lisensi
@@ -236,5 +238,5 @@ MIT — lihat [LICENSE](../../../LICENSE).
 
 ---
 
-> Omega-connect — Temukan, tautkan, perbaiki.
+> OMEGA-CONNECT — Temukan, hubungkan, perbaiki, perbarui, dan pasang.
 > Aplikasi omega saling berbicara; omega-connect memastikan mereka bisa.

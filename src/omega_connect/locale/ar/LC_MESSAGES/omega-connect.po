@@ -55,6 +55,10 @@ msgstr "{root} ليس مجلد تثبيت"
 msgid "{root} n'appartient pas à ce compte : mise à jour faite à la main"
 msgstr "{root} لا يخص هذا الحساب: يجب التحديث يدويًا"
 
+#, python-brace-format
+msgid "{root} existe déjà et n'est pas vide : rien n'est installé"
+msgstr "{root} موجود مسبقًا وليس فارغًا: لم يُثبَّت شيء"
+
 msgid "empreinte de l'archive différente de sha.txt : rien n'est installé"
 msgstr "بصمة الأرشيف تختلف عن sha.txt: لم يُثبَّت شيء"
 
@@ -288,6 +292,9 @@ msgstr "تثبيت غير مكتمل"
 msgid "Injoignable"
 msgstr "يتعذّر الوصول إليه"
 
+msgid "Installée"
+msgstr "المثبَّت"
+
 msgid "trouvée, sans carte d'identité : la Synchronisation la lui crée"
 msgstr "عُثر عليه، دون بطاقة هوية: المزامنة تُنشئها له"
 
@@ -315,6 +322,11 @@ msgstr ""
 
 msgid "machine qui ne répond pas"
 msgstr "جهاز لا يستجيب"
+
+msgid ""
+"installée ; cette application n'a pas de liaison avec les autres (rien à "
+"relier)"
+msgstr "مثبَّت؛ هذا التطبيق لا يرتبط بالتطبيقات الأخرى (لا شيء للربط)"
 
 #, python-brace-format
 msgid ""
@@ -889,6 +901,9 @@ msgstr ""
 "نُقل التثبيت القديم جانبًا (sudo mv)، والجديد في مكانه، ثم install.sh الخاص "
 "به الذي يستعيد الإعدادات والبيانات"
 
+msgid "nouveau dossier, archive extraite dedans, puis son install.sh"
+msgstr "مجلد جديد، يُفك الأرشيف داخله، ثم install.sh الخاص به"
+
 msgid "Commande"
 msgstr "الأمر"
 
@@ -900,6 +915,14 @@ msgstr "إصلاح"
 
 msgid "Synchroniser"
 msgstr "مزامنة"
+
+#, python-brace-format
+msgid "{tool} {version} → {root} : installation — {how}"
+msgstr "{tool} {version} → {root}: تثبيت — {how}"
+
+#, python-brace-format
+msgid "{tool} ({root}) : pas d'installation possible — {reason}"
+msgstr "{tool} ({root}): لا يمكن التثبيت — {reason}"
 
 #, python-brace-format
 msgid ""
@@ -924,6 +947,28 @@ msgid ""
 msgstr ""
 "كل شيء يجري في هذه الطرفية: كلمة مرور sudo الخاصة بـ {name} يطلبها الجهاز "
 "نفسه، مرة واحدة؛ ولا يراها omega-connect أبدًا."
+
+#, python-brace-format
+msgid "Installer — machine {name} ({target})"
+msgstr "تثبيت — الجهاز {name} ({target})"
+
+msgid "Aucune application choisie : rien à installer."
+msgstr "لم يُختر أي تطبيق: لا شيء للتثبيت."
+
+msgid ""
+"Archives prises sur GitHub, puis le site de chaque application (empreinte "
+"vérifiée avec sha.txt avant tout envoi) :"
+msgstr ""
+"أرشيفات مأخوذة من GitHub، وإلا من موقع كل تطبيق (تُفحص البصمة مع sha.txt قبل"
+" أي إرسال):"
+
+msgid ""
+"Juste installer : sa carte d'identité (install.sh) et, pour les applications"
+" qui se relient aux autres, l'inscription dans l'espace partagé de la "
+"machine. Aucune configuration : elle se fait dans l'application elle-même."
+msgstr ""
+"التثبيت فقط: بطاقة هويته (install.sh)، وللتطبيقات التي ترتبط بغيرها، التسجيل"
+" في المساحة المشتركة للجهاز. بلا إعداد: يتم الإعداد في التطبيق نفسه."
 
 #, python-brace-format
 msgid "Réinstaller l'application — machine {name} ({target})"
@@ -1392,11 +1437,10 @@ msgstr "OMEGA-CONNECT {version} — التقرير الكامل"
 
 #, python-brace-format
 msgid ""
-"Établi le {date} depuis {machine}, machines du réseau rescannées (lecture "
-"seule, sans root)."
+"Établi le {date} depuis {machine}, d'après le dernier scan de chaque machine"
+" (lecture seule, sans root)."
 msgstr ""
-"أُعدّ في {date} من {machine}، مع إعادة مسح أجهزة الشبكة (للقراءة فقط، دون "
-"root)."
+"أُعدّ في {date} من {machine}، حسب آخر فحص لكل جهاز (قراءة فقط، دون root)."
 
 msgid "BILAN"
 msgstr "الحصيلة"
@@ -2413,6 +2457,20 @@ msgid ""
 "deux fois."
 msgstr "أعد تشغيل الأمر نفسه بعد تصحيح السبب: لا يُنفَّذ شيء مرتين."
 
+msgid "Scan de cette machine…"
+msgstr "فحص هذا الجهاز…"
+
+#, python-brace-format
+msgid "Scan des machines du réseau ({index}/{count}) : {machine}…"
+msgstr "فحص أجهزة الشبكة ({index}/{count}): {machine}…"
+
+#, python-brace-format
+msgid "Scan terminé : cette machine et {count} machine(s) du réseau."
+msgstr "انتهى الفحص: هذا الجهاز و{count} جهاز في الشبكة."
+
+msgid "Scan"
+msgstr "الفحص"
+
 msgid "Dossier des captures non configuré."
 msgstr "مجلد لقطات الشاشة غير مُهيَّأ."
 
@@ -2462,21 +2520,25 @@ msgstr "Ctrl+P"
 msgid ""
 "omega-connect relie entre elles les applications omega (omega-serv, omega-fire, omega-jail…) installées sur cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce qui manque, toujours après vous avoir montré ce qu'il va faire.\n"
 "\n"
-"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
+"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après votre configuration SSH — ~/.ssh/config, known_hosts — et vos profils Unison si vous en avez, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
 "2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
 "3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son plan avant d'agir et demande son mot de passe une seule fois.\n"
 "4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue d'ensemble, en cadres.\n"
 "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
-"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre."
+"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n"
+"\n"
+"Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont rescannées."
 msgstr ""
 "يربط omega-connect بين تطبيقات omega (omega-serv، omega-fire، omega-jail…) المثبّتة على هذا الجهاز وعلى أجهزة شبكتك. يعرض ما هو مرتبط وما ليس كذلك، ويعيد ما ينقص إلى مكانه، دائمًا بعد أن يُريك ما سيفعله.\n"
 "\n"
-"1. [b]المسح[/b]: يبحث عن تطبيقات هذا الجهاز. أضف أجهزتك الأخرى (مقترحة بناءً على ملفات تعريف Unison و ~/.ssh/config و known_hosts، أو مُدخلة يدويًا): يتم الوصول إليها عبر SSH بمفاتيحك، ولا يُثبَّت عليها أي شيء.\n"
+"1. [b]فحص[/b]: يبحث عن تطبيقات هذا الجهاز. أضف أجهزتك الأخرى (مقترحة حسب إعدادات SSH لديك — ~/.ssh/config وknown_hosts — وملفات Unison إن وُجدت، أو مكتوبة يدويًا): يُوصَل إليها عبر SSH بمفاتيحك، ولا يُثبَّت عليها شيء.\n"
 "2. [b]السجل[/b]: قائمة كل التطبيقات على كل الأجهزة، مع حالتها. التطبيق القديم جدًا أو المثبّت بشكل غير سليم يُحدَّث أو يُعاد تثبيته من هذه الشاشة.\n"
 "3. [b]المزامنة[/b]: حدّد ما يجب ربطه، ثم «مزامنة»؛ يعرض كل جهاز خطته قبل التنفيذ ويطلب كلمة مروره مرة واحدة فقط.\n"
 "4. [b]الروابط[/b]: اعرض ما هو مرتبط وما ليس كذلك، على كل الأجهزة. [b]لوحة المعلومات[/b]: النظرة العامة، في إطارات.\n"
 "5. [b]الإصلاح[/b]: قائمة كل ما لا يعمل كما ينبغي؛ اختر سطرًا، أو «إصلاح الكل».\n"
-"6. [b]التقرير[/b]: مستند كامل (نص، أو JSON، أو صفحة HTML) للاحتفاظ به أو إرساله."
+"6. [b]التقرير[/b]: مستند كامل (نص، أو JSON، أو صفحة HTML) للاحتفاظ به أو إرساله.\n"
+"\n"
+"يُجرى الفحص مرة واحدة عند البدء (هذا الجهاز، ثم أجهزة الشبكة المعروفة)، ثم تعيد كل الشاشات قراءته: « إعادة الفحص » يعيده. بعد أي إجراء، لا يُعاد إلا فحص الأجهزة المعنية."
 
 msgid "Registre — toutes les applications et leur état"
 msgstr "السجل — كل التطبيقات وحالتها"
@@ -2484,13 +2546,13 @@ msgstr "السجل — كل التطبيقات وحالتها"
 msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
-"- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
 "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "يعرض، لكل جهاز (هذا الجهاز وأجهزة الشبكة)، كل تطبيق omega عُثر عليه: مثيله أو خدمته، وإصداره، وحالته ومجلده. الملخص في الأعلى يحصي الحالات.\n"
 "\n"
-"- [b]تحديث السجل[/b]: يعيد المسح في مكانه (هذا الجهاز، ثم أجهزة الشبكة المعروفة مسبقًا)، دون تغيير الشاشة.\n"
+"- [b]إعادة الفحص[/b]: يعيد الفحص في مكانه (هذا الجهاز، ثم أجهزة الشبكة المعروفة مسبقًا)، دون تغيير الشاشة.\n"
 "- [b]تحديث التطبيق[/b] / [b]إعادة تثبيت التطبيق[/b]: يفتح Updater مع تحديد تطبيق السطر مسبقًا (« إصدار قديم »؛ أو « تثبيت غير مكتمل »: لم يكتمل install.sh الخاص به، فيُعاد تثبيت الإصدار نفسه). على هذا الجهاز كما على جهاز في الشبكة.\n"
 "- ظلّل سطرًا: يظهر أسفله شرح حالته واختلالاته."
 
@@ -2530,7 +2592,7 @@ msgid "Synchronisation — relier les applications"
 msgstr "المزامنة — ربط التطبيقات"
 
 msgid ""
-"Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
 "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
 "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
 "- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
@@ -2539,7 +2601,7 @@ msgid ""
 "- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
 "- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
 msgstr ""
-"قائمة واحدة: كل أجهزتك وتطبيقاتها (يُعاد مسح أجهزة الشبكة عند الفتح). حدّد أسطرًا (Enter أو Space)، ثم:\n"
+"قائمة واحدة: كل أجهزتك وتطبيقاتها، حسب آخر فحص (« إعادة الفحص » يعيده). حدّد أسطرًا (Enter أو المسافة)، ثم:\n"
 "- [b]مزامنة التحديد[/b]، أو [b]مزامنة الكل[/b].\n"
 "- [b]هذا الجهاز[/b]: خطة واحدة، تُعرض قبل التنفيذ — بطاقات الهوية المفقودة (يُنشئها كل تطبيق، باسم حسابه)، ثم المساحة المشتركة (المجموعة omega-synchro، المجلدات، نسخ البطاقات، وصول الخدمات). كلمة مرور مسؤول واحدة.\n"
 "- [b]جهاز على الشبكة[/b]: تُحسب خطته عليه وتُعرض؛ «مزامنة <machine>» يشغّلها من هنا: تُفسح الواجهة المجال للطرفية، ويطلب الجهاز نفسه كلمة مروره، مرة واحدة؛ Enter يعيدك إلى الواجهة التي تعرض النتيجة.\n"
@@ -2579,7 +2641,7 @@ msgid ""
 "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
 "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
 "\n"
-"Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; « Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner pour les relire). Pour corriger : menu Réparer."
+"Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du réseau. Pour corriger : menu Réparer."
 msgstr ""
 "نظرة عامة في إطارات، مثل لوحة معلومات على الويب. لا يُعدَّل أي شيء من هذه الشاشة.\n"
 "\n"
@@ -2588,13 +2650,13 @@ msgstr ""
 "- [b]هذا الجهاز / الشبكة[/b]: الأرقام نفسها، جنبًا إلى جنب.\n"
 "- [b]Top 5[/b] (top 3 على شاشة صغيرة): الأجهزة التي تحتاج إصلاحًا، الروابط التي تحتاج إصلاحًا، الإصدارات المتأخرة، أقدم عمليات المسح (أجهزة الشبكة).\n"
 "\n"
-"يُتحقَّق من هذا الجهاز عند فتح الشاشة، ثم بانتظام ما دامت الشاشة مفتوحة؛ «تحديث» يعيد التحقق. تعرض أجهزة الشبكة آخر مسح لها (قائمة المسح لإعادة قراءتها). للتصحيح: قائمة الإصلاح."
+"كل شيء يأتي من آخر فحص؛ « إعادة الفحص » يعيد فحص هذا الجهاز وأجهزة الشبكة. للإصلاح: قائمة إصلاح."
 
 msgid "Réparer — tout ce qui ne va pas"
 msgstr "الإصلاح — كل ما لا يعمل كما ينبغي"
 
 msgid ""
-"La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
+"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le corrige.\n"
 "\n"
 "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
 "- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
@@ -2603,7 +2665,7 @@ msgid ""
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
 msgstr ""
-"قائمة كل ما لا يعمل كما ينبغي، على كل الأجهزة (يُعاد مسح أجهزة الشبكة عند الفتح): الجهاز، والمشكلة، والحالة، ومن يصحّحها.\n"
+"قائمة كل ما لا يعمل كما ينبغي، على كل الأجهزة، حسب آخر فحص (« إعادة الفحص » يعيده؛ ويُعاد فحص الجهاز المُصلَح فورًا): الجهاز والمشكلة والحالة ومن يصلحها.\n"
 "\n"
 "- [b]إصلاح السطر المختار[/b]: يفتح خطة الجهاز. هذا الجهاز: أوامر التطبيقات نفسها (omega-jail لما يضعه في fail2ban، و omega-serv لأذونات var/ الخاص به، وكل تطبيق لبطاقة هويته)، ثم المساحة المشتركة. جهاز على الشبكة: التصحيحات نفسها، إضافةً إلى الأوامر التي لا يعرف أي تطبيق تشغيلها، تُشغَّل على الجهاز نفسه من هنا (فقط تلك المعلنة في الخطة).\n"
 "- سطر « إصدار قديم » أو « تثبيت غير مكتمل » يفتح Updater مع تحديد التطبيق مسبقًا: Updater وحده يقوم بالتحديث.\n"
@@ -2632,18 +2694,40 @@ msgstr ""
 "- في النهاية: ما أُنجز، تطبيقًا تطبيقًا، والأجهزة بعد إعادة فحصها.\n"
 "- [b]omega-suite[/b]: omega-stress المضمَّن فيها جزء منها. السطر هو سطر omega-suite (« يحتوي omega-stress … »): تُحدَّث مع أدواتها المختبرة معًا، ولا يُحدَّث omega-stress وحده أبدًا. ابتداءً من 2.0.0 يساعد في الحمل الموزّع مثل omega-stress مستقل؛ وإذا كان على الجهاز أيضًا omega-stress مستقل، فهو الذي يساعد."
 
+msgid "Installer — installer les applications"
+msgstr "Installer — تثبيت التطبيقات"
+
+msgid ""
+"Installe les applications omega sur cette machine et sur les machines du réseau, depuis ici, avec le même procédé que l'Updater.\n"
+"\n"
+"- Les lignes : chaque machine joignable (d'après le dernier scan) et chaque application omega publiée, « déjà installée » (avec sa version) ou à installer dans ~/<application>.\n"
+"- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application).\n"
+"- [b]Installer la sélection[/b] : cette machine d'abord, dans le terminal, puis chaque machine du réseau, son plan affiché avant d'agir. L'archive est vérifiée (sha.txt), extraite dans un nouveau dossier (jamais par-dessus un dossier qui n'est pas vide), puis son install.sh est lancé ; omega-fire demande le mot de passe sudo.\n"
+"- Juste installer : la carte d'identité (install.sh) et, pour les applications qui se relient aux autres (omega-serv, omega-fire, omega-jail, omega-stress), l'inscription dans l'espace partagé de la machine. La configuration se fait ensuite dans l'application elle-même.\n"
+"- À la fin : ce qui a été fait, et les machines touchées rescannées."
+msgstr ""
+"يثبّت تطبيقات omega على هذا الجهاز وعلى أجهزة الشبكة، من هنا، بالطريقة نفسها التي يعمل بها Updater.\n"
+"\n"
+"- الأسطر: كل جهاز يمكن الوصول إليه (حسب آخر فحص) وكل تطبيق omega منشور، « مثبَّت مسبقًا » (مع إصداره) أو للتثبيت في ~/<التطبيق>.\n"
+"- [b]تحقّق من الإصدارات[/b]: أحدث إصدار منشور لكل تطبيق (GitHub Release، وإلا موقع التطبيق).\n"
+"- [b]ثبّت المحدد[/b]: هذا الجهاز أولًا، في الطرفية، ثم كل جهاز في الشبكة، مع عرض خطته قبل التنفيذ. يُفحص الأرشيف (sha.txt) ويُفك في مجلد جديد (أبدًا فوق مجلد غير فارغ)، ثم يُشغَّل install.sh الخاص به؛ ويطلب omega-fire كلمة مرور sudo.\n"
+"- التثبيت فقط: بطاقة الهوية (install.sh)، وللتطبيقات التي ترتبط بغيرها (omega-serv وomega-fire وomega-jail وomega-stress)، التسجيل في المساحة المشتركة للجهاز. يتم الإعداد بعد ذلك في التطبيق نفسه.\n"
+"- في النهاية: ما أُنجز، والأجهزة المعنية بعد إعادة فحصها."
+
 msgid "Rapport — un document complet"
 msgstr "التقرير — مستند كامل"
 
 msgid ""
-"Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
 "\n"
 "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
+"- [b]Voir les exports[/b] : le dossier des exports s'ouvre dans votre navigateur, chaque export se lit d'un clic (sans quitter omega-connect). Sans navigateur (serveur, connexion SSH), la liste s'affiche ici et chaque export s'y lit.\n"
 "- En ligne de commande : omega-connect rapport --format html --enregistrer."
 msgstr ""
-"يُعدّ في اللحظة نفسها (يُعاد مسح أجهزة الشبكة قبله): الحصيلة، وقائمة دقيقة بما تبقّى للقيام به (الجهاز، وماذا، وأي قائمة)، وسجل كل التطبيقات، وأجهزة الشبكة، وتطبيقات هذا الجهاز بالتفصيل، وروابط كل جهاز، والمساحة المشتركة وسجلها.\n"
+"مُعدّ من آخر فحص (« إعادة الفحص » يعيد أولًا فحص هذا الجهاز والشبكة): الحصيلة، قائمة دقيقة بما بقي (الجهاز، ماذا، أي قائمة)، سجل كل التطبيقات، أجهزة الشبكة، تطبيقات هذا الجهاز بالتفصيل، روابط كل جهاز، المساحة المشتركة وسجلها.\n"
 "\n"
 "- تصدير كنص أو JSON أو صفحة HTML (السمة حسب اختيارك، افتراضيًا سمة الإعدادات)، في مجلد التصديرات.\n"
+"- [b]عرض التصديرات[/b]: يُفتح مجلد التصدير في متصفحك، ويُقرأ كل تصدير بنقرة واحدة (دون مغادرة omega-connect). بلا متصفح (خادم، اتصال SSH)، تُعرض القائمة هنا ويُقرأ كل تصدير هنا.\n"
 "- من سطر الأوامر: omega-connect rapport --format html --enregistrer."
 
 msgid ""
@@ -2684,6 +2768,7 @@ msgid ""
 "- ▲ À réparer : un écart (Réparer).\n"
 "- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
 "- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller l'application).\n"
+"- ■ Installée : application sans liaison avec les autres (omega-log, omega-scan, omega-suite…) : rien à relier.\n"
 "- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n"
 "\n"
 "[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session)."
@@ -2695,6 +2780,7 @@ msgstr ""
 "- ▲ يحتاج إصلاحًا: خلل (الإصلاح).\n"
 "- ◌ إصدار قديم: قديم جدًا بالنسبة لـ omega-connect (السجل → تحديث التطبيق).\n"
 "- ◇ تثبيت غير مكتمل: install.sh الخاص به لم يكتمل (السجل → إعادة تثبيت التطبيق).\n"
+"- ■ مثبَّت: تطبيق بلا روابط مع غيره (omega-log وomega-scan وomega-suite…): لا شيء للربط.\n"
 "- ✕ يتعذّر الوصول إليه: الجهاز لم يعد يستجيب (المسح → إعادة المسح).\n"
 "\n"
 "[b]الروابط[/b]: OK؛ يحتاج إصلاحًا؛ يحتاج إصلاحًا (مانع)؛ غائب (لا شيء للربط، مثلًا omega-jail غير مثبَّت)؛ يتعذّر التحقق (القراءة مستحيلة من جلستك)."
@@ -2740,13 +2826,13 @@ msgstr "ملفات omega-connect"
 
 msgid ""
 "Tout vit dans le dossier d'omega-connect, sous var/ :\n"
-"- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+"- omega-connect.db : registre des machines (SQLite : machines, applications, liaisons, historique des scans) ; l'ancien parc.json est repris une fois puis gardé à côté.\n"
 "- settings.json : réglages.\n"
 "- exports/ et screenshots/ : par défaut (voir Réglages).\n"
 "- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite)."
 msgstr ""
 "كل شيء يقيم في مجلد omega-connect، تحت var/:\n"
-"- parc.json: سجل أجهزة الشبكة (آخر مسح، العناوين، البصمة).\n"
+"- omega-connect.db: سجل الأجهزة (SQLite: الأجهزة، التطبيقات، الروابط، سجل الفحوص)؛ يُستعاد parc.json القديم مرة واحدة ثم يُحفظ بجانبه.\n"
 "- settings.json: الإعدادات.\n"
 "- exports/ و screenshots/: افتراضيًا (انظر الإعدادات).\n"
 "- declaration.json: التصريح كمستخدم مجهول (إن كنت قد قمت به)."
@@ -2775,6 +2861,9 @@ msgstr "لوحة المعلومات"
 
 msgid "Updater"
 msgstr "Updater"
+
+msgid "Installer"
+msgstr "Installer"
 
 msgid "Rapport"
 msgstr "التقرير"
@@ -2984,6 +3073,9 @@ msgstr "تحقق الآن"
 msgid "LIENS"
 msgstr "الروابط"
 
+msgid "Relancer le scan"
+msgstr "إعادة الفحص"
+
 msgid "Détail du lien"
 msgstr "تفاصيل الرابط"
 
@@ -3161,6 +3253,33 @@ msgstr "التقدّم"
 msgid "Fermer"
 msgstr "إغلاق"
 
+#, python-brace-format
+msgid "Fichier trop volumineux pour être lu ici : {path}"
+msgstr "الملف أكبر من أن يُقرأ هنا: {path}"
+
+#, python-brace-format
+msgid "Lecture impossible : {error}"
+msgstr "تتعذر القراءة: {error}"
+
+msgid "EXPORTS"
+msgstr "التصديرات"
+
+msgid ""
+"Pas de navigateur dans cette session (serveur, connexion SSH) : les exports "
+"sont listés et lus ici. Choisissez une ligne (Entrée) pour la lire."
+msgstr ""
+"لا يوجد متصفح في هذه الجلسة (خادم، اتصال SSH): تُعرض التصديرات وتُقرأ هنا. "
+"اختر سطرًا (Enter) لقراءته."
+
+msgid "Lire"
+msgstr "اقرأ"
+
+msgid "Taille"
+msgstr "الحجم"
+
+msgid "Aucun export pour l'instant."
+msgstr "لا توجد تصديرات بعد."
+
 msgid ""
 "Chaque menu, sa fonction et le détail. Cliquez sur un titre pour l'ouvrir."
 msgstr "كل قائمة ووظيفتها وتفاصيلها. انقر على عنوان لفتحه."
@@ -3294,9 +3413,6 @@ msgstr ""
 "المسح؛ «تحديث التطبيق» يثبّت آخر إصدار لتطبيق قديم جدًا (السطر المختار). "
 "لإعادة ربط الروابط: المزامنة؛ لتصحيح خلل: الإصلاح."
 
-msgid "Mettre à jour le registre"
-msgstr "تحديث السجل"
-
 msgid "Mettre à jour l'application"
 msgstr "تحديث التطبيق"
 
@@ -3336,10 +3452,6 @@ msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
 msgstr "→ « {action} » يفتح Updater مع تحديد التطبيق مسبقًا."
 
 #, python-brace-format
-msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
-msgstr "تحديث السجل: مسح {count} جهاز/أجهزة بعيدة…"
-
-#, python-brace-format
 msgid ""
 "omega-connect — synchronisation de {machine}. La machine demande elle-même "
 "son mot de passe sudo (il ne s'affiche pas pendant la saisie) ; omega-"
@@ -3350,6 +3462,20 @@ msgstr ""
 
 msgid "Terminé. Appuyez sur Entrée pour revenir à omega-connect… "
 msgstr "انتهى. اضغط Enter للعودة إلى omega-connect… "
+
+#, python-brace-format
+msgid "INSTALLER — {machine}"
+msgstr "INSTALLER — {machine}"
+
+msgid ""
+"Les applications choisies, installées sur cette machine depuis ici : archive"
+" vérifiée, envoyée, puis son install.sh dans le terminal ; ensuite "
+"l'inscription de celles qui se relient aux autres. Rien n'est fait avant « "
+"Lancer »."
+msgstr ""
+"التطبيقات المختارة، تُثبَّت على هذا الجهاز من هنا: فحص الأرشيف وإرساله، ثم "
+"install.sh الخاص به في الطرفية؛ ثم تسجيل التطبيقات التي ترتبط بغيرها. لا "
+"يُنفَّذ شيء قبل « تشغيل »."
 
 #, python-brace-format
 msgid "METTRE À JOUR L'APPLICATION — {machine}"
@@ -3404,6 +3530,10 @@ msgstr "التحديث على {machine}"
 #, python-brace-format
 msgid "Réparer {machine}"
 msgstr "إصلاح {machine}"
+
+#, python-brace-format
+msgid "Installer sur {machine}"
+msgstr "التثبيت على {machine}"
 
 #, python-brace-format
 msgid "Synchroniser {machine}"
@@ -3483,12 +3613,8 @@ msgstr "مشكلة"
 msgid "Qui corrige"
 msgstr "من يصحّح"
 
-msgid "Recherche de tout ce qui ne va pas : vérification de cette machine…"
-msgstr "البحث عن كل ما لا يعمل كما ينبغي: التحقق من هذا الجهاز…"
-
-#, python-brace-format
-msgid "Rescan des machines du réseau ({index}/{count}) : {machine}…"
-msgstr "إعادة مسح أجهزة الشبكة ({index}/{count}): {machine}…"
+msgid "Lecture du dernier scan…"
+msgstr "قراءة آخر فحص…"
 
 #, python-brace-format
 msgid "{count} problème(s) sur {machines} machine(s)."
@@ -3508,14 +3634,14 @@ msgid "RAPPORT"
 msgstr "التقرير"
 
 msgid ""
-"Un document complet, établi à l'instant (les machines du réseau sont "
-"rescannées avant) : bilan, ce qu'il reste à faire, registre, machines du "
-"réseau, liaisons de chaque machine, espace partagé. Enregistré dans le "
-"dossier des exports."
+"Un document complet, d'après le dernier scan (« Relancer le scan » le "
+"refait) : bilan, ce qu'il reste à faire, registre, machines du réseau, "
+"liaisons de chaque machine, espace partagé. Enregistré dans le dossier des "
+"exports ; « Voir les exports » les ouvre dans le navigateur pour les lire."
 msgstr ""
-"مستند كامل يُنشأ الآن (يُعاد مسح الأجهزة على الشبكة أولًا): الملخص، وما بقي "
-"فعله، والسجل، والأجهزة على الشبكة، وروابط كل جهاز، والمساحة المشتركة. يُحفَظ"
-" في مجلد التصدير."
+"مستند كامل حسب آخر فحص (« إعادة الفحص » يعيده): الحصيلة، ما بقي، السجل، "
+"أجهزة الشبكة، روابط كل جهاز، المساحة المشتركة. يُحفظ في مجلد التصدير؛ و« عرض"
+" التصديرات » يفتحها في المتصفح لقراءتها."
 
 msgid "THÈME DE LA PAGE HTML"
 msgstr "سمة صفحة HTML"
@@ -3532,6 +3658,12 @@ msgstr "تصدير TXT"
 msgid "Exporter HTML"
 msgstr "تصدير HTML"
 
+msgid "Voir les exports"
+msgstr "عرض التصديرات"
+
+msgid "Scan de cette machine et des machines du réseau…"
+msgstr "فحص هذا الجهاز وأجهزة الشبكة…"
+
 msgid "Génération du rapport en cours (détection, vérification, zone)…"
 msgstr "جارٍ إنشاء التقرير (الاكتشاف، التحقق، المنطقة)…"
 
@@ -3541,6 +3673,10 @@ msgstr "التقرير جاهز."
 #, python-brace-format
 msgid "Export impossible : {error}"
 msgstr "تعذّر التصدير: {error}"
+
+#, python-brace-format
+msgid "Dossier des exports ouvert dans le navigateur : {path}"
+msgstr "فُتح مجلد التصدير في المتصفح: {path}"
 
 #, python-brace-format
 msgid "{count} application(s) omega trouvée(s) sur cette machine."
@@ -3784,9 +3920,6 @@ msgstr "الحمل الموزّع…"
 msgid "Lire avec sudo"
 msgstr "القراءة باستخدام sudo"
 
-msgid "Vérification de cette machine et de son espace partagé…"
-msgstr "التحقق من هذا الجهاز ومن مساحته المشتركة…"
-
 #, python-brace-format
 msgid "{count} application(s) sur {machines} machine(s) — vérifié à {time}."
 msgstr ""
@@ -3834,6 +3967,12 @@ msgstr "لم يُعثر على إصدار منشور"
 msgid "machine injoignable"
 msgstr "تعذّر الوصول إلى الجهاز"
 
+msgid "à installer"
+msgstr "للتثبيت"
+
+msgid "déjà installée"
+msgstr "مثبَّت مسبقًا"
+
 msgid ""
 "omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
 "demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
@@ -3856,24 +3995,8 @@ msgstr ""
 "حدّث المحدد » أو « حدّث الكل »: يعرض كل جهاز خطته قبل التنفيذ، ولا تُطلب "
 "كلمة المرور إلا مرة واحدة في الطرفية."
 
-msgid "Vérifier les versions"
-msgstr "تحقّق من الإصدارات"
-
 msgid "Mettre à jour la sélection"
 msgstr "حدّث المحدد"
-
-msgid "Tout mettre à jour"
-msgstr "حدّث الكل"
-
-msgid "Disponible"
-msgstr "المتاح"
-
-msgid "Installée"
-msgstr "المثبَّت"
-
-#, python-brace-format
-msgid "{tool} (contient {tools})"
-msgstr "{tool} (يحتوي {tools})"
 
 #, python-brace-format
 msgid ""
@@ -3883,6 +4006,19 @@ msgstr ""
 "{count} تطبيق — محدَّثة: {ok}؛ تحتاج تحديثًا: {old}؛ غير مكتملة: "
 "{incomplete}؛ لم يُتحقق منها: {unchecked}."
 
+msgid "Vérifier les versions"
+msgstr "تحقّق من الإصدارات"
+
+msgid "Tout mettre à jour"
+msgstr "حدّث الكل"
+
+msgid "Disponible"
+msgstr "المتاح"
+
+#, python-brace-format
+msgid "{tool} (contient {tools})"
+msgstr "{tool} (يحتوي {tools})"
+
 msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
 msgstr "البحث عن أحدث الإصدارات المنشورة (GitHub ثم الموقع)…"
 
@@ -3891,6 +4027,41 @@ msgstr "تنزيل الأرشيفات والتحقق منها…"
 
 msgid "Rescan de cette machine…"
 msgstr "إعادة فحص هذا الجهاز…"
+
+msgid "INSTALLER"
+msgstr "INSTALLER"
+
+msgid ""
+"Pour chaque machine joignable (cette machine et le réseau, d'après le "
+"dernier scan), les applications omega publiées : déjà installées, ou à "
+"installer dans ~/<application>. « Vérifier les versions » cherche la "
+"dernière version publiée (GitHub, puis le site). Cochez (Entrée ou Espace) "
+"puis « Installer la sélection » : chaque machine montre son plan avant "
+"d'agir ; omega-fire demande le mot de passe sudo, dans le terminal."
+msgstr ""
+"لكل جهاز يمكن الوصول إليه (هذا الجهاز والشبكة، حسب آخر فحص)، تطبيقات omega "
+"المنشورة: مثبَّتة مسبقًا، أو للتثبيت في ~/<التطبيق>. « تحقّق من الإصدارات » "
+"يبحث عن أحدث إصدار منشور (GitHub ثم الموقع). حدّد (Enter أو المسافة) ثم « "
+"ثبّت المحدد »: يعرض كل جهاز خطته قبل التنفيذ؛ ويطلب omega-fire كلمة مرور "
+"sudo في الطرفية."
+
+msgid "Installer la sélection"
+msgstr "ثبّت المحدد"
+
+msgid ""
+"omega-connect — installation sur cette machine. Les install.sh peuvent "
+"demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
+msgstr ""
+"omega-connect — التثبيت على هذا الجهاز. قد تطلب سكربتات install.sh كلمة مرور"
+" sudo (لا تظهر أثناء الكتابة)."
+
+#, python-brace-format
+msgid ""
+"{count} ligne(s) — déjà installées : {present} ; à installer : {todo} ; non "
+"vérifiées : {unchecked}."
+msgstr ""
+"{count} سطر — مثبَّتة مسبقًا: {present}؛ للتثبيت: {todo}؛ لم يُتحقق منها: "
+"{unchecked}."
 
 msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
 msgstr "تفاصيل المساحة المشتركة"

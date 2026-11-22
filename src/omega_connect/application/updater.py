@@ -26,6 +26,7 @@ from typing import Protocol
 from omega_connect.domain.fleet import AppState
 from omega_connect.domain.parc import MachineEntry
 from omega_connect.domain.suite import SUITE_TOOL
+from omega_connect.domain.tools import INSTALLABLE_TOOLS
 from omega_connect.domain.updates import (
     Purpose,
     ReleaseArchive,
@@ -55,6 +56,9 @@ class UpdateState(str, Enum):
     UNKNOWN = "unknown"
     """Aucune version publiee trouvee (GitHub et site), ou version installee illisible."""
     UNREACHABLE = "unreachable"
+    TO_INSTALL = "to-install"
+    PRESENT = "present"
+    """Installer : deja installee sur la machine."""
 
 
 class Releases(Protocol):
@@ -82,6 +86,10 @@ class AppRow:
     failure: ReleaseFailure | None = None
     contains: str = ""
     """omega-suite : les outils embarques vus par le scan (« omega-stress 1.6.0 ») ; elle se met a jour avec eux."""
+    install: bool = False
+    """Installer : l'outil n'est pas sur la machine ; `root` = dossier a creer (`~/<outil>`)."""
+    present: bool = False
+    """Installer : l'outil est deja sur la machine (affiche, jamais reinstalle d'ici)."""
 
     @property
     def key(self) -> str:
@@ -91,6 +99,12 @@ class AppRow:
     def state(self) -> UpdateState:
         if not self.reachable:
             return UpdateState.UNREACHABLE
+        if self.present:
+            return UpdateState.PRESENT
+        if self.install:
+            if self.failure is not None:
+                return UpdateState.UNKNOWN
+            return UpdateState.TO_INSTALL if self.latest else UpdateState.NOT_CHECKED
         if self.incomplete:
             return UpdateState.INCOMPLETE
         if self.failure is not None:
@@ -103,37 +117,58 @@ class AppRow:
 
     @property
     def actionable(self) -> bool:
-        return self.state in (UpdateState.OUTDATED, UpdateState.INCOMPLETE) and bool(self.latest)
+        return self.state in (UpdateState.OUTDATED, UpdateState.INCOMPLETE, UpdateState.TO_INSTALL) and \
+            bool(self.latest)
 
     def outdated(self) -> Outdated:
-        return Outdated(self.tool, self.root, self.version, "", self.incomplete)
+        return Outdated(self.tool, self.root, self.version, "", self.incomplete, install=self.install)
 
 
 def app_rows(machines: Iterable[MachineEntry]) -> list[AppRow]:
     """Ce qui est deja scanne : cette machine d'abord, puis le reseau (meme ordre que le Registre). Une copie
     embarquee par omega-suite devient la ligne d'omega-suite (une par suite) : c'est elle qui se met a jour."""
     rows: list[AppRow] = []
-    suites: dict[str, int] = {}
+    known: dict[str, int] = {}
     for entry in sorted(machines, key=lambda m: (not m.local, m.label)):
         for row in entry.rows:
             if not row.tool:
                 continue
             target = "" if entry.local else entry.target
             incomplete = row.state is AppState.INCOMPLETE
-            if not row.suite:
-                rows.append(AppRow(entry.label, target, entry.local, row.tool, row.root, row.version, incomplete,
-                                   entry.reachable))
+            if row.suite:  # copie embarquee : c'est la ligne de sa suite
+                line = AppRow(entry.label, target, entry.local, SUITE_TOOL, row.suite, row.suite_version, incomplete,
+                              entry.reachable, contains=f"{row.tool} {row.version or '?'}")
+            else:
+                line = AppRow(entry.label, target, entry.local, row.tool, row.root, row.version, incomplete,
+                              entry.reachable)
+            if line.key not in known:
+                known[line.key] = len(rows)
+                rows.append(line)
                 continue
-            embedded = f"{row.tool} {row.version or '?'}"
-            key = f"{entry.label}:{row.suite}"
-            if key in suites:
-                index = suites[key]
-                rows[index] = replace(rows[index], contains=f"{rows[index].contains}, {embedded}",
-                                      incomplete=rows[index].incomplete or incomplete)
-                continue
-            suites[key] = len(rows)
-            rows.append(AppRow(entry.label, target, entry.local, SUITE_TOOL, row.suite, row.suite_version, incomplete,
-                               entry.reachable, contains=embedded))
+            index = known[line.key]  # omega-suite vue elle-meme ET par ses outils embarques : une seule ligne
+            current = rows[index]
+            contains = ", ".join(part for part in (current.contains, line.contains) if part)
+            rows[index] = replace(current, contains=contains, incomplete=current.incomplete or line.incomplete,
+                                  version=current.version or line.version)
+    return rows
+
+
+def install_rows(machines: Iterable[MachineEntry]) -> list[AppRow]:
+    """Installer : pour chaque machine joignable, chacun des 13 outils publies, deja la (version lue au dernier
+    scan) ou a installer dans `~/<outil>`. Un omega-stress embarque par omega-suite ne compte pas : un omega-stress
+    autonome peut s'installer a cote."""
+    rows: list[AppRow] = []
+    for entry in sorted(machines, key=lambda m: (not m.local, m.label)):
+        if not entry.reachable:
+            continue
+        target = "" if entry.local else entry.target
+        installed = {row.tool: row for row in entry.rows if row.tool and not row.suite}
+        for tool in INSTALLABLE_TOOLS:
+            found = installed.get(tool)
+            if found is not None:
+                rows.append(AppRow(entry.label, target, entry.local, tool, found.root, found.version, present=True))
+            else:
+                rows.append(AppRow(entry.label, target, entry.local, tool, f"~/{tool}", "", install=True))
     return rows
 
 
@@ -164,7 +199,7 @@ class LocalPrepared:
     refused: tuple[tuple[UpdateChoice, ReleaseFailure], ...] = ()
 
 
-def prepare_local(rows: Iterable[AppRow], releases: Releases) -> LocalPrepared:
+def prepare_local(rows: Iterable[AppRow], releases: Releases, purpose: Purpose = Purpose.UPDATE) -> LocalPrepared:
     """Archives prises (GitHub ou site) et verifiees, posees avec le fichier d'ordres dans un dossier prive : le
     meme que celui qu'omega-connect envoie a une machine du reseau. Une archive refusee : rien n'est prepare."""
     choices = tuple(choose_update(row.outdated(), row.latest) for row in rows)
@@ -188,7 +223,7 @@ def prepare_local(rows: Iterable[AppRow], releases: Releases) -> LocalPrepared:
     if refused:
         shutil.rmtree(directory, ignore_errors=True)
         return LocalPrepared(directory, choices, tuple(refused))
-    (directory / "updates.json").write_text(json.dumps(updates_to_dict(tuple(orders), Purpose.UPDATE)),
+    (directory / "updates.json").write_text(json.dumps(updates_to_dict(tuple(orders), purpose)),
                                             encoding="utf-8")
     return LocalPrepared(directory, choices)
 

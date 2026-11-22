@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from omega_lib.declaration.models import MIRROR_SITE_URL
 from omega_lib.infrastructure.declaration import build_contact_support
 from omega_lib.infrastructure.synchro.files import zone_dir
 from omega_lib.synchro.policies import format_utc
@@ -21,6 +22,7 @@ from omega_connect.application.remote_actions import RemoteTools, rescan_network
 from omega_connect.application.remote_sync import RemoteSyncTools
 from omega_connect.application.repair_actions import RepairTools
 from omega_connect.application.report import FullReport, ReportTools, collect_report
+from omega_connect.application.scan_cache import ScanCache, request_rescan
 from omega_connect.application.settings import SettingsTools
 from omega_connect.application.updater import UpdaterTools
 from omega_connect.application.verify_links import verify_links
@@ -51,7 +53,7 @@ from omega_connect.infrastructure.detection.serv_registry import ServRegistryLoc
 from omega_connect.infrastructure.detection.service_units import ServiceUnitsLocator
 from omega_connect.infrastructure.detection.sheet_fetcher import SubprocessSheetFetcher
 from omega_connect.infrastructure.exports.writer import FileExportWriter
-from omega_connect.infrastructure.fleet.parc_store import FileParcStore
+from omega_connect.infrastructure.fleet.sqlite_store import SqliteParcStore
 from omega_connect.infrastructure.remote.payload import build_payload
 from omega_connect.infrastructure.remote.ssh import SshRemoteSession
 from omega_connect.infrastructure.remote.suggestions import LocalSuggestions
@@ -76,6 +78,7 @@ from omega_connect.interfaces.cli.main import (
     main_with,
 )
 from omega_connect.ports.detection import CandidateLocator
+from omega_connect.ports.fleet import ParcStore
 
 
 def build_detect(environ: Mapping[str, str] | None = None, *, home: Path | None = None,
@@ -127,12 +130,13 @@ def build_settings(environ: Mapping[str, str] | None = None) -> SettingsTools:
                          lambda directory: clear_directory(directory, root), root)
 
 
-def build_report(verify: VerifyFunction, zone: ZoneTools, parc: FileParcStore | None = None,
-                 remote: RemoteTools | None = None) -> ReportFunction:
-    """Les machines du reseau sont rescannees avant (lecture seule) : un rapport dit l'etat reel, jamais celui d'un
-    ancien scan (retour de l'auteur, 2026-11-11)."""
+def build_report(verify: VerifyFunction, zone: ZoneTools, parc: ParcStore | None = None,
+                 remote: RemoteTools | None = None, *, rescan: bool = True) -> ReportFunction:
+    """Ligne de commande : les machines du reseau sont rescannees avant (lecture seule), un rapport dit l'etat
+    reel (retour de l'auteur, 2026-11-11). Interface (`rescan=False`, 2026-11-22) : le dernier scan est relu,
+    « Relancer le scan » rescanne d'abord."""
     def report(request: DetectRequest) -> FullReport:
-        if remote is not None:
+        if remote is not None and rescan:
             rescan_network(remote)
         return collect_report(verify(request), zone.inspector, version=__version__, now=zone.now(),
                               machine=machine_name(), parc=parc)
@@ -238,15 +242,33 @@ def build_dashboard(verify: VerifyFunction, *, refresh_seconds: float = DASHBOAR
         from omega_connect.interfaces.tui.app import OmegaConnectApp
 
         profile = resolve_render_profile(detected).render_profile
-        app = OmegaConnectApp(verify=lambda: verify(request), version=__version__, render_profile=profile,
+        # Scan relu (2026-11-22) : un seul scan de cette machine, partage par tous les ecrans
+        scan = ScanCache(lambda: verify(request))
+        shown = build_report(lambda _request: scan(), zone, remote.parc if remote is not None else None, remote,
+                             rescan=False) if zone is not None else None
+
+        def open_folder(path: Path) -> bool:
+            from omega_lib.infrastructure.desktop.browser_opener import open_path_in_browser
+
+            path.mkdir(parents=True, exist_ok=True)
+            return open_path_in_browser(path).ok
+
+        def rescan_all() -> None:
+            request_rescan(scan)
+            if remote is not None:
+                rescan_network(remote)
+
+        app = OmegaConnectApp(verify=scan, version=__version__, render_profile=profile,
                         refresh_seconds=refresh_seconds, zone=zone, repair=repair,
-                        parc=FileParcStore(var_dir()), machine=machine_name(), remote=remote,
+                        parc=remote.parc if remote is not None else SqliteParcStore(var_dir()),
+                        machine=machine_name(), remote=remote,
                         remote_sync=remote_sync, system_clipboard=copy_text, settings=settings,
                         distributed=distributed, updater=updater,
                         contact=build_contact_support("omega-connect", __version__, var_dir()),
                         detect=(lambda: detect(request)) if detect is not None else None,
-                        report=ReportTools(lambda: report(request), writer)
-                        if report is not None and writer is not None else None)
+                        report=ReportTools(lambda: shown(request), writer, rescan_all,
+                                           settings.exports_dir if settings is not None else None, open_folder)
+                        if report is not None and writer is not None and shown is not None else None)
         run_with_text_direction(app)
         if app.pending_language is not None:  # pragma: no cover - remplace le processus
             restart_for_language(app.pending_language)
@@ -275,7 +297,7 @@ def main(argv: list[str] | None = None) -> int:
     detect = build_detect()
     zone = build_zone()
     verify = build_verify(detect, zone=zone)
-    parc = FileParcStore(var_dir())
+    parc = SqliteParcStore(var_dir())
     session = SshRemoteSession()
     pilot = LocalPilot(lambda: stress_roots(detect))
     remote = RemoteTools(scanner=session, parc=parc, suggest=LocalSuggestions(), pilot=pilot,
@@ -284,7 +306,7 @@ def main(argv: list[str] | None = None) -> int:
     settings = build_settings()
     writer = FileExportWriter(settings.exports_dir)
     repair = build_repair()
-    releases = ChainedReleases(GithubReleases(), SiteReleases())
+    releases = ChainedReleases(GithubReleases(), SiteReleases(), SiteReleases(MIRROR_SITE_URL, "craftdark"))
     updater = UpdaterTools(releases=releases, runner=run_in_terminal)
     remote_sync = RemoteSyncTools(session=session, releases=releases, remote=remote,
                                   payload=lambda: build_payload(runnable=True))

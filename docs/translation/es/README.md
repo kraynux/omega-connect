@@ -30,6 +30,7 @@ Página oficial: [OMEGA-CONNECT](https://kraynux.snake-mackarel.ts.net/omega-con
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/es/omega-connect/C.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/es/omega-connect/D.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/es/omega-connect/E.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/es/omega-connect/F.png" width="32%" />
 </p>
 
 ## 1. Visión y alcance
@@ -45,6 +46,7 @@ Las aplicaciones omega están hechas para trabajar juntas: los logs de omega-ser
 - **Enlaza la carga distribuida de omega-stress**: esta máquina dirige y las máquinas marcadas la ayudan a cargar el objetivo; un botón (acceso enviado por SSH, acuerdo elegido, cortafuegos abierto solo al puerto de omega-stress).
 - **Repara**: hace que cada discrepancia la corrija la aplicación propietaria del archivo; nunca omega-connect en su lugar.
 - **Actualiza o reinstala** las aplicaciones de esta máquina y de la red, desde el **Updater**: su Release de GitHub o, en su defecto, su sitio (huella verificada); una versión no publicada nunca se propone.
+- **Instala** las aplicaciones omega publicadas en esta máquina y en la red, desde el **Installer**: el mismo procedimiento que las actualizaciones, solo instalar (tarjeta de identidad e inscripción incluidas).
 - Actúa sobre una máquina de la red **desde su equipo**: nada que teclear allí, su contraseña se pide una vez, por la propia máquina.
 - Genera un **informe** completo (texto, JSON o página HTML).
 
@@ -106,13 +108,14 @@ El menú principal tiene dos columnas:
 
 | Gestión | Mantenimiento |
 |---|---|
-| **Registro** — todas las aplicaciones de todas las máquinas, su versión y su estado | **Reparar** — la lista de todo lo que no va bien, y usted elige |
-| **Escanear** — esta máquina, y la incorporación de las máquinas de la red | **Updater** — verificar versiones, actualizar o reinstalar, en todas las máquinas |
+| **Registro** — todas las aplicaciones de todas las máquinas, su versión y su estado | **Updater** — verificar versiones, actualizar o reinstalar, en todas las máquinas |
+| **Escanear** — esta máquina, y la incorporación de las máquinas de la red | **Installer** — instalar las aplicaciones omega, en todas las máquinas |
 | **Vínculos** — lo que está vinculado o no, con su estado | **Informe** — un documento completo, para exportar |
 | **Sincronización** — vincular las aplicaciones, en todas las máquinas | **Ajustes** — idioma, temas, carpetas, purga |
-| **Panel** — la vista general | **Ayuda** — cada menú, su función y el detalle |
+| **Reparar** — la lista de todo lo que no va bien, y usted elige | **Ayuda** — cada menú, su función y el detalle |
+| **Panel** — la vista general | **Salir** |
 
-Recorrido típico: **Escanear** (esta máquina y luego sus otras máquinas, propuestas a partir de sus perfiles Unison, `~/.ssh/config` y `known_hosts`) → **Registro** (actualizar o reinstalar una aplicación antigua) → **Sincronización** (marcar y después sincronizar) → **Vínculos** y **Panel** para ver el resultado → **Reparar** si queda alguna discrepancia.
+Recorrido típico: **Escanear** (esta máquina y luego sus otras máquinas, propuestas según su configuración SSH: `~/.ssh/config` y `known_hosts`) → **Registro** (actualizar o reinstalar una aplicación antigua) → **Sincronización** (marcar y después sincronizar) → **Vínculos** y **Panel** para ver el resultado → **Reparar** si queda alguna discrepancia.
 
 Cada acción muestra primero su plan; no se ejecuta nada antes de su conformidad. Para una máquina de la red, la interfaz cede el sitio al terminal mientras dura la acción: la propia máquina pide su contraseña, una vez.
 
@@ -227,7 +230,6 @@ Las pruebas nunca tocan el `var/` real, ni la red, ni sudo: SSH falso ejecutado 
 
 - Sustituir a fail2ban, omega-fire u omega-jail.
 - Vigilar de forma continua (ningún servicio permanente).
-- Instalar una aplicación omega por primera vez en una máquina de la red.
 - Panel de control web.
 
 ## Licencia
@@ -236,5 +238,5 @@ MIT — véase [LICENSE](../../../LICENSE).
 
 ---
 
-> Omega-connect — Encontrar, vincular, reparar.
+> OMEGA-CONNECT — Encontrar, vincular, reparar, actualizar e instalar.
 > Las aplicaciones omega se comunican entre sí; omega-connect se asegura de que puedan hacerlo.

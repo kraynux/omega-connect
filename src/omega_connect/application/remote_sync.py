@@ -57,7 +57,7 @@ class MachinePlan:
 
     @property
     def needs_work(self) -> bool:
-        if self.purpose is Purpose.UPDATE:
+        if self.purpose in (Purpose.UPDATE, Purpose.INSTALL):
             return any(choice.possible for choice in self.updates)
         if self.purpose is Purpose.REPAIR:
             return self.plan.repair_work or bool(self.plan.manual_commands)
@@ -83,7 +83,7 @@ def machine_plan(target: RemoteTarget, tools: RemoteSyncTools,
     latest: dict[str, str | ReleaseFailure] = {}
     choices = []
     wanted = answer.outdated if items is None else items
-    for item in wanted if purpose is Purpose.UPDATE else ():
+    for item in wanted if purpose in (Purpose.UPDATE, Purpose.INSTALL) else ():
         if item.tool not in latest:
             latest[item.tool] = tools.releases.latest(item.tool)
         choices.append(choose_update(item, latest[item.tool]))

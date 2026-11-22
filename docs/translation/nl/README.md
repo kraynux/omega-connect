@@ -30,6 +30,7 @@ Officiële pagina: [OMEGA-CONNECT](https://kraynux.snake-mackarel.ts.net/omega-c
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/C.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/D.png" width="32%" />
   <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/E.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/F.png" width="32%" />
 </p>
 
 ## 1. Visie en reikwijdte
@@ -45,6 +46,7 @@ De omega-toepassingen zijn gemaakt om samen te werken: de logs van omega-serv wo
 - **Koppelt de gedistribueerde belasting van omega-stress**: deze machine stuurt, de aangevinkte machines helpen haar het doel te belasten; één knop (toegang via SSH verstuurd, toestemming gekozen, firewall alleen voor de omega-stress-poort geopend).
 - **Herstelt**: laat elke afwijking corrigeren door de toepassing die eigenaar is van het bestand; nooit omega-connect in haar plaats.
 - **Werkt bij of installeert opnieuw** de toepassingen van deze machine en van het netwerk, vanuit de **Updater**: hun GitHub-Release of anders hun site (vingerafdruk gecontroleerd); een niet-gepubliceerde versie wordt nooit voorgesteld.
+- **Installeert** de gepubliceerde omega-toepassingen op deze machine en op het netwerk, vanuit de **Installer**: hetzelfde procedé als de updates, alleen installeren (identiteitskaart en inschrijving inbegrepen).
 - Handelt op een netwerkmachine **vanaf uw eigen computer**: daar hoeft u niets te typen, het wachtwoord wordt één keer gevraagd, door de machine zelf.
 - Maakt een volledig **rapport** (tekst, JSON of HTML-pagina).
 
@@ -106,13 +108,14 @@ Het hoofdmenu heeft twee kolommen:
 
 | Beheer | Onderhoud |
 |---|---|
-| **Register** — alle toepassingen op alle machines, hun versie en hun status | **Herstellen** — de lijst van alles wat niet in orde is, en u kiest |
-| **Scannen** — deze machine, en het toevoegen van de netwerkmachines | **Updater** — versies controleren, bijwerken of opnieuw installeren, op alle machines |
+| **Register** — alle toepassingen op alle machines, hun versie en hun status | **Updater** — versies controleren, bijwerken of opnieuw installeren, op alle machines |
+| **Scannen** — deze machine, en het toevoegen van de netwerkmachines | **Installer** — de omega-toepassingen installeren, op alle machines |
 | **Koppelingen** — wat wel of niet gekoppeld is, met de status | **Rapport** — een volledig document, om te exporteren |
 | **Synchronisatie** — de toepassingen koppelen, op alle machines | **Instellingen** — taal, thema's, mappen, opschonen |
-| **Dashboard** — het overzicht | **Help** — elk menu, zijn functie en de details |
+| **Herstellen** — de lijst van alles wat niet in orde is, en u kiest | **Help** — elk menu, zijn functie en de details |
+| **Dashboard** — het overzicht | **Afsluiten** |
 
-Typisch verloop: **Scannen** (deze machine, daarna uw andere machines, voorgesteld op basis van uw Unison-profielen, `~/.ssh/config` en `known_hosts`) → **Register** (een oude toepassing bijwerken of opnieuw installeren) → **Synchronisatie** (aanvinken, daarna synchroniseren) → **Koppelingen** en **Dashboard** om het resultaat te zien → **Herstellen** als er nog een afwijking overblijft.
+Typisch verloop: **Scannen** (deze machine, daarna uw andere machines, voorgesteld op basis van uw SSH-configuratie: `~/.ssh/config` en `known_hosts`) → **Register** (een oude toepassing bijwerken of opnieuw installeren) → **Synchronisatie** (aanvinken, daarna synchroniseren) → **Koppelingen** en **Dashboard** om het resultaat te zien → **Herstellen** als er nog een afwijking overblijft.
 
 Elke actie toont eerst haar plan; er wordt niets gestart zonder uw akkoord. Voor een netwerkmachine maakt de interface tijdens de actie plaats voor de terminal: de machine vraagt zelf om haar wachtwoord, één keer.
 
@@ -227,7 +230,6 @@ De tests raken nooit de echte `var/` aan, noch het netwerk, noch sudo: nep-SSH l
 
 - fail2ban, omega-fire of omega-jail vervangen.
 - Continu bewaken (geen permanente dienst).
-- Een omega-toepassing voor het eerst installeren op een netwerkmachine.
 - Webdashboard.
 
 ## Licentie
@@ -236,5 +238,5 @@ MIT — zie [LICENSE](../../../LICENSE).
 
 ---
 
-> Omega-connect — Vinden, koppelen, herstellen.
+> OMEGA-CONNECT — Vinden, koppelen, repareren, bijwerken en installeren.
 > De omega-toepassingen praten met elkaar; omega-connect zorgt ervoor dat ze dat kunnen.

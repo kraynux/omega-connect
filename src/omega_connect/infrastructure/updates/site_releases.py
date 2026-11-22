@@ -5,6 +5,7 @@ limites et meme verification d'empreinte que les Releases GitHub. Seule une vers
 proposee (jamais une archive de travail)."""
 from __future__ import annotations
 
+from omega_lib.declaration.models import SITE_URL
 from omega_lib.declaration.policies import download_base_url, published_versions, sha_list_url
 
 from omega_connect.domain.updates import ReleaseFailure
@@ -12,16 +13,21 @@ from omega_connect.infrastructure.updates.github_releases import MAX_SHA_BYTES, 
 
 
 class SiteReleases(GithubReleases):
-    label = "site"
+    """Un site (kraynux, ou craftdark : meme structure `<outil>/download/`)."""
+
+    def __init__(self, site: str = SITE_URL, label: str = "kraynux", **kwargs: object) -> None:
+        super().__init__(**kwargs)  # type: ignore[arg-type]
+        self._site = site
+        self.label = label
 
     def _sha_url(self, tool: str, version: str) -> str:
-        return sha_list_url(tool)
+        return sha_list_url(tool, self._site)
 
     def _archive_url(self, tool: str, version: str, name: str) -> str:
-        return download_base_url(tool) + name
+        return download_base_url(tool, self._site) + name
 
     def latest(self, tool: str) -> str | ReleaseFailure:
-        sha_list = self._get(sha_list_url(tool), MAX_SHA_BYTES)
+        sha_list = self._get(sha_list_url(tool, self._site), MAX_SHA_BYTES)
         if isinstance(sha_list, ReleaseFailure):
             return sha_list
         versions = published_versions(tool, sha_list.decode("utf-8", errors="replace"))
@@ -29,17 +35,15 @@ class SiteReleases(GithubReleases):
 
 
 class ChainedReleases:
-    """GitHub puis le site : la plus haute version publiee (GitHub a egalite) ; chaque archive est prise la ou sa
-    version a ete trouvee, puis ailleurs si besoin. `origin(tool)` dit d'ou vient la version proposee."""
+    """Procedure de l'auteur (2026-11-22) : GitHub ; si absent ou injoignable, le site kraynux ; si absent ou
+    injoignable, le site craftdark. La premiere source qui publie l'outil donne sa version ; l'archive est prise la,
+    puis ailleurs si besoin (meme empreinte verifiee). `origin(tool)` dit d'ou vient la version proposee."""
 
     def __init__(self, *sources: GithubReleases) -> None:
         self._sources = sources
         self._origin: dict[str, GithubReleases] = {}
 
     def latest(self, tool: str) -> str | ReleaseFailure:
-        from omega_connect.domain.versions import version_key
-
-        best: tuple[tuple[int, ...], str, GithubReleases] | None = None
         failure: ReleaseFailure = ReleaseFailure.NO_RELEASE
         for source in self._sources:
             found = source.latest(tool)
@@ -47,13 +51,9 @@ class ChainedReleases:
                 if found is ReleaseFailure.NETWORK:
                     failure = found
                 continue
-            key = version_key(found) or ()
-            if best is None or key > best[0]:
-                best = (key, found, source)
-        if best is None:
-            return failure
-        self._origin[tool] = best[2]
-        return best[1]
+            self._origin[tool] = source
+            return found
+        return failure
 
     def origin(self, tool: str) -> str:
         source = self._origin.get(tool)

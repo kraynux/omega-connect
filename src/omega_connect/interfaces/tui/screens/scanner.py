@@ -17,6 +17,7 @@ from textual.screen import Screen
 from textual.widgets import Button, DataTable, Footer, Header, Input, Static
 
 from omega_connect.application.remote_actions import RemoteOutcome, RemoteTools, failed, forget_machine, scan_remote
+from omega_connect.application.scan_cache import request_rescan
 from omega_connect.domain.detection import SOURCE_ORDER
 from omega_connect.domain.fleet import registry_rows
 from omega_connect.domain.links import VerificationReport
@@ -171,6 +172,7 @@ class ScannerScreen(OmegaScreen):
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "scan":
+            request_rescan(self._verify)  # « Scanner de nouveau » : cette machine rescannee, pas relue
             self._scan()
         elif event.button.id == "scan-remote":
             self._scan_typed()

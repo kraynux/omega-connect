@@ -8,6 +8,47 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
 ### Ajouté
 
+- Version lue dans `pyproject.toml`, seule source (étape B de la vérification, 2026-11-22) : plus de copie dans
+  `__init__.py`.
+- **Trois sources pour les mises à jour** (procédure de l'auteur, 2026-11-22) : Updater et Installer cherchent
+  chaque application sur sa Release GitHub ; si absente ou injoignable, sur le site kraynux ; si absent ou
+  injoignable, sur le site craftdark (même structure). La première source qui publie l'application donne sa
+  version (avant : la plus haute de GitHub et kraynux). Colonne « Source » : GitHub, kraynux ou craftdark.
+- **Rapport → « Voir les exports »** (demande de l'auteur, 2026-11-22 : lire un rapport sans quitter ni chercher le
+  dossier) : le dossier des exports s'ouvre dans le navigateur de l'utilisateur, chaque export se lit d'un clic ;
+  mécanique d'omega-fire corrigée par son scan de sécurité (omega-lib `open_path_in_browser` : au nom de
+  l'utilisateur, dans sa session, jamais sur l'écran d'un autre compte). Sans navigateur (serveur, SSH) : la liste
+  et la lecture dans l'interface (HTML ramené à son texte, contenu jamais interprété). Barres du Rapport : Exporter
+  TXT / JSON / HTML, Voir les exports ; puis Relancer le scan, Retour.
+- README ×17 : machines proposées d'après la configuration SSH (`~/.ssh/config`, `known_hosts`), plus « Unison » en
+  avant ; « installer pour la première fois » retiré du hors-périmètre (c'est l'Installer) ; « OMEGA-CONNECT —
+  Trouver, relier, réparer, mettre à jour et installer. » Aide (démarrage rapide) alignée.
+- **Installer** (menu Maintenance, sous l'Updater ; demande de l'auteur, 2026-11-22) : installe les 13 applications
+  omega publiées (omega-serv, omega-fire, omega-jail, omega-stress, omega-log, omega-suite, omega-scan, omega-check,
+  omega-deep, omega-fold, omega-track, omega-fuzz, omega-connect) sur cette machine et sur le réseau, avec le même
+  procédé que l'Updater : GitHub puis le site, sha.txt vérifié, archive envoyée, dossier `~/<application>` créé
+  (jamais par-dessus un dossier non vide), `install.sh` dans le terminal (omega-fire demande sudo). Juste installer,
+  sauf la carte d'identité et l'inscription dans l'espace partagé des applications à liaisons
+  (`synchroniser --oui`). Essai d'installation réelle dans les tests ; essai réel de l'auteur (2026-11-22) : omega-log et omega-fire
+  installés sur omega-server (hpc-109) depuis omega-connect.
+- **Les 13 applications reconnues** (Registre, Updater, Installer) ; celles sans liaison sont « ■ Installée ».
+  omega-suite est trouvée elle-même ET ses outils embarqués ; l'Updater n'en fait qu'une ligne. omega-waf (module
+  Lua, sans archive) n'en fait pas partie.
+- **Scan relu** (demande de l'auteur, 2026-11-22 : « chaque scan prend du temps, et Retour relance un scan ») : le
+  scan est fait une fois, au démarrage (cette machine, puis les machines connues), puis relu par tous les écrans ;
+  « Relancer le scan » (Registre, Synchronisation, Réparer, Dashboard, Liaisons, Rapport) le refait ; après une
+  action, seules les machines touchées sont rescannées. Mesuré : ~4,6 s pour cette machine, plusieurs secondes par
+  machine du réseau, à chaque ouverture d'écran auparavant.
+- **Registre du parc en SQLite** (`var/omega-connect.db`, décision de l'auteur) : une table par fonction (machines,
+  applications, liaisons, historique des scans) ; `parc.json` repris une fois puis gardé à côté.
+- **Menu principal** (disposition de l'auteur, 2026-11-22) : Registre, Scanner, Liaisons, Synchronisation, Réparer,
+  Dashboard | Updater, Installer, Rapport, Réglages, Aide, Quitter ; logo remonté en haut de l'écran. Une ligne de plus entre
+  le logo et les colonnes (retour de l'auteur : trop serré).
+- Captures : B (menu) refaite, F (Installer) ajoutée, ×17 ; galerie française : 13 écrans.
+- Corrigé (retour de l'auteur, 2026-11-22) : Installer → « Installer la sélection » → le bouton affichait
+  « Installe » : le plan arrive par SSH après le premier affichage et le cadre gardait la largeur de « Lancer ».
+  Un libellé qui change refait maintenant la mise en page (même correctif pour « Lancer avec sudo », « Fermer »,
+  « Réinstaller l'application »).
 - **UPDATER** (2026-11-22, demande de l'auteur) : menu Maintenance, sous Réparer ; le SEUL endroit qui met à jour les
   applications, sur cette machine comme sur le réseau. Réparer et le bouton « Mettre à jour / Réinstaller
   l'application » du Registre y renvoient, l'application déjà cochée (avant : Réparer téléchargeait l'archive, et
@@ -22,6 +63,7 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
   - « Quitter » retiré du menu (touches `q` et `Échap` inchangées). Cases à cocher plus visibles (case verte ✔).
   - Registre : « Mettre à jour / Réinstaller l'application » ouvre aussi l'Updater pour CETTE machine (le bouton
     restait grisé avec « suivez le README », message d'avant l'Updater).
+- Version d'omega-fire lue dans son `pyproject.toml` (seule source depuis omega-fire 3.6.3), puis, pour une installation d'avant, dans l'ancienne constante `OMEGA_FIRE_VERSION`.
 - **omega-stress fait partie d'omega-suite** (décision de l'auteur, 2026-11-22). L'omega-stress embarqué
   (`<suite>/vendor/omega-stress`) n'est plus une ligne grisée ni une « installation inachevée » (il n'a ni `.venv` ni
   carte à lui : ceux de la suite comptent).

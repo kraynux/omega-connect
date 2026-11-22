@@ -27,7 +27,7 @@ from omega_connect.domain.repair import RepairPlan, RepairStep, StepOutcome
 from omega_connect.domain.updates import Purpose
 from omega_connect.domain.zone import ZoneFacts, ZonePlan
 from omega_connect.interfaces.cli.repair_view import render_repair_plan, render_repair_result, repair_step_line
-from omega_connect.interfaces.tui.screens._base import SUDO_MESSAGE, OmegaScreen, copy_commands, suspended
+from omega_connect.interfaces.tui.screens._base import SUDO_MESSAGE, OmegaScreen, copy_commands, set_label, suspended
 from omega_connect.interfaces.tui.screens._zone_flow import DetectNow, ZoneFlow
 from omega_connect.interfaces.tui.screens.dashboard import VerifyNow
 from omega_connect.interfaces.tui.screens.remote_machine import RemoteMachineScreen
@@ -162,7 +162,7 @@ class LocalRepairScreen(OmegaScreen):
         with contextlib.suppress(NoMatches):
             self.query_one("#repair-plan", Static).update(render_repair_plan(plan, as_root=self._zone.as_root))
             run = self.query_one("#run", Button)
-            run.label = _("Lancer avec sudo") if plan.needs_root and not self._zone.as_root else _("Lancer")
+            set_label(run, _("Lancer avec sudo") if plan.needs_root and not self._zone.as_root else _("Lancer"))
             run.disabled = not plan.steps
             # Zone : tout de suite s'il n'y a rien d'autre, sinon apres les commandes (un jeton cree doit etre
             # recopie).
@@ -232,6 +232,7 @@ class LocalRepairScreen(OmegaScreen):
             self.query_one(VerticalScroll).scroll_end(animate=False)
 
     def _finish(self, result: RepairResult | None, error: str) -> None:
+        getattr(self.app, "local_changed", lambda: None)()  # scan relu : cette machine a change
         self._repairing = False
         self._ran = True
         with contextlib.suppress(NoMatches):
@@ -249,5 +250,6 @@ class LocalRepairScreen(OmegaScreen):
                 self._flow.propose(_establish, with_detection=True)
 
     def _after_zone(self, ran: bool) -> None:
+        getattr(self.app, "local_changed", lambda: None)()  # scan relu : cette machine a peut-etre change
         if ran:
             self._prepare()

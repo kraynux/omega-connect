@@ -27,8 +27,8 @@ QUICKSTART = N_(
     "cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce "
     "qui manque, toujours après vous avoir montré ce qu'il va faire.\n\n"
     "1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées "
-    "d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par "
-    "SSH avec vos clés, rien n'y est installé.\n"
+    "d'après votre configuration SSH — ~/.ssh/config, known_hosts — et vos profils Unison si vous en avez, ou "
+    "saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
     "2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une "
     "application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
     "3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son "
@@ -36,14 +36,17 @@ QUICKSTART = N_(
     "4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue "
     "d'ensemble, en cadres.\n"
     "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
-    "6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.")
+    "6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n\n"
+    "Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par "
+    "tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont "
+    "rescannées.")
 
 SECTIONS: tuple[tuple[str, str], ...] = (
     (N_("Registre — toutes les applications et leur état"), N_(
         "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son "
         "instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n\n"
-        "- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du "
-        "réseau déjà connues), sans changer d'écran.\n"
+        "- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà "
+        "connues), sans changer d'écran.\n"
         "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, "
         "l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son "
         "install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une "
@@ -71,8 +74,8 @@ SECTIONS: tuple[tuple[str, str], ...] = (
         "la commande de chaque correction (« Copier les commandes »).\n"
         "- Cet écran montre seulement : ce qui est « à réparer » se corrige dans le menu Réparer.")),
     (N_("Synchronisation — relier les applications"), N_(
-        "Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à "
-        "l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+        "Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le "
+        "scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
         "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
         "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées "
         "par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie "
@@ -111,12 +114,12 @@ SECTIONS: tuple[tuple[str, str], ...] = (
         "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
         "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, "
         "scans les plus anciens (machines du réseau).\n\n"
-        "Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; "
-        "« Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner "
-        "pour les relire). Pour corriger : menu Réparer.")),
+        "Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du "
+        "réseau. Pour corriger : menu Réparer.")),
     (N_("Réparer — tout ce qui ne va pas"), N_(
-        "La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à "
-        "l'ouverture) : machine, problème, état, et qui le corrige.\n\n"
+        "La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le "
+        "scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le "
+        "corrige.\n\n"
         "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des "
         "applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de "
         "son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les "
@@ -146,12 +149,31 @@ SECTIONS: tuple[tuple[str, str], ...] = (
         "d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, "
         "jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress "
         "autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide.")),
+    (N_("Installer — installer les applications"), N_(
+        "Installe les applications omega sur cette machine et sur les machines du réseau, depuis ici, avec le même "
+        "procédé que l'Updater.\n\n"
+        "- Les lignes : chaque machine joignable (d'après le dernier scan) et chaque application omega publiée, "
+        "« déjà installée » (avec sa version) ou à installer dans ~/<application>.\n"
+        "- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, "
+        "sinon le site de l'application).\n"
+        "- [b]Installer la sélection[/b] : cette machine d'abord, dans le terminal, puis chaque machine du réseau, "
+        "son plan affiché avant d'agir. L'archive est vérifiée (sha.txt), extraite dans un nouveau dossier (jamais "
+        "par-dessus un dossier qui n'est pas vide), puis son install.sh est lancé ; omega-fire demande le mot de "
+        "passe sudo.\n"
+        "- Juste installer : la carte d'identité (install.sh) et, pour les applications qui se relient aux autres "
+        "(omega-serv, omega-fire, omega-jail, omega-stress), l'inscription dans l'espace partagé de la machine. "
+        "La configuration se fait ensuite dans l'application elle-même.\n"
+        "- À la fin : ce qui a été fait, et les machines touchées rescannées.")),
     (N_("Rapport — un document complet"), N_(
-        "Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il "
+        "Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : "
+        "bilan, liste précise de ce qu'il "
         "reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, "
         "applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n\n"
         "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier "
         "des exports.\n"
+        "- [b]Voir les exports[/b] : le dossier des exports s'ouvre dans votre navigateur, chaque export se lit d'un "
+        "clic (sans quitter omega-connect). Sans navigateur (serveur, connexion SSH), la liste s'affiche ici et "
+        "chaque export s'y lit.\n"
         "- En ligne de commande : omega-connect rapport --format html --enregistrer.")),
     (N_("Réglages"), N_(
         "- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
@@ -186,6 +208,8 @@ SECTIONS: tuple[tuple[str, str], ...] = (
         "- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
         "- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller "
         "l'application).\n"
+        "- ■ Installée : application sans liaison avec les autres (omega-log, omega-scan, omega-suite…) : rien à "
+        "relier.\n"
         "- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n\n"
         "[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple "
         "omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session).")),
@@ -210,7 +234,8 @@ SECTIONS: tuple[tuple[str, str], ...] = (
         "--simulation montre le plan sans rien lancer ; --oui lance sans poser la question.")),
     (N_("Fichiers d'omega-connect"), N_(
         "Tout vit dans le dossier d'omega-connect, sous var/ :\n"
-        "- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+        "- omega-connect.db : registre des machines (SQLite : machines, applications, liaisons, historique des "
+        "scans) ; l'ancien parc.json est repris une fois puis gardé à côté.\n"
         "- settings.json : réglages.\n"
         "- exports/ et screenshots/ : par défaut (voir Réglages).\n"
         "- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite).")),

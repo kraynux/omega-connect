@@ -19,7 +19,7 @@ from textual.css.query import NoMatches
 from textual.screen import Screen
 from textual.widgets import Button, DataTable, Footer, Header, Static
 
-from omega_connect.application.remote_actions import RemoteTools, scan_remote
+from omega_connect.application.remote_actions import RemoteTools
 from omega_connect.application.remote_sync import RemoteSyncTools
 from omega_connect.domain.fleet import AppState, RegistryRow, registry_rows, space_status
 from omega_connect.domain.links import VerificationReport
@@ -29,7 +29,7 @@ from omega_connect.domain.updates import Purpose
 from omega_connect.domain.zone import ZoneFacts
 from omega_connect.interfaces.cli.enroll_view import SPACE_LABELS, state_hint
 from omega_connect.interfaces.cli.verification_view import LINK_LABELS, check_text
-from omega_connect.interfaces.tui.screens._base import OmegaScreen
+from omega_connect.interfaces.tui.screens._base import OmegaScreen, set_label
 from omega_connect.interfaces.tui.screens.dashboard import VerifyNow
 from omega_connect.interfaces.tui.screens.remote_machine import RemoteMachineScreen
 from omega_connect.interfaces.tui.widgets.busy import Busy
@@ -76,7 +76,7 @@ class RegistryScreen(OmegaScreen):
             yield Static("", id="row-detail")
         with Horizontal(classes="omega-actions omega-fixed-actions"):
             with Container(classes="omega-btn-frame"):
-                yield Button(_("Mettre à jour le registre"), id="update", variant="primary")
+                yield Button(_("Relancer le scan"), id="update", variant="primary")
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Mettre à jour l'application"), id="update-app", disabled=True)
             with Container(classes="omega-btn-frame"):
@@ -186,7 +186,7 @@ class RegistryScreen(OmegaScreen):
         button = self.query_one("#update-app", Button)
         button.disabled = not can_update
         incomplete = 0 <= index < len(self._rows) and self._rows[index].state is AppState.INCOMPLETE
-        button.label = _("Réinstaller l'application") if incomplete else _("Mettre à jour l'application")
+        set_label(button, _("Réinstaller l'application") if incomplete else _("Mettre à jour l'application"))
 
     def on_data_table_row_highlighted(self, _event: DataTable.RowHighlighted) -> None:
         self._describe_current()
@@ -200,22 +200,15 @@ class RegistryScreen(OmegaScreen):
             self.action_back()
 
     def _refresh_registry(self) -> None:
-        """Sur place : machines distantes connues rescannees, puis cette machine."""
+        """« Relancer le scan » : cette machine puis les machines du reseau connues, sur place."""
         if self._loading:
             return
-        remote = self._remote
-        machines = [machine for machine in (remote.parc.load() if remote is not None else ()) if not machine.local]
-        if not machines or remote is None:
-            self._load(None)
-            return
-        self._busy(_("Mise à jour du registre : scan de {count} machine(s) distante(s)…").format(count=len(machines)))
+        self._busy(_("Scan de cette machine…"))
 
         def rescan() -> None:
-            for machine in machines:
-                target = parse_target(machine.target)
-                if target is not None:
-                    with contextlib.suppress(Exception):
-                        scan_remote(target, remote)
+            with contextlib.suppress(Exception):
+                self.app.rescan_everything(  # type: ignore[attr-defined]
+                    lambda text: self.app.call_from_thread(self._busy, text))
             self.app.call_from_thread(self._load, None)
 
         self.run_worker(rescan, thread=True, group="registry-rescan", exclusive=True)

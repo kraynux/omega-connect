@@ -165,3 +165,16 @@ class OmegaScreen(Screen[None]):
 
     def action_focus_next_item(self) -> None:
         self.focus_next()
+
+
+def set_label(button: object, text: str) -> None:
+    """Change le libelle d'un bouton DEJA affiche et refait la mise en page de son cadre et de la barre : sinon le
+    cadre garde la largeur de l'ancien libelle (constate le 2026-11-22 : « Lancer » devenu « Installer sur
+    omega-server » s'affichait « Installe »)."""
+    button.label = text  # type: ignore[attr-defined]
+    widget = button
+    for _level in range(3):  # bouton, cadre, barre d'actions
+        widget.refresh(layout=True)  # type: ignore[attr-defined]
+        widget = getattr(widget, "parent", None)
+        if widget is None:
+            break

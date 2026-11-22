@@ -111,11 +111,11 @@ def _app(system: FakeSystem, writer: FileExportWriter) -> OmegaConnectApp:
 
 
 def test_menu_columns_are_balanced_and_contact_lives_in_help():
-    """Refonte (proposition de l'auteur) : GESTION 5 / MAINTENANCE 5, « Quitter » remplace par « Updater » (2026-11-22, touches q et Echap)."""
+    """Disposition de l'auteur (2026-11-22) : 6 / 6, Updater et Installer en tete de la deuxieme colonne."""
     main = [entry.key for entry in MENU if entry.column is Column.MAIN]
     maintenance = [entry.key for entry in MENU if entry.column is Column.MAINTENANCE]
-    assert main == ["registry", "scanner", "links", "synchronisation", "dashboard"]
-    assert maintenance == ["repair", "updater", "report", "settings", "help"]  # « Quitter » retire (2026-11-22)
+    assert main == ["registry", "scanner", "links", "synchronisation", "repair", "dashboard"]
+    assert maintenance == ["updater", "installer", "report", "settings", "help", "quit"]
     assert "contact" not in main + maintenance
 
 
@@ -201,3 +201,43 @@ def test_report_covers_every_machine_and_says_what_to_do(system):
     for part in ("Machines du réseau", "À faire", "Registre — applications par machine",
                  "Liaisons de craftdark (192.168.1.103)", "◇ Installation inachevée", "injoignable"):
         assert part in page, part
+
+
+async def test_voir_les_exports_navigateur_sinon_liste_et_lecture_ici(system, tmp_path):
+    """Demande de l'auteur (2026-11-22) : « Voir les exports » ouvre le dossier dans le navigateur ; sans
+    environnement de bureau, la liste et la lecture ici meme. Le contenu n'est jamais interprete (balises)."""
+    from omega_connect.interfaces.tui.screens.exports import ExportsScreen, read_export
+    from omega_connect.interfaces.tui.screens.report import ReportScreen
+
+    exports = tmp_path / "exports"
+    exports.mkdir()
+    (exports / "omega-connect-rapport-1.html").write_text("<html><style>x{}</style><h1>Bilan</h1><p>[b]ok[/b] &amp; "
+                                                          "fin</p></html>")
+    (exports / "lien").symlink_to(exports / "omega-connect-rapport-1.html")
+    opened: list = []
+    for browser in (True, False):
+        tools = ReportTools(lambda: build_report(_verification(system), system.inspect(), version="0.2.0", now=AT),
+                            FileExportWriter(exports), None, lambda: exports,
+                            lambda path, ok=browser: opened.append(path) or ok)
+        app = OmegaConnectApp(verify=lambda: _verification(system), version="0.2.0",
+                              render_profile=RenderProfile.COMPLETE, refresh_seconds=0, splash=False, report=tools)
+        async with app.run_test(size=(140, 50)) as pilot:
+            await pilot.pause()
+            app.push_screen(ReportScreen(tools=tools))
+            await app.workers.wait_for_complete()
+            await pilot.pause()
+            bars = [bar for bar in app.screen.query(".omega-fixed-actions")]
+            assert [[button.id for button in bar.query("Button")] for bar in bars] == [
+                ["export-txt", "export-json", "export-html", "view-exports"], ["refresh", "back"]]
+            await pilot.click("#view-exports")
+            await app.workers.wait_for_complete()
+            await pilot.pause()
+            assert isinstance(app.screen, ExportsScreen) is (not browser)
+            if not browser:
+                table = app.screen.query_one("#exports-table")
+                assert table.row_count == 1  # le lien n'est pas liste
+                await pilot.press("enter")
+                await pilot.pause()
+    assert opened == [exports, exports]
+    text = read_export(exports / "omega-connect-rapport-1.html")
+    assert text == "Bilan\n[b]ok[/b] & fin"

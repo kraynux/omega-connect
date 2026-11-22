@@ -76,7 +76,8 @@ Screen {
 }
 
 .omega-home-root {
-    align: center middle;
+    /* Logo en haut, a une ou deux lignes du bord (demande de l'auteur, 2026-11-22 : 6 entrees par colonne) */
+    align: center top;
     height: 1fr;
     overflow-y: auto;
 }
@@ -101,7 +102,7 @@ Screen {
 .omega-home-wordmark {
     width: auto;
     text-align: left;
-    padding-bottom: 1;
+    padding-bottom: 2;  /* une ligne de plus avant les colonnes (retour de l'auteur, 2026-11-22 : trop serre) */
 }
 
 .omega-home-menu {

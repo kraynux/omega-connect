@@ -58,7 +58,7 @@ class LinksScreen(OmegaScreen):
             yield Static("", id="link-detail")
         with Horizontal(classes="omega-actions omega-fixed-actions"):
             with Container(classes="omega-btn-frame"):
-                yield Button(_("Vérifier maintenant"), id="verify", variant="primary")
+                yield Button(_("Relancer le scan"), id="verify", variant="primary")
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Détail du lien"), id="detail", disabled=True)
 
@@ -80,20 +80,25 @@ class LinksScreen(OmegaScreen):
 
     # ---- verification dans un fil -------------------------------------------
 
-    def action_verify(self) -> None:
+    def action_verify(self, rescan: bool = False) -> None:
+        """Le dernier scan relu (2026-11-22) ; « Relancer le scan » : cette machine et le reseau rescannes d'abord."""
         if self._verifying:
             return
+        self._rescan = rescan
         self._verifying = True
         self._set_busy(True)
         self.run_worker(self._collect, thread=True, group="verify", exclusive=True)
 
     def _collect(self) -> None:
         try:
+            if getattr(self, "_rescan", False) and hasattr(self.app, "rescan_everything"):
+                self.app.rescan_everything()
             report = self._verify()
         except Exception as exc:  # noqa: BLE001 - jamais planter l'interface pour une verification
             self.app.call_from_thread(self._show_error, str(exc) or type(exc).__name__)
             return
-        self.app.call_from_thread(self._apply, report, datetime.now().astimezone())
+        scanned = getattr(self._verify, "scanned_at", None)  # heure du scan relu, pas celle de l'affichage
+        self.app.call_from_thread(self._apply, report, scanned or datetime.now().astimezone())
 
     def _set_busy(self, busy: bool) -> None:
         try:
@@ -179,7 +184,7 @@ class LinksScreen(OmegaScreen):
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "verify":
-            self.action_verify()
+            self.action_verify(rescan=True)
         elif event.button.id == "detail":
             self._open_detail()
 

@@ -23,7 +23,8 @@ from omega_connect.core.constants import (
     SKIPPED_DIRECTORY_NAMES,
 )
 from omega_connect.domain.detection import Candidate, NoteKind, ScanNote, Source
-from omega_connect.infrastructure.detection.layout import looks_like_installation, real_directory
+from omega_connect.domain.suite import EMBEDDED_DIRECTORY, SUITE_TOOL
+from omega_connect.infrastructure.detection.layout import layout_tool, looks_like_installation, real_directory
 
 MOUNTS_FILE = "/proc/self/mounts"
 
@@ -48,6 +49,17 @@ def network_mount_points(mounts_file: str = MOUNTS_FILE) -> frozenset[str]:
 
 
 _BACKUP = re.compile(BACKUP_DIRECTORY_PATTERN, re.IGNORECASE)
+
+
+def _embedded(directory: Path) -> list[Path]:
+    """Outils embarques par omega-suite (`<suite>/vendor/<outil>`), reconnus comme le reste ; vide sinon."""
+    if layout_tool(directory) != SUITE_TOOL:
+        return []
+    try:
+        children = sorted((directory / EMBEDDED_DIRECTORY).iterdir())
+    except OSError:
+        return []
+    return [child for child in children if child.is_dir() and not child.is_symlink() and looks_like_installation(child)]
 
 
 def _skipped_name(name: str) -> bool:
@@ -86,6 +98,9 @@ class FilesystemScanLocator:
             self.visited += 1
             if level > 0 and looks_like_installation(directory):
                 found.append(Candidate(str(directory), self._source))
+                # omega-suite : ses outils embarques (vendor/<outil>) sont des installations a part entiere
+                for embedded in _embedded(directory):
+                    found.append(Candidate(str(embedded), self._source))
                 continue
             if level >= self._depth:
                 continue

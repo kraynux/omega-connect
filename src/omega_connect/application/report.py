@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from pathlib import Path
 
 from omega_lib.synchro.models import ReadResult
 from omega_lib.synchro.registry import ZoneRegistry
@@ -63,3 +64,12 @@ class ReportTools:
 
     collect: Callable[[], FullReport]
     writer: ExportWriter
+    rescan: Callable[[], None] | None = None
+    """« Relancer le scan » (2026-11-22) : cette machine et les machines du reseau rescannees avant le rapport ;
+    sinon le rapport relit le dernier scan."""
+    exports_dir: Callable[[], Path] | None = None
+    """Dossier des exports (Reglages) : « Voir les exports »."""
+    open_folder: Callable[[Path], bool] | None = None
+    """« Voir les exports » (demande de l'auteur, 2026-11-22) : le dossier ouvert dans le navigateur de
+    l'utilisateur, dans SA session graphique (omega-lib, mecanique corrigee d'omega-fire) ; False : pas de session
+    graphique ni de navigateur, l'interface montre la liste elle-meme (repli)."""

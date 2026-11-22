@@ -55,6 +55,10 @@ msgstr "{root} nie jest katalogiem instalacji"
 msgid "{root} n'appartient pas à ce compte : mise à jour faite à la main"
 msgstr "{root} nie należy do tego konta: aktualizację trzeba wykonać ręcznie"
 
+#, python-brace-format
+msgid "{root} existe déjà et n'est pas vide : rien n'est installé"
+msgstr "{root} już istnieje i nie jest pusty: nic nie zostaje zainstalowane"
+
 msgid "empreinte de l'archive différente de sha.txt : rien n'est installé"
 msgstr ""
 "suma kontrolna archiwum różni się od sha.txt: nic nie zostało zainstalowane"
@@ -292,6 +296,9 @@ msgstr "Niedokończona instalacja"
 msgid "Injoignable"
 msgstr "Nieosiągalna"
 
+msgid "Installée"
+msgstr "Zainstalowana"
+
 msgid "trouvée, sans carte d'identité : la Synchronisation la lui crée"
 msgstr "znaleziona, bez karty identyfikacyjnej: Synchronizacja ją utworzy"
 
@@ -320,6 +327,12 @@ msgstr ""
 
 msgid "machine qui ne répond pas"
 msgstr "maszyna nie odpowiada"
+
+msgid ""
+"installée ; cette application n'a pas de liaison avec les autres (rien à "
+"relier)"
+msgstr ""
+"zainstalowana; ta aplikacja nie łączy się z innymi (nie ma czego łączyć)"
 
 #, python-brace-format
 msgid ""
@@ -928,6 +941,9 @@ msgstr ""
 "stara instalacja odłożona na bok (sudo mv), nowa na jej miejscu, a potem jej"
 " install.sh, który przejmuje ustawienia i dane"
 
+msgid "nouveau dossier, archive extraite dedans, puis son install.sh"
+msgstr "nowy folder, archiwum rozpakowane do niego, potem jej install.sh"
+
 msgid "Commande"
 msgstr "Polecenie"
 
@@ -939,6 +955,14 @@ msgstr "Napraw"
 
 msgid "Synchroniser"
 msgstr "Synchronizuj"
+
+#, python-brace-format
+msgid "{tool} {version} → {root} : installation — {how}"
+msgstr "{tool} {version} → {root}: instalacja — {how}"
+
+#, python-brace-format
+msgid "{tool} ({root}) : pas d'installation possible — {reason}"
+msgstr "{tool} ({root}): instalacja niemożliwa — {reason}"
 
 #, python-brace-format
 msgid ""
@@ -965,6 +989,29 @@ msgid ""
 msgstr ""
 "Wszystko dzieje się w tym terminalu: o hasło sudo do {name} prosi sama "
 "maszyna, jeden raz; omega-connect nigdy go nie widzi."
+
+#, python-brace-format
+msgid "Installer — machine {name} ({target})"
+msgstr "Instalacja — maszyna {name} ({target})"
+
+msgid "Aucune application choisie : rien à installer."
+msgstr "Nie wybrano żadnej aplikacji: nie ma czego instalować."
+
+msgid ""
+"Archives prises sur GitHub, puis le site de chaque application (empreinte "
+"vérifiée avec sha.txt avant tout envoi) :"
+msgstr ""
+"Archiwa pobrane z GitHub, potem ze strony każdej aplikacji (odcisk "
+"sprawdzany z sha.txt przed każdym wysłaniem):"
+
+msgid ""
+"Juste installer : sa carte d'identité (install.sh) et, pour les applications"
+" qui se relient aux autres, l'inscription dans l'espace partagé de la "
+"machine. Aucune configuration : elle se fait dans l'application elle-même."
+msgstr ""
+"Tylko instalacja: jej dowód tożsamości (install.sh) oraz, dla aplikacji "
+"łączących się z innymi, wpis we wspólnej przestrzeni maszyny. Bez "
+"konfiguracji: robi się ją w samej aplikacji."
 
 #, python-brace-format
 msgid "Réinstaller l'application — machine {name} ({target})"
@@ -1467,11 +1514,11 @@ msgstr "OMEGA-CONNECT {version} — PEŁNY RAPORT"
 
 #, python-brace-format
 msgid ""
-"Établi le {date} depuis {machine}, machines du réseau rescannées (lecture "
-"seule, sans root)."
+"Établi le {date} depuis {machine}, d'après le dernier scan de chaque machine"
+" (lecture seule, sans root)."
 msgstr ""
-"Sporządzony {date} z {machine}, maszyny w sieci przeskanowane ponownie "
-"(tylko odczyt, bez root)."
+"Sporządzony {date} z {machine}, według ostatniego skanowania każdej maszyny "
+"(tylko odczyt, bez roota)."
 
 msgid "BILAN"
 msgstr "PODSUMOWANIE"
@@ -2542,6 +2589,20 @@ msgstr ""
 "Uruchom to samo polecenie ponownie po usunięciu przyczyny: nic nie zostanie "
 "zrobione dwa razy."
 
+msgid "Scan de cette machine…"
+msgstr "Skanowanie tej maszyny…"
+
+#, python-brace-format
+msgid "Scan des machines du réseau ({index}/{count}) : {machine}…"
+msgstr "Skanowanie maszyn w sieci ({index}/{count}): {machine}…"
+
+#, python-brace-format
+msgid "Scan terminé : cette machine et {count} machine(s) du réseau."
+msgstr "Skanowanie zakończone: ta maszyna i maszyny w sieci: {count}."
+
+msgid "Scan"
+msgstr "Skan"
+
 msgid "Dossier des captures non configuré."
 msgstr "Katalog zrzutów ekranu nie jest skonfigurowany."
 
@@ -2593,21 +2654,25 @@ msgstr "Ctrl+P"
 msgid ""
 "omega-connect relie entre elles les applications omega (omega-serv, omega-fire, omega-jail…) installées sur cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce qui manque, toujours après vous avoir montré ce qu'il va faire.\n"
 "\n"
-"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
+"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après votre configuration SSH — ~/.ssh/config, known_hosts — et vos profils Unison si vous en avez, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
 "2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
 "3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son plan avant d'agir et demande son mot de passe une seule fois.\n"
 "4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue d'ensemble, en cadres.\n"
 "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
-"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre."
+"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n"
+"\n"
+"Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont rescannées."
 msgstr ""
 "omega-connect łączy ze sobą aplikacje omega (omega-serv, omega-fire, omega-jail…) zainstalowane na tej maszynie i na maszynach w Twojej sieci. Pokazuje, co jest połączone, a co nie, i przywraca to, czego brakuje, zawsze po pokazaniu Ci, co zamierza zrobić.\n"
 "\n"
-"1. [b]Skanuj[/b]: wyszukuje aplikacje tej maszyny. Dodaj swoje pozostałe maszyny (proponowane na podstawie profili Unison, ~/.ssh/config i known_hosts lub wpisane ręcznie): łączy się z nimi przez SSH Twoimi kluczami, nic się na nich nie instaluje.\n"
+"1. [b]Skanuj[/b]: szuka aplikacji tej maszyny. Dodaj swoje inne maszyny (proponowane na podstawie konfiguracji SSH — ~/.ssh/config, known_hosts — i profili Unison, jeśli je masz, lub wpisane ręcznie): łączysz się z nimi przez SSH swoimi kluczami, nic tam nie jest instalowane.\n"
 "2. [b]Rejestr[/b]: lista wszystkich aplikacji na wszystkich maszynach wraz z ich stanem. Zbyt starą lub źle zainstalowaną aplikację można z tego ekranu zaktualizować lub zainstalować ponownie.\n"
 "3. [b]Synchronizacja[/b]: zaznacz, co ma zostać połączone, potem „Synchronizuj”; każda maszyna pokazuje swój plan przed działaniem i prosi o hasło tylko raz.\n"
 "4. [b]Powiązania[/b]: co jest połączone, a co nie, na wszystkich maszynach. [b]Pulpit[/b]: przegląd w ramkach.\n"
 "5. [b]Napraw[/b]: lista wszystkiego, co nie działa; wybierz wiersz lub „Napraw wszystko”.\n"
-"6. [b]Raport[/b]: pełny dokument (tekst, JSON lub strona HTML) do zachowania lub przekazania."
+"6. [b]Raport[/b]: pełny dokument (tekst, JSON lub strona HTML) do zachowania lub przekazania.\n"
+"\n"
+"Skanowanie odbywa się raz, przy starcie (ta maszyna, potem znane maszyny w sieci), a potem wszystkie ekrany je odczytują: « Skanuj ponownie » robi je od nowa. Po działaniu ponownie skanowane są tylko maszyny, których to dotyczy."
 
 msgid "Registre — toutes les applications et leur état"
 msgstr "Rejestr — wszystkie aplikacje i ich stan"
@@ -2615,13 +2680,13 @@ msgstr "Rejestr — wszystkie aplikacje i ich stan"
 msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
-"- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
 "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "Pokazuje dla każdej maszyny (tej i tych w sieci) każdą znalezioną aplikację omega: jej instancję lub usługę, wersję, stan i katalog. Podsumowanie u góry zlicza stany.\n"
 "\n"
-"- [b]Zaktualizuj rejestr[/b]: ponownie wykonuje skanowanie na miejscu (ta maszyna, potem już znane maszyny w sieci), bez zmiany ekranu.\n"
+"- [b]Skanuj ponownie[/b]: robi skanowanie od nowa na miejscu (ta maszyna, potem już znane maszyny w sieci), bez zmiany ekranu.\n"
 "- [b]Zaktualizuj aplikację[/b] / [b]Zainstaluj aplikację ponownie[/b]: otwiera Updater z już zaznaczoną aplikacją z wiersza (« Stara wersja »; lub « Niedokończona instalacja »: jej install.sh się nie zakończył, instalowana jest ponownie ta sama wersja). Na tej maszynie tak samo jak na maszynie w sieci.\n"
 "- Podświetl wiersz: wyjaśnienie jego stanu i niezgodności pojawią się poniżej."
 
@@ -2661,7 +2726,7 @@ msgid "Synchronisation — relier les applications"
 msgstr "Synchronizacja — łączenie aplikacji"
 
 msgid ""
-"Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
 "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
 "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
 "- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
@@ -2670,7 +2735,7 @@ msgid ""
 "- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
 "- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
 msgstr ""
-"Jedna lista: wszystkie Twoje maszyny i ich aplikacje (maszyny w sieci są ponownie skanowane przy otwarciu). Zaznacz wiersze (Enter lub Spacja), a potem:\n"
+"Jedna lista: wszystkie twoje maszyny i ich aplikacje, według ostatniego skanowania (« Skanuj ponownie » robi je od nowa). Zaznacz wiersze (Enter lub Spacja), a potem:\n"
 "- [b]Synchronizuj zaznaczone[/b] lub [b]Synchronizuj wszystko[/b].\n"
 "- [b]Ta maszyna[/b]: jeden plan, wyświetlany przed działaniem — brakujące karty identyfikacyjne (tworzone przez każdą aplikację, na jej koncie), potem przestrzeń współdzielona (grupa omega-synchro, katalogi, kopia kart, dostęp usług). Jedno hasło administratora.\n"
 "- [b]Maszyna w sieci[/b]: jej plan jest obliczany na niej i wyświetlany; „Synchronizuj <maszyna>” uruchamia go stąd: interfejs ustępuje miejsca terminalowi, maszyna sama prosi o swoje hasło, jeden raz; Enter wraca do interfejsu, który pokazuje wynik.\n"
@@ -2710,7 +2775,7 @@ msgid ""
 "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
 "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
 "\n"
-"Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; « Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner pour les relire). Pour corriger : menu Réparer."
+"Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du réseau. Pour corriger : menu Réparer."
 msgstr ""
 "Przegląd w ramkach, jak internetowy pulpit. Na tym ekranie nic nie jest zmieniane.\n"
 "\n"
@@ -2719,13 +2784,13 @@ msgstr ""
 "- [b]Ta maszyna / Sieć[/b]: te same liczby, obok siebie.\n"
 "- [b]Top 5[/b] (top 3 na małym ekranie): maszyny do naprawy, powiązania do naprawy, przestarzałe wersje, najstarsze skanowania (maszyny w sieci).\n"
 "\n"
-"Ta maszyna jest sprawdzana przy otwarciu, a potem regularnie, dopóki ekran jest otwarty; „Odśwież” ponawia sprawdzenie. Maszyny w sieci pokazują swoje ostatnie skanowanie (menu Skanuj, aby odczytać je ponownie). Aby naprawić: menu Napraw."
+"Wszystko pochodzi z ostatniego skanowania; « Skanuj ponownie » robi je od nowa dla tej maszyny i maszyn w sieci. Aby naprawić: menu Napraw."
 
 msgid "Réparer — tout ce qui ne va pas"
 msgstr "Napraw — wszystko, co nie działa"
 
 msgid ""
-"La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
+"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le corrige.\n"
 "\n"
 "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
 "- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
@@ -2734,7 +2799,7 @@ msgid ""
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
 msgstr ""
-"Lista wszystkiego, co nie działa, na wszystkich maszynach (maszyny w sieci są ponownie skanowane przy otwarciu): maszyna, problem, stan i kto go naprawia.\n"
+"Lista wszystkiego, co jest nie tak, na wszystkich maszynach, według ostatniego skanowania (« Skanuj ponownie » robi je od nowa; naprawiona maszyna jest od razu skanowana ponownie): maszyna, problem, stan i kto to naprawia.\n"
 "\n"
 "- [b]Napraw wybrany wiersz[/b]: otwiera plan maszyny. Ta maszyna: polecenia samych aplikacji (omega-jail dla tego, co umieszcza w fail2ban, omega-serv dla uprawnień swojego var/, każda aplikacja dla swojej karty identyfikacyjnej), potem przestrzeń współdzielona. Maszyna w sieci: te same poprawki oraz polecenia, których żadna aplikacja nie umie uruchomić, uruchamiane NA maszynie stąd (tylko te zapowiedziane w planie).\n"
 "- Wiersz « Stara wersja » lub « Niedokończona instalacja » otwiera Updater z już zaznaczoną aplikacją: aktualizuje tylko Updater.\n"
@@ -2763,18 +2828,40 @@ msgstr ""
 "- Na końcu: co zostało zrobione, aplikacja po aplikacji, i ponownie przeskanowane maszyny.\n"
 "- [b]omega-suite[/b]: wbudowany omega-stress jest jej częścią. Wiersz należy do omega-suite (« zawiera omega-stress … »): aktualizuje się ją razem z jej narzędziami, testowanymi razem, nigdy samego omega-stress. Od wersji 2.0.0 pomaga w obciążeniu rozproszonym jak samodzielny omega-stress; jeśli maszyna ma też samodzielny omega-stress, pomaga ten drugi."
 
+msgid "Installer — installer les applications"
+msgstr "Installer — instalacja aplikacji"
+
+msgid ""
+"Installe les applications omega sur cette machine et sur les machines du réseau, depuis ici, avec le même procédé que l'Updater.\n"
+"\n"
+"- Les lignes : chaque machine joignable (d'après le dernier scan) et chaque application omega publiée, « déjà installée » (avec sa version) ou à installer dans ~/<application>.\n"
+"- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application).\n"
+"- [b]Installer la sélection[/b] : cette machine d'abord, dans le terminal, puis chaque machine du réseau, son plan affiché avant d'agir. L'archive est vérifiée (sha.txt), extraite dans un nouveau dossier (jamais par-dessus un dossier qui n'est pas vide), puis son install.sh est lancé ; omega-fire demande le mot de passe sudo.\n"
+"- Juste installer : la carte d'identité (install.sh) et, pour les applications qui se relient aux autres (omega-serv, omega-fire, omega-jail, omega-stress), l'inscription dans l'espace partagé de la machine. La configuration se fait ensuite dans l'application elle-même.\n"
+"- À la fin : ce qui a été fait, et les machines touchées rescannées."
+msgstr ""
+"Instaluje aplikacje omega na tej maszynie i na maszynach w sieci, stąd, tym samym sposobem co Updater.\n"
+"\n"
+"- Wiersze: każda osiągalna maszyna (według ostatniego skanowania) i każda opublikowana aplikacja omega, « już zainstalowana » (z jej wersją) lub do zainstalowania w ~/<aplikacja>.\n"
+"- [b]Sprawdź wersje[/b]: najnowsza opublikowana wersja każdej aplikacji (Release GitHub, w przeciwnym razie strona aplikacji).\n"
+"- [b]Zainstaluj zaznaczone[/b]: najpierw ta maszyna, w terminalu, potem każda maszyna w sieci, z planem pokazanym przed działaniem. Archiwum jest sprawdzane (sha.txt), rozpakowywane do nowego folderu (nigdy na folder, który nie jest pusty), potem uruchamiany jest jej install.sh; omega-fire pyta o hasło sudo.\n"
+"- Tylko instalacja: dowód tożsamości (install.sh) oraz, dla aplikacji łączących się z innymi (omega-serv, omega-fire, omega-jail, omega-stress), wpis we wspólnej przestrzeni maszyny. Konfigurację robi się potem w samej aplikacji.\n"
+"- Na końcu: co zostało zrobione, i ponownie przeskanowane maszyny, których to dotyczy."
+
 msgid "Rapport — un document complet"
 msgstr "Raport — pełny dokument"
 
 msgid ""
-"Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
 "\n"
 "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
+"- [b]Voir les exports[/b] : le dossier des exports s'ouvre dans votre navigateur, chaque export se lit d'un clic (sans quitter omega-connect). Sans navigateur (serveur, connexion SSH), la liste s'affiche ici et chaque export s'y lit.\n"
 "- En ligne de commande : omega-connect rapport --format html --enregistrer."
 msgstr ""
-"Sporządzany na bieżąco (maszyny w sieci są wcześniej ponownie skanowane): podsumowanie, dokładna lista tego, co pozostało do zrobienia (maszyna, co, które menu), rejestr wszystkich aplikacji, maszyny w sieci, szczegóły aplikacji tej maszyny, powiązania każdej maszyny, przestrzeń współdzielona i jej rejestr.\n"
+"Sporządzony według ostatniego skanowania (« Skanuj ponownie » najpierw ponownie skanuje tę maszynę i sieć): bilans, dokładna lista tego, co zostało do zrobienia (maszyna, co, które menu), rejestr wszystkich aplikacji, maszyny w sieci, aplikacje tej maszyny w szczegółach, połączenia każdej maszyny, wspólna przestrzeń i jej rejestr.\n"
 "\n"
 "- Eksport do tekstu, JSON lub strony HTML (motyw do wyboru, domyślnie ten z Ustawień), w katalogu eksportów.\n"
+"- [b]Zobacz eksporty[/b]: folder eksportów otwiera się w przeglądarce, każdy eksport czyta się jednym kliknięciem (bez wychodzenia z omega-connect). Bez przeglądarki (serwer, połączenie SSH) lista jest wyświetlana tutaj i każdy eksport czyta się tutaj.\n"
 "- W wierszu poleceń: omega-connect rapport --format html --enregistrer."
 
 msgid ""
@@ -2815,6 +2902,7 @@ msgid ""
 "- ▲ À réparer : un écart (Réparer).\n"
 "- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
 "- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller l'application).\n"
+"- ■ Installée : application sans liaison avec les autres (omega-log, omega-scan, omega-suite…) : rien à relier.\n"
 "- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n"
 "\n"
 "[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session)."
@@ -2826,6 +2914,7 @@ msgstr ""
 "- ▲ Do naprawy: niezgodność (Napraw).\n"
 "- ◌ Stara wersja: zbyt stara dla omega-connect (Rejestr → Zaktualizuj aplikację).\n"
 "- ◇ Niedokończona instalacja: jej install.sh nie zakończył się (Rejestr → Zainstaluj aplikację ponownie).\n"
+"- ■ Zainstalowana: aplikacja bez połączeń z innymi (omega-log, omega-scan, omega-suite…): nie ma czego łączyć.\n"
 "- ✕ Nieosiągalna: maszyna przestała odpowiadać (Skanuj → Przeskanuj ponownie).\n"
 "\n"
 "[b]Powiązania[/b]: OK; do naprawy; do naprawy (blokujące); brak (nic do połączenia, na przykład omega-jail niezainstalowany); nie do sprawdzenia (odczyt niemożliwy z Twojej sesji)."
@@ -2871,13 +2960,13 @@ msgstr "Pliki omega-connect"
 
 msgid ""
 "Tout vit dans le dossier d'omega-connect, sous var/ :\n"
-"- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+"- omega-connect.db : registre des machines (SQLite : machines, applications, liaisons, historique des scans) ; l'ancien parc.json est repris une fois puis gardé à côté.\n"
 "- settings.json : réglages.\n"
 "- exports/ et screenshots/ : par défaut (voir Réglages).\n"
 "- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite)."
 msgstr ""
 "Wszystko znajduje się w katalogu omega-connect, w var/:\n"
-"- parc.json: rejestr maszyn w sieci (ostatnie skanowanie, adresy, odcisk klucza).\n"
+"- omega-connect.db: rejestr maszyn (SQLite: maszyny, aplikacje, połączenia, historia skanowań); stary parc.json jest przejmowany raz, a potem przechowywany obok.\n"
 "- settings.json: ustawienia.\n"
 "- exports/ i screenshots/: domyślnie (zobacz Ustawienia).\n"
 "- declaration.json: deklaracja anonimowego użytkownika (jeśli ją złożono)."
@@ -2906,6 +2995,9 @@ msgstr "Pulpit"
 
 msgid "Updater"
 msgstr "Updater"
+
+msgid "Installer"
+msgstr "Installer"
 
 msgid "Rapport"
 msgstr "Raport"
@@ -3116,6 +3208,9 @@ msgstr "Sprawdź teraz"
 msgid "LIENS"
 msgstr "POWIĄZANIA"
 
+msgid "Relancer le scan"
+msgstr "Skanuj ponownie"
+
 msgid "Détail du lien"
 msgstr "Szczegóły powiązania"
 
@@ -3300,6 +3395,33 @@ msgstr "POSTĘP"
 msgid "Fermer"
 msgstr "Zamknij"
 
+#, python-brace-format
+msgid "Fichier trop volumineux pour être lu ici : {path}"
+msgstr "Plik zbyt duży, by go tu przeczytać: {path}"
+
+#, python-brace-format
+msgid "Lecture impossible : {error}"
+msgstr "Odczyt niemożliwy: {error}"
+
+msgid "EXPORTS"
+msgstr "EKSPORTY"
+
+msgid ""
+"Pas de navigateur dans cette session (serveur, connexion SSH) : les exports "
+"sont listés et lus ici. Choisissez une ligne (Entrée) pour la lire."
+msgstr ""
+"Brak przeglądarki w tej sesji (serwer, połączenie SSH): eksporty są tu "
+"wypisane i czytane. Wybierz wiersz (Enter), aby go przeczytać."
+
+msgid "Lire"
+msgstr "Czytaj"
+
+msgid "Taille"
+msgstr "Rozmiar"
+
+msgid "Aucun export pour l'instant."
+msgstr "Brak eksportów."
+
 msgid ""
 "Chaque menu, sa fonction et le détail. Cliquez sur un titre pour l'ouvrir."
 msgstr "Każde menu, jego funkcja i szczegóły. Kliknij tytuł, aby go rozwinąć."
@@ -3439,9 +3561,6 @@ msgstr ""
 "najnowszą wersję zbyt starej aplikacji (wybrany wiersz). Przywracanie "
 "powiązań: Synchronizacja; poprawianie niezgodności: Napraw."
 
-msgid "Mettre à jour le registre"
-msgstr "Zaktualizuj rejestr"
-
 msgid "Mettre à jour l'application"
 msgstr "Zaktualizuj aplikację"
 
@@ -3482,10 +3601,6 @@ msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
 msgstr "→ « {action} » otwiera Updater z już zaznaczoną aplikacją."
 
 #, python-brace-format
-msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
-msgstr "Aktualizacja rejestru: skanowanie maszyn zdalnych (liczba: {count})…"
-
-#, python-brace-format
 msgid ""
 "omega-connect — synchronisation de {machine}. La machine demande elle-même "
 "son mot de passe sudo (il ne s'affiche pas pendant la saisie) ; omega-"
@@ -3497,6 +3612,20 @@ msgstr ""
 
 msgid "Terminé. Appuyez sur Entrée pour revenir à omega-connect… "
 msgstr "Zakończono. Naciśnij Enter, aby wrócić do omega-connect… "
+
+#, python-brace-format
+msgid "INSTALLER — {machine}"
+msgstr "INSTALLER — {machine}"
+
+msgid ""
+"Les applications choisies, installées sur cette machine depuis ici : archive"
+" vérifiée, envoyée, puis son install.sh dans le terminal ; ensuite "
+"l'inscription de celles qui se relient aux autres. Rien n'est fait avant « "
+"Lancer »."
+msgstr ""
+"Wybrane aplikacje, instalowane na tej maszynie stąd: archiwum sprawdzone, "
+"wysłane, potem jej install.sh w terminalu; następnie wpis tych, które łączą "
+"się z innymi. Nic nie dzieje się przed « Uruchom »."
 
 #, python-brace-format
 msgid "METTRE À JOUR L'APPLICATION — {machine}"
@@ -3552,6 +3681,10 @@ msgstr "Zaktualizuj na {machine}"
 #, python-brace-format
 msgid "Réparer {machine}"
 msgstr "Napraw {machine}"
+
+#, python-brace-format
+msgid "Installer sur {machine}"
+msgstr "Zainstaluj na {machine}"
 
 #, python-brace-format
 msgid "Synchroniser {machine}"
@@ -3632,12 +3765,8 @@ msgstr "Problem"
 msgid "Qui corrige"
 msgstr "Kto naprawia"
 
-msgid "Recherche de tout ce qui ne va pas : vérification de cette machine…"
-msgstr "Wyszukiwanie wszystkiego, co nie działa: sprawdzanie tej maszyny…"
-
-#, python-brace-format
-msgid "Rescan des machines du réseau ({index}/{count}) : {machine}…"
-msgstr "Ponowne skanowanie maszyn w sieci ({index}/{count}): {machine}…"
+msgid "Lecture du dernier scan…"
+msgstr "Odczyt ostatniego skanowania…"
 
 #, python-brace-format
 msgid "{count} problème(s) sur {machines} machine(s)."
@@ -3657,15 +3786,15 @@ msgid "RAPPORT"
 msgstr "RAPORT"
 
 msgid ""
-"Un document complet, établi à l'instant (les machines du réseau sont "
-"rescannées avant) : bilan, ce qu'il reste à faire, registre, machines du "
-"réseau, liaisons de chaque machine, espace partagé. Enregistré dans le "
-"dossier des exports."
+"Un document complet, d'après le dernier scan (« Relancer le scan » le "
+"refait) : bilan, ce qu'il reste à faire, registre, machines du réseau, "
+"liaisons de chaque machine, espace partagé. Enregistré dans le dossier des "
+"exports ; « Voir les exports » les ouvre dans le navigateur pour les lire."
 msgstr ""
-"Pełny dokument, sporządzony teraz (maszyny w sieci są najpierw ponownie "
-"skanowane): podsumowanie, co zostało do zrobienia, rejestr, maszyny w sieci,"
-" powiązania każdej maszyny, przestrzeń współdzielona. Zapisany w katalogu "
-"eksportów."
+"Pełny dokument, według ostatniego skanowania (« Skanuj ponownie » robi je od"
+" nowa): bilans, co zostało do zrobienia, rejestr, maszyny w sieci, "
+"połączenia każdej maszyny, wspólna przestrzeń. Zapisany w folderze "
+"eksportów; « Zobacz eksporty » otwiera je w przeglądarce do czytania."
 
 msgid "THÈME DE LA PAGE HTML"
 msgstr "MOTYW STRONY HTML"
@@ -3682,6 +3811,12 @@ msgstr "Eksportuj TXT"
 msgid "Exporter HTML"
 msgstr "Eksportuj HTML"
 
+msgid "Voir les exports"
+msgstr "Zobacz eksporty"
+
+msgid "Scan de cette machine et des machines du réseau…"
+msgstr "Skanowanie tej maszyny i maszyn w sieci…"
+
 msgid "Génération du rapport en cours (détection, vérification, zone)…"
 msgstr "Generowanie raportu w toku (wykrywanie, sprawdzanie, strefa)…"
 
@@ -3691,6 +3826,10 @@ msgstr "Raport gotowy."
 #, python-brace-format
 msgid "Export impossible : {error}"
 msgstr "Eksport niemożliwy: {error}"
+
+#, python-brace-format
+msgid "Dossier des exports ouvert dans le navigateur : {path}"
+msgstr "Folder eksportów otwarty w przeglądarce: {path}"
 
 #, python-brace-format
 msgid "{count} application(s) omega trouvée(s) sur cette machine."
@@ -3937,9 +4076,6 @@ msgstr "Obciążenie rozproszone…"
 msgid "Lire avec sudo"
 msgstr "Odczytaj przez sudo"
 
-msgid "Vérification de cette machine et de son espace partagé…"
-msgstr "Sprawdzanie tej maszyny i jej przestrzeni współdzielonej…"
-
 #, python-brace-format
 msgid "{count} application(s) sur {machines} machine(s) — vérifié à {time}."
 msgstr "Aplikacje: {count}, maszyny: {machines} — sprawdzono o {time}."
@@ -3986,6 +4122,12 @@ msgstr "nie znaleziono opublikowanej wersji"
 msgid "machine injoignable"
 msgstr "maszyna nieosiągalna"
 
+msgid "à installer"
+msgstr "do instalacji"
+
+msgid "déjà installée"
+msgstr "już zainstalowana"
+
 msgid ""
 "omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
 "demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
@@ -4009,24 +4151,8 @@ msgstr ""
 " każda maszyna pokazuje swój plan przed działaniem, a hasło jest pytane "
 "tylko raz, w terminalu."
 
-msgid "Vérifier les versions"
-msgstr "Sprawdź wersje"
-
 msgid "Mettre à jour la sélection"
 msgstr "Aktualizuj zaznaczone"
-
-msgid "Tout mettre à jour"
-msgstr "Aktualizuj wszystko"
-
-msgid "Disponible"
-msgstr "Dostępna"
-
-msgid "Installée"
-msgstr "Zainstalowana"
-
-#, python-brace-format
-msgid "{tool} (contient {tools})"
-msgstr "{tool} (zawiera {tools})"
 
 #, python-brace-format
 msgid ""
@@ -4036,6 +4162,19 @@ msgstr ""
 "Aplikacje: {count} — aktualne: {ok}; do aktualizacji: {old}; niepełne: "
 "{incomplete}; niesprawdzone: {unchecked}."
 
+msgid "Vérifier les versions"
+msgstr "Sprawdź wersje"
+
+msgid "Tout mettre à jour"
+msgstr "Aktualizuj wszystko"
+
+msgid "Disponible"
+msgstr "Dostępna"
+
+#, python-brace-format
+msgid "{tool} (contient {tools})"
+msgstr "{tool} (zawiera {tools})"
+
 msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
 msgstr "Szukanie najnowszych opublikowanych wersji (GitHub, potem strona)…"
 
@@ -4044,6 +4183,42 @@ msgstr "Pobieranie i sprawdzanie archiwów…"
 
 msgid "Rescan de cette machine…"
 msgstr "Ponowne skanowanie tej maszyny…"
+
+msgid "INSTALLER"
+msgstr "INSTALLER"
+
+msgid ""
+"Pour chaque machine joignable (cette machine et le réseau, d'après le "
+"dernier scan), les applications omega publiées : déjà installées, ou à "
+"installer dans ~/<application>. « Vérifier les versions » cherche la "
+"dernière version publiée (GitHub, puis le site). Cochez (Entrée ou Espace) "
+"puis « Installer la sélection » : chaque machine montre son plan avant "
+"d'agir ; omega-fire demande le mot de passe sudo, dans le terminal."
+msgstr ""
+"Dla każdej osiągalnej maszyny (ta maszyna i sieć, według ostatniego "
+"skanowania) opublikowane aplikacje omega: już zainstalowane lub do "
+"zainstalowania w ~/<aplikacja>. « Sprawdź wersje » szuka najnowszej "
+"opublikowanej wersji (GitHub, potem strona). Zaznacz (Enter lub Spacja), a "
+"potem « Zainstaluj zaznaczone »: każda maszyna pokazuje swój plan przed "
+"działaniem; omega-fire pyta o hasło sudo w terminalu."
+
+msgid "Installer la sélection"
+msgstr "Zainstaluj zaznaczone"
+
+msgid ""
+"omega-connect — installation sur cette machine. Les install.sh peuvent "
+"demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
+msgstr ""
+"omega-connect — instalacja na tej maszynie. Skrypty install.sh mogą poprosić"
+" o hasło sudo (nie jest wyświetlane podczas wpisywania)."
+
+#, python-brace-format
+msgid ""
+"{count} ligne(s) — déjà installées : {present} ; à installer : {todo} ; non "
+"vérifiées : {unchecked}."
+msgstr ""
+"Wiersze: {count} — już zainstalowane: {present}; do instalacji: {todo}; "
+"niesprawdzone: {unchecked}."
 
 msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
 msgstr "SZCZEGÓŁY PRZESTRZENI WSPÓŁDZIELONEJ"

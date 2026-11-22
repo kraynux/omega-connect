@@ -25,6 +25,7 @@ from omega_lib.synchro.registry import ZoneRegistry
 
 from omega_connect.domain.detection import DetectedInstallation
 from omega_connect.domain.links import Check, CheckCode, CheckStatus, Link, LinkKind, LinkState, VerificationReport
+from omega_connect.domain.tools import has_contracts
 from omega_connect.domain.versions import outdated
 from omega_connect.domain.zone import TOKEN_DATE_KEY, ZoneFacts, encode, read_registry, same_document
 
@@ -40,6 +41,8 @@ class AppState(str, Enum):
     INCOMPLETE = "incomplete"
     """Version a jour, installation inachevee (install.sh arrete) : « Mettre a jour l'application » la reinstalle."""
     UNREACHABLE = "unreachable"
+    INSTALLED = "installed"
+    """Outil sans liaison (omega-log, omega-scan, omega-suite... : domain/tools.py) : installe, rien a relier."""
 
 
 ENROLL_CODES = frozenset({
@@ -133,6 +136,8 @@ def registry_rows(report: VerificationReport, facts: ZoneFacts | None,
             state = AppState.INCOMPLETE if found.incomplete else AppState.OLD_VERSION
         elif findings:
             state = AppState.TO_FIX
+        elif not has_contracts(item.tool) and item.token_status is not ReadStatus.OK:
+            state = AppState.INSTALLED
         elif item.token is None or item.token_status is not ReadStatus.OK:
             state = AppState.DETECTED
         elif _in_shared_space(item, registry, facts):

@@ -55,6 +55,10 @@ msgstr "{root} इंस्टॉलेशन फ़ोल्डर नहीं
 msgid "{root} n'appartient pas à ce compte : mise à jour faite à la main"
 msgstr "{root} इस खाते का नहीं है: अपडेट हाथ से करना होगा"
 
+#, python-brace-format
+msgid "{root} existe déjà et n'est pas vide : rien n'est installé"
+msgstr "{root} पहले से है और खाली नहीं है: कुछ भी इंस्टॉल नहीं हुआ"
+
 msgid "empreinte de l'archive différente de sha.txt : rien n'est installé"
 msgstr ""
 "आर्काइव का फ़िंगरप्रिंट sha.txt से अलग है: कुछ भी इंस्टॉल नहीं किया गया"
@@ -289,6 +293,9 @@ msgstr "अधूरा इंस्टॉलेशन"
 msgid "Injoignable"
 msgstr "पहुँच से बाहर"
 
+msgid "Installée"
+msgstr "इंस्टॉल"
+
 msgid "trouvée, sans carte d'identité : la Synchronisation la lui crée"
 msgstr "मिली, पर पहचान पत्र नहीं है: सिंक्रनाइज़ेशन इसे बनाता है"
 
@@ -316,6 +323,12 @@ msgstr ""
 
 msgid "machine qui ne répond pas"
 msgstr "मशीन जवाब नहीं दे रही"
+
+msgid ""
+"installée ; cette application n'a pas de liaison avec les autres (rien à "
+"relier)"
+msgstr ""
+"इंस्टॉल; इस एप्लिकेशन का दूसरों से कोई जुड़ाव नहीं (जोड़ने को कुछ नहीं)"
 
 #, python-brace-format
 msgid ""
@@ -906,6 +919,9 @@ msgstr ""
 "पुराना इंस्टॉलेशन अलग रखा गया (sudo mv), उसकी जगह नया, फिर उसका install.sh "
 "जो सेटिंग्स और डेटा वापस लेता है"
 
+msgid "nouveau dossier, archive extraite dedans, puis son install.sh"
+msgstr "नया फ़ोल्डर, आर्काइव उसमें निकाला गया, फिर उसका install.sh"
+
 msgid "Commande"
 msgstr "कमांड"
 
@@ -917,6 +933,14 @@ msgstr "मरम्मत"
 
 msgid "Synchroniser"
 msgstr "सिंक करें"
+
+#, python-brace-format
+msgid "{tool} {version} → {root} : installation — {how}"
+msgstr "{tool} {version} → {root}: इंस्टॉलेशन — {how}"
+
+#, python-brace-format
+msgid "{tool} ({root}) : pas d'installation possible — {reason}"
+msgstr "{tool} ({root}): इंस्टॉलेशन संभव नहीं — {reason}"
 
 #, python-brace-format
 msgid ""
@@ -942,6 +966,29 @@ msgid ""
 msgstr ""
 "सब कुछ इसी टर्मिनल में होता है: {name} का sudo पासवर्ड मशीन स्वयं एक बार "
 "माँगती है; omega-connect उसे कभी नहीं देखता।"
+
+#, python-brace-format
+msgid "Installer — machine {name} ({target})"
+msgstr "इंस्टॉल — मशीन {name} ({target})"
+
+msgid "Aucune application choisie : rien à installer."
+msgstr "कोई एप्लिकेशन नहीं चुना गया: इंस्टॉल करने को कुछ नहीं।"
+
+msgid ""
+"Archives prises sur GitHub, puis le site de chaque application (empreinte "
+"vérifiée avec sha.txt avant tout envoi) :"
+msgstr ""
+"आर्काइव GitHub से, नहीं तो हर एप्लिकेशन की साइट से (कुछ भी भेजने से पहले "
+"sha.txt से फ़िंगरप्रिंट जाँचा जाता है):"
+
+msgid ""
+"Juste installer : sa carte d'identité (install.sh) et, pour les applications"
+" qui se relient aux autres, l'inscription dans l'espace partagé de la "
+"machine. Aucune configuration : elle se fait dans l'application elle-même."
+msgstr ""
+"सिर्फ़ इंस्टॉल: उसका पहचान पत्र (install.sh) और, दूसरों से जुड़ने वाले "
+"एप्लिकेशन के लिए, मशीन के साझा स्थान में पंजीकरण। कोई कॉन्फ़िगरेशन नहीं: वह "
+"एप्लिकेशन में ही होता है।"
 
 #, python-brace-format
 msgid "Réinstaller l'application — machine {name} ({target})"
@@ -1430,10 +1477,10 @@ msgstr "OMEGA-CONNECT {version} — पूरी रिपोर्ट"
 
 #, python-brace-format
 msgid ""
-"Établi le {date} depuis {machine}, machines du réseau rescannées (lecture "
-"seule, sans root)."
+"Établi le {date} depuis {machine}, d'après le dernier scan de chaque machine"
+" (lecture seule, sans root)."
 msgstr ""
-"{date} को {machine} से बनाई गई, नेटवर्क की मशीनें फिर से स्कैन की गईं (केवल "
+"{date} को {machine} से बनाया गया, हर मशीन के पिछले स्कैन के अनुसार (सिर्फ़ "
 "पढ़ना, root के बिना)।"
 
 msgid "BILAN"
@@ -2473,6 +2520,20 @@ msgid ""
 msgstr ""
 "कारण ठीक करने के बाद वही कमांड फिर से चलाएँ: कुछ भी दो बार नहीं किया जाता।"
 
+msgid "Scan de cette machine…"
+msgstr "इस मशीन को स्कैन किया जा रहा है…"
+
+#, python-brace-format
+msgid "Scan des machines du réseau ({index}/{count}) : {machine}…"
+msgstr "नेटवर्क की मशीनें स्कैन हो रही हैं ({index}/{count}): {machine}…"
+
+#, python-brace-format
+msgid "Scan terminé : cette machine et {count} machine(s) du réseau."
+msgstr "स्कैन पूरा: यह मशीन और नेटवर्क की {count} मशीनें।"
+
+msgid "Scan"
+msgstr "स्कैन"
+
 msgid "Dossier des captures non configuré."
 msgstr "स्क्रीनशॉट फ़ोल्डर सेट नहीं है।"
 
@@ -2522,21 +2583,25 @@ msgstr "Ctrl+P"
 msgid ""
 "omega-connect relie entre elles les applications omega (omega-serv, omega-fire, omega-jail…) installées sur cette machine et sur les machines de votre réseau. Il montre ce qui est relié ou pas, et remet en place ce qui manque, toujours après vous avoir montré ce qu'il va faire.\n"
 "\n"
-"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après vos profils Unison, ~/.ssh/config et known_hosts, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
+"1. [b]Scanner[/b] : cherche les applications de cette machine. Ajoutez vos autres machines (proposées d'après votre configuration SSH — ~/.ssh/config, known_hosts — et vos profils Unison si vous en avez, ou saisies à la main) : elles sont jointes par SSH avec vos clés, rien n'y est installé.\n"
 "2. [b]Registre[/b] : la liste de toutes les applications de toutes les machines, avec leur état. Une application trop ancienne ou mal installée se met à jour ou se réinstalle depuis cet écran.\n"
 "3. [b]Synchronisation[/b] : cochez ce qui doit être relié, puis « Synchroniser » ; chaque machine montre son plan avant d'agir et demande son mot de passe une seule fois.\n"
 "4. [b]Liaisons[/b] : voir ce qui est relié ou pas, sur toutes les machines. [b]Dashboard[/b] : la vue d'ensemble, en cadres.\n"
 "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
-"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre."
+"6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n"
+"\n"
+"Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont rescannées."
 msgstr ""
 "omega-connect इस मशीन और आपके नेटवर्क की मशीनों पर इंस्टॉल किए गए omega एप्लिकेशन (omega-serv, omega-fire, omega-jail…) को आपस में जोड़ता है। यह दिखाता है कि क्या जुड़ा है और क्या नहीं, और जो छूटा है उसे ठीक करता है — हमेशा पहले यह दिखाकर कि वह क्या करेगा।\n"
 "\n"
-"1. [b]स्कैन करें[/b]: इस मशीन के एप्लिकेशन खोजता है। अपनी दूसरी मशीनें जोड़ें (आपके Unison प्रोफ़ाइल, ~/.ssh/config और known_hosts के आधार पर सुझाई गई, या हाथ से लिखी गई): उन तक आपकी कुंजियों से SSH द्वारा पहुँचा जाता है, वहाँ कुछ भी इंस्टॉल नहीं होता।\n"
+"1. [b]स्कैन[/b]: इस मशीन के एप्लिकेशन खोजता है। अपनी दूसरी मशीनें जोड़ें (आपकी SSH कॉन्फ़िगरेशन — ~/.ssh/config, known_hosts — और Unison प्रोफ़ाइल हों तो उनसे सुझाई गईं, या हाथ से लिखी गईं): उन तक आपकी कुंजियों से SSH द्वारा पहुँचा जाता है, वहाँ कुछ भी इंस्टॉल नहीं होता।\n"
 "2. [b]रजिस्टर[/b]: सभी मशीनों के सभी एप्लिकेशन की सूची, उनकी स्थिति के साथ। बहुत पुराना या ठीक से इंस्टॉल न हुआ एप्लिकेशन इसी स्क्रीन से अपडेट या फिर से इंस्टॉल होता है।\n"
 "3. [b]सिंक्रनाइज़ेशन[/b]: जो जोड़ना है उसे चुनें, फिर « सिंक करें »; हर मशीन कुछ करने से पहले अपनी योजना दिखाती है और अपना पासवर्ड केवल एक बार पूछती है।\n"
 "4. [b]लिंक[/b]: सभी मशीनों पर देखें कि क्या जुड़ा है और क्या नहीं। [b]डैशबोर्ड[/b]: फ़्रेमों में अवलोकन।\n"
 "5. [b]मरम्मत[/b]: जो कुछ ठीक नहीं है उसकी सूची; एक पंक्ति चुनें, या « सब की मरम्मत करें »।\n"
-"6. [b]रिपोर्ट[/b]: रखने या भेजने के लिए एक पूरा दस्तावेज़ (टेक्स्ट, JSON या HTML पेज)।"
+"6. [b]रिपोर्ट[/b]: रखने या भेजने के लिए एक पूरा दस्तावेज़ (टेक्स्ट, JSON या HTML पेज)।\n"
+"\n"
+"स्कैन शुरुआत में एक बार होता है (यह मशीन, फिर नेटवर्क की जानी-पहचानी मशीनें), फिर हर स्क्रीन उसे दोबारा पढ़ती है: « फिर से स्कैन करें » उसे फिर से करता है। किसी कार्रवाई के बाद, सिर्फ़ प्रभावित मशीनें फिर से स्कैन होती हैं।"
 
 msgid "Registre — toutes les applications et leur état"
 msgstr "रजिस्टर — सभी एप्लिकेशन और उनकी स्थिति"
@@ -2544,13 +2609,13 @@ msgstr "रजिस्टर — सभी एप्लिकेशन और �
 msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
-"- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
 "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "हर मशीन के लिए (यह मशीन और नेटवर्क की मशीनें), मिला हर omega एप्लिकेशन दिखाता है: उसका इंस्टेंस या सेवा, संस्करण, स्थिति और फ़ोल्डर। ऊपर का सारांश स्थितियों की गिनती दिखाता है।\n"
 "\n"
-"- [b]रजिस्टर अपडेट करें[/b]: स्क्रीन बदले बिना, वहीं फिर से स्कैन करता है (यह मशीन, फिर नेटवर्क की पहले से ज्ञात मशीनें)।\n"
+"- [b]फिर से स्कैन करें[/b]: स्क्रीन बदले बिना वहीं फिर से स्कैन करता है (यह मशीन, फिर नेटवर्क की पहले से जानी मशीनें)।\n"
 "- [b]एप्लिकेशन अपडेट करें[/b] / [b]एप्लिकेशन फिर से इंस्टॉल करें[/b]: Updater खोलता है, उस पंक्ति का एप्लिकेशन पहले से चुना हुआ (« पुराना संस्करण »; या « अधूरा इंस्टॉलेशन »: उसका install.sh पूरा नहीं हुआ, वही संस्करण फिर से इंस्टॉल होता है)। इस मशीन पर भी और नेटवर्क की मशीन पर भी।\n"
 "- किसी पंक्ति को हाइलाइट करें: उसकी स्थिति का स्पष्टीकरण और उसकी विसंगतियाँ नीचे दिखती हैं।"
 
@@ -2590,7 +2655,7 @@ msgid "Synchronisation — relier les applications"
 msgstr "सिंक्रनाइज़ेशन — एप्लिकेशन जोड़ें"
 
 msgid ""
-"Une seule liste : toutes vos machines et leurs applications (les machines du réseau sont rescannées à l'ouverture). Cochez des lignes (Entrée ou Espace), puis :\n"
+"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
 "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
 "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
 "- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
@@ -2599,7 +2664,7 @@ msgid ""
 "- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
 "- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
 msgstr ""
-"एक ही सूची: आपकी सभी मशीनें और उनके एप्लिकेशन (खोलते समय नेटवर्क की मशीनें फिर से स्कैन की जाती हैं)। पंक्तियों पर निशान लगाएँ (Enter या Space), फिर:\n"
+"एक ही सूची: पिछले स्कैन के अनुसार आपकी सभी मशीनें और उनके एप्लिकेशन (« फिर से स्कैन करें » उसे फिर से करता है)। पंक्तियाँ चुनें (Enter या Space), फिर:\n"
 "- [b]चयन सिंक करें[/b], या [b]सब सिंक करें[/b]।\n"
 "- [b]यह मशीन[/b]: एक ही योजना, कार्रवाई से पहले दिखाई जाती है — गायब पहचान पत्र (हर एप्लिकेशन द्वारा, उसके अपने खाते से बनाए जाते हैं), फिर साझा स्थान (omega-synchro समूह, फ़ोल्डर, पहचान पत्रों की कॉपी, सेवाओं की पहुँच)। एक ही एडमिन पासवर्ड।\n"
 "- [b]नेटवर्क की मशीन[/b]: उसकी योजना उसी मशीन पर गणना करके दिखाई जाती है; « <मशीन> सिंक करें » उसे यहीं से चलाता है: इंटरफ़ेस टर्मिनल को जगह देता है, मशीन स्वयं अपना पासवर्ड एक बार माँगती है; Enter इंटरफ़ेस पर लौटाता है, जो परिणाम दिखाता है।\n"
@@ -2639,7 +2704,7 @@ msgid ""
 "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
 "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
 "\n"
-"Cette machine est vérifiée à l'ouverture, puis régulièrement tant que l'écran est ouvert ; « Actualiser » relance la vérification. Les machines du réseau montrent leur dernier scan (menu Scanner pour les relire). Pour corriger : menu Réparer."
+"Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du réseau. Pour corriger : menu Réparer."
 msgstr ""
 "फ़्रेमों में एक अवलोकन, वेब डैशबोर्ड की तरह। इस स्क्रीन से कुछ भी बदला नहीं जाता।\n"
 "\n"
@@ -2648,13 +2713,13 @@ msgstr ""
 "- [b]यह मशीन / नेटवर्क[/b]: वही आँकड़े, अगल-बगल।\n"
 "- [b]Top 5[/b] (छोटी स्क्रीन पर top 3): मरम्मत ज़रूरी मशीनें, मरम्मत ज़रूरी लिंक, पिछड़े संस्करण, सबसे पुराने स्कैन (नेटवर्क की मशीनें)।\n"
 "\n"
-"यह मशीन स्क्रीन खुलते ही जाँची जाती है, फिर जब तक स्क्रीन खुली है, नियमित रूप से; « रीफ़्रेश » जाँच फिर से शुरू करता है। नेटवर्क की मशीनें अपना अंतिम स्कैन दिखाती हैं (उन्हें फिर से पढ़ने के लिए स्कैन करें मेनू)। ठीक करने के लिए: मरम्मत मेनू।"
+"सब कुछ पिछले स्कैन से आता है; « फिर से स्कैन करें » इस मशीन और नेटवर्क की मशीनों का स्कैन फिर से करता है। ठीक करने के लिए: मरम्मत मेनू।"
 
 msgid "Réparer — tout ce qui ne va pas"
 msgstr "मरम्मत — जो कुछ ठीक नहीं है"
 
 msgid ""
-"La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
+"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le corrige.\n"
 "\n"
 "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
 "- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
@@ -2663,7 +2728,7 @@ msgid ""
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
 msgstr ""
-"सभी मशीनों पर जो कुछ ठीक नहीं है उसकी सूची (खोलते समय नेटवर्क की मशीनें फिर से स्कैन की जाती हैं): मशीन, समस्या, स्थिति, और इसे कौन ठीक करता है।\n"
+"पिछले स्कैन के अनुसार सभी मशीनों पर जो भी ठीक नहीं है उसकी सूची (« फिर से स्कैन करें » उसे फिर से करता है; ठीक की गई मशीन तुरंत फिर से स्कैन होती है): मशीन, समस्या, स्थिति, और कौन ठीक करता है।\n"
 "\n"
 "- [b]चुनी गई पंक्ति की मरम्मत करें[/b]: मशीन की योजना खोलता है। यह मशीन: स्वयं एप्लिकेशन की कमांड (fail2ban में जो रखता है उसके लिए omega-jail, अपने var/ की अनुमतियों के लिए omega-serv, अपने पहचान पत्र के लिए हर एप्लिकेशन), फिर साझा स्थान। नेटवर्क की मशीन: वही सुधार, साथ में वे कमांड जिन्हें कोई एप्लिकेशन नहीं चला सकता, जो यहीं से उसी मशीन पर चलाई जाती हैं (केवल वे जो योजना में बताई गई हैं)।\n"
 "- « पुराना संस्करण » या « अधूरा इंस्टॉलेशन » वाली पंक्ति Updater खोलती है, एप्लिकेशन पहले से चुना हुआ: अपडेट सिर्फ़ Updater करता है।\n"
@@ -2692,18 +2757,40 @@ msgstr ""
 "- अंत में: हर एप्लिकेशन के लिए क्या किया गया, और मशीनें फिर से स्कैन।\n"
 "- [b]omega-suite[/b]: इसमें शामिल omega-stress इसी का हिस्सा है। पंक्ति omega-suite की है (« omega-stress … शामिल »): यह साथ में जाँचे गए अपने उपकरणों के साथ अपडेट होती है, omega-stress अकेले कभी नहीं। 2.0.0 से यह अलग omega-stress की तरह वितरित लोड में मदद करता है; अगर मशीन पर अलग omega-stress भी है, तो वही मदद करता है।"
 
+msgid "Installer — installer les applications"
+msgstr "Installer — एप्लिकेशन इंस्टॉल करना"
+
+msgid ""
+"Installe les applications omega sur cette machine et sur les machines du réseau, depuis ici, avec le même procédé que l'Updater.\n"
+"\n"
+"- Les lignes : chaque machine joignable (d'après le dernier scan) et chaque application omega publiée, « déjà installée » (avec sa version) ou à installer dans ~/<application>.\n"
+"- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application).\n"
+"- [b]Installer la sélection[/b] : cette machine d'abord, dans le terminal, puis chaque machine du réseau, son plan affiché avant d'agir. L'archive est vérifiée (sha.txt), extraite dans un nouveau dossier (jamais par-dessus un dossier qui n'est pas vide), puis son install.sh est lancé ; omega-fire demande le mot de passe sudo.\n"
+"- Juste installer : la carte d'identité (install.sh) et, pour les applications qui se relient aux autres (omega-serv, omega-fire, omega-jail, omega-stress), l'inscription dans l'espace partagé de la machine. La configuration se fait ensuite dans l'application elle-même.\n"
+"- À la fin : ce qui a été fait, et les machines touchées rescannées."
+msgstr ""
+"Updater जैसी ही प्रक्रिया से, यहीं से इस मशीन और नेटवर्क की मशीनों पर omega एप्लिकेशन इंस्टॉल करता है।\n"
+"\n"
+"- पंक्तियाँ: हर पहुँच योग्य मशीन (पिछले स्कैन के अनुसार) और हर प्रकाशित omega एप्लिकेशन, « पहले से इंस्टॉल » (संस्करण सहित) या ~/<एप्लिकेशन> में इंस्टॉल करने वाला।\n"
+"- [b]संस्करण जाँचें[/b]: हर एप्लिकेशन का नवीनतम प्रकाशित संस्करण (GitHub Release, नहीं तो एप्लिकेशन की साइट)।\n"
+"- [b]चुने हुए इंस्टॉल करें[/b]: पहले यह मशीन, टर्मिनल में, फिर नेटवर्क की हर मशीन, कुछ करने से पहले उसकी योजना दिखाई जाती है। आर्काइव जाँचा जाता है (sha.txt), नए फ़ोल्डर में निकाला जाता है (कभी भी किसी गैर-खाली फ़ोल्डर के ऊपर नहीं), फिर उसका install.sh चलता है; omega-fire sudo पासवर्ड माँगता है।\n"
+"- सिर्फ़ इंस्टॉल: पहचान पत्र (install.sh) और, दूसरों से जुड़ने वाले एप्लिकेशन (omega-serv, omega-fire, omega-jail, omega-stress) के लिए, मशीन के साझा स्थान में पंजीकरण। कॉन्फ़िगरेशन बाद में एप्लिकेशन में ही होता है।\n"
+"- अंत में: क्या किया गया, और प्रभावित मशीनें फिर से स्कैन।"
+
 msgid "Rapport — un document complet"
 msgstr "रिपोर्ट — एक पूरा दस्तावेज़"
 
 msgid ""
-"Établi à l'instant (les machines du réseau sont rescannées avant) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
 "\n"
 "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
+"- [b]Voir les exports[/b] : le dossier des exports s'ouvre dans votre navigateur, chaque export se lit d'un clic (sans quitter omega-connect). Sans navigateur (serveur, connexion SSH), la liste s'affiche ici et chaque export s'y lit.\n"
 "- En ligne de commande : omega-connect rapport --format html --enregistrer."
 msgstr ""
-"अभी बनाई जाती है (पहले नेटवर्क की मशीनें फिर से स्कैन की जाती हैं): सारांश, जो करना बाकी है उसकी सटीक सूची (मशीन, क्या, कौन सा मेनू), सभी एप्लिकेशन का रजिस्टर, नेटवर्क की मशीनें, इस मशीन के एप्लिकेशन विस्तार से, हर मशीन के लिंक, साझा स्थान और उसका रजिस्टर।\n"
+"पिछले स्कैन से बना (« फिर से स्कैन करें » पहले इस मशीन और नेटवर्क को फिर से स्कैन करता है): सारांश, बचे हुए काम की सटीक सूची (मशीन, क्या, कौन सा मेनू), सभी एप्लिकेशन का रजिस्टर, नेटवर्क की मशीनें, इस मशीन के एप्लिकेशन का विवरण, हर मशीन के जुड़ाव, साझा स्थान और उसका रजिस्टर।\n"
 "\n"
 "- टेक्स्ट, JSON या HTML पेज में एक्सपोर्ट (थीम अपनी पसंद की, डिफ़ॉल्ट रूप से सेटिंग्स वाली), एक्सपोर्ट फ़ोल्डर में।\n"
+"- [b]एक्सपोर्ट देखें[/b]: एक्सपोर्ट फ़ोल्डर आपके ब्राउज़र में खुलता है, हर एक्सपोर्ट एक क्लिक में पढ़ा जाता है (omega-connect छोड़े बिना)। ब्राउज़र न हो (सर्वर, SSH कनेक्शन) तो सूची यहीं दिखती है और हर एक्सपोर्ट यहीं पढ़ा जाता है।\n"
 "- कमांड लाइन से: omega-connect rapport --format html --enregistrer"
 
 msgid ""
@@ -2744,6 +2831,7 @@ msgid ""
 "- ▲ À réparer : un écart (Réparer).\n"
 "- ◌ Ancienne version : trop ancienne pour omega-connect (Registre → Mettre à jour l'application).\n"
 "- ◇ Installation inachevée : son install.sh ne s'est pas terminé (Registre → Réinstaller l'application).\n"
+"- ■ Installée : application sans liaison avec les autres (omega-log, omega-scan, omega-suite…) : rien à relier.\n"
 "- ✕ Injoignable : la machine ne répond plus (Scanner → Rescanner).\n"
 "\n"
 "[b]Liaisons[/b] : OK ; à réparer ; à réparer (bloquant) ; absent (rien à relier, par exemple omega-jail non installé) ; non vérifiable (lecture impossible depuis votre session)."
@@ -2755,6 +2843,7 @@ msgstr ""
 "- ▲ मरम्मत ज़रूरी: एक विसंगति (मरम्मत)।\n"
 "- ◌ पुराना संस्करण: omega-connect के लिए बहुत पुरानी (रजिस्टर → एप्लिकेशन अपडेट करें)।\n"
 "- ◇ अधूरा इंस्टॉलेशन: इसका install.sh पूरा नहीं हुआ (रजिस्टर → एप्लिकेशन फिर से इंस्टॉल करें)।\n"
+"- ■ इंस्टॉल: दूसरों से बिना जुड़ाव वाला एप्लिकेशन (omega-log, omega-scan, omega-suite…): जोड़ने को कुछ नहीं।\n"
 "- ✕ पहुँच से बाहर: मशीन अब जवाब नहीं देती (स्कैन करें → फिर से स्कैन करें)।\n"
 "\n"
 "[b]लिंक[/b]: OK; मरम्मत ज़रूरी; मरम्मत ज़रूरी (अवरोधक); अनुपस्थित (जोड़ने को कुछ नहीं, उदाहरण के लिए omega-jail इंस्टॉल नहीं); जाँच संभव नहीं (आपके सत्र से पढ़ना संभव नहीं)।"
@@ -2800,13 +2889,13 @@ msgstr "omega-connect की फ़ाइलें"
 
 msgid ""
 "Tout vit dans le dossier d'omega-connect, sous var/ :\n"
-"- parc.json : registre des machines du réseau (dernier scan, adresses, empreinte).\n"
+"- omega-connect.db : registre des machines (SQLite : machines, applications, liaisons, historique des scans) ; l'ancien parc.json est repris une fois puis gardé à côté.\n"
 "- settings.json : réglages.\n"
 "- exports/ et screenshots/ : par défaut (voir Réglages).\n"
 "- declaration.json : déclaration d'utilisateur anonyme (si vous l'avez faite)."
 msgstr ""
 "सब कुछ omega-connect फ़ोल्डर में, var/ के अंदर रहता है:\n"
-"- parc.json: नेटवर्क की मशीनों का रजिस्टर (अंतिम स्कैन, पते, फ़िंगरप्रिंट)।\n"
+"- omega-connect.db: मशीनों का रजिस्टर (SQLite: मशीनें, एप्लिकेशन, जुड़ाव, स्कैन इतिहास); पुराना parc.json एक बार ले लिया जाता है, फिर बगल में रखा जाता है।\n"
 "- settings.json: सेटिंग्स।\n"
 "- exports/ और screenshots/: डिफ़ॉल्ट रूप से (सेटिंग्स देखें)।\n"
 "- declaration.json: अनाम उपयोगकर्ता पंजीकरण (यदि आपने किया है)।"
@@ -2835,6 +2924,9 @@ msgstr "डैशबोर्ड"
 
 msgid "Updater"
 msgstr "Updater"
+
+msgid "Installer"
+msgstr "Installer"
 
 msgid "Rapport"
 msgstr "रिपोर्ट"
@@ -3046,6 +3138,9 @@ msgstr "अभी जाँचें"
 msgid "LIENS"
 msgstr "लिंक"
 
+msgid "Relancer le scan"
+msgstr "फिर से स्कैन करें"
+
 msgid "Détail du lien"
 msgstr "लिंक का विवरण"
 
@@ -3225,6 +3320,33 @@ msgstr "प्रगति"
 msgid "Fermer"
 msgstr "बंद करें"
 
+#, python-brace-format
+msgid "Fichier trop volumineux pour être lu ici : {path}"
+msgstr "फ़ाइल यहाँ पढ़ने के लिए बहुत बड़ी है: {path}"
+
+#, python-brace-format
+msgid "Lecture impossible : {error}"
+msgstr "पढ़ना संभव नहीं: {error}"
+
+msgid "EXPORTS"
+msgstr "एक्सपोर्ट"
+
+msgid ""
+"Pas de navigateur dans cette session (serveur, connexion SSH) : les exports "
+"sont listés et lus ici. Choisissez une ligne (Entrée) pour la lire."
+msgstr ""
+"इस सत्र में ब्राउज़र नहीं है (सर्वर, SSH कनेक्शन): एक्सपोर्ट यहीं सूचीबद्ध "
+"होते हैं और पढ़े जाते हैं। पढ़ने के लिए एक पंक्ति चुनें (Enter)।"
+
+msgid "Lire"
+msgstr "पढ़ें"
+
+msgid "Taille"
+msgstr "आकार"
+
+msgid "Aucun export pour l'instant."
+msgstr "अभी कोई एक्सपोर्ट नहीं।"
+
 msgid ""
 "Chaque menu, sa fonction et le détail. Cliquez sur un titre pour l'ouvrir."
 msgstr "हर मेनू, उसका काम और विवरण। खोलने के लिए किसी शीर्षक पर क्लिक करें।"
@@ -3360,9 +3482,6 @@ msgstr ""
 "पुराने एप्लिकेशन (चुनी गई पंक्ति) का नवीनतम संस्करण इंस्टॉल करता है। लिंक "
 "फिर से ठीक करने के लिए: सिंक्रनाइज़ेशन; विसंगति ठीक करने के लिए: मरम्मत।"
 
-msgid "Mettre à jour le registre"
-msgstr "रजिस्टर अपडेट करें"
-
 msgid "Mettre à jour l'application"
 msgstr "एप्लिकेशन अपडेट करें"
 
@@ -3403,10 +3522,6 @@ msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
 msgstr "→ « {action} » Updater खोलता है, एप्लिकेशन पहले से चुना हुआ।"
 
 #, python-brace-format
-msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
-msgstr "रजिस्टर अपडेट: {count} दूरस्थ मशीनों का स्कैन…"
-
-#, python-brace-format
 msgid ""
 "omega-connect — synchronisation de {machine}. La machine demande elle-même "
 "son mot de passe sudo (il ne s'affiche pas pendant la saisie) ; omega-"
@@ -3417,6 +3532,20 @@ msgstr ""
 
 msgid "Terminé. Appuyez sur Entrée pour revenir à omega-connect… "
 msgstr "पूरा। omega-connect पर लौटने के लिए Enter दबाएँ… "
+
+#, python-brace-format
+msgid "INSTALLER — {machine}"
+msgstr "INSTALLER — {machine}"
+
+msgid ""
+"Les applications choisies, installées sur cette machine depuis ici : archive"
+" vérifiée, envoyée, puis son install.sh dans le terminal ; ensuite "
+"l'inscription de celles qui se relient aux autres. Rien n'est fait avant « "
+"Lancer »."
+msgstr ""
+"चुने हुए एप्लिकेशन, यहीं से इस मशीन पर इंस्टॉल: आर्काइव जाँचा गया, भेजा गया,"
+" फिर टर्मिनल में उसका install.sh; फिर दूसरों से जुड़ने वालों का पंजीकरण। « "
+"चलाएँ » से पहले कुछ नहीं होता।"
 
 #, python-brace-format
 msgid "METTRE À JOUR L'APPLICATION — {machine}"
@@ -3472,6 +3601,10 @@ msgstr "{machine} पर अपडेट करें"
 #, python-brace-format
 msgid "Réparer {machine}"
 msgstr "{machine} की मरम्मत करें"
+
+#, python-brace-format
+msgid "Installer sur {machine}"
+msgstr "{machine} पर इंस्टॉल करें"
 
 #, python-brace-format
 msgid "Synchroniser {machine}"
@@ -3552,12 +3685,8 @@ msgstr "समस्या"
 msgid "Qui corrige"
 msgstr "कौन ठीक करता है"
 
-msgid "Recherche de tout ce qui ne va pas : vérification de cette machine…"
-msgstr "जो कुछ ठीक नहीं है उसकी खोज: इस मशीन की जाँच…"
-
-#, python-brace-format
-msgid "Rescan des machines du réseau ({index}/{count}) : {machine}…"
-msgstr "नेटवर्क की मशीनों का फिर से स्कैन ({index}/{count}): {machine}…"
+msgid "Lecture du dernier scan…"
+msgstr "पिछला स्कैन पढ़ा जा रहा है…"
 
 #, python-brace-format
 msgid "{count} problème(s) sur {machines} machine(s)."
@@ -3577,14 +3706,15 @@ msgid "RAPPORT"
 msgstr "रिपोर्ट"
 
 msgid ""
-"Un document complet, établi à l'instant (les machines du réseau sont "
-"rescannées avant) : bilan, ce qu'il reste à faire, registre, machines du "
-"réseau, liaisons de chaque machine, espace partagé. Enregistré dans le "
-"dossier des exports."
+"Un document complet, d'après le dernier scan (« Relancer le scan » le "
+"refait) : bilan, ce qu'il reste à faire, registre, machines du réseau, "
+"liaisons de chaque machine, espace partagé. Enregistré dans le dossier des "
+"exports ; « Voir les exports » les ouvre dans le navigateur pour les lire."
 msgstr ""
-"एक पूरा दस्तावेज़, अभी तैयार (नेटवर्क की मशीनें पहले फिर से स्कैन होती हैं):"
-" सारांश, क्या करना बाकी है, रजिस्टर, नेटवर्क की मशीनें, हर मशीन के लिंक, "
-"साझा स्थान। निर्यात फ़ोल्डर में सहेजा जाता है।"
+"पिछले स्कैन से बना पूरा दस्तावेज़ (« फिर से स्कैन करें » उसे फिर से करता "
+"है): सारांश, बचा हुआ काम, रजिस्टर, नेटवर्क की मशीनें, हर मशीन के जुड़ाव, "
+"साझा स्थान। एक्सपोर्ट फ़ोल्डर में सहेजा जाता है; « एक्सपोर्ट देखें » उन्हें "
+"पढ़ने के लिए ब्राउज़र में खोलता है।"
 
 msgid "THÈME DE LA PAGE HTML"
 msgstr "HTML पेज की थीम"
@@ -3601,6 +3731,12 @@ msgstr "TXT एक्सपोर्ट करें"
 msgid "Exporter HTML"
 msgstr "HTML एक्सपोर्ट करें"
 
+msgid "Voir les exports"
+msgstr "एक्सपोर्ट देखें"
+
+msgid "Scan de cette machine et des machines du réseau…"
+msgstr "यह मशीन और नेटवर्क की मशीनें स्कैन हो रही हैं…"
+
 msgid "Génération du rapport en cours (détection, vérification, zone)…"
 msgstr "रिपोर्ट बनाई जा रही है (पहचान, जाँच, क्षेत्र)…"
 
@@ -3610,6 +3746,10 @@ msgstr "रिपोर्ट तैयार।"
 #, python-brace-format
 msgid "Export impossible : {error}"
 msgstr "एक्सपोर्ट नहीं हो सका: {error}"
+
+#, python-brace-format
+msgid "Dossier des exports ouvert dans le navigateur : {path}"
+msgstr "एक्सपोर्ट फ़ोल्डर ब्राउज़र में खोला गया: {path}"
 
 #, python-brace-format
 msgid "{count} application(s) omega trouvée(s) sur cette machine."
@@ -3855,9 +3995,6 @@ msgstr "वितरित लोड…"
 msgid "Lire avec sudo"
 msgstr "sudo से पढ़ें"
 
-msgid "Vérification de cette machine et de son espace partagé…"
-msgstr "इस मशीन और इसके साझा स्थान की जाँच…"
-
 #, python-brace-format
 msgid "{count} application(s) sur {machines} machine(s) — vérifié à {time}."
 msgstr "{machines} मशीनों पर {count} एप्लिकेशन — {time} पर जाँचा गया।"
@@ -3904,6 +4041,12 @@ msgstr "कोई प्रकाशित संस्करण नहीं �
 msgid "machine injoignable"
 msgstr "मशीन तक पहुँच नहीं"
 
+msgid "à installer"
+msgstr "इंस्टॉल करना है"
+
+msgid "déjà installée"
+msgstr "पहले से इंस्टॉल"
+
 msgid ""
 "omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
 "demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
@@ -3926,24 +4069,8 @@ msgstr ""
 " फिर « चुने हुए अपडेट करें » या « सब अपडेट करें »: हर मशीन कुछ करने से पहले "
 "अपनी योजना दिखाती है, और पासवर्ड टर्मिनल में सिर्फ़ एक बार पूछा जाता है।"
 
-msgid "Vérifier les versions"
-msgstr "संस्करण जाँचें"
-
 msgid "Mettre à jour la sélection"
 msgstr "चुने हुए अपडेट करें"
-
-msgid "Tout mettre à jour"
-msgstr "सब अपडेट करें"
-
-msgid "Disponible"
-msgstr "उपलब्ध"
-
-msgid "Installée"
-msgstr "इंस्टॉल"
-
-#, python-brace-format
-msgid "{tool} (contient {tools})"
-msgstr "{tool} ({tools} शामिल)"
 
 #, python-brace-format
 msgid ""
@@ -3953,6 +4080,19 @@ msgstr ""
 "{count} एप्लिकेशन — नवीनतम: {ok}; अपडेट करने हैं: {old}; अधूरे: "
 "{incomplete}; जाँचे नहीं गए: {unchecked}।"
 
+msgid "Vérifier les versions"
+msgstr "संस्करण जाँचें"
+
+msgid "Tout mettre à jour"
+msgstr "सब अपडेट करें"
+
+msgid "Disponible"
+msgstr "उपलब्ध"
+
+#, python-brace-format
+msgid "{tool} (contient {tools})"
+msgstr "{tool} ({tools} शामिल)"
+
 msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
 msgstr "नवीनतम प्रकाशित संस्करण खोजे जा रहे हैं (GitHub, फिर साइट)…"
 
@@ -3961,6 +4101,42 @@ msgstr "आर्काइव डाउनलोड और जाँचे ज�
 
 msgid "Rescan de cette machine…"
 msgstr "इस मशीन को फिर से स्कैन किया जा रहा है…"
+
+msgid "INSTALLER"
+msgstr "INSTALLER"
+
+msgid ""
+"Pour chaque machine joignable (cette machine et le réseau, d'après le "
+"dernier scan), les applications omega publiées : déjà installées, ou à "
+"installer dans ~/<application>. « Vérifier les versions » cherche la "
+"dernière version publiée (GitHub, puis le site). Cochez (Entrée ou Espace) "
+"puis « Installer la sélection » : chaque machine montre son plan avant "
+"d'agir ; omega-fire demande le mot de passe sudo, dans le terminal."
+msgstr ""
+"हर पहुँच योग्य मशीन (यह मशीन और नेटवर्क, पिछले स्कैन के अनुसार) के लिए "
+"प्रकाशित omega एप्लिकेशन: पहले से इंस्टॉल, या ~/<एप्लिकेशन> में इंस्टॉल करने"
+" हैं। « संस्करण जाँचें » नवीनतम प्रकाशित संस्करण खोजता है (GitHub, फिर "
+"साइट)। चुनें (Enter या Space), फिर « चुने हुए इंस्टॉल करें »: हर मशीन कुछ "
+"करने से पहले अपनी योजना दिखाती है; omega-fire टर्मिनल में sudo पासवर्ड "
+"माँगता है।"
+
+msgid "Installer la sélection"
+msgstr "चुने हुए इंस्टॉल करें"
+
+msgid ""
+"omega-connect — installation sur cette machine. Les install.sh peuvent "
+"demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
+msgstr ""
+"omega-connect — इस मशीन पर इंस्टॉलेशन। install.sh sudo पासवर्ड माँग सकते हैं"
+" (टाइप करते समय दिखता नहीं)।"
+
+#, python-brace-format
+msgid ""
+"{count} ligne(s) — déjà installées : {present} ; à installer : {todo} ; non "
+"vérifiées : {unchecked}."
+msgstr ""
+"{count} पंक्तियाँ — पहले से इंस्टॉल: {present}; इंस्टॉल करने हैं: {todo}; "
+"जाँचे नहीं गए: {unchecked}।"
 
 msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
 msgstr "साझा स्थान का विवरण"

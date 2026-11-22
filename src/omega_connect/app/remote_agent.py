@@ -130,7 +130,14 @@ def run_mode(directory: str) -> int:
     if purpose is Purpose.UPDATE:  # « Mettre a jour l'application » : rien d'autre
         _write_result(session, steps)
         return 0
-    commands = [(StepName.REPAIR, ["reparer", "--oui"])]
+    if purpose is Purpose.INSTALL:
+        # Installer : juste installer, sauf la carte d'identite et l'inscription (decision de l'auteur, 2026-11-22)
+        from omega_connect.domain.tools import has_contracts
+
+        commands = [(StepName.ENROLL, ["synchroniser", "--oui"])] if any(
+            has_contracts(order.tool) for order in orders) else []
+    else:
+        commands = [(StepName.REPAIR, ["reparer", "--oui"])]
     if purpose is Purpose.SYNC:
         commands.append((StepName.ENROLL, ["synchroniser", "--oui"]))
     for name, argv in commands:
