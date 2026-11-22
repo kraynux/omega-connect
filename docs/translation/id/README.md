@@ -25,10 +25,11 @@ Halaman resmi: [OMEGA-CONNECT](https://kraynux.snake-mackarel.ts.net/omega-conne
 **Omega-connect** adalah penghubung suite `omega-`: ia menemukan aplikasi omega yang terpasang (omega-serv, omega-fire, omega-jail…) di mesin ini dan di mesin-mesin jaringan Anda, menunjukkan apa yang sudah tertaut satu sama lain dan apa yang belum, lalu memulihkan apa yang kurang — selalu dengan menunjukkan terlebih dahulu apa yang akan dilakukannya. Setelah tertaut, aplikasi-aplikasi saling menemukan tanpa perlu menjalankan omega-connect.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/A.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/B.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/C.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/D.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/A.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/B.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/C.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/D.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-connect/E.png" width="32%" />
 </p>
 
 ## 1. Visi dan cakupan
@@ -41,8 +42,9 @@ Aplikasi omega dibuat untuk bekerja sama: log omega-serv dibaca oleh jail omega-
 - Menyimpan **registri** semua aplikasi di semua mesin, beserta versi dan statusnya.
 - Memeriksa setiap **tautan** antaraplikasi (log yang dibaca jail, jembatan ke daftar hitam, daftar terlindungi, berkas omega-jail di fail2ban, kartu identitas, ruang bersama) dan memberi tahu apa yang bermasalah.
 - **Menyinkronkan**: membuat kartu identitas yang belum ada dan menyiapkan **ruang bersama** tempat aplikasi-aplikasi saling menemukan.
+- **Menautkan beban terdistribusi omega-stress**: mesin ini memimpin, mesin yang dicentang membantunya membebani target; satu tombol (akses dikirim lewat SSH, persetujuan dipilih, firewall dibuka hanya untuk port omega-stress).
 - **Memperbaiki**: meminta aplikasi pemilik berkas untuk membereskan setiap ketidaksesuaian; omega-connect tidak pernah melakukannya sendiri.
-- **Memperbarui atau memasang ulang** aplikasi yang terlalu lama atau terpasang dengan salah di mesin jaringan, dari Release GitHub-nya (sidik jari diverifikasi).
+- **Memperbarui atau memasang ulang** aplikasi mesin ini dan jaringan, dari **Updater**: dari Release GitHub-nya atau, jika tidak ada, dari situsnya (sidik jari diperiksa); versi yang belum terbit tidak pernah ditawarkan.
 - Bertindak pada mesin jaringan **dari komputer Anda**: tidak ada yang perlu diketik di sana, kata sandinya diminta sekali, oleh mesin itu sendiri.
 - Menghasilkan **laporan** lengkap (teks, JSON, atau halaman HTML).
 
@@ -66,7 +68,7 @@ Aplikasi omega dibuat untuk bekerja sama: log omega-serv dibaca oleh jail omega-
 Dari folder tempat arsip berada:
 
 ```bash
-tar -xzf omega-connect-0.1.0.tar.gz
+tar -xzf omega-connect-0.2.0.tar.gz
 cd omega-connect/
 ./install.sh
 ```
@@ -105,10 +107,10 @@ Menu utama memiliki dua kolom:
 | Pengelolaan | Pemeliharaan |
 |---|---|
 | **Registri** — semua aplikasi di semua mesin, versi dan statusnya | **Perbaiki** — daftar semua yang bermasalah, dan Anda yang memilih |
-| **Pindai** — mesin ini, dan penambahan mesin jaringan | **Laporan** — dokumen lengkap, untuk diekspor |
-| **Tautan** — apa yang tertaut atau belum, beserta statusnya | **Pengaturan** — bahasa, tema, folder, pembersihan |
-| **Sinkronisasi** — menautkan aplikasi, di semua mesin | **Bantuan** — setiap menu, fungsinya, dan detailnya |
-| **Dasbor** — gambaran umum | **Keluar** |
+| **Pindai** — mesin ini, dan penambahan mesin jaringan | **Updater** — periksa versi, perbarui atau pasang ulang, di semua mesin |
+| **Tautan** — apa yang tertaut atau belum, beserta statusnya | **Laporan** — dokumen lengkap, untuk diekspor |
+| **Sinkronisasi** — menautkan aplikasi, di semua mesin | **Pengaturan** — bahasa, tema, folder, pembersihan |
+| **Dasbor** — gambaran umum | **Bantuan** — setiap menu, fungsinya, dan detailnya |
 
 Alur umum: **Pindai** (mesin ini, lalu mesin Anda yang lain, yang diusulkan berdasarkan profil Unison, `~/.ssh/config`, dan `known_hosts` Anda) → **Registri** (perbarui atau pasang ulang aplikasi yang lama) → **Sinkronisasi** (centang, lalu sinkronkan) → **Tautan** dan **Dasbor** untuk melihat hasilnya → **Perbaiki** jika masih ada ketidaksesuaian.
 

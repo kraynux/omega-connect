@@ -30,6 +30,7 @@ LINK_LABELS = {
     LinkKind.FAIL2BAN_FILES: N_("Fichiers d'omega-jail dans fail2ban"),
     LinkKind.TOKENS: N_("Cartes d'identité"),
     LinkKind.ZONE: N_("Espace partagé (omega-synchro)"),
+    LinkKind.DISTRIBUTED_LOAD: N_("Charge distribuée (omega-stress)"),
 }
 STATE_LABELS = {
     LinkState.ACTIVE: N_("OK"),
@@ -175,6 +176,18 @@ CHECK_MESSAGES = {
     CheckCode.ZONE_SERVICE_GROUP_MISSING: N_("le service {subject} ({detail}) tourne sous un compte dédié sans le "
                                              "groupe omega-synchro : il ne pourra pas lire l'espace partagé. "
                                              "La Synchronisation demande à omega-serv de le lui donner."),
+    CheckCode.STRESS_HELPER_FACTS: N_("relevé d'omega-stress sur {subject} (pas encore comparé à cette machine)."),
+    CheckCode.STRESS_LINKED: N_("{subject} aide cette machine à charger les cibles (accord : {detail})."),
+    CheckCode.STRESS_NOT_LINKED: N_("{subject} peut aider cette machine : pas encore reliée (Synchronisation → "
+                                    "Charge distribuée)."),
+    CheckCode.STRESS_HALF_LINKED: N_("{subject} : liaison incomplète ({detail}) — relier de nouveau."),
+    CheckCode.STRESS_NO_PILOT: N_("{subject} a omega-stress, mais pas cette machine : elle ne peut pas piloter."),
+    CheckCode.STRESS_FIREWALL_CLOSED: N_("pare-feu de cette machine ({subject}) fermé au port d'omega-stress : les "
+                                         "machines qui aident ne peuvent pas le joindre."),
+    CheckCode.STRESS_NEEDS_OMEGA_FIRE: N_("pare-feu nftables sans omega-fire : installez omega-fire pour ouvrir le "
+                                          "port d'omega-stress (sa configuration n'est jamais réécrite à la main)."),
+    CheckCode.STRESS_HELPER_UNREADABLE: N_("{subject} : état d'omega-stress illisible (version antérieure à "
+                                           "2.0.0 ?)."),
 }
 
 

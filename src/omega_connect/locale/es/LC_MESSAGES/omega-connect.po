@@ -1696,6 +1696,9 @@ msgstr "Tarjetas de identidad"
 msgid "Espace partagé (omega-synchro)"
 msgstr "Espacio compartido (omega-synchro)"
 
+msgid "Charge distribuée (omega-stress)"
+msgstr "Carga distribuida (omega-stress)"
+
 msgid "OK"
 msgstr "OK"
 
@@ -2207,6 +2210,55 @@ msgstr ""
 "grupo omega-synchro: no podrá leer el espacio compartido. La Sincronización "
 "pide a omega-serv que se lo dé."
 
+#, python-brace-format
+msgid ""
+"relevé d'omega-stress sur {subject} (pas encore comparé à cette machine)."
+msgstr ""
+"lectura de omega-stress en {subject} (aún no comparada con esta máquina)."
+
+#, python-brace-format
+msgid "{subject} aide cette machine à charger les cibles (accord : {detail})."
+msgstr ""
+"{subject} ayuda a esta máquina a cargar los objetivos (acuerdo: {detail})."
+
+#, python-brace-format
+msgid ""
+"{subject} peut aider cette machine : pas encore reliée (Synchronisation → "
+"Charge distribuée)."
+msgstr ""
+"{subject} puede ayudar a esta máquina: aún no enlazada (Sincronización → "
+"Carga distribuida)."
+
+#, python-brace-format
+msgid "{subject} : liaison incomplète ({detail}) — relier de nouveau."
+msgstr "{subject}: enlace incompleto ({detail}) — enlazar de nuevo."
+
+#, python-brace-format
+msgid ""
+"{subject} a omega-stress, mais pas cette machine : elle ne peut pas piloter."
+msgstr "{subject} tiene omega-stress, pero esta máquina no: no puede dirigir."
+
+#, python-brace-format
+msgid ""
+"pare-feu de cette machine ({subject}) fermé au port d'omega-stress : les "
+"machines qui aident ne peuvent pas le joindre."
+msgstr ""
+"cortafuegos de esta máquina ({subject}) cerrado al puerto de omega-stress: "
+"las máquinas que ayudan no pueden alcanzarla."
+
+msgid ""
+"pare-feu nftables sans omega-fire : installez omega-fire pour ouvrir le port"
+" d'omega-stress (sa configuration n'est jamais réécrite à la main)."
+msgstr ""
+"cortafuegos nftables sin omega-fire: instale omega-fire para abrir el puerto"
+" de omega-stress (su configuración nunca se reescribe a mano)."
+
+#, python-brace-format
+msgid ""
+"{subject} : état d'omega-stress illisible (version antérieure à 2.0.0 ?)."
+msgstr ""
+"{subject}: estado de omega-stress ilegible (¿versión anterior a 2.0.0?)."
+
 msgid "correction : Synchronisation (omega-connect synchroniser)"
 msgstr "corrección: Sincronización (omega-connect synchroniser)"
 
@@ -2556,17 +2608,13 @@ msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
 "- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
-"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
-"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
-"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "Muestra, para cada máquina (esta y las de la red), cada aplicación omega encontrada: su instancia o servicio, su versión, su estado y su carpeta. El resumen de arriba cuenta los estados.\n"
 "\n"
 "- [b]Actualizar el registro[/b]: vuelve a hacer el escaneo en el momento (esta máquina y luego las máquinas de la red ya conocidas), sin cambiar de pantalla.\n"
-"- [b]Actualizar la aplicación[/b]: en una línea « Versión antigua » de una máquina de la red, instala la última versión publicada (Release de GitHub de la aplicación, huella verificada con sha.txt antes de cualquier envío). Primero se muestra el plan; no se hace nada más.\n"
-"- [b]Reinstalar la aplicación[/b]: el mismo botón en una línea « Instalación incompleta » (su install.sh no terminó); se reinstala la misma versión.\n"
-"- En esta misma máquina, una actualización se hace como indica la sección « Actualización » del README de la aplicación.\n"
+"- [b]Actualizar la aplicación[/b] / [b]Reinstalar la aplicación[/b]: abre el Updater, con la aplicación de la línea ya marcada (« Versión antigua »; o « Instalación incompleta »: su install.sh no terminó, se reinstala la misma versión). En esta máquina como en una máquina de la red.\n"
 "- Resalte una línea: debajo se muestran la explicación de su estado y sus discrepancias."
 
 msgid "Scanner — trouver les applications, ajouter des machines"
@@ -2623,6 +2671,26 @@ msgstr ""
 "- [b]Leer con sudo[/b]: si su sesión aún no puede leer el espacio compartido (el grupo omega-synchro solo cuenta tras volver a iniciar sesión), lectura en solo lectura con sudo.\n"
 "- [b]Detalle[/b]: lo que omega-connect ha creado (registro del espacio compartido) y las retiradas posibles."
 
+msgid "Charge distribuée — omega-stress sur plusieurs machines"
+msgstr "Carga distribuida — omega-stress en varias máquinas"
+
+msgid ""
+"Ouvert depuis Synchronisation ([b]Charge distribuée…[/b]) ou depuis Réparer. Cette machine pilote les tests d'omega-stress ; les machines du réseau où omega-stress (2.0.0 ou plus) est installé peuvent l'aider à charger la cible. Rien à taper, aucune empreinte à recopier : omega-connect relie tout par SSH.\n"
+"\n"
+"- Cochez les machines qui aident (Entrée ou Espace), puis choisissez leur accord : [b]Demander pour chaque nouvelle cible[/b] (la première fois qu'une cible est demandée, omega-stress vous pose la question), ou [b]Tout accepter de ce pilote[/b] (machines qui sont toutes à vous).\n"
+"- [b]Relier la sélection[/b] : le plan s'affiche avant d'agir (commandes exactes). Chaque machine reçoit son accès, transmis par SSH sans jamais apparaître à l'écran ; ses limites (débit, durée) sont pré-remplies d'après elle.\n"
+"- Pare-feu de cette machine : s'il bloque les machines qui aident, il s'ouvre au seul port d'omega-stress et à votre réseau local, par omega-fire s'il est relié, sinon par ufw ou firewalld. Un seul mot de passe sudo, demandé dans le terminal. Avec nftables seul et sans omega-fire, rien n'est touché : installez omega-fire.\n"
+"- [b]Délier la sélection[/b] : retire l'accès des deux côtés.\n"
+"- Ensuite, les tests se lancent depuis omega-stress ; la charge passe directement entre les machines, sans omega-connect. Liaisons montre l'état de chaque machine (reliée, non reliée, liaison incomplète, pare-feu fermé)."
+msgstr ""
+"Se abre desde Sincronización ([b]Carga distribuida…[/b]) o desde Reparar. Esta máquina dirige las pruebas de omega-stress; las máquinas de la red donde omega-stress (2.0.0 o posterior) está instalado pueden ayudarla a cargar el objetivo. Nada que escribir, ninguna huella que copiar: omega-connect enlaza todo por SSH.\n"
+"\n"
+"- Marque las máquinas que ayudan (Intro o Espacio) y elija su acuerdo: [b]Preguntar para cada nuevo objetivo[/b] (la primera vez que se pide un objetivo, omega-stress le pregunta) o [b]Aceptar todo de este director[/b] (máquinas que son todas suyas).\n"
+"- [b]Enlazar la selección[/b]: el plan se muestra antes de actuar (comandos exactos). Cada máquina recibe su acceso, enviado por SSH sin aparecer nunca en pantalla; sus límites (caudal, duración) se rellenan según la propia máquina.\n"
+"- Cortafuegos de esta máquina: si bloquea a las máquinas que ayudan, se abre solo al puerto de omega-stress y a su red local, mediante omega-fire si está enlazado, si no mediante ufw o firewalld. Una sola contraseña sudo, pedida en el terminal. Con nftables solo y sin omega-fire, no se toca nada: instale omega-fire.\n"
+"- [b]Desenlazar la selección[/b]: retira el acceso en ambos lados.\n"
+"- Después, las pruebas se lanzan desde omega-stress; la carga pasa directamente entre las máquinas, sin omega-connect. Enlaces muestra el estado de cada máquina (enlazada, no enlazada, enlace incompleto, cortafuegos cerrado)."
+
 msgid "Dashboard — vue d'ensemble"
 msgstr "Panel — vista general"
 
@@ -2652,7 +2720,8 @@ msgid ""
 "La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
 "\n"
 "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
-"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
+"- [b]Tout réparer[/b] : les machines une à une.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
@@ -2660,10 +2729,31 @@ msgstr ""
 "La lista de todo lo que no va bien, en todas las máquinas (las máquinas de la red se vuelven a escanear al abrir): máquina, problema, estado, y quién lo corrige.\n"
 "\n"
 "- [b]Reparar la línea elegida[/b]: abre el plan de la máquina. Esta máquina: los comandos de las propias aplicaciones (omega-jail para lo que coloca en fail2ban, omega-serv para los permisos de su var/, cada aplicación para su tarjeta de identidad), y luego el espacio compartido. Máquina de la red: las mismas correcciones, más los comandos que ninguna aplicación sabe ejecutar, ejecutados EN la máquina desde aquí (solo los anunciados en el plan).\n"
-"- [b]Reparar todo[/b]: las máquinas una por una (primero actualizar, luego reparar).\n"
+"- Una línea « Versión antigua » o « Instalación incompleta » abre el Updater, con la aplicación ya marcada: solo el Updater actualiza.\n"
+"- [b]Reparar todo[/b]: las máquinas una a una.\n"
 "- [b]Detalle[/b]: todos los controles de la línea elegida.\n"
 "- [b]Copiar los comandos[/b] (plan de esta máquina): portapapeles del sistema (xclip, xsel, wl-copy); si no, los comandos se muestran en claro en el terminal, para seleccionarlos con el ratón.\n"
 "- omega-connect nunca reescribe el archivo de otra aplicación: ejecuta su comando."
+
+msgid "Updater — mettre à jour les applications"
+msgstr "Updater — actualizar las aplicaciones"
+
+msgid ""
+"Le seul endroit qui met à jour les applications, sur cette machine comme sur le réseau. Réparer et le Registre y renvoient, l'application déjà cochée.\n"
+"\n"
+"- Les lignes sont celles déjà scannées : machine, application, version installée ; rien n'est rescanné à l'ouverture.\n"
+"- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
+"- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
+"- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+msgstr ""
+"El único lugar que actualiza las aplicaciones, en esta máquina como en la red. Reparar y el Registro llevan a él, con la aplicación ya marcada.\n"
+"\n"
+"- Las líneas son las ya escaneadas: máquina, aplicación, versión instalada; nada se reescanea al abrir.\n"
+"- [b]Verificar las versiones[/b]: la última versión publicada de cada aplicación (Release de GitHub, si no el sitio de la aplicación), para las líneas marcadas o para todas. Una versión no publicada nunca se propone.\n"
+"- [b]Actualizar la selección[/b] / [b]Actualizar todo[/b]: las aplicaciones por actualizar y las instalaciones incompletas. Primero esta máquina: archivos verificados (sha.txt), luego la interfaz deja paso al terminal, donde los install.sh piden la contraseña si hace falta. Luego cada máquina de la red: su plan se muestra antes de actuar, una contraseña por máquina.\n"
+"- Al final: lo que se hizo, aplicación por aplicación, y las máquinas reescaneadas.\n"
+"- [b]omega-suite[/b]: el omega-stress que incorpora forma parte de ella. La línea es la de omega-suite (« contiene omega-stress … »): se actualiza con sus herramientas, probadas juntas, nunca el omega-stress solo. A partir de 2.0.0, ayuda a la carga distribuida como un omega-stress autónomo; si la máquina tiene también un omega-stress autónomo, es este el que ayuda."
 
 msgid "Rapport — un document complet"
 msgstr "Informe — un documento completo"
@@ -2697,13 +2787,13 @@ msgid ""
 "- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
 "- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
 "- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
-"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>), sinon depuis le site de l'application (dossier download) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
 "- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
 msgstr ""
 "- [b]Conexión[/b]: SSH solo con SUS claves; omega-connect nunca pide la contraseña SSH. Una clave protegida por una frase de contraseña debe cargarse en el agente SSH (ssh-add).\n"
 "- [b]Contraseña de administrador[/b]: solo cuando una acción la requiere (sincronizar, reparar, actualizar), una vez por máquina, tecleada por usted en el terminal; omega-connect nunca la ve.\n"
 "- [b]Lo que va a una máquina de la red[/b]: para un escaneo, nada (programa en memoria); para una acción, una carpeta privada temporal (programa y archivos), borrada al final.\n"
-"- [b]Actualizaciones[/b]: desde la Release de GitHub de cada aplicación (kraynux/<aplicación>, etiqueta v<versión>); la huella se verifica con sha.txt antes de cualquier envío, y de nuevo en la máquina. omega-fire: la instalación anterior se aparta (su var/ pertenece a root) y luego su install.sh recupera ajustes y datos. Las demás: extracción por encima (el estado vivo no está en el archivo) y luego su install.sh.\n"
+"- [b]Actualizaciones[/b]: desde la Release de GitHub de cada aplicación (kraynux/<aplicación>, etiqueta v<versión>), si no desde el sitio de la aplicación (carpeta download); la huella se verifica con sha.txt antes de cualquier envío y de nuevo en la máquina. omega-fire: la instalación antigua se aparta (su var/ pertenece a root) y luego su install.sh recupera ajustes y datos. Las demás: extracción encima (el estado vivo no está en el archivo) y luego su install.sh.\n"
 "- [b]Nunca se ejecuta una aplicación que pudiera pedir una contraseña sin terminal[/b]: un fallo silencioso de sudo cuenta como un intento y puede bloquear la cuenta unos minutos."
 
 msgid "États — ce que veut dire chaque mot"
@@ -2805,6 +2895,9 @@ msgstr "Sincronización"
 
 msgid "Dashboard"
 msgstr "Panel"
+
+msgid "Updater"
+msgstr "Updater"
 
 msgid "Rapport"
 msgstr "Informe"
@@ -3048,6 +3141,137 @@ msgid ""
 msgstr ""
 "Nueva verificación cada {minutes} min mientras esta pantalla está abierta."
 
+msgid "reliée"
+msgstr "enlazada"
+
+msgid "non reliée"
+msgstr "no enlazada"
+
+msgid "liaison incomplète"
+msgstr "enlace incompleto"
+
+msgid "reliée, pare-feu de cette machine fermé"
+msgstr "enlazada, cortafuegos de esta máquina cerrado"
+
+msgid "reliée, omega-fire nécessaire pour le pare-feu"
+msgstr "enlazada, omega-fire necesario para el cortafuegos"
+
+msgid "état illisible (version trop ancienne ?)"
+msgstr "estado ilegible (¿versión demasiado antigua?)"
+
+msgid "omega-stress absent de cette machine"
+msgstr "omega-stress ausente en esta máquina"
+
+msgid "demander"
+msgstr "preguntar"
+
+msgid "tout accepter"
+msgstr "aceptar todo"
+
+msgid "Choisir"
+msgstr "Elegir"
+
+msgid "CHARGE DISTRIBUÉE (OMEGA-STRESS)"
+msgstr "CARGA DISTRIBUIDA (OMEGA-STRESS)"
+
+msgid ""
+"Cette machine pilote les tests ; les machines cochées l'aident à charger la "
+"cible. Cochez-les (Entrée ou Espace), choisissez leur accord, puis « Relier "
+"la sélection » : le plan s'affiche avant d'agir, et un seul mot de passe est"
+" demandé si le pare-feu de cette machine doit s'ouvrir."
+msgstr ""
+"Esta máquina dirige las pruebas; las máquinas marcadas la ayudan a cargar el"
+" objetivo. Márquelas (Intro o Espacio), elija su acuerdo y luego « Enlazar "
+"la selección »: el plan se muestra antes de actuar y solo se pide una "
+"contraseña si el cortafuegos de esta máquina debe abrirse."
+
+msgid "Demander pour chaque nouvelle cible"
+msgstr "Preguntar para cada nuevo objetivo"
+
+msgid "Tout accepter de ce pilote (machines qui sont toutes à vous)"
+msgstr "Aceptar todo de este director (máquinas que son todas suyas)"
+
+msgid "Relier la sélection"
+msgstr "Enlazar la selección"
+
+msgid "Délier la sélection"
+msgstr "Desenlazar la selección"
+
+msgid "Accord"
+msgstr "Acuerdo"
+
+msgid "Liaison"
+msgstr "Enlace"
+
+msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
+msgstr "Lectura de omega-stress en esta máquina y en la red…"
+
+#, python-brace-format
+msgid "Rescan de {machine}…"
+msgstr "Reescaneo de {machine}…"
+
+msgid ""
+"omega-stress n'est pas installé sur cette machine (ou trop ancien) : elle ne"
+" peut pas piloter. Installez omega-stress 2.0.0 ou plus, puis revenez ici."
+msgstr ""
+"omega-stress no está instalado en esta máquina (o es demasiado antiguo): no "
+"puede dirigir. Instale omega-stress 2.0.0 o posterior y vuelva aquí."
+
+msgid ""
+"Aucune machine du réseau n'a omega-stress 2.0.0 ou plus. Scannez vos "
+"machines (Scanner), installez-le sur celles qui doivent aider, puis revenez "
+"ici."
+msgstr ""
+"Ninguna máquina de la red tiene omega-stress 2.0.0 o posterior. Escanee sus "
+"máquinas (Escáner), instálelo en las que deben ayudar y vuelva aquí."
+
+#, python-brace-format
+msgid "{count} machine(s) du réseau peuvent aider."
+msgstr "{count} máquina(s) de la red pueden ayudar."
+
+#, python-brace-format
+msgid ""
+"{machine} : omega-stress trop ancien ou illisible — mettez-le à jour depuis "
+"le Registre."
+msgstr ""
+"{machine}: omega-stress demasiado antiguo o ilegible — actualícelo desde el "
+"Registro."
+
+msgid "Relier la charge distribuée"
+msgstr "Enlazar la carga distribuida"
+
+msgid "Commandes lancées, dans cet ordre :"
+msgstr "Comandos ejecutados, en este orden:"
+
+msgid ""
+"Le pare-feu de cette machine s'ouvre au port d'omega-stress pour votre "
+"réseau local : un mot de passe sudo sera demandé, une seule fois."
+msgstr ""
+"El cortafuegos de esta máquina se abre al puerto de omega-stress para su red"
+" local: se pedirá una contraseña sudo, una sola vez."
+
+msgid "Liaison en cours…"
+msgstr "Enlazando…"
+
+msgid "Retrait de la liaison…"
+msgstr "Retirando el enlace…"
+
+#, python-brace-format
+msgid "{count} étape(s) en échec :"
+msgstr "{count} paso(s) fallido(s):"
+
+msgid "cette machine"
+msgstr "esta máquina"
+
+msgid "Fait."
+msgstr "Hecho."
+
+msgid "Pare-feu de cette machine (règles posées) :"
+msgstr "Cortafuegos de esta máquina (reglas puestas):"
+
+msgid "cette machine (root)"
+msgstr "esta máquina (root)"
+
 msgid "Lancer (mot de passe administrateur)"
 msgstr "Ejecutar (contraseña de administrador)"
 
@@ -3182,9 +3406,6 @@ msgstr ""
 msgid "Actualiser"
 msgstr "Actualizar"
 
-msgid "cette machine"
-msgstr "esta máquina"
-
 msgid "DASHBOARD"
 msgstr "PANEL"
 
@@ -3236,19 +3457,24 @@ msgstr "último escaneo a las {time}"
 msgid "Espace partagé : "
 msgstr "Espacio compartido: "
 
+#, python-brace-format
+msgid "{tool} (dans omega-suite)"
+msgstr "{tool} (en omega-suite)"
+
+#, python-brace-format
+msgid ""
+"Fait partie d'omega-suite {version} ({root}) : se met à jour avec elle, "
+"jamais seul."
+msgstr ""
+"Forma parte de omega-suite {version} ({root}): se actualiza con ella, nunca "
+"solo."
+
 msgid "Réinstaller l'application"
 msgstr "Reinstalar la aplicación"
 
 #, python-brace-format
-msgid "→ « {action} » installe la dernière version depuis GitHub."
-msgstr "→ « {action} » instala la última versión desde GitHub."
-
-msgid ""
-"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
-"possible : suivez la section « Mise à jour » du README de l'outil."
-msgstr ""
-"→ En este equipo, la actualización desde omega-connect aún no es posible: "
-"siga la sección « Actualización » del README de la herramienta."
+msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
+msgstr "→ « {action} » abre el Updater, con la aplicación ya marcada."
 
 #, python-brace-format
 msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
@@ -3364,6 +3590,12 @@ msgstr "Escanear: volver a escanear la máquina"
 
 msgid "aucune correction connue (voir le détail)"
 msgstr "ninguna corrección conocida (véase el detalle)"
+
+msgid "Charge distribuée : relier de nouveau, ou ouvrir le pare-feu"
+msgstr "Carga distribuida: enlazar de nuevo o abrir el cortafuegos"
+
+msgid "Updater : mise à jour depuis ici"
+msgstr "Updater: actualización desde aquí"
 
 msgid "RÉPARER"
 msgstr "REPARAR"
@@ -3678,9 +3910,6 @@ msgstr "{count} elemento(s) eliminado(s) en {path}."
 msgid "Non supprimés : {items}"
 msgstr "No eliminados: {items}"
 
-msgid "Choisir"
-msgstr "Elegir"
-
 msgid "SYNCHRONISATION"
 msgstr "SINCRONIZACIÓN"
 
@@ -3700,6 +3929,9 @@ msgstr "Sincronizar todo"
 
 msgid "Synchroniser la sélection"
 msgstr "Sincronizar la selección"
+
+msgid "Charge distribuée…"
+msgstr "Carga distribuida…"
 
 msgid "Lire avec sudo"
 msgstr "Leer con sudo"
@@ -3735,6 +3967,83 @@ msgstr "¿CONFIAR EN ESTA MÁQUINA?"
 
 msgid "Faire confiance"
 msgstr "Confiar"
+
+msgid "non vérifiée"
+msgstr "no verificada"
+
+msgid "à jour"
+msgstr "al día"
+
+msgid "à mettre à jour"
+msgstr "por actualizar"
+
+msgid "installation inachevée — à réinstaller"
+msgstr "instalación incompleta — por reinstalar"
+
+msgid "aucune version publiée trouvée"
+msgstr "ninguna versión publicada encontrada"
+
+msgid "machine injoignable"
+msgstr "máquina inaccesible"
+
+msgid ""
+"omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
+"demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
+msgstr ""
+"omega-connect — actualización en esta máquina. Los install.sh pueden pedir "
+"la contraseña sudo (no se muestra al escribirla)."
+
+msgid "UPDATER"
+msgstr "UPDATER"
+
+msgid ""
+"Les applications déjà scannées, sur cette machine et sur le réseau. « "
+"Vérifier les versions » cherche la dernière version publiée (GitHub, puis le"
+" site). Cochez (Entrée ou Espace) puis « Mettre à jour la sélection », ou « "
+"Tout mettre à jour » : chaque machine montre son plan avant d'agir, et un "
+"seul mot de passe est demandé, dans le terminal."
+msgstr ""
+"Las aplicaciones ya escaneadas, en esta máquina y en la red. « Verificar las"
+" versiones » busca la última versión publicada (GitHub, luego el sitio). "
+"Marque (Intro o Espacio) y luego « Actualizar la selección », o « Actualizar"
+" todo »: cada máquina muestra su plan antes de actuar, y se pide una sola "
+"contraseña, en el terminal."
+
+msgid "Vérifier les versions"
+msgstr "Verificar las versiones"
+
+msgid "Mettre à jour la sélection"
+msgstr "Actualizar la selección"
+
+msgid "Tout mettre à jour"
+msgstr "Actualizar todo"
+
+msgid "Disponible"
+msgstr "Disponible"
+
+msgid "Installée"
+msgstr "Instalada"
+
+#, python-brace-format
+msgid "{tool} (contient {tools})"
+msgstr "{tool} (contiene {tools})"
+
+#, python-brace-format
+msgid ""
+"{count} application(s) — à jour : {ok} ; à mettre à jour : {old} ; "
+"inachevées : {incomplete} ; non vérifiées : {unchecked}."
+msgstr ""
+"{count} aplicación(es) — al día: {ok}; por actualizar: {old}; incompletas: "
+"{incomplete}; no verificadas: {unchecked}."
+
+msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
+msgstr "Buscando las últimas versiones publicadas (GitHub, luego el sitio)…"
+
+msgid "Téléchargement et vérification des archives…"
+msgstr "Descargando y verificando los archivos…"
+
+msgid "Rescan de cette machine…"
+msgstr "Reescaneo de esta máquina…"
 
 msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
 msgstr "DETALLE DEL ESPACIO COMPARTIDO"

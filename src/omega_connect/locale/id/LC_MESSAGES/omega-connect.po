@@ -1693,6 +1693,9 @@ msgstr "Kartu identitas"
 msgid "Espace partagé (omega-synchro)"
 msgstr "Ruang bersama (omega-synchro)"
 
+msgid "Charge distribuée (omega-stress)"
+msgstr "Beban terdistribusi (omega-stress)"
+
 msgid "OK"
 msgstr "OK"
 
@@ -2206,6 +2209,57 @@ msgstr ""
 "synchro: layanan ini tidak akan bisa membaca ruang bersama. Sinkronisasi "
 "meminta omega-serv untuk memberikannya."
 
+#, python-brace-format
+msgid ""
+"relevé d'omega-stress sur {subject} (pas encore comparé à cette machine)."
+msgstr ""
+"pembacaan omega-stress di {subject} (belum dibandingkan dengan mesin ini)."
+
+#, python-brace-format
+msgid "{subject} aide cette machine à charger les cibles (accord : {detail})."
+msgstr ""
+"{subject} membantu mesin ini membebani target (persetujuan: {detail})."
+
+#, python-brace-format
+msgid ""
+"{subject} peut aider cette machine : pas encore reliée (Synchronisation → "
+"Charge distribuée)."
+msgstr ""
+"{subject} dapat membantu mesin ini: belum ditautkan (Sinkronisasi → Beban "
+"terdistribusi)."
+
+#, python-brace-format
+msgid "{subject} : liaison incomplète ({detail}) — relier de nouveau."
+msgstr "{subject}: tautan tidak lengkap ({detail}) — tautkan lagi."
+
+#, python-brace-format
+msgid ""
+"{subject} a omega-stress, mais pas cette machine : elle ne peut pas piloter."
+msgstr ""
+"{subject} memiliki omega-stress, tetapi mesin ini tidak: mesin ini tidak "
+"dapat memimpin."
+
+#, python-brace-format
+msgid ""
+"pare-feu de cette machine ({subject}) fermé au port d'omega-stress : les "
+"machines qui aident ne peuvent pas le joindre."
+msgstr ""
+"firewall mesin ini ({subject}) tertutup untuk port omega-stress: mesin yang "
+"membantu tidak dapat menjangkaunya."
+
+msgid ""
+"pare-feu nftables sans omega-fire : installez omega-fire pour ouvrir le port"
+" d'omega-stress (sa configuration n'est jamais réécrite à la main)."
+msgstr ""
+"firewall nftables tanpa omega-fire: pasang omega-fire untuk membuka port "
+"omega-stress (konfigurasinya tidak pernah ditulis ulang secara manual)."
+
+#, python-brace-format
+msgid ""
+"{subject} : état d'omega-stress illisible (version antérieure à 2.0.0 ?)."
+msgstr ""
+"{subject}: status omega-stress tidak terbaca (versi lebih lama dari 2.0.0?)."
+
 msgid "correction : Synchronisation (omega-connect synchroniser)"
 msgstr "perbaikan: Sinkronisasi (omega-connect synchroniser)"
 
@@ -2555,17 +2609,13 @@ msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
 "- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
-"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
-"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
-"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "Menampilkan, untuk setiap mesin (mesin ini dan mesin jaringan), setiap aplikasi omega yang ditemukan: instance atau layanannya, versinya, statusnya, dan foldernya. Ringkasan di bagian atas menghitung jumlah tiap status.\n"
 "\n"
 "- [b]Perbarui registri[/b]: mengulang pemindaian di tempat (mesin ini, lalu mesin jaringan yang sudah dikenal), tanpa berpindah layar.\n"
-"- [b]Perbarui aplikasi[/b]: pada baris “Versi lama” dari mesin jaringan, memasang versi terbaru yang dipublikasikan (Release GitHub aplikasi tersebut, sidik jari diverifikasi dengan sha.txt sebelum dikirim). Rencananya ditampilkan dulu; tidak ada hal lain yang dilakukan.\n"
-"- [b]Pasang ulang aplikasi[/b]: tombol yang sama pada baris “Instalasi belum selesai” (install.sh-nya tidak selesai); versi yang sama dipasang ulang.\n"
-"- Di mesin ini sendiri, pembaruan dilakukan seperti yang dijelaskan bagian “Pembaruan” di README aplikasi.\n"
+"- [b]Perbarui aplikasi[/b] / [b]Pasang ulang aplikasi[/b]: membuka Updater, dengan aplikasi dari baris itu sudah dicentang (« Versi lama »; atau « Instalasi belum selesai »: install.sh-nya tidak selesai, versi yang sama dipasang ulang). Di mesin ini maupun di mesin jaringan.\n"
 "- Sorot sebuah baris: penjelasan status dan ketidaksesuaiannya ditampilkan di bawahnya."
 
 msgid "Scanner — trouver les applications, ajouter des machines"
@@ -2622,6 +2672,26 @@ msgstr ""
 "- [b]Baca dengan sudo[/b]: jika sesi Anda belum bisa membaca ruang bersama (grup omega-synchro baru berlaku setelah masuk ulang), dibaca saja dengan sudo.\n"
 "- [b]Detail[/b]: apa yang telah dibuat omega-connect (registri ruang bersama) dan apa saja yang bisa dihapus."
 
+msgid "Charge distribuée — omega-stress sur plusieurs machines"
+msgstr "Beban terdistribusi — omega-stress di beberapa mesin"
+
+msgid ""
+"Ouvert depuis Synchronisation ([b]Charge distribuée…[/b]) ou depuis Réparer. Cette machine pilote les tests d'omega-stress ; les machines du réseau où omega-stress (2.0.0 ou plus) est installé peuvent l'aider à charger la cible. Rien à taper, aucune empreinte à recopier : omega-connect relie tout par SSH.\n"
+"\n"
+"- Cochez les machines qui aident (Entrée ou Espace), puis choisissez leur accord : [b]Demander pour chaque nouvelle cible[/b] (la première fois qu'une cible est demandée, omega-stress vous pose la question), ou [b]Tout accepter de ce pilote[/b] (machines qui sont toutes à vous).\n"
+"- [b]Relier la sélection[/b] : le plan s'affiche avant d'agir (commandes exactes). Chaque machine reçoit son accès, transmis par SSH sans jamais apparaître à l'écran ; ses limites (débit, durée) sont pré-remplies d'après elle.\n"
+"- Pare-feu de cette machine : s'il bloque les machines qui aident, il s'ouvre au seul port d'omega-stress et à votre réseau local, par omega-fire s'il est relié, sinon par ufw ou firewalld. Un seul mot de passe sudo, demandé dans le terminal. Avec nftables seul et sans omega-fire, rien n'est touché : installez omega-fire.\n"
+"- [b]Délier la sélection[/b] : retire l'accès des deux côtés.\n"
+"- Ensuite, les tests se lancent depuis omega-stress ; la charge passe directement entre les machines, sans omega-connect. Liaisons montre l'état de chaque machine (reliée, non reliée, liaison incomplète, pare-feu fermé)."
+msgstr ""
+"Dibuka dari Sinkronisasi ([b]Beban terdistribusi…[/b]) atau dari Perbaiki. Mesin ini memimpin pengujian omega-stress; mesin di jaringan yang memasang omega-stress (2.0.0 atau lebih baru) dapat membantunya membebani target. Tidak ada yang perlu diketik, tidak ada sidik jari yang perlu disalin: omega-connect menautkan semuanya lewat SSH.\n"
+"\n"
+"- Centang mesin yang membantu (Enter atau Spasi), lalu pilih persetujuannya: [b]Tanyakan untuk setiap target baru[/b] (saat target pertama kali diminta, omega-stress bertanya kepada Anda), atau [b]Terima semuanya dari pemimpin ini[/b] (mesin yang semuanya milik Anda).\n"
+"- [b]Tautkan pilihan[/b]: rencana ditampilkan sebelum bertindak (perintah persis). Setiap mesin menerima aksesnya, dikirim lewat SSH tanpa pernah tampil di layar; batasnya (laju, durasi) diisi berdasarkan mesin itu sendiri.\n"
+"- Firewall mesin ini: jika memblokir mesin yang membantu, firewall hanya membuka port omega-stress dan hanya untuk jaringan lokal Anda, lewat omega-fire jika tertaut, jika tidak lewat ufw atau firewalld. Satu kata sandi sudo, diminta di terminal. Dengan nftables saja dan tanpa omega-fire, tidak ada yang diubah: pasang omega-fire.\n"
+"- [b]Lepas tautan pilihan[/b]: menghapus akses di kedua sisi.\n"
+"- Setelah itu, pengujian dijalankan dari omega-stress; beban langsung mengalir antar mesin, tanpa omega-connect. Tautan menampilkan status setiap mesin (tertaut, belum tertaut, tautan tidak lengkap, firewall tertutup)."
+
 msgid "Dashboard — vue d'ensemble"
 msgstr "Dasbor — ikhtisar"
 
@@ -2651,7 +2721,8 @@ msgid ""
 "La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
 "\n"
 "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
-"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
+"- [b]Tout réparer[/b] : les machines une à une.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
@@ -2659,10 +2730,31 @@ msgstr ""
 "Daftar semua yang bermasalah, di semua mesin (mesin jaringan dipindai ulang saat layar dibuka): mesin, masalah, status, dan siapa yang memperbaikinya.\n"
 "\n"
 "- [b]Perbaiki baris yang dipilih[/b]: membuka rencana untuk mesin tersebut. Mesin ini: perintah dari aplikasi itu sendiri (omega-jail untuk apa yang dipasangnya di fail2ban, omega-serv untuk hak akses var/-nya, setiap aplikasi untuk kartu identitasnya), lalu ruang bersama. Mesin jaringan: perbaikan yang sama, ditambah perintah yang tidak bisa dijalankan oleh aplikasi mana pun, dijalankan DI mesin itu dari sini (hanya yang disebutkan dalam rencana).\n"
-"- [b]Perbaiki semua[/b]: mesin satu per satu (perbarui dulu, lalu perbaiki).\n"
+"- Baris « Versi lama » atau « Instalasi belum selesai » membuka Updater, dengan aplikasi sudah dicentang: hanya Updater yang memperbarui.\n"
+"- [b]Perbaiki semua[/b]: mesin satu per satu.\n"
 "- [b]Detail[/b]: semua pemeriksaan dari baris yang dipilih.\n"
 "- [b]Salin perintah[/b] (rencana mesin ini): papan klip sistem (xclip, xsel, wl-copy); jika tidak tersedia, perintah ditampilkan apa adanya di terminal, untuk dipilih dengan mouse.\n"
 "- omega-connect tidak pernah menulis ulang berkas aplikasi lain: ia menjalankan perintah aplikasi tersebut."
+
+msgid "Updater — mettre à jour les applications"
+msgstr "Updater — memperbarui aplikasi"
+
+msgid ""
+"Le seul endroit qui met à jour les applications, sur cette machine comme sur le réseau. Réparer et le Registre y renvoient, l'application déjà cochée.\n"
+"\n"
+"- Les lignes sont celles déjà scannées : machine, application, version installée ; rien n'est rescanné à l'ouverture.\n"
+"- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
+"- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
+"- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+msgstr ""
+"Satu-satunya tempat yang memperbarui aplikasi, di mesin ini maupun di jaringan. Perbaiki dan Registri mengarah ke sini, dengan aplikasi sudah dicentang.\n"
+"\n"
+"- Baris-barisnya adalah yang sudah dipindai: mesin, aplikasi, versi terpasang; saat dibuka tidak ada yang dipindai ulang.\n"
+"- [b]Periksa versi[/b]: versi terbit terbaru setiap aplikasi (Release GitHub, jika tidak situs aplikasi), untuk baris yang dicentang atau semuanya. Versi yang belum terbit tidak pernah ditawarkan.\n"
+"- [b]Perbarui pilihan[/b] / [b]Perbarui semua[/b]: aplikasi yang perlu diperbarui dan instalasi yang belum selesai. Mesin ini dulu: arsip diperiksa (sha.txt), lalu antarmuka memberi tempat pada terminal, tempat install.sh meminta kata sandi bila perlu. Lalu setiap mesin jaringan: rencananya ditampilkan sebelum bertindak, satu kata sandi per mesin.\n"
+"- Di akhir: apa yang telah dilakukan, aplikasi demi aplikasi, dan mesin dipindai ulang.\n"
+"- [b]omega-suite[/b]: omega-stress yang disertakannya adalah bagian darinya. Barisnya milik omega-suite (« berisi omega-stress … »): diperbarui bersama alat-alatnya yang diuji bersama, tidak pernah omega-stress sendiri. Mulai 2.0.0, ia membantu beban terdistribusi seperti omega-stress mandiri; jika mesin juga punya omega-stress mandiri, yang mandiri itulah yang membantu."
 
 msgid "Rapport — un document complet"
 msgstr "Laporan — dokumen lengkap"
@@ -2696,13 +2788,13 @@ msgid ""
 "- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
 "- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
 "- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
-"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>), sinon depuis le site de l'application (dossier download) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
 "- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
 msgstr ""
 "- [b]Koneksi[/b]: SSH hanya dengan kunci ANDA; omega-connect tidak pernah meminta kata sandi SSH. Kunci yang dilindungi frasa sandi harus dimuat ke agen SSH (ssh-add).\n"
 "- [b]Kata sandi administrator[/b]: hanya ketika suatu tindakan memerlukannya (sinkronisasi, perbaikan, pembaruan), satu kali per mesin, diketik sendiri oleh Anda di terminal; omega-connect tidak pernah melihatnya.\n"
 "- [b]Apa yang dikirim ke mesin jaringan[/b]: untuk pemindaian, tidak ada (program di memori); untuk tindakan, sebuah folder pribadi sementara (program dan arsip), dihapus di akhir.\n"
-"- [b]Pembaruan[/b]: dari Release GitHub setiap aplikasi (kraynux/<aplikasi>, tag v<versi>); sidik jari diverifikasi dengan sha.txt sebelum dikirim, lalu sekali lagi di mesin tujuan. omega-fire: instalasi lama disisihkan (var/-nya milik root), lalu install.sh-nya mengambil alih pengaturan dan data. Yang lain: diekstrak menimpa yang ada (status aktif tidak ada di dalam arsip), lalu install.sh-nya dijalankan.\n"
+"- [b]Pembaruan[/b]: dari Release GitHub setiap aplikasi (kraynux/<aplikasi>, tag v<versi>), jika tidak dari situs aplikasi (folder download); sidik jari diperiksa dengan sha.txt sebelum apa pun dikirim, lalu sekali lagi di mesin. omega-fire: instalasi lama disisihkan (var/-nya milik root), lalu install.sh-nya mengambil alih pengaturan dan data. Yang lain: ekstraksi di atasnya (status berjalan tidak ada di arsip), lalu install.sh mereka.\n"
 "- [b]Tidak pernah menjalankan aplikasi yang bisa meminta kata sandi tanpa terminal[/b]: kegagalan sudo yang diam-diam dihitung sebagai percobaan dan dapat mengunci akun selama beberapa menit."
 
 msgid "États — ce que veut dire chaque mot"
@@ -2804,6 +2896,9 @@ msgstr "Sinkronisasi"
 
 msgid "Dashboard"
 msgstr "Dasbor"
+
+msgid "Updater"
+msgstr "Updater"
 
 msgid "Rapport"
 msgstr "Laporan"
@@ -3044,6 +3139,139 @@ msgid ""
 "ouvert."
 msgstr "Pemeriksaan ulang setiap {minutes} menit selama layar ini terbuka."
 
+msgid "reliée"
+msgstr "tertaut"
+
+msgid "non reliée"
+msgstr "belum tertaut"
+
+msgid "liaison incomplète"
+msgstr "tautan tidak lengkap"
+
+msgid "reliée, pare-feu de cette machine fermé"
+msgstr "tertaut, firewall mesin ini tertutup"
+
+msgid "reliée, omega-fire nécessaire pour le pare-feu"
+msgstr "tertaut, omega-fire diperlukan untuk firewall"
+
+msgid "état illisible (version trop ancienne ?)"
+msgstr "status tidak terbaca (versi terlalu lama?)"
+
+msgid "omega-stress absent de cette machine"
+msgstr "omega-stress tidak ada di mesin ini"
+
+msgid "demander"
+msgstr "tanya"
+
+msgid "tout accepter"
+msgstr "terima semua"
+
+msgid "Choisir"
+msgstr "Pilih"
+
+msgid "CHARGE DISTRIBUÉE (OMEGA-STRESS)"
+msgstr "BEBAN TERDISTRIBUSI (OMEGA-STRESS)"
+
+msgid ""
+"Cette machine pilote les tests ; les machines cochées l'aident à charger la "
+"cible. Cochez-les (Entrée ou Espace), choisissez leur accord, puis « Relier "
+"la sélection » : le plan s'affiche avant d'agir, et un seul mot de passe est"
+" demandé si le pare-feu de cette machine doit s'ouvrir."
+msgstr ""
+"Mesin ini memimpin pengujian; mesin yang dicentang membantunya membebani "
+"target. Centang mesin-mesin itu (Enter atau Spasi), pilih persetujuannya, "
+"lalu « Tautkan pilihan »: rencana ditampilkan sebelum bertindak, dan hanya "
+"satu kata sandi diminta jika firewall mesin ini harus dibuka."
+
+msgid "Demander pour chaque nouvelle cible"
+msgstr "Tanyakan untuk setiap target baru"
+
+msgid "Tout accepter de ce pilote (machines qui sont toutes à vous)"
+msgstr "Terima semuanya dari pemimpin ini (mesin yang semuanya milik Anda)"
+
+msgid "Relier la sélection"
+msgstr "Tautkan pilihan"
+
+msgid "Délier la sélection"
+msgstr "Lepas tautan pilihan"
+
+msgid "Accord"
+msgstr "Persetujuan"
+
+msgid "Liaison"
+msgstr "Tautan"
+
+msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
+msgstr "Membaca omega-stress di mesin ini dan di jaringan…"
+
+#, python-brace-format
+msgid "Rescan de {machine}…"
+msgstr "Memindai ulang {machine}…"
+
+msgid ""
+"omega-stress n'est pas installé sur cette machine (ou trop ancien) : elle ne"
+" peut pas piloter. Installez omega-stress 2.0.0 ou plus, puis revenez ici."
+msgstr ""
+"omega-stress tidak terpasang di mesin ini (atau terlalu lama): mesin ini "
+"tidak dapat memimpin. Pasang omega-stress 2.0.0 atau lebih baru, lalu "
+"kembali ke sini."
+
+msgid ""
+"Aucune machine du réseau n'a omega-stress 2.0.0 ou plus. Scannez vos "
+"machines (Scanner), installez-le sur celles qui doivent aider, puis revenez "
+"ici."
+msgstr ""
+"Tidak ada mesin di jaringan yang memiliki omega-stress 2.0.0 atau lebih "
+"baru. Pindai mesin Anda (Pemindai), pasang di mesin yang harus membantu, "
+"lalu kembali ke sini."
+
+#, python-brace-format
+msgid "{count} machine(s) du réseau peuvent aider."
+msgstr "{count} mesin di jaringan dapat membantu."
+
+#, python-brace-format
+msgid ""
+"{machine} : omega-stress trop ancien ou illisible — mettez-le à jour depuis "
+"le Registre."
+msgstr ""
+"{machine}: omega-stress terlalu lama atau tidak terbaca — perbarui dari "
+"Registri."
+
+msgid "Relier la charge distribuée"
+msgstr "Tautkan beban terdistribusi"
+
+msgid "Commandes lancées, dans cet ordre :"
+msgstr "Perintah yang dijalankan, sesuai urutan:"
+
+msgid ""
+"Le pare-feu de cette machine s'ouvre au port d'omega-stress pour votre "
+"réseau local : un mot de passe sudo sera demandé, une seule fois."
+msgstr ""
+"Firewall mesin ini dibuka untuk port omega-stress bagi jaringan lokal Anda: "
+"kata sandi sudo akan diminta satu kali."
+
+msgid "Liaison en cours…"
+msgstr "Menautkan…"
+
+msgid "Retrait de la liaison…"
+msgstr "Melepas tautan…"
+
+#, python-brace-format
+msgid "{count} étape(s) en échec :"
+msgstr "{count} langkah gagal:"
+
+msgid "cette machine"
+msgstr "mesin ini"
+
+msgid "Fait."
+msgstr "Selesai."
+
+msgid "Pare-feu de cette machine (règles posées) :"
+msgstr "Firewall mesin ini (aturan yang dipasang):"
+
+msgid "cette machine (root)"
+msgstr "mesin ini (root)"
+
 msgid "Lancer (mot de passe administrateur)"
 msgstr "Jalankan (kata sandi administrator)"
 
@@ -3175,9 +3403,6 @@ msgstr ""
 msgid "Actualiser"
 msgstr "Segarkan"
 
-msgid "cette machine"
-msgstr "mesin ini"
-
 msgid "DASHBOARD"
 msgstr "DASBOR"
 
@@ -3229,19 +3454,24 @@ msgstr "pemindaian terakhir pada {time}"
 msgid "Espace partagé : "
 msgstr "Ruang bersama: "
 
+#, python-brace-format
+msgid "{tool} (dans omega-suite)"
+msgstr "{tool} (di omega-suite)"
+
+#, python-brace-format
+msgid ""
+"Fait partie d'omega-suite {version} ({root}) : se met à jour avec elle, "
+"jamais seul."
+msgstr ""
+"Bagian dari omega-suite {version} ({root}): diperbarui bersamanya, tidak "
+"pernah sendiri."
+
 msgid "Réinstaller l'application"
 msgstr "Pasang ulang aplikasi"
 
 #, python-brace-format
-msgid "→ « {action} » installe la dernière version depuis GitHub."
-msgstr "→ “{action}” memasang versi terbaru dari GitHub."
-
-msgid ""
-"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
-"possible : suivez la section « Mise à jour » du README de l'outil."
-msgstr ""
-"→ Di komputer ini, pembaruan dari omega-connect belum memungkinkan: ikuti "
-"bagian “Pembaruan” di README alat tersebut."
+msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
+msgstr "→ « {action} » membuka Updater, dengan aplikasi sudah dicentang."
 
 #, python-brace-format
 msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
@@ -3360,6 +3590,12 @@ msgstr "Pindai: pindai ulang mesin"
 
 msgid "aucune correction connue (voir le détail)"
 msgstr "tidak ada perbaikan yang diketahui (lihat detail)"
+
+msgid "Charge distribuée : relier de nouveau, ou ouvrir le pare-feu"
+msgstr "Beban terdistribusi: tautkan lagi, atau buka firewall"
+
+msgid "Updater : mise à jour depuis ici"
+msgstr "Updater: perbarui dari sini"
 
 msgid "RÉPARER"
 msgstr "PERBAIKI"
@@ -3669,9 +3905,6 @@ msgstr "{count} item dihapus di {path}."
 msgid "Non supprimés : {items}"
 msgstr "Tidak terhapus: {items}"
 
-msgid "Choisir"
-msgstr "Pilih"
-
 msgid "SYNCHRONISATION"
 msgstr "SINKRONISASI"
 
@@ -3691,6 +3924,9 @@ msgstr "Sinkronkan semua"
 
 msgid "Synchroniser la sélection"
 msgstr "Sinkronkan pilihan"
+
+msgid "Charge distribuée…"
+msgstr "Beban terdistribusi…"
 
 msgid "Lire avec sudo"
 msgstr "Baca dengan sudo"
@@ -3725,6 +3961,83 @@ msgstr "PERCAYAI MESIN INI?"
 
 msgid "Faire confiance"
 msgstr "Percayai"
+
+msgid "non vérifiée"
+msgstr "belum diperiksa"
+
+msgid "à jour"
+msgstr "terbaru"
+
+msgid "à mettre à jour"
+msgstr "perlu diperbarui"
+
+msgid "installation inachevée — à réinstaller"
+msgstr "instalasi belum selesai — perlu dipasang ulang"
+
+msgid "aucune version publiée trouvée"
+msgstr "tidak ada versi terbit yang ditemukan"
+
+msgid "machine injoignable"
+msgstr "mesin tidak terjangkau"
+
+msgid ""
+"omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
+"demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
+msgstr ""
+"omega-connect — pembaruan di mesin ini. install.sh dapat meminta kata sandi "
+"sudo (tidak tampil saat diketik)."
+
+msgid "UPDATER"
+msgstr "UPDATER"
+
+msgid ""
+"Les applications déjà scannées, sur cette machine et sur le réseau. « "
+"Vérifier les versions » cherche la dernière version publiée (GitHub, puis le"
+" site). Cochez (Entrée ou Espace) puis « Mettre à jour la sélection », ou « "
+"Tout mettre à jour » : chaque machine montre son plan avant d'agir, et un "
+"seul mot de passe est demandé, dans le terminal."
+msgstr ""
+"Aplikasi yang sudah dipindai, di mesin ini dan di jaringan. « Periksa versi "
+"» mencari versi terbit terbaru (GitHub, lalu situs). Centang (Enter atau "
+"Spasi) lalu « Perbarui pilihan », atau « Perbarui semua »: setiap mesin "
+"menampilkan rencananya sebelum bertindak, dan hanya satu kata sandi diminta,"
+" di terminal."
+
+msgid "Vérifier les versions"
+msgstr "Periksa versi"
+
+msgid "Mettre à jour la sélection"
+msgstr "Perbarui pilihan"
+
+msgid "Tout mettre à jour"
+msgstr "Perbarui semua"
+
+msgid "Disponible"
+msgstr "Tersedia"
+
+msgid "Installée"
+msgstr "Terpasang"
+
+#, python-brace-format
+msgid "{tool} (contient {tools})"
+msgstr "{tool} (berisi {tools})"
+
+#, python-brace-format
+msgid ""
+"{count} application(s) — à jour : {ok} ; à mettre à jour : {old} ; "
+"inachevées : {incomplete} ; non vérifiées : {unchecked}."
+msgstr ""
+"{count} aplikasi — terbaru: {ok}; perlu diperbarui: {old}; belum selesai: "
+"{incomplete}; belum diperiksa: {unchecked}."
+
+msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
+msgstr "Mencari versi terbit terbaru (GitHub, lalu situs)…"
+
+msgid "Téléchargement et vérification des archives…"
+msgstr "Mengunduh dan memeriksa arsip…"
+
+msgid "Rescan de cette machine…"
+msgstr "Memindai ulang mesin ini…"
 
 msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
 msgstr "DETAIL RUANG BERSAMA"

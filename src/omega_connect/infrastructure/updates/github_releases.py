@@ -67,6 +67,14 @@ class GithubReleases:
         version = version_from_tag_url(location or "")
         return version or ReleaseFailure.NO_RELEASE
 
+    label = "GitHub"
+
+    def _sha_url(self, tool: str, version: str) -> str:
+        return asset_url(tool, version, SHA_FILE)
+
+    def _archive_url(self, tool: str, version: str, name: str) -> str:
+        return asset_url(tool, version, name)
+
     def _get(self, url: str, limit: int) -> bytes | ReleaseFailure:
         try:
             with urllib.request.urlopen(_request(url), timeout=self._timeout) as answer:  # noqa: S310
@@ -79,7 +87,7 @@ class GithubReleases:
 
     def fetch(self, tool: str, version: str) -> ReleaseArchive | ReleaseFailure:
         name = archive_name(tool, version)
-        sha_list = self._get(asset_url(tool, version, SHA_FILE), MAX_SHA_BYTES)
+        sha_list = self._get(self._sha_url(tool, version), MAX_SHA_BYTES)
         if isinstance(sha_list, ReleaseFailure):
             return sha_list
         expected = expected_sha(sha_list.decode("utf-8", errors="replace"), name)
@@ -97,7 +105,7 @@ class GithubReleases:
         digest = hashlib.sha256()
         size = 0
         try:
-            with urllib.request.urlopen(_request(asset_url(tool, version, name)),  # noqa: S310
+            with urllib.request.urlopen(_request(self._archive_url(tool, version, name)),  # noqa: S310
                                         timeout=self._timeout) as answer, \
                     open(os.open(target, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600), "wb") as handle:
                 while chunk := answer.read(CHUNK):

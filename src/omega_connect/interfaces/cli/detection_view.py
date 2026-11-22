@@ -6,6 +6,7 @@ from __future__ import annotations
 from typing import Any
 
 from omega_lib.synchro.codec import sheet_to_dict, token_to_dict
+from omega_lib.synchro.constants import TOOL_LAUNCHERS
 from omega_lib.synchro.models import CapabilityState, ReadStatus
 
 from omega_connect.domain.detection import (
@@ -83,8 +84,7 @@ def _installation_lines(item: DetectedInstallation) -> list[str]:
     else:
         lines.append("  " + _("jeton : {state}").format(state=_(TOKEN_LABELS[item.token_status])))
         if item.token_status is ReadStatus.ABSENT and item.tool:
-            launcher = {"omega-serv": "omega-serv.sh", "omega-fire": "omega-fire.sh",
-                        "omega-jail": "omega-jail.sh"}.get(item.tool)
+            launcher = TOOL_LAUNCHERS.get(item.tool)
             if launcher:
                 lines.append("    " + _(TOKEN_HINT).format(
                     owner=item.owner or "?", command=f"{item.root}/{launcher} synchro jeton"))

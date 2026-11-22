@@ -25,10 +25,11 @@
 **Omega-connect** は `omega-` スイートのインターコネクターです。このマシンとネットワーク上のマシンにインストールされた omega アプリケーション（omega-serv、omega-fire、omega-jail…）を見つけ、何が互いに連携されていて何がされていないかを示し、足りないものを元に戻します。必ず、何をするかを先に見せてから行います。いったん連携されると、omega-connect が起動していなくても、アプリケーション同士が互いを見つけられます。
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-connect/A.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-connect/B.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-connect/C.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-connect/D.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-connect/A.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-connect/B.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-connect/C.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-connect/D.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-connect/E.png" width="32%" />
 </p>
 
 ## 1. ビジョンと範囲
@@ -41,8 +42,9 @@ omega アプリケーションは一緒に動くように作られています�
 - すべてのマシンのすべてのアプリケーションを、バージョンと状態とともに **レジストリ** に記録します。
 - アプリケーション間の各 **連携**（jail が読むログ、ブラックリストへのブリッジ、保護リスト、fail2ban 内の omega-jail のファイル、ID カード、共有スペース）を確認し、何がうまくいっていないかを示します。
 - **同期**：足りない ID カードを作成し、アプリケーション同士が互いを見つけられる **共有スペース** を用意します。
+- **omega-stress の分散負荷を連携**: このマシンが指揮し、チェックしたマシンがターゲットへの負荷を手伝います。ボタン 1 つ（アクセス情報は SSH で送信、同意を選択、ファイアウォールは omega-stress のポートだけ開放）。
 - **修復**：各不整合は、そのファイルを所有するアプリケーションに直させます。omega-connect が代わりに直すことは決してありません。
-- ネットワーク上のマシンにある古すぎるアプリケーションや正しくインストールされていないアプリケーションを、その GitHub Release から **更新または再インストール** します（ハッシュを確認）。
+- このマシンとネットワーク上のアプリケーションを **Updater** から **更新または再インストール** します: 各アプリケーションの GitHub Release から、なければそのサイトから（フィンガープリントを確認）。未公開のバージョンは決して提案しません。
 - ネットワーク上のマシンに **あなたのマシンから** 作用します：向こうで入力するものは何もなく、パスワードはそのマシン自身が 1 回だけ尋ねます。
 - 完全な **レポート** を作成します（テキスト、JSON、HTML ページ）。
 
@@ -66,7 +68,7 @@ omega アプリケーションは一緒に動くように作られています�
 アーカイブがあるフォルダーから：
 
 ```bash
-tar -xzf omega-connect-0.1.0.tar.gz
+tar -xzf omega-connect-0.2.0.tar.gz
 cd omega-connect/
 ./install.sh
 ```
@@ -105,10 +107,10 @@ cd omega-connect/
 | 管理 | メンテナンス |
 |---|---|
 | **レジストリ** — すべてのマシンのすべてのアプリケーションと、そのバージョンと状態 | **修復** — 問題のあるものすべての一覧から選びます |
-| **スキャン** — このマシンと、ネットワーク上のマシンの追加 | **レポート** — エクスポートできる完全な文書 |
-| **連携** — 連携されているもの・いないものと、その状態 | **設定** — 言語、テーマ、フォルダー、削除 |
-| **同期** — すべてのマシンでアプリケーションを連携 | **ヘルプ** — 各メニュー、その機能と詳細 |
-| **ダッシュボード** — 全体像 | **終了** |
+| **スキャン** — このマシンと、ネットワーク上のマシンの追加 | **Updater** — すべてのマシンでバージョン確認、更新、再インストール |
+| **連携** — 連携されているもの・いないものと、その状態 | **レポート** — エクスポートできる完全な文書 |
+| **同期** — すべてのマシンでアプリケーションを連携 | **設定** — 言語、テーマ、フォルダー、削除 |
+| **ダッシュボード** — 全体像 | **ヘルプ** — 各メニュー、その機能と詳細 |
 
 典型的な流れ：**スキャン**（このマシン、続いてほかのマシン。Unison プロファイル、`~/.ssh/config`、`known_hosts` から候補を表示）→ **レジストリ**（古いアプリケーションを更新または再インストール）→ **同期**（チェックを入れてから同期）→ **連携** と **ダッシュボード** で結果を確認 → 不整合が残っていれば **修復**。
 

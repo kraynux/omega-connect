@@ -25,10 +25,11 @@ Offizielle Seite: [OMEGA-CONNECT](https://kraynux.snake-mackarel.ts.net/omega-co
 **Omega-connect** ist der Verbinder der `omega-`-Suite: Er findet die installierten omega-Anwendungen (omega-serv, omega-fire, omega-jail…) auf diesem Rechner und auf den Rechnern Ihres Netzwerks, zeigt, was miteinander verbunden ist und was nicht, und stellt wieder her, was fehlt — und zeigt dabei immer zuerst, was er tun wird. Einmal verbunden, finden sich die Anwendungen gegenseitig, ohne dass omega-connect laufen muss.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/A.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/B.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/C.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/D.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/A.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/B.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/C.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/D.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/de/omega-connect/E.png" width="32%" />
 </p>
 
 ## 1. Vision und Umfang
@@ -41,8 +42,9 @@ Die omega-Anwendungen sind für die Zusammenarbeit gemacht: Die Logs von omega-s
 - Führt ein **Register** aller Anwendungen aller Rechner, mit ihrer Version und ihrem Zustand.
 - Prüft jede **Verbindung** zwischen Anwendungen (von den Jails gelesene Logs, Brücke zur Sperrliste, Schutzliste, Dateien von omega-jail in fail2ban, Ausweise, gemeinsamer Bereich) und sagt, was nicht stimmt.
 - **Synchronisiert**: erstellt die fehlenden Ausweise und bereitet den **gemeinsamen Bereich** vor, in dem sich die Anwendungen gegenseitig finden.
+- **Verbindet die verteilte Last von omega-stress**: Dieser Rechner steuert, die angehakten Rechner helfen ihm, das Ziel zu belasten; ein Knopf (Zugang per SSH übertragen, Zustimmung gewählt, Firewall nur für den omega-stress-Port geöffnet).
 - **Repariert**: lässt jede Abweichung von der Anwendung korrigieren, der die Datei gehört; niemals omega-connect an ihrer Stelle.
-- **Aktualisiert oder installiert neu** eine zu alte oder fehlerhaft installierte Anwendung eines Netzwerkrechners, aus ihrem GitHub-Release (Prüfsumme verifiziert).
+- **Aktualisiert oder installiert neu** die Anwendungen dieses Rechners und des Netzwerks, über den **Updater**: aus ihrem GitHub-Release oder, ersatzweise, von ihrer Website (Fingerabdruck geprüft); eine unveröffentlichte Version wird nie angeboten.
 - Handelt auf einem Netzwerkrechner **von Ihrem Arbeitsplatz aus**: dort ist nichts einzutippen, sein Passwort wird einmal abgefragt, von ihm selbst.
 - Erstellt einen vollständigen **Bericht** (Text, JSON oder HTML-Seite).
 
@@ -66,7 +68,7 @@ Die omega-Anwendungen sind für die Zusammenarbeit gemacht: Die Logs von omega-s
 Aus dem Ordner, in dem das Archiv liegt:
 
 ```bash
-tar -xzf omega-connect-0.1.0.tar.gz
+tar -xzf omega-connect-0.2.0.tar.gz
 cd omega-connect/
 ./install.sh
 ```
@@ -105,10 +107,10 @@ Das Hauptmenü hat zwei Spalten:
 | Verwaltung | Wartung |
 |---|---|
 | **Register** — alle Anwendungen aller Rechner, ihre Version und ihr Zustand | **Reparieren** — die Liste von allem, was nicht stimmt, und Sie wählen aus |
-| **Scannen** — dieser Rechner und das Hinzufügen der Netzwerkrechner | **Bericht** — ein vollständiges Dokument zum Exportieren |
-| **Verbindungen** — was verbunden ist und was nicht, mit seinem Zustand | **Einstellungen** — Sprache, Themes, Ordner, Bereinigen |
-| **Synchronisierung** — die Anwendungen verbinden, auf allen Rechnern | **Hilfe** — jedes Menü, seine Funktion und die Details |
-| **Dashboard** — die Gesamtübersicht | **Beenden** |
+| **Scannen** — dieser Rechner und das Hinzufügen der Netzwerkrechner | **Updater** — Versionen prüfen, aktualisieren oder neu installieren, auf allen Rechnern |
+| **Verbindungen** — was verbunden ist und was nicht, mit seinem Zustand | **Bericht** — ein vollständiges Dokument zum Exportieren |
+| **Synchronisierung** — die Anwendungen verbinden, auf allen Rechnern | **Einstellungen** — Sprache, Themes, Ordner, Bereinigen |
+| **Dashboard** — die Gesamtübersicht | **Hilfe** — jedes Menü, seine Funktion und die Details |
 
 Typischer Ablauf: **Scannen** (dieser Rechner, dann Ihre anderen Rechner, vorgeschlagen anhand Ihrer Unison-Profile, `~/.ssh/config` und `known_hosts`) → **Register** (eine alte Anwendung aktualisieren oder neu installieren) → **Synchronisierung** (abhaken, dann synchronisieren) → **Verbindungen** und **Dashboard**, um das Ergebnis zu sehen → **Reparieren**, falls noch eine Abweichung bleibt.
 

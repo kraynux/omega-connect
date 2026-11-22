@@ -10,6 +10,7 @@ from omega_lib.infrastructure.synchro.install_token import read_install_token
 from omega_lib.synchro.constants import TOKEN_RELATIVE_PATH, TOOL_LAUNCHERS
 from omega_lib.synchro.models import InstallToken, ReadResult
 
+from omega_connect.domain.suite import SUITE_LAUNCHER, SUITE_PACKAGE, SUITE_TOOL, suite_candidate
 from omega_connect.domain.versions import read_version, version_file
 
 MAX_VERSION_FILE_BYTES = 256 * 1024
@@ -59,12 +60,31 @@ class FilesystemInspector:
         return installed_version(Path(root), tool)
 
     def venv_ready(self, root: str) -> bool:
-        venv = Path(root) / ".venv"
+        suite, _version = self.suite(root)
+        venv = Path(suite or root) / ".venv"
         try:
             return not venv.is_symlink() and (venv / "bin" / "activate").is_file() and \
                 (venv / "bin" / "python").exists()
         except OSError:
             return False
+
+
+    def suite(self, root: str) -> tuple[str, str]:
+        return embedding_suite(root)
+
+
+def embedding_suite(root: str) -> tuple[str, str]:
+    """omega-suite qui embarque `root` (`<suite>/vendor/<outil>`) : son lanceur et son paquet doivent etre la."""
+    candidate = suite_candidate(root)
+    if not candidate:
+        return "", ""
+    path = Path(candidate)
+    try:
+        if path.is_symlink() or not (path / SUITE_LAUNCHER).is_file() or not (path / SUITE_PACKAGE).is_dir():
+            return "", ""
+    except OSError:
+        return "", ""
+    return candidate, installed_version(path, SUITE_TOOL)
 
 
 def installed_version(root: Path, tool: str) -> str:

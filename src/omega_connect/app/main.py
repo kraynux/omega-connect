@@ -16,11 +16,13 @@ from omega_lib.synchro.policies import format_utc
 
 from omega_connect import __version__
 from omega_connect.application.detect_installations import detect_installations
-from omega_connect.application.remote_actions import RemoteTools, rescan_network
+from omega_connect.application.distributed_actions import DistributedTools
+from omega_connect.application.remote_actions import RemoteTools, rescan_network, scan_remote
 from omega_connect.application.remote_sync import RemoteSyncTools
 from omega_connect.application.repair_actions import RepairTools
 from omega_connect.application.report import FullReport, ReportTools, collect_report
 from omega_connect.application.settings import SettingsTools
+from omega_connect.application.updater import UpdaterTools
 from omega_connect.application.verify_links import verify_links
 from omega_connect.application.zone_actions import ZoneTools
 from omega_connect.core.constants import (
@@ -34,7 +36,9 @@ from omega_connect.core.constants import (
     SYSTEMD_UNIT_DIR,
 )
 from omega_connect.domain.detection import DetectionReport, Source
+from omega_connect.domain.distributed_load import STRESS_TOOL
 from omega_connect.domain.links import VerificationReport
+from omega_connect.domain.remote import parse_target
 from omega_connect.infrastructure.clipboard.system import copy_text
 from omega_connect.infrastructure.detection.filesystem_scan import (
     MOUNTS_FILE,
@@ -55,7 +59,11 @@ from omega_connect.infrastructure.repair.tool_runner import ToolCommandRunner
 from omega_connect.infrastructure.session.zone_group import relaunch_with_zone_group
 from omega_connect.infrastructure.settings.directories import clear_directory
 from omega_connect.infrastructure.settings.json_store import JsonSettingsStore
+from omega_connect.infrastructure.stress.pilot import LocalPilot
+from omega_connect.infrastructure.stress.runner import StressRunner, local_address_towards
 from omega_connect.infrastructure.updates.github_releases import GithubReleases
+from omega_connect.infrastructure.updates.local_agent import run_in_terminal
+from omega_connect.infrastructure.updates.site_releases import ChainedReleases, SiteReleases
 from omega_connect.infrastructure.verification.files import Fail2banFilesReader, StatFileProbe
 from omega_connect.infrastructure.zone.inspector import SystemZoneInspector
 from omega_connect.infrastructure.zone.system import SessionSubject, SudoRunner, running_as_root
@@ -213,7 +221,9 @@ def build_dashboard(verify: VerifyFunction, *, refresh_seconds: float = DASHBOAR
                     report: ReportFunction | None = None, writer: FileExportWriter | None = None,
                     repair: RepairTools | None = None, remote: RemoteTools | None = None,
                     remote_sync: RemoteSyncTools | None = None,
-                    settings: SettingsTools | None = None) -> DashboardFunction:
+                    settings: SettingsTools | None = None,
+                    distributed: DistributedTools | None = None,
+                    updater: UpdaterTools | None = None) -> DashboardFunction:
     """Ouvre l'interface (Textual charge seulement ici : la ligne de commande n'en a pas besoin)."""
     def dashboard(request: DetectRequest) -> int:
         if not sys.stdin.isatty() or not sys.stdout.isatty():
@@ -232,6 +242,7 @@ def build_dashboard(verify: VerifyFunction, *, refresh_seconds: float = DASHBOAR
                         refresh_seconds=refresh_seconds, zone=zone, repair=repair,
                         parc=FileParcStore(var_dir()), machine=machine_name(), remote=remote,
                         remote_sync=remote_sync, system_clipboard=copy_text, settings=settings,
+                        distributed=distributed, updater=updater,
                         contact=build_contact_support("omega-connect", __version__, var_dir()),
                         detect=(lambda: detect(request)) if detect is not None else None,
                         report=ReportTools(lambda: report(request), writer)
@@ -244,6 +255,18 @@ def build_dashboard(verify: VerifyFunction, *, refresh_seconds: float = DASHBOAR
     return dashboard
 
 
+def _rescan(text: str, remote: RemoteTools) -> None:
+    target = parse_target(text)
+    if target is not None:
+        scan_remote(target, remote)
+
+
+def stress_roots(detect: DetectFunction) -> list[str]:
+    """Dossiers d'omega-stress de cette machine (charge distribuee : cette machine pilote)."""
+    report = detect(DetectRequest(manual_paths=[], with_sheets=False))
+    return [item.root for item in report.installations if item.tool == STRESS_TOOL]
+
+
 def main(argv: list[str] | None = None) -> int:
     if argv is None:
         relaunched = relaunch_with_zone_group(sys.argv[1:])
@@ -254,14 +277,22 @@ def main(argv: list[str] | None = None) -> int:
     verify = build_verify(detect, zone=zone)
     parc = FileParcStore(var_dir())
     session = SshRemoteSession()
-    remote = RemoteTools(scanner=session, parc=parc, suggest=LocalSuggestions())
+    pilot = LocalPilot(lambda: stress_roots(detect))
+    remote = RemoteTools(scanner=session, parc=parc, suggest=LocalSuggestions(), pilot=pilot,
+                         local_name=(socket.gethostname() or "?").split(".")[0][:64])
     report = build_report(verify, zone, parc, remote)
     settings = build_settings()
     writer = FileExportWriter(settings.exports_dir)
     repair = build_repair()
-    remote_sync = RemoteSyncTools(session=session, releases=GithubReleases(), remote=remote,
+    releases = ChainedReleases(GithubReleases(), SiteReleases())
+    updater = UpdaterTools(releases=releases, runner=run_in_terminal)
+    remote_sync = RemoteSyncTools(session=session, releases=releases, remote=remote,
                                   payload=lambda: build_payload(runnable=True))
+    distributed = DistributedTools(
+        runner=StressRunner(), pilot=pilot, address_towards=local_address_towards,
+        rescan=lambda text: _rescan(text, remote))
     dashboard = build_dashboard(verify, detect=detect, zone=zone, report=report, writer=writer, repair=repair,
-                                remote=remote, remote_sync=remote_sync, settings=settings)
+                                remote=remote, remote_sync=remote_sync, settings=settings,
+                                distributed=distributed, updater=updater)
     return main_with(detect, verify, argv, dashboard, zone, report=report, writer=writer, repair=repair,
                      parc=parc, machine=machine_name(), remote=remote, remote_sync=remote_sync)

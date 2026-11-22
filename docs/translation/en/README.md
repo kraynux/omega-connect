@@ -25,10 +25,11 @@ Official page: [OMEGA-CONNECT](https://kraynux.snake-mackarel.ts.net/omega-conne
 **Omega-connect** is the interconnector of the `omega-` suite: it finds the installed omega applications (omega-serv, omega-fire, omega-jail…) on this machine and on the machines of your network, shows what is linked together and what is not, and puts back what is missing — always showing first what it is going to do. Once linked, the applications find each other without omega-connect running.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/A.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/B.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/C.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/D.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/A.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/B.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/C.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/D.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-connect/E.png" width="32%" />
 </p>
 
 ## 1. Vision and scope
@@ -41,8 +42,9 @@ The omega applications are made to work together: omega-serv's logs are read by 
 - Keeps a **registry** of all the applications of all the machines, with their version and their state.
 - Checks each **link** between applications (logs read by the jails, bridge to the blocklist, protected list, omega-jail's files in fail2ban, identity cards, shared space) and says what is wrong.
 - **Synchronizes**: creates the missing identity cards and prepares the **shared space** where the applications find each other.
+- **Links omega-stress distributed load**: this machine leads, the ticked machines help it load the target; one button (access sent over SSH, consent chosen, firewall opened to the omega-stress port only).
 - **Repairs**: has each discrepancy fixed by the application that owns the file; never omega-connect in its place.
-- **Updates or reinstalls** a too-old or badly installed application on a network machine, from its GitHub Release (checksum verified).
+- **Updates or reinstalls** the applications of this machine and of the network, from the **Updater**: their GitHub Release or, failing that, their site (fingerprint checked); an unpublished version is never offered.
 - Acts on a network machine **from your computer**: nothing to type over there, its password asked once, by the machine itself.
 - Produces a complete **report** (text, JSON or HTML page).
 
@@ -66,7 +68,7 @@ The omega applications are made to work together: omega-serv's logs are read by 
 From the folder where the archive is located:
 
 ```bash
-tar -xzf omega-connect-0.1.0.tar.gz
+tar -xzf omega-connect-0.2.0.tar.gz
 cd omega-connect/
 ./install.sh
 ```
@@ -105,10 +107,10 @@ The main menu has two columns:
 | Management | Maintenance |
 |---|---|
 | **Registry** — all the applications of all the machines, their version and their state | **Repair** — the list of everything that is wrong, and you choose |
-| **Scan** — this machine, and adding the network machines | **Report** — a complete document, to export |
-| **Links** — what is linked or not, with its state | **Settings** — language, themes, folders, purge |
-| **Synchronization** — link the applications, on all the machines | **Help** — each menu, what it does and the details |
-| **Dashboard** — the overview | **Quit** |
+| **Scan** — this machine, and adding the network machines | **Updater** — check versions, update or reinstall, on all machines |
+| **Links** — what is linked or not, with its state | **Report** — a complete document, to export |
+| **Synchronization** — link the applications, on all the machines | **Settings** — language, themes, folders, purge |
+| **Dashboard** — the overview | **Help** — each menu, what it does and the details |
 
 Typical path: **Scan** (this machine, then your other machines, suggested from your Unison profiles, `~/.ssh/config` and `known_hosts`) → **Registry** (update or reinstall an old application) → **Synchronization** (check, then synchronize) → **Links** and **Dashboard** to see the result → **Repair** if a discrepancy remains.
 

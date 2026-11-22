@@ -28,6 +28,7 @@ from omega_connect.application.remote_sync import (
 )
 from omega_connect.domain.remote import RemoteTarget
 from omega_connect.domain.updates import Purpose
+from omega_connect.domain.versions import Outdated
 from omega_connect.interfaces.cli.remote_sync_view import (
     plan_failure_text,
     prepare_failure_text,
@@ -48,9 +49,10 @@ class RemoteMachineScreen(OmegaScreen):
     """Renvoie True si quelque chose a ete lance (la file « toutes les machines » continue)."""
 
     def __init__(self, *, target: RemoteTarget, tools: RemoteSyncTools, position: str = "",
-                 purpose: Purpose = Purpose.SYNC) -> None:
+                 purpose: Purpose = Purpose.SYNC, items: tuple[Outdated, ...] | None = None) -> None:
         super().__init__()
         self._purpose = purpose
+        self._items = items
         self._target = target
         self._tools = tools
         self._position = position
@@ -96,7 +98,7 @@ class RemoteMachineScreen(OmegaScreen):
 
         def collect() -> None:
             try:
-                result = machine_plan(target, tools, self._purpose)
+                result = machine_plan(target, tools, self._purpose, self._items)
             except Exception as exc:  # noqa: BLE001 - jamais planter l'interface
                 self.app.call_from_thread(self._text, _("Erreur : {message}").format(message=exc))
                 return

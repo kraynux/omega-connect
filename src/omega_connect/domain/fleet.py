@@ -62,6 +62,9 @@ class RegistryRow:
     state: AppState
     findings: tuple[tuple[Link, Check], ...] = ()
     """Ecarts qui font « A corriger » (verification)."""
+    suite: str = ""
+    """Dossier d'omega-suite si c'est une copie qu'elle embarque ; vide sinon (domain/suite.py)."""
+    suite_version: str = ""
 
     @property
     def key(self) -> str:
@@ -136,7 +139,8 @@ def registry_rows(report: VerificationReport, facts: ZoneFacts | None,
             state = AppState.LINKED
         else:
             state = AppState.ENROLLED
-        rows.append(RegistryRow(machine, item.tool, item.root, instance, service_state, version, state, findings))
+        rows.append(RegistryRow(machine, item.tool, item.root, instance, service_state, version, state, findings,
+                                item.suite, item.suite_version))
     return tuple(rows)
 
 

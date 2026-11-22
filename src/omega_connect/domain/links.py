@@ -52,6 +52,8 @@ class LinkKind(str, Enum):
     FAIL2BAN_FILES = "fail2ban-files"
     TOKENS = "install-tokens"
     ZONE = "neutral-zone"
+    DISTRIBUTED_LOAD = "distributed-load"
+    """omega-stress : cette machine pilote, une machine du reseau aide (charge distribuee, 2026-11-21)."""
 
 
 INSTANCE_LINKS = (LinkKind.SERV_LOGS, LinkKind.MAGNET_LOGS, LinkKind.BRIDGE, LinkKind.PROTECTED_LIST,
@@ -159,6 +161,15 @@ class CheckCode(str, Enum):
     ZONE_TOOL_GONE = "zone-tool-gone"
     ZONE_SERVICE_GROUP_OK = "zone-service-group-ok"
     ZONE_SERVICE_GROUP_MISSING = "zone-service-group-missing"
+    STRESS_HELPER_FACTS = "stress-helper-facts"
+    """Releve brut de la machine qui aide (scan distant) ; remplace par les controles ci-dessous."""
+    STRESS_LINKED = "stress-linked"
+    STRESS_NOT_LINKED = "stress-not-linked"
+    STRESS_HALF_LINKED = "stress-half-linked"
+    STRESS_NO_PILOT = "stress-no-pilot"
+    STRESS_FIREWALL_CLOSED = "stress-firewall-closed"
+    STRESS_NEEDS_OMEGA_FIRE = "stress-needs-omega-fire"
+    STRESS_HELPER_UNREADABLE = "stress-helper-unreadable"
 
 
 class RepairKind(str, Enum):

@@ -129,6 +129,9 @@ class DetectedInstallation:
     """Version lue dans les fichiers de l'outil (lot R3) ; vide si illisible. Connue meme sans carte ni fiche."""
     venv_ready: bool | None = None
     """`.venv/bin/activate` et `.venv/bin/python` presents (install.sh alle au bout) ; None : pas regarde."""
+    suite: str = ""
+    """Dossier d'omega-suite si c'est une copie qu'elle embarque (`<suite>/vendor/<outil>`) ; vide sinon."""
+    suite_version: str = ""
 
     @property
     def installation_id(self) -> str:

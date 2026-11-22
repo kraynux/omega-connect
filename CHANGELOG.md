@@ -4,6 +4,54 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [0.2.0] — construite le 2026-11-22
+
+### Ajouté
+
+- **UPDATER** (2026-11-22, demande de l'auteur) : menu Maintenance, sous Réparer ; le SEUL endroit qui met à jour les
+  applications, sur cette machine comme sur le réseau. Réparer et le bouton « Mettre à jour / Réinstaller
+  l'application » du Registre y renvoient, l'application déjà cochée (avant : Réparer téléchargeait l'archive, et
+  cette machine renvoyait « à la main, README »).
+  - Lignes = ce qui est déjà scanné (machine, application, version installée) ; rien n'est rescanné à l'ouverture.
+  - « Vérifier les versions » (la sélection ou tout) : dernière version publiée, Release GitHub puis le site de
+    l'application (download/sha.txt), la plus haute ; une version non publiée n'est jamais proposée ; une requête
+    par application.
+  - « Mettre à jour la sélection » / « Tout mettre à jour » (à mettre à jour, installations inachevées) : cette
+    machine d'abord, même programme que sur le réseau, dans le terminal (archive vérifiée, extraite par-dessus,
+    `install.sh`) ; puis chaque machine du réseau, son plan affiché avant d'agir ; compte rendu, machines rescannées.
+  - « Quitter » retiré du menu (touches `q` et `Échap` inchangées). Cases à cocher plus visibles (case verte ✔).
+  - Registre : « Mettre à jour / Réinstaller l'application » ouvre aussi l'Updater pour CETTE machine (le bouton
+    restait grisé avec « suivez le README », message d'avant l'Updater).
+- **omega-stress fait partie d'omega-suite** (décision de l'auteur, 2026-11-22). L'omega-stress embarqué
+  (`<suite>/vendor/omega-stress`) n'est plus une ligne grisée ni une « installation inachevée » (il n'a ni `.venv` ni
+  carte à lui : ceux de la suite comptent).
+  - Registre : « omega-stress (dans omega-suite) », le détail donne la version et le dossier de la suite.
+  - Updater : la ligne est celle d'omega-suite (« contient omega-stress 1.6.0 ») ; elle se met à jour avec ses
+    outils, testés ensemble, jamais l'omega-stress seul (une machine du réseau aussi, et Réparer).
+  - Charge distribuée : en 2.0.0 ou plus, il aide comme un omega-stress autonome (son lanceur prend le `.venv` et le
+    `var/stress` de la suite, omega-stress 2.0.0) ; si la machine a aussi un omega-stress autonome, c'est lui.
+  - Captures : B (menu) refaite et E (Updater) ajoutée, dans les 17 langues (README et site, versions publiées
+    fictives) ; galerie française : 12 écrans, dont l'Updater.
+
+- **Charge distribuée d'omega-stress** (2026-11-21, étude `STRESS/ETUDE_PARCOURS_CHARGE_DISTRIBUEE_SIMPLE.md`,
+  lot L2) : nouvelle liaison « Charge distribuée (omega-stress) » — cette machine pilote, les machines du réseau où
+  omega-stress 2.0.0 ou plus est installé peuvent aider.
+  - Le scan distant relève l'état d'omega-stress (`worker etat`, lecture seule) ; Liaisons, Dashboard et Réparer
+    montrent chaque machine : reliée, non reliée, liaison incomplète, pare-feu de cette machine fermé, omega-fire
+    nécessaire.
+  - Synchronisation → **Charge distribuée…** : cocher les machines, choisir l'accord (« Demander pour chaque
+    nouvelle cible » ou « Tout accepter de ce pilote »), **Relier la sélection** : plan affiché, accès créé chez
+    le pilote puis transmis par SSH (entrée standard, jamais à l'écran), pare-feu ouvert par omega-fire s'il est
+    relié, sinon ufw ou firewalld, avec un seul mot de passe sudo dans le terminal. **Délier la sélection** retire
+    l'accès des deux côtés. Réparer ouvre le même écran.
+  - Après « Relier », compte rendu du pare-feu : chaque règle posée (gestionnaire, réseau, état, numéro chez
+    omega-fire), aussi transmis à omega-stress qui le garde (qui a ouvert, quand).
+  - Correctifs de l'essai réel (2026-11-21) : une ligne par installation ; la copie d'omega-stress embarquée
+    par omega-suite était ignorée (elle est reconnue depuis, voir ci-dessus) ; une version trop ancienne n'est jamais lancée et ne se coche pas ;
+    omega-stress est toujours lancé depuis son dossier (ses fichiers étaient écrits au mauvais endroit) ;
+    revenir de l'écran sans rien changer ne rescanne plus le réseau.
+  - Aide intégrée et textes dans les 17 langues.
+
 ## [0.1.0] — construite le 2026-11-11
 
 ### Ajouté

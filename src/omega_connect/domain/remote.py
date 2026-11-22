@@ -138,7 +138,8 @@ def links_from_list(raw: object, machine: str = "") -> tuple[Link, ...]:
 
 def rows_to_list(rows: Iterable[RegistryRow]) -> list[dict[str, str]]:
     return [{"tool": row.tool, "root": row.root, "instance": row.instance, "service_state": row.service_state,
-             "version": row.version, "state": row.state.value} for row in rows]
+             "version": row.version, "state": row.state.value,
+             **({"suite": row.suite, "suite_version": row.suite_version} if row.suite else {})} for row in rows]
 
 
 def rows_from_list(raw: object, machine: str) -> tuple[RegistryRow, ...]:
@@ -147,7 +148,8 @@ def rows_from_list(raw: object, machine: str) -> tuple[RegistryRow, ...]:
         try:
             rows.append(RegistryRow(machine, str(app["tool"]), str(app["root"]), str(app.get("instance", "")),
                                     str(app.get("service_state", "")), str(app.get("version", "")),
-                                    AppState(app.get("state"))))
+                                    AppState(app.get("state")), (), str(app.get("suite", "")),
+                                    str(app.get("suite_version", ""))))
         except (KeyError, TypeError, ValueError, AttributeError):
             continue
     return tuple(rows)

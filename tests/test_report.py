@@ -111,11 +111,11 @@ def _app(system: FakeSystem, writer: FileExportWriter) -> OmegaConnectApp:
 
 
 def test_menu_columns_are_balanced_and_contact_lives_in_help():
-    """Refonte (proposition de l'auteur) : GESTION 5 / MAINTENANCE 5, Quitter compris."""
+    """Refonte (proposition de l'auteur) : GESTION 5 / MAINTENANCE 5, « Quitter » remplace par « Updater » (2026-11-22, touches q et Echap)."""
     main = [entry.key for entry in MENU if entry.column is Column.MAIN]
     maintenance = [entry.key for entry in MENU if entry.column is Column.MAINTENANCE]
     assert main == ["registry", "scanner", "links", "synchronisation", "dashboard"]
-    assert maintenance == ["repair", "report", "settings", "help", "quit"]
+    assert maintenance == ["repair", "updater", "report", "settings", "help"]  # « Quitter » retire (2026-11-22)
     assert "contact" not in main + maintenance
 
 

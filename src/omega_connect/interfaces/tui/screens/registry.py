@@ -43,8 +43,10 @@ from omega_connect.shared.i18n import _
 class RegistryScreen(OmegaScreen):
     def __init__(self, *, verify: VerifyNow, inspector: ZoneInspector, machine: str,
                  scanner: Callable[[], Screen[None]] | None = None, parc: ParcStore | None = None,
-                 remote: RemoteTools | None = None, remote_sync: RemoteSyncTools | None = None) -> None:
+                 remote: RemoteTools | None = None, remote_sync: RemoteSyncTools | None = None,
+                 updater: Callable[..., Screen[None] | None] | None = None) -> None:
         super().__init__()
+        self._updater = updater
         self._remote = remote
         self._remote_sync = remote_sync
         self._entries: tuple[MachineEntry | None, ...] = ()
@@ -149,7 +151,8 @@ class RegistryScreen(OmegaScreen):
             for row in self._rows:
                 service = (row.instance + (f" ({row.service_state})" if row.service_state else "")
                            if row.instance else "—")
-                table.add_row(row.machine, row.tool, service, row.version or "?", state_cell(row.state, styles),
+                tool = _("{tool} (dans omega-suite)").format(tool=row.tool) if row.suite else row.tool
+                table.add_row(row.machine, tool, service, row.version or "?", state_cell(row.state, styles),
                               row.root)
             table.refresh(layout=True)
             self._describe_current()
@@ -164,19 +167,21 @@ class RegistryScreen(OmegaScreen):
         if 0 <= index < len(self._rows):
             row = self._rows[index]
             detail.append(f"{row.tool} — {row.root}\n", style="bold")
+            if row.suite:
+                detail.append(_("Fait partie d'omega-suite {version} ({root}) : se met à jour avec elle, jamais "
+                                "seul.").format(version=row.suite_version or "?", root=row.suite) + "\n")
             detail.append(state_hint(row) + "\n")
             for link, check in row.findings:
                 detail.append(f"  · {_(LINK_LABELS[link.kind])} : {check_text(check)}\n")
             if row.state in (AppState.OLD_VERSION, AppState.INCOMPLETE):
                 entry = self._entries[index] if index < len(self._entries) else None
-                can_update = entry is not None and self._remote_sync is not None and \
-                    parse_target(entry.target) is not None
+                can_update = self._updater is not None or (
+                    entry is not None and self._remote_sync is not None and parse_target(entry.target) is not None)
                 action = _("Réinstaller l'application") if row.state is AppState.INCOMPLETE else \
                     _("Mettre à jour l'application")
-                detail.append(_("→ « {action} » installe la dernière version depuis GitHub.").format(action=action)
-                              if can_update else
-                              _("→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore possible : "
-                                "suivez la section « Mise à jour » du README de l'outil."), style="bold")
+                if can_update:
+                    detail.append(_("→ « {action} » ouvre l'Updater, l'application déjà cochée.").format(
+                        action=action), style="bold")
         self.query_one("#row-detail", Static).update(detail)
         button = self.query_one("#update-app", Button)
         button.disabled = not can_update
@@ -218,6 +223,11 @@ class RegistryScreen(OmegaScreen):
     def _update_application(self) -> None:
         index = self.query_one("#registry-table", DataTable).cursor_row
         entry = self._entries[index] if 0 <= index < len(self._entries) else None
+        # Une seule facon de mettre a jour (decision de l'auteur, 2026-11-22) : l'Updater, la machine cochee
+        screen = self._updater(entry.label if entry is not None else self._machine) if self._updater else None
+        if screen is not None:
+            self.app.push_screen(screen, lambda _ran: self._load(None))
+            return
         target = parse_target(entry.target) if entry is not None else None
         if target is None or self._remote_sync is None:
             return

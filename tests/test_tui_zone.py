@@ -152,7 +152,7 @@ async def test_menu_is_the_one_chosen_by_the_author(system):
         home = app.screen
         labels = [str(button.label) for button in home.query(Button)]
         assert labels == ["REGISTRE", "SCANNER", "LIAISONS", "SYNCHRONISATION", "DASHBOARD",
-                          "RÉPARER", "RAPPORT", "RÉGLAGES", "AIDE", "QUITTER"]
+                          "RÉPARER", "UPDATER", "RAPPORT", "RÉGLAGES", "AIDE"]
         assert labels == [entry.label.upper() for entry in MENU]
         await pilot.click("#menu-settings")  # Reglages : lot F, notification seulement
         await pilot.pause()

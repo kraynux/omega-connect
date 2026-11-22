@@ -25,10 +25,11 @@
 **Omega-connect** هو أداة الربط في مجموعة `omega-`: يعثر على تطبيقات omega المثبَّتة (omega-serv وomega-fire وomega-jail…) على هذا الجهاز وعلى أجهزة شبكتك، ويُظهر ما هو مرتبط بينها وما ليس كذلك، ويعيد إلى مكانه ما ينقص — مع عرض ما سيفعله أولًا في كل مرة. وبعد ربطها، تجد التطبيقات بعضها بعضًا من دون الحاجة إلى تشغيل omega-connect.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ar/omega-connect/A.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ar/omega-connect/B.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ar/omega-connect/C.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ar/omega-connect/D.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ar/omega-connect/A.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ar/omega-connect/B.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ar/omega-connect/C.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ar/omega-connect/D.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ar/omega-connect/E.png" width="32%" />
 </p>
 
 ## 1. الرؤية والنطاق
@@ -41,8 +42,9 @@
 - يحتفظ بـ **سجل** لكل التطبيقات على كل الأجهزة، مع إصدارها وحالتها.
 - يتحقق من كل **رابط** بين التطبيقات (ملفات السجل التي تقرؤها الـ jails، والجسر نحو القائمة السوداء، والقائمة المحمية، وملفات omega-jail في fail2ban، وبطاقات الهوية، والمساحة المشتركة) ويخبرك بما لا يعمل كما ينبغي.
 - **يُزامن**: يُنشئ بطاقات الهوية الناقصة ويُهيّئ **المساحة المشتركة** التي تجد فيها التطبيقات بعضها بعضًا.
+- **يربط الحمل الموزّع لـ omega-stress**: هذا الجهاز يقود والأجهزة المحددة تساعده على تحميل الهدف؛ بزر واحد (وصول يُنقل عبر SSH، وموافقة مختارة، وجدار حماية يُفتح لمنفذ omega-stress وحده).
 - **يُصلح**: يُكلّف التطبيق المالك للملف بتصحيح كل خلل؛ ولا يحلّ omega-connect محلّه أبدًا.
-- **يُحدّث أو يعيد تثبيت** تطبيق قديم جدًا أو مثبَّت بشكل خاطئ على جهاز في الشبكة، انطلاقًا من الـ Release الخاص به على GitHub (مع التحقق من البصمة).
+- **يحدّث أو يعيد تثبيت** تطبيقات هذا الجهاز والشبكة من **Updater**: من GitHub Release الخاص بها أو، إن تعذّر، من موقعها (مع فحص البصمة)؛ ولا يُقترح أبدًا إصدار غير منشور.
 - يعمل على جهاز في الشبكة **من جهازك أنت**: لا شيء تكتبه هناك، والجهاز نفسه يطلب كلمة مروره مرة واحدة.
 - يُنتج **تقريرًا** كاملًا (نصًا أو JSON أو صفحة HTML).
 
@@ -66,7 +68,7 @@
 من المجلد الذي يوجد فيه الأرشيف:
 
 ```bash
-tar -xzf omega-connect-0.1.0.tar.gz
+tar -xzf omega-connect-0.2.0.tar.gz
 cd omega-connect/
 ./install.sh
 ```
@@ -105,10 +107,10 @@ cd omega-connect/
 | الإدارة | الصيانة |
 |---|---|
 | **السجل** — كل التطبيقات على كل الأجهزة، وإصدارها وحالتها | **إصلاح** — قائمة بكل ما لا يعمل كما ينبغي، وأنت تختار |
-| **المسح** — هذا الجهاز، وإضافة أجهزة الشبكة | **التقرير** — مستند كامل، للتصدير |
-| **الروابط** — ما هو مرتبط وما ليس كذلك، مع حالته | **الإعدادات** — اللغة، والسمات، والمجلدات، والتنظيف |
-| **المزامنة** — ربط التطبيقات، على كل الأجهزة | **مساعدة** — كل قائمة ووظيفتها وتفاصيلها |
-| **لوحة المعلومات** — نظرة عامة | **خروج** |
+| **المسح** — هذا الجهاز، وإضافة أجهزة الشبكة | **Updater** — التحقق من الإصدارات والتحديث أو إعادة التثبيت على كل الأجهزة |
+| **الروابط** — ما هو مرتبط وما ليس كذلك، مع حالته | **التقرير** — مستند كامل، للتصدير |
+| **المزامنة** — ربط التطبيقات، على كل الأجهزة | **الإعدادات** — اللغة، والسمات، والمجلدات، والتنظيف |
+| **لوحة المعلومات** — نظرة عامة | **مساعدة** — كل قائمة ووظيفتها وتفاصيلها |
 
 المسار المعتاد: **المسح** (هذا الجهاز، ثم أجهزتك الأخرى، المقترحة انطلاقًا من ملفات تعريف Unison و`~/.ssh/config` و`known_hosts`) → **السجل** (تحديث تطبيق قديم أو إعادة تثبيته) → **المزامنة** (حدِّد، ثم زامِن) → **الروابط** و**لوحة المعلومات** لرؤية النتيجة → **إصلاح** إن بقي خلل.
 

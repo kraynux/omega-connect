@@ -1637,6 +1637,9 @@ msgstr "บัตรประจำตัว"
 msgid "Espace partagé (omega-synchro)"
 msgstr "พื้นที่ใช้ร่วมกัน (omega-synchro)"
 
+msgid "Charge distribuée (omega-stress)"
+msgstr "โหลดแบบกระจาย (omega-stress)"
+
 msgid "OK"
 msgstr "OK"
 
@@ -2125,6 +2128,52 @@ msgstr ""
 "synchro: จะอ่านพื้นที่ใช้ร่วมกันไม่ได้ การซิงค์จะขอให้ omega-serv "
 "มอบกลุ่มนี้ให้"
 
+#, python-brace-format
+msgid ""
+"relevé d'omega-stress sur {subject} (pas encore comparé à cette machine)."
+msgstr "ข้อมูล omega-stress บน {subject} (ยังไม่ได้เทียบกับเครื่องนี้)"
+
+#, python-brace-format
+msgid "{subject} aide cette machine à charger les cibles (accord : {detail})."
+msgstr "{subject} ช่วยเครื่องนี้สร้างโหลดไปยังเป้าหมาย (ความยินยอม: {detail})"
+
+#, python-brace-format
+msgid ""
+"{subject} peut aider cette machine : pas encore reliée (Synchronisation → "
+"Charge distribuée)."
+msgstr ""
+"{subject} ช่วยเครื่องนี้ได้: ยังไม่ได้เชื่อม (ซิงโครไนซ์ → โหลดแบบกระจาย)"
+
+#, python-brace-format
+msgid "{subject} : liaison incomplète ({detail}) — relier de nouveau."
+msgstr "{subject}: การเชื่อมไม่สมบูรณ์ ({detail}) — เชื่อมใหม่"
+
+#, python-brace-format
+msgid ""
+"{subject} a omega-stress, mais pas cette machine : elle ne peut pas piloter."
+msgstr ""
+"{subject} มี omega-stress แต่เครื่องนี้ไม่มี: เครื่องนี้ประสานงานไม่ได้"
+
+#, python-brace-format
+msgid ""
+"pare-feu de cette machine ({subject}) fermé au port d'omega-stress : les "
+"machines qui aident ne peuvent pas le joindre."
+msgstr ""
+"ไฟร์วอลล์ของเครื่องนี้ ({subject}) ปิดพอร์ตของ omega-stress: "
+"เครื่องที่ช่วยเชื่อมต่อเข้ามาไม่ได้"
+
+msgid ""
+"pare-feu nftables sans omega-fire : installez omega-fire pour ouvrir le port"
+" d'omega-stress (sa configuration n'est jamais réécrite à la main)."
+msgstr ""
+"ไฟร์วอลล์ nftables ที่ไม่มี omega-fire: ติดตั้ง omega-fire เพื่อเปิดพอร์ตของ"
+" omega-stress (ไม่มีการแก้ค่ากำหนดด้วยมือ)"
+
+#, python-brace-format
+msgid ""
+"{subject} : état d'omega-stress illisible (version antérieure à 2.0.0 ?)."
+msgstr "{subject}: อ่านสถานะ omega-stress ไม่ได้ (เวอร์ชันเก่ากว่า 2.0.0?)"
+
 msgid "correction : Synchronisation (omega-connect synchroniser)"
 msgstr "วิธีแก้ไข: การซิงค์ (omega-connect synchroniser)"
 
@@ -2459,17 +2508,13 @@ msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
 "- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
-"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
-"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
-"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "แสดงแอปพลิเคชัน omega แต่ละรายการที่พบในแต่ละเครื่อง (เครื่องนี้และเครื่องในเครือข่าย): อินสแตนซ์หรือบริการ เวอร์ชัน สถานะ และโฟลเดอร์ สรุปด้านบนจะนับจำนวนแต่ละสถานะ\n"
 "\n"
 "- [b]อัปเดตทะเบียน[/b]: สแกนใหม่ในที่ (เครื่องนี้ แล้วตามด้วยเครื่องในเครือข่ายที่รู้จักแล้ว) โดยไม่เปลี่ยนหน้าจอ\n"
-"- [b]อัปเดตแอปพลิเคชัน[/b]: บนแถว «เวอร์ชันเก่า» ของเครื่องในเครือข่าย ติดตั้งเวอร์ชันล่าสุดที่เผยแพร่ (Release บน GitHub ของแอปพลิเคชัน ตรวจค่าแฮชกับ sha.txt ก่อนส่งทุกครั้ง) แผนจะแสดงก่อน ไม่มีการทำอย่างอื่น\n"
-"- [b]ติดตั้งแอปพลิเคชันใหม่[/b]: ปุ่มเดียวกันบนแถว «ติดตั้งไม่เสร็จ» (install.sh ทำงานไม่เสร็จ) จะติดตั้งเวอร์ชันเดิมใหม่\n"
-"- บนเครื่องนี้ การอัปเดตทำตามหัวข้อ «อัปเดต» ใน README ของแอปพลิเคชัน\n"
+"- [b]อัปเดตแอปพลิเคชัน[/b] / [b]ติดตั้งแอปพลิเคชันใหม่[/b]: เปิด Updater โดยติ๊กแอปพลิเคชันของบรรทัดนั้นไว้แล้ว (« เวอร์ชันเก่า » หรือ « ติดตั้งไม่เสร็จ »: install.sh ของมันยังไม่เสร็จ จะติดตั้งเวอร์ชันเดิมใหม่) ทั้งบนเครื่องนี้และเครื่องในเครือข่าย\n"
 "- ไฮไลต์แถว: คำอธิบายสถานะและความคลาดเคลื่อนจะแสดงด้านล่าง"
 
 msgid "Scanner — trouver les applications, ajouter des machines"
@@ -2526,6 +2571,26 @@ msgstr ""
 "- [b]อ่านด้วย sudo[/b]: หากเซสชันของคุณยังอ่านพื้นที่ใช้ร่วมกันไม่ได้ (กลุ่ม omega-synchro มีผลหลังเข้าสู่ระบบใหม่เท่านั้น) อ่านอย่างเดียวด้วย sudo\n"
 "- [b]รายละเอียด[/b]: สิ่งที่ omega-connect สร้างไว้ (ทะเบียนของพื้นที่ใช้ร่วมกัน) และสิ่งที่นำออกได้"
 
+msgid "Charge distribuée — omega-stress sur plusieurs machines"
+msgstr "โหลดแบบกระจาย — omega-stress บนหลายเครื่อง"
+
+msgid ""
+"Ouvert depuis Synchronisation ([b]Charge distribuée…[/b]) ou depuis Réparer. Cette machine pilote les tests d'omega-stress ; les machines du réseau où omega-stress (2.0.0 ou plus) est installé peuvent l'aider à charger la cible. Rien à taper, aucune empreinte à recopier : omega-connect relie tout par SSH.\n"
+"\n"
+"- Cochez les machines qui aident (Entrée ou Espace), puis choisissez leur accord : [b]Demander pour chaque nouvelle cible[/b] (la première fois qu'une cible est demandée, omega-stress vous pose la question), ou [b]Tout accepter de ce pilote[/b] (machines qui sont toutes à vous).\n"
+"- [b]Relier la sélection[/b] : le plan s'affiche avant d'agir (commandes exactes). Chaque machine reçoit son accès, transmis par SSH sans jamais apparaître à l'écran ; ses limites (débit, durée) sont pré-remplies d'après elle.\n"
+"- Pare-feu de cette machine : s'il bloque les machines qui aident, il s'ouvre au seul port d'omega-stress et à votre réseau local, par omega-fire s'il est relié, sinon par ufw ou firewalld. Un seul mot de passe sudo, demandé dans le terminal. Avec nftables seul et sans omega-fire, rien n'est touché : installez omega-fire.\n"
+"- [b]Délier la sélection[/b] : retire l'accès des deux côtés.\n"
+"- Ensuite, les tests se lancent depuis omega-stress ; la charge passe directement entre les machines, sans omega-connect. Liaisons montre l'état de chaque machine (reliée, non reliée, liaison incomplète, pare-feu fermé)."
+msgstr ""
+"เปิดจากซิงโครไนซ์ ([b]โหลดแบบกระจาย…[/b]) หรือจากซ่อมแซม เครื่องนี้ประสานงานการทดสอบของ omega-stress ส่วนเครื่องในเครือข่ายที่ติดตั้ง omega-stress (2.0.0 ขึ้นไป) สามารถช่วยสร้างโหลดไปยังเป้าหมาย ไม่ต้องพิมพ์อะไร ไม่ต้องคัดลอกลายนิ้วมือ: omega-connect เชื่อมทุกอย่างผ่าน SSH\n"
+"\n"
+"- ติ๊กเครื่องที่ช่วย (Enter หรือ Space) แล้วเลือกความยินยอม: [b]ถามทุกครั้งที่มีเป้าหมายใหม่[/b] (ครั้งแรกที่มีการขอเป้าหมาย omega-stress จะถามคุณ) หรือ [b]ยอมรับทุกอย่างจากผู้ประสานงานนี้[/b] (เครื่องทั้งหมดเป็นของคุณ)\n"
+"- [b]เชื่อมรายการที่เลือก[/b]: แผนจะแสดงก่อนลงมือ (คำสั่งที่แน่นอน) แต่ละเครื่องได้รับสิทธิ์เข้าถึงผ่าน SSH โดยไม่เคยแสดงบนหน้าจอ ขีดจำกัด (อัตรา ระยะเวลา) กรอกไว้ล่วงหน้าตามตัวเครื่องเอง\n"
+"- ไฟร์วอลล์ของเครื่องนี้: หากกั้นเครื่องที่ช่วย จะเปิดเฉพาะพอร์ตของ omega-stress และเฉพาะเครือข่ายภายในของคุณ ผ่าน omega-fire หากเชื่อมไว้ ไม่เช่นนั้นผ่าน ufw หรือ firewalld ถามรหัสผ่าน sudo เพียงครั้งเดียวในเทอร์มินัล หากมีแค่ nftables และไม่มี omega-fire จะไม่แตะต้องอะไร: ติดตั้ง omega-fire\n"
+"- [b]เลิกเชื่อมรายการที่เลือก[/b]: ลบสิทธิ์เข้าถึงทั้งสองฝั่ง\n"
+"- จากนั้นการทดสอบจะเริ่มจาก omega-stress โหลดจะส่งตรงระหว่างเครื่อง โดยไม่ผ่าน omega-connect หน้าการเชื่อมแสดงสถานะของแต่ละเครื่อง (เชื่อมแล้ว ยังไม่เชื่อม การเชื่อมไม่สมบูรณ์ ไฟร์วอลล์ปิด)"
+
 msgid "Dashboard — vue d'ensemble"
 msgstr "แดชบอร์ด — ภาพรวม"
 
@@ -2555,7 +2620,8 @@ msgid ""
 "La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
 "\n"
 "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
-"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
+"- [b]Tout réparer[/b] : les machines une à une.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
@@ -2563,10 +2629,31 @@ msgstr ""
 "รายการทุกสิ่งที่มีปัญหาบนทุกเครื่อง (เครื่องในเครือข่ายจะถูกสแกนอีกครั้งเมื่อเปิด): เครื่อง ปัญหา สถานะ และผู้แก้ไข\n"
 "\n"
 "- [b]ซ่อมแซมแถวที่เลือก[/b]: เปิดแผนของเครื่อง เครื่องนี้: คำสั่งของแอปพลิเคชันเอง (omega-jail สำหรับสิ่งที่วางใน fail2ban, omega-serv สำหรับสิทธิ์ของ var/ ของตน, แต่ละแอปพลิเคชันสำหรับบัตรประจำตัวของตน) แล้วตามด้วยพื้นที่ใช้ร่วมกัน เครื่องในเครือข่าย: การแก้ไขแบบเดียวกัน บวกคำสั่งที่ไม่มีแอปพลิเคชันใดเรียกใช้ได้ ซึ่งเรียกใช้บนเครื่องนั้นจากที่นี่ (เฉพาะคำสั่งที่แจ้งไว้ในแผน)\n"
-"- [b]ซ่อมแซมทั้งหมด[/b]: ทีละเครื่อง (อัปเดตก่อน แล้วซ่อมแซม)\n"
+"- บรรทัด « เวอร์ชันเก่า » หรือ « ติดตั้งไม่เสร็จ » จะเปิด Updater โดยติ๊กแอปพลิเคชันไว้แล้ว: มีเพียง Updater ที่อัปเดต\n"
+"- [b]ซ่อมแซมทั้งหมด[/b]: ทีละเครื่อง\n"
 "- [b]รายละเอียด[/b]: การตรวจทั้งหมดของแถวที่เลือก\n"
 "- [b]คัดลอกคำสั่ง[/b] (แผนของเครื่องนี้): คลิปบอร์ดของระบบ (xclip, xsel, wl-copy) หากไม่มี คำสั่งจะแสดงเป็นข้อความธรรมดาในเทอร์มินัลให้เลือกด้วยเมาส์\n"
 "- omega-connect ไม่เขียนทับไฟล์ของแอปพลิเคชันอื่นเด็ดขาด: จะเรียกใช้คำสั่งของแอปพลิเคชันนั้น"
+
+msgid "Updater — mettre à jour les applications"
+msgstr "Updater — อัปเดตแอปพลิเคชัน"
+
+msgid ""
+"Le seul endroit qui met à jour les applications, sur cette machine comme sur le réseau. Réparer et le Registre y renvoient, l'application déjà cochée.\n"
+"\n"
+"- Les lignes sont celles déjà scannées : machine, application, version installée ; rien n'est rescanné à l'ouverture.\n"
+"- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
+"- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
+"- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+msgstr ""
+"ที่เดียวที่อัปเดตแอปพลิเคชัน ทั้งบนเครื่องนี้และบนเครือข่าย ซ่อมแซม และทะเบียนจะพามาที่นี่ โดยติ๊กแอปพลิเคชันไว้แล้ว\n"
+"\n"
+"- บรรทัดต่าง ๆ คือสิ่งที่สแกนไว้แล้ว: เครื่อง แอปพลิเคชัน เวอร์ชันที่ติดตั้ง เมื่อเปิดจะไม่สแกนใหม่\n"
+"- [b]ตรวจเวอร์ชัน[/b]: เวอร์ชันล่าสุดที่เผยแพร่ของแต่ละแอปพลิเคชัน (GitHub Release หรือเว็บไซต์ของแอปพลิเคชัน) สำหรับบรรทัดที่ติ๊กหรือทั้งหมด จะไม่เสนอเวอร์ชันที่ยังไม่เผยแพร่\n"
+"- [b]อัปเดตรายการที่เลือก[/b] / [b]อัปเดตทั้งหมด[/b]: แอปพลิเคชันที่ต้องอัปเดตและการติดตั้งที่ไม่เสร็จ เครื่องนี้ก่อน: ตรวจไฟล์เก็บถาวร (sha.txt) แล้วอินเทอร์เฟซจะหลีกทางให้เทอร์มินัล ซึ่ง install.sh จะถามรหัสผ่านถ้าจำเป็น จากนั้นแต่ละเครื่องในเครือข่าย: แสดงแผนก่อนลงมือ หนึ่งรหัสผ่านต่อเครื่อง\n"
+"- ตอนจบ: สิ่งที่ทำไปทีละแอปพลิเคชัน และเครื่องที่สแกนใหม่\n"
+"- [b]omega-suite[/b]: omega-stress ที่มาด้วยเป็นส่วนหนึ่งของ omega-suite บรรทัดนี้เป็นของ omega-suite (« มี omega-stress … ») อัปเดตพร้อมเครื่องมือที่ทดสอบร่วมกัน ไม่เคยอัปเดต omega-stress เดี่ยว ๆ ตั้งแต่ 2.0.0 จะช่วยโหลดแบบกระจายเหมือน omega-stress แบบแยก ถ้าเครื่องมี omega-stress แบบแยกด้วย ตัวนั้นจะเป็นผู้ช่วย"
 
 msgid "Rapport — un document complet"
 msgstr "รายงาน — เอกสารฉบับเต็ม"
@@ -2600,13 +2687,13 @@ msgid ""
 "- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
 "- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
 "- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
-"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>), sinon depuis le site de l'application (dossier download) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
 "- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
 msgstr ""
 "- [b]การเชื่อมต่อ[/b]: SSH ด้วยคีย์ของคุณเท่านั้น omega-connect ไม่ขอรหัสผ่าน SSH เด็ดขาด คีย์ที่ป้องกันด้วยวลีรหัสผ่านต้องโหลดเข้า SSH agent (ssh-add)\n"
 "- [b]รหัสผ่านผู้ดูแลระบบ[/b]: เฉพาะเมื่อการดำเนินการต้องใช้ (ซิงค์ ซ่อมแซม อัปเดต) ครั้งเดียวต่อเครื่อง คุณพิมพ์เองในเทอร์มินัล omega-connect ไม่เห็นรหัสผ่านเด็ดขาด\n"
 "- [b]สิ่งที่ส่งไปยังเครื่องในเครือข่าย[/b]: สำหรับการสแกน ไม่มีเลย (โปรแกรมอยู่ในหน่วยความจำ) สำหรับการดำเนินการ โฟลเดอร์ส่วนตัวชั่วคราว (โปรแกรมและไฟล์เก็บถาวร) ซึ่งจะถูกลบเมื่อเสร็จ\n"
-"- [b]การอัปเดต[/b]: จาก Release บน GitHub ของแต่ละแอปพลิเคชัน (kraynux/<application>, แท็ก v<version>) ค่าแฮชตรวจกับ sha.txt ก่อนส่งทุกครั้ง แล้วตรวจอีกครั้งบนเครื่อง omega-fire: การติดตั้งเดิมถูกย้ายไปเก็บไว้ (var/ ของมันเป็นของ root) แล้ว install.sh ของมันจะนำการตั้งค่าและข้อมูลกลับมาใช้ ส่วนแอปพลิเคชันอื่น: แตกไฟล์ทับของเดิม (สถานะที่ใช้งานอยู่ไม่ได้อยู่ในไฟล์เก็บถาวร) แล้วเรียก install.sh ของแต่ละตัว\n"
+"- [b]การอัปเดต[/b]: จาก GitHub Release ของแต่ละแอปพลิเคชัน (kraynux/<แอปพลิเคชัน>, แท็ก v<เวอร์ชัน>) หรือจากเว็บไซต์ของแอปพลิเคชัน (โฟลเดอร์ download) ตรวจลายนิ้วมือด้วย sha.txt ก่อนส่ง แล้วตรวจอีกครั้งบนเครื่อง omega-fire: ย้ายการติดตั้งเก่าไปไว้ข้าง ๆ (var/ ของมันเป็นของ root) แล้ว install.sh ของมันจะรับช่วงการตั้งค่าและข้อมูล แอปอื่น: แตกไฟล์ทับ (สถานะที่ทำงานอยู่ไม่อยู่ในไฟล์เก็บถาวร) แล้วรัน install.sh ของแต่ละแอป\n"
 "- [b]ไม่เรียกใช้แอปพลิเคชันที่อาจขอรหัสผ่านโดยไม่มีเทอร์มินัลเด็ดขาด[/b]: sudo ที่ล้มเหลวแบบเงียบนับเป็นการพยายามหนึ่งครั้ง และอาจล็อกบัญชีไว้หลายนาที"
 
 msgid "États — ce que veut dire chaque mot"
@@ -2708,6 +2795,9 @@ msgstr "การซิงค์"
 
 msgid "Dashboard"
 msgstr "แดชบอร์ด"
+
+msgid "Updater"
+msgstr "Updater"
 
 msgid "Rapport"
 msgstr "รายงาน"
@@ -2948,6 +3038,135 @@ msgid ""
 "ouvert."
 msgstr "ตรวจสอบใหม่ทุก {minutes} นาที ตราบที่หน้าจอนี้เปิดอยู่"
 
+msgid "reliée"
+msgstr "เชื่อมแล้ว"
+
+msgid "non reliée"
+msgstr "ยังไม่เชื่อม"
+
+msgid "liaison incomplète"
+msgstr "การเชื่อมไม่สมบูรณ์"
+
+msgid "reliée, pare-feu de cette machine fermé"
+msgstr "เชื่อมแล้ว ไฟร์วอลล์ของเครื่องนี้ปิดอยู่"
+
+msgid "reliée, omega-fire nécessaire pour le pare-feu"
+msgstr "เชื่อมแล้ว ต้องมี omega-fire สำหรับไฟร์วอลล์"
+
+msgid "état illisible (version trop ancienne ?)"
+msgstr "อ่านสถานะไม่ได้ (เวอร์ชันเก่าเกินไป?)"
+
+msgid "omega-stress absent de cette machine"
+msgstr "เครื่องนี้ไม่มี omega-stress"
+
+msgid "demander"
+msgstr "ถาม"
+
+msgid "tout accepter"
+msgstr "ยอมรับทั้งหมด"
+
+msgid "Choisir"
+msgstr "เลือก"
+
+msgid "CHARGE DISTRIBUÉE (OMEGA-STRESS)"
+msgstr "โหลดแบบกระจาย (OMEGA-STRESS)"
+
+msgid ""
+"Cette machine pilote les tests ; les machines cochées l'aident à charger la "
+"cible. Cochez-les (Entrée ou Espace), choisissez leur accord, puis « Relier "
+"la sélection » : le plan s'affiche avant d'agir, et un seul mot de passe est"
+" demandé si le pare-feu de cette machine doit s'ouvrir."
+msgstr ""
+"เครื่องนี้ประสานงานการทดสอบ เครื่องที่ติ๊กไว้จะช่วยสร้างโหลดไปยังเป้าหมาย "
+"ติ๊กเครื่องเหล่านั้น (Enter หรือ Space) เลือกความยินยอม แล้วกด « "
+"เชื่อมรายการที่เลือก »: แผนจะแสดงก่อนลงมือ "
+"และจะถามรหัสผ่านเพียงครั้งเดียวหากต้องเปิดไฟร์วอลล์ของเครื่องนี้"
+
+msgid "Demander pour chaque nouvelle cible"
+msgstr "ถามทุกครั้งที่มีเป้าหมายใหม่"
+
+msgid "Tout accepter de ce pilote (machines qui sont toutes à vous)"
+msgstr "ยอมรับทุกอย่างจากผู้ประสานงานนี้ (เครื่องทั้งหมดเป็นของคุณ)"
+
+msgid "Relier la sélection"
+msgstr "เชื่อมรายการที่เลือก"
+
+msgid "Délier la sélection"
+msgstr "เลิกเชื่อมรายการที่เลือก"
+
+msgid "Accord"
+msgstr "ความยินยอม"
+
+msgid "Liaison"
+msgstr "การเชื่อม"
+
+msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
+msgstr "กำลังอ่าน omega-stress บนเครื่องนี้และบนเครือข่าย…"
+
+#, python-brace-format
+msgid "Rescan de {machine}…"
+msgstr "กำลังสแกน {machine} ใหม่…"
+
+msgid ""
+"omega-stress n'est pas installé sur cette machine (ou trop ancien) : elle ne"
+" peut pas piloter. Installez omega-stress 2.0.0 ou plus, puis revenez ici."
+msgstr ""
+"เครื่องนี้ไม่ได้ติดตั้ง omega-stress (หรือเก่าเกินไป): ประสานงานไม่ได้ "
+"ติดตั้ง omega-stress 2.0.0 ขึ้นไป แล้วกลับมาที่นี่"
+
+msgid ""
+"Aucune machine du réseau n'a omega-stress 2.0.0 ou plus. Scannez vos "
+"machines (Scanner), installez-le sur celles qui doivent aider, puis revenez "
+"ici."
+msgstr ""
+"ไม่มีเครื่องใดในเครือข่ายที่มี omega-stress 2.0.0 ขึ้นไป สแกนเครื่องของคุณ "
+"(ตัวสแกน) ติดตั้งบนเครื่องที่จะช่วย แล้วกลับมาที่นี่"
+
+#, python-brace-format
+msgid "{count} machine(s) du réseau peuvent aider."
+msgstr "เครื่องในเครือข่าย {count} เครื่องช่วยได้"
+
+#, python-brace-format
+msgid ""
+"{machine} : omega-stress trop ancien ou illisible — mettez-le à jour depuis "
+"le Registre."
+msgstr "{machine}: omega-stress เก่าเกินไปหรืออ่านไม่ได้ — อัปเดตจากทะเบียน"
+
+msgid "Relier la charge distribuée"
+msgstr "เชื่อมโหลดแบบกระจาย"
+
+msgid "Commandes lancées, dans cet ordre :"
+msgstr "คำสั่งที่จะรัน ตามลำดับนี้:"
+
+msgid ""
+"Le pare-feu de cette machine s'ouvre au port d'omega-stress pour votre "
+"réseau local : un mot de passe sudo sera demandé, une seule fois."
+msgstr ""
+"ไฟร์วอลล์ของเครื่องนี้จะเปิดพอร์ตของ omega-stress ให้เครือข่ายภายในของคุณ: "
+"จะถามรหัสผ่าน sudo เพียงครั้งเดียว"
+
+msgid "Liaison en cours…"
+msgstr "กำลังเชื่อม…"
+
+msgid "Retrait de la liaison…"
+msgstr "กำลังเลิกเชื่อม…"
+
+#, python-brace-format
+msgid "{count} étape(s) en échec :"
+msgstr "ขั้นตอนที่ล้มเหลว {count} ขั้นตอน:"
+
+msgid "cette machine"
+msgstr "เครื่องนี้"
+
+msgid "Fait."
+msgstr "เสร็จแล้ว"
+
+msgid "Pare-feu de cette machine (règles posées) :"
+msgstr "ไฟร์วอลล์ของเครื่องนี้ (กฎที่ตั้งไว้):"
+
+msgid "cette machine (root)"
+msgstr "เครื่องนี้ (root)"
+
 msgid "Lancer (mot de passe administrateur)"
 msgstr "เปิด (รหัสผ่านผู้ดูแลระบบ)"
 
@@ -3077,9 +3296,6 @@ msgstr ""
 msgid "Actualiser"
 msgstr "รีเฟรช"
 
-msgid "cette machine"
-msgstr "เครื่องนี้"
-
 msgid "DASHBOARD"
 msgstr "แดชบอร์ด"
 
@@ -3129,19 +3345,24 @@ msgstr "สแกนล่าสุดเมื่อ {time}"
 msgid "Espace partagé : "
 msgstr "พื้นที่ใช้ร่วมกัน: "
 
+#, python-brace-format
+msgid "{tool} (dans omega-suite)"
+msgstr "{tool} (ใน omega-suite)"
+
+#, python-brace-format
+msgid ""
+"Fait partie d'omega-suite {version} ({root}) : se met à jour avec elle, "
+"jamais seul."
+msgstr ""
+"เป็นส่วนหนึ่งของ omega-suite {version} ({root}): อัปเดตไปพร้อมกัน "
+"ไม่เคยแยกเดี่ยว"
+
 msgid "Réinstaller l'application"
 msgstr "ติดตั้งแอปพลิเคชันใหม่"
 
 #, python-brace-format
-msgid "→ « {action} » installe la dernière version depuis GitHub."
-msgstr "→ «{action}» ติดตั้งเวอร์ชันล่าสุดจาก GitHub"
-
-msgid ""
-"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
-"possible : suivez la section « Mise à jour » du README de l'outil."
-msgstr ""
-"→ บนเครื่องนี้ ยังอัปเดตจาก omega-connect ไม่ได้: ทำตามหัวข้อ «อัปเดต» ใน "
-"README ของเครื่องมือ"
+msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
+msgstr "→ « {action} » จะเปิด Updater โดยติ๊กแอปพลิเคชันไว้แล้ว"
 
 #, python-brace-format
 msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
@@ -3257,6 +3478,12 @@ msgstr "สแกน: สแกนเครื่องอีกครั้ง"
 
 msgid "aucune correction connue (voir le détail)"
 msgstr "ไม่มีวิธีแก้ไขที่ทราบ (ดูรายละเอียด)"
+
+msgid "Charge distribuée : relier de nouveau, ou ouvrir le pare-feu"
+msgstr "โหลดแบบกระจาย: เชื่อมใหม่ หรือเปิดไฟร์วอลล์"
+
+msgid "Updater : mise à jour depuis ici"
+msgstr "Updater: อัปเดตจากที่นี่"
 
 msgid "RÉPARER"
 msgstr "ซ่อมแซม"
@@ -3562,9 +3789,6 @@ msgstr "ลบ {count} รายการใน {path} แล้ว"
 msgid "Non supprimés : {items}"
 msgstr "ไม่ได้ลบ: {items}"
 
-msgid "Choisir"
-msgstr "เลือก"
-
 msgid "SYNCHRONISATION"
 msgstr "การซิงค์"
 
@@ -3584,6 +3808,9 @@ msgstr "ซิงค์ทั้งหมด"
 
 msgid "Synchroniser la sélection"
 msgstr "ซิงค์รายการที่เลือก"
+
+msgid "Charge distribuée…"
+msgstr "โหลดแบบกระจาย…"
 
 msgid "Lire avec sudo"
 msgstr "อ่านด้วย sudo"
@@ -3618,6 +3845,82 @@ msgstr "เชื่อถือเครื่องนี้หรือไม
 
 msgid "Faire confiance"
 msgstr "เชื่อถือ"
+
+msgid "non vérifiée"
+msgstr "ยังไม่ได้ตรวจ"
+
+msgid "à jour"
+msgstr "เป็นปัจจุบัน"
+
+msgid "à mettre à jour"
+msgstr "ต้องอัปเดต"
+
+msgid "installation inachevée — à réinstaller"
+msgstr "ติดตั้งไม่เสร็จ — ต้องติดตั้งใหม่"
+
+msgid "aucune version publiée trouvée"
+msgstr "ไม่พบเวอร์ชันที่เผยแพร่"
+
+msgid "machine injoignable"
+msgstr "เชื่อมต่อเครื่องไม่ได้"
+
+msgid ""
+"omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
+"demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
+msgstr ""
+"omega-connect — อัปเดตบนเครื่องนี้ install.sh อาจถามรหัสผ่าน sudo "
+"(จะไม่แสดงขณะพิมพ์)"
+
+msgid "UPDATER"
+msgstr "UPDATER"
+
+msgid ""
+"Les applications déjà scannées, sur cette machine et sur le réseau. « "
+"Vérifier les versions » cherche la dernière version publiée (GitHub, puis le"
+" site). Cochez (Entrée ou Espace) puis « Mettre à jour la sélection », ou « "
+"Tout mettre à jour » : chaque machine montre son plan avant d'agir, et un "
+"seul mot de passe est demandé, dans le terminal."
+msgstr ""
+"แอปพลิเคชันที่สแกนแล้ว บนเครื่องนี้และบนเครือข่าย « ตรวจเวอร์ชัน » "
+"จะค้นหาเวอร์ชันล่าสุดที่เผยแพร่ (GitHub แล้วจึงเว็บไซต์) ติ๊ก (Enter หรือ "
+"Space) แล้วกด « อัปเดตรายการที่เลือก » หรือ « อัปเดตทั้งหมด »: "
+"แต่ละเครื่องจะแสดงแผนก่อนลงมือ และจะถามรหัสผ่านเพียงครั้งเดียวในเทอร์มินัล"
+
+msgid "Vérifier les versions"
+msgstr "ตรวจเวอร์ชัน"
+
+msgid "Mettre à jour la sélection"
+msgstr "อัปเดตรายการที่เลือก"
+
+msgid "Tout mettre à jour"
+msgstr "อัปเดตทั้งหมด"
+
+msgid "Disponible"
+msgstr "มีให้"
+
+msgid "Installée"
+msgstr "ติดตั้งอยู่"
+
+#, python-brace-format
+msgid "{tool} (contient {tools})"
+msgstr "{tool} (มี {tools})"
+
+#, python-brace-format
+msgid ""
+"{count} application(s) — à jour : {ok} ; à mettre à jour : {old} ; "
+"inachevées : {incomplete} ; non vérifiées : {unchecked}."
+msgstr ""
+"{count} แอปพลิเคชัน — เป็นปัจจุบัน: {ok}; ต้องอัปเดต: {old}; ไม่เสร็จ: "
+"{incomplete}; ยังไม่ได้ตรวจ: {unchecked}"
+
+msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
+msgstr "กำลังค้นหาเวอร์ชันล่าสุดที่เผยแพร่ (GitHub แล้วจึงเว็บไซต์)…"
+
+msgid "Téléchargement et vérification des archives…"
+msgstr "กำลังดาวน์โหลดและตรวจสอบไฟล์เก็บถาวร…"
+
+msgid "Rescan de cette machine…"
+msgstr "กำลังสแกนเครื่องนี้ใหม่…"
 
 msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
 msgstr "รายละเอียดของพื้นที่ใช้ร่วมกัน"

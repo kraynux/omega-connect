@@ -25,10 +25,11 @@ Officiële pagina: [OMEGA-CONNECT](https://kraynux.snake-mackarel.ts.net/omega-c
 **Omega-connect** is de verbinder van de `omega-`-suite: hij vindt de geïnstalleerde omega-toepassingen (omega-serv, omega-fire, omega-jail…) op deze machine en op de machines van uw netwerk, laat zien wat wel of niet aan elkaar gekoppeld is, en zet terug wat ontbreekt — en laat daarbij altijd eerst zien wat hij gaat doen. Eenmaal gekoppeld vinden de toepassingen elkaar, zonder dat omega-connect hoeft te draaien.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/A.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/B.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/C.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/D.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/A.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/B.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/C.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/D.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/nl/omega-connect/E.png" width="32%" />
 </p>
 
 ## 1. Visie en reikwijdte
@@ -41,8 +42,9 @@ De omega-toepassingen zijn gemaakt om samen te werken: de logs van omega-serv wo
 - Houdt een **register** bij van alle toepassingen op alle machines, met hun versie en hun status.
 - Controleert elke **koppeling** tussen toepassingen (logs gelezen door de jails, brug naar de zwarte lijst, beschermde lijst, bestanden van omega-jail in fail2ban, identiteitskaarten, gedeelde ruimte) en zegt wat er niet klopt.
 - **Synchroniseert**: maakt de ontbrekende identiteitskaarten aan en bereidt de **gedeelde ruimte** voor waarin de toepassingen elkaar vinden.
+- **Koppelt de gedistribueerde belasting van omega-stress**: deze machine stuurt, de aangevinkte machines helpen haar het doel te belasten; één knop (toegang via SSH verstuurd, toestemming gekozen, firewall alleen voor de omega-stress-poort geopend).
 - **Herstelt**: laat elke afwijking corrigeren door de toepassing die eigenaar is van het bestand; nooit omega-connect in haar plaats.
-- **Werkt bij of installeert opnieuw** een te oude of slecht geïnstalleerde toepassing op een netwerkmachine, vanuit haar GitHub-release (controlesom gecontroleerd).
+- **Werkt bij of installeert opnieuw** de toepassingen van deze machine en van het netwerk, vanuit de **Updater**: hun GitHub-Release of anders hun site (vingerafdruk gecontroleerd); een niet-gepubliceerde versie wordt nooit voorgesteld.
 - Handelt op een netwerkmachine **vanaf uw eigen computer**: daar hoeft u niets te typen, het wachtwoord wordt één keer gevraagd, door de machine zelf.
 - Maakt een volledig **rapport** (tekst, JSON of HTML-pagina).
 
@@ -66,7 +68,7 @@ De omega-toepassingen zijn gemaakt om samen te werken: de logs van omega-serv wo
 Vanuit de map waarin het archief staat:
 
 ```bash
-tar -xzf omega-connect-0.1.0.tar.gz
+tar -xzf omega-connect-0.2.0.tar.gz
 cd omega-connect/
 ./install.sh
 ```
@@ -105,10 +107,10 @@ Het hoofdmenu heeft twee kolommen:
 | Beheer | Onderhoud |
 |---|---|
 | **Register** — alle toepassingen op alle machines, hun versie en hun status | **Herstellen** — de lijst van alles wat niet in orde is, en u kiest |
-| **Scannen** — deze machine, en het toevoegen van de netwerkmachines | **Rapport** — een volledig document, om te exporteren |
-| **Koppelingen** — wat wel of niet gekoppeld is, met de status | **Instellingen** — taal, thema's, mappen, opschonen |
-| **Synchronisatie** — de toepassingen koppelen, op alle machines | **Help** — elk menu, zijn functie en de details |
-| **Dashboard** — het overzicht | **Afsluiten** |
+| **Scannen** — deze machine, en het toevoegen van de netwerkmachines | **Updater** — versies controleren, bijwerken of opnieuw installeren, op alle machines |
+| **Koppelingen** — wat wel of niet gekoppeld is, met de status | **Rapport** — een volledig document, om te exporteren |
+| **Synchronisatie** — de toepassingen koppelen, op alle machines | **Instellingen** — taal, thema's, mappen, opschonen |
+| **Dashboard** — het overzicht | **Help** — elk menu, zijn functie en de details |
 
 Typisch verloop: **Scannen** (deze machine, daarna uw andere machines, voorgesteld op basis van uw Unison-profielen, `~/.ssh/config` en `known_hosts`) → **Register** (een oude toepassing bijwerken of opnieuw installeren) → **Synchronisatie** (aanvinken, daarna synchroniseren) → **Koppelingen** en **Dashboard** om het resultaat te zien → **Herstellen** als er nog een afwijking overblijft.
 

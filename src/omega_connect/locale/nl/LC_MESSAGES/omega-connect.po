@@ -1699,6 +1699,9 @@ msgstr "Identiteitskaarten"
 msgid "Espace partagé (omega-synchro)"
 msgstr "Gedeelde ruimte (omega-synchro)"
 
+msgid "Charge distribuée (omega-stress)"
+msgstr "Gedistribueerde belasting (omega-stress)"
+
 msgid "OK"
 msgstr "OK"
 
@@ -2218,6 +2221,56 @@ msgstr ""
 "groep omega-synchro: hij kan de gedeelde ruimte niet lezen. Synchronisatie "
 "vraagt omega-serv om hem die groep te geven."
 
+#, python-brace-format
+msgid ""
+"relevé d'omega-stress sur {subject} (pas encore comparé à cette machine)."
+msgstr ""
+"omega-stress-meting op {subject} (nog niet vergeleken met deze machine)."
+
+#, python-brace-format
+msgid "{subject} aide cette machine à charger les cibles (accord : {detail})."
+msgstr ""
+"{subject} helpt deze machine de doelen te belasten (toestemming: {detail})."
+
+#, python-brace-format
+msgid ""
+"{subject} peut aider cette machine : pas encore reliée (Synchronisation → "
+"Charge distribuée)."
+msgstr ""
+"{subject} kan deze machine helpen: nog niet gekoppeld (Synchronisatie → "
+"Gedistribueerde belasting)."
+
+#, python-brace-format
+msgid "{subject} : liaison incomplète ({detail}) — relier de nouveau."
+msgstr "{subject}: onvolledige koppeling ({detail}) — opnieuw koppelen."
+
+#, python-brace-format
+msgid ""
+"{subject} a omega-stress, mais pas cette machine : elle ne peut pas piloter."
+msgstr ""
+"{subject} heeft omega-stress, maar deze machine niet: ze kan niet sturen."
+
+#, python-brace-format
+msgid ""
+"pare-feu de cette machine ({subject}) fermé au port d'omega-stress : les "
+"machines qui aident ne peuvent pas le joindre."
+msgstr ""
+"firewall van deze machine ({subject}) gesloten voor de omega-stress-poort: "
+"helpende machines kunnen haar niet bereiken."
+
+msgid ""
+"pare-feu nftables sans omega-fire : installez omega-fire pour ouvrir le port"
+" d'omega-stress (sa configuration n'est jamais réécrite à la main)."
+msgstr ""
+"nftables-firewall zonder omega-fire: installeer omega-fire om de omega-"
+"stress-poort te openen (de configuratie wordt nooit met de hand "
+"herschreven)."
+
+#, python-brace-format
+msgid ""
+"{subject} : état d'omega-stress illisible (version antérieure à 2.0.0 ?)."
+msgstr "{subject}: omega-stress-status onleesbaar (versie ouder dan 2.0.0?)."
+
 msgid "correction : Synchronisation (omega-connect synchroniser)"
 msgstr "correctie: Synchronisatie (omega-connect synchroniser)"
 
@@ -2574,17 +2627,13 @@ msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
 "- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
-"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
-"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
-"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "Toont voor elke machine (deze en die van het netwerk) elke gevonden omega-toepassing: haar instantie of service, haar versie, haar status en haar map. De samenvatting bovenaan telt de statussen.\n"
 "\n"
 "- [b]Register bijwerken[/b]: voert de scan ter plekke opnieuw uit (deze machine, daarna de al bekende netwerkmachines), zonder van scherm te wisselen.\n"
-"- [b]Toepassing bijwerken[/b]: op een regel „Oude versie” van een netwerkmachine installeert dit de laatst gepubliceerde versie (GitHub-release van de toepassing, vingerafdruk gecontroleerd met sha.txt vóór elke verzending). Het plan wordt eerst getoond; verder wordt niets gedaan.\n"
-"- [b]Toepassing opnieuw installeren[/b]: dezelfde knop op een regel „Onvoltooide installatie” (install.sh is niet voltooid); dezelfde versie wordt opnieuw geïnstalleerd.\n"
-"- Op deze machine zelf gebeurt een update zoals beschreven in de sectie „Bijwerken” van de README van de toepassing.\n"
+"- [b]Toepassing bijwerken[/b] / [b]Toepassing opnieuw installeren[/b]: opent de Updater, met de toepassing van de regel al aangevinkt (« Oude versie »; of « Onvoltooide installatie »: het install.sh-script is niet afgerond, dezelfde versie wordt opnieuw geïnstalleerd). Op deze machine net als op een netwerkmachine.\n"
 "- Markeer een regel: de uitleg van de status en de afwijkingen verschijnen eronder."
 
 msgid "Scanner — trouver les applications, ajouter des machines"
@@ -2641,6 +2690,26 @@ msgstr ""
 "- [b]Lezen met sudo[/b]: als uw sessie de gedeelde ruimte nog niet kan lezen (de groep omega-synchro telt pas na opnieuw aanmelden), alleen-lezen met sudo.\n"
 "- [b]Details[/b]: wat omega-connect heeft aangemaakt (register van de gedeelde ruimte) en wat er verwijderd kan worden."
 
+msgid "Charge distribuée — omega-stress sur plusieurs machines"
+msgstr "Gedistribueerde belasting — omega-stress op meerdere machines"
+
+msgid ""
+"Ouvert depuis Synchronisation ([b]Charge distribuée…[/b]) ou depuis Réparer. Cette machine pilote les tests d'omega-stress ; les machines du réseau où omega-stress (2.0.0 ou plus) est installé peuvent l'aider à charger la cible. Rien à taper, aucune empreinte à recopier : omega-connect relie tout par SSH.\n"
+"\n"
+"- Cochez les machines qui aident (Entrée ou Espace), puis choisissez leur accord : [b]Demander pour chaque nouvelle cible[/b] (la première fois qu'une cible est demandée, omega-stress vous pose la question), ou [b]Tout accepter de ce pilote[/b] (machines qui sont toutes à vous).\n"
+"- [b]Relier la sélection[/b] : le plan s'affiche avant d'agir (commandes exactes). Chaque machine reçoit son accès, transmis par SSH sans jamais apparaître à l'écran ; ses limites (débit, durée) sont pré-remplies d'après elle.\n"
+"- Pare-feu de cette machine : s'il bloque les machines qui aident, il s'ouvre au seul port d'omega-stress et à votre réseau local, par omega-fire s'il est relié, sinon par ufw ou firewalld. Un seul mot de passe sudo, demandé dans le terminal. Avec nftables seul et sans omega-fire, rien n'est touché : installez omega-fire.\n"
+"- [b]Délier la sélection[/b] : retire l'accès des deux côtés.\n"
+"- Ensuite, les tests se lancent depuis omega-stress ; la charge passe directement entre les machines, sans omega-connect. Liaisons montre l'état de chaque machine (reliée, non reliée, liaison incomplète, pare-feu fermé)."
+msgstr ""
+"Geopend vanuit Synchronisatie ([b]Gedistribueerde belasting…[/b]) of vanuit Repareren. Deze machine stuurt de tests van omega-stress; de netwerkmachines waarop omega-stress (2.0.0 of nieuwer) is geïnstalleerd, kunnen haar helpen het doel te belasten. Niets te typen, geen vingerafdruk over te nemen: omega-connect koppelt alles via SSH.\n"
+"\n"
+"- Vink de helpende machines aan (Enter of Spatie) en kies hun toestemming: [b]Vragen bij elk nieuw doel[/b] (de eerste keer dat een doel wordt gevraagd, vraagt omega-stress het u) of [b]Alles accepteren van deze stuurmachine[/b] (machines die allemaal van u zijn).\n"
+"- [b]Selectie koppelen[/b]: het plan verschijnt voordat er iets gebeurt (exacte opdrachten). Elke machine krijgt haar toegang, via SSH verstuurd zonder ooit op het scherm te verschijnen; haar grenzen (snelheid, duur) worden ingevuld op basis van de machine zelf.\n"
+"- Firewall van deze machine: als die de helpende machines blokkeert, opent ze alleen de omega-stress-poort en alleen voor uw lokale netwerk, via omega-fire als dat gekoppeld is, anders via ufw of firewalld. Eén sudo-wachtwoord, gevraagd in de terminal. Met alleen nftables en zonder omega-fire wordt niets aangeraakt: installeer omega-fire.\n"
+"- [b]Selectie ontkoppelen[/b]: verwijdert de toegang aan beide kanten.\n"
+"- Daarna worden de tests vanuit omega-stress gestart; de belasting gaat direct tussen de machines, zonder omega-connect. Koppelingen toont de status van elke machine (gekoppeld, niet gekoppeld, onvolledige koppeling, firewall gesloten)."
+
 msgid "Dashboard — vue d'ensemble"
 msgstr "Dashboard — overzicht"
 
@@ -2670,7 +2739,8 @@ msgid ""
 "La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
 "\n"
 "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
-"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
+"- [b]Tout réparer[/b] : les machines une à une.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
@@ -2678,10 +2748,31 @@ msgstr ""
 "De lijst van alles wat niet in orde is, op alle machines (de netwerkmachines worden bij het openen opnieuw gescand): machine, probleem, status, en wie het corrigeert.\n"
 "\n"
 "- [b]Gekozen regel herstellen[/b]: opent het plan van de machine. Deze machine: de opdrachten van de toepassingen zelf (omega-jail voor wat het in fail2ban plaatst, omega-serv voor de rechten van zijn var/, elke toepassing voor haar identiteitskaart), daarna de gedeelde ruimte. Netwerkmachine: dezelfde correcties, plus de opdrachten die geen enkele toepassing kan uitvoeren, vanaf hier OP de machine uitgevoerd (alleen die in het plan aangekondigd zijn).\n"
-"- [b]Alles herstellen[/b]: de machines één voor één (eerst bijwerken, daarna herstellen).\n"
+"- Een regel « Oude versie » of « Onvoltooide installatie » opent de Updater, met de toepassing al aangevinkt: alleen de Updater werkt bij.\n"
+"- [b]Alles herstellen[/b]: de machines één voor één.\n"
 "- [b]Details[/b]: alle controles van de gekozen regel.\n"
 "- [b]Opdrachten kopiëren[/b] (plan van deze machine): klembord van het systeem (xclip, xsel, wl-copy); anders worden de opdrachten als platte tekst in de terminal getoond, om met de muis te selecteren.\n"
 "- omega-connect herschrijft nooit het bestand van een andere toepassing: het voert de opdracht van die toepassing uit."
+
+msgid "Updater — mettre à jour les applications"
+msgstr "Updater — de toepassingen bijwerken"
+
+msgid ""
+"Le seul endroit qui met à jour les applications, sur cette machine comme sur le réseau. Réparer et le Registre y renvoient, l'application déjà cochée.\n"
+"\n"
+"- Les lignes sont celles déjà scannées : machine, application, version installée ; rien n'est rescanné à l'ouverture.\n"
+"- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
+"- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
+"- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+msgstr ""
+"De enige plek die de toepassingen bijwerkt, op deze machine en op het netwerk. Herstellen en het Register verwijzen ernaar, met de toepassing al aangevinkt.\n"
+"\n"
+"- De regels zijn de al gescande: machine, toepassing, geïnstalleerde versie; bij het openen wordt niets opnieuw gescand.\n"
+"- [b]Versies controleren[/b]: de nieuwste gepubliceerde versie van elke toepassing (GitHub-Release, anders de site van de toepassing), voor de aangevinkte regels of voor alle. Een niet-gepubliceerde versie wordt nooit voorgesteld.\n"
+"- [b]Selectie bijwerken[/b] / [b]Alles bijwerken[/b]: de bij te werken toepassingen en de onvolledige installaties. Eerst deze machine: archieven gecontroleerd (sha.txt), daarna maakt de interface plaats voor de terminal, waar de install.sh-scripts zo nodig om het wachtwoord vragen. Daarna elke netwerkmachine: haar plan verschijnt voordat er iets gebeurt, één wachtwoord per machine.\n"
+"- Aan het eind: wat er gedaan is, toepassing per toepassing, en de machines opnieuw gescand.\n"
+"- [b]omega-suite[/b]: de meegeleverde omega-stress is er onderdeel van. De regel is die van omega-suite (« bevat omega-stress … »): ze wordt bijgewerkt met haar hulpmiddelen, samen getest, nooit omega-stress alleen. Vanaf 2.0.0 helpt hij bij de gedistribueerde belasting als een losse omega-stress; heeft de machine ook een losse omega-stress, dan helpt die."
 
 msgid "Rapport — un document complet"
 msgstr "Rapport — een volledig document"
@@ -2715,13 +2806,13 @@ msgid ""
 "- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
 "- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
 "- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
-"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>), sinon depuis le site de l'application (dossier download) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
 "- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
 msgstr ""
 "- [b]Verbinding[/b]: SSH alleen met UW sleutels; omega-connect vraagt nooit om het SSH-wachtwoord. Een sleutel die met een wachtwoordzin is beveiligd, moet in de SSH-agent worden geladen (ssh-add).\n"
 "- [b]Beheerderswachtwoord[/b]: alleen wanneer een actie erom vraagt (synchroniseren, herstellen, bijwerken), één keer per machine, door u in de terminal getypt; omega-connect ziet het nooit.\n"
 "- [b]Wat er naar een netwerkmachine gaat[/b]: voor een scan niets (programma in het geheugen); voor een actie een tijdelijke privémap (programma en archieven), die aan het einde wordt gewist.\n"
-"- [b]Updates[/b]: vanaf de GitHub-release van elke toepassing (kraynux/<application>, tag v<version>); de vingerafdruk wordt gecontroleerd met sha.txt vóór elke verzending, en daarna opnieuw op de machine. omega-fire: de oude installatie wordt apart gezet (de var/ ervan is van root), daarna neemt install.sh instellingen en gegevens over. De andere: uitpakken over de bestaande installatie (de actieve status zit niet in het archief), daarna hun install.sh.\n"
+"- [b]Updates[/b]: vanuit de GitHub-Release van elke toepassing (kraynux/<toepassing>, tag v<versie>), anders vanaf de site van de toepassing (map download); de vingerafdruk wordt vóór elke verzending met sha.txt gecontroleerd, en daarna opnieuw op de machine. omega-fire: de oude installatie wordt opzijgezet (haar var/ is van root), daarna neemt haar install.sh instellingen en gegevens over. De andere: uitpakken eroverheen (de levende toestand zit niet in het archief), daarna hun install.sh.\n"
 "- [b]Er wordt nooit een toepassing gestart die zonder terminal om een wachtwoord zou kunnen vragen[/b]: een stille mislukking van sudo telt als een poging en kan het account enkele minuten blokkeren."
 
 msgid "États — ce que veut dire chaque mot"
@@ -2823,6 +2914,9 @@ msgstr "Synchronisatie"
 
 msgid "Dashboard"
 msgstr "Dashboard"
+
+msgid "Updater"
+msgstr "Updater"
 
 msgid "Rapport"
 msgstr "Rapport"
@@ -3065,6 +3159,140 @@ msgid ""
 "ouvert."
 msgstr "Nieuwe controle elke {minutes} min zolang dit scherm open is."
 
+msgid "reliée"
+msgstr "gekoppeld"
+
+msgid "non reliée"
+msgstr "niet gekoppeld"
+
+msgid "liaison incomplète"
+msgstr "onvolledige koppeling"
+
+msgid "reliée, pare-feu de cette machine fermé"
+msgstr "gekoppeld, firewall van deze machine gesloten"
+
+msgid "reliée, omega-fire nécessaire pour le pare-feu"
+msgstr "gekoppeld, omega-fire nodig voor de firewall"
+
+msgid "état illisible (version trop ancienne ?)"
+msgstr "status onleesbaar (versie te oud?)"
+
+msgid "omega-stress absent de cette machine"
+msgstr "omega-stress ontbreekt op deze machine"
+
+msgid "demander"
+msgstr "vragen"
+
+msgid "tout accepter"
+msgstr "alles accepteren"
+
+msgid "Choisir"
+msgstr "Kiezen"
+
+msgid "CHARGE DISTRIBUÉE (OMEGA-STRESS)"
+msgstr "GEDISTRIBUEERDE BELASTING (OMEGA-STRESS)"
+
+msgid ""
+"Cette machine pilote les tests ; les machines cochées l'aident à charger la "
+"cible. Cochez-les (Entrée ou Espace), choisissez leur accord, puis « Relier "
+"la sélection » : le plan s'affiche avant d'agir, et un seul mot de passe est"
+" demandé si le pare-feu de cette machine doit s'ouvrir."
+msgstr ""
+"Deze machine stuurt de tests; de aangevinkte machines helpen haar het doel "
+"te belasten. Vink ze aan (Enter of Spatie), kies hun toestemming en daarna «"
+" Selectie koppelen »: het plan verschijnt voordat er iets gebeurt, en er "
+"wordt maar één wachtwoord gevraagd als de firewall van deze machine open "
+"moet."
+
+msgid "Demander pour chaque nouvelle cible"
+msgstr "Vragen bij elk nieuw doel"
+
+msgid "Tout accepter de ce pilote (machines qui sont toutes à vous)"
+msgstr ""
+"Alles accepteren van deze stuurmachine (machines die allemaal van u zijn)"
+
+msgid "Relier la sélection"
+msgstr "Selectie koppelen"
+
+msgid "Délier la sélection"
+msgstr "Selectie ontkoppelen"
+
+msgid "Accord"
+msgstr "Toestemming"
+
+msgid "Liaison"
+msgstr "Koppeling"
+
+msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
+msgstr "omega-stress wordt gelezen op deze machine en op het netwerk…"
+
+#, python-brace-format
+msgid "Rescan de {machine}…"
+msgstr "{machine} opnieuw scannen…"
+
+msgid ""
+"omega-stress n'est pas installé sur cette machine (ou trop ancien) : elle ne"
+" peut pas piloter. Installez omega-stress 2.0.0 ou plus, puis revenez ici."
+msgstr ""
+"omega-stress is niet geïnstalleerd op deze machine (of te oud): ze kan niet "
+"sturen. Installeer omega-stress 2.0.0 of nieuwer en kom dan hier terug."
+
+msgid ""
+"Aucune machine du réseau n'a omega-stress 2.0.0 ou plus. Scannez vos "
+"machines (Scanner), installez-le sur celles qui doivent aider, puis revenez "
+"ici."
+msgstr ""
+"Geen enkele machine op het netwerk heeft omega-stress 2.0.0 of nieuwer. Scan"
+" uw machines (Scanner), installeer het op de machines die moeten helpen en "
+"kom dan hier terug."
+
+#, python-brace-format
+msgid "{count} machine(s) du réseau peuvent aider."
+msgstr "{count} machine(s) op het netwerk kunnen helpen."
+
+#, python-brace-format
+msgid ""
+"{machine} : omega-stress trop ancien ou illisible — mettez-le à jour depuis "
+"le Registre."
+msgstr ""
+"{machine}: omega-stress te oud of onleesbaar — werk het bij vanuit het "
+"Register."
+
+msgid "Relier la charge distribuée"
+msgstr "De gedistribueerde belasting koppelen"
+
+msgid "Commandes lancées, dans cet ordre :"
+msgstr "Uitgevoerde opdrachten, in deze volgorde:"
+
+msgid ""
+"Le pare-feu de cette machine s'ouvre au port d'omega-stress pour votre "
+"réseau local : un mot de passe sudo sera demandé, une seule fois."
+msgstr ""
+"De firewall van deze machine opent de omega-stress-poort voor uw lokale "
+"netwerk: er wordt één keer een sudo-wachtwoord gevraagd."
+
+msgid "Liaison en cours…"
+msgstr "Bezig met koppelen…"
+
+msgid "Retrait de la liaison…"
+msgstr "Koppeling wordt verwijderd…"
+
+#, python-brace-format
+msgid "{count} étape(s) en échec :"
+msgstr "{count} stap(pen) mislukt:"
+
+msgid "cette machine"
+msgstr "deze machine"
+
+msgid "Fait."
+msgstr "Klaar."
+
+msgid "Pare-feu de cette machine (règles posées) :"
+msgstr "Firewall van deze machine (geplaatste regels):"
+
+msgid "cette machine (root)"
+msgstr "deze machine (root)"
+
 msgid "Lancer (mot de passe administrateur)"
 msgstr "Starten (beheerderswachtwoord)"
 
@@ -3199,9 +3427,6 @@ msgstr ""
 msgid "Actualiser"
 msgstr "Vernieuwen"
 
-msgid "cette machine"
-msgstr "deze machine"
-
 msgid "DASHBOARD"
 msgstr "DASHBOARD"
 
@@ -3253,19 +3478,24 @@ msgstr "laatste scan om {time}"
 msgid "Espace partagé : "
 msgstr "Gedeelde ruimte: "
 
+#, python-brace-format
+msgid "{tool} (dans omega-suite)"
+msgstr "{tool} (in omega-suite)"
+
+#, python-brace-format
+msgid ""
+"Fait partie d'omega-suite {version} ({root}) : se met à jour avec elle, "
+"jamais seul."
+msgstr ""
+"Onderdeel van omega-suite {version} ({root}): wordt ermee bijgewerkt, nooit "
+"alleen."
+
 msgid "Réinstaller l'application"
 msgstr "Toepassing opnieuw installeren"
 
 #, python-brace-format
-msgid "→ « {action} » installe la dernière version depuis GitHub."
-msgstr "→ „{action}” installeert de laatste versie vanaf GitHub."
-
-msgid ""
-"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
-"possible : suivez la section « Mise à jour » du README de l'outil."
-msgstr ""
-"→ Op deze computer is bijwerken vanuit omega-connect nog niet mogelijk: volg"
-" de sectie „Bijwerken” in de README van de tool."
+msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
+msgstr "→ « {action} » opent de Updater, met de toepassing al aangevinkt."
 
 #, python-brace-format
 msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
@@ -3382,6 +3612,12 @@ msgstr "Scannen: de machine opnieuw scannen"
 
 msgid "aucune correction connue (voir le détail)"
 msgstr "geen bekende correctie (zie de details)"
+
+msgid "Charge distribuée : relier de nouveau, ou ouvrir le pare-feu"
+msgstr "Gedistribueerde belasting: opnieuw koppelen of de firewall openen"
+
+msgid "Updater : mise à jour depuis ici"
+msgstr "Updater: bijwerken vanaf hier"
 
 msgid "RÉPARER"
 msgstr "HERSTELLEN"
@@ -3692,9 +3928,6 @@ msgstr "{count} element(en) verwijderd in {path}."
 msgid "Non supprimés : {items}"
 msgstr "Niet verwijderd: {items}"
 
-msgid "Choisir"
-msgstr "Kiezen"
-
 msgid "SYNCHRONISATION"
 msgstr "SYNCHRONISATIE"
 
@@ -3714,6 +3947,9 @@ msgstr "Alles synchroniseren"
 
 msgid "Synchroniser la sélection"
 msgstr "Selectie synchroniseren"
+
+msgid "Charge distribuée…"
+msgstr "Gedistribueerde belasting…"
 
 msgid "Lire avec sudo"
 msgstr "Lezen met sudo"
@@ -3749,6 +3985,84 @@ msgstr "DEZE MACHINE VERTROUWEN?"
 
 msgid "Faire confiance"
 msgstr "Vertrouwen"
+
+msgid "non vérifiée"
+msgstr "niet gecontroleerd"
+
+msgid "à jour"
+msgstr "bijgewerkt"
+
+msgid "à mettre à jour"
+msgstr "bij te werken"
+
+msgid "installation inachevée — à réinstaller"
+msgstr "onvolledige installatie — opnieuw te installeren"
+
+msgid "aucune version publiée trouvée"
+msgstr "geen gepubliceerde versie gevonden"
+
+msgid "machine injoignable"
+msgstr "machine onbereikbaar"
+
+msgid ""
+"omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
+"demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
+msgstr ""
+"omega-connect — bijwerken op deze machine. De install.sh-scripts kunnen om "
+"het sudo-wachtwoord vragen (het wordt niet getoond tijdens het typen)."
+
+msgid "UPDATER"
+msgstr "UPDATER"
+
+msgid ""
+"Les applications déjà scannées, sur cette machine et sur le réseau. « "
+"Vérifier les versions » cherche la dernière version publiée (GitHub, puis le"
+" site). Cochez (Entrée ou Espace) puis « Mettre à jour la sélection », ou « "
+"Tout mettre à jour » : chaque machine montre son plan avant d'agir, et un "
+"seul mot de passe est demandé, dans le terminal."
+msgstr ""
+"De al gescande toepassingen, op deze machine en op het netwerk. « Versies "
+"controleren » zoekt de nieuwste gepubliceerde versie (GitHub, daarna de "
+"site). Vink aan (Enter of Spatie) en daarna « Selectie bijwerken », of « "
+"Alles bijwerken »: elke machine toont haar plan voordat er iets gebeurt, en "
+"er wordt één wachtwoord gevraagd, in de terminal."
+
+msgid "Vérifier les versions"
+msgstr "Versies controleren"
+
+msgid "Mettre à jour la sélection"
+msgstr "Selectie bijwerken"
+
+msgid "Tout mettre à jour"
+msgstr "Alles bijwerken"
+
+msgid "Disponible"
+msgstr "Beschikbaar"
+
+msgid "Installée"
+msgstr "Geïnstalleerd"
+
+#, python-brace-format
+msgid "{tool} (contient {tools})"
+msgstr "{tool} (bevat {tools})"
+
+#, python-brace-format
+msgid ""
+"{count} application(s) — à jour : {ok} ; à mettre à jour : {old} ; "
+"inachevées : {incomplete} ; non vérifiées : {unchecked}."
+msgstr ""
+"{count} toepassing(en) — bijgewerkt: {ok}; bij te werken: {old}; onvolledig:"
+" {incomplete}; niet gecontroleerd: {unchecked}."
+
+msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
+msgstr ""
+"Zoeken naar de nieuwste gepubliceerde versies (GitHub, daarna de site)…"
+
+msgid "Téléchargement et vérification des archives…"
+msgstr "Archieven downloaden en controleren…"
+
+msgid "Rescan de cette machine…"
+msgstr "Deze machine opnieuw scannen…"
 
 msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
 msgstr "DETAILS VAN DE GEDEELDE RUIMTE"

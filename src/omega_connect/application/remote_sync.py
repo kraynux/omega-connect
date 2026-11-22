@@ -31,7 +31,7 @@ from omega_connect.domain.updates import (
     choose_update,
     updates_to_dict,
 )
-from omega_connect.domain.versions import archive_name
+from omega_connect.domain.versions import Outdated, archive_name
 from omega_connect.ports.remote import RemoteSession
 from omega_connect.ports.updates import ReleaseSource
 
@@ -72,14 +72,18 @@ class PlanFailure:
 
 
 def machine_plan(target: RemoteTarget, tools: RemoteSyncTools,
-                 purpose: Purpose = Purpose.SYNC) -> MachinePlan | PlanFailure:
+                 purpose: Purpose = Purpose.SYNC,
+                 items: tuple[Outdated, ...] | None = None) -> MachinePlan | PlanFailure:
+    """`items` (Updater, 2026-11-22) : les applications choisies, a mettre a jour vers la derniere version publiee ;
+    sinon, les outils trop anciens pour omega-connect que la machine signale."""
     answer = tools.session.plan(target)
     if not isinstance(answer, RemotePlan):
         failure, detail = answer
         return PlanFailure(target, failure, detail)
     latest: dict[str, str | ReleaseFailure] = {}
     choices = []
-    for item in answer.outdated if purpose is Purpose.UPDATE else ():
+    wanted = answer.outdated if items is None else items
+    for item in wanted if purpose is Purpose.UPDATE else ():
         if item.tool not in latest:
             latest[item.tool] = tools.releases.latest(item.tool)
         choices.append(choose_update(item, latest[item.tool]))

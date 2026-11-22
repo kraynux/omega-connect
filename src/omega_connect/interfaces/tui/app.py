@@ -18,12 +18,14 @@ from omega_lib.theme.policies import DEFAULT_TUI_THEME, TUI_THEMES
 from textual.app import App, SystemCommand
 from textual.binding import Binding, BindingType
 
+from omega_connect.application.distributed_actions import DistributedTools
 from omega_connect.application.enroll_actions import EnrollTools
 from omega_connect.application.remote_actions import RemoteTools
 from omega_connect.application.remote_sync import RemoteSyncTools
 from omega_connect.application.repair_actions import RepairTools
 from omega_connect.application.report import ReportTools
 from omega_connect.application.settings import KEY_THEME, SettingsTools
+from omega_connect.application.updater import UpdaterTools
 from omega_connect.application.zone_actions import ZoneTools
 from omega_connect.domain.detection import DetectionReport
 from omega_connect.domain.links import VerificationReport
@@ -32,6 +34,7 @@ from omega_connect.interfaces.tui.rendering.stylesheet_loader import load_paths_
 from omega_connect.interfaces.tui.rendering.textual_theme_builder import build_all_textual_themes
 from omega_connect.interfaces.tui.screens.contact_support import contact_support_screen
 from omega_connect.interfaces.tui.screens.dashboard import LinksScreen, VerifyNow
+from omega_connect.interfaces.tui.screens.distributed_load import DistributedLoadScreen
 from omega_connect.interfaces.tui.screens.help import HelpScreen
 from omega_connect.interfaces.tui.screens.home import HomeScreen
 from omega_connect.interfaces.tui.screens.local_repair import LocalRepairScreen
@@ -44,6 +47,7 @@ from omega_connect.interfaces.tui.screens.scanner import ScannerScreen
 from omega_connect.interfaces.tui.screens.settings import SettingsScreen
 from omega_connect.interfaces.tui.screens.splash import SplashScreen
 from omega_connect.interfaces.tui.screens.synchronisation import SynchronisationScreen
+from omega_connect.interfaces.tui.screens.updater import UpdaterScreen, rescan_local_machine
 from omega_connect.interfaces.tui.views import VIEWS
 from omega_connect.ports.fleet import ParcStore
 from omega_connect.shared.i18n import _
@@ -78,7 +82,9 @@ class OmegaConnectApp(App[None]):
                  remote_sync: RemoteSyncTools | None = None,
                  system_clipboard: Callable[[str], str] | None = None,
                  settings: SettingsTools | None = None,
-                 contact: ContactSupportServices | None = None) -> None:
+                 contact: ContactSupportServices | None = None,
+                 distributed: DistributedTools | None = None,
+                 updater: UpdaterTools | None = None) -> None:
         super().__init__(css_path=cast("list[str | PurePath]", load_paths_for(render_profile)))
         for theme in build_all_textual_themes():
             self.register_theme(theme)
@@ -96,6 +102,8 @@ class OmegaConnectApp(App[None]):
         self._machine = machine
         self._remote = remote
         self._remote_sync = remote_sync
+        self._distributed = distributed
+        self._updater = updater
         self.system_clipboard = system_clipboard
         self._contact = contact
         self.pending_language: str | None = None
@@ -140,6 +148,15 @@ class OmegaConnectApp(App[None]):
             return None
         zone = self._zone
 
+        updater_tools, store, machine, verify = self._updater, self._parc, self._machine, self._verify
+
+        def updater(preselect: str = "") -> UpdaterScreen | None:
+            if updater_tools is None or store is None:
+                return None
+            return UpdaterScreen(parc=store, releases=updater_tools.releases, remote_sync=self._remote_sync,
+                                 rescan_local=lambda: rescan_local_machine(verify, zone.inspector, store, machine),
+                                 runner=updater_tools.runner, machine=machine, preselect=preselect)
+
         def scanner(*, from_menu: bool = False) -> ScannerScreen:
             return ScannerScreen(verify=self._verify, inspector=zone.inspector, machine=self._machine,
                                  parc=self._parc, registry=registry if from_menu else None, remote=self._remote)
@@ -147,16 +164,26 @@ class OmegaConnectApp(App[None]):
         def registry() -> RegistryScreen:
             return RegistryScreen(verify=self._verify, inspector=zone.inspector, machine=self._machine,
                                   scanner=scanner, parc=self._parc, remote=self._remote,
-                                  remote_sync=self._remote_sync)
+                                  remote_sync=self._remote_sync, updater=updater)
 
         if key == "scanner":
             return scanner(from_menu=True)
         if key == "registry":
             return registry()
+        distributed_tools, remote = self._distributed, self._remote
+
+        def distributed(preselect: str = "") -> DistributedLoadScreen | None:
+            if distributed_tools is None or remote is None:
+                return None
+            return DistributedLoadScreen(tools=distributed_tools, remote=remote, sudo=zone.runner,
+                                         preselect=preselect)
+
+        if key == "updater":
+            return updater()
         if key == "synchronisation" and self._repair_tools is not None:
             tools = EnrollTools(zone=zone, repair=self._repair_tools, detect=self._detect)
             return SynchronisationScreen(verify=self._verify, tools=tools, machine=self._machine,
-                                         remote_sync=self._remote_sync)
+                                         remote_sync=self._remote_sync, distributed=distributed)
         if key == "repair" and self._repair_tools is not None:
             repair_tools = self._repair_tools
 
@@ -164,7 +191,8 @@ class OmegaConnectApp(App[None]):
                 return LocalRepairScreen(verify=self._verify, repair=repair_tools, zone=zone, detect=self._detect)
 
             return RepairScreen(verify=self._verify, inspector=zone.inspector, machine=self._machine,
-                                local_repair=local_repair, parc=self._parc, remote_sync=self._remote_sync)
+                                local_repair=local_repair, parc=self._parc, remote_sync=self._remote_sync,
+                                distributed=distributed, updater=updater)
         return None
 
     def watch_theme(self, _theme_name: str) -> None:

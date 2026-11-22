@@ -11,6 +11,7 @@ dit ou aller. Etat de l'espace partage de cette machine en dessous (« Lire avec
 from __future__ import annotations
 
 import contextlib
+from collections.abc import Callable
 from datetime import datetime
 
 from rich.text import Text
@@ -18,6 +19,7 @@ from textual.app import ComposeResult
 from textual.binding import Binding
 from textual.containers import Container, Horizontal, Vertical
 from textual.css.query import NoMatches
+from textual.screen import Screen
 from textual.widgets import Button, DataTable, Footer, Header, Static
 
 from omega_connect.application.enroll_actions import EnrollTools, enroll_plan
@@ -57,8 +59,10 @@ class SynchronisationScreen(OmegaScreen):
     BINDINGS = [*OmegaScreen.BINDINGS, Binding("space", "choose_row", _("Choisir"), show=False)]
 
     def __init__(self, *, verify: VerifyNow, tools: EnrollTools, machine: str,
-                 remote_sync: RemoteSyncTools | None = None) -> None:
+                 remote_sync: RemoteSyncTools | None = None,
+                 distributed: Callable[..., Screen[None] | None] | None = None) -> None:
         super().__init__()
+        self._distributed = distributed
         self._verify = verify
         self._tools = tools
         self._machine = machine
@@ -91,6 +95,8 @@ class SynchronisationScreen(OmegaScreen):
                 yield Button(_("Synchroniser tout"), id="enroll-all", variant="primary", disabled=True)
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Synchroniser la sélection"), id="enroll-chosen", disabled=True)
+            with Container(classes="omega-btn-frame", id="distributed-frame"):
+                yield Button(_("Charge distribuée…"), id="distributed")
             with Container(classes="omega-btn-frame", id="read-sudo-frame"):
                 yield Button(_("Lire avec sudo"), id="read-sudo")
             with Container(classes="omega-btn-frame"):
@@ -104,6 +110,7 @@ class SynchronisationScreen(OmegaScreen):
         table.cursor_type = "row"
         table.add_columns(" ", _("Machine"), _("Application"), _("Instance / service"), _("État"))
         self.query_one("#read-sudo-frame").display = False
+        self.query_one("#distributed-frame").display = self._distributed is not None
         self._load()
 
     # ---- lecture ----
@@ -252,6 +259,10 @@ class SynchronisationScreen(OmegaScreen):
             self._start(local, remote)
         elif button == "enroll-all":
             self._start(None if self._local_work() else (), self._remote_work())
+        elif button == "distributed" and self._distributed is not None:
+            screen = self._distributed()
+            if screen is not None:
+                self.app.push_screen(screen, lambda changed: self._load() if changed else None)
         elif button == "read-sudo":
             self._read_with_sudo()
         elif button == "detail":

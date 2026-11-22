@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import os
 import socket
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -18,8 +19,11 @@ from omega_lib.infrastructure.synchro.install_token import read_machine_fingerpr
 from omega_lib.synchro.policies import format_utc
 
 from omega_connect.app.main import build_detect, build_verify, build_zone
-from omega_connect.domain.fleet import registry_rows
+from omega_connect.domain.distributed_load import STRESS_LAUNCHER, STRESS_TOOL, facts_link, helper_roots
+from omega_connect.domain.fleet import RegistryRow, registry_rows
+from omega_connect.domain.links import Link
 from omega_connect.domain.remote import RemoteScan, scan_to_dict
+from omega_connect.domain.versions import too_old, version_key
 from omega_connect.interfaces.cli.main import DetectRequest
 
 TEST_DIRS_ENV = {"systemd_dir": "OMEGA_CONNECT_SYSTEMD_DIR", "openrc_dir": "OMEGA_CONNECT_OPENRC_DIR",
@@ -28,6 +32,33 @@ TEST_DIRS_ENV = {"systemd_dir": "OMEGA_CONNECT_SYSTEMD_DIR", "openrc_dir": "OMEG
 FAIL2BAN_DIR_ENV = "OMEGA_CONNECT_FAIL2BAN_DIR"
 HOME_ENV = "OMEGA_CONNECT_HOME"
 """Dossier personnel a examiner a la place de celui du compte (tests seulement)."""
+
+
+def stress_helper_links(rows: tuple[RegistryRow, ...] | list[RegistryRow]) -> tuple[Link, ...]:
+    """Charge distribuee (lot L2) : etat de chaque omega-stress de cette machine en tant que machine qui aide
+    (`worker etat --format json` : lecture seule, jamais de sudo, terminal detache)."""
+    links = []
+    versions = helper_roots(rows)
+    for root, version in versions.items():
+        launcher = Path(root) / STRESS_LAUNCHER
+        output = None
+        if too_old(STRESS_TOOL, version) or version_key(version) is None:
+            # Version sans charge distribuee : jamais lancee (elle ne connait pas `worker`).
+            links.append(facts_link(root, None, old_version=version or "?"))
+            continue
+        if launcher.is_file() and not launcher.is_symlink():
+            try:
+                done = subprocess.run([str(launcher), "worker", "etat", "--format", "json"],  # noqa: S603
+                                      capture_output=True, text=True, timeout=30, check=False,
+                                      stdin=subprocess.DEVNULL, start_new_session=True, cwd=root,
+                                      env={**os.environ, "PATH": "/usr/local/bin:/usr/bin:/bin:"
+                                           + os.environ.get("PATH", "")})
+                lines = [line for line in done.stdout.splitlines() if line.startswith("{")]
+                output = lines[-1] if done.returncode == 0 and lines else None
+            except (OSError, subprocess.SubprocessError):
+                output = None
+        links.append(facts_link(root, output))
+    return tuple(links)
 
 
 def main() -> int:
@@ -40,8 +71,9 @@ def main() -> int:
     verify = build_verify(detect, zone=zone, **({"fail2ban_dir": fail2ban} if fail2ban else {}))
     report = verify(DetectRequest(manual_paths=[], with_sheets=True))
     facts = zone.inspector.inspect(elevated=False)
-    scan = RemoteScan(hostname, read_machine_fingerprint(), format_utc(datetime.now(timezone.utc)),
-                      registry_rows(report, facts, hostname), report.links)
+    rows = registry_rows(report, facts, hostname)
+    scan = RemoteScan(hostname, read_machine_fingerprint(), format_utc(datetime.now(timezone.utc)), rows,
+                      (*report.links, *stress_helper_links(rows)))
     sys.stdout.write(json.dumps(scan_to_dict(scan), ensure_ascii=False))
     sys.stdout.flush()
     return 0

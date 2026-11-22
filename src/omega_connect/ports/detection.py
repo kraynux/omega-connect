@@ -36,7 +36,12 @@ class InstallationInspector(Protocol):
         ...
 
     def venv_ready(self, root: str) -> bool:
-        """Environnement Python de l'outil present et complet (sans rien executer)."""
+        """Environnement Python de l'outil present et complet (sans rien executer) ; pour une copie embarquee par
+        omega-suite, celui de la suite."""
+        ...
+
+    def suite(self, root: str) -> tuple[str, str]:
+        """(dossier, version) d'omega-suite si `root` est une copie qu'elle embarque ; ("", "") sinon."""
         ...
 
 

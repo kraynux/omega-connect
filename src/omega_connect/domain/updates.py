@@ -106,7 +106,8 @@ class RemotePlan:
 
 def outdated_to_list(items: tuple[Outdated, ...]) -> list[dict[str, Any]]:
     return [{"tool": item.tool, "root": item.root, "version": item.version, "minimum": item.minimum,
-             "incomplete": item.incomplete} for item in items]
+             "incomplete": item.incomplete, **({"contains": item.contains} if item.contains else {})}
+            for item in items]
 
 
 def outdated_from_list(raw: object) -> tuple[Outdated, ...]:
@@ -114,7 +115,8 @@ def outdated_from_list(raw: object) -> tuple[Outdated, ...]:
     for item in raw if isinstance(raw, list) else []:
         if isinstance(item, dict) and all(isinstance(item.get(key), str) for key in ("tool", "root")):
             found.append(Outdated(item["tool"], item["root"], str(item.get("version", "")),
-                                  str(item.get("minimum", "")), bool(item.get("incomplete"))))
+                                  str(item.get("minimum", "")), bool(item.get("incomplete")),
+                                  str(item.get("contains", ""))))
     return tuple(found)
 
 

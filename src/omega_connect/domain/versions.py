@@ -19,10 +19,12 @@ from omega_lib.synchro.models import ReadStatus
 
 from omega_connect.core.constants import SHEET_TOOLS
 from omega_connect.domain.detection import DetectedInstallation
+from omega_connect.domain.suite import SUITE_TOOL
 
-CONTRACT_VERSIONS = {"omega-serv": "2.6.1", "omega-fire": "3.6.1", "omega-jail": "1.2.1"}
+CONTRACT_VERSIONS = {"omega-serv": "2.6.1", "omega-fire": "3.6.1", "omega-jail": "1.2.1", "omega-stress": "2.0.0"}
 """Premiere version de chaque outil qui a une carte d'identite (`synchro`) et les commandes de reparation
-qu'omega-connect lance (`service permissions`, `--apply --update`) ; archives construites le 2026-11-10."""
+qu'omega-connect lance (`service permissions`, `--apply --update`) ; archives construites le 2026-11-10 (omega-stress :
+2.0.0, jeton seul, 2026-11-21)."""
 
 GITHUB_OWNER = "kraynux"
 GITHUB_BASE = "https://github.com"
@@ -141,6 +143,8 @@ class Outdated:
     incomplete: bool = False
     """Version a jour mais installation inachevee (install.sh arrete : ni carte d'identite ni environnement Python
     utilisable) ; constate le 2026-11-11 sur omega-server. Reinstallee comme une mise a jour."""
+    contains: str = ""
+    """omega-suite mise a jour pour l'outil qu'elle embarque (« omega-stress ») ; vide sinon."""
 
 
 def may_ask_sheet(tool: str, token_status: ReadStatus, version: str) -> bool:
@@ -160,7 +164,15 @@ def may_ask_sheet(tool: str, token_status: ReadStatus, version: str) -> bool:
 def outdated(item: DetectedInstallation) -> Outdated | None:
     """Outil trop ancien : version lue plus ancienne que sa premiere version a contrats ; ou, pour un outil a
     contrats, ni carte d'identite ni version lisible (une version a contrats a toujours les deux) ; ou ni carte ni
-    fiche (regle du lot R1)."""
+    fiche (regle du lot R1). Copie embarquee par omega-suite : c'est omega-suite qui est mise a jour (avec les outils
+    qui vont avec), jamais la copie seule."""
+    found = _outdated(item)
+    if found is None or not item.suite:
+        return found
+    return Outdated(SUITE_TOOL, item.suite, item.suite_version, "", found.incomplete, contains=item.tool)
+
+
+def _outdated(item: DetectedInstallation) -> Outdated | None:
     minimum = minimum_version(item.tool)
     if too_old(item.tool, item.version):
         return Outdated(item.tool, item.root, item.version, minimum)

@@ -1655,6 +1655,9 @@ msgstr "Thẻ định danh"
 msgid "Espace partagé (omega-synchro)"
 msgstr "Không gian chia sẻ (omega-synchro)"
 
+msgid "Charge distribuée (omega-stress)"
+msgstr "Tải phân tán (omega-stress)"
+
 msgid "OK"
 msgstr "OK"
 
@@ -2168,6 +2171,54 @@ msgstr ""
 "omega-synchro: nó sẽ không đọc được không gian chia sẻ. Đồng bộ hóa sẽ yêu "
 "cầu omega-serv cấp nhóm này cho nó."
 
+#, python-brace-format
+msgid ""
+"relevé d'omega-stress sur {subject} (pas encore comparé à cette machine)."
+msgstr "dữ liệu omega-stress trên {subject} (chưa so với máy này)."
+
+#, python-brace-format
+msgid "{subject} aide cette machine à charger les cibles (accord : {detail})."
+msgstr "{subject} giúp máy này tạo tải lên các mục tiêu (đồng ý: {detail})."
+
+#, python-brace-format
+msgid ""
+"{subject} peut aider cette machine : pas encore reliée (Synchronisation → "
+"Charge distribuée)."
+msgstr ""
+"{subject} có thể giúp máy này: chưa liên kết (Đồng bộ → Tải phân tán)."
+
+#, python-brace-format
+msgid "{subject} : liaison incomplète ({detail}) — relier de nouveau."
+msgstr "{subject}: liên kết chưa đầy đủ ({detail}) — liên kết lại."
+
+#, python-brace-format
+msgid ""
+"{subject} a omega-stress, mais pas cette machine : elle ne peut pas piloter."
+msgstr ""
+"{subject} có omega-stress nhưng máy này thì không: máy này không thể điều "
+"phối."
+
+#, python-brace-format
+msgid ""
+"pare-feu de cette machine ({subject}) fermé au port d'omega-stress : les "
+"machines qui aident ne peuvent pas le joindre."
+msgstr ""
+"tường lửa của máy này ({subject}) đóng cổng omega-stress: các máy hỗ trợ "
+"không thể kết nối tới."
+
+msgid ""
+"pare-feu nftables sans omega-fire : installez omega-fire pour ouvrir le port"
+" d'omega-stress (sa configuration n'est jamais réécrite à la main)."
+msgstr ""
+"tường lửa nftables không có omega-fire: hãy cài omega-fire để mở cổng omega-"
+"stress (cấu hình của nó không bao giờ bị sửa tay)."
+
+#, python-brace-format
+msgid ""
+"{subject} : état d'omega-stress illisible (version antérieure à 2.0.0 ?)."
+msgstr ""
+"{subject}: không đọc được trạng thái omega-stress (phiên bản cũ hơn 2.0.0?)."
+
 msgid "correction : Synchronisation (omega-connect synchroniser)"
 msgstr "khắc phục: Đồng bộ hóa (omega-connect synchroniser)"
 
@@ -2512,17 +2563,13 @@ msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
 "- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
-"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
-"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
-"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "Hiển thị, cho từng máy (máy này và các máy trong mạng), từng ứng dụng omega tìm thấy: instance hoặc dịch vụ, phiên bản, trạng thái và thư mục của nó. Phần tóm tắt ở trên cùng đếm các trạng thái.\n"
 "\n"
 "- [b]Cập nhật sổ đăng ký[/b]: quét lại ngay tại chỗ (máy này, rồi các máy trong mạng đã biết), không đổi màn hình.\n"
-"- [b]Cập nhật ứng dụng[/b]: trên một dòng “Phiên bản cũ” của một máy trong mạng, cài phiên bản mới nhất đã phát hành (bản Release GitHub của ứng dụng, mã băm được kiểm tra với sha.txt trước khi gửi). Kế hoạch được hiển thị trước; không làm gì khác.\n"
-"- [b]Cài đặt lại ứng dụng[/b]: cùng nút đó trên một dòng “Cài đặt dở dang” (install.sh của nó chưa chạy xong); cùng phiên bản được cài lại.\n"
-"- Trên chính máy này, việc cập nhật được thực hiện theo phần “Cập nhật” trong README của ứng dụng.\n"
+"- [b]Cập nhật ứng dụng[/b] / [b]Cài đặt lại ứng dụng[/b]: mở Updater, ứng dụng của dòng đã được đánh dấu sẵn (« Phiên bản cũ »; hoặc « Cài đặt dở dang »: install.sh của nó chưa chạy xong, cài lại cùng phiên bản). Trên máy này cũng như trên máy trong mạng.\n"
 "- Tô sáng một dòng: phần giải thích trạng thái và các sai lệch của nó hiển thị bên dưới."
 
 msgid "Scanner — trouver les applications, ajouter des machines"
@@ -2579,6 +2626,26 @@ msgstr ""
 "- [b]Đọc bằng sudo[/b]: nếu phiên của bạn chưa đọc được không gian chia sẻ (nhóm omega-synchro chỉ có hiệu lực sau khi đăng nhập lại), đọc bằng sudo, chỉ đọc.\n"
 "- [b]Chi tiết[/b]: những gì omega-connect đã tạo (sổ đăng ký của không gian chia sẻ) và các thao tác gỡ có thể thực hiện."
 
+msgid "Charge distribuée — omega-stress sur plusieurs machines"
+msgstr "Tải phân tán — omega-stress trên nhiều máy"
+
+msgid ""
+"Ouvert depuis Synchronisation ([b]Charge distribuée…[/b]) ou depuis Réparer. Cette machine pilote les tests d'omega-stress ; les machines du réseau où omega-stress (2.0.0 ou plus) est installé peuvent l'aider à charger la cible. Rien à taper, aucune empreinte à recopier : omega-connect relie tout par SSH.\n"
+"\n"
+"- Cochez les machines qui aident (Entrée ou Espace), puis choisissez leur accord : [b]Demander pour chaque nouvelle cible[/b] (la première fois qu'une cible est demandée, omega-stress vous pose la question), ou [b]Tout accepter de ce pilote[/b] (machines qui sont toutes à vous).\n"
+"- [b]Relier la sélection[/b] : le plan s'affiche avant d'agir (commandes exactes). Chaque machine reçoit son accès, transmis par SSH sans jamais apparaître à l'écran ; ses limites (débit, durée) sont pré-remplies d'après elle.\n"
+"- Pare-feu de cette machine : s'il bloque les machines qui aident, il s'ouvre au seul port d'omega-stress et à votre réseau local, par omega-fire s'il est relié, sinon par ufw ou firewalld. Un seul mot de passe sudo, demandé dans le terminal. Avec nftables seul et sans omega-fire, rien n'est touché : installez omega-fire.\n"
+"- [b]Délier la sélection[/b] : retire l'accès des deux côtés.\n"
+"- Ensuite, les tests se lancent depuis omega-stress ; la charge passe directement entre les machines, sans omega-connect. Liaisons montre l'état de chaque machine (reliée, non reliée, liaison incomplète, pare-feu fermé)."
+msgstr ""
+"Mở từ Đồng bộ ([b]Tải phân tán…[/b]) hoặc từ Sửa chữa. Máy này điều phối các bài kiểm tra của omega-stress; các máy trong mạng có cài omega-stress (2.0.0 trở lên) có thể giúp nó tạo tải lên mục tiêu. Không cần gõ gì, không phải chép dấu vân tay: omega-connect liên kết mọi thứ qua SSH.\n"
+"\n"
+"- Đánh dấu các máy hỗ trợ (Enter hoặc Space), rồi chọn kiểu đồng ý: [b]Hỏi cho mỗi mục tiêu mới[/b] (lần đầu một mục tiêu được yêu cầu, omega-stress sẽ hỏi bạn), hoặc [b]Chấp nhận mọi thứ từ máy điều phối này[/b] (các máy đều là của bạn).\n"
+"- [b]Liên kết các máy đã chọn[/b]: kế hoạch hiện ra trước khi thực hiện (lệnh chính xác). Mỗi máy nhận quyền truy cập của nó qua SSH, không bao giờ hiện trên màn hình; giới hạn (tốc độ, thời lượng) được điền sẵn theo chính máy đó.\n"
+"- Tường lửa của máy này: nếu nó chặn các máy hỗ trợ, nó chỉ mở cổng omega-stress và chỉ cho mạng cục bộ của bạn, qua omega-fire nếu đã liên kết, nếu không thì qua ufw hoặc firewalld. Chỉ một mật khẩu sudo, hỏi trong terminal. Chỉ có nftables mà không có omega-fire thì không chạm vào gì: hãy cài omega-fire.\n"
+"- [b]Bỏ liên kết các máy đã chọn[/b]: gỡ quyền truy cập ở cả hai phía.\n"
+"- Sau đó, các bài kiểm tra được chạy từ omega-stress; tải đi thẳng giữa các máy, không qua omega-connect. Liên kết hiển thị trạng thái từng máy (đã liên kết, chưa liên kết, liên kết chưa đầy đủ, tường lửa đóng)."
+
 msgid "Dashboard — vue d'ensemble"
 msgstr "Bảng điều khiển — tổng quan"
 
@@ -2608,7 +2675,8 @@ msgid ""
 "La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
 "\n"
 "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
-"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
+"- [b]Tout réparer[/b] : les machines une à une.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
@@ -2616,10 +2684,31 @@ msgstr ""
 "Danh sách mọi thứ đang có vấn đề, trên mọi máy (các máy trong mạng được quét lại khi mở): máy, sự cố, trạng thái, và ai khắc phục.\n"
 "\n"
 "- [b]Sửa dòng đã chọn[/b]: mở kế hoạch của máy. Máy này: lệnh của chính các ứng dụng (omega-jail cho những gì nó đặt trong fail2ban, omega-serv cho quyền của var/ của nó, từng ứng dụng cho thẻ định danh của mình), rồi không gian chia sẻ. Máy trong mạng: cùng các bước khắc phục đó, cộng thêm các lệnh mà không ứng dụng nào biết chạy, được chạy TRÊN máy đó từ đây (chỉ những lệnh đã thông báo trong kế hoạch).\n"
-"- [b]Sửa tất cả[/b]: lần lượt từng máy (cập nhật trước, rồi sửa chữa).\n"
+"- Dòng « Phiên bản cũ » hoặc « Cài đặt dở dang » mở Updater với ứng dụng đã đánh dấu sẵn: chỉ Updater thực hiện cập nhật.\n"
+"- [b]Sửa tất cả[/b]: lần lượt từng máy.\n"
 "- [b]Chi tiết[/b]: mọi mục kiểm tra của dòng đã chọn.\n"
 "- [b]Sao chép các lệnh[/b] (kế hoạch của máy này): bộ nhớ tạm của hệ thống (xclip, xsel, wl-copy); nếu không, các lệnh được hiển thị rõ trong terminal để bạn chọn bằng chuột.\n"
 "- omega-connect không bao giờ ghi đè tệp của ứng dụng khác: nó chạy lệnh của ứng dụng đó."
+
+msgid "Updater — mettre à jour les applications"
+msgstr "Updater — cập nhật các ứng dụng"
+
+msgid ""
+"Le seul endroit qui met à jour les applications, sur cette machine comme sur le réseau. Réparer et le Registre y renvoient, l'application déjà cochée.\n"
+"\n"
+"- Les lignes sont celles déjà scannées : machine, application, version installée ; rien n'est rescanné à l'ouverture.\n"
+"- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
+"- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
+"- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+msgstr ""
+"Nơi duy nhất cập nhật các ứng dụng, trên máy này cũng như trên mạng. Sửa chữa và Sổ đăng ký dẫn tới đây, với ứng dụng đã được đánh dấu sẵn.\n"
+"\n"
+"- Các dòng là những gì đã quét: máy, ứng dụng, phiên bản đã cài; khi mở không quét lại gì.\n"
+"- [b]Kiểm tra phiên bản[/b]: phiên bản mới nhất đã phát hành của từng ứng dụng (GitHub Release, nếu không thì trang web của ứng dụng), cho các dòng đã đánh dấu hoặc tất cả. Phiên bản chưa phát hành không bao giờ được đề xuất.\n"
+"- [b]Cập nhật mục đã chọn[/b] / [b]Cập nhật tất cả[/b]: các ứng dụng cần cập nhật và các bản cài chưa hoàn tất. Máy này trước: kiểm tra tệp nén (sha.txt), rồi giao diện nhường chỗ cho terminal, nơi các install.sh hỏi mật khẩu nếu cần. Sau đó từng máy trong mạng: kế hoạch hiện ra trước khi thực hiện, mỗi máy một mật khẩu.\n"
+"- Cuối cùng: những gì đã làm, theo từng ứng dụng, và các máy được quét lại.\n"
+"- [b]omega-suite[/b]: omega-stress đi kèm là một phần của nó. Dòng này là của omega-suite (« chứa omega-stress … »): nó được cập nhật cùng các công cụ đã kiểm thử chung, không bao giờ cập nhật riêng omega-stress. Từ 2.0.0, nó hỗ trợ tải phân tán như một omega-stress độc lập; nếu máy cũng có omega-stress độc lập thì máy dùng bản đó."
 
 msgid "Rapport — un document complet"
 msgstr "Báo cáo — một tài liệu đầy đủ"
@@ -2653,13 +2742,13 @@ msgid ""
 "- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
 "- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
 "- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
-"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>), sinon depuis le site de l'application (dossier download) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
 "- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
 msgstr ""
 "- [b]Kết nối[/b]: SSH chỉ bằng khóa CỦA BẠN; omega-connect không bao giờ hỏi mật khẩu SSH. Khóa được bảo vệ bằng cụm mật khẩu phải được nạp vào SSH agent (ssh-add).\n"
 "- [b]Mật khẩu quản trị[/b]: chỉ khi một thao tác cần đến (đồng bộ, sửa chữa, cập nhật), một lần cho mỗi máy, do bạn gõ trong terminal; omega-connect không bao giờ thấy nó.\n"
 "- [b]Những gì được đưa lên một máy trong mạng[/b]: khi quét, không gì cả (chương trình trong bộ nhớ); khi thực hiện thao tác, một thư mục riêng tạm thời (chương trình và bản lưu trữ), được xóa khi kết thúc.\n"
-"- [b]Cập nhật[/b]: từ bản Release GitHub của từng ứng dụng (kraynux/<ứng_dụng>, nhãn v<phiên_bản>); mã băm được kiểm tra với sha.txt trước khi gửi, rồi kiểm tra lại trên máy đó. omega-fire: bản cài đặt cũ được cất sang một bên (var/ của nó thuộc root), rồi install.sh của nó lấy lại thiết lập và dữ liệu. Các ứng dụng khác: giải nén đè lên (trạng thái đang hoạt động không nằm trong bản lưu trữ), rồi chạy install.sh của chúng.\n"
+"- [b]Cập nhật[/b]: từ GitHub Release của từng ứng dụng (kraynux/<ứng dụng>, thẻ v<phiên bản>), nếu không thì từ trang web của ứng dụng (thư mục download); dấu vân tay được kiểm tra với sha.txt trước khi gửi, rồi kiểm tra lại trên máy. omega-fire: bản cài cũ được để sang một bên (var/ của nó thuộc root), rồi install.sh của nó tiếp nhận cài đặt và dữ liệu. Các ứng dụng khác: giải nén đè lên (trạng thái đang chạy không nằm trong tệp nén), rồi chạy install.sh của chúng.\n"
 "- [b]Không bao giờ chạy ứng dụng có thể hỏi mật khẩu khi không có terminal[/b]: một lần sudo thất bại âm thầm vẫn tính là một lần thử và có thể khóa tài khoản trong vài phút."
 
 msgid "États — ce que veut dire chaque mot"
@@ -2761,6 +2850,9 @@ msgstr "Đồng bộ hóa"
 
 msgid "Dashboard"
 msgstr "Bảng điều khiển"
+
+msgid "Updater"
+msgstr "Updater"
 
 msgid "Rapport"
 msgstr "Báo cáo"
@@ -3001,6 +3093,137 @@ msgid ""
 "ouvert."
 msgstr "Kiểm tra lại mỗi {minutes} phút khi màn hình này còn mở."
 
+msgid "reliée"
+msgstr "đã liên kết"
+
+msgid "non reliée"
+msgstr "chưa liên kết"
+
+msgid "liaison incomplète"
+msgstr "liên kết chưa đầy đủ"
+
+msgid "reliée, pare-feu de cette machine fermé"
+msgstr "đã liên kết, tường lửa của máy này đóng"
+
+msgid "reliée, omega-fire nécessaire pour le pare-feu"
+msgstr "đã liên kết, cần omega-fire cho tường lửa"
+
+msgid "état illisible (version trop ancienne ?)"
+msgstr "không đọc được trạng thái (phiên bản quá cũ?)"
+
+msgid "omega-stress absent de cette machine"
+msgstr "máy này không có omega-stress"
+
+msgid "demander"
+msgstr "hỏi"
+
+msgid "tout accepter"
+msgstr "chấp nhận tất cả"
+
+msgid "Choisir"
+msgstr "Chọn"
+
+msgid "CHARGE DISTRIBUÉE (OMEGA-STRESS)"
+msgstr "TẢI PHÂN TÁN (OMEGA-STRESS)"
+
+msgid ""
+"Cette machine pilote les tests ; les machines cochées l'aident à charger la "
+"cible. Cochez-les (Entrée ou Espace), choisissez leur accord, puis « Relier "
+"la sélection » : le plan s'affiche avant d'agir, et un seul mot de passe est"
+" demandé si le pare-feu de cette machine doit s'ouvrir."
+msgstr ""
+"Máy này điều phối các bài kiểm tra; các máy được đánh dấu giúp nó tạo tải "
+"lên mục tiêu. Đánh dấu chúng (Enter hoặc Space), chọn kiểu đồng ý, rồi « "
+"Liên kết các máy đã chọn »: kế hoạch hiện ra trước khi thực hiện, và chỉ hỏi"
+" một mật khẩu nếu tường lửa của máy này cần mở."
+
+msgid "Demander pour chaque nouvelle cible"
+msgstr "Hỏi cho mỗi mục tiêu mới"
+
+msgid "Tout accepter de ce pilote (machines qui sont toutes à vous)"
+msgstr "Chấp nhận mọi thứ từ máy điều phối này (các máy đều là của bạn)"
+
+msgid "Relier la sélection"
+msgstr "Liên kết các máy đã chọn"
+
+msgid "Délier la sélection"
+msgstr "Bỏ liên kết các máy đã chọn"
+
+msgid "Accord"
+msgstr "Đồng ý"
+
+msgid "Liaison"
+msgstr "Liên kết"
+
+msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
+msgstr "Đang đọc omega-stress trên máy này và trên mạng…"
+
+#, python-brace-format
+msgid "Rescan de {machine}…"
+msgstr "Đang quét lại {machine}…"
+
+msgid ""
+"omega-stress n'est pas installé sur cette machine (ou trop ancien) : elle ne"
+" peut pas piloter. Installez omega-stress 2.0.0 ou plus, puis revenez ici."
+msgstr ""
+"omega-stress chưa được cài trên máy này (hoặc quá cũ): máy này không thể "
+"điều phối. Hãy cài omega-stress 2.0.0 trở lên rồi quay lại đây."
+
+msgid ""
+"Aucune machine du réseau n'a omega-stress 2.0.0 ou plus. Scannez vos "
+"machines (Scanner), installez-le sur celles qui doivent aider, puis revenez "
+"ici."
+msgstr ""
+"Không máy nào trên mạng có omega-stress 2.0.0 trở lên. Hãy quét các máy "
+"(Trình quét), cài nó lên các máy cần hỗ trợ rồi quay lại đây."
+
+#, python-brace-format
+msgid "{count} machine(s) du réseau peuvent aider."
+msgstr "{count} máy trên mạng có thể hỗ trợ."
+
+#, python-brace-format
+msgid ""
+"{machine} : omega-stress trop ancien ou illisible — mettez-le à jour depuis "
+"le Registre."
+msgstr ""
+"{machine}: omega-stress quá cũ hoặc không đọc được — hãy cập nhật từ Sổ đăng"
+" ký."
+
+msgid "Relier la charge distribuée"
+msgstr "Liên kết tải phân tán"
+
+msgid "Commandes lancées, dans cet ordre :"
+msgstr "Các lệnh được chạy, theo thứ tự:"
+
+msgid ""
+"Le pare-feu de cette machine s'ouvre au port d'omega-stress pour votre "
+"réseau local : un mot de passe sudo sera demandé, une seule fois."
+msgstr ""
+"Tường lửa của máy này mở cổng omega-stress cho mạng cục bộ của bạn: sẽ hỏi "
+"mật khẩu sudo một lần."
+
+msgid "Liaison en cours…"
+msgstr "Đang liên kết…"
+
+msgid "Retrait de la liaison…"
+msgstr "Đang gỡ liên kết…"
+
+#, python-brace-format
+msgid "{count} étape(s) en échec :"
+msgstr "{count} bước thất bại:"
+
+msgid "cette machine"
+msgstr "máy này"
+
+msgid "Fait."
+msgstr "Xong."
+
+msgid "Pare-feu de cette machine (règles posées) :"
+msgstr "Tường lửa của máy này (các quy tắc đã đặt):"
+
+msgid "cette machine (root)"
+msgstr "máy này (root)"
+
 msgid "Lancer (mot de passe administrateur)"
 msgstr "Khởi chạy (mật khẩu quản trị)"
 
@@ -3129,9 +3352,6 @@ msgstr ""
 msgid "Actualiser"
 msgstr "Làm mới"
 
-msgid "cette machine"
-msgstr "máy này"
-
 msgid "DASHBOARD"
 msgstr "BẢNG ĐIỀU KHIỂN"
 
@@ -3182,19 +3402,24 @@ msgstr "lần quét cuối lúc {time}"
 msgid "Espace partagé : "
 msgstr "Không gian chia sẻ: "
 
+#, python-brace-format
+msgid "{tool} (dans omega-suite)"
+msgstr "{tool} (trong omega-suite)"
+
+#, python-brace-format
+msgid ""
+"Fait partie d'omega-suite {version} ({root}) : se met à jour avec elle, "
+"jamais seul."
+msgstr ""
+"Thuộc omega-suite {version} ({root}): được cập nhật cùng nó, không bao giờ "
+"riêng lẻ."
+
 msgid "Réinstaller l'application"
 msgstr "Cài đặt lại ứng dụng"
 
 #, python-brace-format
-msgid "→ « {action} » installe la dernière version depuis GitHub."
-msgstr "→ “{action}” cài phiên bản mới nhất từ GitHub."
-
-msgid ""
-"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
-"possible : suivez la section « Mise à jour » du README de l'outil."
-msgstr ""
-"→ Trên chính máy này, chưa thể cập nhật từ omega-connect: hãy làm theo phần "
-"“Cập nhật” trong README của công cụ."
+msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
+msgstr "→ « {action} » mở Updater, ứng dụng đã được đánh dấu sẵn."
 
 #, python-brace-format
 msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
@@ -3310,6 +3535,12 @@ msgstr "Quét: quét lại máy"
 
 msgid "aucune correction connue (voir le détail)"
 msgstr "không có cách khắc phục đã biết (xem chi tiết)"
+
+msgid "Charge distribuée : relier de nouveau, ou ouvrir le pare-feu"
+msgstr "Tải phân tán: liên kết lại hoặc mở tường lửa"
+
+msgid "Updater : mise à jour depuis ici"
+msgstr "Updater: cập nhật từ đây"
 
 msgid "RÉPARER"
 msgstr "SỬA CHỮA"
@@ -3617,9 +3848,6 @@ msgstr "Đã xóa {count} mục trong {path}."
 msgid "Non supprimés : {items}"
 msgstr "Không xóa được: {items}"
 
-msgid "Choisir"
-msgstr "Chọn"
-
 msgid "SYNCHRONISATION"
 msgstr "ĐỒNG BỘ HÓA"
 
@@ -3639,6 +3867,9 @@ msgstr "Đồng bộ tất cả"
 
 msgid "Synchroniser la sélection"
 msgstr "Đồng bộ mục đã chọn"
+
+msgid "Charge distribuée…"
+msgstr "Tải phân tán…"
 
 msgid "Lire avec sudo"
 msgstr "Đọc bằng sudo"
@@ -3673,6 +3904,84 @@ msgstr "TIN CẬY MÁY NÀY?"
 
 msgid "Faire confiance"
 msgstr "Tin cậy"
+
+msgid "non vérifiée"
+msgstr "chưa kiểm tra"
+
+msgid "à jour"
+msgstr "đã mới nhất"
+
+msgid "à mettre à jour"
+msgstr "cần cập nhật"
+
+msgid "installation inachevée — à réinstaller"
+msgstr "cài đặt chưa hoàn tất — cần cài lại"
+
+msgid "aucune version publiée trouvée"
+msgstr "không tìm thấy phiên bản đã phát hành"
+
+msgid "machine injoignable"
+msgstr "máy không kết nối được"
+
+msgid ""
+"omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
+"demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
+msgstr ""
+"omega-connect — cập nhật trên máy này. Các install.sh có thể hỏi mật khẩu "
+"sudo (không hiển thị khi gõ)."
+
+msgid "UPDATER"
+msgstr "UPDATER"
+
+msgid ""
+"Les applications déjà scannées, sur cette machine et sur le réseau. « "
+"Vérifier les versions » cherche la dernière version publiée (GitHub, puis le"
+" site). Cochez (Entrée ou Espace) puis « Mettre à jour la sélection », ou « "
+"Tout mettre à jour » : chaque machine montre son plan avant d'agir, et un "
+"seul mot de passe est demandé, dans le terminal."
+msgstr ""
+"Các ứng dụng đã quét, trên máy này và trên mạng. « Kiểm tra phiên bản » tìm "
+"phiên bản mới nhất đã phát hành (GitHub, sau đó là trang web). Đánh dấu "
+"(Enter hoặc Space) rồi « Cập nhật mục đã chọn », hoặc « Cập nhật tất cả »: "
+"mỗi máy hiển thị kế hoạch trước khi thực hiện, và chỉ hỏi một mật khẩu, "
+"trong terminal."
+
+msgid "Vérifier les versions"
+msgstr "Kiểm tra phiên bản"
+
+msgid "Mettre à jour la sélection"
+msgstr "Cập nhật mục đã chọn"
+
+msgid "Tout mettre à jour"
+msgstr "Cập nhật tất cả"
+
+msgid "Disponible"
+msgstr "Có sẵn"
+
+msgid "Installée"
+msgstr "Đã cài"
+
+#, python-brace-format
+msgid "{tool} (contient {tools})"
+msgstr "{tool} (chứa {tools})"
+
+#, python-brace-format
+msgid ""
+"{count} application(s) — à jour : {ok} ; à mettre à jour : {old} ; "
+"inachevées : {incomplete} ; non vérifiées : {unchecked}."
+msgstr ""
+"{count} ứng dụng — mới nhất: {ok}; cần cập nhật: {old}; chưa hoàn tất: "
+"{incomplete}; chưa kiểm tra: {unchecked}."
+
+msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
+msgstr ""
+"Đang tìm các phiên bản mới nhất đã phát hành (GitHub, sau đó là trang web)…"
+
+msgid "Téléchargement et vérification des archives…"
+msgstr "Đang tải và kiểm tra các tệp nén…"
+
+msgid "Rescan de cette machine…"
+msgstr "Đang quét lại máy này…"
 
 msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
 msgstr "CHI TIẾT KHÔNG GIAN CHIA SẺ"

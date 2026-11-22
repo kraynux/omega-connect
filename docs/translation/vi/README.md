@@ -25,10 +25,11 @@ Trang chính thức: [OMEGA-CONNECT](https://kraynux.snake-mackarel.ts.net/omega
 **Omega-connect** là bộ kết nối của bộ công cụ `omega-`: nó tìm các ứng dụng omega đã cài đặt (omega-serv, omega-fire, omega-jail…) trên máy này và trên các máy trong mạng của bạn, cho thấy những gì đã liên kết với nhau hay chưa, và khôi phục những gì còn thiếu — luôn cho thấy trước những gì nó sẽ làm. Khi đã được liên kết, các ứng dụng tự tìm thấy nhau mà không cần omega-connect đang chạy.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/A.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/B.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/C.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/D.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/A.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/B.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/C.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/D.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-connect/E.png" width="32%" />
 </p>
 
 ## 1. Tầm nhìn và phạm vi
@@ -41,8 +42,9 @@ Các ứng dụng omega được tạo ra để làm việc cùng nhau: nhật k
 - Duy trì một **sổ đăng ký** gồm mọi ứng dụng trên mọi máy, kèm phiên bản và trạng thái của chúng.
 - Kiểm tra từng **liên kết** giữa các ứng dụng (nhật ký được các jail đọc, cầu nối tới danh sách đen, danh sách được bảo vệ, các tệp của omega-jail trong fail2ban, thẻ định danh, không gian chia sẻ) và cho biết điều gì không ổn.
 - **Đồng bộ hóa**: tạo các thẻ định danh còn thiếu và chuẩn bị **không gian chia sẻ**, nơi các ứng dụng tìm thấy nhau.
+- **Liên kết tải phân tán của omega-stress**: máy này điều phối, các máy được đánh dấu giúp nó tạo tải lên mục tiêu; một nút (quyền truy cập gửi qua SSH, chọn kiểu đồng ý, tường lửa chỉ mở cổng omega-stress).
 - **Sửa chữa**: để chính ứng dụng sở hữu tệp khắc phục từng sai lệch; omega-connect không bao giờ làm thay.
-- **Cập nhật hoặc cài đặt lại** một ứng dụng quá cũ hoặc cài đặt sai trên một máy trong mạng, từ bản Release GitHub của nó (mã băm được kiểm tra).
+- **Cập nhật hoặc cài lại** các ứng dụng của máy này và của mạng, từ **Updater**: từ GitHub Release của chúng hoặc, nếu không có, từ trang web của chúng (kiểm tra dấu vân tay); phiên bản chưa phát hành không bao giờ được đề xuất.
 - Thao tác trên một máy trong mạng **từ máy của bạn**: không cần gõ gì ở máy đó, mật khẩu của nó được chính nó hỏi một lần.
 - Tạo một **báo cáo** đầy đủ (văn bản, JSON hoặc trang HTML).
 
@@ -66,7 +68,7 @@ Các ứng dụng omega được tạo ra để làm việc cùng nhau: nhật k
 Từ thư mục chứa bản lưu trữ:
 
 ```bash
-tar -xzf omega-connect-0.1.0.tar.gz
+tar -xzf omega-connect-0.2.0.tar.gz
 cd omega-connect/
 ./install.sh
 ```
@@ -105,10 +107,10 @@ Menu chính có hai cột:
 | Quản lý | Bảo trì |
 |---|---|
 | **Sổ đăng ký** — mọi ứng dụng trên mọi máy, phiên bản và trạng thái của chúng | **Sửa chữa** — danh sách mọi thứ đang có vấn đề, và bạn chọn |
-| **Quét** — máy này, và thêm các máy trong mạng | **Báo cáo** — một tài liệu đầy đủ, để xuất |
-| **Liên kết** — những gì đã liên kết hay chưa, kèm trạng thái | **Thiết lập** — ngôn ngữ, giao diện, thư mục, dọn dẹp |
-| **Đồng bộ hóa** — liên kết các ứng dụng, trên mọi máy | **Trợ giúp** — từng menu, chức năng và chi tiết |
-| **Bảng điều khiển** — cái nhìn tổng quan | **Thoát** |
+| **Quét** — máy này, và thêm các máy trong mạng | **Updater** — kiểm tra phiên bản, cập nhật hoặc cài lại, trên mọi máy |
+| **Liên kết** — những gì đã liên kết hay chưa, kèm trạng thái | **Báo cáo** — một tài liệu đầy đủ, để xuất |
+| **Đồng bộ hóa** — liên kết các ứng dụng, trên mọi máy | **Thiết lập** — ngôn ngữ, giao diện, thư mục, dọn dẹp |
+| **Bảng điều khiển** — cái nhìn tổng quan | **Trợ giúp** — từng menu, chức năng và chi tiết |
 
 Quy trình điển hình: **Quét** (máy này, rồi các máy khác của bạn, được đề xuất dựa trên hồ sơ Unison, `~/.ssh/config` và `known_hosts` của bạn) → **Sổ đăng ký** (cập nhật hoặc cài đặt lại một ứng dụng cũ) → **Đồng bộ hóa** (đánh dấu, rồi đồng bộ) → **Liên kết** và **Bảng điều khiển** để xem kết quả → **Sửa chữa** nếu vẫn còn sai lệch.
 

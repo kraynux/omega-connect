@@ -22,6 +22,7 @@ from textual.widgets import Button, DataTable, Footer, Header, Static
 from omega_connect.application.remote_actions import scan_remote
 from omega_connect.application.remote_sync import RemoteSyncTools
 from omega_connect.domain.fleet import AppState, registry_rows
+from omega_connect.domain.links import LinkKind
 from omega_connect.domain.problems import Problem, ProblemKind, problems
 from omega_connect.domain.remote import parse_target
 from omega_connect.domain.updates import Purpose
@@ -48,16 +49,18 @@ WHO_LABELS = {
     "update-local": N_("à la main (README de l'outil)"),
     "scan": N_("Scanner : rescanner la machine"),
     "none": N_("aucune correction connue (voir le détail)"),
+    "distributed": N_("Charge distribuée : relier de nouveau, ou ouvrir le pare-feu"),
+    "updater": N_("Updater : mise à jour depuis ici"),
 }
 
 
 def who(problem: Problem) -> str:
     if problem.kind is ProblemKind.UNREACHABLE:
         return "scan"
+    if problem.link is not None and problem.link.kind is LinkKind.DISTRIBUTED_LOAD:
+        return "distributed"
     if problem.kind is ProblemKind.UPDATE:
-        if problem.local:
-            return "update-local"
-        return "reinstall" if problem.row is not None and problem.row.state is AppState.INCOMPLETE else "update"
+        return "updater"  # seul l'Updater met a jour (decision de l'auteur, 2026-11-22)
     if not problem.fixable:
         return "none"
     if problem.by_tool:
@@ -66,14 +69,19 @@ def who(problem: Problem) -> str:
 
 
 def actionable(problem: Problem) -> bool:
-    return who(problem) in ("tool", "manual-remote", "update", "reinstall", "manual-local")
+    return who(problem) in ("tool", "manual-remote", "update", "reinstall", "manual-local", "distributed",
+                            "updater")
 
 
 class RepairScreen(OmegaScreen):
     def __init__(self, *, verify: VerifyNow, inspector: ZoneInspector, machine: str,
                  local_repair: Callable[[], Screen[None] | None], parc: ParcStore | None = None,
-                 remote_sync: RemoteSyncTools | None = None) -> None:
+                 remote_sync: RemoteSyncTools | None = None,
+                 distributed: Callable[..., Screen[None] | None] | None = None,
+                 updater: Callable[..., Screen[None] | None] | None = None) -> None:
         super().__init__()
+        self._distributed = distributed
+        self._updater = updater
         self._verify = verify
         self._inspector = inspector
         self._machine = machine
@@ -258,6 +266,18 @@ class RepairScreen(OmegaScreen):
             self.action_back()
 
     def _open(self, problem: Problem, done: Callable[[object], None]) -> None:
+        if who(problem) == "updater":
+            # Une seule facon de mettre a jour (decision de l'auteur, 2026-11-22) : l'Updater, l'application cochee
+            screen = self._updater(problem.machine) if self._updater is not None else None
+            if screen is not None:
+                self.app.push_screen(screen, done)
+            return
+        if who(problem) == "distributed":
+            screen = self._distributed(problem.machine) if self._distributed is not None else None
+            if screen is not None:
+                # Retour sans rien changer : ni rescan, ni rechargement (sauf pour continuer « Tout réparer »)
+                self.app.push_screen(screen, lambda changed: done(changed) if changed or self._queue else None)
+            return
         if problem.local:
             screen = self._local_repair()
             if screen is not None:

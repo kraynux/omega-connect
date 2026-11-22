@@ -25,10 +25,11 @@
 **Omega-connect**는 `omega-` 제품군의 상호 연결 도구입니다: 이 머신과 네트워크의 머신들에 설치된 omega 애플리케이션(omega-serv, omega-fire, omega-jail…)을 찾고, 무엇이 서로 연결되어 있고 무엇이 아닌지 보여 주며, 빠진 것을 복구합니다. 항상 무엇을 할지 먼저 보여 준 다음에 작업합니다. 한번 연결되면 omega-connect가 실행되지 않아도 애플리케이션끼리 서로 찾을 수 있습니다.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/A.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/B.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/C.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/D.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/A.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/B.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/C.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/D.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ko/omega-connect/E.png" width="32%" />
 </p>
 
 ## 1. 비전과 범위
@@ -41,8 +42,9 @@ omega 애플리케이션은 함께 동작하도록 만들어졌습니다: omega-
 - 모든 머신의 모든 애플리케이션을 버전, 상태와 함께 **레지스트리**에 기록합니다.
 - 애플리케이션 사이의 각 **연결**(jail이 읽는 로그, 블랙리스트로 가는 브리지, 보호 목록, fail2ban 안의 omega-jail 파일, ID 카드, 공유 공간)을 확인하고 무엇이 잘못되었는지 알려 줍니다.
 - **동기화**: 없는 ID 카드를 만들고, 애플리케이션끼리 서로 찾는 **공유 공간**을 준비합니다.
+- **omega-stress의 분산 부하 연결**: 이 머신이 지휘하고, 체크한 머신들이 대상에 부하를 거는 것을 돕습니다. 버튼 하나(접근 정보는 SSH로 전송, 동의 방식 선택, 방화벽은 omega-stress 포트만 개방).
 - **복구**: 각 불일치는 해당 파일을 소유한 애플리케이션이 고치게 합니다. omega-connect가 대신 고치는 일은 절대 없습니다.
-- 네트워크 머신에서 너무 오래되었거나 잘못 설치된 애플리케이션을 그 GitHub Release에서 **업데이트하거나 재설치**합니다(해시 확인).
+- 이 머신과 네트워크의 애플리케이션을 **Updater**에서 **업데이트하거나 다시 설치**합니다: 각 GitHub Release에서, 없으면 사이트에서 가져옵니다(지문 확인). 게시되지 않은 버전은 절대 제안하지 않습니다.
 - 네트워크 머신에 **사용자의 컴퓨터에서** 작업합니다: 그곳에서 입력할 것은 없으며, 비밀번호는 그 머신이 직접 한 번만 묻습니다.
 - 완전한 **보고서**(텍스트, JSON 또는 HTML 페이지)를 만듭니다.
 
@@ -66,7 +68,7 @@ omega 애플리케이션은 함께 동작하도록 만들어졌습니다: omega-
 아카이브가 있는 폴더에서:
 
 ```bash
-tar -xzf omega-connect-0.1.0.tar.gz
+tar -xzf omega-connect-0.2.0.tar.gz
 cd omega-connect/
 ./install.sh
 ```
@@ -105,10 +107,10 @@ cd omega-connect/
 | 관리 | 유지 관리 |
 |---|---|
 | **레지스트리** — 모든 머신의 모든 애플리케이션과 그 버전, 상태 | **복구** — 문제가 있는 모든 것의 목록에서 고릅니다 |
-| **스캔** — 이 머신, 그리고 네트워크 머신 추가 | **보고서** — 내보낼 수 있는 전체 문서 |
-| **연결** — 연결된 것과 안 된 것, 그 상태 | **설정** — 언어, 테마, 폴더, 정리 |
-| **동기화** — 모든 머신에서 애플리케이션 연결 | **도움말** — 각 메뉴, 그 기능과 세부 내용 |
-| **대시보드** — 전체 보기 | **종료** |
+| **스캔** — 이 머신, 그리고 네트워크 머신 추가 | **Updater** — 모든 머신에서 버전 확인, 업데이트 또는 재설치 |
+| **연결** — 연결된 것과 안 된 것, 그 상태 | **보고서** — 내보낼 수 있는 전체 문서 |
+| **동기화** — 모든 머신에서 애플리케이션 연결 | **설정** — 언어, 테마, 폴더, 정리 |
+| **대시보드** — 전체 보기 | **도움말** — 각 메뉴, 그 기능과 세부 내용 |
 
 일반적인 흐름: **스캔**(이 머신, 그다음 다른 머신들. Unison 프로필, `~/.ssh/config`, `known_hosts`를 바탕으로 제안) → **레지스트리**(오래된 애플리케이션 업데이트 또는 재설치) → **동기화**(선택한 다음 동기화) → **연결**과 **대시보드**에서 결과 확인 → 불일치가 남아 있으면 **복구**.
 

@@ -5,8 +5,9 @@ changee : refus -> scan en lecture seule -> registre du parc mis a jour (ou mach
 from __future__ import annotations
 
 from collections.abc import Callable
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 
+from omega_connect.domain.distributed_load import PilotState, compose_links
 from omega_connect.domain.parc import MachineEntry, entry_after_failure, entry_from_scan
 from omega_connect.domain.remote import RemoteFailure, RemoteScan, RemoteTarget, Suggestion, parse_target
 from omega_connect.ports.fleet import ParcStore
@@ -19,6 +20,9 @@ class RemoteTools:
     parc: ParcStore
     suggest: Callable[[], tuple[Suggestion, ...]] = field(default=lambda: ())
     """Machines que cet ordinateur sait deja joindre (Unison, ~/.ssh/config, known_hosts)."""
+    pilot: Callable[[], PilotState | None] = field(default=lambda: None)
+    """omega-stress de cette machine en pilote de charge distribuee (lot L2) ; None : absent."""
+    local_name: str = ""
 
 
 @dataclass(frozen=True)
@@ -41,6 +45,10 @@ def scan_remote(target: RemoteTarget, tools: RemoteTools) -> RemoteOutcome:
     machines = tools.parc.load()
     if isinstance(result, RemoteScan):
         scanned = entry_from_scan(machines, result, target)
+        if any(link.kind.value == "distributed-load" for link in scanned.links):
+            scanned = replace(scanned, links=compose_links(
+                scanned.links, target=target.text, pilot=tools.pilot(), machine=scanned.name,
+                local_name=tools.local_name))
         tools.parc.save(scanned)
         return RemoteOutcome(target, scan=result, entry=scanned)
     failure, detail = result

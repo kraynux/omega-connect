@@ -37,11 +37,13 @@ def detect_installations(
         sheet = None
         if sheet_fetcher is not None and tool in SHEET_TOOLS and may_ask_sheet(tool, token_result.status, version):
             sheet = sheet_fetcher.fetch(merged.root, tool)
+        suite, suite_version = inspector.suite(merged.root) if tool else ("", "")
         installations.append(DetectedInstallation(
             root=merged.root, tool=tool, sources=merged.sources, owner=inspector.owner(merged.root),
             token_status=token_result.status, token=token, token_detail=token_result.detail, sheet=sheet,
             service_names=merged.service_names, version=version,
             venv_ready=inspector.venv_ready(merged.root) if tool in CONTRACT_VERSIONS else None,
+            suite=suite, suite_version=suite_version,
         ))
     installations.sort(key=lambda item: (item.tool or "~", item.root))
     return DetectionReport(home=home, installations=tuple(installations),

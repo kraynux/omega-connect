@@ -1540,6 +1540,9 @@ msgstr "ID カード"
 msgid "Espace partagé (omega-synchro)"
 msgstr "共有スペース（omega-synchro）"
 
+msgid "Charge distribuée (omega-stress)"
+msgstr "分散負荷（omega-stress）"
+
 msgid "OK"
 msgstr "OK"
 
@@ -1978,6 +1981,48 @@ msgstr ""
 "サービス {subject}（{detail}）は omega-synchro "
 "グループのない専用アカウントで動作しています：共有スペースを読めません。同期で omega-serv にグループの付与を依頼します。"
 
+#, python-brace-format
+msgid ""
+"relevé d'omega-stress sur {subject} (pas encore comparé à cette machine)."
+msgstr "{subject} の omega-stress の取得結果（まだこのマシンと照合していません）。"
+
+#, python-brace-format
+msgid "{subject} aide cette machine à charger les cibles (accord : {detail})."
+msgstr "{subject} はこのマシンがターゲットに負荷をかけるのを手伝います（同意: {detail}）。"
+
+#, python-brace-format
+msgid ""
+"{subject} peut aider cette machine : pas encore reliée (Synchronisation → "
+"Charge distribuée)."
+msgstr "{subject} はこのマシンを手伝えます: まだ連携していません（同期 → 分散負荷）。"
+
+#, python-brace-format
+msgid "{subject} : liaison incomplète ({detail}) — relier de nouveau."
+msgstr "{subject}: 連携が不完全です（{detail}）— もう一度連携してください。"
+
+#, python-brace-format
+msgid ""
+"{subject} a omega-stress, mais pas cette machine : elle ne peut pas piloter."
+msgstr "{subject} には omega-stress がありますが、このマシンにはありません: 指揮できません。"
+
+#, python-brace-format
+msgid ""
+"pare-feu de cette machine ({subject}) fermé au port d'omega-stress : les "
+"machines qui aident ne peuvent pas le joindre."
+msgstr "このマシンのファイアウォール（{subject}）が omega-stress のポートを閉じています: 手伝うマシンが接続できません。"
+
+msgid ""
+"pare-feu nftables sans omega-fire : installez omega-fire pour ouvrir le port"
+" d'omega-stress (sa configuration n'est jamais réécrite à la main)."
+msgstr ""
+"omega-fire のない nftables ファイアウォール: omega-stress のポートを開けるには omega-fire "
+"をインストールしてください（設定が手作業で書き換えられることはありません）。"
+
+#, python-brace-format
+msgid ""
+"{subject} : état d'omega-stress illisible (version antérieure à 2.0.0 ?)."
+msgstr "{subject}: omega-stress の状態を読めません（2.0.0 より古いバージョン？）。"
+
 msgid "correction : Synchronisation (omega-connect synchroniser)"
 msgstr "修正：同期（omega-connect synchroniser）"
 
@@ -2299,17 +2344,13 @@ msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
 "- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
-"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
-"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
-"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "各マシン（このマシンとネットワーク上のマシン）について、見つかった omega アプリケーションごとに、インスタンスまたはサービス、バージョン、状態、フォルダーを表示します。上部の概要は状態ごとの数を示します。\n"
 "\n"
 "- [b]レジストリを更新[/b]：その場でスキャンをやり直します（このマシン、続いて既知のネットワーク上のマシン）。画面は変わりません。\n"
-"- [b]アプリケーションを更新[/b]：ネットワーク上のマシンの「旧バージョン」の行で、公開されている最新バージョンをインストールします（アプリケーションの GitHub Release、送信前に sha.txt でハッシュを確認）。先に計画が表示され、それ以外は何もしません。\n"
-"- [b]アプリケーションを再インストール[/b]：「インストール未完了」の行（install.sh が完了していない）にある同じボタン。同じバージョンを再インストールします。\n"
-"- このマシン自体では、アプリケーションの README の「更新」セクションに従って更新します。\n"
+"- [b]アプリケーションを更新[/b] / [b]アプリケーションを再インストール[/b]: その行のアプリケーションにチェックを付けた状態で Updater を開きます（「旧バージョン」、または「インストール未完了」: install.sh が完了しておらず、同じバージョンを再インストールします）。このマシンでもネットワーク上のマシンでも同じです。\n"
 "- 行をハイライトすると、その状態の説明と不整合が下に表示されます。"
 
 msgid "Scanner — trouver les applications, ajouter des machines"
@@ -2366,6 +2407,26 @@ msgstr ""
 "- [b]sudo で読む[/b]：セッションがまだ共有スペースを読めない場合（omega-synchro グループは再ログイン後に有効）、sudo を使って読み取り専用で読みます。\n"
 "- [b]詳細[/b]：omega-connect が作成したもの（共有スペースのレジストリ）と、可能な削除。"
 
+msgid "Charge distribuée — omega-stress sur plusieurs machines"
+msgstr "分散負荷 — 複数マシンでの omega-stress"
+
+msgid ""
+"Ouvert depuis Synchronisation ([b]Charge distribuée…[/b]) ou depuis Réparer. Cette machine pilote les tests d'omega-stress ; les machines du réseau où omega-stress (2.0.0 ou plus) est installé peuvent l'aider à charger la cible. Rien à taper, aucune empreinte à recopier : omega-connect relie tout par SSH.\n"
+"\n"
+"- Cochez les machines qui aident (Entrée ou Espace), puis choisissez leur accord : [b]Demander pour chaque nouvelle cible[/b] (la première fois qu'une cible est demandée, omega-stress vous pose la question), ou [b]Tout accepter de ce pilote[/b] (machines qui sont toutes à vous).\n"
+"- [b]Relier la sélection[/b] : le plan s'affiche avant d'agir (commandes exactes). Chaque machine reçoit son accès, transmis par SSH sans jamais apparaître à l'écran ; ses limites (débit, durée) sont pré-remplies d'après elle.\n"
+"- Pare-feu de cette machine : s'il bloque les machines qui aident, il s'ouvre au seul port d'omega-stress et à votre réseau local, par omega-fire s'il est relié, sinon par ufw ou firewalld. Un seul mot de passe sudo, demandé dans le terminal. Avec nftables seul et sans omega-fire, rien n'est touché : installez omega-fire.\n"
+"- [b]Délier la sélection[/b] : retire l'accès des deux côtés.\n"
+"- Ensuite, les tests se lancent depuis omega-stress ; la charge passe directement entre les machines, sans omega-connect. Liaisons montre l'état de chaque machine (reliée, non reliée, liaison incomplète, pare-feu fermé)."
+msgstr ""
+"同期（[b]分散負荷…[/b]）または修復から開きます。このマシンが omega-stress のテストを指揮し、omega-stress（2.0.0 以降）がインストールされたネットワーク上のマシンが、ターゲットへの負荷を手伝います。入力するものも、写すフィンガープリントもありません: omega-connect が SSH ですべて連携します。\n"
+"\n"
+"- 手伝うマシンにチェックを付け（Enter または Space）、同意の方法を選びます: [b]新しいターゲットごとに確認する[/b]（ターゲットが初めて要求されたとき omega-stress が尋ねます）、または [b]この指揮マシンからはすべて受け入れる[/b]（すべて自分のマシン）。\n"
+"- [b]選択を連携[/b]: 実行前に計画（正確なコマンド）が表示されます。各マシンは SSH でアクセス情報を受け取り、それが画面に表示されることはありません。上限（レート、時間）はマシン自身に合わせて事前に設定されます。\n"
+"- このマシンのファイアウォール: 手伝うマシンを遮断している場合、omega-stress のポートだけをローカルネットワークにだけ開けます。omega-fire が連携していれば omega-fire で、そうでなければ ufw または firewalld で行います。sudo パスワードはターミナルで一度だけ尋ねます。nftables だけで omega-fire がない場合は何も変更しません: omega-fire をインストールしてください。\n"
+"- [b]選択の連携を解除[/b]: 両側のアクセスを取り除きます。\n"
+"- その後のテストは omega-stress から開始します。負荷は omega-connect を介さず、マシン間で直接流れます。連携画面に各マシンの状態（連携済み、未連携、連携が不完全、ファイアウォールが閉じている）が表示されます。"
+
 msgid "Dashboard — vue d'ensemble"
 msgstr "ダッシュボード — 全体像"
 
@@ -2395,7 +2456,8 @@ msgid ""
 "La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
 "\n"
 "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
-"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
+"- [b]Tout réparer[/b] : les machines une à une.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
@@ -2403,10 +2465,31 @@ msgstr ""
 "すべてのマシンで問題のあるものすべての一覧（ネットワーク上のマシンは画面を開いたときに再スキャンされます）：マシン、問題、状態、修正元。\n"
 "\n"
 "- [b]選んだ行を修復[/b]：マシンの計画を開きます。このマシン：アプリケーション自身のコマンド（fail2ban に配置したものは omega-jail、その var/ の権限は omega-serv、ID カードは各アプリケーション）、続いて共有スペース。ネットワーク上のマシン：同じ修正に加えて、どのアプリケーションも実行できないコマンドを、ここからそのマシン上で実行します（計画に示されたものだけ）。\n"
-"- [b]すべて修復[/b]：マシンを 1 台ずつ（先に更新、次に修復）。\n"
+"- 「旧バージョン」または「インストール未完了」の行は、アプリケーションにチェックを付けた状態で Updater を開きます: 更新するのは Updater だけです。\n"
+"- [b]すべて修復[/b]: マシンを 1 台ずつ処理します。\n"
 "- [b]詳細[/b]：選んだ行のすべてのチェック。\n"
 "- [b]コマンドをコピー[/b]（このマシンの計画）：システムのクリップボード（xclip、xsel、wl-copy）へ。使えない場合はコマンドが端末にそのまま表示されるので、マウスで選択してください。\n"
 "- omega-connect が他のアプリケーションのファイルを書き換えることはありません：そのアプリケーションのコマンドを実行します。"
+
+msgid "Updater — mettre à jour les applications"
+msgstr "Updater — アプリケーションの更新"
+
+msgid ""
+"Le seul endroit qui met à jour les applications, sur cette machine comme sur le réseau. Réparer et le Registre y renvoient, l'application déjà cochée.\n"
+"\n"
+"- Les lignes sont celles déjà scannées : machine, application, version installée ; rien n'est rescanné à l'ouverture.\n"
+"- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
+"- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
+"- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+msgstr ""
+"アプリケーションを更新する唯一の場所です。このマシンでもネットワーク上でも同じです。修復とレジストリからも、アプリケーションにチェックを付けた状態でここに移ります。\n"
+"\n"
+"- 行はスキャン済みのものです: マシン、アプリケーション、インストール済みのバージョン。開いたときに再スキャンはしません。\n"
+"- [b]バージョンを確認[/b]: 各アプリケーションの最新の公開版（GitHub Release、なければアプリケーションのサイト）を、チェックした行またはすべての行について調べます。未公開のバージョンは決して提案しません。\n"
+"- [b]選択を更新[/b] / [b]すべて更新[/b]: 更新が必要なアプリケーションと未完了のインストールです。まずこのマシン: アーカイブを確認（sha.txt）し、インターフェースがターミナルに場所を譲り、必要なら install.sh がパスワードを尋ねます。次にネットワーク上の各マシン: 実行前に計画を表示し、マシンごとにパスワードは一度だけです。\n"
+"- 最後に: アプリケーションごとの実施内容と、再スキャンしたマシンを表示します。\n"
+"- [b]omega-suite[/b]: 同梱の omega-stress は omega-suite の一部です。行は omega-suite のものです（「omega-stress … を含む」）。一緒にテストされたツールとともに更新され、omega-stress だけを更新することはありません。2.0.0 以降は、単体の omega-stress と同じように分散負荷に参加します。マシンに単体の omega-stress もある場合は、そちらが参加します。"
 
 msgid "Rapport — un document complet"
 msgstr "レポート — 完全な文書"
@@ -2440,13 +2523,13 @@ msgid ""
 "- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
 "- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
 "- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
-"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>), sinon depuis le site de l'application (dossier download) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
 "- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
 msgstr ""
 "- [b]接続[/b]：あなたの鍵だけを使った SSH。omega-connect が SSH のパスワードを尋ねることはありません。パスフレーズで保護された鍵は SSH エージェントに読み込んでおく必要があります（ssh-add）。\n"
 "- [b]管理者パスワード[/b]：操作が必要とするときだけ（同期、修復、更新）、マシンごとに 1 回、あなたが端末で入力します。omega-connect がそれを見ることはありません。\n"
 "- [b]ネットワーク上のマシンに送られるもの[/b]：スキャンでは何も送りません（プログラムはメモリ上）。操作では一時的な非公開フォルダー（プログラムとアーカイブ）を送り、最後に削除します。\n"
-"- [b]更新[/b]：各アプリケーションの GitHub Release から（kraynux/<アプリケーション>、タグ v<バージョン>）。ハッシュは送信前に sha.txt で確認し、マシン上でもう一度確認します。omega-fire：旧インストールを退避し（その var/ は root の所有）、続いて install.sh が設定とデータを引き継ぎます。その他：上書きで展開し（稼働中の状態はアーカイブに含まれません）、続いて install.sh を実行します。\n"
+"- [b]更新[/b]: 各アプリケーションの GitHub Release（kraynux/<アプリケーション>、タグ v<バージョン>）から、なければアプリケーションのサイト（download フォルダー）から取得します。送信前に sha.txt でフィンガープリントを確認し、マシン上でもう一度確認します。omega-fire: 古いインストールを脇に移し（その var/ は root 所有）、その install.sh が設定とデータを引き継ぎます。その他: 上書き展開（稼働中の状態はアーカイブに含まれません）し、それぞれの install.sh を実行します。\n"
 "- [b]端末なしでパスワードを求める可能性のあるアプリケーションは決して起動しません[/b]：sudo が黙って失敗すると 1 回の試行として数えられ、アカウントが数分間ロックされることがあります。"
 
 msgid "États — ce que veut dire chaque mot"
@@ -2548,6 +2631,9 @@ msgstr "同期"
 
 msgid "Dashboard"
 msgstr "ダッシュボード"
+
+msgid "Updater"
+msgstr "Updater"
 
 msgid "Rapport"
 msgstr "レポート"
@@ -2781,6 +2867,133 @@ msgid ""
 "ouvert."
 msgstr "この画面を開いている間、{minutes} 分ごとに再確認します。"
 
+msgid "reliée"
+msgstr "連携済み"
+
+msgid "non reliée"
+msgstr "未連携"
+
+msgid "liaison incomplète"
+msgstr "連携が不完全"
+
+msgid "reliée, pare-feu de cette machine fermé"
+msgstr "連携済み、このマシンのファイアウォールが閉じています"
+
+msgid "reliée, omega-fire nécessaire pour le pare-feu"
+msgstr "連携済み、ファイアウォールに omega-fire が必要"
+
+msgid "état illisible (version trop ancienne ?)"
+msgstr "状態を読めません（バージョンが古すぎる？）"
+
+msgid "omega-stress absent de cette machine"
+msgstr "このマシンに omega-stress がありません"
+
+msgid "demander"
+msgstr "確認する"
+
+msgid "tout accepter"
+msgstr "すべて受け入れる"
+
+msgid "Choisir"
+msgstr "選択"
+
+msgid "CHARGE DISTRIBUÉE (OMEGA-STRESS)"
+msgstr "分散負荷（OMEGA-STRESS）"
+
+msgid ""
+"Cette machine pilote les tests ; les machines cochées l'aident à charger la "
+"cible. Cochez-les (Entrée ou Espace), choisissez leur accord, puis « Relier "
+"la sélection » : le plan s'affiche avant d'agir, et un seul mot de passe est"
+" demandé si le pare-feu de cette machine doit s'ouvrir."
+msgstr ""
+"このマシンがテストを指揮し、チェックしたマシンがターゲットへの負荷を手伝います。チェックを付け（Enter または "
+"Space）、同意の方法を選び、「選択を連携」を押してください: "
+"実行前に計画が表示され、このマシンのファイアウォールを開ける必要があるときだけ、パスワードを一度だけ尋ねます。"
+
+msgid "Demander pour chaque nouvelle cible"
+msgstr "新しいターゲットごとに確認する"
+
+msgid "Tout accepter de ce pilote (machines qui sont toutes à vous)"
+msgstr "この指揮マシンからはすべて受け入れる（すべて自分のマシン）"
+
+msgid "Relier la sélection"
+msgstr "選択を連携"
+
+msgid "Délier la sélection"
+msgstr "選択の連携を解除"
+
+msgid "Accord"
+msgstr "同意"
+
+msgid "Liaison"
+msgstr "連携"
+
+msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
+msgstr "このマシンとネットワーク上の omega-stress を読み取り中…"
+
+#, python-brace-format
+msgid "Rescan de {machine}…"
+msgstr "{machine} を再スキャン中…"
+
+msgid ""
+"omega-stress n'est pas installé sur cette machine (ou trop ancien) : elle ne"
+" peut pas piloter. Installez omega-stress 2.0.0 ou plus, puis revenez ici."
+msgstr ""
+"このマシンに omega-stress がインストールされていない（または古すぎる）ため指揮できません。omega-stress 2.0.0 "
+"以降をインストールしてから戻ってきてください。"
+
+msgid ""
+"Aucune machine du réseau n'a omega-stress 2.0.0 ou plus. Scannez vos "
+"machines (Scanner), installez-le sur celles qui doivent aider, puis revenez "
+"ici."
+msgstr ""
+"ネットワーク上に omega-stress 2.0.0 "
+"以降のマシンがありません。マシンをスキャンし（スキャナー）、手伝うマシンにインストールしてから戻ってきてください。"
+
+#, python-brace-format
+msgid "{count} machine(s) du réseau peuvent aider."
+msgstr "ネットワーク上の {count} 台が手伝えます。"
+
+#, python-brace-format
+msgid ""
+"{machine} : omega-stress trop ancien ou illisible — mettez-le à jour depuis "
+"le Registre."
+msgstr "{machine}: omega-stress が古すぎるか読み取れません — レジストリから更新してください。"
+
+msgid "Relier la charge distribuée"
+msgstr "分散負荷を連携"
+
+msgid "Commandes lancées, dans cet ordre :"
+msgstr "実行するコマンド（この順番）:"
+
+msgid ""
+"Le pare-feu de cette machine s'ouvre au port d'omega-stress pour votre "
+"réseau local : un mot de passe sudo sera demandé, une seule fois."
+msgstr ""
+"このマシンのファイアウォールがローカルネットワークに対して omega-stress のポートを開けます: sudo パスワードを一度だけ尋ねます。"
+
+msgid "Liaison en cours…"
+msgstr "連携中…"
+
+msgid "Retrait de la liaison…"
+msgstr "連携を解除中…"
+
+#, python-brace-format
+msgid "{count} étape(s) en échec :"
+msgstr "{count} 件のステップが失敗:"
+
+msgid "cette machine"
+msgstr "このマシン"
+
+msgid "Fait."
+msgstr "完了。"
+
+msgid "Pare-feu de cette machine (règles posées) :"
+msgstr "このマシンのファイアウォール（設定したルール）:"
+
+msgid "cette machine (root)"
+msgstr "このマシン（root）"
+
 msgid "Lancer (mot de passe administrateur)"
 msgstr "起動（管理者パスワード）"
 
@@ -2900,9 +3113,6 @@ msgstr "マシンとアプリケーションの全体像です。この画面か
 msgid "Actualiser"
 msgstr "更新"
 
-msgid "cette machine"
-msgstr "このマシン"
-
 msgid "DASHBOARD"
 msgstr "ダッシュボード"
 
@@ -2950,17 +3160,22 @@ msgstr "最終スキャン {time}"
 msgid "Espace partagé : "
 msgstr "共有スペース： "
 
+#, python-brace-format
+msgid "{tool} (dans omega-suite)"
+msgstr "{tool}（omega-suite 内）"
+
+#, python-brace-format
+msgid ""
+"Fait partie d'omega-suite {version} ({root}) : se met à jour avec elle, "
+"jamais seul."
+msgstr "omega-suite {version}（{root}）の一部です: 単独ではなく、omega-suite と一緒に更新されます。"
+
 msgid "Réinstaller l'application"
 msgstr "アプリケーションを再インストール"
 
 #, python-brace-format
-msgid "→ « {action} » installe la dernière version depuis GitHub."
-msgstr "→「{action}」で GitHub から最新バージョンをインストールします。"
-
-msgid ""
-"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
-"possible : suivez la section « Mise à jour » du README de l'outil."
-msgstr "→ このマシンでは、omega-connect からの更新はまだできません：ツールの README の「更新」セクションに従ってください。"
+msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
+msgstr "→「{action}」は、アプリケーションにチェックを付けた状態で Updater を開きます。"
 
 #, python-brace-format
 msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
@@ -3072,6 +3287,12 @@ msgstr "スキャン：マシンを再スキャン"
 
 msgid "aucune correction connue (voir le détail)"
 msgstr "既知の修正なし（詳細を参照）"
+
+msgid "Charge distribuée : relier de nouveau, ou ouvrir le pare-feu"
+msgstr "分散負荷: もう一度連携するか、ファイアウォールを開ける"
+
+msgid "Updater : mise à jour depuis ici"
+msgstr "Updater: ここから更新"
 
 msgid "RÉPARER"
 msgstr "修復"
@@ -3368,9 +3589,6 @@ msgstr "{path} 内の {count} 件を削除しました。"
 msgid "Non supprimés : {items}"
 msgstr "削除されなかったもの：{items}"
 
-msgid "Choisir"
-msgstr "選択"
-
 msgid "SYNCHRONISATION"
 msgstr "同期"
 
@@ -3389,6 +3607,9 @@ msgstr "すべて同期"
 
 msgid "Synchroniser la sélection"
 msgstr "選択項目を同期"
+
+msgid "Charge distribuée…"
+msgstr "分散負荷…"
 
 msgid "Lire avec sudo"
 msgstr "sudo で読む"
@@ -3423,6 +3644,79 @@ msgstr "このマシンを信頼しますか？"
 
 msgid "Faire confiance"
 msgstr "信頼する"
+
+msgid "non vérifiée"
+msgstr "未確認"
+
+msgid "à jour"
+msgstr "最新"
+
+msgid "à mettre à jour"
+msgstr "更新が必要"
+
+msgid "installation inachevée — à réinstaller"
+msgstr "インストール未完了 — 再インストールが必要"
+
+msgid "aucune version publiée trouvée"
+msgstr "公開版が見つかりません"
+
+msgid "machine injoignable"
+msgstr "マシンに接続できません"
+
+msgid ""
+"omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
+"demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
+msgstr ""
+"omega-connect — このマシンで更新します。install.sh が sudo パスワードを尋ねることがあります（入力中は表示されません）。"
+
+msgid "UPDATER"
+msgstr "UPDATER"
+
+msgid ""
+"Les applications déjà scannées, sur cette machine et sur le réseau. « "
+"Vérifier les versions » cherche la dernière version publiée (GitHub, puis le"
+" site). Cochez (Entrée ou Espace) puis « Mettre à jour la sélection », ou « "
+"Tout mettre à jour » : chaque machine montre son plan avant d'agir, et un "
+"seul mot de passe est demandé, dans le terminal."
+msgstr ""
+"このマシンとネットワーク上で、すでにスキャン済みのアプリケーションです。「バージョンを確認」で最新の公開版を探します（GitHub、次にサイト）。チェックを付けて（Enter"
+" または Space）「選択を更新」または「すべて更新」: 各マシンは実行前に計画を表示し、パスワードはターミナルで一度だけ尋ねます。"
+
+msgid "Vérifier les versions"
+msgstr "バージョンを確認"
+
+msgid "Mettre à jour la sélection"
+msgstr "選択を更新"
+
+msgid "Tout mettre à jour"
+msgstr "すべて更新"
+
+msgid "Disponible"
+msgstr "公開版"
+
+msgid "Installée"
+msgstr "インストール済み"
+
+#, python-brace-format
+msgid "{tool} (contient {tools})"
+msgstr "{tool}（{tools} を含む）"
+
+#, python-brace-format
+msgid ""
+"{count} application(s) — à jour : {ok} ; à mettre à jour : {old} ; "
+"inachevées : {incomplete} ; non vérifiées : {unchecked}."
+msgstr ""
+"{count} 個のアプリケーション — 最新: {ok}、更新が必要: {old}、未完了: {incomplete}、未確認: "
+"{unchecked}。"
+
+msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
+msgstr "最新の公開版を検索中（GitHub、次にサイト）…"
+
+msgid "Téléchargement et vérification des archives…"
+msgstr "アーカイブをダウンロードして確認中…"
+
+msgid "Rescan de cette machine…"
+msgstr "このマシンを再スキャン中…"
 
 msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
 msgstr "共有スペースの詳細"

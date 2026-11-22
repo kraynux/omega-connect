@@ -25,10 +25,11 @@
 **Omega-connect** 是 `omega-` 套件的互连器：它会在本机以及您网络中的机器上找到已安装的 omega 应用程序（omega-serv、omega-fire、omega-jail……），显示哪些已相互关联、哪些没有，并补上缺失的部分 —— 始终先展示它将要做什么。一旦关联完成，即使 omega-connect 没有运行，这些应用程序也能相互找到。
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/A.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/B.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/C.png" width="24%" />
-  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/D.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/A.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/B.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/C.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/D.png" width="32%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-connect/E.png" width="32%" />
 </p>
 
 ## 1. 愿景与范围
@@ -41,8 +42,9 @@ omega 应用程序是为协同工作而设计的：omega-serv 的日志由 omega
 - 维护一份**登记册**，记录所有机器上的所有应用程序及其版本和状态。
 - 检查应用程序之间的每一个**关联**（jail 读取的日志、到黑名单的桥接、保护名单、fail2ban 中 omega-jail 的文件、身份卡、共享空间），并指出哪里有问题。
 - **同步**：创建缺失的身份卡，并准备好应用程序相互发现所用的**共享空间**。
+- **关联 omega-stress 的分布式负载**：本机主控，勾选的机器协助对目标施加负载；一个按钮即可（访问凭据通过 SSH 传送，选择授权方式，防火墙仅开放 omega-stress 端口）。
 - **修复**：每一处偏差都交由拥有该文件的应用程序来纠正；绝不由 omega-connect 代劳。
-- **更新或重新安装**网络中某台机器上版本过旧或安装不当的应用程序，来源为该应用程序的 GitHub Release（校验和已验证）。
+- 通过 **Updater** **更新或重新安装** 本机和网络上的应用程序：来自其 GitHub Release，没有时来自其网站（校验指纹）；从不提供未发布的版本。
 - **从您的工作站**对网络中的机器进行操作：无需在那台机器上输入任何内容，它的密码只由它自己询问一次。
 - 生成一份完整的**报告**（文本、JSON 或 HTML 页面）。
 
@@ -66,7 +68,7 @@ omega 应用程序是为协同工作而设计的：omega-serv 的日志由 omega
 在归档包所在的目录中执行：
 
 ```bash
-tar -xzf omega-connect-0.1.0.tar.gz
+tar -xzf omega-connect-0.2.0.tar.gz
 cd omega-connect/
 ./install.sh
 ```
@@ -105,10 +107,10 @@ cd omega-connect/
 | 管理 | 维护 |
 |---|---|
 | **登记册** —— 所有机器上的所有应用程序、其版本和状态 | **修复** —— 列出所有问题，由您选择 |
-| **扫描** —— 本机，以及添加网络中的机器 | **报告** —— 一份完整文档，可导出 |
-| **关联** —— 哪些已关联，哪些未关联，以及其状态 | **设置** —— 语言、主题、文件夹、清除 |
-| **同步** —— 在所有机器上关联应用程序 | **帮助** —— 每个菜单、其功能及详细说明 |
-| **仪表盘** —— 总览 | **退出** |
+| **扫描** —— 本机，以及添加网络中的机器 | **Updater** — 在所有机器上检查版本、更新或重新安装 |
+| **关联** —— 哪些已关联，哪些未关联，以及其状态 | **报告** —— 一份完整文档，可导出 |
+| **同步** —— 在所有机器上关联应用程序 | **设置** —— 语言、主题、文件夹、清除 |
+| **仪表盘** —— 总览 | **帮助** —— 每个菜单、其功能及详细说明 |
 
 典型流程：**扫描**（先扫描本机，再扫描您的其他机器，这些机器会根据您的 Unison 配置、`~/.ssh/config` 和 `known_hosts` 推荐给您）→ **登记册**（更新或重新安装旧版应用程序）→ **同步**（勾选，然后同步）→ 通过 **关联** 和 **仪表盘** 查看结果 → 如果仍有偏差，使用 **修复**。
 

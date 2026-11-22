@@ -1511,6 +1511,9 @@ msgstr "身份卡"
 msgid "Espace partagé (omega-synchro)"
 msgstr "共享空间（omega-synchro）"
 
+msgid "Charge distribuée (omega-stress)"
+msgstr "分布式负载（omega-stress）"
+
 msgid "OK"
 msgstr "OK"
 
@@ -1934,6 +1937,47 @@ msgstr ""
 "服务 {subject}（{detail}）以专用账户运行，但没有 omega-synchro 组：它将无法读取共享空间。同步会请求 omega-"
 "serv 为其授予该组。"
 
+#, python-brace-format
+msgid ""
+"relevé d'omega-stress sur {subject} (pas encore comparé à cette machine)."
+msgstr "{subject} 上的 omega-stress 读数（尚未与本机比对）。"
+
+#, python-brace-format
+msgid "{subject} aide cette machine à charger les cibles (accord : {detail})."
+msgstr "{subject} 帮助本机对目标施加负载（授权：{detail}）。"
+
+#, python-brace-format
+msgid ""
+"{subject} peut aider cette machine : pas encore reliée (Synchronisation → "
+"Charge distribuée)."
+msgstr "{subject} 可以帮助本机：尚未关联（同步 → 分布式负载）。"
+
+#, python-brace-format
+msgid "{subject} : liaison incomplète ({detail}) — relier de nouveau."
+msgstr "{subject}：关联不完整（{detail}）— 请重新关联。"
+
+#, python-brace-format
+msgid ""
+"{subject} a omega-stress, mais pas cette machine : elle ne peut pas piloter."
+msgstr "{subject} 有 omega-stress，但本机没有：本机无法主控。"
+
+#, python-brace-format
+msgid ""
+"pare-feu de cette machine ({subject}) fermé au port d'omega-stress : les "
+"machines qui aident ne peuvent pas le joindre."
+msgstr "本机防火墙（{subject}）未对 omega-stress 端口开放：协助的机器无法连接本机。"
+
+msgid ""
+"pare-feu nftables sans omega-fire : installez omega-fire pour ouvrir le port"
+" d'omega-stress (sa configuration n'est jamais réécrite à la main)."
+msgstr ""
+"nftables 防火墙且无 omega-fire：请安装 omega-fire 以开放 omega-stress 端口（其配置从不被手动改写）。"
+
+#, python-brace-format
+msgid ""
+"{subject} : état d'omega-stress illisible (version antérieure à 2.0.0 ?)."
+msgstr "{subject}：omega-stress 状态无法读取（版本低于 2.0.0？）。"
+
 msgid "correction : Synchronisation (omega-connect synchroniser)"
 msgstr "纠正：同步（omega-connect synchroniser）"
 
@@ -2249,17 +2293,13 @@ msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
 "- [b]Mettre à jour le registre[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
-"- [b]Mettre à jour l'application[/b] : sur une ligne « Ancienne version » d'une machine du réseau, installe la dernière version publiée (Release GitHub de l'application, empreinte vérifiée avec sha.txt avant tout envoi). Le plan s'affiche d'abord ; rien d'autre n'est fait.\n"
-"- [b]Réinstaller l'application[/b] : même bouton sur une ligne « Installation inachevée » (son install.sh ne s'est pas terminé) ; la même version est réinstallée.\n"
-"- Sur cette machine-ci, une mise à jour se fait comme le dit la section « Mise à jour » du README de l'application.\n"
+"- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "针对每台机器（本机和网络中的机器），显示找到的每个 omega 应用程序：其实例或服务、版本、状态和目录。顶部摘要统计各状态的数量。\n"
 "\n"
 "- [b]更新登记册[/b]：就地重新扫描（先本机，再已知的网络机器），无需切换界面。\n"
-"- [b]更新应用程序[/b]：在网络中某台机器的“旧版本”行上，安装最新发布的版本（应用程序的 GitHub Release，发送前用 sha.txt 校验校验和）。先显示计划；不做其他操作。\n"
-"- [b]重新安装应用程序[/b]：在“安装未完成”行上的同一按钮（其 install.sh 未执行完毕）；重新安装相同版本。\n"
-"- 在本机上，请按照应用程序 README 中“更新”一节进行更新。\n"
+"- [b]更新应用程序[/b] / [b]重新安装应用程序[/b]：打开 Updater，并已勾选该行的应用程序（「旧版本」；或「安装未完成」：其 install.sh 未完成，重新安装同一版本）。本机和网络上的机器都一样。\n"
 "- 高亮某一行：其状态说明和偏差会显示在下方。"
 
 msgid "Scanner — trouver les applications, ajouter des machines"
@@ -2316,6 +2356,26 @@ msgstr ""
 "- [b]用 sudo 读取[/b]：如果您的会话尚无法读取共享空间（omega-synchro 组在重新登录后才生效），则用 sudo 只读读取。\n"
 "- [b]详情[/b]：omega-connect 创建了什么（共享空间的登记册）以及可执行的移除操作。"
 
+msgid "Charge distribuée — omega-stress sur plusieurs machines"
+msgstr "分布式负载 — 在多台机器上运行 omega-stress"
+
+msgid ""
+"Ouvert depuis Synchronisation ([b]Charge distribuée…[/b]) ou depuis Réparer. Cette machine pilote les tests d'omega-stress ; les machines du réseau où omega-stress (2.0.0 ou plus) est installé peuvent l'aider à charger la cible. Rien à taper, aucune empreinte à recopier : omega-connect relie tout par SSH.\n"
+"\n"
+"- Cochez les machines qui aident (Entrée ou Espace), puis choisissez leur accord : [b]Demander pour chaque nouvelle cible[/b] (la première fois qu'une cible est demandée, omega-stress vous pose la question), ou [b]Tout accepter de ce pilote[/b] (machines qui sont toutes à vous).\n"
+"- [b]Relier la sélection[/b] : le plan s'affiche avant d'agir (commandes exactes). Chaque machine reçoit son accès, transmis par SSH sans jamais apparaître à l'écran ; ses limites (débit, durée) sont pré-remplies d'après elle.\n"
+"- Pare-feu de cette machine : s'il bloque les machines qui aident, il s'ouvre au seul port d'omega-stress et à votre réseau local, par omega-fire s'il est relié, sinon par ufw ou firewalld. Un seul mot de passe sudo, demandé dans le terminal. Avec nftables seul et sans omega-fire, rien n'est touché : installez omega-fire.\n"
+"- [b]Délier la sélection[/b] : retire l'accès des deux côtés.\n"
+"- Ensuite, les tests se lancent depuis omega-stress ; la charge passe directement entre les machines, sans omega-connect. Liaisons montre l'état de chaque machine (reliée, non reliée, liaison incomplète, pare-feu fermé)."
+msgstr ""
+"从同步（[b]分布式负载…[/b]）或修复中打开。本机主控 omega-stress 测试；网络中安装了 omega-stress（2.0.0 或更高版本）的机器可以协助它对目标施加负载。无需输入任何内容，也无需抄写指纹：omega-connect 通过 SSH 完成全部关联。\n"
+"\n"
+"- 勾选协助的机器（回车或空格），然后选择授权方式：[b]每个新目标都询问[/b]（某个目标首次被请求时，omega-stress 会询问您），或[b]接受该主控机的一切[/b]（全部属于您的机器）。\n"
+"- [b]关联所选[/b]：执行前会显示计划（确切的命令）。每台机器通过 SSH 收到其访问凭据，凭据从不显示在屏幕上；其限制（速率、时长）按机器自身预先填写。\n"
+"- 本机防火墙：如果它阻挡协助的机器，只会对您的局域网开放 omega-stress 端口——已关联 omega-fire 时通过 omega-fire，否则通过 ufw 或 firewalld。只在终端中询问一次 sudo 密码。仅有 nftables 且没有 omega-fire 时，不做任何改动：请安装 omega-fire。\n"
+"- [b]解除所选关联[/b]：在两侧移除访问。\n"
+"- 之后，测试从 omega-stress 启动；负载直接在机器之间传递，无需 omega-connect。关联页面显示每台机器的状态（已关联、未关联、关联不完整、防火墙关闭）。"
+
 msgid "Dashboard — vue d'ensemble"
 msgstr "仪表盘 — 总览"
 
@@ -2345,7 +2405,8 @@ msgid ""
 "La liste de tout ce qui ne va pas, sur toutes les machines (les machines du réseau sont rescannées à l'ouverture) : machine, problème, état, et qui le corrige.\n"
 "\n"
 "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
-"- [b]Tout réparer[/b] : les machines une à une (mettre à jour d'abord, puis réparer).\n"
+"- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
+"- [b]Tout réparer[/b] : les machines une à une.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
@@ -2353,10 +2414,31 @@ msgstr ""
 "所有机器上所有问题的列表（打开时会重新扫描网络中的机器）：机器、问题、状态以及由谁纠正。\n"
 "\n"
 "- [b]修复所选行[/b]：打开该机器的计划。本机：应用程序自身的命令（omega-jail 处理其放入 fail2ban 的内容，omega-serv 处理其 var/ 的权限，各应用程序处理自己的身份卡），然后是共享空间。网络中的机器：相同的纠正，外加任何应用程序都无法执行的命令，从这里在该机器上执行（仅限计划中列出的命令）。\n"
-"- [b]全部修复[/b]：逐台处理各机器（先更新，再修复）。\n"
+"- 「旧版本」或「安装未完成」的行会打开 Updater，并已勾选该应用程序：只有 Updater 负责更新。\n"
+"- [b]全部修复[/b]：逐台处理机器。\n"
 "- [b]详情[/b]：所选行的全部检查项。\n"
 "- [b]复制命令[/b]（本机的计划）：复制到系统剪贴板（xclip、xsel、wl-copy）；否则命令以明文显示在终端中，可用鼠标选择。\n"
 "- omega-connect 从不改写其他应用程序的文件：它执行该应用程序自己的命令。"
+
+msgid "Updater — mettre à jour les applications"
+msgstr "Updater — 更新应用程序"
+
+msgid ""
+"Le seul endroit qui met à jour les applications, sur cette machine comme sur le réseau. Réparer et le Registre y renvoient, l'application déjà cochée.\n"
+"\n"
+"- Les lignes sont celles déjà scannées : machine, application, version installée ; rien n'est rescanné à l'ouverture.\n"
+"- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
+"- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
+"- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+msgstr ""
+"唯一负责更新应用程序的地方，本机和网络上都一样。修复和登记册都会转到这里，并已勾选该应用程序。\n"
+"\n"
+"- 各行是已扫描的内容：机器、应用程序、已安装版本；打开时不会重新扫描。\n"
+"- [b]检查版本[/b]：每个应用程序的最新发布版本（GitHub Release，否则该应用程序的网站），针对勾选的行或全部。未发布的版本从不提供。\n"
+"- [b]更新所选[/b] / [b]全部更新[/b]：需要更新的应用程序和未完成的安装。先处理本机：校验归档（sha.txt），然后界面让位给终端，install.sh 如有需要会在其中询问密码。然后逐台处理网络上的机器：执行前显示计划，每台机器一次密码。\n"
+"- 最后：逐个应用程序显示所做的事情，并重新扫描机器。\n"
+"- [b]omega-suite[/b]：它内置的 omega-stress 是它的一部分。该行属于 omega-suite（「包含 omega-stress …」）：它与其一起测试的工具一同更新，从不单独更新 omega-stress。从 2.0.0 起，它像独立的 omega-stress 一样参与分布式负载；如果机器上还有独立的 omega-stress，则由后者参与。"
 
 msgid "Rapport — un document complet"
 msgstr "报告 — 一份完整文档"
@@ -2390,13 +2472,13 @@ msgid ""
 "- [b]Connexion[/b] : SSH avec VOS clés seulement ; omega-connect ne demande jamais le mot de passe SSH. Une clé protégée par une phrase secrète doit être chargée dans l'agent SSH (ssh-add).\n"
 "- [b]Mot de passe administrateur[/b] : seulement quand une action le demande (synchroniser, réparer, mettre à jour), une fois par machine, tapé par vous dans le terminal ; omega-connect ne le voit jamais.\n"
 "- [b]Ce qui va sur une machine du réseau[/b] : pour un scan, rien (programme en mémoire) ; pour une action, un dossier privé temporaire (programme et archives), effacé à la fin.\n"
-"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
+"- [b]Mises à jour[/b] : depuis la Release GitHub de chaque application (kraynux/<application>, étiquette v<version>), sinon depuis le site de l'application (dossier download) ; l'empreinte est vérifiée avec sha.txt avant tout envoi, puis de nouveau sur la machine. omega-fire : l'ancienne installation est mise de côté (son var/ appartient à root), puis son install.sh reprend réglages et données. Les autres : extraction par-dessus (l'état vivant n'est pas dans l'archive), puis leur install.sh.\n"
 "- [b]Jamais d'application lancée qui pourrait demander un mot de passe sans terminal[/b] : un échec silencieux de sudo compte comme une tentative et peut verrouiller le compte quelques minutes."
 msgstr ""
 "- [b]连接[/b]：仅使用您自己的 SSH 密钥；omega-connect 从不询问 SSH 密码。受密码短语保护的密钥必须加载到 SSH 代理中（ssh-add）。\n"
 "- [b]管理员密码[/b]：仅在某个操作需要时（同步、修复、更新），每台机器一次，由您在终端中输入；omega-connect 永远看不到它。\n"
 "- [b]发送到网络中机器的内容[/b]：扫描时，无（程序在内存中运行）；执行操作时，一个临时私有目录（程序和归档），结束时删除。\n"
-"- [b]更新[/b]：来自各应用程序的 GitHub Release（kraynux/<应用程序>，标签 v<版本>）；发送前用 sha.txt 校验校验和，在机器上再次校验。omega-fire：旧安装被保留（其 var/ 属于 root），然后其 install.sh 恢复设置和数据。其他应用程序：覆盖解压（运行状态不在归档中），然后运行其 install.sh。\n"
+"- [b]更新[/b]：来自每个应用程序的 GitHub Release（kraynux/<应用程序>，标签 v<版本>），否则来自该应用程序的网站（download 文件夹）；发送前用 sha.txt 校验指纹，在机器上再校验一次。omega-fire：旧安装被移到一旁（其 var/ 属于 root），然后由其 install.sh 接管设置和数据。其他应用程序：直接解压覆盖（运行状态不在归档中），然后运行其 install.sh。\n"
 "- [b]从不在没有终端的情况下运行可能询问密码的应用程序[/b]：sudo 的静默失败也算一次尝试，可能导致账户被锁定几分钟。"
 
 msgid "États — ce que veut dire chaque mot"
@@ -2498,6 +2580,9 @@ msgstr "同步"
 
 msgid "Dashboard"
 msgstr "仪表盘"
+
+msgid "Updater"
+msgstr "Updater"
 
 msgid "Rapport"
 msgstr "报告"
@@ -2728,6 +2813,126 @@ msgid ""
 "ouvert."
 msgstr "此界面打开期间，每 {minutes} 分钟重新检查一次。"
 
+msgid "reliée"
+msgstr "已关联"
+
+msgid "non reliée"
+msgstr "未关联"
+
+msgid "liaison incomplète"
+msgstr "关联不完整"
+
+msgid "reliée, pare-feu de cette machine fermé"
+msgstr "已关联，本机防火墙关闭"
+
+msgid "reliée, omega-fire nécessaire pour le pare-feu"
+msgstr "已关联，防火墙需要 omega-fire"
+
+msgid "état illisible (version trop ancienne ?)"
+msgstr "状态无法读取（版本过旧？）"
+
+msgid "omega-stress absent de cette machine"
+msgstr "本机没有 omega-stress"
+
+msgid "demander"
+msgstr "询问"
+
+msgid "tout accepter"
+msgstr "全部接受"
+
+msgid "Choisir"
+msgstr "选择"
+
+msgid "CHARGE DISTRIBUÉE (OMEGA-STRESS)"
+msgstr "分布式负载（OMEGA-STRESS）"
+
+msgid ""
+"Cette machine pilote les tests ; les machines cochées l'aident à charger la "
+"cible. Cochez-les (Entrée ou Espace), choisissez leur accord, puis « Relier "
+"la sélection » : le plan s'affiche avant d'agir, et un seul mot de passe est"
+" demandé si le pare-feu de cette machine doit s'ouvrir."
+msgstr ""
+"本机主控测试；勾选的机器帮助它对目标施加负载。勾选它们（回车或空格），选择其授权方式，然后点「关联所选」：执行前会显示计划，如需开放本机防火墙，只会询问一次密码。"
+
+msgid "Demander pour chaque nouvelle cible"
+msgstr "每个新目标都询问"
+
+msgid "Tout accepter de ce pilote (machines qui sont toutes à vous)"
+msgstr "接受该主控机的一切（全部属于您的机器）"
+
+msgid "Relier la sélection"
+msgstr "关联所选"
+
+msgid "Délier la sélection"
+msgstr "解除所选关联"
+
+msgid "Accord"
+msgstr "授权"
+
+msgid "Liaison"
+msgstr "关联"
+
+msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
+msgstr "正在读取本机和网络上的 omega-stress…"
+
+#, python-brace-format
+msgid "Rescan de {machine}…"
+msgstr "正在重新扫描 {machine}…"
+
+msgid ""
+"omega-stress n'est pas installé sur cette machine (ou trop ancien) : elle ne"
+" peut pas piloter. Installez omega-stress 2.0.0 ou plus, puis revenez ici."
+msgstr "本机未安装 omega-stress（或版本过旧）：无法主控。请安装 omega-stress 2.0.0 或更高版本，然后回到这里。"
+
+msgid ""
+"Aucune machine du réseau n'a omega-stress 2.0.0 ou plus. Scannez vos "
+"machines (Scanner), installez-le sur celles qui doivent aider, puis revenez "
+"ici."
+msgstr "网络上没有机器装有 omega-stress 2.0.0 或更高版本。请扫描您的机器（扫描器），在需要协助的机器上安装后回到这里。"
+
+#, python-brace-format
+msgid "{count} machine(s) du réseau peuvent aider."
+msgstr "网络上有 {count} 台机器可以协助。"
+
+#, python-brace-format
+msgid ""
+"{machine} : omega-stress trop ancien ou illisible — mettez-le à jour depuis "
+"le Registre."
+msgstr "{machine}：omega-stress 版本过旧或无法读取 — 请在登记册中更新。"
+
+msgid "Relier la charge distribuée"
+msgstr "关联分布式负载"
+
+msgid "Commandes lancées, dans cet ordre :"
+msgstr "依次执行的命令："
+
+msgid ""
+"Le pare-feu de cette machine s'ouvre au port d'omega-stress pour votre "
+"réseau local : un mot de passe sudo sera demandé, une seule fois."
+msgstr "本机防火墙将为您的局域网开放 omega-stress 端口：将询问一次 sudo 密码。"
+
+msgid "Liaison en cours…"
+msgstr "正在关联…"
+
+msgid "Retrait de la liaison…"
+msgstr "正在解除关联…"
+
+#, python-brace-format
+msgid "{count} étape(s) en échec :"
+msgstr "{count} 个步骤失败："
+
+msgid "cette machine"
+msgstr "本机"
+
+msgid "Fait."
+msgstr "完成。"
+
+msgid "Pare-feu de cette machine (règles posées) :"
+msgstr "本机防火墙（已设置的规则）："
+
+msgid "cette machine (root)"
+msgstr "本机（root）"
+
 msgid "Lancer (mot de passe administrateur)"
 msgstr "执行（管理员密码）"
 
@@ -2844,9 +3049,6 @@ msgstr "您的机器和应用程序的总览。在此界面不会修改任何内
 msgid "Actualiser"
 msgstr "刷新"
 
-msgid "cette machine"
-msgstr "本机"
-
 msgid "DASHBOARD"
 msgstr "仪表盘"
 
@@ -2894,17 +3096,22 @@ msgstr "上次扫描于 {time}"
 msgid "Espace partagé : "
 msgstr "共享空间： "
 
+#, python-brace-format
+msgid "{tool} (dans omega-suite)"
+msgstr "{tool}（在 omega-suite 中）"
+
+#, python-brace-format
+msgid ""
+"Fait partie d'omega-suite {version} ({root}) : se met à jour avec elle, "
+"jamais seul."
+msgstr "属于 omega-suite {version}（{root}）：随它一起更新，从不单独更新。"
+
 msgid "Réinstaller l'application"
 msgstr "重新安装应用程序"
 
 #, python-brace-format
-msgid "→ « {action} » installe la dernière version depuis GitHub."
-msgstr "→ “{action}”从 GitHub 安装最新版本。"
-
-msgid ""
-"→ Sur ce poste-ci, la mise à jour depuis omega-connect n'est pas encore "
-"possible : suivez la section « Mise à jour » du README de l'outil."
-msgstr "→ 在本机上，暂不支持通过 omega-connect 更新：请按照工具 README 中“更新”一节操作。"
+msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
+msgstr "→「{action}」会打开 Updater，并已勾选该应用程序。"
 
 #, python-brace-format
 msgid "Mise à jour du registre : scan de {count} machine(s) distante(s)…"
@@ -3014,6 +3221,12 @@ msgstr "扫描：重新扫描该机器"
 
 msgid "aucune correction connue (voir le détail)"
 msgstr "没有已知的纠正方法（参见详情）"
+
+msgid "Charge distribuée : relier de nouveau, ou ouvrir le pare-feu"
+msgstr "分布式负载：重新关联或开放防火墙"
+
+msgid "Updater : mise à jour depuis ici"
+msgstr "Updater：从这里更新"
 
 msgid "RÉPARER"
 msgstr "修复"
@@ -3306,9 +3519,6 @@ msgstr "已在 {path} 中删除 {count} 个项目。"
 msgid "Non supprimés : {items}"
 msgstr "未删除：{items}"
 
-msgid "Choisir"
-msgstr "选择"
-
 msgid "SYNCHRONISATION"
 msgstr "同步"
 
@@ -3325,6 +3535,9 @@ msgstr "全部同步"
 
 msgid "Synchroniser la sélection"
 msgstr "同步所选项"
+
+msgid "Charge distribuée…"
+msgstr "分布式负载…"
 
 msgid "Lire avec sudo"
 msgstr "用 sudo 读取"
@@ -3359,6 +3572,76 @@ msgstr "信任这台机器？"
 
 msgid "Faire confiance"
 msgstr "信任"
+
+msgid "non vérifiée"
+msgstr "未检查"
+
+msgid "à jour"
+msgstr "已是最新"
+
+msgid "à mettre à jour"
+msgstr "需要更新"
+
+msgid "installation inachevée — à réinstaller"
+msgstr "安装未完成 — 需要重新安装"
+
+msgid "aucune version publiée trouvée"
+msgstr "未找到已发布的版本"
+
+msgid "machine injoignable"
+msgstr "机器无法连接"
+
+msgid ""
+"omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
+"demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
+msgstr "omega-connect — 在本机更新。install.sh 可能会询问 sudo 密码（输入时不显示）。"
+
+msgid "UPDATER"
+msgstr "UPDATER"
+
+msgid ""
+"Les applications déjà scannées, sur cette machine et sur le réseau. « "
+"Vérifier les versions » cherche la dernière version publiée (GitHub, puis le"
+" site). Cochez (Entrée ou Espace) puis « Mettre à jour la sélection », ou « "
+"Tout mettre à jour » : chaque machine montre son plan avant d'agir, et un "
+"seul mot de passe est demandé, dans le terminal."
+msgstr ""
+"已扫描的应用程序，位于本机和网络上。「检查版本」会查找最新发布的版本（先 "
+"GitHub，再网站）。勾选（回车或空格）后选择「更新所选」或「全部更新」：每台机器在执行前都会显示计划，并且只在终端中询问一次密码。"
+
+msgid "Vérifier les versions"
+msgstr "检查版本"
+
+msgid "Mettre à jour la sélection"
+msgstr "更新所选"
+
+msgid "Tout mettre à jour"
+msgstr "全部更新"
+
+msgid "Disponible"
+msgstr "可用"
+
+msgid "Installée"
+msgstr "已安装"
+
+#, python-brace-format
+msgid "{tool} (contient {tools})"
+msgstr "{tool}（包含 {tools}）"
+
+#, python-brace-format
+msgid ""
+"{count} application(s) — à jour : {ok} ; à mettre à jour : {old} ; "
+"inachevées : {incomplete} ; non vérifiées : {unchecked}."
+msgstr "{count} 个应用程序 — 最新：{ok}；需要更新：{old}；未完成：{incomplete}；未检查：{unchecked}。"
+
+msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
+msgstr "正在查找最新发布的版本（先 GitHub，再网站）…"
+
+msgid "Téléchargement et vérification des archives…"
+msgstr "正在下载并校验归档…"
+
+msgid "Rescan de cette machine…"
+msgstr "正在重新扫描本机…"
 
 msgid "DÉTAIL DE L'ESPACE PARTAGÉ"
 msgstr "共享空间详情"
