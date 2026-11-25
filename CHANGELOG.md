@@ -4,17 +4,27 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## À venir (pas encore dans une archive)
+
+### Ajouté
+
+- **omega-tail reconnu** (14e application, demande, 2026-11-25) : outil à carte d'identité comme
+  omega-stress (omega-lib 0.4.1, `TOOL_LAUNCHERS`) ; Registre, Synchroniser, Réparer, Updater et Installer le
+  prennent en charge. Première version qui pose son jeton : 0.7.0 (une plus ancienne est « Ancienne version »,
+  sans réparation proposée). Aide : liste des applications qui se relient aux autres complétée (17 langues).
+  Demande omega-lib 0.4.1 : l'archive doit être reconstruite pour l'embarquer.
+
 ## [0.2.0] — construite le 2026-11-22
 
 ### Ajouté
 
 - Version lue dans `pyproject.toml`, seule source (étape B de la vérification, 2026-11-22) : plus de copie dans
   `__init__.py`.
-- **Trois sources pour les mises à jour** (procédure de l'auteur, 2026-11-22) : Updater et Installer cherchent
+- **Trois sources pour les mises à jour** (procédure, 2026-11-22) : Updater et Installer cherchent
   chaque application sur sa Release GitHub ; si absente ou injoignable, sur le site kraynux ; si absent ou
   injoignable, sur le site craftdark (même structure). La première source qui publie l'application donne sa
   version (avant : la plus haute de GitHub et kraynux). Colonne « Source » : GitHub, kraynux ou craftdark.
-- **Rapport → « Voir les exports »** (demande de l'auteur, 2026-11-22 : lire un rapport sans quitter ni chercher le
+- **Rapport → « Voir les exports »** (demande, 2026-11-22 : lire un rapport sans quitter ni chercher le
   dossier) : le dossier des exports s'ouvre dans le navigateur de l'utilisateur, chaque export se lit d'un clic ;
   mécanique d'omega-fire corrigée par son scan de sécurité (omega-lib `open_path_in_browser` : au nom de
   l'utilisateur, dans sa session, jamais sur l'écran d'un autre compte). Sans navigateur (serveur, SSH) : la liste
@@ -23,33 +33,33 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 - README ×17 : machines proposées d'après la configuration SSH (`~/.ssh/config`, `known_hosts`), plus « Unison » en
   avant ; « installer pour la première fois » retiré du hors-périmètre (c'est l'Installer) ; « OMEGA-CONNECT —
   Trouver, relier, réparer, mettre à jour et installer. » Aide (démarrage rapide) alignée.
-- **Installer** (menu Maintenance, sous l'Updater ; demande de l'auteur, 2026-11-22) : installe les 13 applications
+- **Installer** (menu Maintenance, sous l'Updater ; demande, 2026-11-22) : installe les 13 applications
   omega publiées (omega-serv, omega-fire, omega-jail, omega-stress, omega-log, omega-suite, omega-scan, omega-check,
   omega-deep, omega-fold, omega-track, omega-fuzz, omega-connect) sur cette machine et sur le réseau, avec le même
   procédé que l'Updater : GitHub puis le site, sha.txt vérifié, archive envoyée, dossier `~/<application>` créé
   (jamais par-dessus un dossier non vide), `install.sh` dans le terminal (omega-fire demande sudo). Juste installer,
   sauf la carte d'identité et l'inscription dans l'espace partagé des applications à liaisons
-  (`synchroniser --oui`). Essai d'installation réelle dans les tests ; essai réel de l'auteur (2026-11-22) : omega-log et omega-fire
+  (`synchroniser --oui`). Essai d'installation réelle dans les tests ; essai réel (2026-11-22) : omega-log et omega-fire
   installés sur omega-server (hpc-109) depuis omega-connect.
 - **Les 13 applications reconnues** (Registre, Updater, Installer) ; celles sans liaison sont « ■ Installée ».
   omega-suite est trouvée elle-même ET ses outils embarqués ; l'Updater n'en fait qu'une ligne. omega-waf (module
   Lua, sans archive) n'en fait pas partie.
-- **Scan relu** (demande de l'auteur, 2026-11-22 : « chaque scan prend du temps, et Retour relance un scan ») : le
+- **Scan relu** (demande, 2026-11-22 : « chaque scan prend du temps, et Retour relance un scan ») : le
   scan est fait une fois, au démarrage (cette machine, puis les machines connues), puis relu par tous les écrans ;
   « Relancer le scan » (Registre, Synchronisation, Réparer, Dashboard, Liaisons, Rapport) le refait ; après une
   action, seules les machines touchées sont rescannées. Mesuré : ~4,6 s pour cette machine, plusieurs secondes par
   machine du réseau, à chaque ouverture d'écran auparavant.
-- **Registre du parc en SQLite** (`var/omega-connect.db`, décision de l'auteur) : une table par fonction (machines,
+- **Registre du parc en SQLite** (`var/omega-connect.db`, décision) : une table par fonction (machines,
   applications, liaisons, historique des scans) ; `parc.json` repris une fois puis gardé à côté.
-- **Menu principal** (disposition de l'auteur, 2026-11-22) : Registre, Scanner, Liaisons, Synchronisation, Réparer,
+- **Menu principal** (disposition, 2026-11-22) : Registre, Scanner, Liaisons, Synchronisation, Réparer,
   Dashboard | Updater, Installer, Rapport, Réglages, Aide, Quitter ; logo remonté en haut de l'écran. Une ligne de plus entre
-  le logo et les colonnes (retour de l'auteur : trop serré).
+  le logo et les colonnes (retour d'utilisation : trop serré).
 - Captures : B (menu) refaite, F (Installer) ajoutée, ×17 ; galerie française : 13 écrans.
-- Corrigé (retour de l'auteur, 2026-11-22) : Installer → « Installer la sélection » → le bouton affichait
+- Corrigé (retour d'utilisation, 2026-11-22) : Installer → « Installer la sélection » → le bouton affichait
   « Installe » : le plan arrive par SSH après le premier affichage et le cadre gardait la largeur de « Lancer ».
   Un libellé qui change refait maintenant la mise en page (même correctif pour « Lancer avec sudo », « Fermer »,
   « Réinstaller l'application »).
-- **UPDATER** (2026-11-22, demande de l'auteur) : menu Maintenance, sous Réparer ; le SEUL endroit qui met à jour les
+- **UPDATER** (2026-11-22, demande) : menu Maintenance, sous Réparer ; le SEUL endroit qui met à jour les
   applications, sur cette machine comme sur le réseau. Réparer et le bouton « Mettre à jour / Réinstaller
   l'application » du Registre y renvoient, l'application déjà cochée (avant : Réparer téléchargeait l'archive, et
   cette machine renvoyait « à la main, README »).
@@ -64,7 +74,7 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
   - Registre : « Mettre à jour / Réinstaller l'application » ouvre aussi l'Updater pour CETTE machine (le bouton
     restait grisé avec « suivez le README », message d'avant l'Updater).
 - Version d'omega-fire lue dans son `pyproject.toml` (seule source depuis omega-fire 3.6.3), puis, pour une installation d'avant, dans l'ancienne constante `OMEGA_FIRE_VERSION`.
-- **omega-stress fait partie d'omega-suite** (décision de l'auteur, 2026-11-22). L'omega-stress embarqué
+- **omega-stress fait partie d'omega-suite** (décision, 2026-11-22). L'omega-stress embarqué
   (`<suite>/vendor/omega-stress`) n'est plus une ligne grisée ni une « installation inachevée » (il n'a ni `.venv` ni
   carte à lui : ceux de la suite comptent).
   - Registre : « omega-stress (dans omega-suite) », le détail donne la version et le dossier de la suite.
@@ -169,14 +179,14 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
   outil ne sait corriger reste affiché « à faire à la main » ; un outil relié mais désinstallé reste une décision
   (`retirer`). `verifier` indique le nombre d'écarts corrigeables par `reparer`, et ses corrections proposées sont
   désormais ces commandes d'outils (plus de `chown`/`chmod` sur les fichiers d'omega-serv ou d'omega-jail).
-- **Groupe de la zone donné au service omega-serv** (spec §5, décision de l'auteur : complément systemd) :
+- **Groupe de la zone donné au service omega-serv** (spec §5, décision : complément systemd) :
   `etablir` demande à omega-serv (`synchro groupe-service ajouter`) d'écrire
   `/etc/systemd/system/<service>.service.d/omega-synchro.conf` pour un service qui tourne sous un compte dédié ;
   l'unité n'est jamais touchée, pris en compte au prochain redémarrage du service (jamais redémarré par
   omega-connect). Inscrit au registre ; `retirer --tout` le fait retirer par omega-serv **avant** de supprimer le
   groupe (sinon le service ne démarrerait plus), et garde le groupe si omega-serv est introuvable. `verifier` :
   « service sans le groupe omega-synchro ». Test de réversibilité étendu au faux système (service compris).
-- **Parcours plus clair** (retour de l'auteur) : `reparer` enchaîne sur le plan d'`etablir` après avoir créé un
+- **Parcours plus clair** (retour d'utilisation) : `reparer` enchaîne sur le plan d'`etablir` après avoir créé un
   jeton, ou quand la zone n'est pas lisible sans sudo ; Synchronisation a « Lire avec sudo » ; Registre montre les
   outils « installés, pas encore reliés » avec « Relier (établir)… ». La notification de lecture avec sudo dit
   pourquoi (groupe pas encore pris en compte par la session).
@@ -187,7 +197,7 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
   taper, arguments et code de sortie inchangés ; une seule fois (pas de boucle). Sans terminal ni `sg` (script) :
   comportement d'avant (zone « en attente de reconnexion », lecture avec sudo après accord).
 
-- **Refonte du parcours, lot R1** (bilan de l'auteur : « parcours incompréhensible ») : menu Registre, Scanner,
+- **Refonte du parcours, lot R1** (bilan : « parcours incompréhensible ») : menu Registre, Scanner,
   Liaisons, Dashboard | Réparer, Rapport, Réglages, Aide. Le **Registre** montre toutes les applications de la
   machine et leur état (Détectée, Inscrite, Reliée, À corriger, Ancienne version), avec cases à cocher, pastille de
   l'espace partagé, « Corriger » et « Détail ». **Inscrire** (sélection ou tout ; commande `inscrire`) remplace
@@ -195,12 +205,12 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
   **Scanner** (commande `scanner`) met à jour le registre et le registre du parc (`var/parc.json`). Mots simples
   en premier plan (carte d'identité, espace partagé). L'écran Synchronisation et les vues Outils, Règles, Droits,
   Réseaux disparaissent (Registre, Liaisons et Dashboard les remplacent).
-  Retour de l'auteur le jour même : menu GESTION (Registre, Scanner, Liaisons, Synchronisation, Dashboard) |
+  Retour d'utilisation le jour même : menu GESTION (Registre, Scanner, Liaisons, Synchronisation, Dashboard) |
   MAINTENANCE (Réparer, Rapport, Réglages, Aide, Quitter). Le **Registre** n'est plus qu'un affichage (états en
   couleur, bilan par état) ; **Synchronisation** revient et porte l'action : « Synchroniser tout / la sélection »
   (commande `synchroniser`, `inscrire` reste accepté), contrôles de l'espace partagé, « Lire avec sudo », Détail.
 
-- **Provenance des liaisons** (demande de l'auteur) : colonne « Provenance » dans Liaisons et le Dashboard —
+- **Provenance des liaisons** (demande) : colonne « Provenance » dans Liaisons et le Dashboard —
   « Local » (cette machine) ou « Réseau — machine » (machine distante, lot R2 ; liaison entre machines, lot R4) ;
   aussi dans le JSON de `verifier`.
 
@@ -237,7 +247,7 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
 ### Corrigé
 
-- **Dashboard refait en vue d'ensemble** (demande de l'auteur, 2026-11-11) : des cadres séparés, comme un tableau
+- **Dashboard refait en vue d'ensemble** (demande, 2026-11-11) : des cadres séparés, comme un tableau
   de bord web. En haut, Machines, Applications, Liaisons et Espace partagé ; au milieu, Liaisons par type (barres OK
   sur total) et Cette machine / Réseau ; en bas, un top 5 par catégorie (top 3 sur un petit écran) : machines à
   réparer, liaisons à réparer, versions en retard, scans les plus anciens. Les cadres se rangent sur 4, 2 ou
@@ -250,19 +260,19 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
   jamais le chemin complet de la machine ; un chemin relatif part du dossier d'omega-connect.
 - Langues : plus de mention « en test » dans la liste.
 
-- **Trois actions distinctes, nommées explicitement** (retour de l'auteur, 2026-11-11 : « mettre à jour le
+- **Trois actions distinctes, nommées explicitement** (retour d'utilisation, 2026-11-11 : « mettre à jour le
   registre, mettre à jour l'application, synchroniser l'application, c'est pas la même chose ») :
   - Registre : « Mettre à jour le registre » refait le scan sur place (avant : ouvrait le Scanner) ;
     « Mettre à jour l'application » installe la dernière version GitHub d'une application trop ancienne (ligne
     choisie, machine distante), et rien d'autre ;
   - Synchronisation : réparer puis synchroniser, jamais de mise à jour ;
   - en ligne de commande : `mettre-a-jour --machine …` et `synchroniser --machine …`.
-- **Synchronisation = une seule liste de toutes les machines et de leurs applications** (rôle défini par l'auteur) :
+- **Synchronisation = une seule liste de toutes les machines et de leurs applications** (rôle défini) :
   les machines du réseau sont rescannées à l'ouverture ; on coche des lignes de n'importe quelle machine, puis
   « Synchroniser la sélection » ou « Synchroniser tout ». Cette machine passe d'abord (son plan, un mot de passe),
   puis chaque machine du réseau, une à une (plan calculé sur elle, lancé depuis ici). Une application trop
   ancienne, inachevée ou injoignable ne se coche pas : la ligne dit où aller.
-- **Réparer = la liste de tout ce qui ne va pas** (retour de l'auteur, 2026-11-11 : « on tourne en boucle ») :
+- **Réparer = la liste de tout ce qui ne va pas** (retour d'utilisation, 2026-11-11 : « on tourne en boucle ») :
   - une ligne par problème, sur toutes les machines : machine, problème, état, qui le corrige ;
   - « Réparer la ligne choisie », « Tout réparer », « Détail ».
   - Les machines du réseau sont rescannées à l'ouverture : la liste dit l'état réel, jamais celui d'un ancien
@@ -284,12 +294,12 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 - **Installation inachevée** (omega-server : fichiers 2.6.1, `install.sh` arrêté, ni environnement Python ni
   carte) : nouvel état du Registre ◇ « Installation inachevée » ; « Mettre à jour l'application » la réinstalle
   (même version acceptée). Le `.venv` est vu sans rien exécuter (`bin/activate` et `bin/python`).
-- **Réparer agit aussi sur les machines distantes** (retour de l'auteur : « on ne peut rien réparer depuis
+- **Réparer agit aussi sur les machines distantes** (retour d'utilisation : « on ne peut rien réparer depuis
   omega-connect, et les commandes il faut les retaper à la main sur la machine distante ») : Réparer → Machines
   distantes → « Réparer la machine choisie » lance les commandes des outils SUR la machine, depuis ici ;
   `reparer --machine …`. Ce qu'aucun outil ne sait faire se copie : « Copier les commandes » (Réparer, machine
   distante, détail d'une liaison), presse-papiers du terminal.
-- **« Réparer <machine> » lance aussi les commandes qu'aucun outil ne sait faire** (retour de l'auteur : « un
+- **« Réparer <machine> » lance aussi les commandes qu'aucun outil ne sait faire** (retour d'utilisation : « un
   bouton Réparer et ça lance directement la commande distante ») : annoncées dans le plan, puis lancées une à une
   sur la machine, après les corrections des outils, dans le terminal. Celles déjà réglées entre-temps sont
   sautées ; une commande qui n'était pas annoncée n'est jamais lancée.
@@ -314,33 +324,33 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
     qu'un vieux `omega-fire.old-20260927` traînait à côté. omega-connect, qui vient de mettre l'ancienne
     installation de côté, désigne maintenant lui-même celle à reprendre (`sudo ./migrate-state.sh <ancienne>
     --yes`, comme le conseille le README d'omega-fire). Les autres ne sont jamais touchées.
-- **Commande inconnue proposée à une version trop ancienne** (constaté par l'auteur sur craftdark :
+- **Commande inconnue proposée à une version trop ancienne** (constaté sur craftdark :
   `omega-jail.sh --apply --update` → « unrecognized arguments: --update » avec omega-jail 1.1.0) : un outil plus
   ancien que sa première version à contrats ne reçoit plus aucune commande de réparation ; il est listé « trop
   ancien », et la Synchronisation le met à jour d'abord.
 
-- **Écrans qui n'occupaient pas l'écran** (retour de l'auteur sur Liaisons) : les tableaux étaient bloqués à 16 lignes
+- **Écrans qui n'occupaient pas l'écran** (retour d'utilisation sur Liaisons) : les tableaux étaient bloqués à 16 lignes
   et à la largeur de leur contenu, avec un ascenseur alors qu'il restait de la place. Liaisons et Registre : le
   tableau prend toute la place restante et défile seul, titre et détail restent visibles ; partout, la dernière
   colonne s'étire jusqu'au bord et les plafonds suivent la hauteur de l'écran (`vh`). Test en 120×40 et 200×60.
 - **Scanner : « Retirer cette machine »** (grand parc : ne plus tout rescanner) — la machine sort du registre, rien
   n'est modifié sur elle ; `scanner --retirer MACHINE` en ligne de commande. La machine locale ne se retire pas.
 
-- **Scanner distant** (retour de l'auteur) : le scan annulait la vérification de la clé de la machine encore en cours
+- **Scanner distant** (retour d'utilisation) : le scan annulait la vérification de la clé de la machine encore en cours
   (tâches dans un même groupe exclusif) ; échecs SSH désormais distincts et expliqués — nom inconnu, aucun serveur
   SSH (« Connection refused »), machine injoignable.
 
-- **Rapport : l'interface se fermait sur la console** (constaté par l'auteur juste après sa première
+- **Rapport : l'interface se fermait sur la console** (constaté juste après la première
   synchronisation réelle) : la liste des libellés des créations ne connaissait pas « groupe donné au service »
   (`KeyError`). Une seule liste désormais, partagée par le rapport et l'écran Détail, et un test exige un libellé
   pour chaque type de création. Reproduit puis vérifié en réel (terminal simulé, parcours clavier jusqu'au Rapport).
 - **Scanner** : bouton « Retour » en bas ; « Voir le registre » ouvre le Registre quand le Scanner vient du menu
   (il ramenait au menu).
 
-- **Copies de sauvegarde ignorées par la recherche** (décision de l'auteur) : dossiers `…-bak`, `….bak`, `…_bak`,
+- **Copies de sauvegarde ignorées par la recherche** (décision) : dossiers `…-bak`, `….bak`, `…_bak`,
   `….bak-…` (comme `….old-…`). Un dossier donné avec `--chemin` reste examiné.
 
-- **Mot de passe sudo refusé depuis l'interface** (constaté par l'auteur : invite de sudo affichée dans l'en-tête).
+- **Mot de passe sudo refusé depuis l'interface** (constaté : invite de sudo affichée dans l'en-tête).
   Cause : pendant la détection, la fiche est demandée à chaque outil ; une ancienne version d'omega-fire (sans
   `synchro`) s'élève alors avec sudo, et sudo ouvre le terminal directement : son invite s'affichait par-dessus
   l'interface et les frappes partaient à moitié dans Textual. La fiche est désormais demandée dans une nouvelle

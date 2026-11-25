@@ -233,7 +233,7 @@ def test_version_d_omega_fire_dans_pyproject_puis_ancienne_constante(tmp_path: P
 
 
 def test_omega_suite_reconnue_elle_meme_et_ses_outils_une_seule_ligne(tmp_path: Path) -> None:
-    """2026-11-22 : omega-connect reconnait les 13 outils publies ; omega-suite et son omega-stress embarque sont
+    """2026-11-22 : omega-connect reconnait les 14 outils publies (omega-tail : 2026-11-25) ; omega-suite et son omega-stress embarque sont
     trouves tous les deux, l'Updater n'en fait qu'une ligne ; un outil sans liaison est « Installee »."""
     from omega_connect.application.detect_installations import detect_installations
     from omega_connect.domain.detection import Source
@@ -260,7 +260,7 @@ def test_omega_suite_reconnue_elle_meme_et_ses_outils_une_seule_ligne(tmp_path: 
 
 
 def test_installer_lignes_par_machine(tmp_path: Path) -> None:
-    """Installer (2026-11-22) : chaque machine joignable x les 13 outils publies ; deja la ou a installer dans
+    """Installer (2026-11-22) : chaque machine joignable x les 14 outils publies ; deja la ou a installer dans
     ~/<outil> ; l'omega-stress d'omega-suite ne compte pas ; une machine injoignable n'est pas proposee."""
     from omega_connect.application.updater import install_rows
     from omega_connect.domain.tools import INSTALLABLE_TOOLS
@@ -271,7 +271,7 @@ def test_installer_lignes_par_machine(tmp_path: Path) -> None:
     remote = MachineEntry("mpc", False, "", (), "fp", ("mpc",), "kr@mpc")
     gone = MachineEntry("vieux", False, "", (), "fp2", ("v",), "kr@v", reachable=False)
     rows = install_rows([remote, gone, local])
-    assert len(rows) == 2 * len(INSTALLABLE_TOOLS) == 26
+    assert len(rows) == 2 * len(INSTALLABLE_TOOLS) == 28
     by = {(row.machine, row.tool): row for row in rows}
     assert by[("pc", "omega-fire")].state is UpdateState.PRESENT and not by[("pc", "omega-fire")].actionable
     stress = by[("pc", "omega-stress")]

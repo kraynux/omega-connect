@@ -2408,7 +2408,7 @@ msgid ""
 "- Les lignes : chaque machine joignable (d'après le dernier scan) et chaque application omega publiée, « déjà installée » (avec sa version) ou à installer dans ~/<application>.\n"
 "- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application).\n"
 "- [b]Installer la sélection[/b] : cette machine d'abord, dans le terminal, puis chaque machine du réseau, son plan affiché avant d'agir. L'archive est vérifiée (sha.txt), extraite dans un nouveau dossier (jamais par-dessus un dossier qui n'est pas vide), puis son install.sh est lancé ; omega-fire demande le mot de passe sudo.\n"
-"- Juste installer : la carte d'identité (install.sh) et, pour les applications qui se relient aux autres (omega-serv, omega-fire, omega-jail, omega-stress), l'inscription dans l'espace partagé de la machine. La configuration se fait ensuite dans l'application elle-même.\n"
+"- Juste installer : la carte d'identité (install.sh) et, pour les applications qui se relient aux autres (omega-serv, omega-fire, omega-jail, omega-stress, omega-tail), l'inscription dans l'espace partagé de la machine. La configuration se fait ensuite dans l'application elle-même.\n"
 "- À la fin : ce qui a été fait, et les machines touchées rescannées."
 msgstr ""
 

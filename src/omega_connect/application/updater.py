@@ -154,7 +154,7 @@ def app_rows(machines: Iterable[MachineEntry]) -> list[AppRow]:
 
 
 def install_rows(machines: Iterable[MachineEntry]) -> list[AppRow]:
-    """Installer : pour chaque machine joignable, chacun des 13 outils publies, deja la (version lue au dernier
+    """Installer : pour chaque machine joignable, chacun des 14 outils publies, deja la (version lue au dernier
     scan) ou a installer dans `~/<outil>`. Un omega-stress embarque par omega-suite ne compte pas : un omega-stress
     autonome peut s'installer a cote."""
     rows: list[AppRow] = []

@@ -161,7 +161,8 @@ SECTIONS: tuple[tuple[str, str], ...] = (
         "par-dessus un dossier qui n'est pas vide), puis son install.sh est lancé ; omega-fire demande le mot de "
         "passe sudo.\n"
         "- Juste installer : la carte d'identité (install.sh) et, pour les applications qui se relient aux autres "
-        "(omega-serv, omega-fire, omega-jail, omega-stress), l'inscription dans l'espace partagé de la machine. "
+        "(omega-serv, omega-fire, omega-jail, omega-stress, omega-tail), l'inscription dans l'espace partagé de la "
+        "machine. "
         "La configuration se fait ensuite dans l'application elle-même.\n"
         "- À la fin : ce qui a été fait, et les machines touchées rescannées.")),
     (N_("Rapport — un document complet"), N_(

@@ -18,7 +18,7 @@ MAX_VERSION_FILE_BYTES = 256 * 1024
 
 
 def layout_tool(root: Path) -> str:
-    """Outil dont le lanceur (`omega-serv.sh`...) ET le paquet (`src/omega_serv`) sont a la racine (les 13 outils
+    """Outil dont le lanceur (`omega-serv.sh`...) ET le paquet (`src/omega_serv`) sont a la racine (les 14 outils
     reconnus, domain/tools.py)."""
     for tool, launcher in ALL_LAUNCHERS.items():
         package = root / "src" / package_name(tool)

@@ -21,10 +21,11 @@ from omega_connect.core.constants import SHEET_TOOLS
 from omega_connect.domain.detection import DetectedInstallation
 from omega_connect.domain.suite import SUITE_TOOL
 
-CONTRACT_VERSIONS = {"omega-serv": "2.6.1", "omega-fire": "3.6.1", "omega-jail": "1.2.1", "omega-stress": "2.0.0"}
+CONTRACT_VERSIONS = {"omega-serv": "2.6.1", "omega-fire": "3.6.1", "omega-jail": "1.2.1", "omega-stress": "2.0.0",
+                     "omega-tail": "0.7.0"}
 """Premiere version de chaque outil qui a une carte d'identite (`synchro`) et les commandes de reparation
 qu'omega-connect lance (`service permissions`, `--apply --update`) ; archives construites le 2026-11-10 (omega-stress :
-2.0.0, jeton seul, 2026-11-21)."""
+2.0.0, jeton seul, 2026-11-21 ; omega-tail : 0.7.0, jeton seul, 2026-11-25)."""
 
 GITHUB_OWNER = "kraynux"
 GITHUB_BASE = "https://github.com"

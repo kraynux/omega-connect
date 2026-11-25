@@ -3,7 +3,7 @@
 outils publies, il faut donc les reconnaitre ensuite au Registre et dans l'Updater).
 
 - `CONTRACT_TOOLS` (omega-lib, `TOOL_LAUNCHERS`) : outils a carte d'identite et liaisons (omega-serv, omega-fire,
-  omega-jail, omega-stress) ; Synchronisation, Reparer et Liaisons les concernent.
+  omega-jail, omega-stress, omega-tail) ; Synchronisation, Reparer et Liaisons les concernent.
 - `OTHER_LAUNCHERS` : outils sans liaison (aucune carte d'identite a attendre d'eux) ; reconnus a leur lanceur et a
   leur paquet, etat « Installee », mis a jour et installes comme les autres.
 omega-waf n'en fait pas partie : module Lua sans archive ni install.sh."""
@@ -18,7 +18,7 @@ OTHER_LAUNCHERS: dict[str, str] = {
 }
 ALL_LAUNCHERS: dict[str, str] = {**TOOL_LAUNCHERS, **OTHER_LAUNCHERS}
 INSTALLABLE_TOOLS: tuple[str, ...] = (
-    "omega-serv", "omega-fire", "omega-jail", "omega-stress", "omega-log", "omega-suite", "omega-scan",
+    "omega-serv", "omega-fire", "omega-jail", "omega-stress", "omega-tail", "omega-log", "omega-suite", "omega-scan",
     "omega-check", "omega-deep", "omega-fold", "omega-track", "omega-fuzz", "omega-connect")
 """Ordre de l'Installer : les outils a liaisons d'abord."""
 
