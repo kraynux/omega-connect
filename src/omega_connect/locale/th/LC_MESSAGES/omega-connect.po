@@ -74,6 +74,10 @@ msgid "{count} fichiers installés dans {root}."
 msgstr "ติดตั้ง {count} ไฟล์ใน {root} แล้ว"
 
 #, python-brace-format
+msgid "Carte d'identité de l'installation gardée ({path})."
+msgstr "เก็บบัตรประจำตัวของการติดตั้งไว้แล้ว ({path})"
+
+#, python-brace-format
 msgid "install.sh introuvable dans {root}"
 msgstr "ไม่พบ install.sh ใน {root}"
 
@@ -1171,6 +1175,10 @@ msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-ba
 msgstr "การสแกน {target} ล้มเหลว ({detail}) ไม่มีการแก้ไขสิ่งใดที่นั่น"
 
 #, python-brace-format
+msgid "Scan de {target} arrêté : rien n'a été enregistré pour cette machine."
+msgstr "หยุดการสแกน {target} แล้ว: ไม่ได้บันทึกอะไรสำหรับเครื่องนี้"
+
+#, python-brace-format
 msgid ""
 "Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
 msgstr "ไม่มีไคลเอนต์ SSH บนเครื่องนี้ (คำสั่ง {detail}): ติดตั้ง openssh"
@@ -2158,6 +2166,14 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
+"{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle "
+"; l'espace partagé la retirera."
+msgstr ""
+"{subject}: บัตรประจำตัวเก่า ({detail}) ถูกแทนด้วยบัตรใหม่ "
+"พื้นที่ใช้ร่วมกันจะนำออก"
+
+#, python-brace-format
+msgid ""
 "le service {subject} ({detail}) a le groupe omega-synchro (complément "
 "systemd posé par omega-serv)."
 msgstr ""
@@ -2348,6 +2364,13 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
+"{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle,"
+" retirée de la zone."
+msgstr ""
+"{subject}: บัตรประจำตัวเก่า ({detail}) ถูกแทนด้วยบัตรใหม่ นำออกจากโซนแล้ว"
+
+#, python-brace-format
+msgid ""
 "{subject} devra se reconnecter pour que le groupe omega-synchro compte "
 "(lecture de la zone)."
 msgstr ""
@@ -2481,20 +2504,6 @@ msgid ""
 "deux fois."
 msgstr "เรียกคำสั่งเดิมอีกครั้งหลังแก้ไขสาเหตุ: ไม่มีสิ่งใดถูกทำซ้ำสองครั้ง"
 
-msgid "Scan de cette machine…"
-msgstr "กำลังสแกนเครื่องนี้…"
-
-#, python-brace-format
-msgid "Scan des machines du réseau ({index}/{count}) : {machine}…"
-msgstr "กำลังสแกนเครื่องในเครือข่าย ({index}/{count}): {machine}…"
-
-#, python-brace-format
-msgid "Scan terminé : cette machine et {count} machine(s) du réseau."
-msgstr "สแกนเสร็จ: เครื่องนี้และเครื่องในเครือข่าย {count} เครื่อง"
-
-msgid "Scan"
-msgstr "การสแกน"
-
 msgid "Dossier des captures non configuré."
 msgstr "ยังไม่ได้กำหนดโฟลเดอร์ภาพหน้าจอ"
 
@@ -2552,7 +2561,7 @@ msgid ""
 "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
 "6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n"
 "\n"
-"Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont rescannées."
+"Aucun scan ne part tout seul : au lancement, les listes sont vides ; le cadre « États du scan » du menu principal et le bandeau en haut de chaque écran proposent « Scanner tout le parc ». Le scan tourne en arrière-plan, plusieurs machines à la fois (Réglages) ; on peut changer d'écran ou quitter pendant le scan, et « Arrêter le scan » l'interrompt. Tous les écrans relisent ensuite ce scan ; un scan de plus de 24 heures est signalé « ancien ». Après une action, seule la machine touchée est rescannée."
 msgstr ""
 "omega-connect เชื่อมโยงแอปพลิเคชัน omega (omega-serv, omega-fire, omega-jail…) ที่ติดตั้งบนเครื่องนี้และบนเครื่องในเครือข่ายของคุณเข้าด้วยกัน แสดงว่าอะไรเชื่อมโยงแล้วหรือยัง และจัดการสิ่งที่ขาดหายให้กลับมาครบ โดยแสดงให้คุณเห็นก่อนเสมอว่าจะทำอะไร\n"
 "\n"
@@ -2563,7 +2572,7 @@ msgstr ""
 "5. [b]ซ่อมแซม[/b]: รายการทุกสิ่งที่มีปัญหา เลือกหนึ่งแถว หรือ «ซ่อมแซมทั้งหมด»\n"
 "6. [b]รายงาน[/b]: เอกสารฉบับเต็ม (ข้อความ, JSON หรือหน้า HTML) สำหรับเก็บไว้หรือส่งต่อ\n"
 "\n"
-"การสแกนทำครั้งเดียวตอนเริ่ม (เครื่องนี้ แล้วเครื่องในเครือข่ายที่รู้จัก) จากนั้นทุกหน้าจออ่านผลนั้น « สแกนใหม่ » จะสแกนใหม่ หลังการดำเนินการ จะสแกนใหม่เฉพาะเครื่องที่เกี่ยวข้อง"
+"ไม่มีการสแกนใดเริ่มเอง: ตอนเปิดโปรแกรม รายการจะว่างเปล่า และกรอบ « สถานะการสแกน » ในเมนูหลักกับแถบด้านบนของทุกหน้าจอจะเสนอ « สแกนทุกเครื่อง » การสแกนทำงานเบื้องหลัง หลายเครื่องพร้อมกัน (การตั้งค่า) ระหว่างสแกนสามารถเปลี่ยนหน้าจอหรือออกจากโปรแกรมได้ และ « หยุดการสแกน » จะหยุดการสแกน จากนั้นทุกหน้าจออ่านผลการสแกนนี้ การสแกนที่เก่ากว่า 24 ชั่วโมงจะถูกระบุว่า « เก่า » หลังการดำเนินการ จะสแกนใหม่เฉพาะเครื่องที่เกี่ยวข้อง"
 
 msgid "Registre — toutes les applications et leur état"
 msgstr "ทะเบียน — แอปพลิเคชันทั้งหมดและสถานะ"
@@ -2571,13 +2580,15 @@ msgstr "ทะเบียน — แอปพลิเคชันทั้ง�
 msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
-"- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Scanner la machine[/b] : rescanne la machine de la ligne choisie, seule, en arrière-plan ; « Scanner tout le parc » (bandeau) les rescanne toutes.\n"
+"- [b]Rechercher[/b] et filtre par état : seul l'affichage change (grand parc).\n"
 "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "แสดงแอปพลิเคชัน omega แต่ละรายการที่พบในแต่ละเครื่อง (เครื่องนี้และเครื่องในเครือข่าย): อินสแตนซ์หรือบริการ เวอร์ชัน สถานะ และโฟลเดอร์ สรุปด้านบนจะนับจำนวนแต่ละสถานะ\n"
 "\n"
-"- [b]สแกนใหม่[/b]: สแกนใหม่ทันทีในหน้าเดิม (เครื่องนี้ แล้วเครื่องในเครือข่ายที่รู้จักแล้ว) โดยไม่เปลี่ยนหน้าจอ\n"
+"- [b]สแกนเครื่อง[/b]: สแกนใหม่เฉพาะเครื่องของแถวที่เลือกในเบื้องหลัง « สแกนทุกเครื่อง » (แถบด้านบน) จะสแกนใหม่ทุกเครื่อง\n"
+"- [b]ค้นหา[/b] และกรองตามสถานะ: เปลี่ยนเฉพาะการแสดงผล (เมื่อมีเครื่องจำนวนมาก)\n"
 "- [b]อัปเดตแอปพลิเคชัน[/b] / [b]ติดตั้งแอปพลิเคชันใหม่[/b]: เปิด Updater โดยติ๊กแอปพลิเคชันของบรรทัดนั้นไว้แล้ว (« เวอร์ชันเก่า » หรือ « ติดตั้งไม่เสร็จ »: install.sh ของมันยังไม่เสร็จ จะติดตั้งเวอร์ชันเดิมใหม่) ทั้งบนเครื่องนี้และเครื่องในเครือข่าย\n"
 "- ไฮไลต์แถว: คำอธิบายสถานะและความคลาดเคลื่อนจะแสดงด้านล่าง"
 
@@ -2589,14 +2600,14 @@ msgid ""
 "- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
 "- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
 "- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
-"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- [b]Machines connues[/b] : « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle). Pour les rescanner toutes : « Scanner tout le parc » (bandeau).\n"
 "- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
 msgstr ""
 "- [b]เครื่องนี้[/b]: ค้นหาแอปพลิเคชัน omega (โฟลเดอร์ส่วนตัว บริการ systemd, OpenRC หรือ runit, /srv, ทะเบียนอินสแตนซ์ของ omega-serv) ไม่ตามลิงก์สัญลักษณ์และไม่สำรวจจุดเมานต์เครือข่ายเด็ดขาด\n"
 "- [b]เครื่องที่เสนอ[/b]: เครื่องที่คอมพิวเตอร์นี้รู้วิธีเชื่อมต่ออยู่แล้ว (โปรไฟล์ Unison, ~/.ssh/config, known_hosts) เลือกแถวแล้วกด «สแกนเครื่องที่เลือก»\n"
 "- [b]ป้อนด้วยตนเอง[/b]: ผู้ใช้@เครื่อง (ชื่อหรือที่อยู่) แล้วกด «สแกนเครื่องนี้»\n"
 "- [b]การเชื่อมต่อครั้งแรก[/b]: จะแสดงลายนิ้วมือคีย์ของเครื่อง ตรวจสอบแล้วยอมรับ คีย์ที่เปลี่ยนไปจะถูกปฏิเสธ (เครื่องถูกติดตั้งใหม่ หรือมีการแอบอ้าง)\n"
-"- [b]เครื่องที่รู้จัก[/b]: «สแกนเครื่องที่รู้จักอีกครั้ง» หรือ «นำเครื่องนี้ออก» (ออกจากทะเบียน ไม่มีการแก้ไขสิ่งใดบนเครื่องนั้น)\n"
+"- [b]เครื่องที่รู้จัก[/b]: «นำเครื่องนี้ออก» (ออกจากทะเบียน ไม่มีการแก้ไขสิ่งใดบนเครื่องนั้น) หากต้องการสแกนใหม่ทุกเครื่อง: « สแกนทุกเครื่อง » (แถบด้านบน)\n"
 "- การสแกนเครื่องในเครือข่ายส่งผ่าน SSH ไปในหน่วยความจำ แบบอ่านอย่างเดียว: ไม่ติดตั้งหรือเขียนสิ่งใดที่นั่น ไม่ขอรหัสผ่าน (ต้องมี Python 3.10 หรือใหม่กว่าที่เครื่องนั้น)"
 
 msgid "Liaisons — ce qui est relié ou pas"
@@ -2617,7 +2628,7 @@ msgid "Synchronisation — relier les applications"
 msgstr "การซิงค์ — เชื่อมโยงแอปพลิเคชัน"
 
 msgid ""
-"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
+"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan. Cochez des lignes (Entrée ou Espace : la case verte ✔), puis :\n"
 "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
 "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
 "- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
@@ -2626,7 +2637,7 @@ msgid ""
 "- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
 "- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
 msgstr ""
-"รายการเดียว: เครื่องทั้งหมดของคุณและแอปพลิเคชัน ตามการสแกนล่าสุด (« สแกนใหม่ » สแกนใหม่) ติ๊กบรรทัด (Enter หรือ Space) แล้ว:\n"
+"รายการเดียว: เครื่องทั้งหมดของคุณและแอปพลิเคชัน ตามการสแกนล่าสุด ติ๊กบรรทัด (Enter หรือ Space: ช่องสีเขียว ✔) แล้ว:\n"
 "- [b]ซิงค์รายการที่เลือก[/b] หรือ [b]ซิงค์ทั้งหมด[/b]\n"
 "- [b]เครื่องนี้[/b]: แผนเดียว แสดงก่อนดำเนินการ — บัตรประจำตัวที่ขาด (แต่ละแอปพลิเคชันสร้างเองภายใต้บัญชีของตน) แล้วพื้นที่ใช้ร่วมกัน (กลุ่ม omega-synchro โฟลเดอร์ สำเนาบัตร การเข้าถึงของบริการ) ใช้รหัสผ่านผู้ดูแลระบบครั้งเดียว\n"
 "- [b]เครื่องในเครือข่าย[/b]: แผนคำนวณบนเครื่องนั้นและแสดงผล «ซิงค์ <machine>» เรียกใช้จากที่นี่: อินเทอร์เฟซหลีกทางให้เทอร์มินัล เครื่องขอรหัสผ่านเองหนึ่งครั้ง Enter จะพากลับมายังอินเทอร์เฟซ ซึ่งแสดงผลลัพธ์\n"
@@ -2666,7 +2677,7 @@ msgid ""
 "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
 "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
 "\n"
-"Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du réseau. Pour corriger : menu Réparer."
+"Tout vient du dernier scan (bandeau : « Scanner tout le parc »). Pour corriger : menu Réparer."
 msgstr ""
 "ภาพรวมแบบกรอบ เหมือนแดชบอร์ดบนเว็บ ไม่มีการเปลี่ยนแปลงใดๆ จากหน้าจอนี้\n"
 "\n"
@@ -2675,26 +2686,28 @@ msgstr ""
 "- [b]เครื่องนี้ / เครือข่าย[/b]: ตัวเลขชุดเดียวกัน วางเทียบกัน\n"
 "- [b]Top 5[/b] (top 3 บนหน้าจอเล็ก): เครื่องที่ต้องซ่อมแซม การเชื่อมโยงที่ต้องซ่อมแซม เวอร์ชันที่ล้าหลัง การสแกนที่เก่าที่สุด (เครื่องในเครือข่าย)\n"
 "\n"
-"ทุกอย่างมาจากการสแกนล่าสุด « สแกนใหม่ » สแกนเครื่องนี้และเครื่องในเครือข่ายใหม่ ถ้าจะแก้: เมนู ซ่อมแซม"
+"ทุกอย่างมาจากการสแกนล่าสุด (แถบด้านบน: « สแกนทุกเครื่อง ») ถ้าจะแก้: เมนู ซ่อมแซม"
 
 msgid "Réparer — tout ce qui ne va pas"
 msgstr "ซ่อมแซม — ทุกสิ่งที่มีปัญหา"
 
 msgid ""
-"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le corrige.\n"
+"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (une machine réparée est rescannée aussitôt, seule) : machine, problème, état, et qui le corrige. Recherche et filtre par état au-dessus de la liste.\n"
 "\n"
-"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan). L'espace partagé fait partie du même « Lancer » : un seul mot de passe, puis « Retour » ramène à la liste.\n"
+"- Une machine injoignable : « Réparer la ligne choisie » la rescanne.\n"
 "- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
-"- [b]Tout réparer[/b] : les machines une à une.\n"
+"- [b]Tout réparer[/b] : un récapitulatif machine par machine, une confirmation, puis les machines une à une dans le terminal (un mot de passe par machine) et un bilan. Les mises à jour (Updater) et les machines injoignables restent à part. Une réparation qui échoue affiche « Échec de la réparation » et n'est plus relancée par « Tout réparer » : choisissez la ligne pour la relancer seule.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
 msgstr ""
-"รายการทุกอย่างที่ผิดปกติ บนทุกเครื่อง ตามการสแกนล่าสุด (« สแกนใหม่ » สแกนใหม่ เครื่องที่ซ่อมแล้วจะถูกสแกนใหม่ทันที): เครื่อง ปัญหา สถานะ และใครเป็นผู้แก้\n"
+"รายการทุกอย่างที่ผิดปกติ บนทุกเครื่อง ตามการสแกนล่าสุด (เครื่องที่ซ่อมแล้วจะถูกสแกนใหม่ทันที เฉพาะเครื่องนั้น): เครื่อง ปัญหา สถานะ และใครเป็นผู้แก้ มีช่องค้นหาและตัวกรองตามสถานะอยู่เหนือรายการ\n"
 "\n"
-"- [b]ซ่อมแซมแถวที่เลือก[/b]: เปิดแผนของเครื่อง เครื่องนี้: คำสั่งของแอปพลิเคชันเอง (omega-jail สำหรับสิ่งที่วางใน fail2ban, omega-serv สำหรับสิทธิ์ของ var/ ของตน, แต่ละแอปพลิเคชันสำหรับบัตรประจำตัวของตน) แล้วตามด้วยพื้นที่ใช้ร่วมกัน เครื่องในเครือข่าย: การแก้ไขแบบเดียวกัน บวกคำสั่งที่ไม่มีแอปพลิเคชันใดเรียกใช้ได้ ซึ่งเรียกใช้บนเครื่องนั้นจากที่นี่ (เฉพาะคำสั่งที่แจ้งไว้ในแผน)\n"
+"- [b]ซ่อมแซมแถวที่เลือก[/b]: เปิดแผนของเครื่อง เครื่องนี้: คำสั่งของแอปพลิเคชันเอง (omega-jail สำหรับสิ่งที่วางใน fail2ban, omega-serv สำหรับสิทธิ์ของ var/ ของตน, แต่ละแอปพลิเคชันสำหรับบัตรประจำตัวของตน) แล้วตามด้วยพื้นที่ใช้ร่วมกัน เครื่องในเครือข่าย: การแก้ไขแบบเดียวกัน บวกคำสั่งที่ไม่มีแอปพลิเคชันใดเรียกใช้ได้ ซึ่งเรียกใช้บนเครื่องนั้นจากที่นี่ (เฉพาะคำสั่งที่แจ้งไว้ในแผน) พื้นที่ใช้ร่วมกันรวมอยู่ใน «เปิด» ครั้งเดียวกัน: ใช้รหัสผ่านครั้งเดียว แล้ว «กลับ» จะพากลับไปที่รายการ\n"
+"- เครื่องที่ติดต่อไม่ได้: «ซ่อมแซมแถวที่เลือก» จะสแกนเครื่องนั้นใหม่\n"
 "- บรรทัด « เวอร์ชันเก่า » หรือ « ติดตั้งไม่เสร็จ » จะเปิด Updater โดยติ๊กแอปพลิเคชันไว้แล้ว: มีเพียง Updater ที่อัปเดต\n"
-"- [b]ซ่อมแซมทั้งหมด[/b]: ทีละเครื่อง\n"
+"- [b]ซ่อมแซมทั้งหมด[/b]: แสดงสรุปทีละเครื่อง ยืนยันครั้งเดียว แล้วดำเนินการทีละเครื่องในเทอร์มินัล (รหัสผ่านหนึ่งครั้งต่อเครื่อง) พร้อมสรุปผล การอัปเดต (Updater) และเครื่องที่ติดต่อไม่ได้จะแยกไว้ต่างหาก การซ่อมแซมที่ล้มเหลวจะแสดง « ซ่อมแซมไม่สำเร็จ » และ «ซ่อมแซมทั้งหมด» จะไม่เรียกใช้ซ้ำอีก: เลือกแถวนั้นเพื่อเรียกใช้ใหม่เพียงแถวเดียว\n"
 "- [b]รายละเอียด[/b]: การตรวจทั้งหมดของแถวที่เลือก\n"
 "- [b]คัดลอกคำสั่ง[/b] (แผนของเครื่องนี้): คลิปบอร์ดของระบบ (xclip, xsel, wl-copy) หากไม่มี คำสั่งจะแสดงเป็นข้อความธรรมดาในเทอร์มินัลให้เลือกด้วยเมาส์\n"
 "- omega-connect ไม่เขียนทับไฟล์ของแอปพลิเคชันอื่นเด็ดขาด: จะเรียกใช้คำสั่งของแอปพลิเคชันนั้น"
@@ -2709,7 +2722,7 @@ msgid ""
 "- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
 "- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
 "- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
-"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« omega-suite (7 outil(s)) », la liste et les versions sous le tableau) : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
 msgstr ""
 "ที่เดียวที่อัปเดตแอปพลิเคชัน ทั้งบนเครื่องนี้และบนเครือข่าย ซ่อมแซม และทะเบียนจะพามาที่นี่ โดยติ๊กแอปพลิเคชันไว้แล้ว\n"
 "\n"
@@ -2717,7 +2730,7 @@ msgstr ""
 "- [b]ตรวจเวอร์ชัน[/b]: เวอร์ชันล่าสุดที่เผยแพร่ของแต่ละแอปพลิเคชัน (GitHub Release หรือเว็บไซต์ของแอปพลิเคชัน) สำหรับบรรทัดที่ติ๊กหรือทั้งหมด จะไม่เสนอเวอร์ชันที่ยังไม่เผยแพร่\n"
 "- [b]อัปเดตรายการที่เลือก[/b] / [b]อัปเดตทั้งหมด[/b]: แอปพลิเคชันที่ต้องอัปเดตและการติดตั้งที่ไม่เสร็จ เครื่องนี้ก่อน: ตรวจไฟล์เก็บถาวร (sha.txt) แล้วอินเทอร์เฟซจะหลีกทางให้เทอร์มินัล ซึ่ง install.sh จะถามรหัสผ่านถ้าจำเป็น จากนั้นแต่ละเครื่องในเครือข่าย: แสดงแผนก่อนลงมือ หนึ่งรหัสผ่านต่อเครื่อง\n"
 "- ตอนจบ: สิ่งที่ทำไปทีละแอปพลิเคชัน และเครื่องที่สแกนใหม่\n"
-"- [b]omega-suite[/b]: omega-stress ที่มาด้วยเป็นส่วนหนึ่งของ omega-suite บรรทัดนี้เป็นของ omega-suite (« มี omega-stress … ») อัปเดตพร้อมเครื่องมือที่ทดสอบร่วมกัน ไม่เคยอัปเดต omega-stress เดี่ยว ๆ ตั้งแต่ 2.0.0 จะช่วยโหลดแบบกระจายเหมือน omega-stress แบบแยก ถ้าเครื่องมี omega-stress แบบแยกด้วย ตัวนั้นจะเป็นผู้ช่วย"
+"- [b]omega-suite[/b]: omega-stress ที่มาด้วยเป็นส่วนหนึ่งของ omega-suite บรรทัดนี้เป็นของ omega-suite (« omega-suite (7 เครื่องมือ) » รายการและเวอร์ชันอยู่ใต้ตาราง) อัปเดตพร้อมเครื่องมือที่ทดสอบร่วมกัน ไม่เคยอัปเดต omega-stress เดี่ยว ๆ ตั้งแต่ 2.0.0 จะช่วยโหลดแบบกระจายเหมือน omega-stress แบบแยก ถ้าเครื่องมี omega-stress แบบแยกด้วย ตัวนั้นจะเป็นผู้ช่วย"
 
 msgid "Installer — installer les applications"
 msgstr "Installer — ติดตั้งแอปพลิเคชัน"
@@ -2743,13 +2756,13 @@ msgid "Rapport — un document complet"
 msgstr "รายงาน — เอกสารฉบับเต็ม"
 
 msgid ""
-"Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"Établi d'après le dernier scan (bandeau : « Scanner tout le parc ») : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
 "\n"
 "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
 "- [b]Voir les exports[/b] : le dossier des exports s'ouvre dans votre navigateur, chaque export se lit d'un clic (sans quitter omega-connect). Sans navigateur (serveur, connexion SSH), la liste s'affiche ici et chaque export s'y lit.\n"
 "- En ligne de commande : omega-connect rapport --format html --enregistrer."
 msgstr ""
-"จัดทำจากการสแกนล่าสุด (« สแกนใหม่ » จะสแกนเครื่องนี้และเครือข่ายใหม่ก่อน): สรุป รายการสิ่งที่ยังต้องทำอย่างละเอียด (เครื่อง อะไร เมนูไหน) ทะเบียนแอปพลิเคชันทั้งหมด เครื่องในเครือข่าย รายละเอียดแอปของเครื่องนี้ การเชื่อมของแต่ละเครื่อง พื้นที่ร่วมและทะเบียนของมัน\n"
+"จัดทำจากการสแกนล่าสุด (แถบด้านบน: « สแกนทุกเครื่อง »): สรุป รายการสิ่งที่ยังต้องทำอย่างละเอียด (เครื่อง อะไร เมนูไหน) ทะเบียนแอปพลิเคชันทั้งหมด เครื่องในเครือข่าย รายละเอียดแอปของเครื่องนี้ การเชื่อมของแต่ละเครื่อง พื้นที่ร่วมและทะเบียนของมัน\n"
 "\n"
 "- ส่งออกเป็นข้อความ JSON หรือหน้า HTML (เลือกธีมได้ ค่าเริ่มต้นตามการตั้งค่า) ลงในโฟลเดอร์ส่งออก\n"
 "- [b]ดูไฟล์ส่งออก[/b]: โฟลเดอร์ส่งออกจะเปิดในเบราว์เซอร์ของคุณ อ่านแต่ละไฟล์ส่งออกได้ด้วยคลิกเดียว (ไม่ต้องออกจาก omega-connect) ถ้าไม่มีเบราว์เซอร์ (เซิร์ฟเวอร์ การเชื่อมต่อ SSH) รายการจะแสดงที่นี่และอ่านแต่ละไฟล์ที่นี่\n"
@@ -2757,11 +2770,13 @@ msgstr ""
 
 msgid ""
 "- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Machines scannées en même temps[/b] : « Scanner tout le parc » en interroge plusieurs à la fois (8 par défaut).\n"
 "- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
 "- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
 "- Tout est enregistré dans var/settings.json."
 msgstr ""
 "- [b]ธีมของอินเทอร์เฟซ[/b] (ปุ่ม t ด้วย) และ [b]ธีมของการส่งออก[/b]: บันทึกไว้\n"
+"- [b]จำนวนเครื่องที่สแกนพร้อมกัน[/b]: « สแกนทุกเครื่อง » สอบถามหลายเครื่องพร้อมกัน (ค่าเริ่มต้น 8)\n"
 "- [b]โฟลเดอร์ส่งออก[/b] และ [b]โฟลเดอร์ภาพหน้าจอ[/b]: ค่าเริ่มต้นคือ var/exports/ และ var/screenshots/ ในโฟลเดอร์ของ omega-connect ระบุพาธเต็ม หรือเว้นว่างเพื่อกลับไปใช้ค่าเริ่มต้น\n"
 "- [b]ล้างโฟลเดอร์ส่งออก / ภาพหน้าจอ[/b]: หลังยืนยัน จะลบเนื้อหาของโฟลเดอร์ที่กำหนด (โฟลเดอร์ยังอยู่) ปฏิเสธสำหรับโฟลเดอร์ระบบ โฟลเดอร์ส่วนตัว หรือโฟลเดอร์ของ omega-connect เอง ไม่ขอรหัสผ่านเด็ดขาด\n"
 "- ทุกอย่างบันทึกไว้ใน var/settings.json"
@@ -3100,9 +3115,6 @@ msgstr "ตรวจสอบตอนนี้"
 msgid "LIENS"
 msgstr "การเชื่อมโยง"
 
-msgid "Relancer le scan"
-msgstr "สแกนใหม่"
-
 msgid "Détail du lien"
 msgstr "รายละเอียดการเชื่อมโยง"
 
@@ -3196,10 +3208,6 @@ msgstr "การเชื่อม"
 
 msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
 msgstr "กำลังอ่าน omega-stress บนเครื่องนี้และบนเครือข่าย…"
-
-#, python-brace-format
-msgid "Rescan de {machine}…"
-msgstr "กำลังสแกน {machine} ใหม่…"
 
 msgid ""
 "omega-stress n'est pas installé sur cette machine (ou trop ancien) : elle ne"
@@ -3389,9 +3397,6 @@ msgstr ""
 msgid "Réparer la machine choisie"
 msgstr "ซ่อมแซมเครื่องที่เลือก"
 
-msgid "Zone : établir…"
-msgstr "โซน: จัดตั้ง…"
-
 msgid "Analyser de nouveau"
 msgstr "วิเคราะห์อีกครั้ง"
 
@@ -3404,8 +3409,26 @@ msgstr "ไม่มีเครื่องระยะไกล: สแกน�
 msgid "Préparation des réparations : vérification des liens en cours…"
 msgstr "กำลังเตรียมการซ่อมแซม: กำลังตรวจสอบการเชื่อมโยง…"
 
+msgid ""
+"Ici, l'espace partagé est mis à jour dans le même « Lancer », juste après "
+"les commandes des outils (un seul mot de passe) ; chaque opération s'affiche"
+" dans l'avancement."
+msgstr ""
+"ที่นี่ พื้นที่ใช้ร่วมกันจะอัปเดตใน « เปิด » ครั้งเดียวกัน "
+"ต่อจากคำสั่งของเครื่องมือทันที (รหัสผ่านครั้งเดียว) "
+"ทุกการดำเนินการแสดงในความคืบหน้า"
+
 msgid "Lancer avec sudo"
 msgstr "เปิดด้วย sudo"
+
+msgid "Espace partagé : lecture et plan…"
+msgstr "พื้นที่ใช้ร่วมกัน: อ่านและวางแผน…"
+
+msgid "Espace partagé : rien à faire."
+msgstr "พื้นที่ใช้ร่วมกัน: ไม่มีอะไรต้องทำ"
+
+msgid "Rien n'a été lancé."
+msgstr "ยังไม่ได้เริ่มอะไร"
 
 msgid ""
 "Vue d'ensemble de vos machines et de vos applications. Rien n'est modifié "
@@ -3433,24 +3456,22 @@ msgstr "ทะเบียน"
 
 msgid ""
 "Ce que le scanner a trouvé : chaque application omega, son service, sa "
-"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
-" à jour l'application » installe la dernière version d'une application trop "
-"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
-"corriger un écart : Réparer."
+"version et son état. « Mettre à jour l'application » installe la dernière "
+"version d'une application trop ancienne (ligne choisie). Remettre les liens "
+"en place : Synchronisation ; corriger un écart : Réparer."
 msgstr ""
 "สิ่งที่ตัวสแกนพบ: แอปพลิเคชัน omega แต่ละรายการ บริการ เวอร์ชัน และสถานะ "
-"«อัปเดตทะเบียน» สแกนใหม่ «อัปเดตแอปพลิเคชัน» "
-"ติดตั้งเวอร์ชันล่าสุดของแอปพลิเคชันที่เก่าเกินไป (แถวที่เลือก) "
-"คืนการเชื่อมโยง: การซิงค์ แก้ไขความคลาดเคลื่อน: ซ่อมแซม"
+"«อัปเดตแอปพลิเคชัน» ติดตั้งเวอร์ชันล่าสุดของแอปพลิเคชันที่เก่าเกินไป "
+"(แถวที่เลือก) คืนการเชื่อมโยง: การซิงค์ แก้ไขความคลาดเคลื่อน: ซ่อมแซม"
+
+msgid "Scanner la machine"
+msgstr "สแกนเครื่อง"
 
 msgid "Mettre à jour l'application"
 msgstr "อัปเดตแอปพลิเคชัน"
 
 msgid "Lecture du registre…"
 msgstr "กำลังอ่านทะเบียน…"
-
-msgid "Premier scan : recherche des applications omega…"
-msgstr "การสแกนครั้งแรก: กำลังค้นหาแอปพลิเคชัน omega…"
 
 #, python-brace-format
 msgid "{count} application(s) sur {machines} machine(s)"
@@ -3481,6 +3502,10 @@ msgstr "ติดตั้งแอปพลิเคชันใหม่"
 #, python-brace-format
 msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
 msgstr "→ « {action} » จะเปิด Updater โดยติ๊กแอปพลิเคชันไว้แล้ว"
+
+#, python-brace-format
+msgid "Scan de {machine} lancé."
+msgstr "เริ่มสแกน {machine} แล้ว"
 
 #, python-brace-format
 msgid ""
@@ -3605,8 +3630,8 @@ msgstr "ติดตั้งแอปพลิเคชันใหม่ จ�
 msgid "à la main (README de l'outil)"
 msgstr "ด้วยตนเอง (README ของเครื่องมือ)"
 
-msgid "Scanner : rescanner la machine"
-msgstr "สแกน: สแกนเครื่องอีกครั้ง"
+msgid "la rescanner, depuis ici"
+msgstr "สแกนใหม่ จากที่นี่"
 
 msgid "aucune correction connue (voir le détail)"
 msgstr "ไม่มีวิธีแก้ไขที่ทราบ (ดูรายละเอียด)"
@@ -3629,6 +3654,12 @@ msgstr ""
 "ทุกสิ่งที่มีปัญหาบนทุกเครื่อง เลือกแถวแล้วกด «ซ่อมแซมแถวที่เลือก» หรือ "
 "«ซ่อมแซมทั้งหมด»: แผนของเครื่องจะแสดงขึ้น ไม่มีการเรียกใช้สิ่งใดก่อนหน้านั้น"
 " เครื่องในเครือข่าย: ซ่อมแซมจากที่นี่ ขอรหัสผ่าน sudo ของเครื่องหนึ่งครั้ง"
+
+msgid "À mettre à jour"
+msgstr "ต้องอัปเดต"
+
+msgid "Échec de la réparation"
+msgstr "ซ่อมแซมไม่สำเร็จ"
 
 msgid "Réparer la ligne choisie"
 msgstr "ซ่อมแซมแถวที่เลือก"
@@ -3662,19 +3693,65 @@ msgstr "เครื่องไม่ตอบสนองแล้ว"
 msgid "{machine} : rescannez-la d'abord (Scanner)."
 msgstr "{machine}: สแกนอีกครั้งก่อน (สแกน)"
 
+msgid ""
+"Machines réparées une à une dans le terminal (mot de passe sudo demandé une "
+"fois par machine) :"
+msgstr ""
+"ซ่อมแซมเครื่องทีละเครื่องในเทอร์มินัล (ถามรหัสผ่าน sudo "
+"ครั้งเดียวต่อเครื่อง):"
+
+msgid " (cette machine)"
+msgstr " (เครื่องนี้)"
+
+#, python-brace-format
+msgid "{machine}{mark} : {count} correction(s)"
+msgstr "{machine}{mark}: แก้ไข {count} รายการ"
+
+msgid "Hors « Tout réparer » :"
+msgstr "ไม่รวมใน « ซ่อมแซมทั้งหมด »:"
+
+msgid "échec précédent : « Réparer la ligne choisie »"
+msgstr "ล้มเหลวครั้งก่อน: « ซ่อมแซมแถวที่เลือก »"
+
+msgid "Tout réparer : les machines une à une, dans ce terminal."
+msgstr "ซ่อมแซมทั้งหมด: ทีละเครื่อง ในเทอร์มินัลนี้"
+
+#, python-brace-format
+msgid "== {machine}"
+msgstr "== {machine}"
+
+msgid "Bilan :"
+msgstr "สรุป:"
+
+#, python-brace-format
+msgid "{machine} : échec (code {code})"
+msgstr "{machine}: ล้มเหลว (รหัส {code})"
+
+msgid "Appuyez sur Entrée pour revenir à omega-connect…"
+msgstr "กด Enter เพื่อกลับไปที่ omega-connect…"
+
+#, python-brace-format
+msgid ""
+"Tout réparer : {ok} machine(s) réparée(s), {failed} en échec ({names})."
+msgstr ""
+"ซ่อมแซมทั้งหมด: ซ่อมแซมแล้ว {ok} เครื่อง ล้มเหลว {failed} เครื่อง ({names})"
+
+#, python-brace-format
+msgid "Tout réparer : {ok} machine(s) réparée(s) ; rescan en cours."
+msgstr "ซ่อมแซมทั้งหมด: ซ่อมแซมแล้ว {ok} เครื่อง กำลังสแกนใหม่"
+
 msgid "RAPPORT"
 msgstr "รายงาน"
 
 msgid ""
-"Un document complet, d'après le dernier scan (« Relancer le scan » le "
-"refait) : bilan, ce qu'il reste à faire, registre, machines du réseau, "
-"liaisons de chaque machine, espace partagé. Enregistré dans le dossier des "
-"exports ; « Voir les exports » les ouvre dans le navigateur pour les lire."
+"Un document complet, d'après le dernier scan : bilan, ce qu'il reste à "
+"faire, registre, machines du réseau, liaisons de chaque machine, espace "
+"partagé. Enregistré dans le dossier des exports ; « Voir les exports » les "
+"ouvre dans le navigateur pour les lire."
 msgstr ""
-"เอกสารฉบับสมบูรณ์จากการสแกนล่าสุด (« สแกนใหม่ » จะสแกนใหม่): สรุป "
-"สิ่งที่ยังต้องทำ ทะเบียน เครื่องในเครือข่าย การเชื่อมของแต่ละเครื่อง "
-"พื้นที่ร่วม บันทึกในโฟลเดอร์ส่งออก « ดูไฟล์ส่งออก » "
-"เปิดในเบราว์เซอร์เพื่ออ่าน"
+"เอกสารฉบับสมบูรณ์จากการสแกนล่าสุด: สรุป สิ่งที่ยังต้องทำ ทะเบียน "
+"เครื่องในเครือข่าย การเชื่อมของแต่ละเครื่อง พื้นที่ร่วม "
+"บันทึกในโฟลเดอร์ส่งออก « ดูไฟล์ส่งออก » เปิดในเบราว์เซอร์เพื่ออ่าน"
 
 msgid "THÈME DE LA PAGE HTML"
 msgstr "ธีมของหน้า HTML"
@@ -3693,9 +3770,6 @@ msgstr "ส่งออก HTML"
 
 msgid "Voir les exports"
 msgstr "ดูไฟล์ส่งออก"
-
-msgid "Scan de cette machine et des machines du réseau…"
-msgstr "กำลังสแกนเครื่องนี้และเครื่องในเครือข่าย…"
 
 msgid "Génération du rapport en cours (détection, vérification, zone)…"
 msgstr "กำลังสร้างรายงาน (ตรวจหา ตรวจสอบ โซน)…"
@@ -3784,11 +3858,8 @@ msgstr ""
 msgid "Retirer cette machine"
 msgstr "นำเครื่องนี้ออก"
 
-msgid "Scanner de nouveau"
-msgstr "สแกนอีกครั้ง"
-
-msgid "Rescanner les machines connues"
-msgstr "สแกนเครื่องที่รู้จักอีกครั้ง"
+msgid "Scanner la machine locale"
+msgstr "สแกนเครื่องนี้"
 
 msgid "Voir le registre"
 msgstr "ดูทะเบียน"
@@ -3796,8 +3867,12 @@ msgstr "ดูทะเบียน"
 msgid "Trouvée dans"
 msgstr "พบใน"
 
-msgid "Analyse de la machine locale : recherche des applications omega…"
-msgstr "กำลังวิเคราะห์เครื่องนี้: กำลังค้นหาแอปพลิเคชัน omega…"
+msgid "Scan de cette machine en cours…"
+msgstr "กำลังสแกนเครื่องนี้…"
+
+msgid ""
+"Pas encore scannée depuis le lancement : « Scanner la machine locale »."
+msgstr "ยังไม่ได้สแกนตั้งแต่เปิดโปรแกรม: « สแกนเครื่องนี้ »"
 
 #, python-brace-format
 msgid "Analysée à {time}."
@@ -3840,13 +3915,6 @@ msgstr "{target}: ไม่มีการดำเนินการใด (ไ
 msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
 msgstr "กำลังสแกน {target}: ตัวสแกนทำงานที่เครื่องนั้น แบบอ่านอย่างเดียว…"
 
-msgid "Aucune machine distante connue pour l'instant."
-msgstr "ยังไม่มีเครื่องระยะไกลที่รู้จัก"
-
-#, python-brace-format
-msgid "Scan des {count} machine(s) connue(s)…"
-msgstr "กำลังสแกนเครื่องที่รู้จัก {count} เครื่อง…"
-
 #, python-brace-format
 msgid "{good} machine(s) scannée(s) sur {total}."
 msgstr "สแกนแล้ว {good} จาก {total} เครื่อง"
@@ -3859,6 +3927,14 @@ msgstr "ธีมของอินเทอร์เฟซ"
 
 msgid "Thème des exports (rapport HTML, aide exportée)"
 msgstr "ธีมของการส่งออก (รายงาน HTML ความช่วยเหลือที่ส่งออก)"
+
+msgid "Machines scannées en même temps"
+msgstr "จำนวนเครื่องที่สแกนพร้อมกัน"
+
+msgid ""
+"« Scanner tout le parc » interroge plusieurs machines à la fois (8 par "
+"défaut)."
+msgstr "« สแกนทุกเครื่อง » สอบถามหลายเครื่องพร้อมกัน (ค่าเริ่มต้น 8)"
 
 msgid "Dossier des exports"
 msgstr "โฟลเดอร์ส่งออก"
@@ -4006,6 +4082,22 @@ msgstr "ต้องติดตั้ง"
 msgid "déjà installée"
 msgstr "ติดตั้งแล้ว"
 
+#, python-brace-format
+msgid "{tool} ({count} outil(s))"
+msgstr "{tool} ({count} เครื่องมือ)"
+
+#, python-brace-format
+msgid "Machine : {machine}"
+msgstr "เครื่อง: {machine}"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} contient : {tools}. Ces outils se mettent à jour avec elle "
+": seule la ligne {tool} est à mettre à jour."
+msgstr ""
+"{tool} {version} ประกอบด้วย: {tools} เครื่องมือเหล่านี้อัปเดตไปพร้อมกัน: "
+"ต้องอัปเดตเฉพาะแถว {tool} เท่านั้น"
+
 msgid ""
 "omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
 "demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
@@ -4047,10 +4139,6 @@ msgstr "อัปเดตทั้งหมด"
 
 msgid "Disponible"
 msgstr "มีให้"
-
-#, python-brace-format
-msgid "{tool} (contient {tools})"
-msgstr "{tool} (มี {tools})"
 
 msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
 msgstr "กำลังค้นหาเวอร์ชันล่าสุดที่เผยแพร่ (GitHub แล้วจึงเว็บไซต์)…"
@@ -4182,3 +4270,65 @@ msgstr ""
 "สิ่งที่เชื่อมโยงแล้วหรือยัง บนทุกเครื่องของคุณ พร้อมสถานะ (OK, ต้องซ่อมแซม, "
 "ไม่มี…) หน้าจอนี้แสดงผลเท่านั้น: สิ่งที่ «ต้องซ่อมแซม» แก้ไขได้ในเมนูซ่อมแซม"
 " ไฮไลต์แถวเพื่อดูรายละเอียด"
+
+msgid "Tous les états"
+msgstr "ทุกสถานะ"
+
+msgid "Rechercher : machine, application, dossier…"
+msgstr "ค้นหา: เครื่อง แอปพลิเคชัน โฟลเดอร์…"
+
+msgid "jamais"
+msgstr "ไม่เคย"
+
+msgid "ancien"
+msgstr "เก่า"
+
+msgid "États du scan"
+msgstr "สถานะการสแกน"
+
+msgid "Scanner tout le parc"
+msgstr "สแกนทุกเครื่อง"
+
+msgid "Arrêter le scan"
+msgstr "หยุดการสแกน"
+
+msgid "Un scan est déjà en cours."
+msgstr "มีการสแกนกำลังทำงานอยู่แล้ว"
+
+msgid "Scan"
+msgstr "การสแกน"
+
+#, python-brace-format
+msgid "Scan terminé : {count} machine(s)."
+msgstr "สแกนเสร็จ: {count} เครื่อง"
+
+#, python-brace-format
+msgid "Scan en cours : {done}/{total} machine(s)"
+msgstr "กำลังสแกน: {done}/{total} เครื่อง"
+
+#, python-brace-format
+msgid ""
+"Scan arrêté : {done}/{total} machine(s) scannée(s) ; les autres gardent leur"
+" dernier scan."
+msgstr ""
+"หยุดการสแกนแล้ว: สแกนแล้ว {done}/{total} เครื่อง "
+"เครื่องที่เหลือใช้ผลสแกนล่าสุด"
+
+msgid "Pas encore de scan depuis le lancement."
+msgstr "ยังไม่มีการสแกนตั้งแต่เปิดโปรแกรม"
+
+msgid ""
+"Pas encore de scan depuis le lancement : « Scanner tout le parc » pour "
+"remplir les listes."
+msgstr "ยังไม่มีการสแกนตั้งแต่เปิดโปรแกรม: « สแกนทุกเครื่อง » เพื่อเติมรายการ"
+
+msgid "Cette machine : pas encore scannée."
+msgstr "เครื่องนี้: ยังไม่ได้สแกน"
+
+#, python-brace-format
+msgid "Cette machine scannée {age}."
+msgstr "เครื่องนี้สแกนเมื่อ {age}"
+
+#, python-brace-format
+msgid "Réseau : {count} machine(s), plus ancien scan {age}"
+msgstr "เครือข่าย: {count} เครื่อง สแกนเก่าที่สุด {age}"

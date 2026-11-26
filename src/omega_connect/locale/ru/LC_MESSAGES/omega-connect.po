@@ -75,6 +75,10 @@ msgid "{count} fichiers installés dans {root}."
 msgstr "Установлено файлов в {root}: {count}."
 
 #, python-brace-format
+msgid "Carte d'identité de l'installation gardée ({path})."
+msgstr "Паспорт установки сохранён ({path})."
+
+#, python-brace-format
 msgid "install.sh introuvable dans {root}"
 msgstr "install.sh не найден в {root}"
 
@@ -1195,6 +1199,11 @@ msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-ba
 msgstr "Сканирование {target} не удалось ({detail}). Там ничего не изменено."
 
 #, python-brace-format
+msgid "Scan de {target} arrêté : rien n'a été enregistré pour cette machine."
+msgstr ""
+"Сканирование {target} остановлено: для этой машины ничего не сохранено."
+
+#, python-brace-format
 msgid ""
 "Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
 msgstr ""
@@ -2216,6 +2225,14 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
+"{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle "
+"; l'espace partagé la retirera."
+msgstr ""
+"{subject}: старый паспорт ({detail}) заменён новым; общее пространство его "
+"удалит."
+
+#, python-brace-format
+msgid ""
 "le service {subject} ({detail}) a le groupe omega-synchro (complément "
 "systemd posé par omega-serv)."
 msgstr ""
@@ -2414,6 +2431,12 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
+"{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle,"
+" retirée de la zone."
+msgstr "{subject}: старый паспорт ({detail}) заменён новым, удалён из зоны."
+
+#, python-brace-format
+msgid ""
 "{subject} devra se reconnecter pour que le groupe omega-synchro compte "
 "(lecture de la zone)."
 msgstr ""
@@ -2550,20 +2573,6 @@ msgstr ""
 "Запустите ту же команду снова после устранения причины: ничего не делается "
 "дважды."
 
-msgid "Scan de cette machine…"
-msgstr "Сканирование этой машины…"
-
-#, python-brace-format
-msgid "Scan des machines du réseau ({index}/{count}) : {machine}…"
-msgstr "Сканирование машин сети ({index}/{count}): {machine}…"
-
-#, python-brace-format
-msgid "Scan terminé : cette machine et {count} machine(s) du réseau."
-msgstr "Сканирование завершено: эта машина и машин сети: {count}."
-
-msgid "Scan"
-msgstr "Скан"
-
 msgid "Dossier des captures non configuré."
 msgstr "Папка снимков экрана не настроена."
 
@@ -2622,7 +2631,7 @@ msgid ""
 "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
 "6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n"
 "\n"
-"Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont rescannées."
+"Aucun scan ne part tout seul : au lancement, les listes sont vides ; le cadre « États du scan » du menu principal et le bandeau en haut de chaque écran proposent « Scanner tout le parc ». Le scan tourne en arrière-plan, plusieurs machines à la fois (Réglages) ; on peut changer d'écran ou quitter pendant le scan, et « Arrêter le scan » l'interrompt. Tous les écrans relisent ensuite ce scan ; un scan de plus de 24 heures est signalé « ancien ». Après une action, seule la machine touchée est rescannée."
 msgstr ""
 "omega-connect связывает между собой приложения omega (omega-serv, omega-fire, omega-jail…), установленные на этой машине и на машинах вашей сети. Он показывает, что связано, а что нет, и восстанавливает недостающее, всегда сначала показав, что собирается сделать.\n"
 "\n"
@@ -2633,7 +2642,7 @@ msgstr ""
 "5. [b]Исправление[/b]: список всего, что не в порядке; выберите строку или «Исправить всё».\n"
 "6. [b]Отчёт[/b]: полный документ (текст, JSON или HTML-страница), чтобы сохранить или передать.\n"
 "\n"
-"Сканирование выполняется один раз, при запуске (эта машина, затем известные машины сети), и затем перечитывается всеми экранами: « Сканировать снова » выполняет его заново. После действия заново сканируются только затронутые машины."
+"Сканирование никогда не начинается само: после запуска списки пусты, а рамка « Состояние сканирования » главного меню и баннер вверху каждого экрана предлагают « Сканировать все машины ». Сканирование идёт в фоне, по нескольку машин одновременно (Настройки); во время сканирования можно переходить на другие экраны или выйти, а « Остановить сканирование » прерывает его. Затем все экраны перечитывают это сканирование; сканирование старше 24 часов помечается как « устарело ». После действия заново сканируется только затронутая машина."
 
 msgid "Registre — toutes les applications et leur état"
 msgstr "Реестр — все приложения и их состояние"
@@ -2641,13 +2650,15 @@ msgstr "Реестр — все приложения и их состояние"
 msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
-"- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Scanner la machine[/b] : rescanne la machine de la ligne choisie, seule, en arrière-plan ; « Scanner tout le parc » (bandeau) les rescanne toutes.\n"
+"- [b]Rechercher[/b] et filtre par état : seul l'affichage change (grand parc).\n"
 "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "Показывает для каждой машины (этой и машин в сети) каждое найденное приложение omega: его экземпляр или службу, версию, состояние и папку. Сводка вверху подсчитывает состояния.\n"
 "\n"
-"- [b]Сканировать снова[/b]: выполняет сканирование заново на месте (эта машина, затем уже известные машины сети), не меняя экрана.\n"
+"- [b]Сканировать машину[/b]: заново сканирует машину выбранной строки, только её, в фоне; « Сканировать все машины » (баннер) заново сканирует их все.\n"
+"- [b]Поиск[/b] и фильтр по состоянию: меняется только отображение (большой парк).\n"
 "- [b]Обновить приложение[/b] / [b]Переустановить приложение[/b]: открывает Updater, приложение строки уже отмечено (« Старая версия »; или « Незавершённая установка »: его install.sh не завершился, та же версия переустанавливается). На этой машине так же, как на машине в сети.\n"
 "- Выделите строку: под ней появится объяснение её состояния и расхождений."
 
@@ -2659,14 +2670,14 @@ msgid ""
 "- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
 "- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
 "- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
-"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- [b]Machines connues[/b] : « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle). Pour les rescanner toutes : « Scanner tout le parc » (bandeau).\n"
 "- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
 msgstr ""
 "- [b]Эта машина[/b]: ищет приложения omega (домашняя папка, службы systemd, OpenRC или runit, /srv, реестр экземпляров omega-serv). Никогда не переходит по символическим ссылкам и не просматривает сетевые подключения.\n"
 "- [b]Предлагаемые машины[/b]: те, к которым этот компьютер уже умеет подключаться (профили Unison, ~/.ssh/config, known_hosts). Выберите строку, затем «Сканировать выбранную машину».\n"
 "- [b]Ручной ввод[/b]: пользователь@машина (имя или адрес), затем «Сканировать эту машину».\n"
 "- [b]Первое подключение[/b]: показывается отпечаток ключа машины; проверьте его, затем примите. ИЗМЕНИВШИЙСЯ ключ отклоняется (машина переустановлена или подмена).\n"
-"- [b]Известные машины[/b]: «Пересканировать известные машины» или «Убрать эту машину» (она удаляется из реестра; на ней ничего не меняется).\n"
+"- [b]Известные машины[/b]: «Убрать эту машину» (она удаляется из реестра; на ней ничего не меняется). Чтобы заново просканировать все: «Сканировать все машины» (баннер).\n"
 "- Сканер для машины в сети передаётся в память по SSH, только чтение: на ней ничего не устанавливается и не записывается, пароль не запрашивается (там нужен Python 3.10 или новее)."
 
 msgid "Liaisons — ce qui est relié ou pas"
@@ -2687,7 +2698,7 @@ msgid "Synchronisation — relier les applications"
 msgstr "Синхронизация — связать приложения"
 
 msgid ""
-"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
+"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan. Cochez des lignes (Entrée ou Espace : la case verte ✔), puis :\n"
 "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
 "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
 "- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
@@ -2696,7 +2707,7 @@ msgid ""
 "- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
 "- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
 msgstr ""
-"Один список: все ваши машины и их приложения, по последнему сканированию (« Сканировать снова » выполняет его заново). Отметьте строки (Enter или Пробел), затем:\n"
+"Один список: все ваши машины и их приложения, по последнему сканированию. Отметьте строки (Enter или Пробел: зелёный флажок ✔), затем:\n"
 "- [b]Синхронизировать выбранное[/b] или [b]Синхронизировать всё[/b].\n"
 "- [b]Эта машина[/b]: один план, показанный до выполнения — недостающие паспорта (их создаёт каждое приложение под своей учётной записью), затем общее пространство (группа omega-synchro, папки, копирование паспортов, доступ служб). Один пароль администратора.\n"
 "- [b]Машина в сети[/b]: её план вычисляется на ней самой и показывается; «Синхронизировать <машина>» запускает его отсюда: интерфейс уступает место терминалу, машина сама запрашивает свой пароль, один раз; Enter возвращает в интерфейс, который показывает результат.\n"
@@ -2736,7 +2747,7 @@ msgid ""
 "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
 "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
 "\n"
-"Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du réseau. Pour corriger : menu Réparer."
+"Tout vient du dernier scan (bandeau : « Scanner tout le parc »). Pour corriger : menu Réparer."
 msgstr ""
 "Общий обзор в рамках, как веб-панель. На этом экране ничего не изменяется.\n"
 "\n"
@@ -2745,26 +2756,28 @@ msgstr ""
 "- [b]Эта машина / Сеть[/b]: те же цифры рядом.\n"
 "- [b]Top 5[/b] (top 3 на маленьком экране): машины к исправлению, связи к исправлению, устаревшие версии, самые давние сканирования (машины в сети).\n"
 "\n"
-"Всё берётся из последнего сканирования; « Сканировать снова » выполняет его заново для этой машины и машин сети. Чтобы исправить: меню Исправить."
+"Всё берётся из последнего сканирования (баннер: « Сканировать все машины »). Чтобы исправить: меню Исправить."
 
 msgid "Réparer — tout ce qui ne va pas"
 msgstr "Исправление — всё, что не в порядке"
 
 msgid ""
-"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le corrige.\n"
+"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (une machine réparée est rescannée aussitôt, seule) : machine, problème, état, et qui le corrige. Recherche et filtre par état au-dessus de la liste.\n"
 "\n"
-"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan). L'espace partagé fait partie du même « Lancer » : un seul mot de passe, puis « Retour » ramène à la liste.\n"
+"- Une machine injoignable : « Réparer la ligne choisie » la rescanne.\n"
 "- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
-"- [b]Tout réparer[/b] : les machines une à une.\n"
+"- [b]Tout réparer[/b] : un récapitulatif machine par machine, une confirmation, puis les machines une à une dans le terminal (un mot de passe par machine) et un bilan. Les mises à jour (Updater) et les machines injoignables restent à part. Une réparation qui échoue affiche « Échec de la réparation » et n'est plus relancée par « Tout réparer » : choisissez la ligne pour la relancer seule.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
 msgstr ""
-"Список всего, что не так, на всех машинах, по последнему сканированию (« Сканировать снова » выполняет его заново; исправленная машина сразу сканируется снова): машина, проблема, состояние и кто исправляет.\n"
+"Список всего, что не так, на всех машинах, по последнему сканированию (исправленная машина сразу сканируется снова, только она): машина, проблема, состояние и кто исправляет. Поиск и фильтр по состоянию над списком.\n"
 "\n"
-"- [b]Исправить выбранную строку[/b]: открывает план машины. Эта машина: команды самих приложений (omega-jail — для того, что он устанавливает в fail2ban, omega-serv — для прав своей папки var/, каждое приложение — для своего паспорта), затем общее пространство. Машина в сети: те же исправления, плюс команды, которые не умеет запускать ни одно приложение, — они запускаются НА машине отсюда (только объявленные в плане).\n"
+"- [b]Исправить выбранную строку[/b]: открывает план машины. Эта машина: команды самих приложений (omega-jail — для того, что он устанавливает в fail2ban, omega-serv — для прав своей папки var/, каждое приложение — для своего паспорта), затем общее пространство. Машина в сети: те же исправления, плюс команды, которые не умеет запускать ни одно приложение, — они запускаются НА машине отсюда (только объявленные в плане). Общее пространство входит в тот же « Запустить »: один пароль, затем « Назад » возвращает к списку.\n"
+"- Недоступная машина: « Исправить выбранную строку » сканирует её заново.\n"
 "- Строка « Старая версия » или « Незавершённая установка » открывает Updater с уже отмеченным приложением: обновляет только Updater.\n"
-"- [b]Исправить всё[/b]: машины одна за другой.\n"
+"- [b]Исправить всё[/b]: сводка по каждой машине, одно подтверждение, затем машины одна за другой в терминале (один пароль на машину) и итог. Обновления (Updater) и недоступные машины идут отдельно. Неудачное исправление показывает « Исправление не удалось » и больше не перезапускается через « Исправить всё »: выберите строку, чтобы перезапустить его отдельно.\n"
 "- [b]Подробности[/b]: все проверки выбранной строки.\n"
 "- [b]Копировать команды[/b] (план этой машины): системный буфер обмена (xclip, xsel, wl-copy); иначе команды выводятся в терминале открытым текстом, чтобы выделить их мышью.\n"
 "- omega-connect никогда не переписывает файл другого приложения: он запускает его команду."
@@ -2779,7 +2792,7 @@ msgid ""
 "- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
 "- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
 "- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
-"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« omega-suite (7 outil(s)) », la liste et les versions sous le tableau) : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
 msgstr ""
 "Единственное место, где обновляются приложения, — на этой машине и в сети. Исправить и Реестр ведут сюда, приложение уже отмечено.\n"
 "\n"
@@ -2787,7 +2800,7 @@ msgstr ""
 "- [b]Проверить версии[/b]: последняя опубликованная версия каждого приложения (GitHub Release, иначе сайт приложения) для отмеченных строк или для всех. Неопубликованная версия никогда не предлагается.\n"
 "- [b]Обновить выбранное[/b] / [b]Обновить всё[/b]: приложения для обновления и незавершённые установки. Сначала эта машина: архивы проверены (sha.txt), затем интерфейс уступает место терминалу, где скрипты install.sh при необходимости запрашивают пароль. Затем каждая машина сети: её план показывается до действий, один пароль на машину.\n"
 "- В конце: что сделано, по каждому приложению, и машины просканированы заново.\n"
-"- [b]omega-suite[/b]: встроенный omega-stress — её часть. Строка относится к omega-suite (« содержит omega-stress … »): она обновляется вместе со своими инструментами, протестированными вместе, никогда не omega-stress отдельно. Начиная с 2.0.0 он помогает в распределённой нагрузке, как отдельный omega-stress; если на машине есть и отдельный omega-stress, помогает он."
+"- [b]omega-suite[/b]: встроенный omega-stress — её часть. Строка относится к omega-suite (« omega-suite (инструментов: 7) », список и версии под таблицей): она обновляется вместе со своими инструментами, протестированными вместе, никогда не omega-stress отдельно. Начиная с 2.0.0 он помогает в распределённой нагрузке, как отдельный omega-stress; если на машине есть и отдельный omega-stress, помогает он."
 
 msgid "Installer — installer les applications"
 msgstr "Installer — установка приложений"
@@ -2813,13 +2826,13 @@ msgid "Rapport — un document complet"
 msgstr "Отчёт — полный документ"
 
 msgid ""
-"Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"Établi d'après le dernier scan (bandeau : « Scanner tout le parc ») : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
 "\n"
 "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
 "- [b]Voir les exports[/b] : le dossier des exports s'ouvre dans votre navigateur, chaque export se lit d'un clic (sans quitter omega-connect). Sans navigateur (serveur, connexion SSH), la liste s'affiche ici et chaque export s'y lit.\n"
 "- En ligne de commande : omega-connect rapport --format html --enregistrer."
 msgstr ""
-"Составлен по последнему сканированию (« Сканировать снова » сначала заново сканирует эту машину и сеть): итог, точный список того, что осталось сделать (машина, что, какое меню), реестр всех приложений, машины сети, приложения этой машины подробно, связи каждой машины, общее пространство и его реестр.\n"
+"Составлен по последнему сканированию (баннер: « Сканировать все машины »): итог, точный список того, что осталось сделать (машина, что, какое меню), реестр всех приложений, машины сети, приложения этой машины подробно, связи каждой машины, общее пространство и его реестр.\n"
 "\n"
 "- Экспорт в текст, JSON или HTML-страницу (тема на выбор, по умолчанию — из Настроек) в папку экспорта.\n"
 "- [b]Открыть экспорты[/b]: папка экспорта открывается в вашем браузере, каждый экспорт читается одним щелчком (не выходя из omega-connect). Без браузера (сервер, подключение по SSH) список показывается здесь, и каждый экспорт читается здесь.\n"
@@ -2827,11 +2840,13 @@ msgstr ""
 
 msgid ""
 "- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Machines scannées en même temps[/b] : « Scanner tout le parc » en interroge plusieurs à la fois (8 par défaut).\n"
 "- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
 "- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
 "- Tout est enregistré dans var/settings.json."
 msgstr ""
 "- [b]Тема интерфейса[/b] (также клавиша t) и [b]тема экспорта[/b]: сохраняются.\n"
+"- [b]Машин сканируется одновременно[/b]: « Сканировать все машины » опрашивает несколько машин сразу (по умолчанию 8).\n"
 "- [b]Папка экспорта[/b] и [b]папка снимков экрана[/b]: по умолчанию var/exports/ и var/screenshots/ в папке omega-connect; полный путь или пусто, чтобы вернуть значение по умолчанию.\n"
 "- [b]Очистить папку экспорта / снимков[/b]: после подтверждения удаляет содержимое настроенной папки (сама папка остаётся). Запрещено для системной, домашней папки или папки самого omega-connect; пароль никогда не запрашивается.\n"
 "- Всё сохраняется в var/settings.json."
@@ -3169,9 +3184,6 @@ msgstr "Проверить сейчас"
 msgid "LIENS"
 msgstr "СВЯЗИ"
 
-msgid "Relancer le scan"
-msgstr "Сканировать снова"
-
 msgid "Détail du lien"
 msgstr "Подробности связи"
 
@@ -3265,10 +3277,6 @@ msgstr "Связь"
 
 msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
 msgstr "Чтение omega-stress на этой машине и в сети…"
-
-#, python-brace-format
-msgid "Rescan de {machine}…"
-msgstr "Повторное сканирование {machine}…"
 
 msgid ""
 "omega-stress n'est pas installé sur cette machine (ou trop ancien) : elle ne"
@@ -3464,9 +3472,6 @@ msgstr ""
 msgid "Réparer la machine choisie"
 msgstr "Исправить выбранную машину"
 
-msgid "Zone : établir…"
-msgstr "Зона: создать…"
-
 msgid "Analyser de nouveau"
 msgstr "Проанализировать снова"
 
@@ -3479,8 +3484,26 @@ msgstr "нет удалённых машин: просканируйте хот�
 msgid "Préparation des réparations : vérification des liens en cours…"
 msgstr "Подготовка исправлений: идёт проверка связей…"
 
+msgid ""
+"Ici, l'espace partagé est mis à jour dans le même « Lancer », juste après "
+"les commandes des outils (un seul mot de passe) ; chaque opération s'affiche"
+" dans l'avancement."
+msgstr ""
+"Здесь общее пространство обновляется в том же «Запустить», сразу после "
+"команд инструментов (один пароль); каждая операция отображается в ходе "
+"выполнения."
+
 msgid "Lancer avec sudo"
 msgstr "Запустить через sudo"
+
+msgid "Espace partagé : lecture et plan…"
+msgstr "Общее пространство: чтение и план…"
+
+msgid "Espace partagé : rien à faire."
+msgstr "Общее пространство: делать нечего."
+
+msgid "Rien n'a été lancé."
+msgstr "Ничего не запущено."
 
 msgid ""
 "Vue d'ensemble de vos machines et de vos applications. Rien n'est modifié "
@@ -3509,25 +3532,23 @@ msgstr "РЕЕСТР"
 
 msgid ""
 "Ce que le scanner a trouvé : chaque application omega, son service, sa "
-"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
-" à jour l'application » installe la dernière version d'une application trop "
-"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
-"corriger un écart : Réparer."
+"version et son état. « Mettre à jour l'application » installe la dernière "
+"version d'une application trop ancienne (ligne choisie). Remettre les liens "
+"en place : Synchronisation ; corriger un écart : Réparer."
 msgstr ""
 "Что нашёл сканер: каждое приложение omega, его служба, версия и состояние. "
-"«Обновить реестр» выполняет сканирование заново; «Обновить приложение» "
-"устанавливает последнюю версию слишком старого приложения (выбранная "
-"строка). Восстановить связи: Синхронизация; исправить расхождение: "
-"Исправление."
+"«Обновить приложение» устанавливает последнюю версию слишком старого "
+"приложения (выбранная строка). Восстановить связи: Синхронизация; исправить "
+"расхождение: Исправление."
+
+msgid "Scanner la machine"
+msgstr "Сканировать машину"
 
 msgid "Mettre à jour l'application"
 msgstr "Обновить приложение"
 
 msgid "Lecture du registre…"
 msgstr "Чтение реестра…"
-
-msgid "Premier scan : recherche des applications omega…"
-msgstr "Первое сканирование: поиск приложений omega…"
 
 #, python-brace-format
 msgid "{count} application(s) sur {machines} machine(s)"
@@ -3558,6 +3579,10 @@ msgstr "Переустановить приложение"
 #, python-brace-format
 msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
 msgstr "→ « {action} » открывает Updater с уже отмеченным приложением."
+
+#, python-brace-format
+msgid "Scan de {machine} lancé."
+msgstr "Сканирование {machine} запущено."
 
 #, python-brace-format
 msgid ""
@@ -3682,8 +3707,8 @@ msgstr "Переустановить приложение, отсюда"
 msgid "à la main (README de l'outil)"
 msgstr "вручную (README инструмента)"
 
-msgid "Scanner : rescanner la machine"
-msgstr "Сканирование: пересканировать машину"
+msgid "la rescanner, depuis ici"
+msgstr "пересканировать её, отсюда"
 
 msgid "aucune correction connue (voir le détail)"
 msgstr "исправление неизвестно (см. подробности)"
@@ -3707,6 +3732,12 @@ msgstr ""
 "выбранную строку», или «Исправить всё»: показывается план машины, до этого "
 "ничего не запускается. Машина в сети исправляется отсюда, её пароль sudo "
 "запрашивается один раз."
+
+msgid "À mettre à jour"
+msgstr "Требует обновления"
+
+msgid "Échec de la réparation"
+msgstr "Исправление не удалось"
 
 msgid "Réparer la ligne choisie"
 msgstr "Исправить выбранную строку"
@@ -3740,19 +3771,64 @@ msgstr "машина больше не отвечает"
 msgid "{machine} : rescannez-la d'abord (Scanner)."
 msgstr "{machine}: сначала пересканируйте её (Сканирование)."
 
+msgid ""
+"Machines réparées une à une dans le terminal (mot de passe sudo demandé une "
+"fois par machine) :"
+msgstr ""
+"Машины исправляются по очереди в терминале (пароль sudo запрашивается один "
+"раз на машину):"
+
+msgid " (cette machine)"
+msgstr " (эта машина)"
+
+#, python-brace-format
+msgid "{machine}{mark} : {count} correction(s)"
+msgstr "{machine}{mark}: исправлений: {count}"
+
+msgid "Hors « Tout réparer » :"
+msgstr "Вне «Исправить всё»:"
+
+msgid "échec précédent : « Réparer la ligne choisie »"
+msgstr "прошлый сбой: «Исправить выбранную строку»"
+
+msgid "Tout réparer : les machines une à une, dans ce terminal."
+msgstr "Исправить всё: машины по очереди, в этом терминале."
+
+#, python-brace-format
+msgid "== {machine}"
+msgstr "== {machine}"
+
+msgid "Bilan :"
+msgstr "Итог:"
+
+#, python-brace-format
+msgid "{machine} : échec (code {code})"
+msgstr "{machine}: сбой (код {code})"
+
+msgid "Appuyez sur Entrée pour revenir à omega-connect…"
+msgstr "Нажмите Enter, чтобы вернуться в omega-connect…"
+
+#, python-brace-format
+msgid ""
+"Tout réparer : {ok} machine(s) réparée(s), {failed} en échec ({names})."
+msgstr "Исправить всё: исправлено машин: {ok}, со сбоем: {failed} ({names})."
+
+#, python-brace-format
+msgid "Tout réparer : {ok} machine(s) réparée(s) ; rescan en cours."
+msgstr "Исправить всё: исправлено машин: {ok}; идёт повторное сканирование."
+
 msgid "RAPPORT"
 msgstr "ОТЧЁТ"
 
 msgid ""
-"Un document complet, d'après le dernier scan (« Relancer le scan » le "
-"refait) : bilan, ce qu'il reste à faire, registre, machines du réseau, "
-"liaisons de chaque machine, espace partagé. Enregistré dans le dossier des "
-"exports ; « Voir les exports » les ouvre dans le navigateur pour les lire."
+"Un document complet, d'après le dernier scan : bilan, ce qu'il reste à "
+"faire, registre, machines du réseau, liaisons de chaque machine, espace "
+"partagé. Enregistré dans le dossier des exports ; « Voir les exports » les "
+"ouvre dans le navigateur pour les lire."
 msgstr ""
-"Полный документ по последнему сканированию (« Сканировать снова » выполняет "
-"его заново): итог, что осталось сделать, реестр, машины сети, связи каждой "
-"машины, общее пространство. Сохраняется в папке экспорта; « Открыть экспорты"
-" » открывает их в браузере для чтения."
+"Полный документ по последнему сканированию: итог, что осталось сделать, "
+"реестр, машины сети, связи каждой машины, общее пространство. Сохраняется в "
+"папке экспорта; « Открыть экспорты » открывает их в браузере для чтения."
 
 msgid "THÈME DE LA PAGE HTML"
 msgstr "ТЕМА HTML-СТРАНИЦЫ"
@@ -3771,9 +3847,6 @@ msgstr "Экспорт HTML"
 
 msgid "Voir les exports"
 msgstr "Открыть экспорты"
-
-msgid "Scan de cette machine et des machines du réseau…"
-msgstr "Сканирование этой машины и машин сети…"
 
 msgid "Génération du rapport en cours (détection, vérification, zone)…"
 msgstr "Идёт создание отчёта (обнаружение, проверка, зона)…"
@@ -3862,11 +3935,8 @@ msgstr ""
 msgid "Retirer cette machine"
 msgstr "Убрать эту машину"
 
-msgid "Scanner de nouveau"
-msgstr "Сканировать снова"
-
-msgid "Rescanner les machines connues"
-msgstr "Пересканировать известные машины"
+msgid "Scanner la machine locale"
+msgstr "Сканировать локальную машину"
 
 msgid "Voir le registre"
 msgstr "Открыть реестр"
@@ -3874,8 +3944,12 @@ msgstr "Открыть реестр"
 msgid "Trouvée dans"
 msgstr "Найдено в"
 
-msgid "Analyse de la machine locale : recherche des applications omega…"
-msgstr "Анализ локальной машины: поиск приложений omega…"
+msgid "Scan de cette machine en cours…"
+msgstr "Идёт сканирование этой машины…"
+
+msgid ""
+"Pas encore scannée depuis le lancement : « Scanner la machine locale »."
+msgstr "Ещё не сканирована с момента запуска: «Сканировать локальную машину»."
 
 #, python-brace-format
 msgid "Analysée à {time}."
@@ -3919,13 +3993,6 @@ msgstr "{target}: ничего не сделано (машина не приня
 msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
 msgstr "Сканирование {target}: сканер работает там, только чтение…"
 
-msgid "Aucune machine distante connue pour l'instant."
-msgstr "Пока нет известных удалённых машин."
-
-#, python-brace-format
-msgid "Scan des {count} machine(s) connue(s)…"
-msgstr "Сканирование известных машин ({count})…"
-
 #, python-brace-format
 msgid "{good} machine(s) scannée(s) sur {total}."
 msgstr "Просканировано машин: {good} из {total}."
@@ -3938,6 +4005,15 @@ msgstr "Тема интерфейса"
 
 msgid "Thème des exports (rapport HTML, aide exportée)"
 msgstr "Тема экспорта (HTML-отчёт, экспортированная справка)"
+
+msgid "Machines scannées en même temps"
+msgstr "Машин сканируется одновременно"
+
+msgid ""
+"« Scanner tout le parc » interroge plusieurs machines à la fois (8 par "
+"défaut)."
+msgstr ""
+"«Сканировать все машины» опрашивает несколько машин сразу (по умолчанию 8)."
 
 msgid "Dossier des exports"
 msgstr "Папка экспорта"
@@ -4087,6 +4163,22 @@ msgstr "установить"
 msgid "déjà installée"
 msgstr "уже установлено"
 
+#, python-brace-format
+msgid "{tool} ({count} outil(s))"
+msgstr "{tool} (инструментов: {count})"
+
+#, python-brace-format
+msgid "Machine : {machine}"
+msgstr "Машина: {machine}"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} contient : {tools}. Ces outils se mettent à jour avec elle "
+": seule la ligne {tool} est à mettre à jour."
+msgstr ""
+"{tool} {version} содержит: {tools}. Эти инструменты обновляются вместе с "
+"ней: обновить нужно только строку {tool}."
+
 msgid ""
 "omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
 "demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
@@ -4129,10 +4221,6 @@ msgstr "Обновить всё"
 
 msgid "Disponible"
 msgstr "Доступна"
-
-#, python-brace-format
-msgid "{tool} (contient {tools})"
-msgstr "{tool} (содержит {tools})"
 
 msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
 msgstr "Поиск последних опубликованных версий (GitHub, затем сайт)…"
@@ -4268,3 +4356,67 @@ msgstr ""
 "исправления, отсутствует…). Этот экран только показывает: то, что «требует "
 "исправления», исправляется в меню Исправление. Выделите строку, чтобы "
 "увидеть подробности."
+
+msgid "Tous les états"
+msgstr "Все состояния"
+
+msgid "Rechercher : machine, application, dossier…"
+msgstr "Поиск: машина, приложение, папка…"
+
+msgid "jamais"
+msgstr "никогда"
+
+msgid "ancien"
+msgstr "устарело"
+
+msgid "États du scan"
+msgstr "Состояние сканирования"
+
+msgid "Scanner tout le parc"
+msgstr "Сканировать все машины"
+
+msgid "Arrêter le scan"
+msgstr "Остановить сканирование"
+
+msgid "Un scan est déjà en cours."
+msgstr "Сканирование уже идёт."
+
+msgid "Scan"
+msgstr "Скан"
+
+#, python-brace-format
+msgid "Scan terminé : {count} machine(s)."
+msgstr "Сканирование завершено: машин: {count}."
+
+#, python-brace-format
+msgid "Scan en cours : {done}/{total} machine(s)"
+msgstr "Идёт сканирование: {done}/{total} машин"
+
+#, python-brace-format
+msgid ""
+"Scan arrêté : {done}/{total} machine(s) scannée(s) ; les autres gardent leur"
+" dernier scan."
+msgstr ""
+"Сканирование остановлено: просканировано {done}/{total} машин; остальные "
+"сохраняют последнее сканирование."
+
+msgid "Pas encore de scan depuis le lancement."
+msgstr "С момента запуска сканирования ещё не было."
+
+msgid ""
+"Pas encore de scan depuis le lancement : « Scanner tout le parc » pour "
+"remplir les listes."
+msgstr ""
+"С момента запуска сканирования не было: «Сканировать все машины», чтобы "
+"заполнить списки."
+
+msgid "Cette machine : pas encore scannée."
+msgstr "Эта машина: ещё не сканирована."
+
+#, python-brace-format
+msgid "Cette machine scannée {age}."
+msgstr "Эта машина просканирована {age}."
+
+#, python-brace-format
+msgid "Réseau : {count} machine(s), plus ancien scan {age}"
+msgstr "Сеть: машин: {count}, самое старое сканирование {age}"

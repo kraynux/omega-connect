@@ -74,6 +74,10 @@ msgid "{count} fichiers installés dans {root}."
 msgstr "{root}에 파일 {count}개를 설치했습니다."
 
 #, python-brace-format
+msgid "Carte d'identité de l'installation gardée ({path})."
+msgstr "설치의 ID 카드를 유지했습니다({path})."
+
+#, python-brace-format
 msgid "install.sh introuvable dans {root}"
 msgstr "{root}에서 install.sh를 찾을 수 없습니다"
 
@@ -1089,6 +1093,10 @@ msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-ba
 msgstr "{target} 스캔 실패 ({detail}). 그곳에서는 아무것도 바꾸지 않았습니다."
 
 #, python-brace-format
+msgid "Scan de {target} arrêté : rien n'a été enregistré pour cette machine."
+msgstr "{target} 스캔 중지: 이 머신에 대해서는 아무것도 저장되지 않았습니다."
+
+#, python-brace-format
 msgid ""
 "Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
 msgstr "이 머신에 SSH 클라이언트가 없습니다 (명령 {detail}): openssh를 설치하세요."
@@ -2012,6 +2020,12 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
+"{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle "
+"; l'espace partagé la retirera."
+msgstr "{subject}: 이전 ID 카드({detail})가 새 카드로 바뀌었습니다. 공유 공간에서 제거됩니다."
+
+#, python-brace-format
+msgid ""
 "le service {subject} ({detail}) a le groupe omega-synchro (complément "
 "systemd posé par omega-serv)."
 msgstr ""
@@ -2188,6 +2202,12 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
+"{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle,"
+" retirée de la zone."
+msgstr "{subject}: 이전 ID 카드({detail})가 새 카드로 바뀌어 영역에서 제거되었습니다."
+
+#, python-brace-format
+msgid ""
 "{subject} devra se reconnecter pour que le groupe omega-synchro compte "
 "(lecture de la zone)."
 msgstr "omega-synchro 그룹이 적용되려면 {subject}이(가) 다시 로그인해야 합니다 (영역 읽기)."
@@ -2317,20 +2337,6 @@ msgid ""
 "deux fois."
 msgstr "원인을 해결한 후 같은 명령을 다시 실행하세요: 같은 작업을 두 번 하지 않습니다."
 
-msgid "Scan de cette machine…"
-msgstr "이 머신을 스캔하는 중…"
-
-#, python-brace-format
-msgid "Scan des machines du réseau ({index}/{count}) : {machine}…"
-msgstr "네트워크 머신을 스캔하는 중({index}/{count}): {machine}…"
-
-#, python-brace-format
-msgid "Scan terminé : cette machine et {count} machine(s) du réseau."
-msgstr "스캔 완료: 이 머신과 네트워크 머신 {count}대."
-
-msgid "Scan"
-msgstr "스캔"
-
 msgid "Dossier des captures non configuré."
 msgstr "스크린샷 폴더가 설정되지 않았습니다."
 
@@ -2387,7 +2393,7 @@ msgid ""
 "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
 "6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n"
 "\n"
-"Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont rescannées."
+"Aucun scan ne part tout seul : au lancement, les listes sont vides ; le cadre « États du scan » du menu principal et le bandeau en haut de chaque écran proposent « Scanner tout le parc ». Le scan tourne en arrière-plan, plusieurs machines à la fois (Réglages) ; on peut changer d'écran ou quitter pendant le scan, et « Arrêter le scan » l'interrompt. Tous les écrans relisent ensuite ce scan ; un scan de plus de 24 heures est signalé « ancien ». Après une action, seule la machine touchée est rescannée."
 msgstr ""
 "omega-connect는 이 머신과 네트워크 머신에 설치된 omega 애플리케이션 (omega-serv, omega-fire, omega-jail…)을 서로 연결합니다. 무엇이 연결되었고 무엇이 안 되었는지 보여 주고, 빠진 것을 복구합니다. 항상 무엇을 할지 먼저 보여 드린 뒤에 실행합니다.\n"
 "\n"
@@ -2398,7 +2404,7 @@ msgstr ""
 "5. [b]복구[/b]: 문제가 있는 모든 것의 목록. 행 하나를 고르거나 “모두 복구”를 누르세요.\n"
 "6. [b]보고서[/b]: 보관하거나 전달할 전체 문서 (텍스트, JSON 또는 HTML 페이지).\n"
 "\n"
-"스캔은 시작할 때 한 번 하고(이 머신, 그다음 알려진 네트워크 머신), 이후 모든 화면이 그 결과를 다시 읽습니다: « 다시 스캔 »로 다시 스캔합니다. 작업 후에는 관련된 머신만 다시 스캔합니다."
+"스캔은 저절로 시작되지 않습니다: 시작할 때 목록은 비어 있고, 메인 메뉴의 « 스캔 상태 » 틀과 각 화면 위쪽의 배너가 « 모든 머신 스캔 »을 제안합니다. 스캔은 백그라운드에서 여러 머신을 동시에 진행합니다(설정). 스캔 중에도 화면을 바꾸거나 종료할 수 있으며, « 스캔 중지 »로 중단합니다. 이후 모든 화면이 이 스캔 결과를 다시 읽습니다. 24시간이 넘은 스캔은 « 오래됨 »으로 표시됩니다. 작업 후에는 관련된 머신만 다시 스캔합니다."
 
 msgid "Registre — toutes les applications et leur état"
 msgstr "레지스트리 — 모든 애플리케이션과 그 상태"
@@ -2406,13 +2412,15 @@ msgstr "레지스트리 — 모든 애플리케이션과 그 상태"
 msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
-"- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Scanner la machine[/b] : rescanne la machine de la ligne choisie, seule, en arrière-plan ; « Scanner tout le parc » (bandeau) les rescanne toutes.\n"
+"- [b]Rechercher[/b] et filtre par état : seul l'affichage change (grand parc).\n"
 "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "각 머신 (이 머신과 네트워크 머신)마다 찾은 omega 애플리케이션을 표시합니다: 인스턴스 또는 서비스, 버전, 상태, 폴더. 위쪽 요약은 상태별 개수를 보여 줍니다.\n"
 "\n"
-"- [b]다시 스캔[/b]: 화면을 바꾸지 않고 그 자리에서 다시 스캔합니다(이 머신, 그다음 이미 알려진 네트워크 머신).\n"
+"- [b]머신 스캔[/b]: 선택한 행의 머신만 백그라운드에서 다시 스캔합니다. 배너의 « 모든 머신 스캔 »은 모두 다시 스캔합니다.\n"
+"- [b]검색[/b] 및 상태별 필터: 표시만 바뀝니다(머신이 많을 때).\n"
 "- [b]애플리케이션 업데이트[/b] / [b]애플리케이션 재설치[/b]: 해당 줄의 애플리케이션을 체크한 상태로 Updater를 엽니다(« 구버전 »; 또는 « 설치 미완료 »: install.sh가 끝나지 않아 같은 버전을 다시 설치). 이 머신에서도 네트워크의 머신에서도 같습니다.\n"
 "- 행을 강조하면 그 상태에 대한 설명과 불일치가 아래에 표시됩니다."
 
@@ -2424,14 +2432,14 @@ msgid ""
 "- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
 "- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
 "- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
-"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- [b]Machines connues[/b] : « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle). Pour les rescanner toutes : « Scanner tout le parc » (bandeau).\n"
 "- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
 msgstr ""
 "- [b]이 머신[/b]: omega 애플리케이션을 찾습니다 (개인 폴더, systemd, OpenRC 또는 runit 서비스, /srv, omega-serv 인스턴스 레지스트리). 심볼릭 링크를 따라가거나 네트워크 마운트를 탐색하는 일은 절대 없습니다.\n"
 "- [b]제안된 머신[/b]: 이 컴퓨터가 이미 접속할 수 있는 머신 (Unison 프로필, ~/.ssh/config, known_hosts). 행을 선택한 다음 “선택한 머신 스캔”.\n"
 "- [b]직접 입력[/b]: 사용자@머신 (이름 또는 주소), 그다음 “이 머신 스캔”.\n"
 "- [b]첫 연결[/b]: 머신 키의 지문이 표시됩니다. 확인한 다음 수락하세요. 바뀐 키는 거부됩니다 (머신 재설치 또는 사칭).\n"
-"- [b]알려진 머신[/b]: “알려진 머신 다시 스캔” 또는 “이 머신 제거” (레지스트리에서 빠지며, 그 머신에서는 아무것도 바꾸지 않음).\n"
+"- [b]알려진 머신[/b]: “이 머신 제거” (레지스트리에서 빠지며, 그 머신에서는 아무것도 바꾸지 않음). 모두 다시 스캔하려면: « 모든 머신 스캔 » (배너).\n"
 "- 네트워크 머신의 스캔은 SSH를 통해 메모리로 보내져 읽기 전용으로 실행됩니다: 그곳에는 아무것도 설치하거나 쓰지 않으며, 비밀번호를 묻지 않습니다 (그 머신에 Python 3.10 이상 필요)."
 
 msgid "Liaisons — ce qui est relié ou pas"
@@ -2452,7 +2460,7 @@ msgid "Synchronisation — relier les applications"
 msgstr "동기화 — 애플리케이션 연결"
 
 msgid ""
-"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
+"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan. Cochez des lignes (Entrée ou Espace : la case verte ✔), puis :\n"
 "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
 "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
 "- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
@@ -2461,7 +2469,7 @@ msgid ""
 "- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
 "- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
 msgstr ""
-"하나의 목록: 마지막 스캔 기준으로 모든 머신과 그 애플리케이션(« 다시 스캔 »로 다시 스캔). 줄을 체크한 뒤(Enter 또는 Space):\n"
+"하나의 목록: 마지막 스캔 기준으로 모든 머신과 그 애플리케이션. 줄을 체크한 뒤(Enter 또는 Space: 초록색 체크 ✔):\n"
 "- [b]선택 항목 동기화[/b] 또는 [b]모두 동기화[/b].\n"
 "- [b]이 머신[/b]: 작업 전에 표시되는 하나의 계획 — 빠진 ID 카드 (각 애플리케이션이 자기 계정으로 만듦), 그다음 공유 공간 (omega-synchro 그룹, 폴더, 카드 복사, 서비스 접근). 관리자 비밀번호는 한 번만.\n"
 "- [b]네트워크 머신[/b]: 계획을 그 머신에서 계산해 표시합니다. “<머신> 동기화”가 여기에서 실행합니다: 인터페이스가 터미널로 전환되고, 머신이 직접 비밀번호를 한 번 묻습니다. Enter를 누르면 결과가 표시된 인터페이스로 돌아갑니다.\n"
@@ -2501,7 +2509,7 @@ msgid ""
 "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
 "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
 "\n"
-"Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du réseau. Pour corriger : menu Réparer."
+"Tout vient du dernier scan (bandeau : « Scanner tout le parc »). Pour corriger : menu Réparer."
 msgstr ""
 "웹 대시보드처럼 프레임으로 나뉜 전체 보기입니다. 이 화면에서는 아무것도 바꾸지 않습니다.\n"
 "\n"
@@ -2510,26 +2518,28 @@ msgstr ""
 "- [b]이 머신 / 네트워크[/b]: 같은 숫자를 나란히 표시.\n"
 "- [b]Top 5[/b] (작은 화면에서는 top 3): 복구할 머신, 복구할 연결, 오래된 버전, 가장 오래된 스캔 (네트워크 머신).\n"
 "\n"
-"모든 내용은 마지막 스캔에서 옵니다. « 다시 스캔 »로 이 머신과 네트워크 머신을 다시 스캔합니다. 고치려면: 복구 메뉴."
+"모든 내용은 마지막 스캔에서 옵니다(배너: « 모든 머신 스캔 »). 고치려면: 복구 메뉴."
 
 msgid "Réparer — tout ce qui ne va pas"
 msgstr "복구 — 문제가 있는 모든 것"
 
 msgid ""
-"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le corrige.\n"
+"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (une machine réparée est rescannée aussitôt, seule) : machine, problème, état, et qui le corrige. Recherche et filtre par état au-dessus de la liste.\n"
 "\n"
-"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan). L'espace partagé fait partie du même « Lancer » : un seul mot de passe, puis « Retour » ramène à la liste.\n"
+"- Une machine injoignable : « Réparer la ligne choisie » la rescanne.\n"
 "- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
-"- [b]Tout réparer[/b] : les machines une à une.\n"
+"- [b]Tout réparer[/b] : un récapitulatif machine par machine, une confirmation, puis les machines une à une dans le terminal (un mot de passe par machine) et un bilan. Les mises à jour (Updater) et les machines injoignables restent à part. Une réparation qui échoue affiche « Échec de la réparation » et n'est plus relancée par « Tout réparer » : choisissez la ligne pour la relancer seule.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
 msgstr ""
-"마지막 스캔 기준으로 모든 머신에서 잘못된 모든 것의 목록(« 다시 스캔 »로 다시 스캔; 수리한 머신은 바로 다시 스캔): 머신, 문제, 상태, 고치는 주체.\n"
+"마지막 스캔 기준으로 모든 머신에서 잘못된 모든 것의 목록(수리한 머신은 그 머신만 바로 다시 스캔): 머신, 문제, 상태, 고치는 주체. 목록 위에 검색과 상태별 필터가 있습니다.\n"
 "\n"
-"- [b]선택한 행 복구[/b]: 해당 머신의 계획을 엽니다. 이 머신: 애플리케이션 자체의 명령 (fail2ban에 설치한 것은 omega-jail, var/ 권한은 omega-serv, ID 카드는 각 애플리케이션), 그다음 공유 공간. 네트워크 머신: 같은 수정에 더해 어떤 애플리케이션도 실행할 수 없는 명령을 여기에서 그 머신에서 실행합니다 (계획에 표시된 것만).\n"
+"- [b]선택한 행 복구[/b]: 해당 머신의 계획을 엽니다. 이 머신: 애플리케이션 자체의 명령 (fail2ban에 설치한 것은 omega-jail, var/ 권한은 omega-serv, ID 카드는 각 애플리케이션), 그다음 공유 공간. 네트워크 머신: 같은 수정에 더해 어떤 애플리케이션도 실행할 수 없는 명령을 여기에서 그 머신에서 실행합니다 (계획에 표시된 것만). 공유 공간도 같은 “실행”에 포함됩니다: 비밀번호는 한 번만 입력하고, “돌아가기”를 누르면 목록으로 돌아갑니다.\n"
+"- 응답이 없는 머신: “선택한 행 복구”가 그 머신을 다시 스캔합니다.\n"
 "- « 구버전 » 또는 « 설치 미완료 » 줄은 애플리케이션을 체크한 상태로 Updater를 엽니다: 업데이트는 Updater만 합니다.\n"
-"- [b]모두 복구[/b]: 머신을 하나씩 처리합니다.\n"
+"- [b]모두 복구[/b]: 머신별 요약을 보여 주고 한 번 확인한 뒤, 터미널에서 머신을 하나씩 처리하고(머신마다 비밀번호 한 번) 결과를 요약합니다. 업데이트(Updater)와 응답이 없는 머신은 따로 남습니다. 실패한 복구는 « 복구 실패 »로 표시되며 “모두 복구”로는 다시 실행되지 않습니다: 그 행을 선택해 단독으로 다시 실행하세요.\n"
 "- [b]상세[/b]: 선택한 행의 모든 점검 항목.\n"
 "- [b]명령 복사[/b] (이 머신의 계획): 시스템 클립보드 (xclip, xsel, wl-copy). 안 되면 명령이 터미널에 그대로 표시되므로 마우스로 선택하세요.\n"
 "- omega-connect는 다른 애플리케이션의 파일을 절대 다시 쓰지 않습니다: 그 애플리케이션의 명령을 실행합니다."
@@ -2544,7 +2554,7 @@ msgid ""
 "- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
 "- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
 "- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
-"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« omega-suite (7 outil(s)) », la liste et les versions sous le tableau) : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
 msgstr ""
 "애플리케이션을 업데이트하는 유일한 곳입니다. 이 머신에서도 네트워크에서도 같습니다. 복구와 레지스트리도 애플리케이션을 체크한 상태로 여기로 보냅니다.\n"
 "\n"
@@ -2552,7 +2562,7 @@ msgstr ""
 "- [b]버전 확인[/b]: 각 애플리케이션의 최신 게시 버전(GitHub Release, 없으면 애플리케이션 사이트)을 체크한 줄 또는 모든 줄에 대해 확인합니다. 게시되지 않은 버전은 절대 제안하지 않습니다.\n"
 "- [b]선택 업데이트[/b] / [b]모두 업데이트[/b]: 업데이트할 애플리케이션과 설치 미완료 항목. 먼저 이 머신: 아카이브를 확인(sha.txt)한 뒤 인터페이스가 터미널에 자리를 내주고, 필요하면 install.sh가 비밀번호를 묻습니다. 그다음 네트워크의 각 머신: 실행 전에 계획을 보여 주고, 머신마다 비밀번호는 한 번입니다.\n"
 "- 끝으로: 애플리케이션별로 한 일과 다시 스캔한 머신을 보여 줍니다.\n"
-"- [b]omega-suite[/b]: 함께 들어 있는 omega-stress는 omega-suite의 일부입니다. 줄은 omega-suite의 것입니다(« omega-stress … 포함»). 함께 테스트된 도구들과 같이 업데이트되며, omega-stress만 따로 업데이트하지 않습니다. 2.0.0부터는 독립 omega-stress처럼 분산 부하에 참여합니다. 머신에 독립 omega-stress도 있으면 그쪽이 참여합니다."
+"- [b]omega-suite[/b]: 함께 들어 있는 omega-stress는 omega-suite의 일부입니다. 줄은 omega-suite의 것입니다(« omega-suite (도구 7개) », 목록과 버전은 표 아래). 함께 테스트된 도구들과 같이 업데이트되며, omega-stress만 따로 업데이트하지 않습니다. 2.0.0부터는 독립 omega-stress처럼 분산 부하에 참여합니다. 머신에 독립 omega-stress도 있으면 그쪽이 참여합니다."
 
 msgid "Installer — installer les applications"
 msgstr "Installer — 애플리케이션 설치"
@@ -2578,13 +2588,13 @@ msgid "Rapport — un document complet"
 msgstr "보고서 — 전체 문서"
 
 msgid ""
-"Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"Établi d'après le dernier scan (bandeau : « Scanner tout le parc ») : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
 "\n"
 "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
 "- [b]Voir les exports[/b] : le dossier des exports s'ouvre dans votre navigateur, chaque export se lit d'un clic (sans quitter omega-connect). Sans navigateur (serveur, connexion SSH), la liste s'affiche ici et chaque export s'y lit.\n"
 "- En ligne de commande : omega-connect rapport --format html --enregistrer."
 msgstr ""
-"마지막 스캔으로 작성(« 다시 스캔 »는 먼저 이 머신과 네트워크를 다시 스캔): 요약, 남은 작업의 정확한 목록(머신, 무엇, 어느 메뉴), 모든 애플리케이션의 레지스트리, 네트워크 머신, 이 머신 애플리케이션의 상세, 각 머신의 연결, 공유 공간과 그 레지스트리.\n"
+"마지막 스캔으로 작성(배너: « 모든 머신 스캔 »): 요약, 남은 작업의 정확한 목록(머신, 무엇, 어느 메뉴), 모든 애플리케이션의 레지스트리, 네트워크 머신, 이 머신 애플리케이션의 상세, 각 머신의 연결, 공유 공간과 그 레지스트리.\n"
 "\n"
 "- 텍스트, JSON 또는 HTML 페이지로 내보내기 (테마 선택 가능, 기본값은 설정의 테마), 내보내기 폴더에 저장.\n"
 "- [b]내보내기 보기[/b]: 내보내기 폴더가 브라우저에서 열리고, 각 내보내기를 클릭 한 번으로 읽습니다(omega-connect를 나가지 않고). 브라우저가 없으면(서버, SSH 연결) 여기에 목록을 보여 주고 여기서 읽습니다.\n"
@@ -2592,11 +2602,13 @@ msgstr ""
 
 msgid ""
 "- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Machines scannées en même temps[/b] : « Scanner tout le parc » en interroge plusieurs à la fois (8 par défaut).\n"
 "- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
 "- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
 "- Tout est enregistré dans var/settings.json."
 msgstr ""
 "- [b]인터페이스 테마[/b] (t 키로도 변경)와 [b]내보내기 테마[/b]: 저장됩니다.\n"
+"- [b]동시에 스캔할 머신 수[/b]: « 모든 머신 스캔 »은 여러 머신에 동시에 질의합니다(기본 8대).\n"
 "- [b]내보내기 폴더[/b]와 [b]스크린샷 폴더[/b]: 기본값은 omega-connect 폴더의 var/exports/와 var/screenshots/. 전체 경로를 입력하거나, 비워 두면 기본값으로 돌아갑니다.\n"
 "- [b]내보내기 / 스크린샷 폴더 비우기[/b]: 확인 후 설정된 폴더의 내용을 삭제합니다 (폴더는 남음). 시스템 폴더, 개인 폴더, omega-connect 자체 폴더는 거부됩니다. 비밀번호는 절대 묻지 않습니다.\n"
 "- 모든 것은 var/settings.json에 저장됩니다."
@@ -2929,9 +2941,6 @@ msgstr "지금 확인"
 msgid "LIENS"
 msgstr "연결"
 
-msgid "Relancer le scan"
-msgstr "다시 스캔"
-
 msgid "Détail du lien"
 msgstr "연결 상세"
 
@@ -3023,10 +3032,6 @@ msgstr "연결"
 
 msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
 msgstr "이 머신과 네트워크의 omega-stress를 읽는 중…"
-
-#, python-brace-format
-msgid "Rescan de {machine}…"
-msgstr "{machine} 다시 스캔 중…"
 
 msgid ""
 "omega-stress n'est pas installé sur cette machine (ou trop ancien) : elle ne"
@@ -3209,9 +3214,6 @@ msgstr ""
 msgid "Réparer la machine choisie"
 msgstr "선택한 머신 복구"
 
-msgid "Zone : établir…"
-msgstr "영역: 구성…"
-
 msgid "Analyser de nouveau"
 msgstr "다시 분석"
 
@@ -3224,8 +3226,24 @@ msgstr "원격 머신 없음: 하나를 스캔하세요 (스캔)"
 msgid "Préparation des réparations : vérification des liens en cours…"
 msgstr "복구 준비 중: 연결 확인 중…"
 
+msgid ""
+"Ici, l'espace partagé est mis à jour dans le même « Lancer », juste après "
+"les commandes des outils (un seul mot de passe) ; chaque opération s'affiche"
+" dans l'avancement."
+msgstr ""
+"여기서는 공유 공간이 같은 « 실행 » 안에서 도구 명령 바로 뒤에 업데이트됩니다(비밀번호 한 번). 각 작업은 진행 상황에 표시됩니다."
+
 msgid "Lancer avec sudo"
 msgstr "sudo로 실행"
+
+msgid "Espace partagé : lecture et plan…"
+msgstr "공유 공간: 읽기 및 계획…"
+
+msgid "Espace partagé : rien à faire."
+msgstr "공유 공간: 할 일 없음."
+
+msgid "Rien n'a été lancé."
+msgstr "아무것도 실행되지 않았습니다."
 
 msgid ""
 "Vue d'ensemble de vos machines et de vos applications. Rien n'est modifié "
@@ -3251,22 +3269,21 @@ msgstr "레지스트리"
 
 msgid ""
 "Ce que le scanner a trouvé : chaque application omega, son service, sa "
-"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
-" à jour l'application » installe la dernière version d'une application trop "
-"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
-"corriger un écart : Réparer."
+"version et son état. « Mettre à jour l'application » installe la dernière "
+"version d'une application trop ancienne (ligne choisie). Remettre les liens "
+"en place : Synchronisation ; corriger un écart : Réparer."
 msgstr ""
-"스캐너가 찾은 것: 각 omega 애플리케이션, 그 서비스, 버전, 상태. “레지스트리 업데이트”는 다시 스캔합니다. “애플리케이션 "
-"업데이트”는 너무 오래된 애플리케이션 (선택한 행)에 최신 버전을 설치합니다. 연결 복구: 동기화. 불일치 수정: 복구."
+"스캐너가 찾은 것: 각 omega 애플리케이션, 그 서비스, 버전, 상태. “애플리케이션 업데이트”는 너무 오래된 애플리케이션 (선택한 "
+"행)에 최신 버전을 설치합니다. 연결 복구: 동기화. 불일치 수정: 복구."
+
+msgid "Scanner la machine"
+msgstr "머신 스캔"
 
 msgid "Mettre à jour l'application"
 msgstr "애플리케이션 업데이트"
 
 msgid "Lecture du registre…"
 msgstr "레지스트리 읽는 중…"
-
-msgid "Premier scan : recherche des applications omega…"
-msgstr "첫 스캔: omega 애플리케이션 찾는 중…"
 
 #, python-brace-format
 msgid "{count} application(s) sur {machines} machine(s)"
@@ -3295,6 +3312,10 @@ msgstr "애플리케이션 재설치"
 #, python-brace-format
 msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
 msgstr "→ « {action} »는 애플리케이션을 체크한 상태로 Updater를 엽니다."
+
+#, python-brace-format
+msgid "Scan de {machine} lancé."
+msgstr "{machine} 스캔을 시작했습니다."
 
 #, python-brace-format
 msgid ""
@@ -3415,8 +3436,8 @@ msgstr "애플리케이션 재설치, 여기에서"
 msgid "à la main (README de l'outil)"
 msgstr "직접 (도구 README)"
 
-msgid "Scanner : rescanner la machine"
-msgstr "스캔: 머신 다시 스캔"
+msgid "la rescanner, depuis ici"
+msgstr "여기서 다시 스캔"
 
 msgid "aucune correction connue (voir le détail)"
 msgstr "알려진 수정 방법 없음 (상세 참고)"
@@ -3438,6 +3459,12 @@ msgid ""
 msgstr ""
 "모든 머신에서 문제가 있는 모든 것. 행을 선택한 다음 “선택한 행 복구” 또는 “모두 복구”: 머신의 계획이 표시되며, 그 전에는 "
 "아무것도 실행하지 않습니다. 네트워크 머신: 여기에서 복구하며, sudo 비밀번호는 한 번 묻습니다."
+
+msgid "À mettre à jour"
+msgstr "업데이트 필요"
+
+msgid "Échec de la réparation"
+msgstr "복구 실패"
 
 msgid "Réparer la ligne choisie"
 msgstr "선택한 행 복구"
@@ -3471,17 +3498,61 @@ msgstr "머신이 더 이상 응답하지 않습니다"
 msgid "{machine} : rescannez-la d'abord (Scanner)."
 msgstr "{machine}: 먼저 다시 스캔하세요 (스캔)."
 
+msgid ""
+"Machines réparées une à une dans le terminal (mot de passe sudo demandé une "
+"fois par machine) :"
+msgstr "터미널에서 머신을 하나씩 복구합니다(sudo 비밀번호는 머신마다 한 번):"
+
+msgid " (cette machine)"
+msgstr " (이 머신)"
+
+#, python-brace-format
+msgid "{machine}{mark} : {count} correction(s)"
+msgstr "{machine}{mark}: 수정 {count}건"
+
+msgid "Hors « Tout réparer » :"
+msgstr "« 모두 복구 » 제외:"
+
+msgid "échec précédent : « Réparer la ligne choisie »"
+msgstr "이전 실패: « 선택한 행 복구 »"
+
+msgid "Tout réparer : les machines une à une, dans ce terminal."
+msgstr "모두 복구: 이 터미널에서 머신을 하나씩."
+
+#, python-brace-format
+msgid "== {machine}"
+msgstr "== {machine}"
+
+msgid "Bilan :"
+msgstr "결과:"
+
+#, python-brace-format
+msgid "{machine} : échec (code {code})"
+msgstr "{machine}: 실패(코드 {code})"
+
+msgid "Appuyez sur Entrée pour revenir à omega-connect…"
+msgstr "Enter를 누르면 omega-connect로 돌아갑니다…"
+
+#, python-brace-format
+msgid ""
+"Tout réparer : {ok} machine(s) réparée(s), {failed} en échec ({names})."
+msgstr "모두 복구: {ok}대 복구, {failed}대 실패({names})."
+
+#, python-brace-format
+msgid "Tout réparer : {ok} machine(s) réparée(s) ; rescan en cours."
+msgstr "모두 복구: {ok}대 복구. 다시 스캔하는 중입니다."
+
 msgid "RAPPORT"
 msgstr "보고서"
 
 msgid ""
-"Un document complet, d'après le dernier scan (« Relancer le scan » le "
-"refait) : bilan, ce qu'il reste à faire, registre, machines du réseau, "
-"liaisons de chaque machine, espace partagé. Enregistré dans le dossier des "
-"exports ; « Voir les exports » les ouvre dans le navigateur pour les lire."
+"Un document complet, d'après le dernier scan : bilan, ce qu'il reste à "
+"faire, registre, machines du réseau, liaisons de chaque machine, espace "
+"partagé. Enregistré dans le dossier des exports ; « Voir les exports » les "
+"ouvre dans le navigateur pour les lire."
 msgstr ""
-"마지막 스캔으로 만든 완전한 문서(« 다시 스캔 »으로 다시 스캔): 요약, 남은 작업, 레지스트리, 네트워크 머신, 각 머신의 연결, "
-"공유 공간. 내보내기 폴더에 저장; « 내보내기 보기 »로 브라우저에서 열어 읽습니다."
+"마지막 스캔으로 만든 완전한 문서: 요약, 남은 작업, 레지스트리, 네트워크 머신, 각 머신의 연결, 공유 공간. 내보내기 폴더에 저장;"
+" « 내보내기 보기 »로 브라우저에서 열어 읽습니다."
 
 msgid "THÈME DE LA PAGE HTML"
 msgstr "HTML 페이지 테마"
@@ -3500,9 +3571,6 @@ msgstr "HTML 내보내기"
 
 msgid "Voir les exports"
 msgstr "내보내기 보기"
-
-msgid "Scan de cette machine et des machines du réseau…"
-msgstr "이 머신과 네트워크 머신을 스캔하는 중…"
 
 msgid "Génération du rapport en cours (détection, vérification, zone)…"
 msgstr "보고서 생성 중 (감지, 확인, 영역)…"
@@ -3587,11 +3655,8 @@ msgstr ""
 msgid "Retirer cette machine"
 msgstr "이 머신 제거"
 
-msgid "Scanner de nouveau"
-msgstr "다시 스캔"
-
-msgid "Rescanner les machines connues"
-msgstr "알려진 머신 다시 스캔"
+msgid "Scanner la machine locale"
+msgstr "로컬 머신 스캔"
 
 msgid "Voir le registre"
 msgstr "레지스트리 보기"
@@ -3599,8 +3664,12 @@ msgstr "레지스트리 보기"
 msgid "Trouvée dans"
 msgstr "찾은 위치"
 
-msgid "Analyse de la machine locale : recherche des applications omega…"
-msgstr "로컬 머신 분석: omega 애플리케이션 찾는 중…"
+msgid "Scan de cette machine en cours…"
+msgstr "이 머신을 스캔하는 중…"
+
+msgid ""
+"Pas encore scannée depuis le lancement : « Scanner la machine locale »."
+msgstr "시작 후 아직 스캔하지 않음: « 로컬 머신 스캔 »."
 
 #, python-brace-format
 msgid "Analysée à {time}."
@@ -3643,13 +3712,6 @@ msgstr "{target}: 아무것도 하지 않았습니다 (머신을 수락하지 �
 msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
 msgstr "{target} 스캔: 스캐너가 그곳에서 읽기 전용으로 실행 중…"
 
-msgid "Aucune machine distante connue pour l'instant."
-msgstr "아직 알려진 원격 머신이 없습니다."
-
-#, python-brace-format
-msgid "Scan des {count} machine(s) connue(s)…"
-msgstr "알려진 머신 {count}대 스캔 중…"
-
 #, python-brace-format
 msgid "{good} machine(s) scannée(s) sur {total}."
 msgstr "머신 {total}대 중 {good}대 스캔함."
@@ -3662,6 +3724,14 @@ msgstr "인터페이스 테마"
 
 msgid "Thème des exports (rapport HTML, aide exportée)"
 msgstr "내보내기 테마 (HTML 보고서, 내보낸 도움말)"
+
+msgid "Machines scannées en même temps"
+msgstr "동시에 스캔할 머신 수"
+
+msgid ""
+"« Scanner tout le parc » interroge plusieurs machines à la fois (8 par "
+"défaut)."
+msgstr "« 모든 머신 스캔 »은 여러 머신에 동시에 질의합니다(기본 8대)."
 
 msgid "Dossier des exports"
 msgstr "내보내기 폴더"
@@ -3807,6 +3877,21 @@ msgstr "설치 예정"
 msgid "déjà installée"
 msgstr "이미 설치됨"
 
+#, python-brace-format
+msgid "{tool} ({count} outil(s))"
+msgstr "{tool} (도구 {count}개)"
+
+#, python-brace-format
+msgid "Machine : {machine}"
+msgstr "머신: {machine}"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} contient : {tools}. Ces outils se mettent à jour avec elle "
+": seule la ligne {tool} est à mettre à jour."
+msgstr ""
+"{tool} {version} 포함: {tools}. 이 도구들은 함께 업데이트됩니다. {tool} 행만 업데이트하면 됩니다."
+
 msgid ""
 "omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
 "demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
@@ -3847,10 +3932,6 @@ msgstr "모두 업데이트"
 
 msgid "Disponible"
 msgstr "사용 가능"
-
-#, python-brace-format
-msgid "{tool} (contient {tools})"
-msgstr "{tool} ({tools} 포함)"
 
 msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
 msgstr "최신 게시 버전을 찾는 중(GitHub, 다음은 사이트)…"
@@ -3974,3 +4055,63 @@ msgid ""
 msgstr ""
 "모든 머신에서 연결된 것과 안 된 것, 그 상태 (OK, 복구 필요, 없음…). 이 화면은 보여 주기만 합니다: “복구 필요” 항목은 "
 "복구 메뉴에서 고칩니다. 자세히 보려면 행을 강조하세요."
+
+msgid "Tous les états"
+msgstr "모든 상태"
+
+msgid "Rechercher : machine, application, dossier…"
+msgstr "검색: 머신, 애플리케이션, 폴더…"
+
+msgid "jamais"
+msgstr "없음"
+
+msgid "ancien"
+msgstr "오래됨"
+
+msgid "États du scan"
+msgstr "스캔 상태"
+
+msgid "Scanner tout le parc"
+msgstr "모든 머신 스캔"
+
+msgid "Arrêter le scan"
+msgstr "스캔 중지"
+
+msgid "Un scan est déjà en cours."
+msgstr "이미 스캔이 진행 중입니다."
+
+msgid "Scan"
+msgstr "스캔"
+
+#, python-brace-format
+msgid "Scan terminé : {count} machine(s)."
+msgstr "스캔 완료: {count}대."
+
+#, python-brace-format
+msgid "Scan en cours : {done}/{total} machine(s)"
+msgstr "스캔 중: {done}/{total}대"
+
+#, python-brace-format
+msgid ""
+"Scan arrêté : {done}/{total} machine(s) scannée(s) ; les autres gardent leur"
+" dernier scan."
+msgstr "스캔 중지: {done}/{total}대 스캔됨. 나머지는 마지막 스캔을 유지합니다."
+
+msgid "Pas encore de scan depuis le lancement."
+msgstr "시작한 뒤 아직 스캔하지 않았습니다."
+
+msgid ""
+"Pas encore de scan depuis le lancement : « Scanner tout le parc » pour "
+"remplir les listes."
+msgstr "시작 후 아직 스캔하지 않았습니다: « 모든 머신 스캔 »으로 목록을 채우세요."
+
+msgid "Cette machine : pas encore scannée."
+msgstr "이 머신: 아직 스캔하지 않음."
+
+#, python-brace-format
+msgid "Cette machine scannée {age}."
+msgstr "이 머신 스캔: {age}."
+
+#, python-brace-format
+msgid "Réseau : {count} machine(s), plus ancien scan {age}"
+msgstr "네트워크: {count}대, 가장 오래된 스캔 {age}"

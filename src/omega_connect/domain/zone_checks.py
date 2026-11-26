@@ -110,9 +110,15 @@ def zone_link(facts: ZoneFacts, detection: DetectionReport, subject: ZoneSubject
     installed = {item.installation_id: item for item in detection.installations
                  if item.token is not None and item.token_status is ReadStatus.OK}
     duplicated = {duplicate.installation_id for duplicate in detection.duplicates}
+    places = {(item.token.tool, item.root) for item in installed.values() if item.token is not None}
     for linked in registry.installations:
         current = installed.get(linked.installation_id)
         short = linked.installation_id[:8]
+        if (current is None or current.token is None) and (linked.tool, linked.root) in places:
+            # Meme outil, meme dossier, nouvelle carte : l'ancienne est retiree par le plan de l'espace partage
+            # (2026-11-26), jamais par une commande a lancer sur la machine.
+            checks.append(fixed(CheckCode.ZONE_TOOL_REPLACED, CheckStatus.WARNING, linked.root, short))
+            continue
         if current is None or current.token is None:
             checks.append(Check(CheckCode.ZONE_TOOL_GONE, CheckStatus.WARNING, linked.root, short,
                                 fix=f"{command} retirer {short}"))

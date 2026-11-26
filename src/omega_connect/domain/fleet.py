@@ -48,7 +48,7 @@ class AppState(str, Enum):
 ENROLL_CODES = frozenset({
     CheckCode.TOKEN_MISSING, CheckCode.TOKEN_DAMAGED, CheckCode.TOKEN_RIGHTS, CheckCode.ZONE_NOT_LINKED,
     CheckCode.ZONE_COPY_MISSING, CheckCode.ZONE_COPY_STALE, CheckCode.ZONE_COPY_RIGHTS,
-    CheckCode.ZONE_SERVICE_GROUP_MISSING,
+    CheckCode.ZONE_SERVICE_GROUP_MISSING, CheckCode.ZONE_TOOL_REPLACED,
 })
 """Ecarts que « Inscrire » corrige de lui-meme : ils font l'etat Detectee / Inscrite, pas « A corriger »."""
 

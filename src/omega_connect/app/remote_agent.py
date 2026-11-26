@@ -14,6 +14,7 @@ import contextlib
 import dataclasses
 import json
 import os
+import shlex
 import socket
 import sys
 from pathlib import Path
@@ -74,7 +75,7 @@ def plan_mode() -> int:
     unreadable = needs_elevation(facts)
     repair_work = bool(repairs.steps) or repairs.offers_zone
     sync_work = not dataclasses.replace(repairs, outdated=()).empty or not enrolls.empty or unreadable
-    manual = tuple(dict.fromkeys(finding.check.fix for finding in repairs.manual if finding.check.fix))
+    manual = _manual_commands(repairs)
     plan = RemotePlan(_hostname(), read_machine_fingerprint(), tuple(old[root] for root in sorted(old)),
                       render_repair_plan(repairs, as_root=repair.as_root),
                       render_enroll_plan(enrolls, as_root=zone.as_root), unreadable, bool(old) or sync_work,
@@ -82,6 +83,26 @@ def plan_mode() -> int:
     sys.stdout.write(json.dumps(plan_to_dict(plan), ensure_ascii=False))
     sys.stdout.flush()
     return 0
+
+
+def _manual_commands(plan) -> tuple[str, ...]:  # type: ignore[no-untyped-def]
+    """Commandes « a la main » du plan de reparation de cette machine, decisions comprises (retirer un outil
+    desinstalle : la personne l'a choisi en lancant « Reparer » sur cette ligne, le plan l'affiche avant)."""
+    return tuple(dict.fromkeys(finding.check.fix for finding in (*plan.manual, *plan.decisions)
+                               if finding.check.fix))
+
+
+def _connect_arguments(command: str) -> list[str] | None:
+    """Arguments d'une commande d'omega-connect (`omega-connect retirer 950037ce`) ; None pour une autre commande.
+    Rien n'est installe sur la machine distante : une commande d'omega-connect y est lancee par CE programme, jamais
+    par le shell, ou elle n'existe pas (retour d'utilisation 2026-11-26 : « retirer » echouait sans fin)."""
+    try:
+        words = shlex.split(command)
+    except ValueError:
+        return None
+    if words and (words[0] == "omega-connect" or words[0].endswith("/omega-connect.sh")):
+        return words[1:]
+    return None
 
 
 def _cli(argv: list[str]) -> int:
@@ -162,7 +183,7 @@ def _current_manual() -> tuple[str, ...]:
 
     _detect, verify, _zone, repair = _wiring()
     plan = repair_plan(verify(DetectRequest(manual_paths=[], with_sheets=True)), repair)
-    return tuple(dict.fromkeys(finding.check.fix for finding in plan.manual if finding.check.fix))
+    return _manual_commands(plan)
 
 
 def _run_manual(announced: tuple[str, ...], steps: list[RemoteStepResult]) -> int:
@@ -177,7 +198,12 @@ def _run_manual(announced: tuple[str, ...], steps: list[RemoteStepResult]) -> in
         if command not in still:
             print(_("· déjà réglé : {command}").format(command=command), flush=True)
             continue
-        code = run_shell(command)
+        arguments = _connect_arguments(command)
+        if arguments is not None:
+            print(f"$ {command}", flush=True)
+            code = _cli(arguments)
+        else:
+            code = run_shell(command)
         steps.append(RemoteStepResult(StepName.MANUAL, code, detail=command))
         if code != 0:
             return code

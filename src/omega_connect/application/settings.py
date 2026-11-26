@@ -17,6 +17,10 @@ KEY_THEME = "theme"
 KEY_EXPORT_THEME = "export_theme"
 KEY_EXPORTS_DIR = "exports_dir_override"
 KEY_SCREENSHOTS_DIR = "screenshots_dir_override"
+KEY_SCAN_WORKERS = "scan_workers"
+SCAN_WORKER_CHOICES = (1, 2, 4, 8, 12, 16, 24, 32)
+"""Machines scannees en meme temps (decision 2026-11-26 : 8 par defaut, reglable)."""
+DEFAULT_SCAN_WORKERS = 8
 
 
 class UnsafeDirectoryError(Exception):
@@ -66,6 +70,10 @@ class SettingsTools:
 
     def screenshots_dir(self) -> Path:
         return self._directory(KEY_SCREENSHOTS_DIR, self.default_screenshots)
+
+    def scan_workers(self) -> int:
+        value = (self.store.get(KEY_SCAN_WORKERS) or "").strip()
+        return int(value) if value.isdigit() and int(value) in SCAN_WORKER_CHOICES else DEFAULT_SCAN_WORKERS
 
     def theme(self) -> str:
         value = self.store.get(KEY_THEME) or ""

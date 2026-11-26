@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omega-connect\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-22 14:09+0100\n"
+"POT-Creation-Date: 2026-11-26 13:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,6 +80,10 @@ msgstr ""
 
 #, python-brace-format
 msgid "{count} fichiers installés dans {root}."
+msgstr ""
+
+#, python-brace-format
+msgid "Carte d'identité de l'installation gardée ({path})."
 msgstr ""
 
 #, python-brace-format
@@ -1044,6 +1048,10 @@ msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-ba
 msgstr ""
 
 #, python-brace-format
+msgid "Scan de {target} arrêté : rien n'a été enregistré pour cette machine."
+msgstr ""
+
+#, python-brace-format
 msgid ""
 "Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
 msgstr ""
@@ -1934,6 +1942,12 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
+"{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle "
+"; l'espace partagé la retirera."
+msgstr ""
+
+#, python-brace-format
+msgid ""
 "le service {subject} ({detail}) a le groupe omega-synchro (complément "
 "systemd posé par omega-serv)."
 msgstr ""
@@ -2101,6 +2115,12 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
+"{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle,"
+" retirée de la zone."
+msgstr ""
+
+#, python-brace-format
+msgid ""
 "{subject} devra se reconnecter pour que le groupe omega-synchro compte "
 "(lecture de la zone)."
 msgstr ""
@@ -2225,20 +2245,6 @@ msgid ""
 "deux fois."
 msgstr ""
 
-msgid "Scan de cette machine…"
-msgstr ""
-
-#, python-brace-format
-msgid "Scan des machines du réseau ({index}/{count}) : {machine}…"
-msgstr ""
-
-#, python-brace-format
-msgid "Scan terminé : cette machine et {count} machine(s) du réseau."
-msgstr ""
-
-msgid "Scan"
-msgstr ""
-
 msgid "Dossier des captures non configuré."
 msgstr ""
 
@@ -2295,7 +2301,7 @@ msgid ""
 "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
 "6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n"
 "\n"
-"Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont rescannées."
+"Aucun scan ne part tout seul : au lancement, les listes sont vides ; le cadre « États du scan » du menu principal et le bandeau en haut de chaque écran proposent « Scanner tout le parc ». Le scan tourne en arrière-plan, plusieurs machines à la fois (Réglages) ; on peut changer d'écran ou quitter pendant le scan, et « Arrêter le scan » l'interrompt. Tous les écrans relisent ensuite ce scan ; un scan de plus de 24 heures est signalé « ancien ». Après une action, seule la machine touchée est rescannée."
 msgstr ""
 
 msgid "Registre — toutes les applications et leur état"
@@ -2304,7 +2310,8 @@ msgstr ""
 msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
-"- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Scanner la machine[/b] : rescanne la machine de la ligne choisie, seule, en arrière-plan ; « Scanner tout le parc » (bandeau) les rescanne toutes.\n"
+"- [b]Rechercher[/b] et filtre par état : seul l'affichage change (grand parc).\n"
 "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
@@ -2317,7 +2324,7 @@ msgid ""
 "- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
 "- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
 "- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
-"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- [b]Machines connues[/b] : « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle). Pour les rescanner toutes : « Scanner tout le parc » (bandeau).\n"
 "- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
 msgstr ""
 
@@ -2335,7 +2342,7 @@ msgid "Synchronisation — relier les applications"
 msgstr ""
 
 msgid ""
-"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
+"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan. Cochez des lignes (Entrée ou Espace : la case verte ✔), puis :\n"
 "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
 "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
 "- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
@@ -2369,18 +2376,19 @@ msgid ""
 "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
 "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
 "\n"
-"Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du réseau. Pour corriger : menu Réparer."
+"Tout vient du dernier scan (bandeau : « Scanner tout le parc »). Pour corriger : menu Réparer."
 msgstr ""
 
 msgid "Réparer — tout ce qui ne va pas"
 msgstr ""
 
 msgid ""
-"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le corrige.\n"
+"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (une machine réparée est rescannée aussitôt, seule) : machine, problème, état, et qui le corrige. Recherche et filtre par état au-dessus de la liste.\n"
 "\n"
-"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan). L'espace partagé fait partie du même « Lancer » : un seul mot de passe, puis « Retour » ramène à la liste.\n"
+"- Une machine injoignable : « Réparer la ligne choisie » la rescanne.\n"
 "- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
-"- [b]Tout réparer[/b] : les machines une à une.\n"
+"- [b]Tout réparer[/b] : un récapitulatif machine par machine, une confirmation, puis les machines une à une dans le terminal (un mot de passe par machine) et un bilan. Les mises à jour (Updater) et les machines injoignables restent à part. Une réparation qui échoue affiche « Échec de la réparation » et n'est plus relancée par « Tout réparer » : choisissez la ligne pour la relancer seule.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
@@ -2396,7 +2404,7 @@ msgid ""
 "- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
 "- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
 "- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
-"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« omega-suite (7 outil(s)) », la liste et les versions sous le tableau) : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
 msgstr ""
 
 msgid "Installer — installer les applications"
@@ -2416,7 +2424,7 @@ msgid "Rapport — un document complet"
 msgstr ""
 
 msgid ""
-"Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"Établi d'après le dernier scan (bandeau : « Scanner tout le parc ») : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
 "\n"
 "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
 "- [b]Voir les exports[/b] : le dossier des exports s'ouvre dans votre navigateur, chaque export se lit d'un clic (sans quitter omega-connect). Sans navigateur (serveur, connexion SSH), la liste s'affiche ici et chaque export s'y lit.\n"
@@ -2425,6 +2433,7 @@ msgstr ""
 
 msgid ""
 "- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Machines scannées en même temps[/b] : « Scanner tout le parc » en interroge plusieurs à la fois (8 par défaut).\n"
 "- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
 "- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
 "- Tout est enregistré dans var/settings.json."
@@ -2717,9 +2726,6 @@ msgstr ""
 msgid "LIENS"
 msgstr ""
 
-msgid "Relancer le scan"
-msgstr ""
-
 msgid "Détail du lien"
 msgstr ""
 
@@ -2808,10 +2814,6 @@ msgid "Liaison"
 msgstr ""
 
 msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
-msgstr ""
-
-#, python-brace-format
-msgid "Rescan de {machine}…"
 msgstr ""
 
 msgid ""
@@ -2981,9 +2983,6 @@ msgstr ""
 msgid "Réparer la machine choisie"
 msgstr ""
 
-msgid "Zone : établir…"
-msgstr ""
-
 msgid "Analyser de nouveau"
 msgstr ""
 
@@ -2996,7 +2995,22 @@ msgstr ""
 msgid "Préparation des réparations : vérification des liens en cours…"
 msgstr ""
 
+msgid ""
+"Ici, l'espace partagé est mis à jour dans le même « Lancer », juste après "
+"les commandes des outils (un seul mot de passe) ; chaque opération s'affiche"
+" dans l'avancement."
+msgstr ""
+
 msgid "Lancer avec sudo"
+msgstr ""
+
+msgid "Espace partagé : lecture et plan…"
+msgstr ""
+
+msgid "Espace partagé : rien à faire."
+msgstr ""
+
+msgid "Rien n'a été lancé."
 msgstr ""
 
 msgid ""
@@ -3023,19 +3037,18 @@ msgstr ""
 
 msgid ""
 "Ce que le scanner a trouvé : chaque application omega, son service, sa "
-"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
-" à jour l'application » installe la dernière version d'une application trop "
-"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
-"corriger un écart : Réparer."
+"version et son état. « Mettre à jour l'application » installe la dernière "
+"version d'une application trop ancienne (ligne choisie). Remettre les liens "
+"en place : Synchronisation ; corriger un écart : Réparer."
+msgstr ""
+
+msgid "Scanner la machine"
 msgstr ""
 
 msgid "Mettre à jour l'application"
 msgstr ""
 
 msgid "Lecture du registre…"
-msgstr ""
-
-msgid "Premier scan : recherche des applications omega…"
 msgstr ""
 
 #, python-brace-format
@@ -3064,6 +3077,10 @@ msgstr ""
 
 #, python-brace-format
 msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
+msgstr ""
+
+#, python-brace-format
+msgid "Scan de {machine} lancé."
 msgstr ""
 
 #, python-brace-format
@@ -3175,7 +3192,7 @@ msgstr ""
 msgid "à la main (README de l'outil)"
 msgstr ""
 
-msgid "Scanner : rescanner la machine"
+msgid "la rescanner, depuis ici"
 msgstr ""
 
 msgid "aucune correction connue (voir le détail)"
@@ -3195,6 +3212,12 @@ msgid ""
 "Réparer la ligne choisie », ou « Tout réparer » : le plan de la machine "
 "s'affiche, rien n'est lancé avant. Machine du réseau : réparée depuis ici, "
 "son mot de passe sudo demandé une fois."
+msgstr ""
+
+msgid "À mettre à jour"
+msgstr ""
+
+msgid "Échec de la réparation"
 msgstr ""
 
 msgid "Réparer la ligne choisie"
@@ -3229,14 +3252,58 @@ msgstr ""
 msgid "{machine} : rescannez-la d'abord (Scanner)."
 msgstr ""
 
+msgid ""
+"Machines réparées une à une dans le terminal (mot de passe sudo demandé une "
+"fois par machine) :"
+msgstr ""
+
+msgid " (cette machine)"
+msgstr ""
+
+#, python-brace-format
+msgid "{machine}{mark} : {count} correction(s)"
+msgstr ""
+
+msgid "Hors « Tout réparer » :"
+msgstr ""
+
+msgid "échec précédent : « Réparer la ligne choisie »"
+msgstr ""
+
+msgid "Tout réparer : les machines une à une, dans ce terminal."
+msgstr ""
+
+#, python-brace-format
+msgid "== {machine}"
+msgstr ""
+
+msgid "Bilan :"
+msgstr ""
+
+#, python-brace-format
+msgid "{machine} : échec (code {code})"
+msgstr ""
+
+msgid "Appuyez sur Entrée pour revenir à omega-connect…"
+msgstr ""
+
+#, python-brace-format
+msgid ""
+"Tout réparer : {ok} machine(s) réparée(s), {failed} en échec ({names})."
+msgstr ""
+
+#, python-brace-format
+msgid "Tout réparer : {ok} machine(s) réparée(s) ; rescan en cours."
+msgstr ""
+
 msgid "RAPPORT"
 msgstr ""
 
 msgid ""
-"Un document complet, d'après le dernier scan (« Relancer le scan » le "
-"refait) : bilan, ce qu'il reste à faire, registre, machines du réseau, "
-"liaisons de chaque machine, espace partagé. Enregistré dans le dossier des "
-"exports ; « Voir les exports » les ouvre dans le navigateur pour les lire."
+"Un document complet, d'après le dernier scan : bilan, ce qu'il reste à "
+"faire, registre, machines du réseau, liaisons de chaque machine, espace "
+"partagé. Enregistré dans le dossier des exports ; « Voir les exports » les "
+"ouvre dans le navigateur pour les lire."
 msgstr ""
 
 msgid "THÈME DE LA PAGE HTML"
@@ -3255,9 +3322,6 @@ msgid "Exporter HTML"
 msgstr ""
 
 msgid "Voir les exports"
-msgstr ""
-
-msgid "Scan de cette machine et des machines du réseau…"
 msgstr ""
 
 msgid "Génération du rapport en cours (détection, vérification, zone)…"
@@ -3337,10 +3401,7 @@ msgstr ""
 msgid "Retirer cette machine"
 msgstr ""
 
-msgid "Scanner de nouveau"
-msgstr ""
-
-msgid "Rescanner les machines connues"
+msgid "Scanner la machine locale"
 msgstr ""
 
 msgid "Voir le registre"
@@ -3349,7 +3410,11 @@ msgstr ""
 msgid "Trouvée dans"
 msgstr ""
 
-msgid "Analyse de la machine locale : recherche des applications omega…"
+msgid "Scan de cette machine en cours…"
+msgstr ""
+
+msgid ""
+"Pas encore scannée depuis le lancement : « Scanner la machine locale »."
 msgstr ""
 
 #, python-brace-format
@@ -3391,13 +3456,6 @@ msgstr ""
 msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
 msgstr ""
 
-msgid "Aucune machine distante connue pour l'instant."
-msgstr ""
-
-#, python-brace-format
-msgid "Scan des {count} machine(s) connue(s)…"
-msgstr ""
-
 #, python-brace-format
 msgid "{good} machine(s) scannée(s) sur {total}."
 msgstr ""
@@ -3409,6 +3467,14 @@ msgid "Thème de l'interface"
 msgstr ""
 
 msgid "Thème des exports (rapport HTML, aide exportée)"
+msgstr ""
+
+msgid "Machines scannées en même temps"
+msgstr ""
+
+msgid ""
+"« Scanner tout le parc » interroge plusieurs machines à la fois (8 par "
+"défaut)."
 msgstr ""
 
 msgid "Dossier des exports"
@@ -3553,6 +3619,20 @@ msgstr ""
 msgid "déjà installée"
 msgstr ""
 
+#, python-brace-format
+msgid "{tool} ({count} outil(s))"
+msgstr ""
+
+#, python-brace-format
+msgid "Machine : {machine}"
+msgstr ""
+
+#, python-brace-format
+msgid ""
+"{tool} {version} contient : {tools}. Ces outils se mettent à jour avec elle "
+": seule la ligne {tool} est à mettre à jour."
+msgstr ""
+
 msgid ""
 "omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
 "demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
@@ -3585,10 +3665,6 @@ msgid "Tout mettre à jour"
 msgstr ""
 
 msgid "Disponible"
-msgstr ""
-
-#, python-brace-format
-msgid "{tool} (contient {tools})"
 msgstr ""
 
 msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
@@ -3700,4 +3776,64 @@ msgid ""
 "Ce qui est relié ou pas, sur toutes vos machines, avec son état (OK, à "
 "réparer, absent…). Cet écran montre : ce qui est « à réparer » se corrige "
 "dans le menu Réparer. Surlignez une ligne pour le détail."
+msgstr ""
+
+msgid "Tous les états"
+msgstr ""
+
+msgid "Rechercher : machine, application, dossier…"
+msgstr ""
+
+msgid "jamais"
+msgstr ""
+
+msgid "ancien"
+msgstr ""
+
+msgid "États du scan"
+msgstr ""
+
+msgid "Scanner tout le parc"
+msgstr ""
+
+msgid "Arrêter le scan"
+msgstr ""
+
+msgid "Un scan est déjà en cours."
+msgstr ""
+
+msgid "Scan"
+msgstr ""
+
+#, python-brace-format
+msgid "Scan terminé : {count} machine(s)."
+msgstr ""
+
+#, python-brace-format
+msgid "Scan en cours : {done}/{total} machine(s)"
+msgstr ""
+
+#, python-brace-format
+msgid ""
+"Scan arrêté : {done}/{total} machine(s) scannée(s) ; les autres gardent leur"
+" dernier scan."
+msgstr ""
+
+msgid "Pas encore de scan depuis le lancement."
+msgstr ""
+
+msgid ""
+"Pas encore de scan depuis le lancement : « Scanner tout le parc » pour "
+"remplir les listes."
+msgstr ""
+
+msgid "Cette machine : pas encore scannée."
+msgstr ""
+
+#, python-brace-format
+msgid "Cette machine scannée {age}."
+msgstr ""
+
+#, python-brace-format
+msgid "Réseau : {count} machine(s), plus ancien scan {age}"
 msgstr ""

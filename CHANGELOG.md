@@ -4,7 +4,62 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
-## À venir (pas encore dans une archive)
+## [0.2.1] — construite le 2026-11-26
+
+### Changé — parcours scan et Réparer (retour d'utilisation, 2026-11-26)
+
+Étude `CONNECT/ETUDE_PARCOURS_SCAN_REPARER_2026-11-26.md`, lots S1 à S5. Retour : « une catastrophe, on reste en
+boucle infinie sur les réparations… dès qu'une interface se lance ça lance le scanner, il faut quitter salement ;
+sur un parc d'une cinquantaine de machines c'est intenable ».
+
+- **Aucun scan automatique** (décision : état vide au lancement, le scan est proposé) : plus de scan au lancement,
+  à l'ouverture d'un écran (Scanner, Charge distribuée) ni au retour. Un bandeau en haut de chaque écran du parc
+  (accueil, Registre, Scanner, Synchronisation, Réparer, Liaisons, Dashboard, Rapport, Updater, Charge distribuée)
+  montre l'état : « Pas encore de scan… », la progression « Scan en cours : 23/50 machine(s) — craftdark… », ou
+  l'âge du dernier scan, signalé « ancien » au-delà de 24 h (jamais rescanné tout seul). Boutons « Scanner tout
+  le parc » et « Arrêter le scan » ; les boutons « Relancer le scan » des écrans sont retirés.
+- **Scan en arrière-plan, en parallèle, interruptible** : plusieurs machines à la fois (8 par défaut, Réglages →
+  « Machines scannées en même temps ») ; on change d'écran pendant le scan, chaque ligne se met à jour dès que sa
+  machine a répondu. **Quitter n'attend plus jamais** : les fils du scan ne retiennent pas la fermeture et les
+  `ssh` en cours sont arrêtés ; un scan arrêté n'enregistre rien pour la machine en cours (elle garde son dernier
+  scan, jamais marquée injoignable). Après une action, seule la machine touchée est rescannée.
+- **« Scanner la machine »** (Registre, Synchronisation) : la machine de la ligne choisie, seule. Dans Réparer,
+  une machine injoignable se rescanne par « Réparer la ligne choisie ».
+- **Réparer sans boucle** : « Tout réparer » n'enchaîne plus les écrans (chaque « Retour » rouvrait le suivant).
+  Un récapitulatif machine par machine, une confirmation, puis les machines une à une dans le terminal (un mot de
+  passe par machine) et un bilan. Une réparation qui échoue affiche « Échec de la réparation » et n'est plus
+  relancée par « Tout réparer ». Réparer cette machine : l'espace partagé fait partie du même « Lancer » (plus
+  d'écran du plan ouvert par-dessus : « Retour » ramène à la liste, plus à l'écran d'avant-avant).
+- **Recherche et filtre par état** au-dessus des listes Réparer, Registre et Synchronisation (seul l'affichage
+  change ; « … tout » agit toujours sur toute la liste).
+- **Synchronisation** : case à cocher visible, la même que l'Updater et la Charge distribuée (avant : un petit
+  carré ton sur ton).
+- **Updater, ligne omega-suite** (retour d'utilisation : la liste de ses outils, ~130 caractères, faisait un énorme
+  ascenseur horizontal ; les états n'étaient visibles qu'en défilant à droite, sans savoir à quelle ligne ils
+  appartenaient) : la colonne « Application » dit « omega-suite (7 outil(s)) » ; ses outils et leurs versions
+  s'affichent sous le tableau pour la ligne choisie, avec « seule la ligne omega-suite est à mettre à jour ». La
+  colonne « Machine » abrège les adresses (« omega-server (192.168.1.109 +1) », toutes sous le tableau) et la
+  colonne « État » vient juste après l'application.
+- **Menu principal, cadre « États du scan »** (demande : pas une ligne sur toute la largeur de l'écran) : sous les
+  deux colonnes du menu, de la même largeur ; titre centré en simple écriture ; le bouton « SCANNER TOUT LE PARC »
+  (ou « ARRÊTER LE SCAN » pendant un scan) encadré et centré, le même que ceux des colonnes. Les autres écrans
+  gardent le bandeau d'une ligne. Avant tout scan, le cadre dit seulement « Pas encore de scan depuis le
+  lancement. » (le bouton est juste dessous) : le menu tient en 44 lignes de terminal sans défiler.
+
+### Corrigé — carte d'identité « introuvable » après une mise à jour (2026-11-26)
+
+- Constaté sur craftdark (950037ce), omega-server et MPC : la mise à jour d'omega-fire par l'Updater (ancienne
+  installation mise de côté) créait une carte d'identité neuve ; l'ancienne restait au registre de l'espace
+  partagé, « introuvable », et la correction proposée (`omega-connect retirer <id>`) était lancée sur la machine
+  distante, où omega-connect n'est pas installé : échec à chaque fois, la ligne revenait sans fin.
+- L'Updater recopie maintenant la carte de l'ancienne installation avant `install.sh` (décision : une mise à jour
+  garde la même carte, même identifiant).
+- Même application, même dossier, nouvelle carte : l'ancienne est retirée par le plan de l'espace partagé
+  (Synchroniser, Réparer), sans commande à taper (nouvel écart « ancienne carte d'identité remplacée »). Les trois
+  cas existants partent au premier Réparer.
+- Une commande `omega-connect …` d'un plan distant est lancée par le programme envoyé lui-même, jamais par le
+  shell de la machine ; le retrait d'une application vraiment désinstallée est proposé aussi sur une machine du
+  réseau.
 
 ### Ajouté
 

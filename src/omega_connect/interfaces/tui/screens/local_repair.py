@@ -18,17 +18,18 @@ from textual.widgets import Button, DataTable, Footer, Header, Static
 
 from omega_connect.application.remote_sync import RemoteSyncTools
 from omega_connect.application.repair_actions import RepairResult, RepairTools, repair_plan, run_steps
-from omega_connect.application.zone_actions import ZoneTools, establish_plan
+from omega_connect.application.zone_actions import ApplyResult, ZoneTools, apply_plan, establish_plan
 from omega_connect.domain.detection import DetectionReport
 from omega_connect.domain.links import LinkState, VerificationReport
 from omega_connect.domain.parc import MachineEntry
 from omega_connect.domain.remote import parse_target
 from omega_connect.domain.repair import RepairPlan, RepairStep, StepOutcome
 from omega_connect.domain.updates import Purpose
-from omega_connect.domain.zone import ZoneFacts, ZonePlan
+from omega_connect.domain.zone import CommandOutcome, Operation, ZoneFacts, ZonePlan
 from omega_connect.interfaces.cli.repair_view import render_repair_plan, render_repair_result, repair_step_line
+from omega_connect.interfaces.cli.zone_view import render_result, step_line
 from omega_connect.interfaces.tui.screens._base import SUDO_MESSAGE, OmegaScreen, copy_commands, set_label, suspended
-from omega_connect.interfaces.tui.screens._zone_flow import DetectNow, ZoneFlow
+from omega_connect.interfaces.tui.screens._zone_flow import DetectNow
 from omega_connect.interfaces.tui.screens.dashboard import VerifyNow
 from omega_connect.interfaces.tui.screens.remote_machine import RemoteMachineScreen
 from omega_connect.interfaces.tui.widgets.busy import Busy
@@ -55,7 +56,7 @@ class LocalRepairScreen(OmegaScreen):
         self._verify = verify
         self._repair = repair
         self._zone = zone
-        self._flow = ZoneFlow(self, zone, detect, self._after_zone, self._busy)
+        self._detect = detect
         self._plan: RepairPlan | None = None
         self._preparing = False
         self._repairing = False
@@ -83,8 +84,6 @@ class LocalRepairScreen(OmegaScreen):
         with Horizontal(classes="omega-actions omega-fixed-actions"):
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Lancer"), id="run", variant="error", disabled=True)
-            with Container(classes="omega-btn-frame", id="zone-frame"):
-                yield Button(_("Zone : établir…"), id="zone", variant="primary")
             with Container(classes="omega-btn-frame", id="copy-frame"):
                 yield Button(_("Copier les commandes"), id="copy")
             with Container(classes="omega-btn-frame"):
@@ -95,7 +94,6 @@ class LocalRepairScreen(OmegaScreen):
 
     def on_mount(self) -> None:
         self.query_one("#repair-progress-title", Static).display = False
-        self.query_one("#zone-frame").display = False
         self.query_one("#copy-frame").display = False
         table = self.query_one("#remote-machines", DataTable)
         table.cursor_type = "row"
@@ -160,13 +158,17 @@ class LocalRepairScreen(OmegaScreen):
         self._plan = plan
         self._ran = False
         with contextlib.suppress(NoMatches):
-            self.query_one("#repair-plan", Static).update(render_repair_plan(plan, as_root=self._zone.as_root))
+            text = render_repair_plan(plan, as_root=self._zone.as_root)
+            if plan.offers_zone:
+                text += "\n" + _("Ici, l'espace partagé est mis à jour dans le même « Lancer », juste après les "
+                                 "commandes des outils (un seul mot de passe) ; chaque opération s'affiche dans "
+                                 "l'avancement.") + "\n"
+            self.query_one("#repair-plan", Static).update(text)
             run = self.query_one("#run", Button)
-            set_label(run, _("Lancer avec sudo") if plan.needs_root and not self._zone.as_root else _("Lancer"))
-            run.disabled = not plan.steps
-            # Zone : tout de suite s'il n'y a rien d'autre, sinon apres les commandes (un jeton cree doit etre
-            # recopie).
-            self.query_one("#zone-frame").display = plan.offers_zone and not plan.steps
+            set_label(run, _("Lancer avec sudo") if self._needs_sudo(plan) else _("Lancer"))
+            run.disabled = not (plan.steps or plan.offers_zone)
+            # Plus de plan d'espace partage ouvert a part (retour d'utilisation 2026-11-26 : « Retour » ramenait
+            # l'ecran d'avant-avant) : il fait partie du meme « Lancer ».
             self.query_one("#copy-frame").display = bool(_manual_commands(plan))
             self.query_one("#repair-progress-title", Static).display = False
             self.query_one("#repair-progress", Static).update("")
@@ -176,8 +178,6 @@ class LocalRepairScreen(OmegaScreen):
         button = event.button.id
         if button == "run":
             self._start()
-        elif button == "zone":
-            self._flow.propose(_establish, with_detection=True)
         elif button == "again":
             self._prepare()
         elif button == "copy" and self._plan is not None:
@@ -195,11 +195,14 @@ class LocalRepairScreen(OmegaScreen):
         if not self._repairing:
             super().action_back()
 
+    def _needs_sudo(self, plan: RepairPlan) -> bool:
+        return (plan.needs_root or plan.offers_zone) and not self._zone.as_root
+
     def _start(self) -> None:
         plan = self._plan
-        if plan is None or not plan.steps or self._repairing or self._ran:
+        if plan is None or not (plan.steps or plan.offers_zone) or self._repairing or self._ran:
             return
-        if plan.needs_root and not self._zone.as_root:
+        if self._needs_sudo(plan):
             with suspended(self.app, SUDO_MESSAGE):
                 authenticated = self._zone.runner.authenticate()
             if not authenticated:
@@ -218,11 +221,30 @@ class LocalRepairScreen(OmegaScreen):
             self.app.call_from_thread(self._progress, repair_step_line(index, total, item, outcome))
 
         try:
-            result = run_steps(plan.steps, self._repair.runner, step)
+            result = run_steps(plan.steps, self._repair.runner, step) if plan.steps else None
+            zone = None
+            if plan.offers_zone and (result is None or result.ok):
+                zone = self._apply_zone()
         except Exception as exc:  # noqa: BLE001 - l'interface ne plante jamais pendant une action
-            self.app.call_from_thread(self._finish, None, str(exc) or type(exc).__name__)
+            self.app.call_from_thread(self._finish, None, None, str(exc) or type(exc).__name__)
             return
-        self.app.call_from_thread(self._finish, result, "")
+        self.app.call_from_thread(self._finish, result, zone, "")
+
+    def _apply_zone(self) -> tuple[ApplyResult, ZonePlan] | None:
+        """Espace partage, dans le meme « Lancer » (2026-11-26) : plan calcule APRES les commandes des outils (une
+        carte creee doit etre recopiee), lu avec sudo (deja authentifie), puis applique ; chaque operation s'affiche."""
+        self.app.call_from_thread(self._progress, "\n" + _("Espace partagé : lecture et plan…"))
+        facts = self._zone.inspector.inspect(elevated=True)
+        zone_plan = _establish(facts, self._detect(), self._zone)
+        if zone_plan.refused or not zone_plan.operations:
+            self.app.call_from_thread(self._progress, _("Espace partagé : rien à faire."))
+            return None
+        total = len(zone_plan.operations)
+
+        def step(index: int, operation: Operation, outcome: CommandOutcome) -> None:
+            self.app.call_from_thread(self._progress, step_line(index, total, operation, outcome.ok, outcome.error))
+
+        return apply_plan(zone_plan, facts, self._zone.runner, step), zone_plan
 
     def _progress(self, line: str) -> None:
         with contextlib.suppress(NoMatches):
@@ -231,25 +253,22 @@ class LocalRepairScreen(OmegaScreen):
             progress.update(f"{previous}\n{line}" if previous else line)
             self.query_one(VerticalScroll).scroll_end(animate=False)
 
-    def _finish(self, result: RepairResult | None, error: str) -> None:
-        getattr(self.app, "local_changed", lambda: None)()  # scan relu : cette machine a change
+    def _finish(self, result: RepairResult | None, zone: tuple[ApplyResult, ZonePlan] | None, error: str) -> None:
+        getattr(self.app, "local_changed", lambda: None)()  # cette machine seule, rescannee en arriere-plan
         self._repairing = False
         self._ran = True
         with contextlib.suppress(NoMatches):
             self.query_one("#again", Button).disabled = False
             self.query_one("#back", Button).disabled = False
-            message = render_repair_result(result) if result is not None else _("Erreur : {message}").format(
-                message=error)
+            messages = []
+            if error:
+                messages.append(_("Erreur : {message}").format(message=error))
+            if result is not None:
+                messages.append(render_repair_result(result))
+            if zone is not None:
+                messages.append(render_result(zone[0], zone[1]))
+            message = "\n".join(messages) or _("Rien n'a été lancé.")
             self._progress("\n" + message)
-            ok = result is not None and result.ok
+            ok = not error and (result is None or result.ok) and (zone is None or zone[0].ok)
             self.app.notify(message.splitlines()[0], severity="information" if ok else "error")
-            if ok and self._plan is not None and self._plan.offers_zone:
-                # Parcours enchaine (retour de l'auteur, 2026-11-10) : le plan d'« Etablir » s'ouvre aussitot, pour
-                # relier les jetons crees ; le bouton reste la si on le ferme.
-                self.query_one("#zone-frame").display = True
-                self._flow.propose(_establish, with_detection=True)
 
-    def _after_zone(self, ran: bool) -> None:
-        getattr(self.app, "local_changed", lambda: None)()  # scan relu : cette machine a peut-etre change
-        if ran:
-            self._prepare()

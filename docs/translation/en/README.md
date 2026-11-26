@@ -70,7 +70,7 @@ The omega applications are made to work together: omega-serv's logs are read by 
 From the folder where the archive is located:
 
 ```bash
-tar -xzf omega-connect-0.2.0.tar.gz
+tar -xzf omega-connect-0.2.1.tar.gz
 cd omega-connect/
 ./install.sh
 ```

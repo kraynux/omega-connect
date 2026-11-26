@@ -70,7 +70,7 @@ omega एप्लिकेशन साथ मिलकर काम करन�
 उस फ़ोल्डर से जहाँ आर्काइव रखा है:
 
 ```bash
-tar -xzf omega-connect-0.2.0.tar.gz
+tar -xzf omega-connect-0.2.1.tar.gz
 cd omega-connect/
 ./install.sh
 ```

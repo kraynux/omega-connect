@@ -246,6 +246,42 @@ def test_update_aside_moves_old_install_with_sudo(tmp_path):
 MIGRATE_SH = b'#!/bin/sh\necho "$1 $2" > repris-de.txt\n'
 
 
+def test_update_aside_keeps_the_identity_card(tmp_path):
+    """Decision 2026-11-26 : une mise a jour n'est pas une nouvelle installation ; la carte de l'ancienne est
+    recopiee avant install.sh (meme identifiant), plus d'entree « introuvable » dans l'espace partage."""
+    fake_sudo = tmp_path / "sudo"
+    fake_sudo.write_text('#!/bin/sh\nexec "$@"\n', encoding="utf-8")
+    fake_sudo.chmod(0o755)
+    root = tmp_path / "maison" / "omega-fire"
+    (root / "var").mkdir(parents=True)
+    card = {"format": "omega-jeton", "tool": "omega-fire", "installation_id": "9" * 32, "version": "3.6.1"}
+    (root / "var" / "omega-jeton.json").write_text(json.dumps(card), encoding="utf-8")
+    session = tmp_path / "session"
+    session.mkdir()
+    data = _tar({"omega-fire/install.sh": INSTALL_SH, "omega-fire/var/db/.garde": b""})
+    from datetime import datetime
+
+    apply_update(_order(session, "omega-fire", root, data, UpdateMode.ASIDE), session, now=datetime(2026, 11, 26),
+                 sudo=str(fake_sudo))
+    kept = json.loads((root / "var" / "omega-jeton.json").read_text(encoding="utf-8"))
+    assert kept["installation_id"] == "9" * 32
+
+
+def test_update_aside_ignores_a_foreign_or_linked_card(tmp_path):
+    from omega_connect.infrastructure.remote.apply_update import keep_identity_card
+
+    old, new = tmp_path / "old", tmp_path / "new"
+    (old / "var").mkdir(parents=True)
+    new.mkdir()
+    (old / "var" / "omega-jeton.json").write_text(json.dumps({"tool": "omega-jail"}), encoding="utf-8")
+    assert not keep_identity_card(old, new, "omega-fire")  # carte d'un autre outil
+    (old / "var" / "omega-jeton.json").unlink()
+    (tmp_path / "ailleurs.json").write_text(json.dumps({"tool": "omega-fire"}), encoding="utf-8")
+    (old / "var" / "omega-jeton.json").symlink_to(tmp_path / "ailleurs.json")
+    assert not keep_identity_card(old, new, "omega-fire")  # lien : jamais suivi
+    assert not (new / "var" / "omega-jeton.json").exists()
+
+
 def test_update_aside_with_other_old_installs_names_the_right_one(tmp_path):
     """Constate le 2026-11-11 sur omega-server : un vieux omega-fire.old-20260927 a cote ; install.sh refuse de
     deviner, omega-connect designe celle qu'il vient de mettre de cote."""
@@ -648,6 +684,26 @@ def test_repair_runs_announced_manual_commands_only(tmp_path, monkeypatch):
     result = result_from_dict(json.loads((session / "result.json").read_text(encoding="utf-8")))
     assert result is not None and [(step.name, step.detail) for step in result.steps] == [
         (StepName.REPAIR, ""), (StepName.MANUAL, "sudo chmod 0640 /a")]
+
+
+def test_omega_connect_commands_run_in_this_program_never_in_the_shell(tmp_path, monkeypatch):
+    """Retour d'utilisation 2026-11-26 : « omega-connect retirer 950037ce » lance par le shell d'une machine ou
+    omega-connect n'est pas installe echouait a chaque fois ; c'est le programme envoye qui le lance."""
+    from omega_connect.app import remote_agent
+    from omega_connect.infrastructure.remote import apply_update
+
+    session = tmp_path / "s"
+    session.mkdir()
+    command = "omega-connect retirer 950037ce"
+    (session / "updates.json").write_text(json.dumps(updates_to_dict((), Purpose.REPAIR, (command,))),
+                                          encoding="utf-8")
+    calls: list[list[str]] = []
+    shell: list[str] = []
+    monkeypatch.setattr(remote_agent, "_cli", lambda argv: (calls.append(argv), 0)[1])
+    monkeypatch.setattr(remote_agent, "_current_manual", lambda: (command,))
+    monkeypatch.setattr(apply_update, "run_shell", lambda text: (shell.append(text), 0)[1])
+    assert remote_agent.main(["run", str(session)]) == 0
+    assert calls == [["reparer", "--oui"], ["retirer", "950037ce"]] and shell == []
 
 
 def test_problems_list_every_machine_and_who_fixes_it():

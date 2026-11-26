@@ -5,11 +5,15 @@ réparer » ; « on tourne en boucle »).
 
 Une ligne par problème : machine, problème, état (mêmes mots que Liaisons et le Registre), qui le corrige.
 « Réparer la ligne choisie » ouvre le plan de cette machine (cette machine : plan local ; machine du réseau : plan
-calculé sur elle, lancé depuis ici), « Tout réparer » enchaîne les machines une à une. Au retour, la liste est
-recalculée : ce qui est réparé disparaît."""
+calculé sur elle, lancé depuis ici). « Tout réparer » (retour d'utilisation 2026-11-26 : « on reste en boucle infinie
+sur les réparations ») : UN récapitulatif machine par machine, UNE confirmation, puis les machines une à une dans le
+terminal (un mot de passe par machine), sans écran entre deux, et un bilan. Une réparation qui échoue ne repart pas
+en boucle : la ligne dit « Échec » et sort de « Tout réparer » jusqu'à ce qu'elle soit relancée seule. Après une
+réparation, seule la machine touchée est rescannée, en arrière-plan."""
 from __future__ import annotations
 
 import contextlib
+import sys
 from collections.abc import Callable
 
 from rich.text import Text
@@ -28,11 +32,14 @@ from omega_connect.domain.updates import Purpose
 from omega_connect.interfaces.cli.enroll_view import STATE_LABELS as APP_STATE_LABELS
 from omega_connect.interfaces.cli.verification_view import LINK_LABELS, STATE_LABELS
 from omega_connect.interfaces.tui.presentation import check_lines
-from omega_connect.interfaces.tui.screens._base import OmegaScreen
+from omega_connect.interfaces.tui.screens._base import OmegaScreen, suspended
+from omega_connect.interfaces.tui.screens.confirm import ConfirmScreen
 from omega_connect.interfaces.tui.screens.dashboard import VerifyNow
 from omega_connect.interfaces.tui.screens.link_detail import LinkDetailScreen
 from omega_connect.interfaces.tui.screens.remote_machine import RemoteMachineScreen
 from omega_connect.interfaces.tui.widgets.busy import Busy
+from omega_connect.interfaces.tui.widgets.list_filter import ListFilter
+from omega_connect.interfaces.tui.widgets.scan_banner import ScanBanner
 from omega_connect.interfaces.tui.widgets.states import theme_styles
 from omega_connect.interfaces.tui.widgets.tables import WideTable
 from omega_connect.ports.fleet import ParcStore
@@ -46,7 +53,7 @@ WHO_LABELS = {
     "update": N_("Mettre à jour l'application, depuis ici"),
     "reinstall": N_("Réinstaller l'application, depuis ici"),
     "update-local": N_("à la main (README de l'outil)"),
-    "scan": N_("Scanner : rescanner la machine"),
+    "scan": N_("la rescanner, depuis ici"),
     "none": N_("aucune correction connue (voir le détail)"),
     "distributed": N_("Charge distribuée : relier de nouveau, ou ouvrir le pare-feu"),
     "updater": N_("Updater : mise à jour depuis ici"),
@@ -67,9 +74,21 @@ def who(problem: Problem) -> str:
     return "manual-local" if problem.local else "manual-remote"
 
 
+def problem_key(problem: Problem) -> tuple[str, str, str, str]:
+    """Identite d'une ligne d'un scan a l'autre (suivi des echecs)."""
+    if problem.link is not None:
+        return (problem.machine, problem.kind.value, problem.link.kind.value, problem.link.instance)
+    return (problem.machine, problem.kind.value, "", problem.row.root if problem.row is not None else "")
+
+
+ALL_AT_ONCE = ("tool", "manual-remote", "manual-local")
+"""Ce que « Tout réparer » enchaîne dans le terminal ; les mises a jour (Updater), la charge distribuee (son ecran)
+et les machines injoignables (a rescanner) restent a part, nommees dans le recapitulatif."""
+
+
 def actionable(problem: Problem) -> bool:
     return who(problem) in ("tool", "manual-remote", "update", "reinstall", "manual-local", "distributed",
-                            "updater")
+                            "updater", "scan")
 
 
 class RepairScreen(OmegaScreen):
@@ -77,8 +96,12 @@ class RepairScreen(OmegaScreen):
                  local_repair: Callable[[], Screen[None] | None], parc: ParcStore | None = None,
                  remote_sync: RemoteSyncTools | None = None,
                  distributed: Callable[..., Screen[None] | None] | None = None,
-                 updater: Callable[..., Screen[None] | None] | None = None) -> None:
+                 updater: Callable[..., Screen[None] | None] | None = None,
+                 runner: Callable[[list[str]], int] | None = None) -> None:
         super().__init__()
+        self._runner = runner
+        self._failed: set[tuple[str, str, str, str]] = set()
+        """Lignes dont la derniere reparation a echoue (cette session) : jamais relancees par « Tout réparer »."""
         self._distributed = distributed
         self._updater = updater
         self._verify = verify
@@ -88,7 +111,8 @@ class RepairScreen(OmegaScreen):
         self._parc = parc
         self._remote_sync = remote_sync
         self._problems: tuple[Problem, ...] = ()
-        self._queue: list[Problem] = []
+        self._shown: list[int] = []
+        """Ligne affichee -> indice dans `_problems` (recherche et filtre : seul l'affichage change)."""
         self._loading = False
 
     def compose(self) -> ComposeResult:
@@ -99,8 +123,11 @@ class RepairScreen(OmegaScreen):
                            "ligne choisie », ou « Tout réparer » : le plan de la machine s'affiche, rien n'est lancé "
                            "avant. Machine du réseau : réparée depuis ici, son mot de passe sudo demandé une fois."),
                          classes="omega-hint")
+            yield ScanBanner()
             yield Busy(id="busy")
             yield Static("", id="problems-status")
+            yield ListFilter([(_("À réparer"), "repair"), (_("À mettre à jour"), "update"),
+                              (_("Injoignable"), "unreachable"), (_("Échec de la réparation"), "failed")])
             yield WideTable(id="problems")
             yield Static("", id="problem-detail")
         with Horizontal(classes="omega-actions omega-fixed-actions"):
@@ -110,8 +137,6 @@ class RepairScreen(OmegaScreen):
                 yield Button(_("Détail"), id="detail", disabled=True)
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Tout réparer"), id="repair-all", disabled=True)
-            with Container(classes="omega-btn-frame"):
-                yield Button(_("Relancer le scan"), id="again")
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Retour"), id="back")
         yield Footer()
@@ -128,20 +153,23 @@ class RepairScreen(OmegaScreen):
             busy = self.query_one(Busy)
             busy.show(text) if text is not None else busy.hide()
 
-    def _load(self, rescan: bool = False) -> None:
-        """Le dernier scan relu (decision de l'auteur, 2026-11-22) ; « Relancer le scan » : cette machine et les
-        machines du reseau rescannees d'abord. Apres une reparation, la machine touchee est rescannee par l'ecran
-        qui a repare : la liste ne propose pas ce qui vient d'etre repare (retour de l'auteur, 2026-11-11)."""
+    def scan_changed(self) -> bool:
+        """Une machine vient d'etre scannee (bandeau de scan) : la liste est relue, rien n'est rescanne."""
+        if self._loading:
+            return False
+        self._load()
+        return True
+
+    def _load(self) -> None:
+        """Le dernier scan relu, jamais un nouveau scan (decision 2026-11-26). Apres une reparation, la machine
+        touchee est rescannee seule : la liste ne propose pas ce qui vient d'etre repare."""
         if self._loading:
             return
         self._loading = True
-        self._busy(_("Scan de cette machine…") if rescan else _("Lecture du dernier scan…"))
+        self._busy(_("Lecture du dernier scan…"))
 
         def collect() -> None:
             try:
-                if rescan:
-                    self.app.rescan_everything(  # type: ignore[attr-defined]
-                        lambda text: self.app.call_from_thread(self._busy, text))
                 report = self._verify()
                 rows = registry_rows(report, self._inspector.inspect(elevated=False), self._machine)
                 network = self._parc.load() if self._parc is not None else ()
@@ -179,13 +207,20 @@ class RepairScreen(OmegaScreen):
             table = self.query_one("#problems", DataTable)
             cursor = table.cursor_row
             table.clear()
-            for problem in found:
-                table.add_row(problem.machine, self._subject(problem), self._state(problem, styles),
-                              _(WHO_LABELS[who(problem)]))
-            if found:
-                table.move_cursor(row=min(max(cursor, 0), len(found) - 1))
+            self._failed &= {problem_key(problem) for problem in found}  # ce qui a disparu est repare
+            chooser = self.query_one(ListFilter)
+            self._shown = [index for index, problem in enumerate(found) if chooser.matches(
+                (problem.machine, self._subject(problem), problem.row.root if problem.row else ""),
+                self._filter_state(problem))]
+            for problem in (found[index] for index in self._shown):
+                state = self._state(problem, styles)
+                if problem_key(problem) in self._failed:
+                    state = Text("✕ " + _("Échec de la réparation"), style=f"bold {styles.get('error', 'red')}")
+                table.add_row(problem.machine, self._subject(problem), state, _(WHO_LABELS[who(problem)]))
+            if self._shown:
+                table.move_cursor(row=min(max(cursor, 0), len(self._shown) - 1))
             table.refresh(layout=True)
-            self.query_one("#repair-all", Button).disabled = not any(actionable(problem) for problem in found)
+            self.query_one("#repair-all", Button).disabled = not self._all_at_once()
             self._describe()
 
     @staticmethod
@@ -215,7 +250,16 @@ class RepairScreen(OmegaScreen):
             index = self.query_one("#problems", DataTable).cursor_row
         except NoMatches:
             return None
-        return self._problems[index] if 0 <= index < len(self._problems) else None
+        return self._problems[self._shown[index]] if 0 <= index < len(self._shown) else None
+
+    def _filter_state(self, problem: Problem) -> str:
+        if problem_key(problem) in self._failed:
+            return "failed"
+        return {ProblemKind.UNREACHABLE: "unreachable", ProblemKind.UPDATE: "update"}.get(problem.kind, "repair")
+
+    def on_list_filter_changed(self, _event: ListFilter.Changed) -> None:
+        if not self._loading:
+            self._show(getattr(self.app, "report", None), self._problems)
 
     def _describe(self) -> None:
         problem = self._current()
@@ -250,12 +294,17 @@ class RepairScreen(OmegaScreen):
                 self.app.push_screen(LinkDetailScreen(link=problem.link, verified_at=None))
         elif button == "repair-all":
             self._repair_all()
-        elif button == "again":
-            self._load(rescan=True)
         elif button == "back":
             self.action_back()
 
     def _open(self, problem: Problem, done: Callable[[object], None]) -> None:
+        if who(problem) == "scan":
+            # Machine injoignable : « Réparer » = la rescanner, seule, en arriere-plan (2026-11-26)
+            scan = getattr(self.app, "scan_machine", None)
+            if scan is not None and problem.target:
+                scan(problem.target, problem.machine)
+                self.app.notify(_("Scan de {machine} lancé.").format(machine=problem.machine))
+            return
         if who(problem) == "updater":
             # Une seule facon de mettre a jour (decision de l'auteur, 2026-11-22) : l'Updater, l'application cochee
             screen = self._updater(problem.machine) if self._updater is not None else None
@@ -265,8 +314,8 @@ class RepairScreen(OmegaScreen):
         if who(problem) == "distributed":
             screen = self._distributed(problem.machine) if self._distributed is not None else None
             if screen is not None:
-                # Retour sans rien changer : ni rescan, ni rechargement (sauf pour continuer « Tout réparer »)
-                self.app.push_screen(screen, lambda changed: done(changed) if changed or self._queue else None)
+                # Retour sans rien changer : ni rescan, ni rechargement
+                self.app.push_screen(screen, lambda changed: done(changed) if changed else None)
             return
         if problem.local:
             screen = self._local_repair()
@@ -280,23 +329,69 @@ class RepairScreen(OmegaScreen):
         purpose = Purpose.UPDATE if problem.kind is ProblemKind.UPDATE else Purpose.REPAIR
         self.app.push_screen(RemoteMachineScreen(target=target, tools=self._remote_sync, purpose=purpose), done)
 
-    def _repair_all(self) -> None:
-        """Une etape par machine et par geste : mettre a jour d'abord, puis reparer."""
-        seen: set[tuple[str, ProblemKind]] = set()
-        self._queue = []
-        for problem in self._problems:
-            key = (problem.machine, ProblemKind.REPAIR if problem.kind is ProblemKind.REPAIR else problem.kind)
-            if actionable(problem) and key not in seen:
-                seen.add(key)
-                self._queue.append(problem)
-        self._next()
+    # ---- « Tout réparer » : un recapitulatif, une confirmation, le terminal ----
+    def _all_at_once(self) -> list[Problem]:
+        return [problem for problem in self._problems
+                if who(problem) in ALL_AT_ONCE and problem_key(problem) not in self._failed
+                and (problem.local or parse_target(problem.target) is not None)]
 
-    def _next(self, _result: object = None) -> None:
-        if not self._queue:
-            self._load()
+    def _repair_all(self) -> None:
+        chosen = self._all_at_once()
+        if not chosen or self._runner is None:
             return
-        self._open(self._queue.pop(0), self._next)
+        machines: dict[str, list[Problem]] = {}
+        for problem in chosen:
+            machines.setdefault(problem.machine, []).append(problem)
+        lines = [_("Machines réparées une à une dans le terminal (mot de passe sudo demandé une fois par machine) :")]
+        for name, items in machines.items():
+            mark = _(" (cette machine)") if items[0].local else ""
+            lines.append("  · " + _("{machine}{mark} : {count} correction(s)").format(
+                machine=name, mark=mark, count=len(items)))
+        left = [problem for problem in self._problems if problem not in chosen]
+        if left:
+            lines += ["", _("Hors « Tout réparer » :")]
+            counts: dict[str, int] = {}
+            for problem in left:
+                reason = _("échec précédent : « Réparer la ligne choisie »") \
+                    if problem_key(problem) in self._failed else _(WHO_LABELS[who(problem)])
+                counts[reason] = counts.get(reason, 0) + 1
+            lines += [f"  · {count} × {reason}" for reason, count in counts.items()]
+        self.app.push_screen(ConfirmScreen(title=_("Tout réparer"), text="\n".join(lines), yes=_("Lancer"),
+                                           no=_("Annuler")),
+                             lambda yes: self._run_all(machines) if yes else None)
+
+    def _run_all(self, machines: dict[str, list[Problem]]) -> None:
+        runner = self._runner
+        assert runner is not None
+        program = [sys.executable, "-m", "omega_connect"]
+        results: list[tuple[str, int, list[Problem]]] = []
+        with suspended(self.app, _("Tout réparer : les machines une à une, dans ce terminal.")):
+            for name, items in machines.items():
+                print("\n" + "=" * 70 + "\n" + _("== {machine}").format(machine=name) + "\n" + "=" * 70, flush=True)
+                argv = [*program, "reparer", "--oui"] if items[0].local else \
+                    [*program, "reparer", "--machine", items[0].target, "--oui"]
+                results.append((name, runner(argv), items))
+            print("\n" + _("Bilan :"), flush=True)
+            for name, code, _items in results:
+                print(("  ✓ " if code == 0 else "  ✕ ") + (name if code == 0 else _("{machine} : échec (code {code})")
+                                                           .format(machine=name, code=code)), flush=True)
+            with contextlib.suppress(EOFError, OSError):
+                input("\n" + _("Appuyez sur Entrée pour revenir à omega-connect…"))
+        failed = [name for name, code, _items in results if code != 0]
+        for _name, code, items in results:
+            if code != 0:
+                self._failed |= {problem_key(problem) for problem in items}
+            first = items[0]
+            if first.local:
+                getattr(self.app, "local_changed", lambda: None)()
+            else:
+                getattr(self.app, "scan_machine", lambda *_args: None)(first.target, first.machine)
+        self.app.notify(_("Tout réparer : {ok} machine(s) réparée(s), {failed} en échec ({names}).").format(
+            ok=len(results) - len(failed), failed=len(failed), names=", ".join(failed))
+            if failed else _("Tout réparer : {ok} machine(s) réparée(s) ; rescan en cours.").format(ok=len(results)),
+            severity="warning" if failed else "information")
+        self._load()
 
     def _after(self, _result: object) -> None:
-        self._load()
+        self._load()  # le dernier scan relu ; la machine touchee est rescannee seule, en arriere-plan
 

@@ -70,7 +70,7 @@ Aplikacje omega są stworzone do współpracy: logi omega-serv są czytane przez
 Z katalogu, w którym znajduje się archiwum:
 
 ```bash
-tar -xzf omega-connect-0.2.0.tar.gz
+tar -xzf omega-connect-0.2.1.tar.gz
 cd omega-connect/
 ./install.sh
 ```

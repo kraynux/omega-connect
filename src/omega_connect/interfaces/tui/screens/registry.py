@@ -27,12 +27,14 @@ from omega_connect.domain.parc import MachineEntry
 from omega_connect.domain.remote import parse_target
 from omega_connect.domain.updates import Purpose
 from omega_connect.domain.zone import ZoneFacts
-from omega_connect.interfaces.cli.enroll_view import SPACE_LABELS, state_hint
+from omega_connect.interfaces.cli.enroll_view import SPACE_LABELS, STATE_LABELS, state_hint
 from omega_connect.interfaces.cli.verification_view import LINK_LABELS, check_text
 from omega_connect.interfaces.tui.screens._base import OmegaScreen, set_label
 from omega_connect.interfaces.tui.screens.dashboard import VerifyNow
 from omega_connect.interfaces.tui.screens.remote_machine import RemoteMachineScreen
 from omega_connect.interfaces.tui.widgets.busy import Busy
+from omega_connect.interfaces.tui.widgets.list_filter import ListFilter
+from omega_connect.interfaces.tui.widgets.scan_banner import ScanBanner
 from omega_connect.interfaces.tui.widgets.states import state_cell, state_summary, theme_styles
 from omega_connect.interfaces.tui.widgets.tables import WideTable
 from omega_connect.ports.fleet import ParcStore
@@ -57,6 +59,8 @@ class RegistryScreen(OmegaScreen):
         self._machine = machine
         self._scanner = scanner
         self._rows: tuple[RegistryRow, ...] = ()
+        self._shown: list[int] = []
+        """Ligne affichee -> indice dans `_rows` (recherche et filtre : seul l'affichage change)."""
         self._loading = False
 
     def compose(self) -> ComposeResult:
@@ -65,18 +69,20 @@ class RegistryScreen(OmegaScreen):
         with Vertical(classes="omega-panel omega-fill"):
             yield Static(_("REGISTRE"), classes="omega-title")
             yield Static(_("Ce que le scanner a trouvé : chaque application omega, son service, sa version et son "
-                           "état. « Mettre à jour le registre » refait le scan ; « Mettre à jour l'application » "
+                           "état. « Mettre à jour l'application » "
                            "installe la dernière version d'une application trop ancienne (ligne choisie). Remettre "
                            "les liens en place : Synchronisation ; corriger un écart : Réparer."), classes="omega-hint")
+            yield ScanBanner()
             yield Static("", id="registry-status", classes="omega-hint")
             yield Busy(id="busy")
             yield Static("", id="registry-summary")
+            yield ListFilter([(_(label), state.value) for state, label in STATE_LABELS.items()])
             yield WideTable(id="registry-table")
             yield Static("", id="space-badge")
             yield Static("", id="row-detail")
         with Horizontal(classes="omega-actions omega-fixed-actions"):
             with Container(classes="omega-btn-frame"):
-                yield Button(_("Relancer le scan"), id="update", variant="primary")
+                yield Button(_("Scanner la machine"), id="scan-one", disabled=True)
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Mettre à jour l'application"), id="update-app", disabled=True)
             with Container(classes="omega-btn-frame"):
@@ -97,12 +103,11 @@ class RegistryScreen(OmegaScreen):
             busy.show(text) if text is not None else busy.hide()
 
     def _load(self, report: VerificationReport | None) -> None:
-        """Dernier scan s'il existe (affichage immediat) ; sinon un premier scan."""
+        """Le dernier scan relu (jamais un nouveau scan : decision 2026-11-26)."""
         if self._loading:
             return
         self._loading = True
-        self._busy(_("Lecture du registre…") if report is not None else
-                   _("Premier scan : recherche des applications omega…"))
+        self._busy(_("Lecture du registre…"))
 
         def collect() -> None:
             try:
@@ -146,22 +151,42 @@ class RegistryScreen(OmegaScreen):
             badge = Text(_("Espace partagé : "), style="bold")
             badge.append(_(SPACE_LABELS[space_status(report)]))
             self.query_one("#space-badge", Static).update(badge)
+        self._fill()
+
+    def on_list_filter_changed(self, _event: ListFilter.Changed) -> None:
+        self._fill()
+
+    def _fill(self) -> None:
+        styles = theme_styles(self.app)
+        with contextlib.suppress(NoMatches):
+            chooser = self.query_one(ListFilter)
+            self._shown = [index for index, row in enumerate(self._rows)
+                           if chooser.matches((row.machine, row.tool, row.instance, row.root), row.state.value)]
             table = self.query_one("#registry-table", DataTable)
+            cursor = table.cursor_row
             table.clear()
-            for row in self._rows:
+            for index in self._shown:
+                row = self._rows[index]
                 service = (row.instance + (f" ({row.service_state})" if row.service_state else "")
                            if row.instance else "—")
                 tool = _("{tool} (dans omega-suite)").format(tool=row.tool) if row.suite else row.tool
                 table.add_row(row.machine, tool, service, row.version or "?", state_cell(row.state, styles),
                               row.root)
+            if self._shown:
+                table.move_cursor(row=min(max(cursor, 0), len(self._shown) - 1))
             table.refresh(layout=True)
             self._describe_current()
 
-    def _describe_current(self) -> None:
+    def _index(self) -> int:
+        """Indice dans `_rows` de la ligne choisie (-1 : aucune)."""
         try:
-            index = self.query_one("#registry-table", DataTable).cursor_row
+            cursor = self.query_one("#registry-table", DataTable).cursor_row
         except NoMatches:
-            return
+            return -1
+        return self._shown[cursor] if 0 <= cursor < len(self._shown) else -1
+
+    def _describe_current(self) -> None:
+        index = self._index()
         detail = Text()
         can_update = False
         if 0 <= index < len(self._rows):
@@ -182,7 +207,12 @@ class RegistryScreen(OmegaScreen):
                 if can_update:
                     detail.append(_("→ « {action} » ouvre l'Updater, l'application déjà cochée.").format(
                         action=action), style="bold")
+        with contextlib.suppress(NoMatches):
+            self._describe_buttons(index, detail, can_update)
+
+    def _describe_buttons(self, index: int, detail: Text, can_update: bool) -> None:
         self.query_one("#row-detail", Static).update(detail)
+        self.query_one("#scan-one", Button).disabled = index < 0
         button = self.query_one("#update-app", Button)
         button.disabled = not can_update
         incomplete = 0 <= index < len(self._rows) and self._rows[index].state is AppState.INCOMPLETE
@@ -192,29 +222,33 @@ class RegistryScreen(OmegaScreen):
         self._describe_current()
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
-        if event.button.id == "update":
-            self._refresh_registry()
-        elif event.button.id == "update-app":
+        if event.button.id == "update-app":
             self._update_application()
+        elif event.button.id == "scan-one":
+            self._scan_one()
         elif event.button.id == "back":
             self.action_back()
 
-    def _refresh_registry(self) -> None:
-        """« Relancer le scan » : cette machine puis les machines du reseau connues, sur place."""
+    def scan_changed(self) -> bool:
+        """Une machine vient d'etre scannee (bandeau de scan) : le registre est relu, rien n'est rescanne."""
         if self._loading:
+            return False
+        self._load(None)
+        return True
+
+    def _scan_one(self) -> None:
+        """« Scanner la machine » de la ligne choisie, seule, en arriere-plan (decision 2026-11-26)."""
+        index = self._index()
+        if index < 0:
             return
-        self._busy(_("Scan de cette machine…"))
-
-        def rescan() -> None:
-            with contextlib.suppress(Exception):
-                self.app.rescan_everything(  # type: ignore[attr-defined]
-                    lambda text: self.app.call_from_thread(self._busy, text))
-            self.app.call_from_thread(self._load, None)
-
-        self.run_worker(rescan, thread=True, group="registry-rescan", exclusive=True)
+        entry = self._entries[index] if index < len(self._entries) else None
+        scan = getattr(self.app, "scan_machine", None)
+        if scan is not None:
+            scan(entry.target if entry is not None else "", entry.label if entry is not None else "")
+            self.app.notify(_("Scan de {machine} lancé.").format(machine=self._rows[index].machine))
 
     def _update_application(self) -> None:
-        index = self.query_one("#registry-table", DataTable).cursor_row
+        index = self._index()
         entry = self._entries[index] if 0 <= index < len(self._entries) else None
         # Une seule facon de mettre a jour (decision de l'auteur, 2026-11-22) : l'Updater, la machine cochee
         screen = self._updater(entry.label if entry is not None else self._machine) if self._updater else None

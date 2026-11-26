@@ -92,7 +92,7 @@ async def test_dashboard_is_an_overview_in_separate_frames_without_actions():
         assert "1. ✘ Journaux d'omega-serv → jails fail2ban" in _card(screen, "top-links")
         assert "Aucune machine du réseau" in _card(screen, "top-oldest")
         assert screen.query_one("#card-top-links", Static).border_title == "TOP 5 · LIAISONS À RÉPARER"
-        assert {button.id for button in screen.query("Button")} == {"refresh", "back"}
+        assert {button.id for button in screen.query("Button")} == {"scan-all", "scan-stop", "back"}  # le bandeau de scan, et Retour
         assert not list(screen.query(DataTable))
         page = " ".join(str(widget.render()) for widget in screen.query(Static))
         for word in ("à venir", "refonte", "contrôle", "constat", "Provenance", "OUTILS ET INSTANCES"):
@@ -151,7 +151,7 @@ async def test_verification_runs_off_the_interface_thread_and_errors_are_shown()
         screen = await _ready(app, pilot)
         assert seen == [False]
         assert "disque absent" in str(screen.query_one("#status", Static).render())
-        assert not screen.query_one("#refresh").disabled
+        assert not screen.query_one("#scan-all").disabled  # on peut relancer le scan (bandeau)
 
 
 async def test_escape_goes_back_to_the_menu_then_asks_before_quitting():

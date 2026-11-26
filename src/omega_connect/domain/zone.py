@@ -223,6 +223,9 @@ class NoteCode(str, Enum):
     NOT_LINKED = "not-linked"
     DUPLICATE_SKIPPED = "duplicate-skipped"
     TOOL_GONE = "tool-gone"
+    TOOL_REPLACED = "tool-replaced"
+    """Ancienne carte d'identite d'un outil dont le dossier porte maintenant une nouvelle carte (reinstallation,
+    mise a jour d'une version qui ne gardait pas la carte) : retiree par le meme plan, sans commande a taper."""
     RELOGIN = "relogin"
     NOTHING_TO_DO = "nothing-to-do"
     UNKNOWN_FILES_KEPT = "unknown-files-kept"
@@ -436,9 +439,11 @@ def plan_establish(facts: ZoneFacts, detection: DetectionReport, subject: ZoneSu
 
     relinks: list[LinkedInstallation] = []
     linked_ids: set[str] = set()
+    current_places: set[tuple[str, str]] = set()
     for item in _linkable(detection, notes):
         token = item.token
         assert token is not None  # garanti par _linkable
+        current_places.add((token.tool, item.root))
         sheet = item.sheet.sheet if item.sheet is not None and item.sheet.status is ReadStatus.OK else None
         previous = base.installation(token.installation_id) if base is not None else None
         linked = LinkedInstallation(
@@ -461,11 +466,20 @@ def plan_establish(facts: ZoneFacts, detection: DetectionReport, subject: ZoneSu
             if _needs_write(facts, sheet_relative, sheet_content, SHEET_DATE_KEY):
                 operations.append(Operation(OperationKind.WRITE_FILE, facts.absolute(sheet_relative), sheet_content,
                                             role=FileRole.SHEET_COPY, subject=item.root))
+    forgets: list[str] = []
     if base is not None:
+        unlinked = [item for item in base.installations if item.installation_id not in linked_ids]
+        # Carte remplacee au meme endroit (retour d'utilisation 2026-11-26 : chaque mise a jour par l'Updater
+        # laissait l'ancienne au registre, « introuvable », et la correction proposee ne pouvait pas aboutir sur
+        # une machine distante) : retiree ici, dans le meme plan.
+        replaced = [item for item in unlinked if (item.tool, item.root) in current_places]
+        removals, forgets = _remove_copies(facts, replaced)
+        operations.extend(removals)
+        notes.extend(PlanNote(NoteCode.TOOL_REPLACED, item.root, item.installation_id[:8]) for item in replaced)
         notes.extend(PlanNote(NoteCode.TOOL_GONE, item.root, item.installation_id[:8])
-                     for item in base.installations if item.installation_id not in linked_ids)
+                     for item in unlinked if item not in replaced)
     plan = ZonePlan(PlanAction.ESTABLISH, facts.path, now, base, tuple(operations), tuple(notes),
-                    ZoneState.ACTIVE, tuple(relinks))
+                    ZoneState.ACTIVE, tuple(relinks), tuple(forgets))
     return _with_registry(plan, force=base is not None and base.state is not ZoneState.ACTIVE)
 
 

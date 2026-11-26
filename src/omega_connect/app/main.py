@@ -22,7 +22,7 @@ from omega_connect.application.remote_actions import RemoteTools, rescan_network
 from omega_connect.application.remote_sync import RemoteSyncTools
 from omega_connect.application.repair_actions import RepairTools
 from omega_connect.application.report import FullReport, ReportTools, collect_report
-from omega_connect.application.scan_cache import ScanCache, request_rescan
+from omega_connect.application.scan_cache import ScanCache
 from omega_connect.application.settings import SettingsTools
 from omega_connect.application.updater import UpdaterTools
 from omega_connect.application.verify_links import verify_links
@@ -55,7 +55,7 @@ from omega_connect.infrastructure.detection.sheet_fetcher import SubprocessSheet
 from omega_connect.infrastructure.exports.writer import FileExportWriter
 from omega_connect.infrastructure.fleet.sqlite_store import SqliteParcStore
 from omega_connect.infrastructure.remote.payload import build_payload
-from omega_connect.infrastructure.remote.ssh import SshRemoteSession
+from omega_connect.infrastructure.remote.ssh import SshRemoteSession, allow_processes, stop_all_processes
 from omega_connect.infrastructure.remote.suggestions import LocalSuggestions
 from omega_connect.infrastructure.repair.tool_runner import ToolCommandRunner
 from omega_connect.infrastructure.session.zone_group import relaunch_with_zone_group
@@ -243,7 +243,8 @@ def build_dashboard(verify: VerifyFunction, *, refresh_seconds: float = DASHBOAR
 
         profile = resolve_render_profile(detected).render_profile
         # Scan relu (2026-11-22) : un seul scan de cette machine, partage par tous les ecrans
-        scan = ScanCache(lambda: verify(request))
+        # Jamais de scan automatique (2026-11-26) : avant le premier scan, les ecrans relisent un rapport vide
+        scan = ScanCache(lambda: verify(request), empty=lambda: VerificationReport(DetectionReport("", ()), ()))
         shown = build_report(lambda _request: scan(), zone, remote.parc if remote is not None else None, remote,
                              rescan=False) if zone is not None else None
 
@@ -254,7 +255,7 @@ def build_dashboard(verify: VerifyFunction, *, refresh_seconds: float = DASHBOAR
             return open_path_in_browser(path).ok
 
         def rescan_all() -> None:
-            request_rescan(scan)
+            scan.rescan()
             if remote is not None:
                 rescan_network(remote)
 
@@ -264,6 +265,7 @@ def build_dashboard(verify: VerifyFunction, *, refresh_seconds: float = DASHBOAR
                         machine=machine_name(), remote=remote,
                         remote_sync=remote_sync, system_clipboard=copy_text, settings=settings,
                         distributed=distributed, updater=updater,
+                        stop_processes=stop_all_processes, allow_processes=allow_processes,
                         contact=build_contact_support("omega-connect", __version__, var_dir()),
                         detect=(lambda: detect(request)) if detect is not None else None,
                         report=ReportTools(lambda: shown(request), writer, rescan_all,

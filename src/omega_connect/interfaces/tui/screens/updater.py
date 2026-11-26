@@ -40,11 +40,10 @@ from omega_connect.domain.updates import Purpose
 from omega_connect.interfaces.tui.screens._base import OmegaScreen, suspended
 from omega_connect.interfaces.tui.screens.remote_machine import BACK_PROMPT, RemoteMachineScreen
 from omega_connect.interfaces.tui.widgets.busy import Busy
-from omega_connect.interfaces.tui.widgets.tables import WideTable
+from omega_connect.interfaces.tui.widgets.scan_banner import ScanBanner
+from omega_connect.interfaces.tui.widgets.tables import SELECTED_MARK, UNSELECTED_MARK, WideTable
 from omega_connect.shared.i18n import N_, _
 
-SELECTED_MARK = Text(" ✔ ", style="bold reverse green")
-UNSELECTED_MARK = Text("   ", style="reverse dim")
 """Cases lisibles de loin (retour de l'auteur, 2026-11-21 : cases trop petites)."""
 STATE_WORDS = {
     UpdateState.NOT_CHECKED: N_("non vérifiée"),
@@ -61,6 +60,38 @@ STATE_STYLES = {
     UpdateState.UNKNOWN: "dim", UpdateState.UNREACHABLE: "red", UpdateState.NOT_CHECKED: "dim",
     UpdateState.TO_INSTALL: "bold cyan", UpdateState.PRESENT: "green",
 }
+def tool_cell(row: AppRow) -> str:
+    """Colonne « Application » courte (retour d'utilisation 2026-11-26 : la liste des outils d'omega-suite dans la
+    cellule faisait ~130 caracteres, ascenseur horizontal, etats hors de vue) : « omega-suite (7 outils) » ; la
+    liste avec les versions est sous le tableau, pour la ligne choisie (`row_detail`)."""
+    if not row.contains:
+        return row.tool
+    return _("{tool} ({count} outil(s))").format(tool=row.tool, count=len(row.contains.split(", ")))
+
+
+def machine_cell(label: str) -> str:
+    """Colonne « Machine » courte (meme retour d'utilisation) : `omega-server (192.168.1.109 +1)` au lieu de toutes
+    les adresses (`MachineEntry.label`) ; la ligne garde son libelle complet (cle, preselection), affiche dessous."""
+    name, separator, rest = label.partition(" (")
+    addresses = rest.rstrip(")").split(", ") if separator else []
+    if len(addresses) < 2:
+        return label
+    return f"{name} ({addresses[0]} +{len(addresses) - 1})"
+
+
+def row_detail(row: AppRow) -> str:
+    """Sous le tableau, pour la ligne choisie : ce que contient omega-suite, et toutes les adresses de la machine
+    quand la colonne les abrege."""
+    lines = []
+    if machine_cell(row.machine) != row.machine:
+        lines.append(_("Machine : {machine}").format(machine=row.machine))
+    if row.contains:
+        lines.append(_("{tool} {version} contient : {tools}. Ces outils se mettent à jour avec elle : seule la "
+                       "ligne {tool} est à mettre à jour.").format(tool=row.tool, version=row.version or "?",
+                                                                    tools=row.contains))
+    return "\n".join(lines)
+
+
 LOCAL_MESSAGE = N_("omega-connect — mise à jour sur cette machine. Les install.sh peuvent demander le mot de passe "
                    "sudo (il ne s'affiche pas pendant la saisie).")
 
@@ -109,9 +140,11 @@ class UpdaterScreen(OmegaScreen):
         with Vertical(classes="omega-panel omega-fill"):
             yield Static(_(self.TITLE_TEXT), classes="omega-title")
             yield Static(_(self.HINT_TEXT), classes="omega-hint")
+            yield ScanBanner()
             yield Static("", id="updater-status", classes="omega-hint")
             yield Busy(id="busy")
             yield WideTable(id="updater-table")
+            yield Static("", id="updater-detail", classes="omega-hint")
             yield Static("", id="updater-report")
         with Horizontal(classes="omega-actions omega-fixed-actions"):
             with Container(classes="omega-btn-frame"):
@@ -127,13 +160,22 @@ class UpdaterScreen(OmegaScreen):
     def on_mount(self) -> None:
         table = self.query_one("#updater-table", WideTable)
         table.cursor_type = "row"
-        table.add_columns(" ", _("Machine"), _("Application"), _("Installée"), _("Disponible"), _("Source"),
-                          _("État"))
+        # Etat juste apres l'application (retour d'utilisation 2026-11-26 : en derniere colonne, il fallait defiler
+        # a droite et on ne savait plus a quelle ligne il appartenait)
+        table.add_columns(" ", _("Machine"), _("Application"), _("État"), _("Installée"), _("Disponible"),
+                          _("Source"))
         self._reload_rows()
         if self._preselect:
             self._chosen = {row.key for row in self._rows
                             if self._preselect in (row.machine, row.key)}
             self._check(only=set(self._chosen) or None)
+
+    def scan_changed(self) -> bool:
+        """Une machine vient d'etre scannee (bandeau de scan) : les lignes sont relues, rien n'est rescanne."""
+        if self._working:
+            return False
+        self._reload_rows()
+        return True
 
     # ---- lignes ----
     def _reload_rows(self) -> None:
@@ -159,11 +201,9 @@ class UpdaterScreen(OmegaScreen):
             for row in self._rows:
                 mark = SELECTED_MARK if row.key in self._chosen else UNSELECTED_MARK
                 state = Text(_(STATE_WORDS[row.state]), style=STATE_STYLES[row.state])
-                tool = _("{tool} (contient {tools})").format(tool=row.tool, tools=row.contains) if row.contains \
-                    else row.tool
-                table.add_row(mark, row.machine, tool, "—" if row.install else (row.version or "?"),
-                              row.latest or "—",
-                              row.origin or "—", state, key=row.key)
+                table.add_row(mark, machine_cell(row.machine), tool_cell(row), state,
+                              "—" if row.install else (row.version or "?"), row.latest or "—", row.origin or "—",
+                              key=row.key)
             if cursor is not None and cursor < table.row_count:
                 table.move_cursor(row=cursor)
             actionable = [row for row in self._rows if row.actionable]
@@ -173,6 +213,18 @@ class UpdaterScreen(OmegaScreen):
             self.query_one("#check", Button).disabled = self._working
             counts = {state: sum(1 for row in self._rows if row.state is state) for state in UpdateState}
             self.query_one("#updater-status", Static).update(self.status_text(counts))
+        self._show_detail()
+
+    def _show_detail(self) -> None:
+        """Sous le tableau : le detail de la ligne choisie (`row_detail`)."""
+        with contextlib.suppress(NoMatches):
+            table = self.query_one("#updater-table", WideTable)
+            index = table.cursor_row
+            row = self._rows[index] if index is not None and 0 <= index < len(self._rows) else None
+            self.query_one("#updater-detail", Static).update(row_detail(row) if row is not None else "")
+
+    def on_data_table_row_highlighted(self, _event: DataTable.RowHighlighted) -> None:
+        self._show_detail()
 
     def action_choose_row(self) -> None:
         table = self.query_one("#updater-table", WideTable)
@@ -341,10 +393,9 @@ def rescan_local_machine(verify: Callable[[], object], inspector: object, parc: 
     """Cette machine relue apres une mise a jour (comme le Scanner) : ses lignes du registre du parc a jour."""
     from omega_lib.synchro.policies import format_utc
 
-    from omega_connect.application.scan_cache import request_rescan
+    from omega_connect.application.scan_cache import rescan_now
 
-    request_rescan(verify)  # apres une action : le scan relu de cette machine est refait
-    report = verify()
+    report = rescan_now(verify)  # scan de cette machine maintenant (jamais relu d'un ancien scan)
     facts = inspector.inspect(elevated=False)  # type: ignore[attr-defined]
     parc.save(MachineEntry(machine, True, format_utc(datetime.now(timezone.utc)),  # type: ignore[attr-defined]
                            registry_rows(report, facts, machine)))  # type: ignore[arg-type]

@@ -485,3 +485,101 @@ LogHealthScreen #health-disks, LogHealthScreen #health-archives, LogHealthScreen
     border-title-style: bold;
     padding: 0 1;
 }
+
+/* omega-connect (2026-11-26) : bandeau de scan, le meme sur chaque ecran du parc (etat, progression, arret) ; une
+   seule ligne (boutons compacts, sans cadre) : les tableaux gardent leur place. */
+.omega-scan-banner {
+    height: auto;
+    margin: 0;
+}
+
+.omega-scan-line {
+    layout: horizontal;
+}
+
+.omega-scan-text {
+    width: 1fr;
+    height: auto;
+    content-align: left middle;
+    padding-right: 1;
+}
+
+.omega-scan-line Button {
+    height: 1;
+    min-width: 12;
+    border: none;
+    margin-left: 1;
+}
+
+/* Menu principal (demande 2026-11-26) : cadre « États du scan » sous les deux colonnes, meme largeur totale
+   (2 x 42 + 2 d'ecart ; les colonnes : cadre 2 + marge interne 8 + bouton 32). Titre centre, en simple ecriture
+   (pas l'etiquette en majuscules sur fond des colonnes) ; bouton encadre, le meme que ceux des colonnes. */
+.omega-home-block {
+    width: auto;
+    height: auto;
+}
+
+.omega-scan-box {
+    layout: vertical;
+    width: 86;
+    margin-top: 1;
+    background: $panel;
+    border: round $accent;
+    border-title-align: center;
+    border-title-color: $accent;
+    padding: 0 4;
+}
+
+.omega-scan-box .omega-scan-text {
+    width: 100%;
+    content-align: center middle;
+    text-align: center;
+    padding-right: 0;
+}
+
+.omega-scan-buttons {
+    height: auto;
+    margin-top: 0;  /* le cadre du bouton suffit a le detacher ; le menu tient en 44 lignes sans defiler */
+}
+
+.omega-scan-box .omega-btn-frame {
+    width: 32;
+    height: 3;
+}
+
+.omega-scan-box Button {
+    background: $surface;
+    border: none;
+    color: $foreground;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
+.omega-scan-box Button:hover,
+.omega-scan-box Button:focus {
+    background: $accent;
+    color: $background;
+    text-style: bold;
+}
+
+/* omega-connect (2026-11-26) : une confirmation longue (recapitulatif de « Tout réparer ») defile. */
+.omega-confirm-scroll {
+    height: auto;
+    max-height: 24;
+}
+
+/* omega-connect (2026-11-26, lot S5) : recherche et filtre par etat au-dessus des listes du parc. */
+.omega-list-filter {
+    height: auto;
+    margin: 0 0 1 0;
+}
+
+.omega-list-filter Input {
+    width: 1fr;
+}
+
+.omega-list-filter Select {
+    width: 34;
+    margin-left: 1;
+}

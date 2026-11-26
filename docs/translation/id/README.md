@@ -70,7 +70,7 @@ Aplikasi omega dibuat untuk bekerja sama: log omega-serv dibaca oleh jail omega-
 Dari folder tempat arsip berada:
 
 ```bash
-tar -xzf omega-connect-0.2.0.tar.gz
+tar -xzf omega-connect-0.2.1.tar.gz
 cd omega-connect/
 ./install.sh
 ```

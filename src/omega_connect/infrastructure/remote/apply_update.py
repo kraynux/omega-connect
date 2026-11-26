@@ -9,8 +9,9 @@ Meme procedure que la section « Mise a jour » du README de chaque outil, sans 
 3. « par-dessus » (omega-serv, omega-jail...) : chaque fichier est remplace (fichier temporaire puis `rename`, qui
    remplace un lien sans jamais le suivre) ; l'etat vivant n'est pas dans l'archive, il n'est pas touche ;
    « de cote » (omega-fire, dont var/ appartient a root) : `sudo mv <racine> <racine>.old-AAAAMMJJ`, nouvelle copie a
-   la place, et son `install.sh` reprend lui-meme l'etat de l'ancienne. S'il y a d'autres anciennes installations a
-   cote, son `install.sh` ne sait pas laquelle reprendre (il refuse de deviner) : omega-connect, qui vient de mettre
+   la place, sa carte d'identite (`var/omega-jeton.json`) recopiee (meme identifiant : decision 2026-11-26), et son
+   `install.sh` reprend lui-meme l'etat de l'ancienne. S'il y a d'autres anciennes installations a cote, son
+   `install.sh` ne sait pas laquelle reprendre (il refuse de deviner) : omega-connect, qui vient de mettre
    l'ancienne de cote, la designe lui-meme (`sudo ./migrate-state.sh <ancienne> --yes`, ce que conseille son README ;
    constate le 2026-11-11 sur omega-server, avec un vieux `omega-fire.old-20260927`) ;
 4. `.venv` casse (creation interrompue : ni `bin/activate` ni Python qui demarre) mis de cote en
@@ -20,6 +21,7 @@ Meme procedure que la section « Mise a jour » du README de chaque outil, sans 
 from __future__ import annotations
 
 import hashlib
+import json
 import os
 import posixpath
 import shutil
@@ -36,6 +38,8 @@ from omega_connect.shared.i18n import _
 MAX_EXTRACTED_BYTES = 512 * 1024 * 1024
 STANDARD_PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 MIGRATE_SCRIPT = "migrate-state.sh"
+TOKEN_FILE = Path("var") / "omega-jeton.json"
+MAX_TOKEN_BYTES = 64 * 1024
 
 
 class UpdateError(Exception):
@@ -141,6 +145,33 @@ def _aside_name(root: Path, now: datetime) -> Path:
     return candidate
 
 
+def keep_identity_card(old_root: Path, root: Path, tool: str) -> bool:
+    """« De côté » : la carte d'identité de l'ancienne installation (`var/omega-jeton.json`) est recopiée dans la
+    nouvelle AVANT son install.sh, qui la met seulement à jour (même identifiant, version nouvelle). Une mise à jour
+    n'est pas une nouvelle installation : sans cela, l'ancienne carte restait au registre de l'espace partagé,
+    « introuvable » (décision 2026-11-26). Jamais un lien suivi ; une carte illisible ou d'un autre outil est
+    ignorée (install.sh en crée une neuve, comme avant)."""
+    source = old_root / TOKEN_FILE
+    target = root / TOKEN_FILE
+    try:
+        if source.is_symlink() or not source.is_file() or source.stat().st_size > MAX_TOKEN_BYTES:
+            return False
+        document = json.loads(source.read_text(encoding="utf-8"))
+        if not isinstance(document, dict) or document.get("tool") != tool:
+            return False
+        if target.is_symlink() or target.exists() or target.parent.is_symlink():
+            return False
+        target.parent.mkdir(mode=0o755, exist_ok=True)
+        temporary = target.with_name(f".{target.name}.omega-connect-maj")
+        temporary.unlink(missing_ok=True)
+        temporary.write_bytes(source.read_bytes())
+        os.chmod(temporary, 0o644)
+        os.replace(temporary, target)
+    except (OSError, ValueError):
+        return False
+    return True
+
+
 def _venv_works(venv: Path) -> bool:
     python = venv / "bin" / "python"
     if not (venv / "bin" / "activate").is_file() or not python.exists():
@@ -203,6 +234,8 @@ def apply_update(order: UpdateOrder, session: Path, *, now: datetime | None = No
         aside = str(target)
     count = copy_over(source, root)
     print(_("{count} fichiers installés dans {root}.").format(count=count, root=root), flush=True)
+    if aside and keep_identity_card(Path(aside), root, order.tool):
+        print(_("Carte d'identité de l'installation gardée ({path}).").format(path=root / TOKEN_FILE), flush=True)
     installer = root / "install.sh"
     if not installer.is_file() or installer.is_symlink():
         raise UpdateError(_("install.sh introuvable dans {root}").format(root=root))

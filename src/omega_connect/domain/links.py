@@ -159,6 +159,7 @@ class CheckCode(str, Enum):
     ZONE_COPY_RIGHTS = "zone-copy-rights"
     ZONE_NOT_LINKED = "zone-not-linked"
     ZONE_TOOL_GONE = "zone-tool-gone"
+    ZONE_TOOL_REPLACED = "zone-tool-replaced"
     ZONE_SERVICE_GROUP_OK = "zone-service-group-ok"
     ZONE_SERVICE_GROUP_MISSING = "zone-service-group-missing"
     STRESS_HELPER_FACTS = "stress-helper-facts"

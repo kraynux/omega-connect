@@ -144,6 +144,37 @@ def test_remove_a_tool_that_was_uninstalled(system: FakeSystem):
     assert [item.installation_id for item in registry.installations] == [SERV_ID]
 
 
+def test_card_replaced_at_the_same_place_is_removed_by_the_same_plan(system: FakeSystem):
+    """Retour d'utilisation 2026-11-26 (craftdark 950037ce, omega-server, MPC) : une mise a jour qui creait une carte
+    neuve laissait l'ancienne au registre, « introuvable », avec une commande `retirer` impossible a lancer sur une
+    machine distante. Meme outil, meme dossier : l'ancienne carte est retiree par le plan, sans commande."""
+    _establish(system, _detection(SERV, FIRE))
+    new_id = "c" * 32
+    renewed = _installation("omega-fire", new_id, FIRE.root, version="2.0.0")
+    link = zone_link(system.inspect(), _detection(SERV, renewed), SUBJECT, "oc")
+    replaced = [check for check in link.checks if check.code is CheckCode.ZONE_TOOL_REPLACED]
+    assert replaced and replaced[0].repair is not None and replaced[0].detail == FIRE_ID[:8]
+    assert CheckCode.ZONE_TOOL_GONE not in {check.code for check in link.checks}
+
+    plan, result = _establish(system, _detection(SERV, renewed), now=LATER)
+    assert result.ok and NoteCode.TOOL_REPLACED in {note.code for note in plan.notes}
+    assert not Path(system.zone, "jetons", f"{FIRE_ID}.json").exists()
+    assert Path(system.zone, "jetons", f"{new_id}.json").exists()
+    registry = read_registry(system.inspect()).value
+    assert sorted(item.installation_id for item in registry.installations) == [SERV_ID, new_id]
+    link = zone_link(system.inspect(), _detection(SERV, renewed), SUBJECT, "oc")
+    assert not {CheckCode.ZONE_TOOL_REPLACED, CheckCode.ZONE_TOOL_GONE} & {check.code for check in link.checks}
+
+
+def test_card_of_another_place_is_never_removed_automatically(system: FakeSystem):
+    """Desinstalle (dossier disparu) : jamais retire tout seul, la personne decide (`retirer`)."""
+    _establish(system, _detection(SERV, FIRE))
+    elsewhere = _installation("omega-fire", "c" * 32, "/home/k/autre-omega-fire")
+    plan, result = _establish(system, _detection(SERV, elsewhere), now=LATER)
+    assert result.ok and NoteCode.TOOL_GONE in {note.code for note in plan.notes}
+    assert Path(system.zone, "jetons", f"{FIRE_ID}.json").exists()
+
+
 def test_refusals_never_propose_a_command(system: FakeSystem):
     os.makedirs(system.zone)
     plan = establish_plan(system.inspect(), _detection(SERV), SUBJECT, AT)

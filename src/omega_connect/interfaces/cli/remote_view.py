@@ -56,6 +56,7 @@ FAILURE_MESSAGES = {
     RemoteFailure.NO_PYTHON: N_("{target} n'a pas Python 3 (3.10 ou plus récent) : le scanner ne peut pas y "
                                 "tourner. Rien n'a été installé."),
     RemoteFailure.SCAN_FAILED: N_("Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-bas."),
+    RemoteFailure.STOPPED: N_("Scan de {target} arrêté : rien n'a été enregistré pour cette machine."),
     RemoteFailure.NO_SSH: N_("Pas de client SSH sur cette machine (commande {detail}) : installez openssh."),
 }
 

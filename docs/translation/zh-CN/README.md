@@ -70,7 +70,7 @@ omega 应用程序是为协同工作而设计的：omega-serv 的日志由 omega
 在归档包所在的目录中执行：
 
 ```bash
-tar -xzf omega-connect-0.2.0.tar.gz
+tar -xzf omega-connect-0.2.1.tar.gz
 cd omega-connect/
 ./install.sh
 ```

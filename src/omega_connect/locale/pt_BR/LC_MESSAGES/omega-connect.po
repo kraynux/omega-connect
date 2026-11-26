@@ -75,6 +75,10 @@ msgid "{count} fichiers installés dans {root}."
 msgstr "{count} arquivos instalados em {root}."
 
 #, python-brace-format
+msgid "Carte d'identité de l'installation gardée ({path})."
+msgstr "Carteira de identidade da instalação mantida ({path})."
+
+#, python-brace-format
 msgid "install.sh introuvable dans {root}"
 msgstr "install.sh não encontrado em {root}"
 
@@ -1198,6 +1202,10 @@ msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-ba
 msgstr "A varredura de {target} falhou ({detail}). Nada foi alterado lá."
 
 #, python-brace-format
+msgid "Scan de {target} arrêté : rien n'a été enregistré pour cette machine."
+msgstr "Varredura de {target} interrompida: nada foi salvo para esta máquina."
+
+#, python-brace-format
 msgid ""
 "Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
 msgstr ""
@@ -2224,6 +2232,14 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
+"{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle "
+"; l'espace partagé la retirera."
+msgstr ""
+"{subject}: carteira de identidade antiga ({detail}) substituída por uma "
+"nova; o espaço compartilhado a removerá."
+
+#, python-brace-format
+msgid ""
 "le service {subject} ({detail}) a le groupe omega-synchro (complément "
 "systemd posé par omega-serv)."
 msgstr ""
@@ -2423,6 +2439,14 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
+"{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle,"
+" retirée de la zone."
+msgstr ""
+"{subject}: carteira de identidade antiga ({detail}) substituída por uma "
+"nova, removida da zona."
+
+#, python-brace-format
+msgid ""
 "{subject} devra se reconnecter pour que le groupe omega-synchro compte "
 "(lecture de la zone)."
 msgstr ""
@@ -2563,20 +2587,6 @@ msgstr ""
 "Execute o mesmo comando novamente depois de corrigir a causa: nada é feito "
 "duas vezes."
 
-msgid "Scan de cette machine…"
-msgstr "Varredura desta máquina…"
-
-#, python-brace-format
-msgid "Scan des machines du réseau ({index}/{count}) : {machine}…"
-msgstr "Varredura das máquinas da rede ({index}/{count}): {machine}…"
-
-#, python-brace-format
-msgid "Scan terminé : cette machine et {count} machine(s) du réseau."
-msgstr "Varredura concluída: esta máquina e {count} máquina(s) da rede."
-
-msgid "Scan"
-msgstr "Scan"
-
 msgid "Dossier des captures non configuré."
 msgstr "Pasta de capturas não configurada."
 
@@ -2635,7 +2645,7 @@ msgid ""
 "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
 "6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n"
 "\n"
-"Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont rescannées."
+"Aucun scan ne part tout seul : au lancement, les listes sont vides ; le cadre « États du scan » du menu principal et le bandeau en haut de chaque écran proposent « Scanner tout le parc ». Le scan tourne en arrière-plan, plusieurs machines à la fois (Réglages) ; on peut changer d'écran ou quitter pendant le scan, et « Arrêter le scan » l'interrompt. Tous les écrans relisent ensuite ce scan ; un scan de plus de 24 heures est signalé « ancien ». Après une action, seule la machine touchée est rescannée."
 msgstr ""
 "O omega-connect vincula entre si os aplicativos omega (omega-serv, omega-fire, omega-jail…) instalados nesta máquina e nas máquinas da sua rede. Ele mostra o que está vinculado ou não, e restaura o que falta, sempre depois de mostrar a você o que vai fazer.\n"
 "\n"
@@ -2646,7 +2656,7 @@ msgstr ""
 "5. [b]Reparar[/b]: a lista de tudo o que não está bem; escolha uma linha, ou “Reparar tudo”.\n"
 "6. [b]Relatório[/b]: um documento completo (texto, JSON ou página HTML) para guardar ou repassar.\n"
 "\n"
-"A varredura é feita uma vez, na inicialização (esta máquina, depois as máquinas conhecidas da rede), e relida por todas as telas: « Varrer de novo » a refaz. Após uma ação, só as máquinas afetadas são varridas de novo."
+"Nenhuma varredura começa sozinha: na inicialização, as listas estão vazias e o quadro « Estado da varredura » do menu principal e a faixa no topo de cada tela propõem « Escanear todo o parque ». A varredura roda em segundo plano, várias máquinas ao mesmo tempo (Configurações); é possível mudar de tela ou sair durante a varredura, e « Parar a varredura » a interrompe. Todas as telas releem depois essa varredura; uma varredura com mais de 24 horas é marcada como « antiga ». Após uma ação, só a máquina afetada é varrida de novo."
 
 msgid "Registre — toutes les applications et leur état"
 msgstr "Registro — todos os aplicativos e seu estado"
@@ -2654,13 +2664,15 @@ msgstr "Registro — todos os aplicativos e seu estado"
 msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
-"- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Scanner la machine[/b] : rescanne la machine de la ligne choisie, seule, en arrière-plan ; « Scanner tout le parc » (bandeau) les rescanne toutes.\n"
+"- [b]Rechercher[/b] et filtre par état : seul l'affichage change (grand parc).\n"
 "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "Mostra, para cada máquina (esta e as da rede), cada aplicativo omega encontrado: sua instância ou serviço, sua versão, seu estado e sua pasta. O resumo no topo conta os estados.\n"
 "\n"
-"- [b]Varrer de novo[/b]: refaz a varredura no lugar (esta máquina, depois as máquinas da rede já conhecidas), sem mudar de tela.\n"
+"- [b]Escanear a máquina[/b]: varre de novo a máquina da linha escolhida, sozinha, em segundo plano; « Escanear todo o parque » (faixa) varre todas de novo.\n"
+"- [b]Pesquisar[/b] e filtro por estado: só a exibição muda (parque grande).\n"
 "- [b]Atualizar o aplicativo[/b] / [b]Reinstalar o aplicativo[/b]: abre o Updater, com o aplicativo da linha já marcado (« Versão antiga »; ou « Instalação incompleta »: o install.sh dele não terminou, a mesma versão é reinstalada). Nesta máquina como em uma máquina da rede.\n"
 "- Destaque uma linha: a explicação do estado dela e suas divergências aparecem logo abaixo."
 
@@ -2672,14 +2684,14 @@ msgid ""
 "- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
 "- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
 "- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
-"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- [b]Machines connues[/b] : « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle). Pour les rescanner toutes : « Scanner tout le parc » (bandeau).\n"
 "- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
 msgstr ""
 "- [b]Esta máquina[/b]: procura os aplicativos omega (pasta pessoal, serviços systemd, OpenRC ou runit, /srv, registro de instâncias do omega-serv). Nunca segue um link simbólico, nunca percorre uma montagem de rede.\n"
 "- [b]Máquinas sugeridas[/b]: as que este computador já sabe alcançar (perfis Unison, ~/.ssh/config, known_hosts). Escolha uma linha e depois “Escanear a máquina escolhida”.\n"
 "- [b]Entrada manual[/b]: usuário@máquina (nome ou endereço), depois “Escanear esta máquina”.\n"
 "- [b]Primeira conexão[/b]: a impressão digital da chave da máquina é mostrada; verifique-a e depois aceite. Uma chave que MUDOU é recusada (máquina reinstalada, ou usurpação).\n"
-"- [b]Máquinas conhecidas[/b]: “Escanear novamente as máquinas conhecidas”, ou “Remover esta máquina” (ela sai do registro; nada é alterado nela).\n"
+"- [b]Máquinas conhecidas[/b]: “Remover esta máquina” (ela sai do registro; nada é alterado nela). Para varrer todas de novo: “Escanear todo o parque” (faixa).\n"
 "- A varredura de uma máquina da rede é enviada em memória por SSH, somente leitura: nada é instalado nem gravado nela, nenhuma senha é pedida (Python 3.10 ou mais recente necessário lá)."
 
 msgid "Liaisons — ce qui est relié ou pas"
@@ -2700,7 +2712,7 @@ msgid "Synchronisation — relier les applications"
 msgstr "Sincronização — vincular os aplicativos"
 
 msgid ""
-"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
+"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan. Cochez des lignes (Entrée ou Espace : la case verte ✔), puis :\n"
 "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
 "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
 "- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
@@ -2709,7 +2721,7 @@ msgid ""
 "- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
 "- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
 msgstr ""
-"Uma só lista: todas as suas máquinas e seus aplicativos, conforme a última varredura (« Varrer de novo » a refaz). Marque linhas (Enter ou Espaço) e depois:\n"
+"Uma só lista: todas as suas máquinas e seus aplicativos, conforme a última varredura. Marque linhas (Enter ou Espaço: a caixa verde ✔) e depois:\n"
 "- [b]Sincronizar a seleção[/b], ou [b]Sincronizar tudo[/b].\n"
 "- [b]Esta máquina[/b]: um só plano, mostrado antes de agir — carteiras de identidade que faltam (criadas por cada aplicativo, na própria conta), depois espaço compartilhado (grupo omega-synchro, pastas, cópia das carteiras, acesso dos serviços). Uma só senha de administrador.\n"
 "- [b]Máquina da rede[/b]: o plano dela é calculado nela mesma e mostrado; “Sincronizar <máquina>” o executa a partir daqui: a interface dá lugar ao terminal, a própria máquina pede a senha dela, uma vez; Enter volta à interface, que mostra o resultado.\n"
@@ -2749,7 +2761,7 @@ msgid ""
 "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
 "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
 "\n"
-"Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du réseau. Pour corriger : menu Réparer."
+"Tout vient du dernier scan (bandeau : « Scanner tout le parc »). Pour corriger : menu Réparer."
 msgstr ""
 "Uma visão geral em quadros, como um painel web. Nada é alterado a partir desta tela.\n"
 "\n"
@@ -2758,26 +2770,28 @@ msgstr ""
 "- [b]Esta máquina / Rede[/b]: os mesmos números, lado a lado.\n"
 "- [b]Top 5[/b] (top 3 em uma tela pequena): máquinas a reparar, vínculos a reparar, versões desatualizadas, varreduras mais antigas (máquinas da rede).\n"
 "\n"
-"Tudo vem da última varredura; « Varrer de novo » refaz a desta máquina e das máquinas da rede. Para corrigir: menu Reparar."
+"Tudo vem da última varredura (faixa: « Escanear todo o parque »). Para corrigir: menu Reparar."
 
 msgid "Réparer — tout ce qui ne va pas"
 msgstr "Reparar — tudo o que não está bem"
 
 msgid ""
-"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le corrige.\n"
+"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (une machine réparée est rescannée aussitôt, seule) : machine, problème, état, et qui le corrige. Recherche et filtre par état au-dessus de la liste.\n"
 "\n"
-"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan). L'espace partagé fait partie du même « Lancer » : un seul mot de passe, puis « Retour » ramène à la liste.\n"
+"- Une machine injoignable : « Réparer la ligne choisie » la rescanne.\n"
 "- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
-"- [b]Tout réparer[/b] : les machines une à une.\n"
+"- [b]Tout réparer[/b] : un récapitulatif machine par machine, une confirmation, puis les machines une à une dans le terminal (un mot de passe par machine) et un bilan. Les mises à jour (Updater) et les machines injoignables restent à part. Une réparation qui échoue affiche « Échec de la réparation » et n'est plus relancée par « Tout réparer » : choisissez la ligne pour la relancer seule.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
 msgstr ""
-"A lista de tudo o que vai mal, em todas as máquinas, conforme a última varredura (« Varrer de novo » a refaz; uma máquina reparada é varrida de novo na hora): máquina, problema, estado e quem corrige.\n"
+"A lista de tudo o que vai mal, em todas as máquinas, conforme a última varredura (uma máquina reparada é varrida de novo na hora, sozinha): máquina, problema, estado e quem corrige. Pesquisa e filtro por estado acima da lista.\n"
 "\n"
-"- [b]Reparar a linha escolhida[/b]: abre o plano da máquina. Esta máquina: os comandos dos próprios aplicativos (omega-jail para o que ele coloca no fail2ban, omega-serv para as permissões do var/ dele, cada aplicativo para sua carteira de identidade), depois o espaço compartilhado. Máquina da rede: as mesmas correções, mais os comandos que nenhum aplicativo sabe executar, executados NA máquina a partir daqui (somente os anunciados no plano).\n"
+"- [b]Reparar a linha escolhida[/b]: abre o plano da máquina. Esta máquina: os comandos dos próprios aplicativos (omega-jail para o que ele coloca no fail2ban, omega-serv para as permissões do var/ dele, cada aplicativo para sua carteira de identidade), depois o espaço compartilhado. Máquina da rede: as mesmas correções, mais os comandos que nenhum aplicativo sabe executar, executados NA máquina a partir daqui (somente os anunciados no plano). O espaço compartilhado faz parte do mesmo « Abrir »: uma única senha, depois « Voltar » leva de volta à lista.\n"
+"- Uma máquina inacessível: « Reparar a linha escolhida » a varre de novo.\n"
 "- Uma linha « Versão antiga » ou « Instalação incompleta » abre o Updater, com o aplicativo já marcado: só o Updater atualiza.\n"
-"- [b]Reparar tudo[/b]: as máquinas uma a uma.\n"
+"- [b]Reparar tudo[/b]: um resumo máquina por máquina, uma confirmação, depois as máquinas uma a uma no terminal (uma senha por máquina) e um balanço. As atualizações (Updater) e as máquinas inacessíveis ficam à parte. Um reparo que falha mostra « Falha no reparo » e não é mais relançado por « Reparar tudo »: escolha a linha para relançá-lo sozinho.\n"
 "- [b]Detalhes[/b]: todas as verificações da linha escolhida.\n"
 "- [b]Copiar os comandos[/b] (plano desta máquina): área de transferência do sistema (xclip, xsel, wl-copy); caso contrário, os comandos aparecem em texto simples no terminal, para selecionar com o mouse.\n"
 "- O omega-connect nunca reescreve o arquivo de outro aplicativo: ele executa o comando desse aplicativo."
@@ -2792,7 +2806,7 @@ msgid ""
 "- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
 "- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
 "- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
-"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« omega-suite (7 outil(s)) », la liste et les versions sous le tableau) : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
 msgstr ""
 "O único lugar que atualiza os aplicativos, nesta máquina como na rede. Reparar e o Registro levam até ele, com o aplicativo já marcado.\n"
 "\n"
@@ -2800,7 +2814,7 @@ msgstr ""
 "- [b]Verificar as versões[/b]: a última versão publicada de cada aplicativo (Release do GitHub, senão o site do aplicativo), para as linhas marcadas ou para todas. Uma versão não publicada nunca é proposta.\n"
 "- [b]Atualizar a seleção[/b] / [b]Atualizar tudo[/b]: os aplicativos a atualizar e as instalações incompletas. Primeiro esta máquina: arquivos verificados (sha.txt), depois a interface dá lugar ao terminal, onde os install.sh pedem a senha se necessário. Depois cada máquina da rede: o plano dela aparece antes de agir, uma senha por máquina.\n"
 "- No fim: o que foi feito, aplicativo por aplicativo, e as máquinas varridas de novo.\n"
-"- [b]omega-suite[/b]: o omega-stress que ele incorpora faz parte dele. A linha é a do omega-suite (« contém omega-stress … »): ele é atualizado com suas ferramentas, testadas juntas, nunca o omega-stress sozinho. A partir da 2.0.0, ele ajuda na carga distribuída como um omega-stress autônomo; se a máquina também tiver um omega-stress autônomo, é este que ajuda."
+"- [b]omega-suite[/b]: o omega-stress que ele incorpora faz parte dele. A linha é a do omega-suite (« omega-suite (7 ferramenta(s)) », a lista e as versões abaixo da tabela): ele é atualizado com suas ferramentas, testadas juntas, nunca o omega-stress sozinho. A partir da 2.0.0, ele ajuda na carga distribuída como um omega-stress autônomo; se a máquina também tiver um omega-stress autônomo, é este que ajuda."
 
 msgid "Installer — installer les applications"
 msgstr "Installer — instalar os aplicativos"
@@ -2826,13 +2840,13 @@ msgid "Rapport — un document complet"
 msgstr "Relatório — um documento completo"
 
 msgid ""
-"Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"Établi d'après le dernier scan (bandeau : « Scanner tout le parc ») : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
 "\n"
 "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
 "- [b]Voir les exports[/b] : le dossier des exports s'ouvre dans votre navigateur, chaque export se lit d'un clic (sans quitter omega-connect). Sans navigateur (serveur, connexion SSH), la liste s'affiche ici et chaque export s'y lit.\n"
 "- En ligne de commande : omega-connect rapport --format html --enregistrer."
 msgstr ""
-"Feito a partir da última varredura (« Varrer de novo » varre antes esta máquina e a rede): balanço, lista precisa do que resta a fazer (máquina, o quê, qual menu), registro de todos os aplicativos, máquinas da rede, aplicativos desta máquina em detalhe, ligações de cada máquina, espaço compartilhado e seu registro.\n"
+"Feito a partir da última varredura (faixa: « Escanear todo o parque »): balanço, lista precisa do que resta a fazer (máquina, o quê, qual menu), registro de todos os aplicativos, máquinas da rede, aplicativos desta máquina em detalhe, ligações de cada máquina, espaço compartilhado e seu registro.\n"
 "\n"
 "- Exportação em texto, JSON ou página HTML (tema à escolha, por padrão o das Configurações), na pasta de exportações.\n"
 "- [b]Ver as exportações[/b]: a pasta de exportações abre no seu navegador, cada exportação é lida com um clique (sem sair do omega-connect). Sem navegador (servidor, conexão SSH), a lista aparece aqui e cada exportação é lida aqui.\n"
@@ -2840,11 +2854,13 @@ msgstr ""
 
 msgid ""
 "- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Machines scannées en même temps[/b] : « Scanner tout le parc » en interroge plusieurs à la fois (8 par défaut).\n"
 "- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
 "- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
 "- Tout est enregistré dans var/settings.json."
 msgstr ""
 "- [b]Tema da interface[/b] (também tecla t) e [b]tema das exportações[/b]: salvos.\n"
+"- [b]Máquinas escaneadas ao mesmo tempo[/b]: « Escanear todo o parque » consulta várias de uma vez (8 por padrão).\n"
 "- [b]Pasta de exportações[/b] e [b]pasta de capturas de tela[/b]: por padrão var/exports/ e var/screenshots/ da pasta do omega-connect; um caminho completo, ou vazio para voltar ao padrão.\n"
 "- [b]Esvaziar a pasta de exportações / de capturas[/b]: após confirmação, exclui o conteúdo da pasta configurada (a pasta permanece). Recusado para uma pasta do sistema, a pasta pessoal ou a do próprio omega-connect; nunca é pedida senha.\n"
 "- Tudo é salvo em var/settings.json."
@@ -3183,9 +3199,6 @@ msgstr "Verificar agora"
 msgid "LIENS"
 msgstr "VÍNCULOS"
 
-msgid "Relancer le scan"
-msgstr "Varrer de novo"
-
 msgid "Détail du lien"
 msgstr "Detalhes do vínculo"
 
@@ -3280,10 +3293,6 @@ msgstr "Ligação"
 
 msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
 msgstr "Leitura do omega-stress nesta máquina e na rede…"
-
-#, python-brace-format
-msgid "Rescan de {machine}…"
-msgstr "Nova varredura de {machine}…"
 
 msgid ""
 "omega-stress n'est pas installé sur cette machine (ou trop ancien) : elle ne"
@@ -3477,9 +3486,6 @@ msgstr ""
 msgid "Réparer la machine choisie"
 msgstr "Reparar a máquina escolhida"
 
-msgid "Zone : établir…"
-msgstr "Zona: estabelecer…"
-
 msgid "Analyser de nouveau"
 msgstr "Analisar novamente"
 
@@ -3492,8 +3498,26 @@ msgstr "nenhuma máquina remota: escaneie uma (Escanear)"
 msgid "Préparation des réparations : vérification des liens en cours…"
 msgstr "Preparando os reparos: verificação dos vínculos em andamento…"
 
+msgid ""
+"Ici, l'espace partagé est mis à jour dans le même « Lancer », juste après "
+"les commandes des outils (un seul mot de passe) ; chaque opération s'affiche"
+" dans l'avancement."
+msgstr ""
+"Aqui, o espaço compartilhado é atualizado no mesmo « Abrir », logo após os "
+"comandos das ferramentas (uma única senha); cada operação aparece no "
+"andamento."
+
 msgid "Lancer avec sudo"
 msgstr "Executar com sudo"
+
+msgid "Espace partagé : lecture et plan…"
+msgstr "Espaço compartilhado: leitura e plano…"
+
+msgid "Espace partagé : rien à faire."
+msgstr "Espaço compartilhado: nada a fazer."
+
+msgid "Rien n'a été lancé."
+msgstr "Nada foi iniciado."
 
 msgid ""
 "Vue d'ensemble de vos machines et de vos applications. Rien n'est modifié "
@@ -3522,25 +3546,23 @@ msgstr "REGISTRO"
 
 msgid ""
 "Ce que le scanner a trouvé : chaque application omega, son service, sa "
-"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
-" à jour l'application » installe la dernière version d'une application trop "
-"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
-"corriger un écart : Réparer."
+"version et son état. « Mettre à jour l'application » installe la dernière "
+"version d'une application trop ancienne (ligne choisie). Remettre les liens "
+"en place : Synchronisation ; corriger un écart : Réparer."
 msgstr ""
 "O que o scanner encontrou: cada aplicativo omega, seu serviço, sua versão e "
-"seu estado. “Atualizar o registro” refaz a varredura; “Atualizar o "
-"aplicativo” instala a última versão de um aplicativo antigo demais (linha "
-"escolhida). Restaurar os vínculos: Sincronização; corrigir uma divergência: "
-"Reparar."
+"seu estado. “Atualizar o aplicativo” instala a última versão de um "
+"aplicativo antigo demais (linha escolhida). Restaurar os vínculos: "
+"Sincronização; corrigir uma divergência: Reparar."
+
+msgid "Scanner la machine"
+msgstr "Escanear a máquina"
 
 msgid "Mettre à jour l'application"
 msgstr "Atualizar o aplicativo"
 
 msgid "Lecture du registre…"
 msgstr "Lendo o registro…"
-
-msgid "Premier scan : recherche des applications omega…"
-msgstr "Primeira varredura: procurando os aplicativos omega…"
 
 #, python-brace-format
 msgid "{count} application(s) sur {machines} machine(s)"
@@ -3571,6 +3593,10 @@ msgstr "Reinstalar o aplicativo"
 #, python-brace-format
 msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
 msgstr "→ « {action} » abre o Updater, com o aplicativo já marcado."
+
+#, python-brace-format
+msgid "Scan de {machine} lancé."
+msgstr "Varredura de {machine} iniciada."
 
 #, python-brace-format
 msgid ""
@@ -3696,8 +3722,8 @@ msgstr "Reinstalar o aplicativo, a partir daqui"
 msgid "à la main (README de l'outil)"
 msgstr "manualmente (README da ferramenta)"
 
-msgid "Scanner : rescanner la machine"
-msgstr "Escanear: escanear a máquina novamente"
+msgid "la rescanner, depuis ici"
+msgstr "escaneá-la de novo, daqui"
 
 msgid "aucune correction connue (voir le détail)"
 msgstr "nenhuma correção conhecida (veja os detalhes)"
@@ -3721,6 +3747,12 @@ msgstr ""
 "“Reparar a linha escolhida”, ou “Reparar tudo”: o plano da máquina é "
 "mostrado, nada é executado antes. Máquina da rede: reparada daqui, a senha "
 "sudo dela é pedida uma vez."
+
+msgid "À mettre à jour"
+msgstr "A atualizar"
+
+msgid "Échec de la réparation"
+msgstr "Falha no reparo"
 
 msgid "Réparer la ligne choisie"
 msgstr "Reparar a linha escolhida"
@@ -3754,19 +3786,67 @@ msgstr "a máquina não responde mais"
 msgid "{machine} : rescannez-la d'abord (Scanner)."
 msgstr "{machine}: escaneie-a novamente primeiro (Escanear)."
 
+msgid ""
+"Machines réparées une à une dans le terminal (mot de passe sudo demandé une "
+"fois par machine) :"
+msgstr ""
+"Máquinas reparadas uma a uma no terminal (senha sudo pedida uma vez por "
+"máquina):"
+
+msgid " (cette machine)"
+msgstr " (esta máquina)"
+
+#, python-brace-format
+msgid "{machine}{mark} : {count} correction(s)"
+msgstr "{machine}{mark}: {count} correção(ões)"
+
+msgid "Hors « Tout réparer » :"
+msgstr "Fora de « Reparar tudo »:"
+
+msgid "échec précédent : « Réparer la ligne choisie »"
+msgstr "falha anterior: « Reparar a linha escolhida »"
+
+msgid "Tout réparer : les machines une à une, dans ce terminal."
+msgstr "Reparar tudo: as máquinas uma a uma, neste terminal."
+
+#, python-brace-format
+msgid "== {machine}"
+msgstr "== {machine}"
+
+msgid "Bilan :"
+msgstr "Balanço:"
+
+#, python-brace-format
+msgid "{machine} : échec (code {code})"
+msgstr "{machine}: falha (código {code})"
+
+msgid "Appuyez sur Entrée pour revenir à omega-connect…"
+msgstr "Pressione Enter para voltar ao omega-connect…"
+
+#, python-brace-format
+msgid ""
+"Tout réparer : {ok} machine(s) réparée(s), {failed} en échec ({names})."
+msgstr ""
+"Reparar tudo: {ok} máquina(s) reparada(s), {failed} com falha ({names})."
+
+#, python-brace-format
+msgid "Tout réparer : {ok} machine(s) réparée(s) ; rescan en cours."
+msgstr ""
+"Reparar tudo: {ok} máquina(s) reparada(s); nova varredura em andamento."
+
 msgid "RAPPORT"
 msgstr "RELATÓRIO"
 
 msgid ""
-"Un document complet, d'après le dernier scan (« Relancer le scan » le "
-"refait) : bilan, ce qu'il reste à faire, registre, machines du réseau, "
-"liaisons de chaque machine, espace partagé. Enregistré dans le dossier des "
-"exports ; « Voir les exports » les ouvre dans le navigateur pour les lire."
+"Un document complet, d'après le dernier scan : bilan, ce qu'il reste à "
+"faire, registre, machines du réseau, liaisons de chaque machine, espace "
+"partagé. Enregistré dans le dossier des exports ; « Voir les exports » les "
+"ouvre dans le navigateur pour les lire."
 msgstr ""
-"Um documento completo, a partir da última varredura (« Varrer de novo » a "
-"refaz): balanço, o que resta fazer, registro, máquinas da rede, ligações de "
-"cada máquina, espaço compartilhado. Salvo na pasta de exportações; « Ver as "
-"exportações » as abre no navegador para lê-las."
+"Um documento completo, a partir da última varredura: balanço, o que resta "
+"fazer, registro, máquinas da rede, ligações de cada máquina, espaço "
+"compartilhado. Salvo na pasta de exportações; « Ver as exportações » as abre"
+" no navegador para lê-las."
 
 msgid "THÈME DE LA PAGE HTML"
 msgstr "TEMA DA PÁGINA HTML"
@@ -3785,9 +3865,6 @@ msgstr "Exportar HTML"
 
 msgid "Voir les exports"
 msgstr "Ver as exportações"
-
-msgid "Scan de cette machine et des machines du réseau…"
-msgstr "Varredura desta máquina e das máquinas da rede…"
 
 msgid "Génération du rapport en cours (détection, vérification, zone)…"
 msgstr "Gerando o relatório (detecção, verificação, zona)…"
@@ -3876,11 +3953,8 @@ msgstr ""
 msgid "Retirer cette machine"
 msgstr "Remover esta máquina"
 
-msgid "Scanner de nouveau"
-msgstr "Escanear de novo"
-
-msgid "Rescanner les machines connues"
-msgstr "Escanear novamente as máquinas conhecidas"
+msgid "Scanner la machine locale"
+msgstr "Escanear a máquina local"
 
 msgid "Voir le registre"
 msgstr "Ver o registro"
@@ -3888,8 +3962,12 @@ msgstr "Ver o registro"
 msgid "Trouvée dans"
 msgstr "Encontrada em"
 
-msgid "Analyse de la machine locale : recherche des applications omega…"
-msgstr "Análise da máquina local: procurando os aplicativos omega…"
+msgid "Scan de cette machine en cours…"
+msgstr "Varredura desta máquina em andamento…"
+
+msgid ""
+"Pas encore scannée depuis le lancement : « Scanner la machine locale »."
+msgstr "Ainda não escaneada desde o início: « Escanear a máquina local »."
 
 #, python-brace-format
 msgid "Analysée à {time}."
@@ -3933,13 +4011,6 @@ msgstr "{target}: nada foi feito (máquina não aceita)."
 msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
 msgstr "Varredura de {target}: o scanner está rodando lá, somente leitura…"
 
-msgid "Aucune machine distante connue pour l'instant."
-msgstr "Nenhuma máquina remota conhecida por enquanto."
-
-#, python-brace-format
-msgid "Scan des {count} machine(s) connue(s)…"
-msgstr "Varredura das {count} máquina(s) conhecida(s)…"
-
 #, python-brace-format
 msgid "{good} machine(s) scannée(s) sur {total}."
 msgstr "{good} de {total} máquina(s) escaneada(s)."
@@ -3952,6 +4023,16 @@ msgstr "Tema da interface"
 
 msgid "Thème des exports (rapport HTML, aide exportée)"
 msgstr "Tema das exportações (relatório HTML, ajuda exportada)"
+
+msgid "Machines scannées en même temps"
+msgstr "Máquinas escaneadas ao mesmo tempo"
+
+msgid ""
+"« Scanner tout le parc » interroge plusieurs machines à la fois (8 par "
+"défaut)."
+msgstr ""
+"« Escanear todo o parque » consulta várias máquinas de uma vez (8 por "
+"padrão)."
 
 msgid "Dossier des exports"
 msgstr "Pasta de exportações"
@@ -4102,6 +4183,22 @@ msgstr "a instalar"
 msgid "déjà installée"
 msgstr "já instalado"
 
+#, python-brace-format
+msgid "{tool} ({count} outil(s))"
+msgstr "{tool} ({count} ferramenta(s))"
+
+#, python-brace-format
+msgid "Machine : {machine}"
+msgstr "Máquina: {machine}"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} contient : {tools}. Ces outils se mettent à jour avec elle "
+": seule la ligne {tool} est à mettre à jour."
+msgstr ""
+"{tool} {version} contém: {tools}. Essas ferramentas são atualizadas junto "
+"com ela: só a linha {tool} precisa ser atualizada."
+
 msgid ""
 "omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
 "demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
@@ -4144,10 +4241,6 @@ msgstr "Atualizar tudo"
 
 msgid "Disponible"
 msgstr "Disponível"
-
-#, python-brace-format
-msgid "{tool} (contient {tools})"
-msgstr "{tool} (contém {tools})"
 
 msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
 msgstr "Procurando as últimas versões publicadas (GitHub, depois o site)…"
@@ -4284,3 +4377,67 @@ msgstr ""
 "O que está vinculado ou não, em todas as suas máquinas, com seu estado (OK, "
 "a reparar, ausente…). Esta tela mostra: o que está “a reparar” é corrigido "
 "no menu Reparar. Destaque uma linha para ver os detalhes."
+
+msgid "Tous les états"
+msgstr "Todos os estados"
+
+msgid "Rechercher : machine, application, dossier…"
+msgstr "Pesquisar: máquina, aplicativo, pasta…"
+
+msgid "jamais"
+msgstr "nunca"
+
+msgid "ancien"
+msgstr "antiga"
+
+msgid "États du scan"
+msgstr "Estado da varredura"
+
+msgid "Scanner tout le parc"
+msgstr "Escanear todo o parque"
+
+msgid "Arrêter le scan"
+msgstr "Parar a varredura"
+
+msgid "Un scan est déjà en cours."
+msgstr "Uma varredura já está em andamento."
+
+msgid "Scan"
+msgstr "Scan"
+
+#, python-brace-format
+msgid "Scan terminé : {count} machine(s)."
+msgstr "Varredura concluída: {count} máquina(s)."
+
+#, python-brace-format
+msgid "Scan en cours : {done}/{total} machine(s)"
+msgstr "Varredura em andamento: {done}/{total} máquina(s)"
+
+#, python-brace-format
+msgid ""
+"Scan arrêté : {done}/{total} machine(s) scannée(s) ; les autres gardent leur"
+" dernier scan."
+msgstr ""
+"Varredura interrompida: {done}/{total} máquina(s) escaneada(s); as outras "
+"mantêm sua última varredura."
+
+msgid "Pas encore de scan depuis le lancement."
+msgstr "Ainda nenhuma varredura desde a inicialização."
+
+msgid ""
+"Pas encore de scan depuis le lancement : « Scanner tout le parc » pour "
+"remplir les listes."
+msgstr ""
+"Nenhuma varredura desde o início: « Escanear todo o parque » para preencher "
+"as listas."
+
+msgid "Cette machine : pas encore scannée."
+msgstr "Esta máquina: ainda não escaneada."
+
+#, python-brace-format
+msgid "Cette machine scannée {age}."
+msgstr "Esta máquina escaneada {age}."
+
+#, python-brace-format
+msgid "Réseau : {count} machine(s), plus ancien scan {age}"
+msgstr "Rede: {count} máquina(s), varredura mais antiga {age}"

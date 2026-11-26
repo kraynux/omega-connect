@@ -23,21 +23,19 @@ from omega_connect.application.distributed_actions import (
     run_plan,
     unlink,
 )
-from omega_connect.application.remote_actions import RemoteTools, scan_remote
+from omega_connect.application.remote_actions import RemoteTools
 from omega_connect.domain.distributed_load import Accord, Helper, LinkStep, PilotState, StepWhere, shown
 from omega_connect.domain.links import CheckCode, Link, LinkKind, LinkState
 from omega_connect.domain.parc import MachineEntry
-from omega_connect.domain.remote import parse_target
 from omega_connect.interfaces.tui.presentation import state_text
 from omega_connect.interfaces.tui.screens._base import SUDO_MESSAGE, OmegaScreen, suspended
 from omega_connect.interfaces.tui.screens.confirm import ConfirmScreen
 from omega_connect.interfaces.tui.widgets.busy import Busy
+from omega_connect.interfaces.tui.widgets.scan_banner import ScanBanner
 from omega_connect.interfaces.tui.widgets.states import theme_styles
-from omega_connect.interfaces.tui.widgets.tables import WideTable
+from omega_connect.interfaces.tui.widgets.tables import SELECTED_MARK, UNSELECTED_MARK, WideTable
 from omega_connect.shared.i18n import N_, _
 
-SELECTED_MARK = Text(" ✔ ", style="bold reverse green")
-UNSELECTED_MARK = Text("   ", style="reverse dim")
 """Cases lisibles de loin (retour de l'auteur, 2026-11-21 : cases trop petites)."""
 LINK_WORDS = {
     CheckCode.STRESS_LINKED: N_("reliée"),
@@ -107,6 +105,7 @@ class DistributedLoadScreen(OmegaScreen):
                            "Cochez-les (Entrée ou Espace), choisissez leur accord, puis « Relier la sélection » : "
                            "le plan s'affiche avant d'agir, et un seul mot de passe est demandé si le pare-feu de "
                            "cette machine doit s'ouvrir."), classes="omega-hint")
+            yield ScanBanner()
             yield Static("", id="distributed-status", classes="omega-hint")
             yield Busy(id="busy")
             yield WideTable(id="distributed-table")
@@ -138,21 +137,21 @@ class DistributedLoadScreen(OmegaScreen):
         if not self._working:
             self.dismiss(self._changed)  # type: ignore[arg-type]
 
-    def _load(self, *, rescan: bool = True) -> None:
-        """Etat frais : pilote lu, machines qui ont omega-stress rescannees (pas apres une liaison : les
-        machines concernees viennent d'etre rescannees par la liaison elle-meme)."""
+    def scan_changed(self) -> bool:
+        """Une machine vient d'etre scannee (bandeau de scan) : la liste est relue, rien n'est rescanne."""
+        if self._working:
+            return False
+        self._load()
+        return True
+
+    def _load(self) -> None:
+        """Pilote lu, machines relues dans le dernier scan : jamais rescannees a l'ouverture (decision 2026-11-26 ;
+        apres une liaison, les machines concernees viennent d'etre rescannees par la liaison elle-meme)."""
         self._busy(_("Lecture d'omega-stress sur cette machine et sur le réseau…"))
 
         def collect() -> None:
             try:
                 pilot = self._tools.pilot()
-                for entry in self._remote.parc.load() if rescan else ():
-                    target = parse_target(entry.target) if not entry.local else None
-                    if target is None or not any(row.tool == "omega-stress" for row in entry.rows):
-                        continue
-                    self.app.call_from_thread(self._busy, _("Rescan de {machine}…").format(machine=entry.label))
-                    with contextlib.suppress(Exception):
-                        scan_remote(target, self._remote)
                 rows = [(entry, link) for entry in self._remote.parc.load() if not entry.local
                         for link in entry.links
                         if link.kind is LinkKind.DISTRIBUTED_LOAD]
@@ -307,7 +306,7 @@ class DistributedLoadScreen(OmegaScreen):
         self.query_one("#distributed-result", Static).update(text)
         self._chosen.clear()
         self._changed = True
-        self._load(rescan=False)
+        self._load()
 
 
 def where_label(step: LinkStep) -> str:

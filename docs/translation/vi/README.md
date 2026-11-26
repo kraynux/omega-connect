@@ -70,7 +70,7 @@ Các ứng dụng omega được tạo ra để làm việc cùng nhau: nhật k
 Từ thư mục chứa bản lưu trữ:
 
 ```bash
-tar -xzf omega-connect-0.2.0.tar.gz
+tar -xzf omega-connect-0.2.1.tar.gz
 cd omega-connect/
 ./install.sh
 ```

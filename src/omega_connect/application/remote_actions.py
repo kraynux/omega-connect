@@ -52,6 +52,8 @@ def scan_remote(target: RemoteTarget, tools: RemoteTools) -> RemoteOutcome:
         tools.parc.save(scanned)
         return RemoteOutcome(target, scan=result, entry=scanned)
     failure, detail = result
+    if failure is RemoteFailure.STOPPED:  # arrete par la personne : la machine garde son dernier scan
+        return RemoteOutcome(target, failure=failure, detail=detail)
     marked = entry_after_failure(machines, target, failure)
     if marked is not None:
         tools.parc.save(marked)

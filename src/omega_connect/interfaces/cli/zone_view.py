@@ -33,6 +33,8 @@ NOTE_MESSAGES = {
     NoteCode.DUPLICATE_SKIPPED: N_("{subject} n'est pas relié : identifiant {detail} en double."),
     NoteCode.TOOL_GONE: N_("{subject} ({detail}) est au registre mais introuvable : « retirer {detail} » "
                            "l'enlèvera."),
+    NoteCode.TOOL_REPLACED: N_("{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle, "
+                               "retirée de la zone."),
     NoteCode.RELOGIN: N_("{subject} devra se reconnecter pour que le groupe omega-synchro compte (lecture de la "
                          "zone)."),
     NoteCode.NOTHING_TO_DO: N_("la zone {subject} est à jour : rien à faire."),

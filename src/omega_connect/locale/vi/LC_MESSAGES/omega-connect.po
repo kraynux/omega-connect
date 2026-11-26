@@ -74,6 +74,10 @@ msgid "{count} fichiers installés dans {root}."
 msgstr "Đã cài {count} tệp vào {root}."
 
 #, python-brace-format
+msgid "Carte d'identité de l'installation gardée ({path})."
+msgstr "Đã giữ thẻ định danh của bản cài đặt ({path})."
+
+#, python-brace-format
 msgid "install.sh introuvable dans {root}"
 msgstr "không tìm thấy install.sh trong {root}"
 
@@ -1184,6 +1188,10 @@ msgid "Le scan de {target} a échoué ({detail}). Rien n'a été modifié là-ba
 msgstr "Quét {target} thất bại ({detail}). Không thay đổi gì trên máy đó."
 
 #, python-brace-format
+msgid "Scan de {target} arrêté : rien n'a été enregistré pour cette machine."
+msgstr "Đã dừng quét {target}: không lưu gì cho máy này."
+
+#, python-brace-format
 msgid ""
 "Pas de client SSH sur cette machine (commande {detail}) : installez openssh."
 msgstr ""
@@ -2203,6 +2211,14 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
+"{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle "
+"; l'espace partagé la retirera."
+msgstr ""
+"{subject}: thẻ định danh cũ ({detail}) đã được thay bằng thẻ mới; không gian"
+" chia sẻ sẽ gỡ nó."
+
+#, python-brace-format
+msgid ""
 "le service {subject} ({detail}) a le groupe omega-synchro (complément "
 "systemd posé par omega-serv)."
 msgstr ""
@@ -2399,6 +2415,14 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
+"{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle,"
+" retirée de la zone."
+msgstr ""
+"{subject}: thẻ định danh cũ ({detail}) đã được thay bằng thẻ mới, đã gỡ khỏi"
+" vùng."
+
+#, python-brace-format
+msgid ""
 "{subject} devra se reconnecter pour que le groupe omega-synchro compte "
 "(lecture de la zone)."
 msgstr ""
@@ -2537,20 +2561,6 @@ msgstr ""
 "Hãy chạy lại cùng lệnh sau khi khắc phục nguyên nhân: không có gì bị làm hai"
 " lần."
 
-msgid "Scan de cette machine…"
-msgstr "Đang quét máy này…"
-
-#, python-brace-format
-msgid "Scan des machines du réseau ({index}/{count}) : {machine}…"
-msgstr "Đang quét các máy trong mạng ({index}/{count}): {machine}…"
-
-#, python-brace-format
-msgid "Scan terminé : cette machine et {count} machine(s) du réseau."
-msgstr "Quét xong: máy này và {count} máy trong mạng."
-
-msgid "Scan"
-msgstr "Bản quét"
-
 msgid "Dossier des captures non configuré."
 msgstr "Chưa cấu hình thư mục ảnh chụp."
 
@@ -2609,7 +2619,7 @@ msgid ""
 "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
 "6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n"
 "\n"
-"Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont rescannées."
+"Aucun scan ne part tout seul : au lancement, les listes sont vides ; le cadre « États du scan » du menu principal et le bandeau en haut de chaque écran proposent « Scanner tout le parc ». Le scan tourne en arrière-plan, plusieurs machines à la fois (Réglages) ; on peut changer d'écran ou quitter pendant le scan, et « Arrêter le scan » l'interrompt. Tous les écrans relisent ensuite ce scan ; un scan de plus de 24 heures est signalé « ancien ». Après une action, seule la machine touchée est rescannée."
 msgstr ""
 "omega-connect liên kết với nhau các ứng dụng omega (omega-serv, omega-fire, omega-jail…) được cài trên máy này và trên các máy trong mạng của bạn. Nó cho thấy những gì đã liên kết hay chưa, và khôi phục những gì còn thiếu, luôn sau khi đã cho bạn xem nó sẽ làm gì.\n"
 "\n"
@@ -2620,7 +2630,7 @@ msgstr ""
 "5. [b]Sửa chữa[/b]: danh sách mọi thứ đang có vấn đề; chọn một dòng, hoặc “Sửa tất cả”.\n"
 "6. [b]Báo cáo[/b]: một tài liệu đầy đủ (văn bản, JSON hoặc trang HTML) để lưu giữ hoặc chuyển cho người khác.\n"
 "\n"
-"Việc quét được thực hiện một lần khi khởi động (máy này, rồi các máy đã biết trong mạng), sau đó mọi màn hình đọc lại kết quả: « Quét lại » quét lại. Sau một thao tác, chỉ các máy liên quan được quét lại."
+"Không có lần quét nào tự chạy: khi khởi động, các danh sách trống và khung « Trạng thái quét » của menu chính cùng dải thông báo ở đầu mỗi màn hình đề xuất « Quét tất cả máy ». Việc quét chạy nền, nhiều máy cùng lúc (Thiết lập); có thể đổi màn hình hoặc thoát trong khi quét, và « Dừng quét » sẽ ngắt nó. Sau đó mọi màn hình đọc lại lần quét này; lần quét quá 24 giờ được đánh dấu « cũ ». Sau một thao tác, chỉ máy liên quan được quét lại."
 
 msgid "Registre — toutes les applications et leur état"
 msgstr "Sổ đăng ký — mọi ứng dụng và trạng thái của chúng"
@@ -2628,13 +2638,15 @@ msgstr "Sổ đăng ký — mọi ứng dụng và trạng thái của chúng"
 msgid ""
 "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n"
 "\n"
-"- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà connues), sans changer d'écran.\n"
+"- [b]Scanner la machine[/b] : rescanne la machine de la ligne choisie, seule, en arrière-plan ; « Scanner tout le parc » (bandeau) les rescanne toutes.\n"
+"- [b]Rechercher[/b] et filtre par état : seul l'affichage change (grand parc).\n"
 "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une machine du réseau.\n"
 "- Surlignez une ligne : l'explication de son état et ses écarts s'affichent en dessous."
 msgstr ""
 "Hiển thị, cho từng máy (máy này và các máy trong mạng), từng ứng dụng omega tìm thấy: instance hoặc dịch vụ, phiên bản, trạng thái và thư mục của nó. Phần tóm tắt ở trên cùng đếm các trạng thái.\n"
 "\n"
-"- [b]Quét lại[/b]: quét lại ngay tại chỗ (máy này, rồi các máy trong mạng đã biết), không đổi màn hình.\n"
+"- [b]Quét máy[/b]: quét lại riêng máy của dòng đã chọn, chạy nền; « Quét tất cả máy » (dải thông báo) quét lại tất cả.\n"
+"- [b]Tìm[/b] và lọc theo trạng thái: chỉ thay đổi phần hiển thị (khi có nhiều máy).\n"
 "- [b]Cập nhật ứng dụng[/b] / [b]Cài đặt lại ứng dụng[/b]: mở Updater, ứng dụng của dòng đã được đánh dấu sẵn (« Phiên bản cũ »; hoặc « Cài đặt dở dang »: install.sh của nó chưa chạy xong, cài lại cùng phiên bản). Trên máy này cũng như trên máy trong mạng.\n"
 "- Tô sáng một dòng: phần giải thích trạng thái và các sai lệch của nó hiển thị bên dưới."
 
@@ -2646,14 +2658,14 @@ msgid ""
 "- [b]Machines proposées[/b] : celles que cet ordinateur sait déjà joindre (profils Unison, ~/.ssh/config, known_hosts). Choisissez une ligne puis « Scanner la machine choisie ».\n"
 "- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
 "- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
-"- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle).\n"
+"- [b]Machines connues[/b] : « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur elle). Pour les rescanner toutes : « Scanner tout le parc » (bandeau).\n"
 "- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas)."
 msgstr ""
 "- [b]Máy này[/b]: tìm các ứng dụng omega (thư mục cá nhân, dịch vụ systemd, OpenRC hoặc runit, /srv, sổ đăng ký instance của omega-serv). Không bao giờ đi theo liên kết tượng trưng, không bao giờ duyệt ổ gắn mạng.\n"
 "- [b]Máy được gợi ý[/b]: những máy mà máy tính này đã biết cách kết nối (hồ sơ Unison, ~/.ssh/config, known_hosts). Chọn một dòng rồi “Quét máy đã chọn”.\n"
 "- [b]Nhập thủ công[/b]: người_dùng@máy (tên hoặc địa chỉ), rồi “Quét máy này”.\n"
 "- [b]Kết nối lần đầu[/b]: dấu vân tay khóa của máy được hiển thị; hãy kiểm tra, rồi chấp nhận. Khóa đã THAY ĐỔI sẽ bị từ chối (máy đã cài lại, hoặc bị giả mạo).\n"
-"- [b]Máy đã biết[/b]: “Quét lại các máy đã biết”, hoặc “Gỡ máy này” (máy rời khỏi sổ đăng ký; không thay đổi gì trên máy đó).\n"
+"- [b]Máy đã biết[/b]: “Gỡ máy này” (máy rời khỏi sổ đăng ký; không thay đổi gì trên máy đó). Để quét lại tất cả: « Quét tất cả máy » (dải thông báo).\n"
 "- Việc quét một máy trong mạng được gửi vào bộ nhớ qua SSH, chỉ đọc: không cài hay ghi gì lên đó, không hỏi mật khẩu nào (máy đó cần Python 3.10 hoặc mới hơn)."
 
 msgid "Liaisons — ce qui est relié ou pas"
@@ -2674,7 +2686,7 @@ msgid "Synchronisation — relier les applications"
 msgstr "Đồng bộ hóa — liên kết các ứng dụng"
 
 msgid ""
-"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
+"Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan. Cochez des lignes (Entrée ou Espace : la case verte ✔), puis :\n"
 "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
 "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie des cartes, accès des services). Un seul mot de passe administrateur.\n"
 "- [b]Machine du réseau[/b] : son plan est calculé sur elle et affiché ; « Synchroniser <machine> » le lance depuis ici : l'interface laisse la place au terminal, la machine demande elle-même son mot de passe, une fois ; Entrée ramène à l'interface, qui montre le résultat.\n"
@@ -2683,7 +2695,7 @@ msgid ""
 "- [b]Lire avec sudo[/b] : si votre session ne peut pas encore lire l'espace partagé (le groupe omega-synchro ne compte qu'après une reconnexion), lecture seule avec sudo.\n"
 "- [b]Détail[/b] : ce qu'omega-connect a créé (registre de l'espace partagé) et les retraits possibles."
 msgstr ""
-"Một danh sách duy nhất: tất cả máy của bạn và ứng dụng của chúng, theo lần quét gần nhất (« Quét lại » quét lại). Đánh dấu các dòng (Enter hoặc Space), rồi:\n"
+"Một danh sách duy nhất: tất cả máy của bạn và ứng dụng của chúng, theo lần quét gần nhất. Đánh dấu các dòng (Enter hoặc Space: ô xanh ✔), rồi:\n"
 "- [b]Đồng bộ mục đã chọn[/b], hoặc [b]Đồng bộ tất cả[/b].\n"
 "- [b]Máy này[/b]: một kế hoạch duy nhất, hiển thị trước khi thực hiện — các thẻ định danh còn thiếu (do từng ứng dụng tạo, dưới tài khoản của nó), rồi không gian chia sẻ (nhóm omega-synchro, thư mục, sao chép thẻ, quyền truy cập của dịch vụ). Chỉ một mật khẩu quản trị.\n"
 "- [b]Máy trong mạng[/b]: kế hoạch được tính trên chính máy đó và hiển thị; “Đồng bộ <máy>” chạy nó từ đây: giao diện nhường chỗ cho terminal, chính máy đó hỏi mật khẩu, một lần; Enter đưa bạn trở lại giao diện, nơi hiển thị kết quả.\n"
@@ -2723,7 +2735,7 @@ msgid ""
 "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
 "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, scans les plus anciens (machines du réseau).\n"
 "\n"
-"Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du réseau. Pour corriger : menu Réparer."
+"Tout vient du dernier scan (bandeau : « Scanner tout le parc »). Pour corriger : menu Réparer."
 msgstr ""
 "Tổng quan dạng khung, giống một bảng điều khiển web. Không có gì bị thay đổi từ màn hình này.\n"
 "\n"
@@ -2732,26 +2744,28 @@ msgstr ""
 "- [b]Máy này / Mạng[/b]: cùng các con số, đặt cạnh nhau.\n"
 "- [b]Top 5[/b] (top 3 trên màn hình nhỏ): máy cần sửa, liên kết cần sửa, phiên bản lạc hậu, lần quét cũ nhất (máy trong mạng).\n"
 "\n"
-"Mọi thứ lấy từ lần quét gần nhất; « Quét lại » quét lại máy này và các máy trong mạng. Để sửa: menu Sửa chữa."
+"Mọi thứ lấy từ lần quét gần nhất (dải thông báo: « Quét tất cả máy »). Để sửa: menu Sửa chữa."
 
 msgid "Réparer — tout ce qui ne va pas"
 msgstr "Sửa chữa — mọi thứ đang có vấn đề"
 
 msgid ""
-"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le corrige.\n"
+"La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (une machine réparée est rescannée aussitôt, seule) : machine, problème, état, et qui le corrige. Recherche et filtre par état au-dessus de la liste.\n"
 "\n"
-"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan).\n"
+"- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine depuis ici (seulement celles annoncées dans le plan). L'espace partagé fait partie du même « Lancer » : un seul mot de passe, puis « Retour » ramène à la liste.\n"
+"- Une machine injoignable : « Réparer la ligne choisie » la rescanne.\n"
 "- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà cochée : seul l'Updater met à jour.\n"
-"- [b]Tout réparer[/b] : les machines une à une.\n"
+"- [b]Tout réparer[/b] : un récapitulatif machine par machine, une confirmation, puis les machines une à une dans le terminal (un mot de passe par machine) et un bilan. Les mises à jour (Updater) et les machines injoignables restent à part. Une réparation qui échoue affiche « Échec de la réparation » et n'est plus relancée par « Tout réparer » : choisissez la ligne pour la relancer seule.\n"
 "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
 "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
 "- omega-connect ne réécrit jamais le fichier d'une autre application : il lance sa commande."
 msgstr ""
-"Danh sách mọi thứ không ổn, trên tất cả các máy, theo lần quét gần nhất (« Quét lại » quét lại; máy vừa sửa được quét lại ngay): máy, vấn đề, trạng thái và ai sửa.\n"
+"Danh sách mọi thứ không ổn, trên tất cả các máy, theo lần quét gần nhất (máy vừa sửa được quét lại ngay, riêng máy đó): máy, vấn đề, trạng thái và ai sửa. Tìm kiếm và lọc theo trạng thái ở phía trên danh sách.\n"
 "\n"
-"- [b]Sửa dòng đã chọn[/b]: mở kế hoạch của máy. Máy này: lệnh của chính các ứng dụng (omega-jail cho những gì nó đặt trong fail2ban, omega-serv cho quyền của var/ của nó, từng ứng dụng cho thẻ định danh của mình), rồi không gian chia sẻ. Máy trong mạng: cùng các bước khắc phục đó, cộng thêm các lệnh mà không ứng dụng nào biết chạy, được chạy TRÊN máy đó từ đây (chỉ những lệnh đã thông báo trong kế hoạch).\n"
+"- [b]Sửa dòng đã chọn[/b]: mở kế hoạch của máy. Máy này: lệnh của chính các ứng dụng (omega-jail cho những gì nó đặt trong fail2ban, omega-serv cho quyền của var/ của nó, từng ứng dụng cho thẻ định danh của mình), rồi không gian chia sẻ. Máy trong mạng: cùng các bước khắc phục đó, cộng thêm các lệnh mà không ứng dụng nào biết chạy, được chạy TRÊN máy đó từ đây (chỉ những lệnh đã thông báo trong kế hoạch). Không gian chia sẻ nằm trong cùng một lần “Khởi chạy”: chỉ một mật khẩu, rồi “Quay lại” đưa bạn về danh sách.\n"
+"- Máy không liên lạc được: “Sửa dòng đã chọn” sẽ quét lại máy đó.\n"
 "- Dòng « Phiên bản cũ » hoặc « Cài đặt dở dang » mở Updater với ứng dụng đã đánh dấu sẵn: chỉ Updater thực hiện cập nhật.\n"
-"- [b]Sửa tất cả[/b]: lần lượt từng máy.\n"
+"- [b]Sửa tất cả[/b]: một bản tóm tắt theo từng máy, một lần xác nhận, rồi lần lượt từng máy trong terminal (mỗi máy một mật khẩu) và một bản tổng kết. Các bản cập nhật (Updater) và máy không liên lạc được để riêng. Lần sửa thất bại hiển thị « Sửa thất bại » và không được “Sửa tất cả” chạy lại nữa: hãy chọn dòng đó để chạy lại riêng.\n"
 "- [b]Chi tiết[/b]: mọi mục kiểm tra của dòng đã chọn.\n"
 "- [b]Sao chép các lệnh[/b] (kế hoạch của máy này): bộ nhớ tạm của hệ thống (xclip, xsel, wl-copy); nếu không, các lệnh được hiển thị rõ trong terminal để bạn chọn bằng chuột.\n"
 "- omega-connect không bao giờ ghi đè tệp của ứng dụng khác: nó chạy lệnh của ứng dụng đó."
@@ -2766,7 +2780,7 @@ msgid ""
 "- [b]Vérifier les versions[/b] : la dernière version publiée de chaque application (Release GitHub, sinon le site de l'application), pour les lignes cochées ou pour toutes. Une version non publiée n'est jamais proposée.\n"
 "- [b]Mettre à jour la sélection[/b] / [b]Tout mettre à jour[/b] : les applications à mettre à jour et les installations inachevées. Cette machine d'abord : archives vérifiées (sha.txt), puis l'interface laisse la place au terminal, où les install.sh demandent le mot de passe si besoin. Puis chaque machine du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
 "- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
-"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
+"- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle d'omega-suite (« omega-suite (7 outil(s)) », la liste et les versions sous le tableau) : elle se met à jour avec ses outils, testés ensemble, jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide."
 msgstr ""
 "Nơi duy nhất cập nhật các ứng dụng, trên máy này cũng như trên mạng. Sửa chữa và Sổ đăng ký dẫn tới đây, với ứng dụng đã được đánh dấu sẵn.\n"
 "\n"
@@ -2774,7 +2788,7 @@ msgstr ""
 "- [b]Kiểm tra phiên bản[/b]: phiên bản mới nhất đã phát hành của từng ứng dụng (GitHub Release, nếu không thì trang web của ứng dụng), cho các dòng đã đánh dấu hoặc tất cả. Phiên bản chưa phát hành không bao giờ được đề xuất.\n"
 "- [b]Cập nhật mục đã chọn[/b] / [b]Cập nhật tất cả[/b]: các ứng dụng cần cập nhật và các bản cài chưa hoàn tất. Máy này trước: kiểm tra tệp nén (sha.txt), rồi giao diện nhường chỗ cho terminal, nơi các install.sh hỏi mật khẩu nếu cần. Sau đó từng máy trong mạng: kế hoạch hiện ra trước khi thực hiện, mỗi máy một mật khẩu.\n"
 "- Cuối cùng: những gì đã làm, theo từng ứng dụng, và các máy được quét lại.\n"
-"- [b]omega-suite[/b]: omega-stress đi kèm là một phần của nó. Dòng này là của omega-suite (« chứa omega-stress … »): nó được cập nhật cùng các công cụ đã kiểm thử chung, không bao giờ cập nhật riêng omega-stress. Từ 2.0.0, nó hỗ trợ tải phân tán như một omega-stress độc lập; nếu máy cũng có omega-stress độc lập thì máy dùng bản đó."
+"- [b]omega-suite[/b]: omega-stress đi kèm là một phần của nó. Dòng này là của omega-suite (« omega-suite (7 công cụ) », danh sách và phiên bản ở dưới bảng): nó được cập nhật cùng các công cụ đã kiểm thử chung, không bao giờ cập nhật riêng omega-stress. Từ 2.0.0, nó hỗ trợ tải phân tán như một omega-stress độc lập; nếu máy cũng có omega-stress độc lập thì máy dùng bản đó."
 
 msgid "Installer — installer les applications"
 msgstr "Installer — cài đặt các ứng dụng"
@@ -2800,13 +2814,13 @@ msgid "Rapport — un document complet"
 msgstr "Báo cáo — một tài liệu đầy đủ"
 
 msgid ""
-"Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
+"Établi d'après le dernier scan (bandeau : « Scanner tout le parc ») : bilan, liste précise de ce qu'il reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n"
 "\n"
 "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier des exports.\n"
 "- [b]Voir les exports[/b] : le dossier des exports s'ouvre dans votre navigateur, chaque export se lit d'un clic (sans quitter omega-connect). Sans navigateur (serveur, connexion SSH), la liste s'affiche ici et chaque export s'y lit.\n"
 "- En ligne de commande : omega-connect rapport --format html --enregistrer."
 msgstr ""
-"Lập theo lần quét gần nhất (« Quét lại » quét lại máy này và mạng trước): tổng kết, danh sách chính xác những việc còn phải làm (máy, việc gì, menu nào), sổ đăng ký mọi ứng dụng, các máy trong mạng, chi tiết ứng dụng của máy này, liên kết của từng máy, không gian chung và sổ đăng ký của nó.\n"
+"Lập theo lần quét gần nhất (dải thông báo: « Quét tất cả máy »): tổng kết, danh sách chính xác những việc còn phải làm (máy, việc gì, menu nào), sổ đăng ký mọi ứng dụng, các máy trong mạng, chi tiết ứng dụng của máy này, liên kết của từng máy, không gian chung và sổ đăng ký của nó.\n"
 "\n"
 "- Xuất ra văn bản, JSON hoặc trang HTML (giao diện tùy chọn, mặc định là giao diện trong Thiết lập), vào thư mục xuất.\n"
 "- [b]Xem các bản xuất[/b]: thư mục xuất mở trong trình duyệt của bạn, mỗi bản xuất đọc bằng một cú nhấp (không cần rời omega-connect). Không có trình duyệt (máy chủ, kết nối SSH), danh sách hiện ở đây và mỗi bản xuất được đọc ở đây.\n"
@@ -2814,11 +2828,13 @@ msgstr ""
 
 msgid ""
 "- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+"- [b]Machines scannées en même temps[/b] : « Scanner tout le parc » en interroge plusieurs à la fois (8 par défaut).\n"
 "- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
 "- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du dossier configuré (le dossier reste). Refusé pour un dossier système, personnel, ou celui d'omega-connect lui-même ; jamais de mot de passe demandé.\n"
 "- Tout est enregistré dans var/settings.json."
 msgstr ""
 "- [b]Giao diện của ứng dụng[/b] (cũng là phím t) và [b]giao diện của bản xuất[/b]: được lưu.\n"
+"- [b]Số máy quét cùng lúc[/b]: « Quét tất cả máy » hỏi nhiều máy cùng lúc (mặc định 8).\n"
 "- [b]Thư mục xuất[/b] và [b]thư mục ảnh chụp màn hình[/b]: mặc định là var/exports/ và var/screenshots/ trong thư mục của omega-connect; một đường dẫn đầy đủ, hoặc để trống để trở về mặc định.\n"
 "- [b]Làm trống thư mục xuất / ảnh chụp[/b]: sau khi xác nhận, xóa nội dung của thư mục đã cấu hình (thư mục vẫn còn). Bị từ chối với thư mục hệ thống, thư mục cá nhân, hoặc chính thư mục của omega-connect; không bao giờ hỏi mật khẩu.\n"
 "- Mọi thứ được lưu trong var/settings.json."
@@ -3157,9 +3173,6 @@ msgstr "Kiểm tra ngay"
 msgid "LIENS"
 msgstr "LIÊN KẾT"
 
-msgid "Relancer le scan"
-msgstr "Quét lại"
-
 msgid "Détail du lien"
 msgstr "Chi tiết liên kết"
 
@@ -3253,10 +3266,6 @@ msgstr "Liên kết"
 
 msgid "Lecture d'omega-stress sur cette machine et sur le réseau…"
 msgstr "Đang đọc omega-stress trên máy này và trên mạng…"
-
-#, python-brace-format
-msgid "Rescan de {machine}…"
-msgstr "Đang quét lại {machine}…"
 
 msgid ""
 "omega-stress n'est pas installé sur cette machine (ou trop ancien) : elle ne"
@@ -3447,9 +3456,6 @@ msgstr ""
 msgid "Réparer la machine choisie"
 msgstr "Sửa máy đã chọn"
 
-msgid "Zone : établir…"
-msgstr "Vùng: tạo lập…"
-
 msgid "Analyser de nouveau"
 msgstr "Phân tích lại"
 
@@ -3462,8 +3468,26 @@ msgstr "không có máy từ xa nào: hãy quét một máy (Quét)"
 msgid "Préparation des réparations : vérification des liens en cours…"
 msgstr "Đang chuẩn bị sửa chữa: đang kiểm tra các liên kết…"
 
+msgid ""
+"Ici, l'espace partagé est mis à jour dans le même « Lancer », juste après "
+"les commandes des outils (un seul mot de passe) ; chaque opération s'affiche"
+" dans l'avancement."
+msgstr ""
+"Ở đây, không gian chia sẻ được cập nhật trong cùng lần « Khởi chạy », ngay "
+"sau các lệnh của công cụ (một mật khẩu duy nhất); mỗi thao tác hiện trong "
+"phần tiến trình."
+
 msgid "Lancer avec sudo"
 msgstr "Khởi chạy bằng sudo"
+
+msgid "Espace partagé : lecture et plan…"
+msgstr "Không gian chia sẻ: đọc và lập kế hoạch…"
+
+msgid "Espace partagé : rien à faire."
+msgstr "Không gian chia sẻ: không có gì phải làm."
+
+msgid "Rien n'a été lancé."
+msgstr "Chưa khởi chạy gì."
 
 msgid ""
 "Vue d'ensemble de vos machines et de vos applications. Rien n'est modifié "
@@ -3492,24 +3516,23 @@ msgstr "SỔ ĐĂNG KÝ"
 
 msgid ""
 "Ce que le scanner a trouvé : chaque application omega, son service, sa "
-"version et son état. « Mettre à jour le registre » refait le scan ; « Mettre"
-" à jour l'application » installe la dernière version d'une application trop "
-"ancienne (ligne choisie). Remettre les liens en place : Synchronisation ; "
-"corriger un écart : Réparer."
+"version et son état. « Mettre à jour l'application » installe la dernière "
+"version d'une application trop ancienne (ligne choisie). Remettre les liens "
+"en place : Synchronisation ; corriger un écart : Réparer."
 msgstr ""
 "Những gì trình quét đã tìm thấy: từng ứng dụng omega, dịch vụ, phiên bản và "
-"trạng thái của nó. “Cập nhật sổ đăng ký” quét lại; “Cập nhật ứng dụng” cài "
-"phiên bản mới nhất cho một ứng dụng quá cũ (dòng đã chọn). Khôi phục liên "
-"kết: Đồng bộ hóa; khắc phục sai lệch: Sửa chữa."
+"trạng thái của nó. “Cập nhật ứng dụng” cài phiên bản mới nhất cho một ứng "
+"dụng quá cũ (dòng đã chọn). Khôi phục liên kết: Đồng bộ hóa; khắc phục sai "
+"lệch: Sửa chữa."
+
+msgid "Scanner la machine"
+msgstr "Quét máy"
 
 msgid "Mettre à jour l'application"
 msgstr "Cập nhật ứng dụng"
 
 msgid "Lecture du registre…"
 msgstr "Đang đọc sổ đăng ký…"
-
-msgid "Premier scan : recherche des applications omega…"
-msgstr "Lần quét đầu tiên: đang tìm các ứng dụng omega…"
 
 #, python-brace-format
 msgid "{count} application(s) sur {machines} machine(s)"
@@ -3540,6 +3563,10 @@ msgstr "Cài đặt lại ứng dụng"
 #, python-brace-format
 msgid "→ « {action} » ouvre l'Updater, l'application déjà cochée."
 msgstr "→ « {action} » mở Updater, ứng dụng đã được đánh dấu sẵn."
+
+#, python-brace-format
+msgid "Scan de {machine} lancé."
+msgstr "Đã bắt đầu quét {machine}."
 
 #, python-brace-format
 msgid ""
@@ -3664,8 +3691,8 @@ msgstr "Cài đặt lại ứng dụng, từ đây"
 msgid "à la main (README de l'outil)"
 msgstr "thủ công (README của công cụ)"
 
-msgid "Scanner : rescanner la machine"
-msgstr "Quét: quét lại máy"
+msgid "la rescanner, depuis ici"
+msgstr "quét lại nó, từ đây"
 
 msgid "aucune correction connue (voir le détail)"
 msgstr "không có cách khắc phục đã biết (xem chi tiết)"
@@ -3688,6 +3715,12 @@ msgstr ""
 "Mọi thứ đang có vấn đề, trên mọi máy. Chọn một dòng rồi “Sửa dòng đã chọn”, "
 "hoặc “Sửa tất cả”: kế hoạch của máy được hiển thị, không chạy gì trước đó. "
 "Máy trong mạng: được sửa chữa từ đây, mật khẩu sudo của nó được hỏi một lần."
+
+msgid "À mettre à jour"
+msgstr "Cần cập nhật"
+
+msgid "Échec de la réparation"
+msgstr "Sửa thất bại"
 
 msgid "Réparer la ligne choisie"
 msgstr "Sửa dòng đã chọn"
@@ -3721,19 +3754,64 @@ msgstr "máy không còn phản hồi"
 msgid "{machine} : rescannez-la d'abord (Scanner)."
 msgstr "{machine}: hãy quét lại máy này trước (Quét)."
 
+msgid ""
+"Machines réparées une à une dans le terminal (mot de passe sudo demandé une "
+"fois par machine) :"
+msgstr ""
+"Các máy được sửa lần lượt trong terminal (mật khẩu sudo được hỏi một lần cho"
+" mỗi máy):"
+
+msgid " (cette machine)"
+msgstr " (máy này)"
+
+#, python-brace-format
+msgid "{machine}{mark} : {count} correction(s)"
+msgstr "{machine}{mark}: {count} chỉnh sửa"
+
+msgid "Hors « Tout réparer » :"
+msgstr "Ngoài « Sửa tất cả »:"
+
+msgid "échec précédent : « Réparer la ligne choisie »"
+msgstr "lần thất bại trước: « Sửa dòng đã chọn »"
+
+msgid "Tout réparer : les machines une à une, dans ce terminal."
+msgstr "Sửa tất cả: lần lượt từng máy, trong terminal này."
+
+#, python-brace-format
+msgid "== {machine}"
+msgstr "== {machine}"
+
+msgid "Bilan :"
+msgstr "Tổng kết:"
+
+#, python-brace-format
+msgid "{machine} : échec (code {code})"
+msgstr "{machine}: thất bại (mã {code})"
+
+msgid "Appuyez sur Entrée pour revenir à omega-connect…"
+msgstr "Nhấn Enter để quay lại omega-connect…"
+
+#, python-brace-format
+msgid ""
+"Tout réparer : {ok} machine(s) réparée(s), {failed} en échec ({names})."
+msgstr "Sửa tất cả: đã sửa {ok} máy, {failed} máy thất bại ({names})."
+
+#, python-brace-format
+msgid "Tout réparer : {ok} machine(s) réparée(s) ; rescan en cours."
+msgstr "Sửa tất cả: đã sửa {ok} máy; đang quét lại."
+
 msgid "RAPPORT"
 msgstr "BÁO CÁO"
 
 msgid ""
-"Un document complet, d'après le dernier scan (« Relancer le scan » le "
-"refait) : bilan, ce qu'il reste à faire, registre, machines du réseau, "
-"liaisons de chaque machine, espace partagé. Enregistré dans le dossier des "
-"exports ; « Voir les exports » les ouvre dans le navigateur pour les lire."
+"Un document complet, d'après le dernier scan : bilan, ce qu'il reste à "
+"faire, registre, machines du réseau, liaisons de chaque machine, espace "
+"partagé. Enregistré dans le dossier des exports ; « Voir les exports » les "
+"ouvre dans le navigateur pour les lire."
 msgstr ""
-"Một tài liệu đầy đủ, theo lần quét gần nhất (« Quét lại » quét lại): tổng "
-"kết, việc còn phải làm, sổ đăng ký, các máy trong mạng, liên kết của từng "
-"máy, không gian chung. Lưu trong thư mục xuất; « Xem các bản xuất » mở chúng"
-" trong trình duyệt để đọc."
+"Một tài liệu đầy đủ, theo lần quét gần nhất: tổng kết, việc còn phải làm, sổ"
+" đăng ký, các máy trong mạng, liên kết của từng máy, không gian chung. Lưu "
+"trong thư mục xuất; « Xem các bản xuất » mở chúng trong trình duyệt để đọc."
 
 msgid "THÈME DE LA PAGE HTML"
 msgstr "GIAO DIỆN CỦA TRANG HTML"
@@ -3752,9 +3830,6 @@ msgstr "Xuất HTML"
 
 msgid "Voir les exports"
 msgstr "Xem các bản xuất"
-
-msgid "Scan de cette machine et des machines du réseau…"
-msgstr "Đang quét máy này và các máy trong mạng…"
 
 msgid "Génération du rapport en cours (détection, vérification, zone)…"
 msgstr "Đang tạo báo cáo (phát hiện, kiểm tra, vùng)…"
@@ -3844,11 +3919,8 @@ msgstr ""
 msgid "Retirer cette machine"
 msgstr "Gỡ máy này"
 
-msgid "Scanner de nouveau"
-msgstr "Quét lại"
-
-msgid "Rescanner les machines connues"
-msgstr "Quét lại các máy đã biết"
+msgid "Scanner la machine locale"
+msgstr "Quét máy cục bộ"
 
 msgid "Voir le registre"
 msgstr "Xem sổ đăng ký"
@@ -3856,8 +3928,12 @@ msgstr "Xem sổ đăng ký"
 msgid "Trouvée dans"
 msgstr "Tìm thấy trong"
 
-msgid "Analyse de la machine locale : recherche des applications omega…"
-msgstr "Đang phân tích máy cục bộ: đang tìm các ứng dụng omega…"
+msgid "Scan de cette machine en cours…"
+msgstr "Đang quét máy này…"
+
+msgid ""
+"Pas encore scannée depuis le lancement : « Scanner la machine locale »."
+msgstr "Chưa quét từ khi khởi động: « Quét máy cục bộ »."
 
 #, python-brace-format
 msgid "Analysée à {time}."
@@ -3901,13 +3977,6 @@ msgstr "{target}: không làm gì cả (máy không được chấp nhận)."
 msgid "Scan de {target} : le scanner tourne là-bas, en lecture seule…"
 msgstr "Đang quét {target}: trình quét đang chạy ở đó, chỉ đọc…"
 
-msgid "Aucune machine distante connue pour l'instant."
-msgstr "Hiện chưa biết máy từ xa nào."
-
-#, python-brace-format
-msgid "Scan des {count} machine(s) connue(s)…"
-msgstr "Đang quét {count} máy đã biết…"
-
 #, python-brace-format
 msgid "{good} machine(s) scannée(s) sur {total}."
 msgstr "Đã quét {good} trên {total} máy."
@@ -3920,6 +3989,14 @@ msgstr "Giao diện của ứng dụng"
 
 msgid "Thème des exports (rapport HTML, aide exportée)"
 msgstr "Giao diện của bản xuất (báo cáo HTML, trợ giúp đã xuất)"
+
+msgid "Machines scannées en même temps"
+msgstr "Số máy quét cùng lúc"
+
+msgid ""
+"« Scanner tout le parc » interroge plusieurs machines à la fois (8 par "
+"défaut)."
+msgstr "« Quét tất cả máy » hỏi nhiều máy cùng lúc (mặc định 8)."
 
 msgid "Dossier des exports"
 msgstr "Thư mục xuất"
@@ -4067,6 +4144,22 @@ msgstr "cần cài"
 msgid "déjà installée"
 msgstr "đã cài"
 
+#, python-brace-format
+msgid "{tool} ({count} outil(s))"
+msgstr "{tool} ({count} công cụ)"
+
+#, python-brace-format
+msgid "Machine : {machine}"
+msgstr "Máy: {machine}"
+
+#, python-brace-format
+msgid ""
+"{tool} {version} contient : {tools}. Ces outils se mettent à jour avec elle "
+": seule la ligne {tool} est à mettre à jour."
+msgstr ""
+"{tool} {version} gồm: {tools}. Các công cụ này được cập nhật cùng với nó: "
+"chỉ cần cập nhật dòng {tool}."
+
 msgid ""
 "omega-connect — mise à jour sur cette machine. Les install.sh peuvent "
 "demander le mot de passe sudo (il ne s'affiche pas pendant la saisie)."
@@ -4109,10 +4202,6 @@ msgstr "Cập nhật tất cả"
 
 msgid "Disponible"
 msgstr "Có sẵn"
-
-#, python-brace-format
-msgid "{tool} (contient {tools})"
-msgstr "{tool} (chứa {tools})"
 
 msgid "Recherche des dernières versions publiées (GitHub, puis le site)…"
 msgstr ""
@@ -4246,3 +4335,66 @@ msgstr ""
 "Những gì đã liên kết hay chưa, trên mọi máy của bạn, kèm trạng thái (OK, cần"
 " sửa, không có…). Màn hình này chỉ để xem: những gì “cần sửa” được khắc phục"
 " trong menu Sửa chữa. Tô sáng một dòng để xem chi tiết."
+
+msgid "Tous les états"
+msgstr "Mọi trạng thái"
+
+msgid "Rechercher : machine, application, dossier…"
+msgstr "Tìm: máy, ứng dụng, thư mục…"
+
+msgid "jamais"
+msgstr "chưa bao giờ"
+
+msgid "ancien"
+msgstr "cũ"
+
+msgid "États du scan"
+msgstr "Trạng thái quét"
+
+msgid "Scanner tout le parc"
+msgstr "Quét tất cả máy"
+
+msgid "Arrêter le scan"
+msgstr "Dừng quét"
+
+msgid "Un scan est déjà en cours."
+msgstr "Đang có một lần quét."
+
+msgid "Scan"
+msgstr "Bản quét"
+
+#, python-brace-format
+msgid "Scan terminé : {count} machine(s)."
+msgstr "Quét xong: {count} máy."
+
+#, python-brace-format
+msgid "Scan en cours : {done}/{total} machine(s)"
+msgstr "Đang quét: {done}/{total} máy"
+
+#, python-brace-format
+msgid ""
+"Scan arrêté : {done}/{total} machine(s) scannée(s) ; les autres gardent leur"
+" dernier scan."
+msgstr ""
+"Đã dừng quét: đã quét {done}/{total} máy; các máy khác giữ lần quét cuối."
+
+msgid "Pas encore de scan depuis le lancement."
+msgstr "Chưa quét lần nào kể từ khi khởi động."
+
+msgid ""
+"Pas encore de scan depuis le lancement : « Scanner tout le parc » pour "
+"remplir les listes."
+msgstr ""
+"Chưa quét lần nào từ khi khởi động: « Quét tất cả máy » để điền các danh "
+"sách."
+
+msgid "Cette machine : pas encore scannée."
+msgstr "Máy này: chưa quét."
+
+#, python-brace-format
+msgid "Cette machine scannée {age}."
+msgstr "Máy này đã quét {age}."
+
+#, python-brace-format
+msgid "Réseau : {count} machine(s), plus ancien scan {age}"
+msgstr "Mạng: {count} máy, lần quét cũ nhất {age}"

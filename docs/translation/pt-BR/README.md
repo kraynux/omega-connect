@@ -70,7 +70,7 @@ Os aplicativos omega são feitos para trabalhar juntos: os logs do omega-serv s�
 A partir da pasta onde está o arquivo compactado:
 
 ```bash
-tar -xzf omega-connect-0.2.0.tar.gz
+tar -xzf omega-connect-0.2.1.tar.gz
 cd omega-connect/
 ./install.sh
 ```

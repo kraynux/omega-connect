@@ -23,6 +23,7 @@ from omega_connect.interfaces.tui.presentation import check_lines, link_row, sum
 from omega_connect.interfaces.tui.screens._base import OmegaScreen
 from omega_connect.interfaces.tui.screens.link_detail import LinkDetailScreen
 from omega_connect.interfaces.tui.views import LINKS, ViewSpec, view_links
+from omega_connect.interfaces.tui.widgets.scan_banner import ScanBanner
 from omega_connect.interfaces.tui.widgets.tables import WideTable
 from omega_connect.shared.i18n import _
 
@@ -51,14 +52,13 @@ class LinksScreen(OmegaScreen):
         with Vertical(classes="omega-panel omega-fill"):
             yield Static(_(self._view.title), classes="omega-title")
             yield Static(_(self._view.hint), classes="omega-hint")
+            yield ScanBanner()
             yield Static("", id="status", classes="omega-hint")
             yield Static("", id="summary")
             yield Static(_("LIENS"), classes="omega-subtitle", id="links-title")
             yield WideTable(id="links-table")
             yield Static("", id="link-detail")
         with Horizontal(classes="omega-actions omega-fixed-actions"):
-            with Container(classes="omega-btn-frame"):
-                yield Button(_("Relancer le scan"), id="verify", variant="primary")
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Détail du lien"), id="detail", disabled=True)
 
@@ -80,19 +80,23 @@ class LinksScreen(OmegaScreen):
 
     # ---- verification dans un fil -------------------------------------------
 
-    def action_verify(self, rescan: bool = False) -> None:
-        """Le dernier scan relu (2026-11-22) ; « Relancer le scan » : cette machine et le reseau rescannes d'abord."""
+    def scan_changed(self) -> bool:
+        """Une machine vient d'etre scannee (bandeau de scan) : les liens sont relus, rien n'est rescanne."""
+        if self._verifying:
+            return False
+        self.action_verify()
+        return True
+
+    def action_verify(self) -> None:
+        """Le dernier scan relu (jamais un nouveau scan : decision 2026-11-26)."""
         if self._verifying:
             return
-        self._rescan = rescan
         self._verifying = True
         self._set_busy(True)
         self.run_worker(self._collect, thread=True, group="verify", exclusive=True)
 
     def _collect(self) -> None:
         try:
-            if getattr(self, "_rescan", False) and hasattr(self.app, "rescan_everything"):
-                self.app.rescan_everything()
             report = self._verify()
         except Exception as exc:  # noqa: BLE001 - jamais planter l'interface pour une verification
             self.app.call_from_thread(self._show_error, str(exc) or type(exc).__name__)
@@ -183,9 +187,7 @@ class LinksScreen(OmegaScreen):
                                  lambda _result: self.action_verify())
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
-        if event.button.id == "verify":
-            self.action_verify(rescan=True)
-        elif event.button.id == "detail":
+        if event.button.id == "detail":
             self._open_detail()
 
         elif event.button.id == "back":

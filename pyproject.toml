@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "omega-connect"
-version = "0.2.0"
+version = "0.2.1"
 description = "Interconnecteur de la suite omega : detecte les outils installes, verifie et attribue les droits entre eux"
 readme = "README.md"
 license = { file = "LICENSE" }

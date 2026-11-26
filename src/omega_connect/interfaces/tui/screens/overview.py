@@ -28,6 +28,7 @@ from omega_connect.domain.parc import MachineEntry
 from omega_connect.domain.zone import ZoneFacts
 from omega_connect.interfaces.tui import overview_view as view
 from omega_connect.interfaces.tui.screens._base import OmegaScreen
+from omega_connect.interfaces.tui.widgets.scan_banner import ScanBanner
 from omega_connect.interfaces.tui.widgets.states import theme_styles
 from omega_connect.shared.i18n import N_, _
 
@@ -67,17 +68,15 @@ class OverviewScreen(OmegaScreen):
         with VerticalScroll(classes="omega-panel", id="overview-panel"):
             yield Static(_("DASHBOARD"), classes="omega-title")
             yield Static(_(HINT), classes="omega-hint")
+            yield ScanBanner()
             yield Static("", id="status", classes="omega-hint")
             for grid_id, cards in (("overview-counters", COUNTERS), ("overview-middle", MIDDLE),
                                    ("overview-tops", TOPS)):
                 with Grid(id=grid_id, classes="overview-grid"):
                     for card in cards:
                         yield Static("", id=f"card-{card}", classes="overview-card")
-        with Horizontal(classes="omega-actions omega-fixed-actions"):
-            with Container(classes="omega-btn-frame"):
-                yield Button(_("Relancer le scan"), id="refresh", variant="primary")
-            with Container(classes="omega-btn-frame"):
-                yield Button(_("Retour"), id="back")
+        with Horizontal(classes="omega-actions omega-fixed-actions"), Container(classes="omega-btn-frame"):
+            yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_mount(self) -> None:
@@ -102,19 +101,23 @@ class OverviewScreen(OmegaScreen):
 
     # ---- verification dans un fil -------------------------------------------
 
-    def action_refresh_overview(self, rescan: bool = False) -> None:
-        """Le dernier scan relu ; « Relancer le scan » : cette machine et le reseau rescannes d'abord."""
+    def scan_changed(self) -> bool:
+        """Une machine vient d'etre scannee (bandeau de scan) : la vue est relue, rien n'est rescanne."""
+        if self._busy:
+            return False
+        self.action_refresh_overview()
+        return True
+
+    def action_refresh_overview(self) -> None:
+        """Le dernier scan relu (jamais un nouveau scan : decision 2026-11-26)."""
         if self._busy:
             return
-        self._rescan = rescan
         self._busy = True
         self._set_busy(True)
         self.run_worker(self._collect, thread=True, group="overview", exclusive=True)
 
     def _collect(self) -> None:
         try:
-            if getattr(self, "_rescan", False) and hasattr(self.app, "rescan_everything"):
-                self.app.rescan_everything()
             report = self._verify()
             facts = self._inspect() if self._inspect is not None else None
         except Exception as exc:  # noqa: BLE001 - jamais planter l'interface pour une verification
@@ -186,7 +189,5 @@ class OverviewScreen(OmegaScreen):
             return 0
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
-        if event.button.id == "refresh":
-            self.action_refresh_overview(rescan=True)
-        elif event.button.id == "back":
+        if event.button.id == "back":
             self.action_back()

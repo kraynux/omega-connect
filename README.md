@@ -70,7 +70,7 @@ Les applications omega sont faites pour travailler ensemble : les journaux d'ome
 Depuis le dossier où se trouve l'archive :
 
 ```bash
-tar -xzf omega-connect-0.2.0.tar.gz
+tar -xzf omega-connect-0.2.1.tar.gz
 cd omega-connect/
 ./install.sh
 ```

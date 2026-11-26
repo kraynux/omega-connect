@@ -16,7 +16,9 @@ from textual.widgets import Button, Footer, Header, Input, Select, Static
 from omega_connect.application.settings import (
     KEY_EXPORT_THEME,
     KEY_EXPORTS_DIR,
+    KEY_SCAN_WORKERS,
     KEY_SCREENSHOTS_DIR,
+    SCAN_WORKER_CHOICES,
     ClearResult,
     SettingsTools,
     UnsafeDirectoryError,
@@ -48,6 +50,12 @@ class SettingsScreen(OmegaScreen):
             yield Select([(name, name) for name in EXPORT_PALETTES], value=tools.export_theme(), allow_blank=False,
                          id="export-theme-select")
 
+            yield Static(_("Machines scannées en même temps"), classes="omega-subtitle")
+            yield Static(_("« Scanner tout le parc » interroge plusieurs machines à la fois (8 par défaut)."),
+                         classes="omega-hint")
+            yield Select([(str(count), str(count)) for count in SCAN_WORKER_CHOICES], value=str(tools.scan_workers()),
+                         allow_blank=False, id="scan-workers-select")
+
             yield Static(_("Dossier des exports"), classes="omega-subtitle")
             yield Static(_("Par défaut : {path}. Laissez vide pour revenir au dossier par défaut.").format(
                 path=tools.shown(tools.default_exports)), classes="omega-hint")
@@ -77,6 +85,8 @@ class SettingsScreen(OmegaScreen):
             self.app.theme = value  # enregistre par l'application (watch_theme)
         elif event.select.id == "export-theme-select" and value in EXPORT_PALETTES:
             self._tools.store.set(KEY_EXPORT_THEME, value)
+        elif event.select.id == "scan-workers-select" and value.isdigit():
+            self._tools.store.set(KEY_SCAN_WORKERS, value)
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         button = event.button.id

@@ -67,6 +67,8 @@ class RemoteFailure(str, Enum):
     """Le scanner a echoue ou a renvoye autre chose que le format attendu."""
     NO_SSH = "no-ssh"
     """Pas de client ssh sur cette machine."""
+    STOPPED = "stopped"
+    """Scan arrete par la personne (« Arreter le scan », fermeture) : rien n'est enregistre pour cette machine."""
 
 
 class HostKey(str, Enum):

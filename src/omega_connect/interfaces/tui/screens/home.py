@@ -15,6 +15,7 @@ from textual.widgets import Button, Footer, Header
 from omega_connect.interfaces.tui.menu import COLUMN_TITLES, MENU, Column
 from omega_connect.interfaces.tui.screens.quit_confirm import QuitConfirmScreen
 from omega_connect.interfaces.tui.widgets.home_wordmark import HomeWordmark
+from omega_connect.interfaces.tui.widgets.scan_banner import ScanBanner
 from omega_connect.shared.i18n import _
 
 ScreenFactory = Callable[[str], "Screen[None] | None"]
@@ -37,14 +38,17 @@ class HomeScreen(Screen[None]):
         with Vertical(classes="omega-home-root"):
             with Center():
                 yield HomeWordmark()
-            with Center(), Horizontal(classes="omega-home-columns"):
-                for column in Column:
-                    with Vertical(classes="omega-home-menu") as box:
-                        for entry in MENU:
-                            if entry.column is column:
-                                with Container(classes="omega-btn-frame"):
-                                    yield Button(_(entry.label).upper(), id=f"menu-{entry.key}")
-                    box.border_title = _(COLUMN_TITLES[column])
+            with Center(), Vertical(classes="omega-home-block"):
+                with Horizontal(classes="omega-home-columns"):
+                    for column in Column:
+                        with Vertical(classes="omega-home-menu") as box:
+                            for entry in MENU:
+                                if entry.column is column:
+                                    with Container(classes="omega-btn-frame"):
+                                        yield Button(_(entry.label).upper(), id=f"menu-{entry.key}")
+                        box.border_title = _(COLUMN_TITLES[column])
+                # lancement : etat vide, le scan est propose (decision 2026-11-26) ; sous les colonnes, meme largeur
+                yield ScanBanner(boxed=True)
         yield Footer()
 
     def on_button_pressed(self, event: Button.Pressed) -> None:

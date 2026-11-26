@@ -228,7 +228,7 @@ async def test_voir_les_exports_navigateur_sinon_liste_et_lecture_ici(system, tm
             await pilot.pause()
             bars = [bar for bar in app.screen.query(".omega-fixed-actions")]
             assert [[button.id for button in bar.query("Button")] for bar in bars] == [
-                ["export-txt", "export-json", "export-html", "view-exports"], ["refresh", "back"]]
+                ["export-txt", "export-json", "export-html", "view-exports"], ["back"]]
             await pilot.click("#view-exports")
             await app.workers.wait_for_complete()
             await pilot.pause()

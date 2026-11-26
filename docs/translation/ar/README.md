@@ -70,7 +70,7 @@
 من المجلد الذي يوجد فيه الأرشيف:
 
 ```bash
-tar -xzf omega-connect-0.2.0.tar.gz
+tar -xzf omega-connect-0.2.1.tar.gz
 cd omega-connect/
 ./install.sh
 ```

@@ -114,6 +114,18 @@ async def _settle(app: OmegaConnectApp, pilot) -> None:
         await pilot.pause()
 
 
+async def _scans_done(app: OmegaConnectApp, pilot) -> None:
+    """Le scan tourne dans ses propres fils (2026-11-26) : attendre sa fin, puis que les ecrans se remettent a jour."""
+    import asyncio
+
+    for _round in range(200):
+        if not app.scans.running:
+            break
+        await asyncio.sleep(0.02)
+    await pilot.pause(0.7)  # le bandeau releve la fin du scan (toutes les 0,5 s)
+    await _settle(app, pilot)
+
+
 def _states(screen: RegistryScreen | SynchronisationScreen) -> dict[str, str]:
     return {row.root: row.state.value for row in screen._rows}
 
@@ -150,7 +162,7 @@ async def test_menu_is_the_one_chosen_by_the_author(system):
     async with app.run_test(size=(120, 45)) as pilot:
         await pilot.pause()
         home = app.screen
-        labels = [str(button.label) for button in home.query(Button)]
+        labels = [str(button.label) for button in home.query(".omega-home-menu Button")]
         assert labels == ["REGISTRE", "SCANNER", "LIAISONS", "SYNCHRONISATION", "RÉPARER", "DASHBOARD",
                           "UPDATER", "INSTALLER", "RAPPORT", "RÉGLAGES", "AIDE", "QUITTER"]
         assert labels == [entry.label.upper() for entry in MENU]
@@ -171,12 +183,29 @@ async def test_registry_only_displays_what_was_scanned(system):
         assert _states(registry) == {SERV.root: "enrolled", FIRE.root: "enrolled", NEW_ROOT: "detected"}
         summary = str(registry.query_one("#registry-summary", Static).render())
         assert "◐ 2 Inscrite" in summary and "○ 1 Détectée" in summary
-        assert {button.id for button in registry.query(Button)} == {"update", "update-app", "back"}
-        assert str(registry.query_one("#update", Button).label) == "Relancer le scan"
+        # Le scan se relance depuis le bandeau de scan (2026-11-26), sur place, en arriere-plan
+        assert {button.id for button in registry.query(Button)} == {"scan-all", "scan-stop", "scan-one", "update-app",
+                                                                    "back"}
+        # Grand parc (2026-11-26, lot S5) : recherche et filtre par etat, seul l'affichage change
+        from textual.widgets import Input, Select
+
+        from omega_connect.interfaces.tui.widgets.list_filter import ListFilter
+
+        table = registry.query_one("#registry-table", DataTable)
+        registry.query_one(ListFilter).query_one(Select).value = "detected"
+        await pilot.pause()
+        assert table.row_count == 1 and str(table.get_row_at(0)[5]) == NEW_ROOT
+        registry.query_one(ListFilter).query_one(Select).value = "all"
+        registry.query_one(ListFilter).query_one(Input).value = "omega-fire"
+        await pilot.pause()
+        assert table.row_count == 1 and str(table.get_row_at(0)[5]) == FIRE.root
+        registry.query_one(ListFilter).query_one(Input).value = ""
+        await pilot.pause()
+        assert table.row_count == 3 and len(registry._rows) == 3
         assert str(registry.query_one("#update-app", Button).label) == "Mettre à jour l'application"
         assert registry.query_one("#update-app", Button).disabled
-        await pilot.click("#update")
-        await _settle(app, pilot)
+        await pilot.click("#scan-all")
+        await _scans_done(app, pilot)
         assert app.screen is registry  # sur place : jamais le Scanner
 
 
@@ -268,11 +297,19 @@ async def test_a_row_to_fix_says_why_in_the_registry(system):
 
 
 async def test_scanner_updates_the_registry_and_the_parc(system):
+    from omega_connect.application.scan_cache import ScanCache
+
     parc = _Parc()
     app = _app(system, parc=parc)
+    app._verify = ScanCache(app._verify, empty=lambda: VerificationReport(DetectionReport("", ()), ()))
     async with app.run_test(size=(140, 50)) as pilot:
         scanner = await _open(app, pilot, "scanner")
         assert isinstance(scanner, ScannerScreen)
+        # Jamais de scan a l'ouverture (2026-11-26) : etat vide, le scan est propose
+        assert "Pas encore scannée" in str(scanner.query_one("#scan-result", Static).render())
+        assert parc.saved == []
+        await pilot.click("#scan")
+        await _scans_done(app, pilot)
         text = str(scanner.query_one("#scan-result", Static).render())
         assert "3 application(s) omega trouvée(s)" in text and "dossier personnel (3)" in text
         assert scanner.query_one("#remote").disabled  # machines distantes : lot R2
@@ -374,19 +411,66 @@ async def test_repair_shows_the_owner_commands_runs_them_then_offers_the_zone(sy
         assert isinstance(screen, LocalRepairScreen)  # puis le plan de cette machine
         text = str(screen.query_one("#repair-plan", Static).render())
         assert "omega-serv répare les droits" in text and "service permissions --service-name omega-serv" in text
+        assert "dans le même « Lancer »" in text  # l'espace partage fait partie du meme plan (2026-11-26)
         run = screen.query_one("#run", Button)
         assert str(run.label) == "Lancer avec sudo" and not run.disabled
-        assert not screen.query_one("#zone-frame").display  # zone : apres les commandes
-        assert not noted.ran
+        assert not noted.ran and not system.ran  # rien avant « Lancer »
         await pilot.click("#run")
         await _settle(app, pilot)
         assert noted.ran == [(f"{ROOT}/omega-serv.sh", "service", "permissions", "--service-name", "omega-serv")]
-        # Parcours enchaine : le plan d'« Etablir » s'ouvre aussitot apres les commandes des outils.
-        assert isinstance(app.screen, ZonePlanScreen)
-        assert screen.query_one("#zone-frame").display  # le bouton reste si on ferme le plan
-        assert not system.ran  # rien de la zone n'est lance avant « Lancer avec sudo »
+        # Retour d'utilisation 2026-11-26 : plus d'ecran du plan d'espace partage ouvert par-dessus (« Retour »
+        # ramenait l'ecran d'avant-avant) ; il est applique dans le meme « Lancer », juste apres les commandes.
+        assert app.screen is screen and system.ran
+        progress = str(screen.query_one("#repair-progress", Static).render())
+        assert "Espace partagé" in progress
+        await pilot.click("#back")
+        await _settle(app, pilot)
+        assert app.screen is listing  # Retour : la liste, jamais un ecran intermediaire
 
 
+
+
+async def test_tout_reparer_un_recapitulatif_le_terminal_et_jamais_de_boucle(system):
+    """Retour d'utilisation 2026-11-26 : « on reste en boucle infinie sur les reparations ». « Tout réparer » : un
+    recapitulatif, une confirmation, le terminal ; une machine en echec n'est plus relancee par « Tout réparer »."""
+    from omega_connect.application.updater import UpdaterTools
+    from omega_connect.interfaces.tui.screens.confirm import ConfirmScreen
+
+    permissions = Repair(RepairKind.SERV_PERMISSIONS, ROOT, "omega-serv", "omega-serv")
+
+    def verify() -> VerificationReport:
+        return VerificationReport(DETECTION, (
+            Link(LinkKind.BLOCKLIST, "omega-serv", ROOT, (
+                Check(CheckCode.BLOCKLIST_MODE, CheckStatus.FAILURE, f"{ROOT}/b.json", "k:k 0600", fix="p",
+                      repair=permissions),)),
+            Link(LinkKind.ZONE, "", "", (
+                Check(CheckCode.ZONE_NOT_LINKED, CheckStatus.WARNING, ROOT, "omega-serv", fix="e",
+                      repair=Repair(RepairKind.ZONE)),)),
+        ))
+
+    launched: list[list[str]] = []
+    tools = ZoneTools(inspector=system, runner=system, subject=_Subject(), now=lambda: AT, interactive=lambda: False)
+    app = OmegaConnectApp(verify=verify, version="0.2.0", render_profile=RenderProfile.COMPLETE, refresh_seconds=0,
+                          zone=tools, detect=lambda: DETECTION, splash=False, machine="pc-test",
+                          repair=RepairTools(runner=_NotedRunner(), user=lambda: "k"),
+                          updater=UpdaterTools(releases=None, runner=lambda argv: (launched.append(argv), 1)[1]))
+    async with app.run_test(size=(140, 50)) as pilot:
+        listing = await _open(app, pilot, "repair")
+        assert listing.query_one("#problems", DataTable).row_count == 2
+        await pilot.click("#repair-all")
+        await _settle(app, pilot)
+        confirm = app.screen
+        assert isinstance(confirm, ConfirmScreen)  # un seul recapitulatif, rien n'est lance avant
+        assert "pc-test (cette machine) : 2 correction(s)" in str(confirm.query_one("#confirm-text", Static).render())
+        assert launched == []
+        await pilot.click("#confirm")
+        await _settle(app, pilot)
+        assert app.screen is listing  # jamais d'ecran entre deux machines
+        assert len(launched) == 1 and launched[0][-2:] == ["reparer", "--oui"]  # une machine, un passage
+        table = listing.query_one("#problems", DataTable)
+        assert all("Échec de la réparation" in str(table.get_row_at(index)[2]) for index in range(table.row_count))
+        assert listing.query_one("#repair-all", Button).disabled  # l'echec ne repart pas en boucle
+        assert not listing.query_one("#repair-one", Button).disabled  # mais reste reparable seul
 
 
 class _FakeRemote:
@@ -772,10 +856,10 @@ async def test_dashboard_reads_the_shared_space_and_the_parc(system):
         assert screen.overview.machines[0].local and screen.overview.machines[0].rows
 
 
-async def test_scan_relu_retour_ne_rescanne_pas(system):
-    """Retour de l'auteur (2026-11-22) : « quand on fait Retour, ca relance un scan ». Le scan de cette machine est
-    fait une fois (demarrage), puis relu : Registre, Retour, Registre, Reparer, Dashboard ne le refont pas ;
-    « Relancer le scan » le refait."""
+async def test_aucun_scan_tout_seul_ni_au_lancement_ni_a_l_ouverture_ni_au_retour(system):
+    """Retour d'utilisation 2026-11-26 : « scan auto quand on lance l'interface, apres l'operation, au retour… sur
+    un parc d'une cinquantaine de machines c'est intenable ». Lancement : etat vide ; ouvrir, revenir : jamais de
+    scan ; « Scanner tout le parc » : un scan, en arriere-plan, et l'ecran se remet a jour a la fin."""
     from omega_connect.application.scan_cache import ScanCache
 
     calls: list[int] = []
@@ -785,24 +869,57 @@ async def test_scan_relu_retour_ne_rescanne_pas(system):
         return VerificationReport(DETECTION, (zone_link(system.inspect(), DETECTION, SUBJECT, "oc"),))
 
     tools = ZoneTools(inspector=system, runner=system, subject=_Subject(), now=lambda: AT, interactive=lambda: False)
-    app = OmegaConnectApp(verify=ScanCache(verify), version="0.2.0", render_profile=RenderProfile.COMPLETE,
-                          refresh_seconds=0, zone=tools, detect=lambda: DETECTION, splash=False, machine="pc-test",
+    app = OmegaConnectApp(verify=ScanCache(verify, empty=lambda: VerificationReport(DetectionReport("", ()), ())),
+                          version="0.2.0", render_profile=RenderProfile.COMPLETE, refresh_seconds=0, zone=tools,
+                          detect=lambda: DETECTION, splash=False, machine="pc-test",
                           repair=RepairTools(runner=_NotedRunner(), user=lambda: "k"))
     async with app.run_test(size=(140, 50)) as pilot:
-        await app.workers.wait_for_complete()  # scan de demarrage
-        assert len(calls) == 1
-        for entry in ("registry", "repair", "dashboard", "registry", "links"):
+        await _settle(app, pilot)
+        assert calls == []  # lancement : aucun scan
+        assert "Pas encore de scan" in str(app.screen.query_one(".omega-scan-text", Static).render())
+        for entry in ("registry", "repair", "dashboard", "registry", "links", "synchronisation"):
             await _open(app, pilot, entry)
-            await app.workers.wait_for_complete()
-            await pilot.pause()
             app.pop_screen()
             await pilot.pause()
-        assert len(calls) == 1  # relu partout, jamais rescanne a l'ouverture ni au retour
+        assert calls == []  # ouvrir, revenir : jamais de scan
         registry = await _open(app, pilot, "registry")
-        await pilot.click("#update")  # « Relancer le scan »
-        await app.workers.wait_for_complete()
+        assert registry.query_one("#registry-table", DataTable).row_count == 0  # etat vide
+        await pilot.click("#scan-all")
+        await _scans_done(app, pilot)
+        assert len(calls) == 1 and app.screen is registry
+        assert registry.query_one("#registry-table", DataTable).row_count == 3  # remis a jour a la fin du scan
+        app.pop_screen()
+        await _open(app, pilot, "repair")
+        assert len(calls) == 1  # relu, pas rescanne
+
+
+async def test_quitter_n_attend_jamais_un_scan(system):
+    """« On ne peut pas quitter » : un scan en cours est arrete a la fermeture, sans l'attendre."""
+    import threading
+    import time
+
+    from omega_connect.application.scan_cache import ScanCache
+
+    release = threading.Event()
+
+    def slow() -> VerificationReport:
+        release.wait(30)
+        return VerificationReport(DETECTION, ())
+
+    tools = ZoneTools(inspector=system, runner=system, subject=_Subject(), now=lambda: AT, interactive=lambda: False)
+    app = OmegaConnectApp(verify=ScanCache(slow, empty=lambda: VerificationReport(DetectionReport("", ()), ())),
+                          version="0.2.0", render_profile=RenderProfile.COMPLETE, refresh_seconds=0, zone=tools,
+                          detect=lambda: DETECTION, splash=False, machine="pc-test")
+    started = time.monotonic()
+    async with app.run_test(size=(140, 50)) as pilot:
         await pilot.pause()
-        assert len(calls) == 2 and isinstance(registry, RegistryScreen)
+        app.scan_everything()
+        await pilot.pause(0.2)
+        assert app.scans.running
+        app.exit()
+    assert time.monotonic() - started < 5  # le scan (30 s) n'est jamais attendu
+    assert all(thread.daemon for thread in threading.enumerate() if thread.name == "omega-connect-scan")
+    release.set()
 
 
 async def test_libelle_du_bouton_jamais_coupe_quand_le_plan_arrive_tard():
@@ -839,3 +956,34 @@ async def test_libelle_du_bouton_jamais_coupe_quand_le_plan_arrive_tard():
         assert str(launch.label) == "Installer sur omega-server"
         assert launch.region.width >= len("Installer sur omega-server") + 2
         assert launch.parent.region.width >= launch.region.width  # type: ignore[union-attr]
+
+
+async def test_accueil_cadre_etats_du_scan_sous_les_colonnes(system):
+    """Demande 2026-11-26 : l'etat du scan du menu principal n'est plus une ligne sur toute la largeur de l'ecran,
+    mais un cadre « États du scan » sous les deux colonnes, de la meme largeur, titre centre en simple ecriture ;
+    le bouton encadre, le meme que ceux des colonnes."""
+    from textual.widgets import Static
+
+    from omega_connect.interfaces.tui.widgets.scan_banner import ScanBanner
+
+    app = _app(system)
+    async with app.run_test(size=(140, 44)) as pilot:  # taille des captures du README
+        await pilot.pause()
+        home = app.screen
+        assert isinstance(home, HomeScreen)
+        menus = list(home.query(".omega-home-menu"))
+        box = home.query_one(ScanBanner)
+        assert box.border_title == "États du scan"
+        left, right = menus[0].region, menus[-1].region
+        assert box.region.x == left.x and box.region.right == right.right  # meme largeur que les deux colonnes
+        assert box.region.y >= left.bottom  # dessous
+        assert box.region.width < 140  # plus sur toute la largeur de l'ecran
+        button = home.query_one("#scan-all", Button)
+        assert str(button.label) == "SCANNER TOUT LE PARC"
+        assert "omega-btn-frame" in button.parent.classes  # encadre comme les boutons des colonnes
+        assert button.parent.region.width == home.query_one("#menu-registry").parent.region.width
+        assert not home.query_one("#scan-stop", Button).parent.display  # pas de cadre vide
+        assert str(box.query_one(".omega-scan-text", Static).render()) == "Pas encore de scan depuis le lancement."
+        root = home.query_one(".omega-home-root")
+        assert root.virtual_size.height <= root.scrollable_content_region.height  # 44 lignes : rien ne defile
+        app.save_screenshot("accueil.svg", "/tmp/claude-1000/-home-kraynux-DEV/7935875d-7c18-401f-b880-53b44c0db9c5/scratchpad")

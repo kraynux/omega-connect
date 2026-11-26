@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from textual.app import ComposeResult
-from textual.containers import Center, Container, Horizontal, Middle, Vertical
+from textual.containers import Center, Container, Horizontal, Middle, Vertical, VerticalScroll
 from textual.screen import Screen
 from textual.widgets import Button, Static
 
@@ -16,7 +16,8 @@ class ConfirmScreen(Screen[bool]):
     def compose(self) -> ComposeResult:
         with Middle(), Center(), Vertical(classes="omega-confirm-box omega-trust-box"):
             yield Static(self._title, classes="omega-confirm-title")
-            yield Static(self._text, id="confirm-text")
+            with VerticalScroll(classes="omega-confirm-scroll"):  # recapitulatif long (« Tout réparer ») : defile
+                yield Static(self._text, id="confirm-text")
             with Horizontal(classes="omega-confirm-buttons"):
                 with Container(classes="omega-btn-frame"):
                     yield Button(self._yes, id="confirm", variant="error")

@@ -19,6 +19,7 @@ from omega_connect.interfaces.cli.report_view import export_name, render_report_
 from omega_connect.interfaces.tui.screens._base import OmegaScreen
 from omega_connect.interfaces.tui.screens.exports import ExportsScreen
 from omega_connect.interfaces.tui.widgets.busy import Busy
+from omega_connect.interfaces.tui.widgets.scan_banner import ScanBanner
 from omega_connect.shared.i18n import _
 
 EXPORT_BUTTONS = {"export-txt": "texte", "export-json": "json", "export-html": "html"}
@@ -29,15 +30,17 @@ class ReportScreen(OmegaScreen):
         super().__init__()
         self._tools = tools
         self.report: FullReport | None = None
+        self._collecting = False
 
     def compose(self) -> ComposeResult:
         yield Header()
         with VerticalScroll(classes="omega-panel"):
             yield Static(_("RAPPORT"), classes="omega-title")
-            yield Static(_("Un document complet, d'après le dernier scan (« Relancer le scan » le refait) : bilan, ce "
+            yield Static(_("Un document complet, d'après le dernier scan : bilan, ce "
                            "qu'il reste à faire, registre, machines du réseau, liaisons de chaque machine, espace "
                            "partagé. Enregistré dans le dossier des exports ; « Voir les exports » les ouvre dans le "
                            "navigateur pour les lire."), classes="omega-hint")
+            yield ScanBanner()
             yield Static("", id="status", classes="omega-hint")
             yield Busy(id="busy")
             yield Static(_("THÈME DE LA PAGE HTML"), classes="omega-subtitle")
@@ -55,29 +58,30 @@ class ReportScreen(OmegaScreen):
                     yield Button(label, id=button_id, disabled=True)
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Voir les exports"), id="view-exports")
-        with Horizontal(classes="omega-actions omega-fixed-actions"):
-            with Container(classes="omega-btn-frame"):
-                yield Button(_("Relancer le scan"), id="refresh", disabled=True)
-            with Container(classes="omega-btn-frame"):
-                yield Button(_("Retour"), id="back", variant="primary")
+        with Horizontal(classes="omega-actions omega-fixed-actions"), Container(classes="omega-btn-frame"):
+            yield Button(_("Retour"), id="back", variant="primary")
         yield Footer()
 
     def on_mount(self) -> None:
         self._refresh()
 
-    def _refresh(self, rescan: bool = False) -> None:
-        """Le dernier scan relu ; « Relancer le scan » : cette machine et le reseau rescannes d'abord."""
-        self._rescan = rescan
+    def scan_changed(self) -> bool:
+        """Une machine vient d'etre scannee (bandeau de scan) : le rapport est refait sur le scan relu."""
+        if self._collecting:
+            return False
+        self._refresh()
+        return True
+
+    def _refresh(self) -> None:
+        """Le dernier scan relu (jamais un nouveau scan : decision 2026-11-26)."""
+        self._collecting = True
         self._set_ready(False)
         self.query_one("#status", Static).update("")
-        self.query_one(Busy).show(_("Scan de cette machine et des machines du réseau…") if rescan else
-                                  _("Génération du rapport en cours (détection, vérification, zone)…"))
+        self.query_one(Busy).show(_("Génération du rapport en cours (détection, vérification, zone)…"))
         self.run_worker(self._collect, thread=True, group="report", exclusive=True)
 
     def _collect(self) -> None:
         try:
-            if getattr(self, "_rescan", False) and self._tools.rescan is not None:
-                self._tools.rescan()
             report = self._tools.collect()
         except Exception as exc:  # noqa: BLE001 - jamais planter l'interface pour un rapport
             self.app.call_from_thread(self._error, str(exc) or type(exc).__name__)
@@ -86,16 +90,17 @@ class ReportScreen(OmegaScreen):
 
     def _set_ready(self, ready: bool) -> None:
         with contextlib.suppress(NoMatches):
-            for button_id in (*EXPORT_BUTTONS, "refresh"):
+            for button_id in EXPORT_BUTTONS:
                 self.query_one(f"#{button_id}", Button).disabled = not ready
 
     def _error(self, message: str) -> None:
+        self._collecting = False
         with contextlib.suppress(NoMatches):
             self.query_one(Busy).hide()
             self.query_one("#status", Static).update(_("Erreur : {message}").format(message=message))
-            self.query_one("#refresh", Button).disabled = False
 
     def _show(self, report: FullReport) -> None:
+        self._collecting = False
         self.report = report
         with contextlib.suppress(NoMatches):
             self.query_one(Busy).hide()
@@ -115,8 +120,6 @@ class ReportScreen(OmegaScreen):
                 return
             self.query_one("#status", Static).update(_("Rapport enregistré : {path}").format(path=path))
             self.app.notify(_("Rapport enregistré : {path}").format(path=path))
-        elif button == "refresh":
-            self._refresh(rescan=True)
         elif button == "view-exports":
             self._view_exports()
         elif button == "back":

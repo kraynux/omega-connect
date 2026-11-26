@@ -8,17 +8,22 @@
 - rien d'installe : la commande distante est une seule ligne, `python3 -I -c '<lire et executer l'amorce>'` ;
   l'amorce puis l'archive du scanner arrivent par l'entree standard (aucun fichier ecrit la-bas, aucun guillemet
   imbrique, quel que soit le shell distant) ;
-- delais : connexion 10 s, scan 60 s ; sortie limitee a 4 Mo."""
+- delais : connexion 10 s, scan 60 s ; sortie limitee a 4 Mo ;
+- quitter n'attend jamais (retour d'utilisation 2026-11-26) : chaque `ssh` en cours est connu ici, et
+  `stop_all_processes()` les arrete (groupe de processus entier : ils tournent dans leur propre session)."""
 from __future__ import annotations
 
+import contextlib
 import io
 import json
 import os
 import re
 import shutil
+import signal
 import subprocess
 import tarfile
 import tempfile
+import threading
 from pathlib import Path
 
 from omega_connect.domain.remote import (
@@ -36,6 +41,52 @@ from omega_connect.infrastructure.remote.payload import BOOTSTRAP, build_payload
 CONNECT_TIMEOUT_SECONDS = 10
 SCAN_TIMEOUT_SECONDS = 60
 UPLOAD_TIMEOUT_SECONDS = 300
+_RUNNING: set[subprocess.Popen[bytes]] = set()
+_RUNNING_LOCK = threading.Lock()
+_STOPPED = threading.Event()
+
+
+def stop_all_processes() -> int:
+    """Arrete tous les `ssh` en cours (fermeture de l'interface, « Arreter le scan ») ; aucun nouveau ne demarre
+    tant que `allow_processes()` n'a pas ete appele. Renvoie le nombre de processus arretes."""
+    _STOPPED.set()
+    with _RUNNING_LOCK:
+        running = list(_RUNNING)
+    for process in running:
+        try:
+            os.killpg(process.pid, signal.SIGTERM)
+        except OSError:
+            continue
+    return len(running)
+
+
+def allow_processes() -> None:
+    _STOPPED.clear()
+
+
+def run_tracked(command: list[str], data: bytes = b"", timeout: float = 60.0) -> tuple[int, bytes, bytes]:
+    """`subprocess.run` dans sa propre session, mais connu de `stop_all_processes`."""
+    if _STOPPED.is_set():
+        return 130, b"", b"stopped"
+    process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,  # noqa: S603
+                               stderr=subprocess.PIPE, start_new_session=True)
+    with _RUNNING_LOCK:
+        _RUNNING.add(process)
+    try:
+        out, error = process.communicate(data, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        with contextlib.suppress(OSError):
+            os.killpg(process.pid, signal.SIGKILL)
+        process.communicate()
+        return 124, b"", b"timed out"
+    finally:
+        with _RUNNING_LOCK:
+            _RUNNING.discard(process)
+    if _STOPPED.is_set() and process.returncode != 0:
+        return 130, b"", b"stopped"
+    return process.returncode, out, error
+
+
 REMOTE_COMMAND = ("PATH=/usr/local/bin:/usr/bin:/bin:$PATH "
                   "python3 -I -c 'import sys;exec(sys.stdin.buffer.read(int(sys.stdin.buffer.readline())))'")
 """Seule commande envoyee : lit la longueur de l'amorce, l'amorce, et l'execute (elle lit ensuite l'archive).
@@ -53,6 +104,8 @@ def _last_line(text: bytes) -> str:
 
 
 def classify(code: int, stderr: bytes) -> RemoteFailure | None:
+    if code == 130 and stderr == b"stopped":
+        return RemoteFailure.STOPPED
     text = stderr.decode("utf-8", errors="replace").lower()
     if "remote host identification has changed" in text:
         return RemoteFailure.CHANGED_HOST
@@ -86,13 +139,9 @@ class SshRemoteScanner:
 
     def _run(self, command: list[str], data: bytes = b"", timeout: float | None = None) -> tuple[int, bytes, bytes]:
         try:
-            done = subprocess.run(command, input=data, capture_output=True, check=False,  # noqa: S603
-                                  timeout=timeout or self._connect_timeout + 5, start_new_session=True)
-        except subprocess.TimeoutExpired:
-            return 124, b"", b"timed out"
+            return run_tracked(command, data, timeout or self._connect_timeout + 5)
         except OSError as error:
             return 127, b"", str(error).encode()
-        return done.returncode, done.stdout, done.stderr
 
     def check_host(self, target: RemoteTarget) -> HostCheck:
         if shutil.which(self._ssh) is None:

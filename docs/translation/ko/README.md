@@ -70,7 +70,7 @@ omega 애플리케이션은 함께 동작하도록 만들어졌습니다: omega-
 아카이브가 있는 폴더에서:
 
 ```bash
-tar -xzf omega-connect-0.2.0.tar.gz
+tar -xzf omega-connect-0.2.1.tar.gz
 cd omega-connect/
 ./install.sh
 ```

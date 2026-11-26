@@ -320,3 +320,56 @@ def test_version_affichee_egale_pyproject() -> None:
     found = re.search(r'^version = "([^"]+)"', (root / "pyproject.toml").read_text(), re.M)
     assert found is not None and omega_connect.__version__ == found.group(1)
     assert '__version__ = "' not in (root / "src/omega_connect/__init__.py").read_text()
+
+
+async def test_ligne_omega_suite_courte_et_detail_sous_le_tableau() -> None:
+    """Retour d'utilisation 2026-11-26 : la liste des 7 outils d'omega-suite dans la colonne « Application »
+    (~130 caracteres) faisait un enorme ascenseur horizontal, les etats hors de vue. La cellule dit « omega-suite
+    (7 outil(s)) » ; la liste et les versions sont sous le tableau, pour la ligne choisie."""
+    from textual.app import App
+    from textual.widgets import Static
+
+    from omega_connect.interfaces.tui.screens.updater import UpdaterScreen
+    from omega_connect.interfaces.tui.widgets.tables import WideTable
+
+    tools = ("check", "deep", "fold", "fuzz", "scan", "stress", "track")
+    suite_rows = tuple(RegistryRow("pc", f"omega-{name}", f"/s/vendor/omega-{name}", "", "", "1.6.0",
+                                   AppState.INSTALLED, (), "/s", "1.7.0") for name in tools)
+    entry = MachineEntry("pc", True, "", (_row("pc", "omega-fire", "/f", "3.6.2"), *suite_rows))
+
+    class Parc:
+        def load(self):
+            return (entry,)
+
+    screen = UpdaterScreen(parc=Parc(), releases=ChainedReleases(), remote_sync=None, rescan_local=lambda: None,
+                           runner=lambda argv: 0, machine="pc")
+
+    class Host(App):
+        def on_mount(self) -> None:
+            self.push_screen(screen)
+
+    app = Host()
+    async with app.run_test(size=(120, 40)) as pilot:
+        await pilot.pause()
+        table = screen.query_one("#updater-table", WideTable)
+        cells = [str(table.get_row_at(index)[2]) for index in range(table.row_count)]
+        assert cells == ["omega-fire", "omega-suite (7 outil(s))"]
+        assert table.virtual_size.width <= 120  # plus d'ascenseur horizontal : l'etat reste visible
+        detail = screen.query_one("#updater-detail", Static)
+        assert str(detail.render()) == ""  # omega-fire : rien a detailler
+        table.move_cursor(row=1)
+        await pilot.pause()
+        text = str(detail.render())
+        assert "omega-suite 1.7.0 contient : omega-check 1.6.0" in text and "omega-track 1.6.0" in text
+        assert "seule la ligne omega-suite est à mettre à jour" in text
+
+
+def test_colonne_machine_abregee_adresses_sous_le_tableau() -> None:
+    from omega_connect.interfaces.tui.screens.updater import machine_cell, row_detail
+
+    long = "omega-server (192.168.1.109, kraynux.snake-mackarel.ts.net)"
+    assert machine_cell(long) == "omega-server (192.168.1.109 +1)"
+    assert machine_cell("craftdark (192.168.1.103)") == "craftdark (192.168.1.103)"
+    assert machine_cell("pc") == "pc"
+    assert row_detail(AppRow(long, "kr@x", False, "omega-fire", "/f", "3.6.2")) == f"Machine : {long}"
+    assert row_detail(AppRow("pc", "", True, "omega-fire", "/f", "3.6.2")) == ""

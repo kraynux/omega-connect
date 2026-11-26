@@ -2,7 +2,7 @@
 """Synchronisation (role defini par l'auteur, 2026-11-11 : « la liste de toutes les machines et services, et ca
 synchronise »).
 
-UNE seule liste : chaque application de cette machine et de chaque machine du reseau (rescannees a l'ouverture), avec
+UNE seule liste : chaque application de cette machine et de chaque machine du reseau (dernier scan relu), avec
 son etat (memes mots que le Registre). On coche, puis « Synchroniser la selection », ou « Synchroniser tout » :
 - cette machine : un seul plan (cartes d'identite, puis espace partage), affiche avant d'agir, un mot de passe ;
 - une machine du reseau : son plan calcule sur elle, lance depuis ici (un mot de passe par machine).
@@ -33,7 +33,7 @@ from omega_connect.domain.remote import parse_target
 from omega_connect.domain.updates import Purpose
 from omega_connect.domain.zone import ZoneFacts
 from omega_connect.domain.zone_checks import zone_link
-from omega_connect.interfaces.cli.enroll_view import SPACE_LABELS, state_hint
+from omega_connect.interfaces.cli.enroll_view import SPACE_LABELS, STATE_LABELS, state_hint
 from omega_connect.interfaces.tui.presentation import check_lines
 from omega_connect.interfaces.tui.screens._base import OmegaScreen
 from omega_connect.interfaces.tui.screens._zone_flow import ZoneFlow
@@ -42,12 +42,12 @@ from omega_connect.interfaces.tui.screens.enroll import EnrollScreen
 from omega_connect.interfaces.tui.screens.remote_machine import RemoteMachineScreen
 from omega_connect.interfaces.tui.screens.zone_detail import ZoneDetailScreen
 from omega_connect.interfaces.tui.widgets.busy import Busy
+from omega_connect.interfaces.tui.widgets.list_filter import ListFilter
+from omega_connect.interfaces.tui.widgets.scan_banner import ScanBanner
 from omega_connect.interfaces.tui.widgets.states import state_cell, theme_styles
-from omega_connect.interfaces.tui.widgets.tables import WideTable
+from omega_connect.interfaces.tui.widgets.tables import NO_MARK, SELECTED_MARK, UNSELECTED_MARK, WideTable
 from omega_connect.shared.i18n import _
 
-SELECTED_MARK = "☑"
-UNSELECTED_MARK = "☐"
 SYNCHRONISABLE = (AppState.DETECTED, AppState.ENROLLED, AppState.TO_FIX)
 SPACE_NEEDS_WORK = (SpaceStatus.NOT_PREPARED, SpaceStatus.TO_FIX, SpaceStatus.UNKNOWN)
 Key = tuple[str, str]
@@ -69,6 +69,8 @@ class SynchronisationScreen(OmegaScreen):
         self._flow = ZoneFlow(self, tools.zone, tools.detect, lambda _ran: None, self._busy)
         self._report: VerificationReport | None = None
         self._rows: tuple[RegistryRow, ...] = ()
+        self._shown: list[int] = []
+        """Ligne affichee -> indice dans `_rows` (recherche et filtre : seul l'affichage change)."""
         self._entries: dict[str, MachineEntry] = {}
         """Machine du reseau de chaque ligne distante (par nom affiche)."""
         self._chosen: set[Key] = set()
@@ -83,8 +85,10 @@ class SynchronisationScreen(OmegaScreen):
                            "« Synchroniser la sélection », ou « Synchroniser tout ». Chaque machine a son plan, "
                            "affiché avant d'agir, et un seul mot de passe ; les machines du réseau sont "
                            "synchronisées depuis ici."), classes="omega-hint")
+            yield ScanBanner()
             yield Static("", id="sync-status", classes="omega-hint")
             yield Busy(id="busy")
+            yield ListFilter([(_(label), state.value) for state, label in STATE_LABELS.items()])
             yield WideTable(id="sync-table")
             yield Static("", id="row-detail")
             yield Static("", id="space-badge")
@@ -99,9 +103,9 @@ class SynchronisationScreen(OmegaScreen):
             with Container(classes="omega-btn-frame", id="read-sudo-frame"):
                 yield Button(_("Lire avec sudo"), id="read-sudo")
             with Container(classes="omega-btn-frame"):
-                yield Button(_("Détail"), id="detail")
+                yield Button(_("Scanner la machine"), id="scan-one")
             with Container(classes="omega-btn-frame"):
-                yield Button(_("Relancer le scan"), id="rescan")
+                yield Button(_("Détail"), id="detail")
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Retour"), id="back")
         yield Footer()
@@ -120,20 +124,24 @@ class SynchronisationScreen(OmegaScreen):
             busy = self.query_one(Busy)
             busy.show(text) if text is not None else busy.hide()
 
-    def _load(self, rescan: bool = False) -> None:
-        """Le dernier scan relu (decision de l'auteur, 2026-11-22) ; « Relancer le scan » : cette machine et les
-        machines du reseau rescannees d'abord ; apres une synchronisation, les machines touchees le sont."""
+    def scan_changed(self) -> bool:
+        """Une machine vient d'etre scannee (bandeau de scan) : la liste est relue, rien n'est rescanne."""
+        if self._loading:
+            return False
+        self._load()
+        return True
+
+    def _load(self) -> None:
+        """Le dernier scan relu, jamais un nouveau scan (decision 2026-11-26) ; apres une synchronisation, les
+        machines touchees sont rescannees seules, et la liste se remet a jour a la fin."""
         if self._loading:
             return
         self._loading = True
-        self._busy(_("Scan de cette machine…") if rescan else _("Lecture du dernier scan…"))
+        self._busy(_("Lecture du dernier scan…"))
         remote = self._remote_sync.remote if self._remote_sync is not None else None
 
         def collect() -> None:
             try:
-                if rescan:
-                    self.app.rescan_everything(  # type: ignore[attr-defined]
-                        lambda text: self.app.call_from_thread(self._busy, text))
                 report = self._verify()
                 facts = self._tools.zone.inspector.inspect(elevated=False)
                 network = tuple(entry for entry in (remote.parc.load() if remote is not None else ())
@@ -200,13 +208,16 @@ class SynchronisationScreen(OmegaScreen):
         row_index = table.cursor_row
         table.clear()
         styles = theme_styles(self.app)
-        for row in self._rows:
+        chooser = self.query_one(ListFilter)
+        self._shown = [index for index, row in enumerate(self._rows)
+                       if chooser.matches((row.machine, row.tool, row.instance, row.root), row.state.value)]
+        for row in (self._rows[index] for index in self._shown):
             service = row.instance + (f" ({row.service_state})" if row.service_state else "") if row.instance else "—"
             mark = SELECTED_MARK if (row.machine, row.root) in self._chosen else (
-                UNSELECTED_MARK if row.state in SYNCHRONISABLE else " ")
+                UNSELECTED_MARK if row.state in SYNCHRONISABLE else NO_MARK)
             table.add_row(mark, row.machine, row.tool, service, state_cell(row.state, styles))
-        if self._rows:
-            table.move_cursor(row=min(max(row_index, 0), len(self._rows) - 1))
+        if self._shown:
+            table.move_cursor(row=min(max(row_index, 0), len(self._shown) - 1))
         table.refresh(layout=True)
         self.query_one("#enroll-all", Button).disabled = not self._local_work() and not self._remote_work()
         self.query_one("#enroll-chosen", Button).disabled = not self._chosen
@@ -217,7 +228,21 @@ class SynchronisationScreen(OmegaScreen):
             index = self.query_one("#sync-table", DataTable).cursor_row
         except NoMatches:
             return None
-        return self._rows[index] if 0 <= index < len(self._rows) else None
+        return self._rows[self._shown[index]] if 0 <= index < len(self._shown) else None
+
+    def on_list_filter_changed(self, _event: ListFilter.Changed) -> None:
+        with contextlib.suppress(NoMatches):
+            self._fill()
+
+    def _scan_one(self) -> None:
+        """« Scanner la machine » de la ligne choisie, seule, en arriere-plan (decision 2026-11-26)."""
+        row = self._current()
+        scan = getattr(self.app, "scan_machine", None)
+        if row is None or scan is None:
+            return
+        entry = self._entries.get(row.machine)
+        scan(entry.target if entry is not None else "", entry.label if entry is not None else "")
+        self.app.notify(_("Scan de {machine} lancé.").format(machine=row.machine))
 
     def _describe_current(self) -> None:
         row = self._current()
@@ -246,7 +271,9 @@ class SynchronisationScreen(OmegaScreen):
     # ---- actions ----
     def on_button_pressed(self, event: Button.Pressed) -> None:
         button = event.button.id
-        if button == "enroll-chosen":
+        if button == "scan-one":
+            self._scan_one()
+        elif button == "enroll-chosen":
             local = tuple(sorted(root for machine, root in self._chosen if machine not in self._entries))
             remote = [self._entries[name] for name in dict.fromkeys(machine for machine, _root in sorted(self._chosen))
                       if name in self._entries]
@@ -262,8 +289,6 @@ class SynchronisationScreen(OmegaScreen):
         elif button == "detail":
             self.app.push_screen(ZoneDetailScreen(tools=self._tools.zone, detect=self._tools.detect),
                                  lambda _result: self._load())
-        elif button == "rescan":
-            self._load(rescan=True)
         elif button == "back":
             self.action_back()
 

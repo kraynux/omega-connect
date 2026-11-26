@@ -7,6 +7,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from rich.text import Text
 from textual.widgets import DataTable
 
 SCROLLBAR_WIDTH = 2
@@ -51,3 +52,10 @@ class WideTable(DataTable[Any]):
     def _refit(self) -> None:
         self._refit_pending = False
         stretch_last_column(self)
+
+
+# Case a cocher des tableaux (la meme partout : Updater, Charge distribuee, Synchronisation ; retour d'utilisation
+# 2026-11-26 : celle de Synchronisation etait « un tout petit carre ton sur ton »).
+SELECTED_MARK = Text(" ✔ ", style="bold reverse green")
+UNSELECTED_MARK = Text("   ", style="reverse dim")
+NO_MARK = Text("   ")

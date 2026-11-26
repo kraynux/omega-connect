@@ -70,7 +70,7 @@ Die omega-Anwendungen sind für die Zusammenarbeit gemacht: Die Logs von omega-s
 Aus dem Ordner, in dem das Archiv liegt:
 
 ```bash
-tar -xzf omega-connect-0.2.0.tar.gz
+tar -xzf omega-connect-0.2.1.tar.gz
 cd omega-connect/
 ./install.sh
 ```

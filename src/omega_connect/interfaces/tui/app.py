@@ -24,7 +24,8 @@ from omega_connect.application.remote_actions import RemoteTools, scan_remote
 from omega_connect.application.remote_sync import RemoteSyncTools
 from omega_connect.application.repair_actions import RepairTools
 from omega_connect.application.report import ReportTools
-from omega_connect.application.scan_cache import ScanCache, request_rescan
+from omega_connect.application.scan_cache import rescan_now
+from omega_connect.application.scan_service import DEFAULT_WORKERS, LOCAL, ScanJob, ScanService
 from omega_connect.application.settings import KEY_THEME, SettingsTools
 from omega_connect.application.updater import UpdaterTools
 from omega_connect.application.zone_actions import ZoneTools
@@ -51,6 +52,7 @@ from omega_connect.interfaces.tui.screens.splash import SplashScreen
 from omega_connect.interfaces.tui.screens.synchronisation import SynchronisationScreen
 from omega_connect.interfaces.tui.screens.updater import InstallerScreen, UpdaterScreen, rescan_local_machine
 from omega_connect.interfaces.tui.views import VIEWS
+from omega_connect.interfaces.tui.widgets.scan_banner import parse_moment
 from omega_connect.ports.fleet import ParcStore
 from omega_connect.shared.i18n import _
 
@@ -86,7 +88,9 @@ class OmegaConnectApp(App[None]):
                  settings: SettingsTools | None = None,
                  contact: ContactSupportServices | None = None,
                  distributed: DistributedTools | None = None,
-                 updater: UpdaterTools | None = None) -> None:
+                 updater: UpdaterTools | None = None,
+                 stop_processes: Callable[[], object] = lambda: None,
+                 allow_processes: Callable[[], object] = lambda: None) -> None:
         super().__init__(css_path=cast("list[str | PurePath]", load_paths_for(render_profile)))
         for theme in build_all_textual_themes():
             self.register_theme(theme)
@@ -118,52 +122,74 @@ class OmegaConnectApp(App[None]):
         self.report: VerificationReport | None = None
         """Dernier rapport de `verifier` : chaque vue l'affiche tout de suite, puis le rafraichit."""
         self.verified_at: datetime | None = None
+        self.scans = ScanService(scan_local=self._scan_local, scan_remote=self._scan_remote,
+                                 workers=self._scan_workers, stop_processes=stop_processes,
+                                 allow_processes=allow_processes)
+        """Scan en arriere-plan (2026-11-26) : jamais lance tout seul ; voir application/scan_service.py."""
 
     def on_mount(self) -> None:
         notify_language_at_startup(self)
         self.push_screen(HomeScreen(open_screen=self.screen_for))
         if self._splash:
             self.push_screen(SplashScreen(version=self._version))
-        if isinstance(self._verify, ScanCache):  # scan de demarrage, relu ensuite par tous les ecrans
-            self.run_worker(self._startup_scan, thread=True, group="startup-scan", exclusive=True)
+        # Aucun scan au lancement (decision 2026-11-26) : etat vide, le scan est propose (bandeau de scan).
 
-    # ---- scan relu (decision de l'auteur, 2026-11-22) ----
-    def rescan_everything(self, progress: Callable[[str], None] | None = None) -> int:
-        """« Relancer le scan » (et le demarrage) : cette machine, puis chaque machine connue du reseau, une a une.
-        A appeler dans un fil ; renvoie le nombre de machines du reseau scannees."""
-        request_rescan(self._verify)
-        if progress is not None:
-            progress(_("Scan de cette machine…"))
+    def on_unmount(self) -> None:
+        self.scans.stop()  # quitter n'attend jamais la fin d'un scan
+
+    # ---- scan (decision 2026-11-26 : jamais automatique, sauf la machine qu'une action vient de toucher) ----
+    def _scan_workers(self) -> int:
+        settings = self.settings
+        return settings.scan_workers() if settings is not None else DEFAULT_WORKERS
+
+    def _scan_local(self) -> None:
         if self._parc is not None and self._zone is not None:
             rescan_local_machine(self._verify, self._zone.inspector, self._parc, self._machine)
         else:
-            self._verify()
+            rescan_now(self._verify)
+
+    def _scan_remote(self, target_text: str) -> None:
+        target = parse_target(target_text)
+        if target is not None and self._remote is not None:
+            scan_remote(target, self._remote)
+
+    def network_jobs(self) -> list[ScanJob]:
         remote = self._remote
         if remote is None:
-            return 0
-        machines = [entry for entry in remote.parc.load() if not entry.local and parse_target(entry.target)]
-        for index, entry in enumerate(machines, start=1):
-            if progress is not None:
-                progress(_("Scan des machines du réseau ({index}/{count}) : {machine}…").format(
-                    index=index, count=len(machines), machine=entry.label))
-            target = parse_target(entry.target)
-            if target is not None:
-                with contextlib.suppress(Exception):  # une machine ne bloque jamais les autres
-                    scan_remote(target, remote)
-        return len(machines)
+            return []
+        return [ScanJob(entry.target, entry.label) for entry in remote.parc.load()
+                if not entry.local and parse_target(entry.target)]
+
+    def scan_this_machine(self) -> int:
+        return self.scans.start([ScanJob(LOCAL, self._machine)])
+
+    def scan_everything(self) -> int:
+        """« Scanner tout le parc » : cette machine et chaque machine connue, plusieurs a la fois, en arriere-plan."""
+        return self.scans.start([ScanJob(LOCAL, self._machine), *self.network_jobs()])
+
+    def scan_machine(self, target: str, label: str) -> int:
+        """« Scanner la machine choisie » (vide : cette machine)."""
+        return self.scans.start([ScanJob(target or LOCAL, label or self._machine)])
+
+    def stop_scan(self) -> None:
+        self.scans.stop()
+
+    def local_scanned_at(self) -> datetime | None:
+        """Heure du scan de cette machine depuis le lancement (None : pas encore scannee)."""
+        moment = getattr(self._verify, "scanned_at", None)
+        return moment if isinstance(moment, datetime) else None
+
+    def network_scanned_at(self) -> tuple[datetime, ...]:
+        """Heure du dernier scan de chaque machine connue du reseau (enregistre : garde d'un lancement a l'autre)."""
+        if self._remote is None:
+            return ()
+        moments = (parse_moment(entry.scanned_at) for entry in self._remote.parc.load() if not entry.local)
+        return tuple(moment for moment in moments if moment is not None)
 
     def local_changed(self) -> None:
-        """Une action a change CETTE machine (reparation, synchronisation, liaison, mise a jour) : le prochain
-        affichage la rescanne au lieu de relire l'ancien scan."""
-        request_rescan(self._verify)
-
-    def _startup_scan(self) -> None:
-        try:
-            count = self.rescan_everything()
-        except Exception:  # noqa: BLE001 - le scan sera refait a l'ouverture d'un ecran
-            return
-        self.call_from_thread(self.notify, _("Scan terminé : cette machine et {count} machine(s) du réseau.").format(
-            count=count), title=_("Scan"))
+        """Une action a change CETTE machine (reparation, synchronisation, liaison, mise a jour) : elle seule est
+        rescannee, en arriere-plan ; les ecrans se remettent a jour a la fin."""
+        self.scan_this_machine()
 
     def screen_for(self, key: str) -> Screen[None] | None:
         parc = self._parc
@@ -238,7 +264,8 @@ class OmegaConnectApp(App[None]):
 
             return RepairScreen(verify=self._verify, inspector=zone.inspector, machine=self._machine,
                                 local_repair=local_repair, parc=self._parc, remote_sync=self._remote_sync,
-                                distributed=distributed, updater=updater)
+                                distributed=distributed, updater=updater,
+                                runner=updater_tools.runner if updater_tools is not None else None)
         return None
 
     def watch_theme(self, _theme_name: str) -> None:

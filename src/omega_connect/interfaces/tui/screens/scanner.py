@@ -7,9 +7,8 @@ from __future__ import annotations
 import contextlib
 from collections import Counter
 from collections.abc import Callable
-from datetime import datetime, timezone
+from datetime import datetime
 
-from omega_lib.synchro.policies import format_utc
 from textual.app import ComposeResult
 from textual.containers import Container, Horizontal, VerticalScroll
 from textual.css.query import NoMatches
@@ -17,13 +16,11 @@ from textual.screen import Screen
 from textual.widgets import Button, DataTable, Footer, Header, Input, Static
 
 from omega_connect.application.remote_actions import RemoteOutcome, RemoteTools, failed, forget_machine, scan_remote
-from omega_connect.application.scan_cache import request_rescan
+from omega_connect.application.scan_cache import ScanCache
 from omega_connect.domain.detection import SOURCE_ORDER
-from omega_connect.domain.fleet import registry_rows
 from omega_connect.domain.links import VerificationReport
 from omega_connect.domain.parc import MachineEntry
 from omega_connect.domain.remote import HostCheck, HostKey, RemoteFailure, RemoteTarget, Suggestion, parse_target
-from omega_connect.domain.zone import ZoneFacts
 from omega_connect.interfaces.cli.detection_view import SOURCE_LABELS
 from omega_connect.interfaces.cli.remote_view import last_scan_text, outcome_text, sources_text
 from omega_connect.interfaces.tui.screens._base import OmegaScreen
@@ -31,6 +28,8 @@ from omega_connect.interfaces.tui.screens.confirm import ConfirmScreen
 from omega_connect.interfaces.tui.screens.dashboard import VerifyNow
 from omega_connect.interfaces.tui.screens.trust_host import TrustHostScreen
 from omega_connect.interfaces.tui.widgets.busy import Busy
+from omega_connect.interfaces.tui.widgets.scan_banner import ScanBanner, scan_age
+from omega_connect.interfaces.tui.widgets.states import theme_styles
 from omega_connect.interfaces.tui.widgets.tables import WideTable
 from omega_connect.ports.fleet import ParcStore
 from omega_connect.ports.zone import ZoneInspector
@@ -77,6 +76,7 @@ class ScannerScreen(OmegaScreen):
             yield Static(_("SCANNER"), classes="omega-title")
             yield Static(_("Recherche des applications omega, en lecture seule : rien n'est modifié, aucun mot de "
                            "passe. Le résultat met à jour le registre."), classes="omega-hint")
+            yield ScanBanner()
             yield Static(_("MACHINE LOCALE — {machine}").format(machine=self._machine), classes="omega-subtitle")
             yield Busy(id="busy")
             yield Static("", id="scan-result")
@@ -106,9 +106,7 @@ class ScannerScreen(OmegaScreen):
                 yield Button(_("Retirer cette machine"), id="forget", disabled=True)
         with Horizontal(classes="omega-actions omega-fixed-actions"):
             with Container(classes="omega-btn-frame"):
-                yield Button(_("Scanner de nouveau"), id="scan")
-            with Container(classes="omega-btn-frame"):
-                yield Button(_("Rescanner les machines connues"), id="scan-known", disabled=self._remote is None)
+                yield Button(_("Scanner la machine locale"), id="scan")
             with Container(classes="omega-btn-frame"):
                 yield Button(_("Voir le registre"), id="registry", variant="primary")
             with Container(classes="omega-btn-frame"):
@@ -123,56 +121,44 @@ class ScannerScreen(OmegaScreen):
         known.cursor_type = "row"
         known.add_columns(_("Machine"), _("Applications"), _("Dernier scan"), _("État"))
         self._show_machines()
-        self._scan()
+        self._show_local()  # jamais de scan a l'ouverture (decision 2026-11-26) : le dernier, ou l'etat vide
 
     def _busy(self, text: str | None) -> None:
         with contextlib.suppress(NoMatches):
             busy = self.query_one(Busy)
             busy.show(text) if text is not None else busy.hide()
 
-    def _scan(self) -> None:
-        if self._scanning:
-            return
-        self._scanning = True
-        self.query_one("#scan", Button).disabled = True
-        self._busy(_("Analyse de la machine locale : recherche des applications omega…"))
+    def scan_changed(self) -> bool:
+        """Une machine vient d'etre scannee (bandeau de scan) : resultats relus, rien n'est rescanne."""
+        self._show_local()
+        if not self._remote_working:
+            self._show_machines()
+        return True
 
-        def collect() -> None:
-            try:
-                report = self._verify()
-                facts = self._inspector.inspect(elevated=False)
-            except Exception as exc:  # noqa: BLE001 - jamais planter l'interface
-                self.app.call_from_thread(self._done, None, None, str(exc) or type(exc).__name__)
-                return
-            self.app.call_from_thread(self._done, report, facts, "")
-
-        self.run_worker(collect, thread=True, group="scan", exclusive=True)
-
-    def _done(self, report: VerificationReport | None, facts: ZoneFacts | None, error: str) -> None:
-        self._scanning = False
-        self._busy(None)
+    def _show_local(self) -> None:
+        report = self._verify.peek() if isinstance(self._verify, ScanCache) else None
+        scanning = getattr(getattr(self.app, "scans", None), "busy_with", lambda _key: False)("")
         with contextlib.suppress(NoMatches):
-            self.query_one("#scan", Button).disabled = False
+            self.query_one("#scan", Button).disabled = scanning
             result = self.query_one("#scan-result", Static)
-            if report is None:
-                result.update(_("Erreur : {message}").format(message=error))
-                return
-            moment = datetime.now().astimezone()
-            self.app.report = report  # type: ignore[attr-defined]
-            self.app.verified_at = moment  # type: ignore[attr-defined]
-            result.update(scan_summary(report) + "\n" + _("Analysée à {time}.").format(
-                time=moment.strftime("%H:%M:%S")))
-            if self._parc is not None:
-                try:
-                    self._parc.save(MachineEntry(self._machine, True, format_utc(datetime.now(timezone.utc)),
-                                                 registry_rows(report, facts, self._machine)))
-                except OSError as exc:
-                    self.app.notify(_("Registre du parc non enregistré : {error}").format(error=exc),
-                                    severity="warning")
+            if scanning:
+                result.update(_("Scan de cette machine en cours…"))
+            elif report is None:
+                result.update(_("Pas encore scannée depuis le lancement : « Scanner la machine locale »."))
+            else:
+                moment = getattr(self._verify, "scanned_at", None)
+                result.update(scan_summary(report) + ("\n" + _("Analysée à {time}.").format(
+                    time=moment.strftime("%H:%M:%S")) if isinstance(moment, datetime) else ""))
+
+    def _scan(self) -> None:
+        """« Scanner la machine locale » : en arriere-plan (on peut quitter l'ecran pendant le scan)."""
+        scan = getattr(self.app, "scan_this_machine", None)
+        if scan is not None:
+            scan()
+        self._show_local()
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "scan":
-            request_rescan(self._verify)  # « Scanner de nouveau » : cette machine rescannee, pas relue
             self._scan()
         elif event.button.id == "scan-remote":
             self._scan_typed()
@@ -180,8 +166,6 @@ class ScannerScreen(OmegaScreen):
             self._scan_suggested()
         elif event.button.id == "forget":
             self._forget()
-        elif event.button.id == "scan-known":
-            self._scan_known()
         elif event.button.id == "registry":
             if self._registry is None:
                 self.action_back()
@@ -201,7 +185,7 @@ class ScannerScreen(OmegaScreen):
         with contextlib.suppress(NoMatches):
             busy = self.query_one("#remote-busy", Busy)
             busy.show(text) if text is not None else busy.hide()
-            for button in ("#scan-remote", "#scan-known", "#scan-suggested"):
+            for button in ("#scan-remote", "#scan-suggested"):
                 self.query_one(button, Button).disabled = text is not None or self._remote is None
 
     def _show_machines(self) -> None:
@@ -210,8 +194,9 @@ class ScannerScreen(OmegaScreen):
             self._known = tuple(machine for machine in machines if not machine.local)
             known = self.query_one("#known-machines", DataTable)
             known.clear()
+            styles = theme_styles(self.app)
             for machine in self._known:
-                known.add_row(machine.label, str(len(machine.rows)), machine.scanned_at or "?",
+                known.add_row(machine.label, str(len(machine.rows)), scan_age(machine.scanned_at, styles),
                               _("répond") if machine.reachable else _("injoignable"))
             if not self._known:
                 known.add_row(_("aucune machine distante pour l'instant"), "", "", "")
@@ -312,32 +297,6 @@ class ScannerScreen(OmegaScreen):
             outcome = (failed(target, failure, detail, remote) if failure is not None
                        else scan_remote(target, remote))
             self.app.call_from_thread(self._remote_done, [outcome])
-
-        self.run_worker(work, thread=True, group="remote-scan")
-
-    def _scan_known(self) -> None:
-        remote = self._remote
-        if remote is None or self._remote_working:
-            return
-        targets = [parse_target(machine.target) for machine in remote.parc.load() if not machine.local]
-        known = [target for target in targets if target is not None]
-        if not known:
-            self.app.notify(_("Aucune machine distante connue pour l'instant."))
-            return
-        self._remote_working = True
-        self._remote_busy(_("Scan des {count} machine(s) connue(s)…").format(count=len(known)))
-
-        def work() -> None:
-            outcomes = []
-            for target in known:
-                check = remote.scanner.check_host(target)
-                if check.key is HostKey.KNOWN:
-                    outcomes.append(scan_remote(target, remote))
-                else:
-                    reason = check.failure or (RemoteFailure.UNKNOWN_HOST if check.key is HostKey.UNKNOWN
-                                               else RemoteFailure.CHANGED_HOST)
-                    outcomes.append(failed(target, reason, check.detail, remote))
-            self.app.call_from_thread(self._remote_done, outcomes)
 
         self.run_worker(work, thread=True, group="remote-scan")
 

@@ -37,16 +37,20 @@ QUICKSTART = N_(
     "d'ensemble, en cadres.\n"
     "5. [b]Réparer[/b] : la liste de tout ce qui ne va pas ; choisissez une ligne, ou « Tout réparer ».\n"
     "6. [b]Rapport[/b] : un document complet (texte, JSON ou page HTML) à garder ou à transmettre.\n\n"
-    "Le scan est fait une fois, au démarrage (cette machine, puis les machines du réseau connues), puis relu par "
-    "tous les écrans : « Relancer le scan » le refait. Après une action, seules les machines touchées sont "
-    "rescannées.")
+    "Aucun scan ne part tout seul : au lancement, les listes sont vides ; le cadre « États du scan » du menu "
+    "principal et le bandeau en haut de chaque écran proposent « Scanner tout le parc ». "
+    "Le scan tourne en arrière-plan, plusieurs machines à la fois (Réglages) ; "
+    "on peut changer d'écran ou quitter pendant le scan, et « Arrêter le scan » l'interrompt. Tous les écrans "
+    "relisent ensuite ce scan ; un scan de plus de 24 heures est signalé « ancien ». Après une action, seule la "
+    "machine touchée est rescannée.")
 
 SECTIONS: tuple[tuple[str, str], ...] = (
     (N_("Registre — toutes les applications et leur état"), N_(
         "Affiche, pour chaque machine (celle-ci et celles du réseau), chaque application omega trouvée : son "
         "instance ou service, sa version, son état et son dossier. Le résumé en haut compte les états.\n\n"
-        "- [b]Relancer le scan[/b] : refait le scan sur place (cette machine, puis les machines du réseau déjà "
-        "connues), sans changer d'écran.\n"
+        "- [b]Scanner la machine[/b] : rescanne la machine de la ligne choisie, seule, en arrière-plan ; « Scanner "
+        "tout le parc » (bandeau) les rescanne toutes.\n"
+        "- [b]Rechercher[/b] et filtre par état : seul l'affichage change (grand parc).\n"
         "- [b]Mettre à jour l'application[/b] / [b]Réinstaller l'application[/b] : ouvre l'Updater, "
         "l'application de la ligne déjà cochée (« Ancienne version » ; ou « Installation inachevée » : son "
         "install.sh ne s'est pas terminé, la même version est réinstallée). Sur cette machine comme sur une "
@@ -61,8 +65,8 @@ SECTIONS: tuple[tuple[str, str], ...] = (
         "- [b]Saisie manuelle[/b] : utilisateur@machine (nom ou adresse), puis « Scanner cette machine ».\n"
         "- [b]Première connexion[/b] : l'empreinte de la clé de la machine est montrée ; vérifiez-la, puis "
         "acceptez. Une clé qui a CHANGÉ est refusée (machine réinstallée, ou usurpation).\n"
-        "- [b]Machines connues[/b] : « Rescanner les machines connues », ou « Retirer cette machine » (elle sort "
-        "du registre ; rien n'est modifié sur elle).\n"
+        "- [b]Machines connues[/b] : « Retirer cette machine » (elle sort du registre ; rien n'est modifié sur "
+        "elle). Pour les rescanner toutes : « Scanner tout le parc » (bandeau).\n"
         "- Le scan d'une machine du réseau est envoyé en mémoire par SSH, en lecture seule : rien n'y est "
         "installé ni écrit, aucun mot de passe n'est demandé (Python 3.10 ou plus récent requis là-bas).")),
     (N_("Liaisons — ce qui est relié ou pas"), N_(
@@ -74,8 +78,8 @@ SECTIONS: tuple[tuple[str, str], ...] = (
         "la commande de chaque correction (« Copier les commandes »).\n"
         "- Cet écran montre seulement : ce qui est « à réparer » se corrige dans le menu Réparer.")),
     (N_("Synchronisation — relier les applications"), N_(
-        "Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan (« Relancer le "
-        "scan » le refait). Cochez des lignes (Entrée ou Espace), puis :\n"
+        "Une seule liste : toutes vos machines et leurs applications, d'après le dernier scan. Cochez des lignes "
+        "(Entrée ou Espace : la case verte ✔), puis :\n"
         "- [b]Synchroniser la sélection[/b], ou [b]Synchroniser tout[/b].\n"
         "- [b]Cette machine[/b] : un seul plan, affiché avant d'agir — cartes d'identité qui manquent (créées "
         "par chaque application, sous son compte), puis espace partagé (groupe omega-synchro, dossiers, copie "
@@ -114,20 +118,24 @@ SECTIONS: tuple[tuple[str, str], ...] = (
         "- [b]Cette machine / Réseau[/b] : les mêmes chiffres, côte à côte.\n"
         "- [b]Top 5[/b] (top 3 sur un petit écran) : machines à réparer, liaisons à réparer, versions en retard, "
         "scans les plus anciens (machines du réseau).\n\n"
-        "Tout vient du dernier scan ; « Relancer le scan » refait celui de cette machine et des machines du "
-        "réseau. Pour corriger : menu Réparer.")),
+        "Tout vient du dernier scan (bandeau : « Scanner tout le parc »). Pour corriger : menu Réparer.")),
     (N_("Réparer — tout ce qui ne va pas"), N_(
-        "La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (« Relancer le "
-        "scan » le refait ; une machine réparée est rescannée aussitôt) : machine, problème, état, et qui le "
-        "corrige.\n\n"
+        "La liste de tout ce qui ne va pas, sur toutes les machines, d'après le dernier scan (une machine réparée "
+        "est rescannée aussitôt, seule) : machine, problème, état, et qui le corrige. Recherche et filtre par "
+        "état au-dessus de la liste.\n\n"
         "- [b]Réparer la ligne choisie[/b] : ouvre le plan de la machine. Cette machine : les commandes des "
         "applications elles-mêmes (omega-jail pour ce qu'il pose dans fail2ban, omega-serv pour les droits de "
         "son var/, chaque application pour sa carte d'identité), puis l'espace partagé. Machine du réseau : les "
         "mêmes corrections, plus les commandes qu'aucune application ne sait lancer, lancées SUR la machine "
-        "depuis ici (seulement celles annoncées dans le plan).\n"
+        "depuis ici (seulement celles annoncées dans le plan). L'espace partagé fait partie du même « Lancer » : un "
+        "seul mot de passe, puis « Retour » ramène à la liste.\n"
+        "- Une machine injoignable : « Réparer la ligne choisie » la rescanne.\n"
         "- Une ligne « Ancienne version » ou « Installation inachevée » ouvre l'Updater, l'application déjà "
         "cochée : seul l'Updater met à jour.\n"
-        "- [b]Tout réparer[/b] : les machines une à une.\n"
+        "- [b]Tout réparer[/b] : un récapitulatif machine par machine, une confirmation, puis les machines une à "
+        "une dans le terminal (un mot de passe par machine) et un bilan. Les mises à jour (Updater) et les "
+        "machines injoignables restent à part. Une réparation qui échoue affiche « Échec de la réparation » et "
+        "n'est plus relancée par « Tout réparer » : choisissez la ligne pour la relancer seule.\n"
         "- [b]Détail[/b] : tous les contrôles de la ligne choisie.\n"
         "- [b]Copier les commandes[/b] (plan de cette machine) : presse-papiers du système (xclip, xsel, "
         "wl-copy) ; sinon les commandes s'affichent en clair dans le terminal, à sélectionner à la souris.\n"
@@ -146,7 +154,8 @@ SECTIONS: tuple[tuple[str, str], ...] = (
         "du réseau : son plan s'affiche avant d'agir, un mot de passe par machine.\n"
         "- À la fin : ce qui a été fait, application par application, et les machines rescannées.\n"
         "- [b]omega-suite[/b] : l'omega-stress qu'elle embarque fait partie d'elle. La ligne est celle "
-        "d'omega-suite (« contient omega-stress … ») : elle se met à jour avec ses outils, testés ensemble, "
+        "d'omega-suite (« omega-suite (7 outil(s)) », la liste et les versions sous le tableau) : elle se met "
+        "à jour avec ses outils, testés ensemble, "
         "jamais l'omega-stress seul. En 2.0.0 ou plus, il aide à la charge distribuée comme un omega-stress "
         "autonome ; si la machine a aussi un omega-stress autonome, c'est celui-ci qui aide.")),
     (N_("Installer — installer les applications"), N_(
@@ -166,8 +175,7 @@ SECTIONS: tuple[tuple[str, str], ...] = (
         "La configuration se fait ensuite dans l'application elle-même.\n"
         "- À la fin : ce qui a été fait, et les machines touchées rescannées.")),
     (N_("Rapport — un document complet"), N_(
-        "Établi d'après le dernier scan (« Relancer le scan » rescanne d'abord cette machine et le réseau) : "
-        "bilan, liste précise de ce qu'il "
+        "Établi d'après le dernier scan (bandeau : « Scanner tout le parc ») : bilan, liste précise de ce qu'il "
         "reste à faire (machine, quoi, quel menu), registre de toutes les applications, machines du réseau, "
         "applications de cette machine en détail, liaisons de chaque machine, espace partagé et son registre.\n\n"
         "- Export en texte, JSON ou page HTML (thème au choix, par défaut celui des Réglages), dans le dossier "
@@ -178,6 +186,8 @@ SECTIONS: tuple[tuple[str, str], ...] = (
         "- En ligne de commande : omega-connect rapport --format html --enregistrer.")),
     (N_("Réglages"), N_(
         "- [b]Thème de l'interface[/b] (aussi touche t) et [b]thème des exports[/b] : enregistrés.\n"
+        "- [b]Machines scannées en même temps[/b] : « Scanner tout le parc » en interroge plusieurs à la fois "
+        "(8 par défaut).\n"
         "- [b]Dossier des exports[/b] et [b]dossier des captures d'écran[/b] : par défaut var/exports/ et "
         "var/screenshots/ du dossier d'omega-connect ; un chemin complet, ou vide pour revenir au défaut.\n"
         "- [b]Vider le dossier des exports / des captures[/b] : après confirmation, supprime le contenu du "

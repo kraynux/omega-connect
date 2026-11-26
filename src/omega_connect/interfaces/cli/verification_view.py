@@ -171,6 +171,8 @@ CHECK_MESSAGES = {
     CheckCode.ZONE_NOT_LINKED: N_("{subject} ({detail}) installé mais pas encore dans l'espace partagé."),
     CheckCode.ZONE_TOOL_GONE: N_("{subject} ({detail}) relié à l'espace partagé mais introuvable : "
                                  "désinstallé, ou carte d'identité recréée."),
+    CheckCode.ZONE_TOOL_REPLACED: N_("{subject} : ancienne carte d'identité ({detail}) remplacée par une nouvelle ; "
+                                     "l'espace partagé la retirera."),
     CheckCode.ZONE_SERVICE_GROUP_OK: N_("le service {subject} ({detail}) a le groupe omega-synchro (complément "
                                         "systemd posé par omega-serv)."),
     CheckCode.ZONE_SERVICE_GROUP_MISSING: N_("le service {subject} ({detail}) tourne sous un compte dédié sans le "
